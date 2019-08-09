@@ -1,0 +1,46 @@
+body {
+  overflow: hidden;
+}
+.main {
+  width: 640px;
+  position: absolute;
+  right: -20px;
+  text-align: center;
+}
+.main .g1 {
+  display: block;
+}
+.main .g2 {
+  display: block;
+  margin-top: -20px;
+}
+.question {
+  position: absolute;
+  left: 50px;
+  top: 200px;
+  z-index: 10;
+  border: double 6px #999;
+  border-radius: 15px;
+  background-color: #FFDEE6;
+  padding: 20px;
+  height: 100px;
+}
+.question h2 {
+  color: #666;
+  margin-top: 10px;
+}
+.question .operate .btn {
+  width: 80px;
+  height: 35px;
+  background-color: #9AE5FF;
+  border: solid 1px #999;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+.question .operate .btn:active {
+  background-color: #66D7FF;
+}
+.question .operate #disagree {
+  position: absolute;
+}

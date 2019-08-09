@@ -1,0 +1,26 @@
+{
+  "name": "jquery-bootstrap-in-action",
+  "homepage": "https://github.com/hhy5277/imooc/frontdev/bower",
+  "authors": [
+    "hhy5277 <hhy5277@126.com>"
+  ],
+  "description": "test bower by using jquery & bootstrap",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.2.1",
+    "jquery": "^3.3.1",
+    "angular": "^1.7.5"
+  },
+  "devDependencies": {
+    "angular": "^1.7.5"
+  }
+}
