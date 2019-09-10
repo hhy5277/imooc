@@ -1,0 +1,1 @@
+first-app-by-maven（命令方式生成）
