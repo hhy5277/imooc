@@ -1,0 +1,4 @@
+// document.write('<script type="text/javascript" src="http://my.chinaz.com/_topbar.aspx?proxy=/httpproxy.aspx" charset="utf-8"></script>');
+document.write('<script type="text/javascript" src="http://my.chinaz.com/api/account/topbar?proxy=/httpproxy.aspx" charset="utf-8"></script>');
+document.write('<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan style=\'display:none;\' id=\'cnzz_stat_icon_433095\'%3E%3C/span%3E%3Cscript src=\'" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D433095\' type=\'text/javascript\'%3E%3C/script%3E"));</script>');
+//document.write('<div style="display:none;"><script src="http://s9.cnzz.com/stat.php?id=433095&web_id=433095" language="JavaScript"></script></div>');

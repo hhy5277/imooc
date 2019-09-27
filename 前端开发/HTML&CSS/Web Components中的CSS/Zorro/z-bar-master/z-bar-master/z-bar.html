@@ -1,0 +1,58 @@
+<!--
+
+@element z-bar
+
+# `<z-bar>`
+
+Bar element which often positioned on the top of a page
+
+`<z-bar-minor>` element could be the sub area on the right to contains menus, links etc.
+
+## Import
+
+```
+<link rel="import" href="z-bar/z-bar.html">
+```
+
+-->
+
+<!--
+
+@example default
+
+<z-bar>
+  <h1>Hello World</h1>
+  <z-bar-minor>
+    <z-btn>login</z-btn>
+    <z-btn>help</z-btn>
+    <z-btn>feedback</z-btn>
+  </z-bar-minor>
+</z-bar>
+
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../z-dock/z-dock.html">
+
+<polymer-element name="z-bar-minor" attributes="" noscript>
+  <template><style>:host{display: block;}</style><content></content></template>
+</polymer-element>
+
+<polymer-element name="z-bar" attributes="" noscript>
+
+  <template>
+    <style>
+      :host {display: block;}
+      :host > z-dock {background-color: #f5f5f5; border-bottom: 1px solid #f60; padding: 10px 15px;}
+      :host > z-dock::shadow > div[flex] {-webkit-flex: 1; flex: auto; -webkit-align-items: center; align-items: center;}
+    </style>
+    <z-dock>
+      <z-dock-right>
+        <content select="z-bar-minor"></content>
+      </z-dock-right>
+      <z-dock-main style="-webkit-flex: auto; flex: auto;">
+        <content></content>
+      </z-dock-main>
+    </z-dock>
+  </template>
+</polymer-element>

@@ -1,0 +1,28 @@
+1-10 提示框样式制作
+设计要点：
+①提示文字放在按钮a标签的data属性中；
+②提示框统一放在在一个盒子中，相对整个box定位
+③鼠标划过，提示框渐隐渐显的效果
+
+提示框外观实现：
+①圆角边框--border-radius
+②三角--span-
+【border-radius】设置圆角
+定义和用法：
+border-radius 属性是一个简写属性，用于设置四个border-*-radius属性
+**浏览器兼容**IE9+ 、 Firefox4+ 、Chrome 、 Safari5+ 以及Opera支持border-radius 属性
+
+三角形实现
+/*三角形的大小取决于border大小*/
+border:7px solid transparent;/*透明*/
+设置三角形朝向：
+>向下 >border-top-color:#2DCB70;
+>向上 >border-bottom-color:#2DCB70;
+>向左 >border-right-color:#2DCB70;
+>向右 >border-left-color:#2DCB70;
+/*设置三角形位置*/
+position:absolute;
+top:35px;/*和高度有关*/
+--三角居边框中间位置--
+left:50%;
+margin-left:-3px;/*border的一半*/

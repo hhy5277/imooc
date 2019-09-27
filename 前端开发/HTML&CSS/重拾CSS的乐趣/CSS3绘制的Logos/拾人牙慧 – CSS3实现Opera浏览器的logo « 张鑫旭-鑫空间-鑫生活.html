@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<!-- saved from url=(0149)http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/ -->
+<html lang="zh-CN"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="张鑫旭的个人博客_web前端技术文章_拾人牙慧 – CSS3实现Opera浏览器的logo">
+<meta name="keywords" content="web前端,HTML5,CSS3,jQuery,SVG,canvas">
+<meta name="author" content="张鑫旭,zhangxinxu">
+<title>拾人牙慧 – CSS3实现Opera浏览器的logo «  张鑫旭-鑫空间-鑫生活</title>
+<link rel="stylesheet" href="http://www.zhangxinxu.com/wordpress/wp-content/themes/default/style.css?v16413">
+<link rel="pingback" href="http://www.zhangxinxu.com/wordpress/xmlrpc.php">
+ 
+<link rel="alternate" type="application/rss+xml" title="张鑫旭-鑫空间-鑫生活 » Feed" href="http://www.zhangxinxu.com/wordpress/feed/">
+<link rel="alternate" type="application/rss+xml" title="张鑫旭-鑫空间-鑫生活 » 评论Feed" href="http://www.zhangxinxu.com/wordpress/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="张鑫旭-鑫空间-鑫生活 » 拾人牙慧 – CSS3实现Opera浏览器的logo评论Feed" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/feed/">
+<link rel="stylesheet" id="wp-pagenavi-css" href="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/pagenavi-css.css" type="text/css" media="all">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.zhangxinxu.com/wordpress/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.zhangxinxu.com/wordpress/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="网页制作辅助工具-jQuery标尺参考线插件" href="http://www.zhangxinxu.com/wordpress/2010/08/%e7%bd%91%e9%a1%b5%e5%88%b6%e4%bd%9c%e8%be%85%e5%8a%a9%e5%b7%a5%e5%85%b7-jquery%e6%a0%87%e5%b0%ba%e5%8f%82%e8%80%83%e7%ba%bf%e6%8f%92%e4%bb%b6/">
+<link rel="next" title="CSS3+js实现多彩炫酷旋转圆环时钟效果" href="http://www.zhangxinxu.com/wordpress/2010/08/css3js%e5%ae%9e%e7%8e%b0%e5%a4%9a%e5%bd%a9%e7%82%ab%e9%85%b7%e6%97%8b%e8%bd%ac%e5%9c%86%e7%8e%af%e6%97%b6%e9%92%9f%e6%95%88%e6%9e%9c/">
+<meta name="generator" content="WordPress 4.1.10">
+<link rel="canonical" href="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活.html">
+<link rel="shortlink" href="http://www.zhangxinxu.com/wordpress/?p=1012">
+<link href="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/bdsstyle.css" rel="stylesheet" type="text/css"></head>
+<body class="single single-post postid-1012 single-format-standard"><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="bds_more">更多...</a></li></ul><p><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" class="goWebsite">百度分享</a></p></div></div></div>
+<div id="page">
+<div id="header" role="banner">
+	<div id="headerimg">
+		<a href="http://www.zhangxinxu.com/" class="page_logo">张鑫旭-鑫空间-鑫生活</a>
+		<div class="description">it's my whole life!</div>
+	</div>
+    <div id="menubar">
+    	<ul class="menu_tab">
+        	<li>
+            	<a class="boss" href="http://www.zhangxinxu.com/">网站首页</a>
+                <a class="disabled" title="频道已关闭">提问交流</a>
+                <a class="disabled" title="频道已关闭">前端调查</a>
+            </li>
+        	<li class="on">
+            	<a class="boss" href="http://www.zhangxinxu.com/wordpress/">前端技术</a>
+                <a href="http://www.zhangxinxu.com/wordpress/?cat=3">css</a>
+                <a href="http://www.zhangxinxu.com/wordpress/?cat=5">js/jQuery</a>
+                <a href="http://www.zhangxinxu.com/wordpress/?cat=198">翻译</a>
+            </li>
+            <li>
+            	<a class="boss" href="http://www.zhangxinxu.com/life/">生活与创作</a>
+                <a href="http://www.zhangxinxu.com/life/?cat=3">生活</a>
+                <a href="http://www.zhangxinxu.com/life/?cat=5">散文</a>
+                <a href="http://www.zhangxinxu.com/life/?cat=4">小说</a>
+            </li>
+            <li>
+            	<span class="boss">前端在线资源</span>
+                <a href="http://www.zhangxinxu.com/css3/">CSS3参考</a>
+                <a href="http://www.zhangxinxu.com/jq/api14/">jQuery1.4参考</a>
+            </li>         
+        </ul>
+    	<form method="get" id="searchform" action="http://www.zhangxinxu.com/wordpress/">
+<label class="hidden" for="s">Search for:</label>
+<div><input type="search" placeholder="翻页太辛苦，试试直接搜索" value="" name="s" id="s">
+<input type="submit" id="searchsubmit" data-value="Search" value="搜索">
+</div>
+</form>
+    </div>
+<div class="hd_remind">有个web私活，有兴趣<a href="http://www.zhangxinxu.com/study/201604/about.html">点击这里</a>。</div></div>
+<script src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/ca-pub-0090627341039040.js"></script><script type="text/javascript" async="" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/ga.js"></script><script>
+var isSlideHide = false;
+if (window.localStorage) {
+	isSlideHide = localStorage.getItem("isSlideHide");
+	if (!isSlideHide && document.body.clientWidth <= 1024) {
+		isSlideHide = "true";
+	}
+	if (isSlideHide == "true") {
+		document.getElementById("page").className = "slide_hide";
+	}
+}
+if (window.location != window.parent.location) window.parent.location = window.location;
+</script>
+<div class="the_main">
+	<div id="content" class="widecolumn" role="main">
+    <div class="shink_rel"><a href="javascript:" id="shinkSlide" class="shink_a" title="收起右边栏" style="display: inline;">►</a></div>
+<script>if (window.localStorage && window.isSlideHide) {
+	(function() {
+		var eleShink = document.getElementById("shinkSlide");	
+		eleShink.title = "展开右边栏";
+		eleShink.innerHTML = "◄";
+	})();
+}</script>
+	
+		<div class="navigation">
+			<div class="alignleft">« <a href="http://www.zhangxinxu.com/wordpress/2010/08/%e7%bd%91%e9%a1%b5%e5%88%b6%e4%bd%9c%e8%be%85%e5%8a%a9%e5%b7%a5%e5%85%b7-jquery%e6%a0%87%e5%b0%ba%e5%8f%82%e8%80%83%e7%ba%bf%e6%8f%92%e4%bb%b6/" rel="prev">网页制作辅助工具-jQuery标尺参考线插件</a></div>
+			<div class="alignright"><a href="http://www.zhangxinxu.com/wordpress/2010/08/css3js%e5%ae%9e%e7%8e%b0%e5%a4%9a%e5%bd%a9%e7%82%ab%e9%85%b7%e6%97%8b%e8%bd%ac%e5%9c%86%e7%8e%af%e6%97%b6%e9%92%9f%e6%95%88%e6%9e%9c/" rel="next">CSS3+js实现多彩炫酷旋转圆环时钟效果</a> »</div>
+		</div>
+
+		<div class="post-1012 post type-post status-publish format-standard hentry category-css tag-3d tag-border-radius tag-box-shadow tag-css3 tag-gradient tag-opera tag-photoshop tag-54 tag-421 tag-70" id="post-1012">
+			<h2>拾人牙慧 – CSS3实现Opera浏览器的logo</h2>
+			<div class="entry">
+            	<div class="postmetadata alt">
+					<small>
+												这篇文章发布于 2010年08月7日，星期六，22:22，归类于 <a href="http://www.zhangxinxu.com/wordpress/category/css/" rel="category tag">css相关</a>。                        阅读 25174 次, 今日 14 次					</small>
+				</div>
+				<div id="detail"><p class="link">by <a href="http://www.zhangxinxu.com/">zhangxinxu</a> from <a href="http://www.zhangxinxu.com/">http://www.zhangxinxu.com</a><br>
+本文地址：<a href="http://www.zhangxinxu.com/wordpress/?p=1012">http://www.zhangxinxu.com/wordpress/?p=1012</a></p>
+<div id="link">
+原作者：<a target="_blank" href="http://desandro.com/">David  DeSandro</a><br>
+原文地址：<a target="_blank" href="http://desandro.com/articles/opera-logo-css/">http://desandro.com/articles/opera-logo-css/</a><br>
+翻译/编辑：<a href="http://www.zhangxinxu.com/">张鑫旭</a>
+</div>
+<h3>一、终效果图enjoy~~</h3>
+<p>以下效果截图截自Firefox3.6浏览器：<br>
+<img alt="CSS3 Opera logo Firefox3.6下效果图 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_154808.png" title="CSS3 Opera logo Firefox3.6下效果图 张鑫旭-鑫空间-鑫生活" class="alignnone" width="466" height="531" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/2010-08-07_154808.png"></p>
+<p>上图为CSS3实现的效果图，如果您有兴趣可以与正宗的Opera浏览器的logo图做比对，查看logo原图请狠狠地点击这里：<a target="_blank" href="http://media.opera.com/media/images/icon/Opera_512x512.png">Opera浏览器logo原图</a></p>
+<p>您可能是个细心的人，可以看出其中不少差异，但是我确实是没有看出多少不同来，我只能叹服CSS的惊人潜力。</p>
+<p><strong>demo与下载</strong><br>
+您可以狠狠地点击这里：<a class="a_link" target="_blank" href="http://www.zhangxinxu.com/study/201008/css3-opera-logo-demo.html">CSS3实现Opera浏览器logo demo</a></p>
+<p>源文件下载请狠狠地点击这里：<a class="a_link" target="_blank" href="http://www.zhangxinxu.com/study/down/css3-opera-logo.zip">css3-opera-logo.zip</a>(右键-[目标|链接]另存为)</p>
+<h3>二、效果的实现</h3>
+<p>一般这类CSS3实现的效果无非那几个CSS属性，要么圆角(border-radius)，要么渐变(gradient)，要么就是盒阴影(box-shadow)。本文的实现也不例外，由于这几个属性我之前有过专门的介绍，所以这里不具体叙述，仅提供一些链接。</p>
+<p>CSS3属性就像是photoshop中的图层样式，仅仅掌握一些图层样式效果不一定能够实现精湛的UI效果，例如，我们还需要知道图层原理。本文的实例可以说就是图层与图层样式结合的产物，也就是使用photoshop绘图的过程（说Illustrator的使用更贴切，因为绘出的图形都是矢量的）。而这里，图层样式就是CSS3属性，图层就是absolute绝对定位。</p>
+<p>换句话说，本文的Opera logo效果，是CSS3+绝对定位实现的。</p>
+<p>本实例logo由8个div层绝对定位合成的。现在我们一个一个展示出来（以下截图均截自Firefox3.6浏览器）：</p>
+<p>①<strong>淡阴影</strong><br>
+<img alt="Opera logo淡阴影 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_171517.png" title="Opera logo淡阴影 张鑫旭-鑫空间-鑫生活" class="alignnone" width="492" height="163" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/2010-08-07_171517.png"></p>
+<p>圆角+无距离的盒阴影实现。参见如下代码：</p>
+<div class="zxx_code">
+<pre>-moz-border-radius: 152px/25px;
+-webkit-border-radius: 152px 25px;
+border-radius: 152px/25px;
+-moz-box-shadow: 0 100px 30px hsla(0,0%,0%,.2);
+-webkit-box-shadow: 0 100px 30px hsla(0,0%,0%,.2);
+box-shadow: 0 100px 30px hsla(0,0%,0%,.2);
+</pre>
+</div>
+<p>上述代码有两点值得一提：<br>
+一是圆角的缩写。此值的表示方式与background-position类似，只是Mozilla使用斜线，而webkit使用空格。border-radius可以说是用得最广的CSS3属性，没有之一。关于border-radius的基本用法，以及一些相关文章可以狠狠地点击这里：<a class="a_link" target="_blank" href="http://www.zhangxinxu.com/css3/css3-border-radius.php">border-radius使用参考</a><br>
+二是颜色的HSLA表示，HSLA也是CSS3中的属性，使用色调，饱和度，亮度以及透明度来表示颜色。查看HSLA基本属性，您可以狠狠地点击这里：<a class="a_link" target="_blank" href="http://www.zhangxinxu.com/css3/css3-hsla-colors.php">HSLA使用参考</a>。按照作者的说法，使用这种色调形式表示颜色，而不是RGBA是，是由于HSLA更方便对颜色进行微调。</p>
+<p>关于box-shadow盒阴影的相关内容，您可以狠狠地点击这里：<a class="a_link" target="_blank" href="http://www.zhangxinxu.com/css3/css3-box-shadow.php">box-shadow使用参考指南</a>，里面有不少相关文章的集合，如下截图所示：<br>
+<img alt="CSS3 盒阴影参考内容截图 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_211831.png" title="CSS3 盒阴影参考内容截图 张鑫旭-鑫空间-鑫生活" class="alignnone" width="449" height="235" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/2010-08-07_211831.png"></p>
+<p>②<strong>深色阴影</strong><br>
+在上面的颜色的较淡的阴影上再覆盖一个更深一点的阴影，结果如下：<br>
+<img alt="添加深色阴影 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_173741.png" title="添加深色阴影 张鑫旭-鑫空间-鑫生活" class="alignnone" width="474" height="153" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/2010-08-07_173741.png"></p>
+<p>此处的相应的CSS3代码是：</p>
+<div class="zxx_code">
+<pre>-moz-border-radius: 110px/35px;
+-webkit-border-radius: 110px 35px;
+border-radius: 110px/35px;
+-moz-box-shadow: 0 100px 15px hsla(0,0%,0%,.6);
+-webkit-box-shadow: 0 100px 15px hsla(0,0%,0%,.6);
+box-shadow: 0 100px 15px hsla(0,0%,0%,.6);
+</pre>
+</div>
+<p>③<strong>外框边缘</strong><br>
+<img alt="边缘边框效果截图 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_212104.png" title="边缘边框效果截图 张鑫旭-鑫空间-鑫生活" class="alignnone" width="481" height="509" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/2010-08-07_212104.png"></p>
+<p>相应的CSS3代码如下：</p>
+<div class="zxx_code">
+<pre>background: #800;
+background: -moz-linear-gradient(-90deg, #F88, #800);
+background: -webkit-gradient(linear, 0 top, 0 bottom, from(#F88), to(#800));
+border-radius: 220px;
+-moz-border-radius: 220px/235px;
+-webkit-border-radius: 220px 235px;
+border-radius: 220px/235px;
+</pre>
+</div>
+<p>主要内容就是圆角与渐变，圆角上面已经提及，关于渐变，您可以参见下面三篇文章：“<a href="http://www.zhangxinxu.com/wordpress/?p=727" title="CSS渐变之CSS3 gradient在Firefox3.6下的使用">CSS渐变之CSS3 gradient在Firefox3.6下的使用 </a>”、“<a href="http://www.zhangxinxu.com/wordpress/?p=734" title="CSS gradient渐变之webkit核心浏览器下的使用">CSS gradient渐变之webkit核心浏览器下的使用 </a>”、“<a href="http://www.zhangxinxu.com/wordpress/?p=743">CSS实现兼容性的渐变背景(gradient)效果</a>”其中对不同的浏览器如何应用渐变效果做了相当详细的介绍，您有兴趣可以去看看。</p>
+<p>④<strong>高亮</strong><br>
+高亮图层就是比边缘图层尺寸略小的渐变跨度更大更淡的渐变层。高亮层的覆盖使得背景的深色渐变只透出一点较深的边缘。如下图所示：<br>
+<img alt="Opera logo效果之高亮层效果 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_213003.png" title="Opera logo效果之高亮层效果 张鑫旭-鑫空间-鑫生活" class="alignnone" width="481" height="523"></p>
+<p>相关的CSS3代码如下：</p>
+<div class="zxx_code">
+<pre>background: #d40009;
+background: -moz-linear-gradient(-90deg, #FCC, #E71616 50%, #d40009);
+background: -webkit-gradient(linear, 0 top, 0 bottom, from(#FCC), color-stop(50%, #E71616), to(#d40009));
+-moz-border-radius: 218px/233px;
+-webkit-border-radius: 218px 233px;
+border-radius: 218px/233px;
+</pre>
+</div>
+<p>⑤<strong>填充</strong><br>
+填充图层与上面高亮层属性作用类似，用来勾勒高光边框，之所以称为填充图层，因为我们看到最后的Opera logo的效果的主要颜色就是此图层的颜色，故称之为填充层。该图层覆盖在高亮层上的效果如下图：<br>
+<img alt="Opera logo填充层覆盖后效果 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_213457.png" title="Opera logo填充层覆盖后效果 张鑫旭-鑫空间-鑫生活" class="alignnone" width="486" height="523"></p>
+<p>也是CSS3渐变和CSS3的杰作~~，代码如下所示：</p>
+<div class="zxx_code">
+<pre>background: #E71616;
+background: -moz-linear-gradient(-90deg, #FE878A, #E71616 50%, #800000 80%, #800000 85%, #b80304);
+background: -webkit-gradient(linear, 0 top, 0 bottom, from(#FE878A), to(#b80304), color-stop(50%, #E71616), color-stop(80%, #800000), color-stop(85%, #800000) );
+-moz-border-radius: 218px/228px;
+-webkit-border-radius: 218px 228px;
+border-radius: 218px/228px;
+</pre>
+</div>
+<p>此处的渐变颜色断点较多，所以渐变代码稍事复杂了点。如果您对渐变的代码含义不是很了解，您可以参见我前面说过的三篇关于渐变的文章。</p>
+<p>⑥<strong>内边缘</strong><br>
+内边缘层继续覆盖后的效果如下：<br>
+<img alt="内边缘层覆盖后的效果 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_213953.png" title="内边缘层覆盖后的效果 张鑫旭-鑫空间-鑫生活" class="alignnone" width="488" height="524"></p>
+<p>不变的圆角，不变的渐变，其相关参数如下所示：</p>
+<div class="zxx_code">
+<pre>background: #d20000;
+background: -moz-linear-gradient(-90deg, #cc3836, #d9100f 50%, #d20000);
+background: -webkit-gradient(linear, 0 top, 0 bottom, from(#cc3836), color-stop(50%, #d9100f), to(#d20000));
+-moz-border-radius: 99px/170px;
+-webkit-border-radius: 99px 170px;
+border-radius: 99px/170px;
+</pre>
+</div>
+<p>⑦<strong>内填充</strong><br>
+进一步填充，效果见下图：<br>
+<img alt="进一步内填充后的Opera logo效果 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_214318.png" title="进一步内填充后的Opera logo效果 张鑫旭-鑫空间-鑫生活" class="alignnone" width="500" height="525"></p>
+<p>圆角以及渐变相关CSS3代码如下：</p>
+<div class="zxx_code">
+<pre>background: #b80000;
+background: -moz-linear-gradient(-90deg, #9a0000, #b80000);
+background: -webkit-gradient(linear, 0 top, 0 bottom, from(#9a0000), to(#b80000));
+-moz-border-radius: 96px/170px;
+-webkit-border-radius: 96px 170px;
+border-radius: 96px/170px;
+</pre>
+</div>
+<p>⑧<strong>画龙点睛的反色</strong><br>
+最后一个图层是画龙点睛之比，是个白色的反色的图层，无渐变，单纯的圆角加上纯白的背景，废话少说，见效果：<br>
+<img alt="反白图层的效果 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/2010-08-07_214754.png" title="反白图层的效果 张鑫旭-鑫空间-鑫生活" class="alignnone" width="491" height="525"></p>
+<p>哇哦，我不禁起立鼓掌！so nice, so perfect, so unimaginable!就几个圆角，就几个渐变图层，最后却有了如此精湛的Opera浏览器3D的logo效果。感谢CSS3，感谢作者，感谢所有的web开发人员。<span class="s">//zxx:糟了，我记得应该先感谢国家的……</span></p>
+<p>好吧，固定的流程还是要走的，最后一段CSS3代码：</p>
+<div class="zxx_code">
+<pre>background: #FFF;
+-moz-border-radius: 82px/170px;
+-webkit-border-radius: 82px 170px;
+border-radius: 82px/170px;
+</pre>
+</div>
+<p><strong>小Tip：</strong>上述所有CSS3代码仅展示了CSS3相关部分，一些宽度高度以及绝对定位的left和top CSS属性未展示。不过您可以从打包的<a class="a_link" target="_blank" href="http://www.zhangxinxu.com/study/down/css3-opera-logo.zip">demo页面</a>中找到完成的CSS代码。</p>
+<h3>三、其他的浏览器兄弟</h3>
+<p>二部分所有的效果截图均来自Firefox3.6浏览器，如果您不想麻烦，把demo页面在一个一个浏览器下看效果，您也可以直接看下图，展示了目前各个浏览器下的对此CSS3实现的Opera浏览器的logo的支持程度：<br>
+<img alt="各个浏览器对CSS3实现的Opera logo的支持程度 张鑫旭-鑫空间-鑫生活" data-src="http://image.zhangxinxu.com/image/blog/201008/opera-logo-css3-effects.png" title="各个浏览器对CSS3实现的Opera logo的支持程度 张鑫旭-鑫空间-鑫生活" class="alignnone" width="500" height="113"></p>
+<p>对于早已让我让我无言以对的IE6/IE7/IE8浏览器，我就不说什么了。貌似IE9会支持圆角属性，虽然微软把IE9说得天花乱坠，但是我是不抱什么大的期待的~~</p>
+<h3>四、关于一些前端的技术趋势</h3>
+<p>从最近国外各大前端技术网站的内容来看，HTML5，CSS3，与SVG必定是趋势与主流，已经呈现势不可挡，繁荣昌盛之势。就国内死水般的现状而言，感觉又要落后人家好几年了。此现状不仅在前端，在交互、在设计都是如此。虽然，交互与设计我不够专业，但是从腾讯团队博客所嚼的些有关交互与设计方面的理论都是国外数年前的研究成果来看，滞后于国外是当前中国互联网行业的普遍现状（从互联网产品的内容与盲目借鉴也可见一斑）。</p>
+<p>前端领域可以大有作为。多关注HTML5，CSS3，与SVG吧，对于未来的你必定会有受益的。但是，前提是，对于当前的XHTML与CSS2你需要足够的理解。这是一条艰苦的路程，任重而道远啊！</p>
+<p>我今天看到首页上有人提问说为什么今日为更新文章，因为最近我在研究与学习另外一个js库，MooTools库，这是大众点评网使用的js库。最近迷上了这个，且学到了很多东西。精力有限，所以差不多一周的时间都没有写新文章了。</p>
+<p>就说这些，我要学的还有太多太多，大家一起成长吧~~</p>
+<p>原创文章，转载请注明来自<a href="http://www.zhangxinxu.com/">张鑫旭-鑫空间-鑫生活</a>[<a href="http://www.zhangxinxu.com/">http://www.zhangxinxu.com</a>]<br>
+本文地址：<a href="http://www.zhangxinxu.com/wordpress/?p=1012">http://www.zhangxinxu.com/wordpress/?p=1012</a></p>
+<p>（本篇完）</p>
+<div class="alipay_support"><strong>如果您觉得本文的内容对您的学习有所帮助，您可以支付宝(左)或微信(右)：</strong><div class="alipay_img"><img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/alipay.png"> <img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/wxpay.png"></div></div><div class="similarity"><div class="similar_title">相关文章</div><ul><li><a href="http://www.zhangxinxu.com/wordpress/2010/07/pie%e4%bd%bfie%e6%94%af%e6%8c%81css3%e5%9c%86%e8%a7%92%e7%9b%92%e9%98%b4%e5%bd%b1%e4%b8%8e%e6%b8%90%e5%8f%98%e6%b8%b2%e6%9f%93/">PIE使IE支持CSS3圆角盒阴影与渐变渲染</a> (0.577)</li><li><a href="http://www.zhangxinxu.com/wordpress/2010/04/css-%e6%b8%90%e8%bf%9b%e5%a2%9e%e5%bc%ba%e5%9c%a8web%e5%88%b6%e4%bd%9c%e4%b8%ad%e5%b8%b8%e8%a7%81%e5%ba%94%e7%94%a8%e4%b8%be%e4%be%8b/">CSS "渐进增强"在web制作中常见应用举例</a> (0.368)</li><li><a href="http://www.zhangxinxu.com/wordpress/2013/05/css3-box-shadow-animation-loading-ie10-css-hack/">CSS3 box-shadow兼容loading效果兼IE10+ CSS Hack介绍</a> (0.282)</li><li><a href="http://www.zhangxinxu.com/wordpress/2011/02/%e5%87%a0%e7%a7%8d%e7%ba%afcsscss3%e4%b8%8b%e7%9a%84%e7%ba%b8%e5%bc%a0%e6%95%88%e6%9e%9c%e5%b1%95%e7%a4%ba/">几种纯CSS(CSS3)下的纸张效果实现展示</a> (0.279)</li><li><a href="http://www.zhangxinxu.com/wordpress/2013/01/in-search-of-the-perfect-radius/">翻译：关于完美圆角实现的研究</a> (0.243)</li><li><a href="http://www.zhangxinxu.com/wordpress/2010/05/css3%e6%a8%a1%e6%8b%9fwindow7%e7%82%ab%e9%85%b7%e7%95%8c%e9%9d%a2%e6%95%88%e6%9e%9c%e5%b1%95%e7%a4%ba/">CSS3模拟window7炫酷界面效果展示</a> (0.229)</li><li><a href="http://www.zhangxinxu.com/wordpress/2011/04/%e5%b0%8ftipcss3%e4%b8%8b%e6%9d%a1%e7%ba%b9%e6%96%b9%e6%a0%bc%e6%96%9c%e7%ba%b9%e8%83%8c%e6%99%af%e7%9a%84%e5%ae%9e%e7%8e%b0/">小tip:CSS3下条纹&amp;方格斜纹背景的实现</a> (0.226)</li><li><a href="http://www.zhangxinxu.com/wordpress/2011/05/css%e9%a1%b5%e9%9d%a2%e9%87%8d%e6%9e%84%e9%91%ab%e4%b8%89%e6%97%a0%e5%87%86%e5%88%99%e4%b9%8b%e6%97%a0%e5%9b%be%e7%89%87%e5%87%86%e5%88%99/">CSS页面重构“鑫三无准则”之“无图片”准则</a> (0.222)</li><li><a href="http://www.zhangxinxu.com/wordpress/2011/09/%e4%bd%bf%e7%94%a8svg%e5%ae%9e%e7%8e%b0gradient%e8%83%8c%e6%99%af%e6%b8%90%e5%8f%98/">使用SVG实现gradient背景渐变</a> (0.222)</li><li><a href="http://www.zhangxinxu.com/wordpress/2010/05/csssandpaper-%e5%85%bc%e5%ae%b9ie%e7%9a%84css3-javascript%e5%ba%93/">cssSandpaper-兼容IE的CSS3 JavaScript库</a> (0.212)</li><li><a href="http://www.zhangxinxu.com/wordpress/2013/05/weibo-image-large-preview-another-achieve/">小tip: 微博新版查看大图前后浏览的另外一种实现</a> (RANDOM - 0.066)</li></ul></div><!-- Tag --></div>
+<script>
+// 替换一些内容
+(function() {
+	var detail = document.getElementById('detail'), htmlDetail = detail.innerHTML;
+	htmlDetail = htmlDetail.replace('<p>by', '<p class="link">by').replace('<p>本文为原创', '<p class="link">本文为原创');
+	detail.innerHTML = htmlDetail;
+})();
+</script>
+				<div class="wp_share_box">
+                	<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<span class="bds_more">分享到：</span>
+<a class="bds_tsina" title="分享到新浪微博" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="bds_qzone" title="分享到QQ空间" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="bds_tqq" title="分享到腾讯微博" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="bds_renren" title="分享到人人网" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="bds_t163" title="分享到网易微博" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="bds_douban" title="分享到豆瓣网" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="bds_tsohu" title="分享到搜狐微博" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#"></a>
+<a class="shareCount" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" title="累计分享1次">1</a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1954626" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/bds_s_v2.js"></script>
+
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END --> 
+                </div>
+								<p>标签： <a href="http://www.zhangxinxu.com/wordpress/tag/3d/" rel="tag">3d</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/border-radius/" rel="tag">border-radius</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/box-shadow/" rel="tag">box-shadow</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/css3/" rel="tag">css3</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/gradient/" rel="tag">gradient</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/opera/" rel="tag">opera</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/photoshop/" rel="tag">photoshop</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/%e5%9c%86%e8%a7%92/" rel="tag">圆角</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/%e6%b8%90%e5%8f%98%e8%83%8c%e6%99%af/" rel="tag">渐变背景</a>, <a href="http://www.zhangxinxu.com/wordpress/tag/%e7%bb%9d%e5%af%b9%e5%ae%9a%e4%bd%8d/" rel="tag">绝对定位</a></p>
+				
+			</div>
+		</div>
+		
+        <div class="ad_bottom"><script async="" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/adsbygoogle.js"></script>
+<!-- 728x90, 大型横幅广告 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0090627341039040" data-ad-slot="4686885989" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+        
+	﻿
+<div id="respond">
+<h3 class="respond_title">发表评论（目前7 条评论）</h3>
+<div id="cancel-comment-reply"> 
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#respond" style="display:none;">点击这里取消回复。</a></small>
+</div> 
+
+
+<form action="http://www.zhangxinxu.com/wordpress/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required="true" required="">
+<label for="author"><small>名称 (必须)</small></label></p>
+
+<p><input type="email" name="email" id="email" value="" size="22" tabindex="2" aria-required="true" required="">
+<label for="email"><small>邮件地址(不会被公开) (必须)</small></label></p>
+
+<p><input type="url" name="url" id="url" value="" size="22" tabindex="3">
+<label for="url"><small>网站</small></label></p>
+
+
+<!--<p><small><strong>XHTML：</strong>您可以使用这些标签：<code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="提交评论">
+<input type="hidden" name="comment_post_ID" value="1012" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+ 
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="5745ca61f5"></p><p style="display: none;"></p>
+<input type="hidden" id="ak_js" name="ak_js" value="1461074635084"></form>
+
+</div>
+
+
+<!-- You can start editing here. -->
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="comment-307248">
+				<div id="div-comment-307248" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/a96cca62e75694ebf45dc85c42f4b211" class="avatar avatar-32" height="32" width="32">			<cite class="fn">Jameslong</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-307248">
+			2015年12月6日 21:00</a>		</div>
+
+		<p>时隔五年我才看到。。。</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=307248#respond" onclick="return addComment.moveForm( &quot;div-comment-307248&quot;, &quot;307248&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给Jameslong">回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2725">
+				<div id="div-comment-2725" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/eddd5468856f57c08921b790acf47af7" class="avatar avatar-32" height="32" width="32">			<cite class="fn"><a href="http://www.cnblogs.com/sink_cup/" rel="external nofollow" class="url">sink</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-2725">
+			2010年12月31日 19:48</a>		</div>
+
+		<p>可惜opera浏览器看这个logo没有渐变效果，CSS3还有订出标准渐变语法？圆角倒是标准了，都支持border-radius</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=2725#respond" onclick="return addComment.moveForm( &quot;div-comment-2725&quot;, &quot;2725&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给sink">回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1290">
+				<div id="div-comment-1290" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/e228d4f1f66a96b4236e0d3604d8f587" class="avatar avatar-32" height="32" width="32">			<cite class="fn"><a href="http://www.varhi.com/" rel="external nofollow" class="url">一路</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-1290">
+			2010年10月28日 16:25</a>		</div>
+
+		<p>博主，想加一下你的QQ，方便的话能发到我的邮箱吗？多谢！</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=1290#respond" onclick="return addComment.moveForm( &quot;div-comment-1290&quot;, &quot;1290&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给一路">回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-931">
+				<div id="div-comment-931" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/f3967b0b00df9c439c9be7e0e8dd6912" class="avatar avatar-32" height="32" width="32">			<cite class="fn"><a href="http://www.of-road.com/" rel="external nofollow" class="url">之路</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-931">
+			2010年08月8日 14:36</a>		</div>
+
+		<p>博主现在是否在 taobao UED工作？？  近日在taobao UED博客上看到一篇关于css border的文章与博主的一篇文章有点相似。呵呵！！</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=931#respond" onclick="return addComment.moveForm( &quot;div-comment-931&quot;, &quot;931&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给之路">回复</a></div>
+				</div>
+		<ul class="children">
+		<li class="comment byuser comment-author-admin bypostauthor even depth-2" id="comment-932">
+				<div id="div-comment-932" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/3e58242902fa8f33162f3f10df892c68" class="avatar avatar-32" height="32" width="32">			<cite class="fn"><a href="http://www.zhangxinxu.com/" rel="external nofollow" class="url">张 鑫旭</a></cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-932">
+			2010年08月8日 19:07</a>		</div>
+
+		<p>不在。</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=932#respond" onclick="return addComment.moveForm( &quot;div-comment-932&quot;, &quot;932&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给张 鑫旭">回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment odd alt thread-even depth-1" id="comment-930">
+				<div id="div-comment-930" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/fa7f6e086d0164f7a5c41a79df6bd3ee" class="avatar avatar-32" height="32" width="32">			<cite class="fn">crossyou</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-930">
+			2010年08月8日 14:33</a>		</div>
+
+		<p>ie6看的 很囧啊 里面就差俩撇 和一个口了。</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=930#respond" onclick="return addComment.moveForm( &quot;div-comment-930&quot;, &quot;930&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给crossyou">回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-929">
+				<div id="div-comment-929" class="comment-body">
+				<div class="comment-author vcard">
+			<img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/ae69eef99e0fc8d565749f5f92387053" class="avatar avatar-32" height="32" width="32">			<cite class="fn">番茄泡饭</cite><span class="says">说道：</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/comment-page-1/#comment-929">
+			2010年08月7日 23:06</a>		</div>
+
+		<p>ie9的效果同opera下的效果类似</p>
+<p><a href="http://download.microsoft.com/download/0/7/0/07051518-20A3-43E6-B3E3-C6176D92B6DA/iepreview.msi" rel="nofollow">http://download.microsoft.com/download/0/7/0/07051518-20A3-43E6-B3E3-C6176D92B6DA/iepreview.msi</a><br>
+这里有下载</p>
+
+		<div class="reply"><a class="comment-reply-link" href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/?replytocom=929#respond" onclick="return addComment.moveForm( &quot;div-comment-929&quot;, &quot;929&quot;, &quot;respond&quot;, &quot;1012&quot; )" aria-label="回复给番茄泡饭">回复</a></div>
+				</div>
+		</li><!-- #comment-## -->
+	</ol>
+
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+
+
+	
+	</div>
+</div>
+	<div id="sidebar" role="complementary">
+         <div id="zxx_intro" class="sldebar_out">
+            <div class="silebar_inner" itemscope="" itemtype="http://data-vocabulary.org/Person">
+                <img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/zxx_90_0824.jpg" itemprop="photo" class="zxx_head_image">
+                <div class="zxx_some_info">
+                    <p class="mb10"><span itemprop="name" class="fn">张鑫旭</span><sup><a itemprop="url" href="http://www.zhangxinxu.com/life/about/">more</a></sup>，09年<a href="http://www.hust.edu.cn/">华中科技大学</a>毕业，目前<span itemprop="location">上海</span>，现就职<a href="http://isux.tencent.com/" itemprop="organization">ISUX</a><a href="http://www.zhangxinxu.com/wordpress/?page_id=3720">上海设计中心</a>，资深钓鱼爱好者，专注<span itemprop="role">web前端</span>偏前领域。</p>
+
+                    <p>邮箱：<span style="font-family:arial;">zhangxinxu@zhangxinxu.com</span></p>
+                    <p>微博：<a href="http://weibo.com/zhangxinxu">新浪</a> <a href="http://t.qq.com/iamzhangxinxu">腾讯</a>(<a href="http://www.zhangxinxu.com/wordpress/?page_id=3720" style="color:#cd0000;">工作机会</a>)</p>
+                </div>
+                <div class="clear"></div>                
+            </div>
+        </div>
+        
+        <div class="sldebar_out top_ad_out" style="position: relative; top: 2538px;">
+            <div class="silebar_inner top_ad">
+            	<div class="ad_inner">
+    				<script async="" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/adsbygoogle.js"></script>
+<!-- 336x280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-0090627341039040" data-ad-slot="7307897248" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent"><iframe width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+                </div>
+            </div>
+        </div>
+    	<div class="sldebar_out">
+            <div class="silebar_inner slide_list">
+                <ul>
+                    <li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="http://www.zhangxinxu.com/wordpress/">
+<label class="hidden" for="s">Search for:</label>
+<div><input type="search" placeholder="翻页太辛苦，试试直接搜索" value="" name="s" id="s">
+<input type="submit" id="searchsubmit" data-value="Search" value="搜索">
+</div>
+</form>
+</li><li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">文章分类</h2>		<ul>
+	<li class="cat-item cat-item-3"><a href="http://www.zhangxinxu.com/wordpress/category/css/">css相关</a> (232)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.zhangxinxu.com/wordpress/category/graphic/">graphic相关</a> (65)
+<ul class="children">
+	<li class="cat-item cat-item-81"><a href="http://www.zhangxinxu.com/wordpress/category/graphic/as3%e8%8f%9c%e5%8d%95/">as3菜单</a> (32)
+</li>
+	<li class="cat-item cat-item-896"><a href="http://www.zhangxinxu.com/wordpress/category/graphic/canvas-graphic/">canvas相关</a> (8)
+</li>
+	<li class="cat-item cat-item-895"><a href="http://www.zhangxinxu.com/wordpress/category/graphic/svg-graphic/">SVG相关</a> (23)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.zhangxinxu.com/wordpress/category/js/">js相关</a> (110)
+<ul class="children">
+	<li class="cat-item cat-item-60"><a href="http://www.zhangxinxu.com/wordpress/category/js/jquery-about/">jquery相关</a> (43)
+</li>
+	<li class="cat-item cat-item-180"><a href="http://www.zhangxinxu.com/wordpress/category/js/js%e5%ae%9e%e4%be%8b/">js实例</a> (52)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-648"><a href="http://www.zhangxinxu.com/wordpress/category/mobile%e7%9b%b8%e5%85%b3/">mobile相关</a> (11)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.zhangxinxu.com/wordpress/category/ps/">ps相关</a> (13)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.zhangxinxu.com/wordpress/category/web/">web综合</a> (35)
+</li>
+	<li class="cat-item cat-item-198"><a href="http://www.zhangxinxu.com/wordpress/category/%e5%a4%96%e6%96%87%e7%bf%bb%e8%af%91/">外文翻译</a> (36)
+</li>
+		</ul>
+</li><li id="archives-3" class="widget widget_archive"><h2 class="widgettitle">文章存档</h2>		<ul>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2016/04/">2016年四月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2016/03/">2016年三月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2016/02/">2016年二月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2016/01/">2016年一月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/12/">2015年十二月</a>&nbsp;(2)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/11/">2015年十一月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/10/">2015年十月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/08/">2015年八月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/07/">2015年七月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/06/">2015年六月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/05/">2015年五月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/04/">2015年四月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/03/">2015年三月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/02/">2015年二月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2015/01/">2015年一月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/12/">2014年十二月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/11/">2014年十一月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/10/">2014年十月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/09/">2014年九月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/08/">2014年八月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/07/">2014年七月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/06/">2014年六月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/05/">2014年五月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/04/">2014年四月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/03/">2014年三月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/02/">2014年二月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2014/01/">2014年一月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/12/">2013年十二月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/11/">2013年十一月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/10/">2013年十月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/09/">2013年九月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/08/">2013年八月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/07/">2013年七月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/06/">2013年六月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/05/">2013年五月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/04/">2013年四月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/03/">2013年三月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/02/">2013年二月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2013/01/">2013年一月</a>&nbsp;(10)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/12/">2012年十二月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/11/">2012年十一月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/10/">2012年十月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/09/">2012年九月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/08/">2012年八月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/07/">2012年七月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/06/">2012年六月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/05/">2012年五月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/04/">2012年四月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/03/">2012年三月</a>&nbsp;(9)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/02/">2012年二月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2012/01/">2012年一月</a>&nbsp;(4)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/12/">2011年十二月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/11/">2011年十一月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/10/">2011年十月</a>&nbsp;(3)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/09/">2011年九月</a>&nbsp;(9)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/08/">2011年八月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/07/">2011年七月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/06/">2011年六月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/05/">2011年五月</a>&nbsp;(8)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/04/">2011年四月</a>&nbsp;(8)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/">2011年三月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/02/">2011年二月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2011/01/">2011年一月</a>&nbsp;(5)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/12/">2010年十二月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/11/">2010年十一月</a>&nbsp;(8)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/10/">2010年十月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/09/">2010年九月</a>&nbsp;(10)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/08/">2010年八月</a>&nbsp;(10)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/07/">2010年七月</a>&nbsp;(10)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/06/">2010年六月</a>&nbsp;(8)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/05/">2010年五月</a>&nbsp;(11)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/04/">2010年四月</a>&nbsp;(14)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/03/">2010年三月</a>&nbsp;(11)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/02/">2010年二月</a>&nbsp;(1)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2010/01/">2010年一月</a>&nbsp;(16)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2009/12/">2009年十二月</a>&nbsp;(14)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2009/11/">2009年十一月</a>&nbsp;(7)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2009/10/">2009年十月</a>&nbsp;(6)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2009/09/">2009年九月</a>&nbsp;(36)</li>
+	<li><a href="http://www.zhangxinxu.com/wordpress/2009/08/">2009年八月</a>&nbsp;(12)</li>
+		</ul>
+</li>		<li id="recent-posts-3" class="widget widget_recent_entries">		<h2 class="widgettitle">最新文章</h2>		<ul>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/04/know-about-html-download-attribute/">了解HTML/HTML5中的download属性</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/03/know-about-css3-all/">简单了解CSS3的all属性</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/03/css-layout-base-20px/">以20像素为基准的CSS网页布局实践分享</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/03/css-direction-introduction-apply/">CSS direction属性简介与实际应用</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/03/better-black-mask-guide-overlay-method/">腾讯微云黑色遮罩引导蒙版更好的CSS实现方式</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/02/svg-compress-tool-svgo-experience/">SVG精简压缩工具svgo简介和初体验</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/02/css-hollow-image-for-transition-background-color-problem-fixed/">CSS镂空图片transition过渡初加载背景色块问题解决</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/02/html-textarea-rows-height/">HTML textarea cols,rows属性和宽度高度关系研究</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/01/css-font-keyword-value-caption-menu-message-box-small-caption-status-bar/">CSS font关键字属性值的简单研究</a>
+						</li>
+					<li>
+				<a href="http://www.zhangxinxu.com/wordpress/2016/01/development-of-ui-components-based-on-native-html/">基于原生HTML的UI组件开发</a>
+						</li>
+				</ul>
+		</li><li id="overall-top-10-posts" class="widget widget_dailytopten_overall"><h2 class="widgettitle">热门总排行</h2><ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/12/jquery-powerfloat%e4%b8%87%e8%83%bd%e6%b5%ae%e5%8a%a8%e5%b1%82%e4%b8%8b%e6%8b%89%e5%b1%82%e6%8f%92%e4%bb%b6/">jQuery powerFloat万能浮动层下拉层插件</a> (315280)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/09/%e5%9f%ba%e4%ba%8ehtml5%e7%9a%84%e5%8f%af%e9%a2%84%e8%a7%88%e5%a4%9a%e5%9b%be%e7%89%87ajax%e4%b8%8a%e4%bc%a0/">基于HTML5的可预览多图片Ajax上传</a> (234345)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/">好吧，CSS3 3D transform变换，不过如此！</a> (222822)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/01/jquery-pagination-ajax%e5%88%86%e9%a1%b5%e6%8f%92%e4%bb%b6%e4%b8%ad%e6%96%87%e8%af%a6%e8%a7%a3/">jQuery Pagination Ajax分页插件中文详解</a> (202598)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/11/%e6%8b%9c%e6%8b%9c%e4%ba%86%e6%b5%ae%e5%8a%a8%e5%b8%83%e5%b1%80-%e5%9f%ba%e4%ba%8edisplayinline-block%e7%9a%84%e5%88%97%e8%a1%a8%e5%b8%83%e5%b1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a> (184251)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/04/%e8%ae%a9ie6ie7ie8%e6%b5%8f%e8%a7%88%e5%99%a8%e6%94%af%e6%8c%81css3%e5%b1%9e%e6%80%a7/">让IE6/IE7/IE8浏览器支持CSS3属性</a> (178668)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/12/css-box-flex%e5%b1%9e%e6%80%a7%ef%bc%8c%e7%84%b6%e5%90%8e%e5%bc%b9%e6%80%a7%e7%9b%92%e5%ad%90%e6%a8%a1%e5%9e%8b%e7%ae%80%e4%bb%8b/">CSS box-flex属性，然后弹性盒子模型简介</a> (178103)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/11/jquery%e9%a1%b5%e9%9d%a2%e5%9b%be%e7%89%87%e7%ad%89%e5%85%83%e7%b4%a0%e6%bb%9a%e5%8a%a8%e5%8a%a8%e6%80%81%e5%8a%a0%e8%bd%bd%e5%ae%9e%e7%8e%b0/">jQuery页面滚动图片等元素动态加载实现</a> (163114)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/03/every-browser-support-html5-video/">让所有浏览器支持HTML5 video视频标签</a> (160510)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2009/09/%e5%85%b3%e4%ba%8e%e6%96%87%e5%ad%97%e5%86%85%e5%ae%b9%e6%ba%a2%e5%87%ba%e7%94%a8%e7%82%b9%e7%82%b9%e7%82%b9-%e7%9c%81%e7%95%a5%e5%8f%b7%e8%a1%a8%e7%a4%ba/">关于文字内容溢出用点点点(...)省略号表示</a> (155856)</li>
+</ul>
+</li><li id="daily-top-10-posts" class="widget widget_dailytopten"><h2 class="widgettitle">今日热门</h2><ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2013/01/why-use-href-javascript-void0/">疑问：为什么要使用href="javascript:void(0);"？</a> (581)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/09/%e5%9f%ba%e4%ba%8ehtml5%e7%9a%84%e5%8f%af%e9%a2%84%e8%a7%88%e5%a4%9a%e5%9b%be%e7%89%87ajax%e4%b8%8a%e4%bc%a0/">基于HTML5的可预览多图片Ajax上传</a> (482)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/12/css-box-flex%e5%b1%9e%e6%80%a7%ef%bc%8c%e7%84%b6%e5%90%8e%e5%bc%b9%e6%80%a7%e7%9b%92%e5%ad%90%e6%a8%a1%e5%9e%8b%e7%ae%80%e4%bb%8b/">CSS box-flex属性，然后弹性盒子模型简介</a> (401)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/03/every-browser-support-html5-video/">让所有浏览器支持HTML5 video视频标签</a> (339)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/">好吧，CSS3 3D transform变换，不过如此！</a> (328)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/11/%e6%8b%9c%e6%8b%9c%e4%ba%86%e6%b5%ae%e5%8a%a8%e5%b8%83%e5%b1%80-%e5%9f%ba%e4%ba%8edisplayinline-block%e7%9a%84%e5%88%97%e8%a1%a8%e5%b8%83%e5%b1%80/">拜拜了,浮动布局-基于display:inline-block的列表布局</a> (305)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/10/%e6%88%91%e6%89%80%e7%9f%a5%e9%81%93%e7%9a%84%e5%87%a0%e7%a7%8ddisplaytable-cell%e7%9a%84%e5%ba%94%e7%94%a8/">我所知道的几种display:table-cell的应用</a> (253)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%e7%9f%a9%e9%98%b5/">理解CSS3 transform中的Matrix(矩阵)</a> (247)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2013/04/js-mousewheel-dommousescroll-event/">JS滚轮事件(mousewheel/DOMMouseScroll)了解</a> (246)</li>
+<li><a href="http://www.zhangxinxu.com/wordpress/2010/05/%e6%88%91%e5%af%b9css-vertical-align%e7%9a%84%e4%b8%80%e4%ba%9b%e7%90%86%e8%a7%a3%e4%b8%8e%e8%ae%a4%e8%af%86%ef%bc%88%e4%b8%80%ef%bc%89/">我对CSS vertical-align的一些理解与认识（一）</a> (220)</li>
+</ul>
+</li>                </ul>
+            </div>
+        </div>
+	</div>
+<div id="footer" role="contentinfo">
+	<p>
+    	Powerd by <a href="http://wordpress.org/">WordPress</a> | Designed by <a href="http://www.zhangxinxu.com/">zhangxinxu</a><br>
+		Copyright© 2009-2016 张鑫旭-鑫空间-鑫生活<br>
+        <a target="_blank" href="http://www.miibeian.gov.cn/">鄂ICP备09015569号</a>
+	</p>
+</div>
+<script src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/logger.js"></script></div>
+
+
+
+
+<script type="text/javascript" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/form.js"></script>
+<script type="text/javascript" src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/comment-reply.min.js"></script>
+
+<div id="footbar">
+	<div class="foot_yy_x hidden" id="footYyX">
+    	<div class="foot_yy_title">
+        	<span class="l">我的应用</span>
+            <a href="javascript:" class="r" id="footYYClose">-</a>
+        </div>
+        <div class="ml10 mr10 foot_yy_dv">工具与应用</div>
+        <div class="mt5">
+        	<a class="foot_yy_a" href="http://www.zhangxinxu.com/sp/base64.html">图片转base64(拖进来)</a>
+			<a class="foot_yy_a" href="http://browserhacks.com/">浏览器hack</a>
+            <a class="foot_yy_a" href="http://cubic-bezier.com/">CSS贝塞尔曲线可视化</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/sp/css-compress-mini.html">CSS在线压缩工具</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/sp/calculator.html">简易在线计算器</a>
+        </div>
+        <div class="ml10 mr10 foot_yy_dv">在线资源</div>
+        <div class="mt5">
+        	<a class="foot_yy_a" href="http://www.zhangxinxu.com/jq/api14/">jQuery 1.4 API中文版</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/GitHub/demo-Snap.svg/demo/basic/">Snap.svg中文文档</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/jq/stylus/">stylus中文版参考文档</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/css3/">CSS3中文共享参考指南</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/sp/character.html">非主流字符及字符图案</a>
+            <a class="foot_yy_a" href="http://www.zhangxinxu.com/jq/mt/">MooTools 1.2中文文档</a>
+        </div>
+        <div>&nbsp;</div>
+        <a href="javascript:" class="foot_yy foot_yy_on nowrap" id="footYYOff"><img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/zxx_ico.png" class="vimg"> 我的应用</a>
+    </div>
+    <a href="javascript:" class="foot_yy nowrap" id="footYYShow"><img src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/zxx_ico.png" class="vimg"> 我的应用</a>
+    <span class="foot_rss l">
+    	<a class="foot_rss_a" href="http://www.zhangxinxu.com/wordpress/?feed=rss2">文章(RSS)</a>
+         
+    </span>
+    <a href="http://www.zhangxinxu.com/wordpress/2010/08/%e6%8b%be%e4%ba%ba%e7%89%99%e6%85%a7-css3%e5%ae%9e%e7%8e%b0opera%e6%b5%8f%e8%a7%88%e5%99%a8%e7%9a%84logo/#" id="backToTop" class="foot_top">返回顶部↑</a>
+	<a href="http://www.zhangxinxu.com/wordpress/wp-login.php" class="foot_login"><i class="icon-male"></i>登录</a>
+</div>
+
+<script src="./拾人牙慧 – CSS3实现Opera浏览器的logo « 张鑫旭-鑫空间-鑫生活_files/script-min.js"></script>
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-11205167-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+</body></html>

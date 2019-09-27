@@ -1,0 +1,16 @@
+body,h1,h2,h3,h4,p,ul,li,ol,dl,dt,dd,input,textarea,figure,form{margin:0;padding:0}
+body,input,textarea{font-size:12px;font-family:microsoft yahei}
+body{text-align:center;color:#33383D;background:#eee}
+ul,ol{list-style:none}
+img{border:0}
+button,input {line-height:normal;*overflow:visible}
+input,textarea{outline:none}
+a{color:#61B3E6;text-decoration:none}
+a:hover{color:#1FAEFF}
+.demo-header{position:relative;height:32px;background-color:#444;line-height:32px;text-align: left;}
+.demo-name{background-color: #61B3E6;color: #fff;display: inline-block;padding: 0 20px;}
+.demo-name:hover{color: #fff;}
+.demo-title{height:0;overflow:hidden}
+.demo-container{clear: both;padding:30px 20px;text-align:left;margin:0 auto;line-height: 18px;}
+.demo h2{font-size: 15px;padding-bottom: 6px;margin-bottom: 20px;border-bottom: solid 1px #ddd;}
+.ads-example{overflow: hidden;margin: 20px auto 30px;max-width: 780px;}

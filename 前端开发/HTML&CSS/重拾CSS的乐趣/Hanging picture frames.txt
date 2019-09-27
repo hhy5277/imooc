@@ -1,0 +1,101 @@
+<div class="wrapper">
+  <div class="picture">
+    <div class="hook"></div>
+    <div class="frame">
+      <div class="inside"></div>
+    </div>
+  </div>
+  <div class="picture">
+    <div class="hook"></div>
+    <div class="frame">
+      <div class="inside"></div>
+    </div>
+  </div>
+</div>
+
+<a href="http://dribbble.com/shots/1240933-Staying-motivated-after-graduation" class="dribbble">Inspired by Michelle Vandy's Dribbble shot</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "compass/css3";
+
+/**
+ * twitter @thirtytwo_d
+ * inspired by http://dribbble.com/shots/1240933-Staying-motivated-after-graduation
+ */
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 4em;
+  background-color: #edd15a;
+}
+body, html {
+  height: 100%; 
+}
+.wrapper {
+  margin: 0 auto;
+  width: 304px;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.picture {
+  width: 112px;
+  position: relative;
+  float: left;
+  margin: 0 20px;
+}
+.hook {
+  width: 4px;
+  height: 4px;
+  background-color: #5c5c5d;
+  margin: 0 auto 32px auto;
+  border-radius: 50%;
+  box-shadow: 0 1px 0 1px #a49c7c;
+  &:before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 2px solid #a49c7c;
+    position: absolute;
+    left: 34px; top: 13px;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+}
+.frame {
+  height: 80px;
+  border-top: 6px solid #b89675;
+  border-right: 6px solid #7b654f;
+  border-bottom: 6px solid #7b654f;
+  border-left: 6px solid #a67c52; 
+  box-shadow: 4px 4px 0 0 rgba(189,166,72,0.6);
+  z-index: 1;
+}
+.inside {
+  height: 68px;
+  background: linear-gradient(149deg, #d3d4d5 0%,#d3d4d5 50%,#ccc 51%,#ccc 100%);
+  border: 10px solid #fff;
+  box-shadow: 1px 1px 1px 1px rgba(189,193,194,0.3) inset;
+}
+.dribbble {
+  font: 0.75em/1.5em verdana,sans-serif;
+  color: #7b654f;
+  position: absolute;
+  bottom: 1.5em; right: 1.5em;
+}

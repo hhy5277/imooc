@@ -1,0 +1,29 @@
+<link href='http://fonts.googleapis.com/css?family=Days+One' rel='stylesheet' type='text/css'>
+
+<a href="" id="logo"><span>D</span>reamdealer</a>
+                              
+
+
+#logo {
+    font-family: 'Days One', sans-serif;   
+    text-decoration: none;
+    color: #EC008C;
+    font-size: 79px;
+    position: absolute;
+    z-index:3;
+    padding: 0px 0px 0px 28px;
+}
+#logo span {
+    color: #FFFFFF;  
+}
+#logo::before {
+    content: '';  
+    position: absolute; 
+    width: 15.5%;
+    height: 87%;
+    border-radius: 50%;
+    background: #EC008C;
+    z-index: -1;
+    left: 0%;
+    top: 6%;
+}

@@ -1,0 +1,15 @@
+﻿.alertmask{position:absolute;top:0;left:0;background:#fff;filter:alpha(opacity:50);opacity:0.5;z-Index:9998;text-align:left;}
+.alertpn{text-algin:center;position:absolute;top:50%;left:50%;margin-left:-150px;background:url(/themes/win/alertpn-bg.jpg) repeat 100% 0;border-top:1px solid #A0C1E7;border-bottom:1px solid #A0C1E7;z-Index:9999;zoom:1;}
+.alertpn .inner{position:relative;border-left:1px solid #A0C1E7;border-right:1px solid #A0C1E7;width:300px;padding:4px 4px 4px;margin:0 -1px;position:relative;}
+.alertpn .inner .til{margin:2px 0 6px 4px;display:block;color:#999;font-weight:bold;font-size:12px;text-align:left;}
+.alertpn .inner .close{background:url(/themes/win/window.png) no-repeat scroll -8px 0;cursor:pointer;height:20px;overflow:hidden;position:absolute;right:5px;text-indent:-999em;top:2px;width:20px;}
+.alertpn .inner_inner{border:1px solid #D5EDFD;padding:10px 25px;background:#fff;zoom:1;}
+.alertpn .alertpn_msg{margin:0 auto;padding:15px 10px 15px 45px;line-height:1.5;background:url(/themes/win/icon_warning.gif) 0 50% no-repeat;zoom:1;font-size:12px;text-align:left;}
+.alertpn .btnctn{clear:both;height:20px;margin:5px auto;width:95px;font-size:12px;}
+.alertpn .btnctn a{background:url(/themes/win/btn_alert.gif) no-repeat 0 0;color:#444;float:left;width:83px;height:15px;line-height:13px;padding:5px 0;text-align:center;margin:0 5px;text-decoration:none;}
+.alertpn .btnctn a:hover{color:#000;}
+#appstore_msgpn .inner{padding:4px;}
+#appstore_msgpn .inner_inner{padding:0;background:#ffe;}
+#appstore_msgpn .alertpn_msg{padding:5px 10px;background:none;text-align:left;}
+#appstore_msgpn .btnctn{display:none;}
+#appstore_confirmpn .btnctn{width:190px;}

@@ -1,0 +1,260 @@
+<section>
+  <div id="eye">
+    <div id="pupil"></div>
+  </div>
+  <div id="mouth">
+    <div id="middle">
+      <div id="stripe">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    Tweetbot iOS 7 Icon
+  </p>
+</footer>
+
+
+
+
+
+
+
+
+
+
+@import "compass/css3";
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+/* @group Mixins */
+
+$black: #000;
+$blue: #8fc2fe;
+$darken_blue: #0052b7;
+$white: #fff;
+$orange_top: #ffde74;
+$orange_bottom: #ff741e;
+$darken_orange: #ec6713;
+$dark_red: #471309;
+$gray: #5b5b5b;
+$dark_gray: #473f3d;
+
+@mixin rotate($arguments) {
+    -webkit-transform: $arguments;
+    -moz-transform: $arguments;
+    -ms-transform: $arguments;
+    -o-transform: $arguments;
+    transform: $arguments;
+}
+
+@mixin radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin gradient($from, $to) {
+    background-color: $to;
+
+    background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+    background-image: -webkit-linear-gradient($from, $to);
+    background-image: -moz-linear-gradient($from, $to);
+    background-image: -o-linear-gradient($from, $to);
+    background-image: -ms-linear-gradient($from, $to);
+    background-image: linear-gradient($from, $to);
+}
+
+/* @end */
+
+body {
+    background-color: $black;
+
+    section {
+        @include gradient($blue, $darken_blue);
+
+        width: 370px;
+        height: 370px;
+
+        position: relative;
+
+        margin:20px auto;
+        @include radius(80px);
+
+        &:after {
+            content: '';
+            display: block;
+
+            position: absolute;
+            top: 0;
+            left: 185px;
+
+            width: 5px;
+            height: 180px;
+
+            background-color: darken($blue, 10%);
+
+            border-left: 2px solid $white;
+            border-right: 2px solid $white;
+
+            opacity: .2;
+        }
+
+        #eye {
+            
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+
+                position: absolute;
+                top: 100px;
+                left: 90px;
+
+                width: 30px;
+                height: 75px;
+
+                background-color: $black;
+                @include radius (20px);
+            }
+
+            &:after {
+                left: 250px;
+            }
+
+            #pupil {
+                
+                &:before,
+                &:after {
+                    content: '';
+                    display: block;
+
+                    position: absolute;
+                    top: 105px;
+                    left: 95px;
+
+                    width: 20px;
+                    height: 35px;
+
+                    background-color: $white;
+                    @include radius (20px);
+                }
+
+                &:after {
+                    left: 255px;
+                    z-index: 10;
+                }
+            }
+        }
+
+        #mouth {
+            width: 200px;
+            height: 200px;
+
+            @include radius(50%);
+
+            margin: 0 auto;
+            position: relative;
+            top: 180px;
+
+            @include gradient($orange_top, $orange_bottom);
+
+            z-index: 0;
+
+            &:before {
+                content: '';
+                display: block;
+
+                @include radius(50%);
+
+                margin: 0 auto;
+
+                position: relative;
+                top: 26px;
+
+                width: 150px;
+                height: 150px;
+
+                @include gradient($dark_red, $darken_orange);
+            }
+
+            #middle {
+                width: 50px;
+                height: 50px;
+
+                @include radius(50%);
+
+                margin: 0 auto;
+                position: relative;
+                top: -75px;
+
+                background-color: $gray;
+                border: 3px solid $dark_gray;
+
+                #stripe {
+                    width: 4px;
+                    height: 25px;
+
+                    background-color: $black;
+                    @include radius(5px);
+                    @include rotate(rotate(40deg));
+
+                    position: absolute;
+                    top: 12px;
+                    left: 22px;
+
+                    &:before,
+                    &:after {
+                        content: '';
+                        display: block;
+
+                        width: 4px;
+                        height: 15px;
+
+                        position: absolute;
+                        top: 5px;
+                        left: -10px;
+
+                        background-color: $black;
+                        @include radius(5px);
+                    }
+
+                    &:after {
+                        top: 5px;
+                        left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        width: 100%;
+        border-top: 30px solid $black;
+
+        position: relative;
+        top: -20px;
+
+
+        p {
+            margin: auto;
+            padding: 50px 0;
+
+            text-align: center;
+
+            font: 50px/0 'Helvetica Neue', HelveticaNeue-Light, sans-serif;
+            font-weight: 100;
+
+            color: $white;
+        }
+    }
+}

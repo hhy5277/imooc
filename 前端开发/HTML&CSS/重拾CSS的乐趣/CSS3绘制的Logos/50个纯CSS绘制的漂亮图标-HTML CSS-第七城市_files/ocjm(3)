@@ -1,0 +1,4 @@
+BAIDU_SSP_define({"tuid" : "u654799_0","queryid" : "4fef3312ba9f2b6e","placement" : {"basic" : {"cname":"smileking_cpr","conBackEnv":1,"flowType":1,"mediumType":1,"rspFormat":1,"sellType":2,"sspId":1,"tuId":9223372032560463311,"userId":1614451}
+,"container" : {"anchoredType":1,"floated":{},"height":250,"sizeType":1,"slide":{},"width":300}
+,"fillstyle" : {"backgroundColor":"#FFFFFF","cloudTheme":{},"elements":[1,2,5],"flush":0,"layout":[1],"lu":{},"search":{},"styleType":2,"txt":{"cbackground":"#FFFFFF","cborder":"#FFFFFF","cdesc":"#000000","cflush":"#000000","ctitle":"#000000","curl":"#000000","number":3},"video":{}}
+,"userdefine" : "cpro_layout_filter=rank,tabcloud|cpro_template=text_default_300_250|cpro_version=2.0","complement_type" : 2},"extends" : "","pdb_deliv" : {"deliv_id" : "0","deliv_des" : {},"brandad" : 0},"order_deliv" : {"deliv_id" : "0","demand_id" : "0"},"rtb_deliv" : {"deliv_id" : "0","demand_id" : "654799"}});

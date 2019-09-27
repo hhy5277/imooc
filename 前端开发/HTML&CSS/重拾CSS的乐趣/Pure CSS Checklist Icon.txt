@@ -1,0 +1,158 @@
+<div class="board">
+<div class="papers">
+  <div class="list check"></div>
+  <div class="list uncheck"></div>
+  <div class="list uncheck"></div>
+  <div class="list uncheck"></div>
+  <div class="list uncheck"></div>
+  <div class="list uncheck"></div>
+  <div class="list uncheck"></div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  background: #3498db;    
+}
+
+.papers {
+  background-color: white;
+  height: 150px;
+  padding: 20px;
+  width: 160px;
+  margin: 5% auto 10%;
+  -webkit-box-shadow: 
+        1px 1px   0 rgba(0,   0,   0,   0.100), 
+        3px 3px   0 rgba(255, 255, 255, 1.0), 
+        4px 4px   0 rgba(0,   0,   0,   0.125), 
+        6px 6px   0 rgba(255, 255, 255, 1.0),  
+        7px 7px   0 rgba(0,   0,   0,   0.150), 
+        9px 9px   0 rgba(255, 255, 255, 1.0),  
+        10px 10px 0 rgba(0,   0,   0,   0.175);
+  -moz-box-shadow: 
+        1px 1px   0 rgba(0,   0,   0,   0.100), 
+        3px 3px   0 rgba(255, 255, 255, 1.0), 
+        4px 4px   0 rgba(0,   0,   0,   0.125), 
+        6px 6px   0 rgba(255, 255, 255, 1.0),  
+        7px 7px   0 rgba(0,   0,   0,   0.150), 
+        9px 9px   0 rgba(255, 255, 255, 1.0),  
+        10px 10px 0 rgba(0,   0,   0,   0.175);
+  box-shadow: 
+        1px 1px   0 rgba(0,   0,   0,   0.100), 
+        3px 3px   0 rgba(255, 255, 255, 1.0), 
+        4px 4px   0 rgba(0,   0,   0,   0.125), 
+        6px 6px   0 rgba(255, 255, 255, 1.0),  
+        7px 7px   0 rgba(0,   0,   0,   0.150), 
+        9px 9px   0 rgba(255, 255, 255, 1.0),  
+        10px 10px 0 rgba(0,   0,   0,   0.175);
+    
+}
+
+.list{
+  width: 150px;
+  height: 10px;
+  background: #d0d6d4;
+  margin: 10px 15px;
+  position: relative;
+}
+
+.check{
+  background: #5a8445 !important;
+}
+
+.uncheck:before{
+  content:"";
+  background: #d0d6d4;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: -25px;
+  top: -2px;
+}
+
+.check:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -25px;
+  width: 5px;
+  height: 10px;
+  transform: rotate(-45deg);
+  background: #5a8445;
+}
+
+.check:after{
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: -18px;
+  width: 5px;
+  height: 17px;
+  transform: rotate(45deg);
+  background: #5a8445;
+}
+
+.board{
+  width: 250px;
+  height: auto;
+  background: #5a8445;
+  padding: 5px 0px;
+  clear: both; 
+  overflow: visible;
+  margin: 20% auto;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  box-shadow: 0px 5px 0px #476d3b;
+  position: relative;
+}
+
+.board:before{
+  content: "";
+  width: 150px;
+  height: 50px;
+  background: #a3aca9;
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  z-index: 99;
+   border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+   box-shadow: 0px 2px 0px #88918e;
+}
+
+.board:after{
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 200px;
+  background: #3498db;
+  top:-30px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  z-index: 999;
+  border: 10px solid #a3aca9;
+}

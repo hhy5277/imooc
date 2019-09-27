@@ -1,0 +1,64 @@
+body{font:14px/1.5 '微软雅黑',tahoma,arial,sans-serif;}
+.postCon textarea,.postBody textarea,#comment_form_container textarea{border:1px solid #e1e1e1;background:#F6F6F6;border-radius:5px;color:#777;}
+.postCon button,.postBody button,#commentbox_opt .comment_btn{padding:3px 5px;border:1px solid #ccc;border-radius:3px;cursor:pointer;background:url(http://images.apple.com/global/elements/productbrowser/nav_bg.png) no-repeat 0 0;color:#666;background:-webkit-gradient(linear,left top,left bottom,from(#f2f2f2),to(#e0e0e0));background:-moz-linear-gradient(top,#f2f2f2,#e0e0e0);background:-o-linear-gradient(top,#f2f2f2,#e0e0e0);background:linear-gradient(top,#f2f2f2,#e0e0e0);}
+.postCon{font-size:16px;}
+#header{background:#000;}
+#blogTitle{display:none;}
+#navList a{height:auto;font-family:'微软雅黑';font-weight:normal;}
+#navList a:link, #navList a:visited, #navList a:active{color:#bbb;}
+#navList a:hover{background:#343434;text-shadow: 0px 0px 1px #000;}
+#navList a:hover:after{content:'';}
+#main{width:auto;position:relative;padding-left:10px;}
+#sideBar{position:absolute;right:10px;top:0;}
+#mainContent{width:auto;float:none;margin-right:270px;font-size:16px;}
+.catListTitle{background:#390;font-weight:normal;}
+#navigator{width:100%;height:60px;line-height:60px;overflow:hidden;}
+.dayTitle{height:55px;top:0;padding-top:10px;text-shadow:none;font-size:80%;text-align:center;font-weight:normal;}
+.day:after{left:-8px;}
+/* second */
+.entrylistPosttitle{font-size:16px;border-bottom:1px solid #ccc;}
+.entrylistPostSummary{padding:10px 0;line-height:2em;}
+.entrylistItem{margin-bottom:10px;}
+#sideBarMain .newsItem{text-indent:0;padding:10px;}
+#blog-comments-placeholder,#blog-calendar{background:#FFFFFF; border-radius:7px;box-shadow: 1px 1px 2px #A7A8AD;margin: 0 5px 10px 0;padding:15px;}
+#blog-calendar{padding:5px;margin:0 0 10px;}
+.catListEssay, .catListLink, .catListNoteBook, .catListNoteBook, .catListTag, .catListPostCategory, .catListPostArchive, .catListArticleArchive, .catListImageCategory, .mySearch, .catListComment, .catListView, .catListFeedback{margin:20px 0;}
+.catListEssay ul li, .catListLink ul li, .catListNoteBook ul li, .catListNoteBook ul li, .catListTag ul li, .catListPostCategory ul li, .catListPostArchive ul li, .catListArticleArchive ul li, .catListImageCategory ul li, .mySearch ul li, .catListComment ul li, .catListView ul li, .catListFeedback ul li{text-indent:1em;}
+.feedbackItem{padding:10px;}
+.feedbackItem:nth-of-type(odd){border-radius:7px;background:#f2f2f2;}
+.feedbackItem:nth-of-type(odd) .comment_quote{background:#fff;}
+.feedbackItem:hover{background:#fcfbed;}
+.backToTop{display:none;width:18px;line-height:1.2;padding:5px 0;background-color:#000;color:#fff;font-size:12px;text-align:center;position:fixed;_position:absolute;right:257px;bottom:100px;_bottom:"auto";cursor:pointer;opacity:.6;filter:Alpha(opacity=60);}
+.sortContTitle{background:#efefef;border-bottom:1px solid #ccc;color:#666;font-size:1.2em;height:1.5em;line-height:1.5em;padding:5px;text-indent:1em;text-shadow:1px 1px 0 rgba(255,255,255,0.3);margin:15px auto;border-radius:5px 5px 0 0;font-family:'微软雅黑';}
+.postBody h3.sortContTitle{margin: 15px auto;}
+#topics .postTitle a{color:#390;font-family:'微软雅黑';}
+#cnblogs_post_body a{text-decoration:none;color:blue;}
+#cnblogs_post_body a:hover{color:#f60;}
+#cnblogs_post_body p,.postBody p, .postCon p,#cnblogs_post_body div,#cnblogs_post_body{line-height:2!important;}
+#cnblogs_post_body p{text-indent:2em;}
+.day{padding:5px 20px 10px 20px;}
+.postTitle,.entrylistPosttitle{font-size:18px;font-family:'微软雅黑';border-bottom:1px solid #ccc;line-height:40px;}
+.postTitle a:link, .postTitle a:visited, .postTitle a:active,.entrylistPosttitle a{color:#393;text-decoration:none;}
+.postTitle a:hover,.entrylistPosttitle a:hover{color:#f60;text-decoration:underline;}
+.postBody a:link, .postBody a:visited, .postBody a:active{color:#336699;text-decoration:none;}
+.postBody a:hover{color:#f60;text-decoration:underline;}
+.postDesc{padding-bottom:5px;}
+.postSeparator{border-top:1px dotted #d5d5d5;}
+.c_b_p_desc{line-height:23px;}
+#topics .postTitle a{line-height:35px;font-size:18px;font-weight:normal;text-shadow:none;}
+#topics .post{padding:0px 15px 10px;}
+.postBody{font-size:16px;line-height:1.6em;}
+.entrylist{padding:0 15px 15px;}
+.postCon .sortContTitle a{color:#f60;text-decoration:none;}
+.postCon .sortContTitle a:hover{color:#fff;}
+.catListlink ul{background:#fff;border-radius:0 0 7px 7px;box-shadow:1px 1px 2px #A7A8AD;background:#FAFCFD;}
+.catListlink ul li{text-indent:1em;border-bottom:1px solid #DADFE1;border-top:1px solid #FFFFFF;overflow:hidden;padding:5px;}
+.postBody code{background-color:#D6DBDF;border-radius:4px;color:#2C3E50;padding:2px 4px;margin:0 2px;}
+#cnblogs_post_body h5{font-size:15px;font-weight:normal;}
+.postTitle{font-weight:normal;}
+.postCon a,.postCon a:link{text-decoration:none;color:#390;margin-left:10px;}
+.postCon a:hover{color:#f60;}
+.postTitle, .entrylistPosttitle{border-bottom:1px solid #e0e0e0;}
+.buryit{display:none;}
+.diggword{display:none;}
+#div_digg{width:auto;margin-right:0;}

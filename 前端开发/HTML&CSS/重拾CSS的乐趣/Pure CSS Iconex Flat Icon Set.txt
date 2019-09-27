@@ -1,0 +1,507 @@
+<h2>Pure CSS Iconex Flat Icon Set</h2>
+	<!-- green -->
+	<div class="g-c-container">
+		<div class="camera" >
+			<div class="top">
+			</div>
+			<div class="body">
+				<div class="circle">
+				</div>
+				<div class="flash">
+				</div>
+			</div>
+		</div>
+		<div class="horn">
+			<div class="h-body">
+			</div>
+			<div class="shape-1"></div>
+			<div class="shape-2"></div>
+			<div class="shape-3"></div>
+		</div>
+		<div class="gamepad">
+			<div class="line-2"></div>
+			<div class="gp_body">
+				<div class="shape-4"></div>
+				<div class="shape-5"></div>
+				<div class="circle-1"></div>
+				<div class="circle-2"></div>
+			</div>
+		</div>
+		<div class="heart">
+		</div>
+	</div>
+	<!-- Colored -->
+	<div class="c-container">
+		<div class="camera" >
+			<div class="top">
+			</div>
+			<div class="body">
+				<div class="circle">
+				</div>
+				<div class="flash">
+				</div>
+			</div>
+		</div>
+		<div class="horn">
+			<div class="h-body">
+			</div>
+			<div class="shape-1"></div>
+			<div class="shape-2"></div>
+			<div class="shape-3"></div>
+		</div>
+		<div class="gamepad">
+			<div class="line-2"></div>
+			<div class="gp_body">
+				<div class="shape-4"></div>
+				<div class="shape-5"></div>
+				<div class="circle-1"></div>
+				<div class="circle-2"></div>
+			</div>
+		</div>
+		<div class="heart">
+		</div>
+	</div>
+<h6>Coded By <a href="http://twitter.com/alireza_attari" >Alireza Attari</a> , Inspired By<a href="http://dribbble.com/shots/582342-Iconex"> Fabio Basile</a> Dribbble Shot.</h6>
+
+
+
+
+
+
+
+/* fonts */
+	@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'), url('http://ialireza.me/noto.woff') format('woff');
+}
+	/* end fonts */
+
+	body {
+		background: #EEEEEE;
+	}
+	h2 {
+		text-align: center;
+		margin-top: 10%;
+		font-family: Noto Sans ;
+		color:#303030;	
+	}
+	h6 {
+		margin-top: 5%;
+		font-family: Noto Sans ;
+		color: #B6B6B6;
+		text-align: center;
+	}
+	a {
+		color: #A7A7A7;
+		text-decoration: none;
+		border-bottom: 1px dotted ;
+	}
+	/* Colored */ 
+	/* Camera */
+	.camera {
+		float: left;
+		margin-right: 50px;
+	}
+	.horn {
+		float: left;
+		position: relative;
+		top: 8px;
+		margin-right: 50px;
+	}
+	.gamepad {
+		float: left; 
+		margin-right: 50px;
+	}
+	.heart {
+		float: left;
+		top:-3px;
+	}
+	.c-container{
+		width: 355px;
+		height: 67px;
+		background:#fff;
+		margin: auto;
+		border: 1px solid #F5F5F5;
+		border-top: none;
+		-webkit-border-bottom-right-radius: 8px;
+		-webkit-border-bottom-left-radius: 8px;
+		-moz-border-radius-bottomright: 8px;
+		-moz-border-radius-bottomleft: 8px;
+		border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		padding: 33px 50px 0px 50px ;
+	}
+	.c-container .body{
+		width: 50px;
+		height: 30px;
+		border-radius: 5px;
+		background: #fca152; /* Old browsers */
+		background: -moz-linear-gradient(left,  #fca152 0%, #fcae52 16%, #fca152 16%, #fcae52 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,#fca152), color-stop(16%,#fcae52), color-stop(16%,#fca152), color-stop(100%,#fcae52)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  #fca152 0%,#fcae52 16%,#fca152 16%,#fcae52 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  #fca152 0%,#fcae52 16%,#fca152 16%,#fcae52 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  #fca152 0%,#fcae52 16%,#fca152 16%,#fcae52 100%); /* IE10+ */
+		background: linear-gradient(to right,  #fca152 0%,#fcae52 16%,#fca152 16%,#fcae52 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fca152', endColorstr='#fcae52',GradientType=1 ); /* IE6-9 */
+		margin: auto;
+	}
+	.c-container .body .circle {
+		width: 14px;
+		height: 14px;
+		background: #bae4e9;
+		border-radius: 100px;
+		border: 3px solid #fff;
+		margin: auto;
+		top: 5px;
+		position: relative;
+	}
+	.c-container .body .flash {
+		width: 5px;
+		height: 5px ;
+		background: #fff;
+		position: relative;
+		top: -16px;
+		right: -41px;
+	}
+	.c-container .top {
+		border-bottom: 5px solid #fc9252;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		height: 0;
+		width: 16px;
+		margin: auto;
+	}
+	/* End Camera */
+	/* Start Horn */
+	.c-container .horn .h-body {
+		width: 53px;
+		height: 15px;
+		border-radius: 10px;
+		background: #f8e073;
+	}
+	.c-container .horn .shape-1 {
+		border-bottom: 19px solid #fcae52;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		height: 0;
+		width: 19px;
+		-webkit-transform:rotate(-90deg);
+		-moz-transform:rotate(-90deg);
+		position: relative;
+		right: -19px;
+		top: -17px;
+		z-index: 20;
+	}
+	.c-container .horn .shape-2 {
+		border-bottom: 19px solid #ffffff;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		height: 0;
+		width: 19px;
+		position: relative;
+		right: -18.5666666px;
+		top: -36px;
+		z-index: 10;
+		-webkit-transform: rotate(-90deg) scale(1.3);
+		-moz-transform: rotate(-90deg) scale(1.3);
+	}
+	.c-container .horn .shape-3 {
+		width: 20px;
+		height: 7.5px;
+		border-radius: 10px;
+		background: #f8e073;
+		position: relative;
+		-webkit-transform: rotate(75deg) skewY(-10deg);
+		-moz-transform: rotate(75deg) skewY(-10deg);
+		top: -39px;
+		right: -2px;
+	}
+	.c-container .gamepad .gp_body {
+		width: 50px;
+		height: 30px;
+		background: #9acdf0;
+		border-radius:10px 10px 5px 5px;
+	}
+	.c-container .gamepad .gp_body .circle-1 {
+		width: 5px;
+		height: 5px;
+		border-radius: 100px;
+		border:2px solid #fff;
+		position:relative;
+		background: #9acdf0;
+		top:7px;
+		left: 35px;
+	}
+	.c-container .gamepad .gp_body .circle-2 {
+		width: 5px;
+		height: 5px;
+		border-radius: 100px;
+		border:2px solid #fff;
+		position:relative;
+		top:-2px;
+		background: #9acdf0;
+		left: 24px;
+	}
+	.c-container .gamepad .gp_body .shape-4 {
+		width: 12px;
+		height: 3px;
+		background: #fff;
+		border-radius: 3px;
+		position: relative;
+		top: 16px;
+		right: -6px;
+	}
+	.c-container .gamepad .gp_body .shape-5 {
+		width: 12px;
+		height: 3px;
+		background: #fff ;
+		border-radius: 3px;
+		position: relative;
+		top: 13px;
+		right: -6px;
+		-webkit-transform:rotate(90deg);
+		-moz-transform:rotate(90deg);
+	}
+	.c-container .heart {
+	    position: relative;
+	    width: 50px;
+	    height: 45px;
+	}
+	.c-container .heart:before,
+	.c-container .heart:after {
+	    position: absolute;
+	    content: "";
+	    left: 25px;
+	    top: 0;
+	    width: 25px;
+	    height: 40px;
+	    background: #fc5254;
+	    -moz-border-radius: 25px 25px 0 0;
+	    border-radius: 25px 25px 0 0;
+	    -webkit-transform: rotate(-45deg);
+	       -moz-transform: rotate(-45deg);
+	        -ms-transform: rotate(-45deg);
+	         -o-transform: rotate(-45deg);
+	            transform: rotate(-45deg);
+	    -webkit-transform-origin: 0 100%;
+	       -moz-transform-origin: 0 100%;
+	        -ms-transform-origin: 0 100%;
+	         -o-transform-origin: 0 100%;
+	            transform-origin: 0 100%;
+	}
+	.c-container .heart:after {
+	    left: 0;
+	    -webkit-transform: rotate(45deg);
+	       -moz-transform: rotate(45deg);
+	        -ms-transform: rotate(45deg);
+	         -o-transform: rotate(45deg);
+	            transform: rotate(45deg);
+	    -webkit-transform-origin: 100% 100%;
+	       -moz-transform-origin: 100% 100%;
+	        -ms-transform-origin: 100% 100%;
+	         -o-transform-origin: 100% 100%;
+	            transform-origin :100% 100%;
+	}
+	
+	/****** GREEN COLOR *****/
+	.g-c-container{
+		width: 355px;
+		height: 67px;
+		margin: auto;
+		margin-top: 5%;
+		background: #66b34e;
+		-webkit-border-top-left-radius: 8px;
+		-webkit-border-top-right-radius: 8px;
+		-moz-border-radius-topleft: 8px;
+		-moz-border-radius-topright: 8px;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		border:1px solid #F6F6F6;
+		border-bottom: none;
+		padding: 33px 50px 0px 50px ;
+	}
+	.g-c-container .body{
+		width: 50px;
+		height: 30px;
+		border-radius: 5px;
+		background: #d0f0c6; /* Old browsers */
+		background: -moz-linear-gradient(left,  #d0f0c6 0%, #d0f0c6 16%, #ffffff 16%, #ffffff 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,#d0f0c6), color-stop(16%,#d0f0c6), color-stop(16%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  #d0f0c6 0%,#d0f0c6 16%,#ffffff 16%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  #d0f0c6 0%,#d0f0c6 16%,#ffffff 16%,#ffffff 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  #d0f0c6 0%,#d0f0c6 16%,#ffffff 16%,#ffffff 100%); /* IE10+ */
+		background: linear-gradient(to right,  #d0f0c6 0%,#d0f0c6 16%,#ffffff 16%,#ffffff 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0f0c6', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+		margin: auto;
+	}
+	.g-c-container .body .circle {
+		width: 14px;
+		height: 14px;
+		background: #d0f0c6;
+		border-radius: 100px;
+		border: 3px solid #66b34e;
+		margin: auto;
+		top: 5px;
+		position: relative;
+	}
+	.g-c-container .body .flash {
+		width: 5px;
+		height: 5px ;
+		background: #d0f0c6;
+		position: relative;
+		top: -16px;
+		right: -41px;
+	}
+	.g-c-container .top {
+		border-bottom: 5px solid #d0f0c6;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		height: 0;
+		width: 16px;
+		margin: auto;
+	}
+	/* Start Horn */
+	.g-c-container .horn .h-body {
+		width: 53px;
+		height: 15px;
+		border-radius: 10px;
+		background: #d0f0c6;
+	}
+	.g-c-container .horn .shape-1 {
+		border-bottom: 19px solid #fff;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		height: 0;
+		width: 19px;
+		-webkit-transform:rotate(-90deg);
+		-moz-transform:rotate(-90deg);
+		position: relative;
+		right: -19px;
+		top: -17px;
+		z-index: 20;
+	}
+	.g-c-container .horn .shape-2 {
+		border-bottom: 19px solid #6FB15E;
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		height: 0;
+		width: 19px;
+		position: relative;
+		right: -18.5666666px;
+		top: -36px;
+		z-index: 10;
+		-webkit-transform: rotate(-90deg) scale(1.3);
+		-moz-transform: rotate(-90deg) scale(1.3);
+	}
+	.g-c-container .horn .shape-3 {
+		width: 20px;
+		height: 7.5px;
+		border-radius: 10px;
+		background: #d0f0c6;
+		position: relative;
+		-webkit-transform: rotate(75deg) skewY(-10deg);
+		-moz-transform: rotate(75deg) skewY(-10deg);
+		top: -39px;
+		right: -2px;
+	}
+	/* end horn */
+	/* strat game pad */
+	.g-c-container .gamepad .gp_body {
+		width: 50px;
+		height: 30px;
+		background: #fff;
+		border-radius: 10px 10px 5px 5px;
+	}
+	.c-container .gamepad .line-2 {
+		background: #9acdf0;
+	}
+	.g-c-container .gamepad .gp_body .circle-1 {
+		width: 5px;
+		height: 5px;
+		border-radius: 100px;
+		border:2px solid #66b34e;
+		position:relative;
+		top:7px;
+		left: 35px;
+	}
+	.g-c-container .gamepad .gp_body .circle-2 {
+		width: 5px;
+		height: 5px;
+		border-radius: 100px;
+		border:2px solid #66b34e;
+		position:relative;
+		top:-2px;
+		left: 24px;
+	}
+	.g-c-container .gamepad .gp_body .shape-4 {
+		width: 12px;
+		height: 3px;
+		background: #66b34e ;
+		border-radius: 3px;
+		position: relative;
+		top: 16px;
+		right: -6px;
+	}
+	.g-c-container .gamepad .gp_body .shape-5 {
+		width: 12px;
+		height: 3px;
+		background: #66b34e ;
+		border-radius: 3px;
+		position: relative;
+		top: 13px;
+		right: -6px;
+		-webkit-transform:rotate(90deg);
+		-moz-transform:rotate(90deg);
+	}
+	.g-c-container .heart {
+	    position: relative;
+	    width: 50px;
+	    height: 45px;
+	}
+	.g-c-container .heart:before,
+	.g-c-container .heart:after {
+	    position: absolute;
+	    content: "";
+	    left: 25px;
+	    top: 0;
+	    width: 25px;
+	    height: 40px;
+	    background: #fff;
+	    -moz-border-radius: 25px 25px 0 0;
+	    border-radius: 25px 25px 0 0;
+	    -webkit-transform: rotate(-45deg);
+	       -moz-transform: rotate(-45deg);
+	        -ms-transform: rotate(-45deg);
+	         -o-transform: rotate(-45deg);
+	            transform: rotate(-45deg);
+	    -webkit-transform-origin: 0 100%;
+	       -moz-transform-origin: 0 100%;
+	        -ms-transform-origin: 0 100%;
+	         -o-transform-origin: 0 100%;
+	            transform-origin: 0 100%;
+	}
+	.g-c-container .heart:after {
+	    left: 0;
+	    -webkit-transform: rotate(45deg);
+	       -moz-transform: rotate(45deg);
+	        -ms-transform: rotate(45deg);
+	         -o-transform: rotate(45deg);
+	            transform: rotate(45deg);
+	    -webkit-transform-origin: 100% 100%;
+	       -moz-transform-origin: 100% 100%;
+	        -ms-transform-origin: 100% 100%;
+	         -o-transform-origin: 100% 100%;
+	            transform-origin :100% 100%;
+	}
+	.line-2 {
+		width: 15px;
+		height: 3px;
+		background: #fff;
+		border-radius: 3px;
+		border-radius: 3px;
+		position: relative;
+		left: 2px;
+		-webkit-transform:rotate(90deg);
+	}

@@ -1,0 +1,212 @@
+<!--Adapted from PURE CSS Wordpress logo by  Avaz Bokiev (http://cdpn.io/tpHfg)-->
+
+<p><head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+</head>
+<div class="sitewrapper">
+<div class="wp-wrapper">
+  <div class='wordpress'>
+    <div class='stra'></div>
+    <div class='strb'></div>
+    <div class='strab'></div>
+    <div class='strabc'></div>
+    <div class='strac'></div>
+    <div class='borda'></div>
+    <div class='bordab'></div>
+    <div class='round'></div>
+    <div class='strad'></div>
+    <div class='strada'></div>
+    <div class='fixa'></div>
+    <div class='fixb'></div>
+  </div>
+</div>
+</div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+/*Adapted from PURE CSS Wordpress logo by  Avaz Bokiev (http://cdpn.io/tpHfg)*/
+
+body {
+   background: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIUlEQVQIW2Pk3tr6nwEIvnpXM4JoRgwBkCgIwCTAypAFAO6JDI1jIKm8AAAAAElFTkSuQmCC) repeat;
+  background-color: #36d7b7;
+  width: 100%;
+  padding: 5px;
+}
+
+.sitewrapper {
+  width:80%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/*.wp-wrapper {
+  width: 18.750rem;
+  height: 18.750rem;
+  margin: 0 auto;
+  padding: 0.313rem;
+}*/
+
+.wordpress {
+  background: #333;
+  width: 16.875rem;
+  height: 16.875rem;
+  border: double 0.938rem #fff;
+  border-radius: 9.375rem;
+  -moz-border-radius: 9.375rem;
+  -webkit-border-radius: 9.375rem;
+}
+
+.stra {
+  background: #fff;
+  width: 2.063rem;
+  height: 12.688rem;
+  position: absolute;
+  margin: 3.750rem 0 0 2.875rem;
+  -webkit-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+
+.strb {
+  background: #fff;
+  width: 2.063rem;
+  height: 12.875rem;
+  position: absolute;
+  margin: 3.750rem 0 0 8.750rem;
+  -webkit-transform: rotate(-20deg);
+  -o-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+
+.strab {
+  background: #fff;
+  width: 0.625rem;
+  height: 9.375rem;
+  position: absolute;
+  margin: 7.313rem 0 0 6.438rem;
+  -webkit-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+.strabc {
+  background: #333;
+  width: 1.250rem;
+  height: 3.125rem;
+  position: absolute;
+  margin: 13.313rem 0 0 6.313rem;
+  -webkit-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+.strac {
+  background: #fff;
+  width: 0.625rem;
+  height: 12.938rem;
+  position: absolute;
+  margin: 3.438rem 0 0 13.438rem;
+  -webkit-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  transform: rotate(15deg);
+  
+}
+
+.borda {
+  background: #fff;
+  width: 2.813rem;
+  height: 0.750rem;
+  position: absolute;
+  margin: 3.750rem 0 0 1.000rem;
+  border-radius: 0.313rem 0.313rem 0.313rem 0;
+  -moz-border-radius: 0.313rem 0.313rem 0.313rem 0;
+  -webkit-border-radius: 0.313rem 0.313rem 0.313rem 0;
+}
+
+.bordab {
+  background: #fff;
+  width: 4.375rem;
+  height: 0.750rem;
+  position: absolute;
+  margin: 3.750rem 0 0 5.563rem;
+  border-radius: 0.313rem;
+  -moz-border-radius: 0.313rem;
+  -webkit-border-radius: 0.313rem;
+}
+
+.round {
+  background: #fff;
+  width: 2.313rem;
+  height: 2.313rem;
+  position: absolute;
+  margin: 2.500rem 0 0 13.188rem;
+  border-radius: 1.250rem;
+  -moz-border-radius: 1.250rem;
+  -webkit-border-radius: 1.250rem;
+}
+
+.strad {
+  background: #fff;
+  width: 0.688rem;
+  height: 3.125rem;
+  position: absolute;
+  margin: 3.625rem 0 0 13.750rem;
+  -webkit-transform: rotate(-21deg);
+  -o-transform: rotate(-21deg);
+  -moz-transform: rotate(-21deg);
+  transform: rotate(-21deg);
+}
+
+.strada {
+  background: #fff;
+  width: 0.750rem;
+  height: 2.625rem;
+  position: absolute;
+  margin: 3.625rem 0 0 14.313rem;
+}
+
+.fixa {
+  background: #333;
+  width: 0.375rem;
+  height: 1.250rem;
+  position: absolute;
+  margin: 14.563rem 0 0 12.688rem;
+  border-radius: 0 0 0.938rem 0;
+  -moz-border-radius: 0 0 0.938rem 0;
+  -webkit-border-radius: 0 0 0.938rem 0;
+  -webkit-transform: rotate(15deg);
+  -o-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  transform: rotate(15deg);
+}
+
+.fixb {
+  background: #333;
+  width: 4.375rem;
+  height: 5.000rem;
+  position: absolute;
+  margin: 3.688rem 0 0 9.750rem;
+  border-radius: 2.500rem;
+  -moz-border-radius: 2.500rem;
+  -webkit-border-radius: 2.500rem;
+  -webkit-transform: rotate(-25deg);
+  -o-transform: rotate(-25deg);
+  -moz-transform: rotate(-25deg);
+  transform: rotate(-25deg);
+}

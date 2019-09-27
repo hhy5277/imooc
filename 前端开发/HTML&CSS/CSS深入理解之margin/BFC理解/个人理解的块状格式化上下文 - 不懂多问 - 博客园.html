@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://www.cnblogs.com/jjucap/p/5339725.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>个人理解的块状格式化上下文 - 不懂多问 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/bundle-BlackLowKey.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jjucap/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jjucap/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jjucap/wlwmanifest.xml">
+<script src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/jquery.js" type="text/javascript"></script><style type="text/css">div#ad_b4,div#ad_b3,div#ad_b2,div#ad_b1{display:none !important;}</style>  
+<script type="text/javascript">var currentBlogApp = 'jjucap', cb_enable_mathjax=false;</script>
+<script src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/jjucap/"><img id="blogLogo" src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/jjucap/">不懂多问</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/jjucap/">首页</a></li>
+<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="MyLinks1_ContactLink" class="menu" rel="nofollow" href="http://msg.cnblogs.com/send/%E4%B8%8D%E6%87%82%E5%A4%9A%E9%97%AE">联系</a></li>
+<li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/jjucap/rss">订阅</a>
+<!--<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/jjucap/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			
+<span id="stats_post_count">随笔 - 8&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 0</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/个人理解的块状格式化上下文 - 不懂多问 - 博客园.html">个人理解的块状格式化上下文</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>第一次看到层叠上下文这个东西并不知道这是个什么，去看了一些大神的文章，然后发现类似的有BFC，然后牵扯出一系列的什么是FC,什么是BFC,什么是IFC等。以下的东西是摘抄别人文章的一些内容和一些自己的理解，方便自己回忆吧。</p>
+<p>&nbsp;</p>
+<p>FC(Formatting Context)翻译过来就是格式化上下文/格式化范围，指的是页面布局中的一块区域，它拥有自己的渲染规则，决定自己的子元素如何布局，并和其他元素的关系和作用。</p>
+<p>&nbsp;</p>
+<p>根据css显示分类，xhtml元素被分为三种类型：块状元素，内联元素，可变元素。给页面元素加样式的时候我们得知道这个元素是什么类型，然后可以自己对元素类型转化。就像我们可以通过display来让某个内联元素变成块状元素（display：block）。有几个特别的元素img，input默认是inline-block；</p>
+<p>BFC(块级格式化上下文)，只有块状元素起作用。相对应得IFC就是内联元素。（不知道我这样理解对不对）。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>什么是块状格式化上下文（BFC）？相当于一个特殊的区域。</p>
+<p>如果一个元素符合了成为BFC的条件，该元素成为一个隔离了的独立容器，元素内部元素会垂直的沿着其父元素的边框排列，和外部元素互不影响 。</p>
+<p>&nbsp;</p>
+<p>触发 BFC 的条件如下：</p>
+<ul>
+<li>浮动元素，float 除 none 以外的值</li>
+<li>绝对定位元素，position（absolute，fixed）</li>
+<li>display 为以下其中之一的值 inline-blocks，table-cells，table-captions。//就是不是块级盒子的块容器</li>
+<li>overflow 除了 visible 以外的值（hidden，auto，scroll）</li>
+</ul>
+<p>&nbsp;</p>
+<p>满足了上面这四个条件之一，就会创建一个BFC，它里面的内容所处的环境就是BFC环境。</p>
+<p>在 CSS3 中，BFC 叫做 Flow Root，并增加了一些触发条件：</p>
+<ul>
+<li>display 的 table-caption 值</li>
+<li>position 的 fixed 值，其实 fixed 是 absolute 的一个子类，因此在 CSS2.1 中使用这个值也会触发 BFC ，只是在 CSS3 中更加明确了这一点。</li>
+</ul>
+<p><span style="line-height: 1.5;">元素设置 IE 特有的 CSS 属性 zoom: 1 触发 hasLayout ，zoom 用于设置或检索元素的缩放比例，值为“1”即使用元素的实际尺寸，使用 zoom: 1 既可以触发 hasLayout 又不会对元素造成其他影响，相对来说会更为方便。这是ie下的情况</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;BFC的作用：</p>
+<h4>(1) BFC 会阻止外边距折叠</h4>
+<p>我理解折叠的意思就是外边距会重叠，并不会分的很清，就像你的就是我的，我的也是你的。</p>
+<p>外边距折叠的规则：仅当两个块级元素相邻并且在同一个块级格式化上下文时，它们垂直方向之间的外边距才会叠加。也就是说，即便两个块级元素相邻，但当它们不在同一个块级格式化上下文时它们的边距也不会折叠。因此，阻止外边距折叠只需产生新的 BFC 。</p>
+<p>但是对于两个相邻元素来说，意义不大，没有必要给它们加个外壳，但是对于嵌套元素来说就很有必要了，只要把父元素设为BFC就可以了。这样子元素的margin就不会和父元素的margin发生折叠了。</p>
+<h4>(2) BFC 可以包含浮动的元素</h4>
+<p>&nbsp;这说明BFC中子元素不会超出他的包含块，而position为absolute的元素可以超出他的包含块边界</p>
+<p>&nbsp;</p>
+<h4>(3) BFC 可以阻止元素被浮动元素覆盖</h4>
+<p>&nbsp;这是根据每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。这个原理实现的。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html这篇大神总结的blog比较简单清晰。</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5339725,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://msg.cnblogs.com/send/%E4%B8%8D%E6%87%82%E5%A4%9A%E9%97%AE" target="_blank">联系我</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/icon_weibo_24.png" alt=""></a>
+<a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/jjucap/" target="_blank"><img src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/20160405104436.png" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/jjucap/">不懂多问</a><br>
+<a href="http://home.cnblogs.com/u/jjucap/followees">关注 - 8</a><br>
+<a href="http://home.cnblogs.com/u/jjucap/followers">粉丝 - 3</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(5339725,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+	<div class="buryit" onclick="votePost(5339725,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/jjucap/p/5345945.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/jjucap/p/5345945.html" title="发布于2016-04-01 18:43">行框与浮动与清除浮动</a><br><a href="http://www.cnblogs.com/jjucap/p/5532403.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/jjucap/p/5532403.html" title="发布于2016-05-26 19:41">闭包的理解</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-04-12 01:24</span> <a href="http://www.cnblogs.com/jjucap/">不懂多问</a> 阅读(<span id="post_view_count">24</span>) 评论(<span id="post_comment_count">0</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=5339725" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/jjucap/p/5339725.html#" onclick="AddToWz(5339725);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=276456,cb_entryId=5339725,cb_blogApp=currentBlogApp,cb_blogUserGuid='a8b65d22-c6d7-e511-9fc1-ac853d9f53cc',cb_entryCreatedDate='2016/4/12 1:24:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/jjucap/p/5339725.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/jjucap/p/5339725.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/" target="_blank">【推荐】融云即时通讯云－豆果美食、Faceu等亿级APP都在用</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/spreadjs/?utm_source=cnblogs&utm_medium=blogpage&utm_term=bottom&utm_content=SpreadJS&utm_campaign=community" target="_blank"><img width="300" height="250" src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/24442-20160630110700952-722310635.gif" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/549019/" target="_blank">酷派预估上半年亏损20.5亿港元 与360合作亏掉18.9亿港元</a><br> ·  <a href="http://news.cnblogs.com/n/549018/" target="_blank">雷军内部发言：小米正在谷底 反弹马上就要开始了</a><br> ·  <a href="http://news.cnblogs.com/n/549017/" target="_blank">爱奇艺也进军直播了：发布奇秀直播APP 主打追星与造星</a><br> ·  <a href="http://news.cnblogs.com/n/549016/" target="_blank">百度旅游被指盗用蚂蜂窝游记 百度回应称是用户个人行为</a><br> ·  <a href="http://news.cnblogs.com/n/549015/" target="_blank">AI遇上VR Gowild娱乐黑科技holoera惊艳面世</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block"><a href="https://www.jiguang.cn/?from=cnblogs01" target="_blank"><img width="468" height="60" src="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/24442-20160613130538213-1713265809.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/544641/" target="_blank">抽象：程序员必备的能力</a><br> ·  <a href="http://kb.cnblogs.com/page/213197/" target="_blank">编程同写作，写代码只是在码字</a><br> ·  <a href="http://kb.cnblogs.com/page/207265/" target="_blank">遇见程序员男友</a><br> ·  <a href="http://kb.cnblogs.com/page/511529/" target="_blank">设计师的视觉设计五项修炼</a><br> ·  <a href="http://kb.cnblogs.com/page/514193/" target="_blank">我听到过的最精彩的一个软件纠错故事</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/jjucap/">不懂多问</a><br>园龄：<a href="http://home.cnblogs.com/u/jjucap/" title="入园时间：2016-02-20">4个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/jjucap/followers/">3</a><br>关注：<a href="http://home.cnblogs.com/u/jjucap/followees/">8</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;a8b65d22-c6d7-e511-9fc1-ac853d9f53cc&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2016/06/01&#39;);return false;">&lt;</a></td><td align="center">2016年7月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2016/08/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalTodayDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jjucap/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/jjucap/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/jjucap/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/jjucap/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/jjucap/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="http://www.cnblogs.com/jjucap/p/5339725.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/jjucap/archive/2016/06.html">2016年6月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/jjucap/archive/2016/05.html">2016年5月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/jjucap/archive/2016/04.html">2016年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/jjucap/archive/2016/03.html">2016年3月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/jjucap/p/5605523.html">1. webpack-dev-server的配置(161)</a></li><li><a href="http://www.cnblogs.com/jjucap/p/5332350.html">2. 关于offset,scroll,position(32)</a></li><li><a href="./个人理解的块状格式化上下文 - 不懂多问 - 博客园_files/个人理解的块状格式化上下文 - 不懂多问 - 博客园.html">3. 个人理解的块状格式化上下文(24)</a></li><li><a href="http://www.cnblogs.com/jjucap/p/5345945.html">4. 行框与浮动与清除浮动(15)</a></li><li><a href="http://www.cnblogs.com/jjucap/p/5532403.html">5. 闭包的理解(7)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2016 不懂多问
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

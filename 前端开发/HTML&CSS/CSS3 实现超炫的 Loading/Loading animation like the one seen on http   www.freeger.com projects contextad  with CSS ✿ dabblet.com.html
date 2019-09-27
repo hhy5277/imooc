@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://dabblet.com/gist/6046779 -->
+<html lang="en" class=" -webkit- supports-range"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+<title>Loading animation like the one seen on http://www.freeger.com/projects/contextad/ with CSS ✿ dabblet.com</title>
+<meta name="author" content="Lea Verou">
+<meta name="description" content="An interactive CSS playground and code sharing tool. Dabblet saves to Github gists and offers many conveniences for CSS editing.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style media="" data-href="/style/global.css">/**
+ * Variables
+ */
+header,
+.popup,
+.dropdown {
+	background: hsla(200, 10%, 20%, .9) url("http://dabblet.com/img/noise.png");	
+	color: white;
+	text-shadow: 0 -1px 1px black, 0 -1px 2px black;
+}
+
+.popup,
+.dropdown {
+	border: 1px solid rgba(0,0,0,.4);
+	border-radius: .5em;
+	box-shadow: 0 1px rgba(255,255,255,.3) inset,
+				.2em .2em .6em black;
+}
+
+.popup > .content {
+	background: hsl(24, 20%, 95%) url("http://dabblet.com/img/noise.png");
+	color: black;
+	text-shadow: 0 1px white;
+	box-shadow: 0 .1em .5em rgba(0,0,0,.8) inset;
+}
+
+.popup > .close,
+menu > .command:not([data-disabled]) {
+	transition: .5s box-shadow;
+}
+
+.popup > .close:hover,
+menu > .command:not([data-disabled]):hover {
+	background: rgba(0,0,0,.3);
+	box-shadow: .05em .05em .25em black inset;
+}
+
+.popup > .close:active,
+menu > .command:not([data-disabled]):active {
+	background: rgba(0,0,0,.4);
+	box-shadow: .15em .15em .15em black inset;
+}
+
+/**
+ * CSS rules that apply to both the dabblet app and subpages
+ */
+ 
+@font-face {
+	font-family: 'Dabblet';
+	src: url("http://dabblet.com/img/dabblet.ttf");
+}
+
+@font-face {
+	font-family: Primary;
+	src: local('Baskerville');
+}
+
+@-webkit-keyframes bugfix { from { padding: 0; } to { padding: 0; } }
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	font: 100%/1.5 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+body {
+	position: relative;
+	height: 100%;
+	border-top: 10px solid transparent;
+	box-sizing: border-box;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.button,
+button,
+.tab {
+	padding: .45em .6em;
+	border: 0;
+	border-radius: .3em;
+	color: inherit;
+	font: inherit;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	text-shadow: inherit;
+}
+
+.button,
+button {
+	float: left;
+	border: 1px solid rgba(0,0,0,.4);
+	margin: 0 .2em;
+	background: url("http://dabblet.com/img/noise.png");
+	white-space: nowrap;
+	box-shadow: rgba(255, 255, 255, .4) 0 1px 0 inset, 
+				rgba(255, 255, 255, .3) 0 25px 30px -12px inset, 
+				rgba(0, 0, 0, .6) 0 1px 2px;
+}
+
+button.with-symbol,
+.button.with-symbol {
+	font-family: Dabblet, sans-serif;
+	font-weight: normal;
+}
+
+.button:hover,
+.button:active,
+button:hover,
+button:active,
+.tab:hover,
+.tab:active {
+	background-color: black;
+}
+
+header ~ * button,
+header ~ * .button,
+header ~ button,
+header ~ .button {
+	color: black;
+	text-shadow: 0 1px 1px white;
+}
+
+header ~ * button:hover,
+header ~ * .button:hover,
+header ~ button:hover,
+header ~ .button:hover,
+header ~ * button:active,
+header ~ * .button:active,
+header ~ button:active,
+header ~ .button:active {
+	color: white;
+	text-shadow: 0 -1px 1px black, 0 -1px 2px black;
+}
+
+body > header {
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	left: 0;
+	z-index: 10;
+	padding: .4em .5em 0;
+	border-bottom: 10px solid black;
+	background: url("http://dabblet.com/img/noise.png"), linear-gradient(hsl(200, 10%, 20%), hsla(200, 10%, 20%, .9));
+	color: white;
+	line-height: 1.1;
+	font-weight: bold;
+	text-shadow: 0 -1px 1px black, 0 -1px 2px black;
+	transition: .5s 1s transform;
+}
+
+body > header:hover,
+body > header:active,
+body > header.focus {
+	transform: translateY(-10px) translateY(100%);
+	transition-delay: 0s;
+}
+
+	body > header > h1 {
+		float: left;
+		height: 1.3em;
+		margin-right: .1em;
+		font: 190%/1.6 Dabblet, sans-serif;
+		text-shadow: .05em .05em .1em black;
+		-webkit-transform: translateZ(0); /* fix for chopped letters */
+	}
+	
+	body > header > .with-dropdown {
+		float: left;
+	}
+	
+		.tabs input {
+			position: absolute;
+			z-index: 1;
+			opacity: 0;
+		}
+	
+		.tabs {
+			display: inline-block;
+			height: .75em;
+			margin: 0 33px 0 -.5em;
+			white-space: nowrap;
+			font-size: 110%;
+			line-height: 1.4;
+			-webkit-font-smoothing: antialiased; /* fix for WebKit inconsistency */
+			-webkit-transform: translateZ(0); /* fix for unhoverable tabs */
+		}
+		
+		.controls-group {
+			float: right;
+			min-width: 15em;
+			white-space: nowrap;
+		}
+	
+				
+		body[data-unsaved] button[title="Save"] {
+			text-shadow: 0 0 .2em #6cf, 0 0 .4em #6cf;
+		}
+		
+		header > .with-dropdown > button:after,
+		header > .with-dropdown > .button:after {
+			content: ' ▾';
+		}
+		
+		.button:active,
+		button:active,
+		input:checked + label.button {
+			box-shadow: 0 2px 6px black inset;
+		}
+		
+		input:checked + label.button {
+			background-color: rgba(0,0,0,.3);
+		}
+		
+		#currentuser {
+			max-width: 12em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		
+		.no-cors #currentuser {
+			display: none;
+		}
+		
+		@media (max-width: 1000px) {
+			#currentuser {
+				max-width: 8em;
+			}
+		}
+		
+		@media (max-width: 800px) {
+			#currentuser {
+				max-width: 3em;
+			}
+		}
+		
+		@media (max-width: 800px) and (min-width: 400px) {
+			#currentuser {
+				max-width: none;
+			}
+		}
+		
+		#currentuser:not(:hover) {
+			background-color: transparent;
+		}
+		
+			header .user > img {
+				max-height: 1.4em;
+				margin: -.2em .3em -.2em -1.6em;
+				vertical-align:bottom;
+				border-radius: 1px;
+				box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+			}
+			
+			#currentuser > img {
+				margin-left: -.3em;
+			}
+			
+		a.button[href^="/help/"] {
+			position: absolute;
+			right: 3px;
+			bottom: 5px;
+			background-color: transparent;
+		}
+		
+		@-webkit-keyframes flip {
+			from { transform: perspective(600px) rotate3d(1,0,0,180deg); }
+			  to { transform: perspective(600px) rotate3d(1,0,0,  0deg); }
+		}
+		
+		.tab {
+			position: relative;
+			top: 0;
+			display: inline-block;
+			padding: .5em .6em;
+			border: 0;
+			margin: 0 0 -5px;
+			background: rgba(0,0,0,.2);
+			cursor: pointer;
+			transform-origin: bottom;
+			border-radius: 5px;
+			box-shadow: .05em .1em .2em rgba(0,0,0,.7) inset;
+			text-shadow: inherit;
+			-webkit-animation: flip .5s;
+		}
+		
+		.tabs > input:checked + .tab,
+		.tab.active {
+			background: black;
+			top: 2.5em;
+			-webkit-animation: flip .6s;
+			transform-origin: top;
+		}
+		
+			body[data-view="separate"] .tab .if-not-separate {
+				display: none;
+			}
+			
+			.tabs > label > .title {
+				overflow: hidden;
+				transition: 1s max-width;
+			}
+		
+		.dropdown {
+			display: none;
+			position: absolute;
+			z-index: 2;
+			min-width: 12em;
+			max-width: 400px;
+			padding: .3em;
+			margin: 2.2em 0 0 -1em;
+			font-family: sans-serif;
+			text-align: left;
+			-webkit-transform: translateZ(0); /* fix for unhoverable dropdowns */
+		}
+		
+		/* pointer */
+		.dropdown:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: -6px;
+			left: 2.5em;
+			width: 12px;
+			height: 12px;
+			border: inherit;
+			border-bottom-width:0;
+			border-right-width:0;
+			margin-left: -9px;
+			background: url("http://dabblet.com/img/noise.png"), linear-gradient(-45deg, hsl(200, 10%, 20%) 52%, hsla(200, 10%, 20%, 0) 55%);
+			background-origin: border-box;
+			transform: rotate(45deg);
+			box-shadow: 1px 0 rgba(255,255,255,.3) inset;
+		}
+		
+		.with-dropdown {
+			padding-bottom: 3px;	
+		}
+		
+		.with-dropdown:hover > .dropdown,
+		.with-dropdown.focus > .dropdown,
+		.with-dropdown:active > .dropdown,
+		.dropdown:hover,
+		.dropdown:active,
+		.dropdown.focus {
+			display: block;
+		}
+		
+		header fieldset {
+			font-size: 90%;
+		}
+		
+			header fieldset > legend {
+				font-size: 110%;
+			}
+			
+			#view > .segmented-control {
+				margin: .1em 0 .8em;
+			}
+			
+			#view label.font-size {
+				margin: .5em;
+			}
+			
+				#view label.font-size span {
+					display: inline-block;
+					vertical-align: middle;
+					font: 100% 'Baskerville', 'Palatino Linotype', Palatino, serif;
+				}
+				
+				#view label.font-size span:first-child {
+					font-size: 50%;
+				}
+				
+				#view label.font-size span:last-child {
+					font-size: 200%;
+				}
+				
+				#view label.font-size input {
+					width: 220px;
+					vertical-align: middle;
+				}
+					
+			fieldset > label.checkbox {
+				display: block;
+				margin: .2em 0;
+				font-weight: normal;
+			}
+		
+			menu > .command {
+				display: block;
+				padding: .4em;
+				border-radius: .3em;
+				cursor: pointer;
+			}
+			
+			menu > .command[data-disabled] {
+				opacity: .5;
+				cursor: not-allowed;
+			}
+				
+				menu > .command:before {
+					content: '';
+					display: inline-block;
+					width: 1.4em;
+				}
+				
+				menu > .command[data-keyboard]:after {
+					content: attr(data-keyboard);
+					float: right;
+					opacity: .6;
+				}
+				
+				menu > input:checked + label.command:before {
+					content: '✔';
+					color: hsla(0,0%,100%,.5);
+				}
+			
+			menu > hr {
+				height: 2px;
+				border: 0;
+				margin: .1em 0;
+				background: rgba(255,255,255,.5);
+				background: linear-gradient(90deg, transparent, black 50%, transparent) top,
+							linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.5) 50%, rgba(255,255,255,0)) bottom;
+				background-repeat: repeat-x;
+				background-size: 100% 1px;
+			}
+
+@-webkit-keyframes loader {
+	from {
+		background-position: 0 0;
+	}
+	
+	to {
+		background-position: -700px 0;
+	}
+}
+
+#loader {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	padding-top: 100px;
+	margin-top: -50px;
+	margin-left: -50px;
+	background: url("http://dabblet.com/img/loader.png") no-repeat left top;
+	color: rgba(0,0,0,.5);
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 0 1px white;
+	
+	-webkit-animation: loader 1s infinite steps(7);
+}
+
+body[data-loading] > #loader {
+	display: block;
+}
+
+/**
+ * Responsive shit
+ */
+@media (max-width: 400px) {
+	html {
+		font-size: 90%;
+	}
+}
+
+@media (max-width: 620px) {
+	header > .with-dropdown button:after {
+		content: '';
+		content: none;
+	}
+	
+	.dropdown {
+		max-width: 200px;
+		margin-left: -9em;
+	}
+	
+	.dropdown:before {
+		left: 10.5em;
+	}
+	
+	.segmented-control > input[type="radio"] + label {
+		padding: .1em .5em;
+		font-size: .8em;
+	}
+}
+
+@media (max-width: 800px) {
+	html {
+		font-size: 95%;
+	}
+	
+	.controls-group {
+		margin-top: .2em;
+	}
+	
+	.tabs {
+		height: 2.2em;
+	}
+	
+	.popup {
+		width: 290px;
+		padding: .5em .5em 5em;
+		margin-left: -145px;
+		top: 2%;
+		bottom: 2%;
+	}
+}
+
+@media (min-width: 1000px) {
+	.popup {
+		width: 800px;
+		margin-left: -400px;
+	}
+	
+		.popup > .content > div {
+			-webkit-column-count: 2;
+			-webkit-column-gap: 2em;
+			-webkit-column-rule: 3px dotted slategray;
+			column-fill: balance;
+		}
+}
+
+/* Auto-hiding top bar */
+@media (min-height: 600px) {
+	body {
+		border-top-width: 3.4em;
+	}
+	
+	body > header,
+	body > header:hover,
+	body > header:active,
+	body > header.focus {
+		transform: none;
+	}
+	
+	.tabs > input + label,
+	.tabs > input:checked + .tab,
+	.tab.active {
+		-webkit-animation: none;
+	}
+	
+	.tabs > input:checked + .tab,
+	.tab.active {
+		top: 0;
+	}
+}
+
+html.document > body {
+	border-top-width: 3.4em;
+}
+
+	html.document > body > header,
+	html.document > body > header:hover,
+	html.document > body > header:active,
+	html.document > body > header.focus {
+		position: fixed;
+		transform: translateY(100%);
+	}
+	
+	html.document .tabs > input + label,
+	html.document .tabs > input:checked + .tab,
+	html.document .tab.active {
+		-webkit-animation: none;
+	}
+	
+	html.document .tabs > input:checked + .tab,
+	html.document .tab.active {
+		top: 0;
+	}
+
+::selection {
+	background-color: hsla(24, 20%, 50%,.5);
+	color: white;
+	text-shadow: 0 -1px 1px hsl(24, 20%, 50%);
+}
+
+/**
+ * Style scrollbars in Webkit
+ * Warning: nonstandard CSS ahead
+ */
+::-webkit-scrollbar {
+	width: 20px;
+	height: 20px;
+}
+
+section.page:not(.focus):not(:hover)::-webkit-scrollbar {
+	display: none;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+	border-radius: 999px;
+	border: 5px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+	min-height: 20px;
+	background: url("http://dabblet.com/img/noise.png");
+	background-clip: content-box;
+	box-shadow: 0 0 0 5px hsla(24, 20%, 50%,.4) inset;
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}</style>
+<style media="" data-href="/style/style.css">/**
+ * Variables
+ */
+
+#easing > svg,
+#fontfamily,
+#entity {
+	background: url("http://dabblet.com/img/noise.png"), linear-gradient(hsla(200, 10%, 20%, .8), hsl(200, 10%, 20%));
+}
+
+/**
+ * Styles
+ */
+
+fieldset {
+	padding: .5em;
+	border: 0;
+	margin-top: .5em;
+}
+
+[aria-hidden="true"] {
+	display: none !important;
+}
+
+input:focus + label[for],
+label.focus {
+	outline: auto;
+	outline: 2px auto -webkit-focus-ring-color; /* Warning: nonstandard */
+}
+
+button, .button {
+	padding: .45em .6em;
+	border: 1px solid rgba(0,0,0,.4);
+	border-radius: .3em;
+	white-space: nowrap;
+	text-decoration: none;
+	background-image: url("http://dabblet.com/img/noise.png");
+	background-color: inherit;
+	color: inherit;
+	font: inherit;
+	box-shadow: rgba(255, 255, 255, .4) 0 1px 0 inset, 
+				rgba(255, 255, 255, .3) 0 25px 30px -12px inset, 
+				rgba(0, 0, 0, .6) 0 1px 2px;
+	text-shadow: 0 -1px 1px black, 0 -1px 2px black;
+	cursor: pointer;
+}
+
+button.danger,
+.button.danger {
+	background-color: rgba(196, 0, 0, .8);
+	text-shadow: 0 -1px 1px rgba(0,0,0,.5), 0 -1px 2px rgba(0,0,0,.5);
+}
+
+button.danger:hover,
+.button.danger:hover {
+	background-color: red;
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	display: inline-block;
+	width: .9rem;
+	height: .9rem;
+	padding-left: .1rem;
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	background: rgba(0,0,0,.2);
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+	outline: none;
+	border-radius: 2px;
+	box-shadow: 1px 1px 5px black inset;
+	text-align: right;
+	overflow: visible;
+	color: transparent;
+	font-size: 1.2rem;
+	line-height: .6rem;
+}
+
+input[type="checkbox"]:checked {
+	color: white;
+	text-shadow: inherit;
+}
+
+input[type="checkbox"]::after {
+	content: '✓';
+}
+
+.-webkit- input[type="range"] {
+	-webkit-appearance: none;
+	height: 1px;
+	border-top: 1px solid black;
+	background: hsla(0,0%,100%,.3);
+}
+	
+	/* Warning: nonstandard */
+	input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		width: 1.4em;
+		height: 1.4em;
+		border: 1px solid rgba(0,0,0,.4);
+		border-radius: 50%;
+		cursor: pointer;
+		background: 
+			hsl(200, 10%, 20%) url("http://dabblet.com/img/noise.png");
+		box-shadow: rgba(255, 255, 255, .3) 0 1px 0 inset, 
+					rgba(255, 255, 255, .1) 0 5px 6px -2px inset, 
+					rgba(0, 0, 0, .6) 0 1px 2px;
+	}
+	
+	input[type="range"]::-webkit-slider-thumb:active {
+		width: 1.6em;
+		height: 1.6em;
+	}
+
+label.slider {
+	display: none;
+}
+
+html.supports-range label.slider {
+	display: block;
+}
+
+.segmented-control {
+	display: table;
+}
+
+	.segmented-control > input[type="radio"] {
+		position: absolute;
+		z-index: 1;
+		opacity: 0;
+	}
+	
+	.segmented-control > input[type="radio"] + label {
+		float: none;
+		display: table-cell;
+		padding: .4em .9em;
+		margin: .15em;
+		overflow: hidden;
+		text-align: left;
+		line-height: 25px;
+		border-radius: 0;
+	}
+	
+	.segmented-control > input[type="radio"] + label:first-of-type,
+	.segmented-control > input[type="radio"] + label:last-of-type {
+		border-radius: .4em;
+	}
+	
+	.segmented-control > input[type="radio"] + label:first-of-type {
+		border-right: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	
+	.segmented-control > input[type="radio"] + label:last-of-type {
+		border-left: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	
+	.segmented-control > input[type="radio"] + label:nth-of-type(n+2):nth-last-of-type(n+2) {
+		border-left: 0;
+		border-right: 0;
+	}
+	
+.no-cors #cloud {
+	display: none;
+}
+
+.amp {
+	font: italic 160%/.5 Baskerville, 'Palatino Linotype', 'Goudy Old Style', Constantia, Palatino, serif;
+	vertical-align: -.1em;
+	opacity: .7;
+}
+
+.page {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	outline: none;
+	resize: none;
+	background: transparent;
+	transition-duration: .5s;
+	transition-property: top, left, width, height;
+}
+
+.editor.page {
+	display: none;
+	box-sizing: border-box;
+	height: 100%;
+	overflow: auto;
+	background: url("http://dabblet.com/img/noise.png") hsl(24, 20%, 95%);
+	font: 100%/1.5em Monaco, Consolas, Inconsolata, 'Deja Vu Sans Mono', 'Droid Sans Mono', 'Andale Mono', 'Lucida Console', monospace;
+	tab-size: 4;
+	word-wrap: normal;
+	text-shadow: 0 1px white;
+	box-shadow: 1px 1px 2px rgba(0,0,0,.3) inset;
+}
+
+body[data-page="all"]:not([data-seethrough]) #html-container {
+	background-color: hsl(24, 20%, 92%);
+}
+
+.editor.page.focus {
+	box-shadow: .1em .1em .4em rgba(0,0,0,.5) inset;
+}
+
+body[data-seethrough] > .editor.page {
+	background: transparent;
+}
+
+body[data-seethrough] .editor.page,
+body[data-seethrough] .editor.page > pre,
+body[data-seethrough] .editor.page > pre > span.token {
+	text-shadow: 0 .1em white, 0 -.1em white, .1em 0 white, -.1em 0 white,
+				 .1em .1em white, -.1em .1em white, .1em -.1em white, -.1em -.1em white;
+	text-shadow: 0 0 0 .1em white;
+}
+
+	.editor.page > pre {
+		position: relative;
+		padding: 1em 1.5em 1em 3em;
+		overflow: visible;
+		background: linear-gradient(90deg, hsl(24, 20%, 87%) 1px, hsl(24, 20%, 95%)) -3px no-repeat;
+		background-size: 2px 100%;
+		background-origin: content-box;
+		word-wrap: normal;
+		font: inherit;
+		outline: none;
+	}
+	
+#result {
+	z-index: 0;
+}
+
+body[data-page="css"] #css-container,
+body[data-page="html"] #html-container,
+body[data-page="javascript"] #javascript-container,
+body[data-page="all"] .page:not(#javascript-container) {
+	display: block;
+}
+
+/*
+ * Define the different views
+ */
+
+body[data-view="split-vertical"] > .page,
+body[data-page="all"][data-view="separate"] .editor.page {
+	width: 50%;
+}
+
+body[data-view="split-vertical"] > #result,
+body[data-page="all"][data-view="separate"] #html-container {
+	left: 50%;
+}
+
+body[data-view="split"] > .page,
+body[data-page="all"][data-view="separate"] > .page,
+body:not([data-view]) > .page {
+	height: 50%;
+}
+
+body[data-view="split"] > .editor.page,
+body:not([data-view]) > .editor.page,
+body[data-page="all"][data-view="separate"] .editor.page {
+	top: 50%;
+}
+
+body[data-page="all"][data-view="split"] .page {
+	height: 40%;
+}
+
+body[data-page="all"][data-view="split"] #css-container {
+	top: 40%;
+}
+
+body[data-page="all"][data-view="split-vertical"] .page:not(#html-container) {
+	height: 80%;
+}
+
+body[data-page="all"][data-view^="split"] #html-container {
+	width: 100%;
+	height: 20%;
+	top: 80%;
+}
+
+body[data-seethrough] > #result,
+body[data-page="result"] > #result {
+	top: 0 !important; 
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.for-code {
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 10px 10px 0 0;
+	font-weight: bold;
+	transition-duration: .5s;
+	transition-property: top, right;
+}
+
+body[data-page="css"] .for-code.css,
+body[data-page="javascript"] .for-code.javascript,
+body[data-page="html"] .for-code.html {
+	display: block;
+}
+
+body[data-view="split-vertical"] .for-code {
+	right: 50%;
+}
+
+body[data-view="split"] .for-code {
+	top: 50%;
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding-left: .6em;
+	margin-top: 1em;
+	background: url("http://dabblet.com/img/noise.png") hsla(24, 20%, 50%,.05);
+	background: url("http://dabblet.com/img/noise.png"), linear-gradient(left, hsla(24, 20%, 50%,.08) 70%, hsla(24, 20%, 50%,0));
+}
+
+.editor.page:not(.focus) > .line-highlight,
+body[data-seethrough] .line-highlight {
+	display: none;
+}
+
+	.line-highlight:before,
+	#jserror .line-number {
+		display: inline-block;
+		min-width: 1em;
+		padding: 0 .5em;
+		background: inherit;
+		font: bold 65%/1.5 sans-serif;
+		text-align: center;
+		vertical-align: .3em;
+		border-radius: 999px;
+		text-shadow: none;
+		box-shadow: 0 1px white;
+	}
+	
+	.line-highlight:before {
+		content: attr(data-line);
+		background-color: hsla(24, 20%, 50%,.4);
+		color: hsl(24, 20%, 95%);
+	}
+
+@-webkit-keyframes jserror {
+	50% {
+		padding-top: 1em;
+	}
+}
+
+#jserror {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: .2em .5em;
+	border-top: 1px solid #ebb;
+	background: #edd;
+	color: #800;
+	text-shadow: 0 1px 1px white;
+	line-height: 1.5;
+}
+
+body[data-page="javascript"] #jserror.active {
+	display: block;
+	-webkit-animation: jserror .2s;
+}
+
+	#jserror .line-number {
+		margin-right: .5em;
+		background: #e99;
+		color: #fee;
+		font-size: 80%;
+		vertical-align: .15em;
+	}
+	
+	#jserror:before {
+		content: '✖';
+		float: right;
+		width: 1em;
+		padding: .2em;
+		border: 4px solid hsla(0,0%,100%,.6);
+		border-radius: 50%;
+		margin-top: -1em;
+		text-align: center;
+		background: #e00;
+		color: white;
+		text-shadow: 0 -1px 2px rgba(0,0,0,.5);
+		font: bold 200%/1 Arial, sans-serif;
+	}
+			
+.popup {
+	display: none;
+	position: absolute;
+	top: 10%;
+	bottom: 10%;
+	left: 50%;
+	z-index: 20;
+	width: 60%;
+	padding: .6em .6em 5.2em;
+	box-sizing: border-box;
+	margin-left: -30%;
+}
+
+.popup:target {
+	display: block;
+}
+
+	.popup > h1 {
+		color: white;
+		font-size: 160%;
+	}
+	
+	.popup > .close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 1.2em;
+		font-size: 150%;
+		line-height: 1.2;
+		font-weight: bold;
+		text-align: center;
+		border-radius: 50%;
+	}
+	
+	.popup > .content {
+		height: 100%;
+		padding: 1em;
+		border: inherit;
+		overflow: auto;
+		background-clip: padding-box;
+		border-radius: 3px;
+	}
+		
+/**
+ * Code hightlighting 
+ */
+.token {
+	/* See issue #3 */
+	padding: .15em 0;
+}
+
+.comment {
+	color: slategray;
+}
+
+.property,
+.tag,
+.boolean,
+.number,
+.popup > .content a {
+	color: #905;
+}
+
+.selector,
+.attr-name,
+.string,
+.popup > .content a:hover {
+	color: #690;
+}
+
+.keyword,
+.atrule,
+.attr-value,
+.popup > .content a:active {
+	color: #07a;
+}
+
+.operator,
+.language-css .string {
+	color: #a67f59;
+	background: hsla(0,0%,100%,.5);
+}
+
+.important {
+	color: #e90;
+	font-weight: bold;
+}
+
+.color,
+.abslength,
+.easing,
+.time,
+.angle,
+.fontfamily,
+.gradient,
+.url,
+.entity {
+	text-shadow: 0 1px white, 0 0 .2em hsla(24, 100%, 50%, .5);
+	cursor: help;
+}
+
+.token[data-active] {
+	text-shadow: 0 1px white, 0 0 .2em hsla(24, 100%, 50%, .8);
+}
+
+.punctuation {
+	color: #999;
+}
+
+
+/**
+ * Cute little value previewers
+ */
+.previewer {
+	display: none;
+	position: absolute;
+	left: 120%; /* off the page */
+	margin-bottom: 10px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 8px rgba(0,0,0,.7);
+}
+
+@-webkit-keyframes previewer {
+	from { transform: scale(.1); }
+	
+	to { transform: scale(1); }
+}
+
+.previewer.active {
+	display: block;
+	transform-origin: 50% 100%;
+	-webkit-animation: previewer .2s;
+	-webkit-animation-timing-function: cubic-bezier(.5,0,.7,1.8);
+}
+
+.previewer.flipped.active {
+	transform-origin: 50% 0%;
+}
+
+	/* pointer */
+	.previewer:before {
+		content: '';
+		position: absolute;
+		bottom: -6px;
+		left: 50%;
+		width: 12px;
+		height: 12px;
+		border: inherit;
+		border-top-width:0;
+		border-left-width:0;
+		margin-left: -6px;
+		border-radius: 12px 0 0;
+		background: white;
+		background: linear-gradient(135deg, transparent 48%, white 48%);
+		transform: rotate(45deg);
+		box-shadow: inherit;
+	}
+	
+	.previewer.flipped:before {
+		top: -6px;
+		background: linear-gradient(315deg, transparent 48%, white 48%);
+		border-radius: 0 0 12px;
+	}
+	
+	.previewer:after,
+	#gradient > div {
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: 2;
+		border: 5px solid white;
+		border-radius: inherit;
+		box-shadow: 1px 1px 5px rgba(0,0,0,.5) inset;
+	}
+	
+	.previewer > img,
+	.previewer > svg {
+		display: block;
+		z-index: 1;
+		position: relative;
+	}
+	
+#color,
+#gradient,
+#url {
+	background: linear-gradient(45deg, #bbb 25%,  transparent 25%, transparent 75%, #bbb 75%, #bbb) 5px 5px, 
+		linear-gradient(45deg, #bbb 25%,  #eee 25%,  #eee 75%, #bbb 75%, #bbb) 15px 15px;
+	background-size:20px 20px;
+}
+
+#color {
+	width: 60px;
+	height: 60px;
+	margin-left: -30px;
+}
+
+	#color:after {
+		background-color: inherit;
+	}
+
+#gradient {
+	width: 180px;
+	height: 100px;
+	margin-left: -100px;
+}
+	
+	#gradient:after {
+		content: none;
+	}
+
+#abslength {
+	max-width: 100%;
+	height: 20px;
+	border: 1px solid white;
+	border-radius: 0;
+	transition: .3s;
+	transition-property:width, margin-left;
+}
+
+	#abslength:before {
+		bottom: -7px;
+		background: url("http://dabblet.com/img/noise.png"),
+					linear-gradient(135deg, hsla(200, 10%, 20%, 0) 47%, hsl(200, 10%, 20%) 48%);
+	}
+	
+	#abslength.flipped:before {
+		border: inherit;
+		border-right-width: 0;
+		border-bottom-width: 0;
+		background: url("http://dabblet.com/img/noise.png"),
+					linear-gradient(135deg, hsla(200, 10%, 20%, 0.6), hsla(200, 10%, 20%, 0.8) 46%, transparent 46%);
+	}
+
+	#abslength[data-size="small"]:before {
+		width: 6px;
+		height: 6px;
+		bottom: -3px;
+		margin-left: -3px;
+	}
+
+	#abslength.flipped[data-size="small"]:before {
+		top: -3px;
+	}
+
+	#abslength:after {
+		border: 0;
+		background: 
+			linear-gradient(left, transparent 19px, rgba(255,255,255,.6) 19px) left top repeat-x,
+			linear-gradient(left, transparent 4px, rgba(255,255,255,.4) 4px) left top repeat-x,
+			url("http://dabblet.com/img/noise.png"), linear-gradient(hsla(200, 10%, 20%, .8), hsl(200, 10%, 20%));
+		background: 
+			linear-gradient(to right, transparent 19px, rgba(255,255,255,.6) 19px) left top repeat-x,
+			linear-gradient(to right, transparent 4px, rgba(255,255,255,.4) 4px) left top repeat-x,
+			url("http://dabblet.com/img/noise.png"), linear-gradient(hsla(200, 10%, 20%, .8), hsl(200, 10%, 20%));
+		background-size: 20px 10px, 5px 5px, auto, auto;
+		box-shadow: none;
+	}
+	
+#time,
+#angle {
+	width: 74px;
+	height: 74px;
+	margin-left: -37px;
+	background: linear-gradient(right, hsla(24, 20%, 95%, .4), hsl(24, 20%, 95%) 95%);
+	border-radius: 37px;
+}
+
+	#time:before,
+	#angle:before {
+		bottom: -4px;
+	}
+	
+	#time:after,
+	#angle:after {
+		background: url("http://dabblet.com/img/noise.png");
+		z-index: 2;
+	}
+	
+	#angle > svg,
+	#time > svg {
+		margin: 5px;
+		width: 64px;
+		height: 64px;
+		border-radius: 32px;
+		background: inherit;
+		transform: rotate(-90deg);
+		-webkit-transform: translateZ(0) rotate(-90deg); /* bugfix for WebKit */
+	}
+	
+	#angle[data-negative] > svg {
+		transform:  scaleX(-1) rotate(-90deg);
+		-webkit-transform:  translateZ(0) scaleX(-1) rotate(-90deg); /* bugfix for WebKit */
+	}
+	
+		#time circle,
+		#angle circle {
+			stroke: hsl(200, 10%, 20%);
+			stroke-opacity: .9;
+			fill: transparent;
+			stroke-width: 31.8;
+		}
+	
+#fontfamily {
+	padding: .5em 0 .3em;
+	width: 10em;
+	margin-left: -5em;
+	color: white;
+	font-size: 150%;
+	font-style: italic;
+	line-height: 1.8;
+	text-align: center;
+	white-space: pre-line;
+}
+
+#fontfamily:first-line {
+	display: block;
+	font-style: normal;
+}
+	
+#easing {
+	width: 100px;
+	height: 100px;
+	padding: 5px;
+	margin-left: -50px;
+}
+	
+	
+	#easing:after {
+		z-index: 2;
+	}
+		
+		
+		#easing circle {
+			stroke: white;
+			fill: hsl(200, 10%, 20%);
+		}
+		
+		#easing path {
+			 fill: none;
+			 stroke: white;
+			 stroke-width: 4;
+			 stroke-linecap: round;
+		}
+		
+		#easing line {
+			stroke: white;
+			stroke-opacity:.5;
+			stroke-width: 2;
+			marker: url(#marker);
+		}
+		
+#url {
+	padding: 5px;
+}
+
+	#url > img {
+		max-width: 200px;
+		max-height: 200px;
+	}
+	
+	#url > img.error {
+		width: 50px;
+		height: 50px;
+	}
+	
+#entity {
+	min-width: 1.6em;
+	margin-left: -.8em;
+	font-size: 500%;
+	color: white;
+	text-align: center;
+	text-shadow: .02em .02em .06em black;
+}</style>
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/prefixfree.min.js"></script>
+
+<script>window._gaq = [['_setAccount', 'UA-27750908-1'], ['_trackPageview']];</script>
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/ga.js" async=""></script>
+
+</head>
+<body data-view="split" data-page="css" class="" style="">
+
+<header>
+	<h1><a href="http://dabblet.com/" title="New dabblet">dabblet</a></h1>
+	
+	<div class="with-inactive-dropdown">
+		<a id="currentuser" target="_blank" class="user button">Log in</a>
+		<menu class="dropdown">
+			<a href="http://dabblet.com/user/" target="_blank" class="command my-profile">My profile</a>
+			<a href="http://dabblet.com/" onclick="Dabblet.user.logout()" class="command">Log out</a>
+		</menu>
+	</div>
+	
+	<div class="with-dropdown">
+		<button class="with-symbol" title="Settings">⚙</button>
+		<form id="settings" class="dropdown">
+			<fieldset id="view">
+				<legend>View settings</legend>
+				
+				<div class="segmented-control">
+					<input type="radio" name="view" value="split" id="view-split" checked="" data-scope="file">
+					<label for="view-split" class="button" title="Horizontal split">Horizontal</label>
+					
+					<input type="radio" name="view" value="split-vertical" id="view-split-vertical" data-scope="file">
+					<label for="view-split-vertical" class="button" title="Vertical split">Vertical</label>
+					
+					<input type="radio" name="view" value="separate" id="view-separate" data-scope="file">
+					<label for="view-separate" class="button" title="Separate">Separate</label>
+				</div>
+				
+				<label class="font-size slider" title="Font size">
+					<span title="Smaller">A</span>
+					<input type="range" name="fontsize" min="50" max="200" value="100" step="10" data-scope="file">
+					<span title="Larger">A</span>
+				</label>
+				
+				<label class="checkbox">
+					<input type="checkbox" name="seethrough" value="1" data-scope="file">
+					See-through code
+				</label>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Libraries</legend>
+				<label class="checkbox">
+					<input type="checkbox" name="prefixfree" value="1" data-scope="file" checked="">
+					Use -prefix-free
+				</label>
+			</fieldset>
+		</form>
+	</div>
+	
+	<div class="with-dropdown" id="cloud">
+		<button id="save-button" class="with-symbol" title="Save">☁</button>
+		<menu class="dropdown">
+			<a href="http://dabblet.com/" onclick="Dabblet.wipe()" class="command" data-keyboard="⌘N">New dabblet</a>
+						
+			<hr>
+			
+			<a id="save-cmd" tabindex="0" class="command" data-keyboard="⌘S" data-disabled="">Save</a>
+			<a onclick="gist.save({forceNew: true})" id="save-new-cmd" class="command" tabindex="0" data-disabled="">Save as new</a>
+			<a onclick="gist.save({anon: true})" class="command" tabindex="0">Save anonymously</a>
+			
+			<hr>
+			
+			<a data-href="https://gist.github.com/{gist-id}/{gist-rev}" target="_blank" class="command" href="https://gist.github.com/6046779/8c0b471531d76c4fab5ecb6fd4bf8ab974a9c4a0">View gist</a>
+			<a data-href="http://result.dabblet.com/gist/{gist-id}/{gist-rev}" class="command" target="_blank" href="http://result.dabblet.com/gist/6046779/8c0b471531d76c4fab5ecb6fd4bf8ab974a9c4a0">View full page result</a>
+			<a class="user command" target="_blank" id="gist-user" href="http://dabblet.com/user/LeaVerou"><img src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/175836">LeaVerou</a>
+		</menu>
+	</div>
+	
+	<div class="controls-group">
+		<a href="http://dabblet.com/help/index.html" class="button" title="Help &amp; credits" target="_blank">?</a>
+		<div class="tabs">
+			<input type="radio" name="page" value="css" id="page-css" data-scope="file">
+			<label for="page-css" title="⌘1" class="tab">
+				<span class="title">CSS 
+					<span class="if-not-separate"><i class="amp">&amp;</i> Result</span>
+				</span>
+			</label>
+			
+			<input type="radio" name="page" value="html" id="page-html" data-scope="file">
+			<label for="page-html" title="⌘2" class="tab">
+				<span class="title">HTML 
+					<span class="if-not-separate"><i class="amp">&amp;</i> Result</span>
+				</span>
+			</label>
+			
+			<input type="radio" name="page" value="all" id="page-all" checked="" data-scope="file">
+			<label for="page-all" title="⌘3" class="tab">
+				<span class="title">All</span>
+			</label>
+			
+			<input type="radio" name="page" value="javascript" id="page-javascript" data-scope="file">
+			<label for="page-javascript" title="⌘4" class="tab">
+				<span class="title">JS<sub style="font-size: 50%; opacity: .6;">alpha</sub></span>
+			</label>
+			
+			<input type="radio" name="page" value="result" id="page-result" data-scope="file">
+			<label for="page-result" title="⌘5" class="tab">
+				<span class="title">Result</span>
+			</label>
+		</div>
+	</div>
+</header>
+
+<iframe class="page" id="result" src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/saved_resource.html"></iframe>
+<section id="css-container" class="editor page" style="font-size: 100%;"><div class="line-highlight" data-line="1" style="top: 0px;"></div><pre id="css" spellcheck="false" class="  language-css" contenteditable=""><span class="token comment" spellcheck="true">/**
+ * Loading animation like the one seen on http://www.freeger.com/projects/contextad/ with CSS
+ * Caveat: Not DRY. The content needs to be repeated in a data- attribute (or directly in the CSS).
+ */</span>
+
+<span class="token selector">body </span><span class="token punctuation">{</span>
+	<span class="token property">background</span><span class="token punctuation">:</span> <span class="token color">#ccc51c</span><span class="token punctuation">;</span>
+	<span class="token property">min-height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h1 </span><span class="token punctuation">{</span>
+	<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+	<span class="token property">left</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+	<span class="token property">margin-left</span><span class="token punctuation">:</span> -1.9em<span class="token punctuation">;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">hsla(0,0%,100%,.3)</span><span class="token punctuation">;</span>
+	<span class="token property">font</span><span class="token punctuation">:</span> 900 800% Baskerville, <span class="token string">'Palatino Linotype'</span>, <span class="token fontfamily">Palatino, serif</span><span class="token punctuation">;</span>	
+<span class="token punctuation">}</span>
+
+<span class="token atrule">@keyframes loading</span> <span class="token punctuation">{</span>
+	<span class="token selector">from </span><span class="token punctuation">{</span> <span class="token property">max-width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h1:before </span><span class="token punctuation">{</span>
+	<span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">attr</span>(data-content)<span class="token punctuation">;</span>
+	<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+	<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+	<span class="token property">max-width</span><span class="token punctuation">:</span> 4em<span class="token punctuation">;</span>
+	<span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">white</span><span class="token punctuation">;</span>
+	<span class="token property">animation</span><span class="token punctuation">:</span> loading <span class="token time">10s</span> <span class="token easing">linear</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre></section>
+<button title="Validate CSS" onclick="Dabblet.validate.CSS()" class="for-code css">✓</button>
+
+<section id="html-container" class="editor page" style="font-size: 100%;"><div class="line-highlight" data-line="1" style="top: 0px;"></div><pre id="html" spellcheck="false" class="  language-html" contenteditable=""><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">data-content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Contad<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Contad<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+</pre></section>
+<button title="Validate HTML" onclick="Dabblet.validate.HTML()" class="for-code html">✓</button>
+
+<section id="javascript-container" class="editor page" style="font-size: 100%;"><div class="line-highlight" data-line="1" style="top: 0px;"></div><pre id="javascript" spellcheck="false" class="  language-javascript" contenteditable=""><span class="token comment" spellcheck="true">// alert('Hello world!');</span>
+</pre></section>
+<button title="Run JavaScript (⌘↩)" onclick="Dabblet.update.JavaScript()" class="for-code javascript">▶</button>
+
+<div id="color" class="previewer"></div>
+<div id="abslength" class="previewer"></div>
+<div id="time" class="previewer">
+	<svg>
+		<circle cx="32" cy="32" r="15.9">
+			<animate attributeName="stroke-dasharray" values="0,500;100,500;0,500" dur="5s" repeatCount="indefinite"></animate>
+			<animate attributeName="stroke-dashoffset" values="0;0;-100" dur="5s" repeatCount="indefinite"></animate>
+		</circle>
+	</svg>
+</div>
+<div id="angle" class="previewer">
+	<svg>
+		<circle cx="32" cy="32" r="15.9" stroke-dasharray="0,500"></circle>
+	</svg>
+</div>
+<div id="fontfamily" class="previewer">(ABCabc123&amp;@%)
+(ABCabc123&amp;@%)</div>
+<div id="gradient" class="previewer"><div></div></div>
+<div id="easing" class="previewer">
+	<svg width="100" height="100" viewBox="-20 -20 140 140">
+		<defs>
+			<marker id="marker" viewBox="0 0 4 4" refX="2" refY="2" markerUnits="strokeWidth">
+				<circle cx="2" cy="2" r="1.5"></circle>
+			</marker>
+		</defs>
+		<path d="M0,100 C20,50, 40,30, 100,0"></path>
+		<line x1="0" y1="100" x2="20" y2="50"></line>
+		<line x1="100" y1="0" x2="40" y2="30"></line>
+	</svg>
+</div>
+<div id="url" class="previewer"><img src="data:," alt="Loading…"></div>
+<div id="entity" class="previewer"></div>
+
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/utopia.js"></script>
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/selection.js"></script>
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/prism.js"></script>
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/code-highlight.js"></script>
+
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/editor.js"></script>
+<!--[if lte IE 9]><script src="/code/classList.min.js"></script><![endif]-->
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/global.js"></script><div id="loader"></div>
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/dabblet.js"></script>
+
+<script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/previewers.js" async="" defer=""></script>
+
+
+</body><script src="./Loading animation like the one seen on http   www.freeger.com projects contextad  with CSS ✿ dabblet.com_files/incrementable.js" async=""></script></html>

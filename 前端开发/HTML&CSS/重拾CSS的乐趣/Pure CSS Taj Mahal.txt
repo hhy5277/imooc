@@ -1,0 +1,1072 @@
+<div id="taj-mahal">
+  <div class="chattri chattri-left">
+    <div class="arches">
+      <div class="arch arch1"></div>
+      <div class="arch arch2"></div>
+      <div class="arch arch3"></div>
+    </div>
+    <div class="chattri-dome"></div>
+    <div class="spire">
+      <div class="finial"></div>
+    </div>
+    <div class="lotus-base"></div>
+  </div>
+  <div class="chattri chattri-right">
+    <div class="arches">
+      <div class="arch arch1"></div>
+      <div class="arch arch2"></div>
+      <div class="arch arch3"></div>
+    </div>
+    <div class="chattri-dome"></div>
+    <div class="spire">
+      <div class="finial"></div>
+    </div>
+    <div class="lotus-base"></div>
+  </div>
+  <div class="central-dome">
+    <div class="onion-dome">
+      <div class="spire">
+        <div class="finial"></div>
+        <div class="crescent"></div>
+      </div>
+    </div>
+    <div class="lotus-base"></div>
+    <div class="drum"></div>
+  </div>
+  <div class="great-gate ledge">
+    <div class="gate-detail">
+      <div class="arch-frame"></div>
+    </div>
+    <div class="arch"></div>
+    <div class="window top gate"></div>
+    <div class="window bottom gate"></div>
+  </div>
+  <div class="side ledge left">
+    <div class="arch-frame top"></div>
+    <div class="window-alcove top"></div>
+    <div class="window top"></div>
+    <div class="arch-frame bottom"></div>
+    <div class="window-alcove bottom"></div>
+    <div class="window bottom"></div>
+  </div>
+  <div class="pillar pillar1"></div>
+  <div class="side ledge far-left">
+    <div class="window-alcove narrow top"></div>
+    <div class="window-alcove narrow bottom"></div>
+  </div>
+  <div class="side ledge right">
+    <div class="arch-frame top"></div>
+    <div class="window-alcove top"></div>
+    <div class="window top"></div>
+    <div class="arch-frame bottom"></div>
+    <div class="window-alcove bottom"></div>
+    <div class="window bottom"></div>
+  </div>
+  <div class="pillar pillar2"></div>
+  <div class="side ledge far-right">
+    <div class="window-alcove narrow top"></div>
+    <div class="window-alcove narrow bottom"></div>
+  </div>
+  <div class="pillar pillar3"></div>
+  <div class="pillar pillar4"></div>
+  <div class="pillar pillar5"></div>
+  <div class="pillar pillar6"></div>
+  <div class="pillar pillar7"></div>
+  <div class="pillar pillar8"></div>
+  <!--Riverside Terrace-->
+  <div class="terrace ledge"></div>
+  <div class="left-minaret minaret">
+    <div class="base ledge"></div>
+    <div class="minaret-chattri">
+      <div class="arches">
+        <div class="arch"></div>
+        <div class="arch"></div>
+        <div class="arch"></div>
+      </div>
+      <div class="spire">
+        <div class="finial"></div>
+      </div>
+      <div class="minaret-dome"></div>
+    </div>
+    <div class="band1"></div>
+    <div class="band2"></div>
+    <div class="band3"></div>
+  </div>
+  <div class="backleft-minaret back-minaret">
+    <div class="minaret-chattri">
+      <div class="arches">
+        <div class="arch"></div>
+        <div class="arch"></div>
+        <div class="arch"></div>
+      </div>
+      <div class="spire">
+        <div class="finial"></div>
+      </div>
+      <div class="minaret-dome"></div>
+    </div>
+    <div class="band1"></div>
+    <div class="band2"></div>
+    <div class="band3"></div>
+  </div>
+  <div class="right-minaret minaret">
+    <div class="base ledge"></div>
+    <div class="minaret-chattri">
+      <div class="arches">
+        <div class="arch"></div>
+        <div class="arch"></div>
+        <div class="arch"></div>
+      </div>
+      <div class="spire">
+        <div class="finial"></div>
+      </div>
+      <div class="minaret-dome"></div>
+    </div>
+    <div class="band1"></div>
+    <div class="band2"></div>
+    <div class="band3"></div>
+  </div>
+  <div class="backright-minaret back-minaret">
+    <div class="minaret-chattri">
+      <div class="arches">
+        <div class="arch"></div>
+        <div class="arch"></div>
+        <div class="arch"></div>
+      </div>
+      <div class="spire">
+        <div class="finial"></div>
+      </div>
+      <div class="minaret-dome"></div>
+    </div>
+    <div class="band1"></div>
+    <div class="band2"></div>
+    <div class="band3"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "compass/css3";
+
+/*CSS TAJ MAHAL*/
+/*By: Jan Dennison @jannypie*/
+
+@import "compass/css3";
+
+@mixin domegradient {
+  background: #dedede; /* Old browsers */
+  background: -moz-linear-gradient(left,  #dedede 0%, #efefef 27%, #efefef 50%, #fefefe 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dedede), color-stop(27%,#efefef), color-stop(50%,#efefef), color-stop(100%,#fefefe)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #dedede 0%,#efefef 27%,#efefef 50%,#fefefe 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #dedede 0%,#efefef 27%,#efefef 50%,#fefefe 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #dedede 0%,#efefef 27%,#efefef 50%,#fefefe 100%); /* IE10+ */
+  background: linear-gradient(to right,  #dedede 0%,#efefef 27%,#efefef 50%,#fefefe 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedede', endColorstr='#fefefe',GradientType=1 ); /* IE6-9 */
+}
+@mixin trigradient {
+  background: #dedede; /* Old browsers */
+  background: -moz-linear-gradient(left,  #dedede 0%, #dedede 32%, #efefef 33%, #efefef 66%, #fafafa 67%, #fafafa 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dedede), color-stop(32%,#dedede), color-stop(33%,#efefef), color-stop(66%,#efefef), color-stop(67%,#fafafa), color-stop(100%,#fafafa)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  #dedede 0%,#dedede 32%,#efefef 33%,#efefef 66%,#fafafa 67%,#fafafa 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  #dedede 0%,#dedede 32%,#efefef 33%,#efefef 66%,#fafafa 67%,#fafafa 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  #dedede 0%,#dedede 32%,#efefef 33%,#efefef 66%,#fafafa 67%,#fafafa 100%); /* IE10+ */
+  background: linear-gradient(to right,  #dedede 0%,#dedede 32%,#efefef 33%,#efefef 66%,#fafafa 67%,#fafafa 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dedede', endColorstr='#fafafa',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin pseudo {
+  content: '';
+  display: block;
+  position: absolute;
+}
+* {
+  @include box-sizing(border-box);
+  padding: 0;
+  margin: 0;
+}
+
+.arches {
+  position: absolute;
+  left: 15%;
+  top: 55%;
+  
+  .arch {
+    border-left: 3px solid #e7e7e7;
+    border-right: 3px solid #e7e7e7;
+    border-top: 15px solid #e7e7e7;
+    -moz-border-radius: 50% 50% 0 0; 
+    -webkit-border-radius: 50% 50% 0 0; 
+    border-radius: 50% 50% 0 0;
+    float: left;
+    display: inline-block;
+    &:first-child {
+      border-color: #dcdcdc;
+    }
+    &:last-child {
+      border-color: #ededed;
+    }
+  }
+}
+.dome {
+  @include border-radius(50% 50% 0 0);
+  @include domegradient;
+  position: absolute;
+}
+.onion-dome {
+  @extend .dome;
+  -moz-border-radius: 50%; 
+  -webkit-border-radius: 50%; 
+  border-radius: 50%;
+}
+.chattri-dome {
+  @extend .dome;
+  left: 15%;
+  top: 20%;
+  &:after {
+    @include trigradient;
+    @include pseudo;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #dedede;
+    width: 105%;
+    height: 8px;
+    bottom: 0;
+    left: -2.5%;
+  }
+  &:before {
+    @include pseudo;
+    width: 110%;
+    height: 0px;
+    border-top: 5px solid #fafafa;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    bottom: -5px;
+    left: -15%;
+    -webkit-box-shadow: 0px 2px 0px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 2px 0px 0px rgba(204,204,204,1);
+    box-shadow: 0px 2px 0px 0px rgba(204,204,204,1);
+  }
+}
+
+.minaret-dome {
+  @extend .dome;
+  left: 15%;
+  top: 20%;
+  &:after {
+    @include trigradient;
+    @include pseudo;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #dedede;
+    width: 105%;
+    height: 4px;
+    bottom: 0;
+    left: -2.5%;
+  }
+  &:before {
+    @include pseudo;
+    width: 110%;
+    height: 2px;
+    border-top: 5px solid #fafafa;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    bottom: -7px;
+    left: -20%;
+    -webkit-box-shadow: inset 0px -2px 0px 0px rgba(204,204,204,1);
+    -moz-box-shadow: inset 0px -2px 0px 0px rgba(204,204,204,1);
+    box-shadow: inset 0px -2px 0px 0px rgba(204,204,204,1);
+  }
+}
+
+.lotus-base {
+  border-left: 10px solid transparent; 
+  border-right: 10px solid transparent; 
+  border-bottom: 10px solid #fafafa;
+  position: absolute;
+}
+
+/*base of the spire*/
+.spire { 
+  border-bottom: 5px solid darkgrey; 
+  border-left: 3px solid transparent; 
+  border-right: 3px solid transparent;
+  height: 0; 
+  width: 14px; 
+  position: absolute;
+  /*bottom ball*/
+  &:after {
+    @include pseudo;
+    border: 4px solid darkgrey;
+    border-radius: 50%;
+    top: -8px;
+  }
+
+  .finial {
+    width: 2px;
+    height: 20px;
+    background: darkgrey;
+    position: absolute;
+    top: -20px;
+    left: 3px;
+    /*point*/
+    &:before {
+      @include pseudo;
+      border-bottom: 10px solid darkgrey;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      left: -2px;
+      top: -10px;
+    }
+    &:after {
+      @include pseudo;
+      border: 3px solid darkgrey;
+      border-radius: 50%;
+      left: -2px;
+      top: 2px;
+    }
+  }
+}
+.minaret-band {
+  position: absolute;
+  @include domegradient;
+  &:after {
+    @include pseudo;
+    position: static;
+    border-top: 4px solid #cccccc;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+}
+
+.ledge {
+  &:after {
+    @include pseudo;
+    height: 5px;
+    width: 100%;
+    background: #f9f9f9;
+    top: -1px;
+    border-bottom: 2px solid #cccccc;
+  }
+}
+
+.arch-frame {
+  border: 1px solid #d7d7cf;
+  border-bottom: transparent;
+  position: absolute;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAWUlEQVQYV4VQsQ0AIAyy5zj6/xGOnqPBhAZJE10sFJE22uesNXfvI0J1IInRZA3+Ad4kTiHtecPJ6+voJDh1y4wq9Mx8UGbkUJq5nFoF/OER6jp8TaWwynkAPHpOfxe1zTgAAAAASUVORK5CYII=) repeat;
+}
+body {
+  background: #b5c7df; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #b5c7df 0%, #bfcfdf 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#b5c7df), color-stop(100%,#bfcfdf)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #b5c7df 0%,#bfcfdf 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #b5c7df 0%,#bfcfdf 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #b5c7df 0%,#bfcfdf 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #b5c7df 0%,#bfcfdf 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5c7df', endColorstr='#bfcfdf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  position: relative;
+}
+/*end body */
+
+#taj-mahal {
+  position: relative;
+  display: block;
+  margin: 100px auto;
+  width: 870px;
+  height: 460px;
+  
+  .chattri {
+    position: relative;
+    width: 74px;
+    height: 100px;
+    .arch {
+      width: 20px;
+      height: 40px;
+      margin-left: -3px;
+    }
+    .dome {
+      @extend .dome;
+      width: 50px;
+      height: 40px;
+    }
+    .lotus-base {  
+      width: 30px; 
+      height: 0; 
+      top: 15px;
+      left: 50%;
+      margin-left: -15px;
+      &:after {
+        @include pseudo;
+        border-bottom: 3px dotted #cccccc;
+        height: 0;
+        width: 32px;
+        bottom: -12px;
+        left: -12px;
+      }
+    }
+    .spire {
+      top: 10px;
+      left: 50%;
+      margin-left: -7px;
+    }
+    /*left chattri*/
+    &.chattri-left {
+      left: 50%;
+      margin-left: -130px;
+      top: 108px;
+    }
+    &.chattri-right {
+      left: 50%;
+      margin-left: 60px;
+      top: 10px;
+    }
+  }
+  .central-dome {
+    .drum {
+      border-left: 6px solid transparent; 
+      border-right: 6px solid transparent; 
+      border-top: 10px solid #dddddd;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+      width: 154px;
+      top:167px;
+      left: 50%;
+      margin-left: -76px;
+      -webkit-box-shadow: 0px -2px 0px 0px rgba(204,204,204,1);
+      -moz-box-shadow: 0px -2px 0px 0px rgba(204,204,204,1);
+      box-shadow: 0px -2px 0px 0px rgba(204,204,204,1);
+    }
+    .onion-dome {
+      width: 166px; 
+      height: 166px;
+
+      position: absolute;
+      left:50%;
+      margin-left: -82px;
+      top: 45px;
+      &:before {
+        @include pseudo;
+        @include domegradient;
+        height: 8px;
+        width: 150px;
+        bottom: 40px;
+        left: 8px;
+        
+        -webkit-box-shadow: 0px -1px 0px 0px rgba(204,204,204,1);
+        -moz-box-shadow: 0px -1px 0px 0px rgba(204,204,204,1);
+        box-shadow: 0px -1px 0px 0px rgba(204,204,204,1);
+      }
+
+      /*base of the spire*/
+      .spire { 
+        border-bottom: 8px solid darkgrey; 
+        border-left: 5px solid transparent; 
+        border-right: 5px solid transparent;
+        height: 0; 
+        width: 25px; 
+        position: absolute;
+        top: -19px;
+        left: 70px;
+
+        /*ball below teardrop*/
+        &:before {
+          @include pseudo;
+          border: 4px solid darkgrey;
+          border-radius: 50%;
+          left: 3px;
+          top: -8px;
+        }
+        /*large teardrop spire ball*/
+        &:after {
+          @include pseudo;
+          border: 6px solid darkgrey;
+          border-radius: 0 50% 70% 50%;
+          top: -20px;
+          left: 1px;
+          -webkit-transform: rotate(45deg); 
+          -moz-transform: rotate(45deg); 
+          -ms-transform: rotate(45deg); 
+          -o-transform: rotate(45deg); 
+          transform: rotate(45deg);
+        }
+
+        .finial {
+          width: 2px;
+          height: 55px;
+          background: darkgrey;
+          position: absolute;
+          top: -55px;
+          left: 6px;
+
+          /*arrow point*/
+          &:before {
+            @include pseudo;
+            border-bottom: 10px solid darkgrey;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            left: -2px;
+            top: -10px;
+          }
+          /*ball below arrow*/
+          &:after {
+            @include pseudo;
+            border: 3px solid darkgrey;
+            border-radius: 50%;
+            left: -2px;
+            top: 4px;
+          }
+        }
+        .crescent {
+          border-bottom: 3px solid darkgrey;
+          border-left: 1px solid darkgrey;
+          border-right: 1px solid darkgrey;
+          border-top: 10px solid transparent;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          position: absolute;
+          top: -58px;
+          left: -3px;
+
+          /*ball below moon crescent*/
+          &:after {
+            @include pseudo;
+            border: 5px solid darkgrey;
+            border-radius: 50%;
+            left: 4px;
+            top: 13px;
+          }
+        }
+      }
+    }
+    .lotus-base {
+      width: 100px; 
+      border-bottom-width: 30px;
+      border-left-width: 40px;
+      border-right-width: 40px;
+      height: 0; 
+      top: 32px;
+      left: 50%;
+      margin-left: -50px;
+      &:after {
+        @include pseudo;
+        border-bottom: 4px dotted #cccccc;
+        height: 0;
+        width: 86px;
+        bottom: -32px;
+        left: -34px;
+      }
+    }
+  }
+  
+  
+  .great-gate {
+    width: 146px;
+    height: 166px;
+    
+    background: #eaeaea;
+    position: absolute;
+    top: 178px;
+    left: 50%;
+    margin-left: -73px;
+    
+    .gate-detail {
+      border: 12px solid #E3E3E5;
+      border-bottom: transparent;
+      width: 126px;
+      height: 158px;
+      margin: 12px 10px;
+    }
+    .arch-frame {
+      height: 50px;
+      margin: 5px 11px;
+      width: 80px;
+    }
+    .arch {
+       background: #cbcbd6; /* Old browsers */
+background: -moz-linear-gradient(top,  #cbcbd6 0%, #cbcbd6 52%, #d5d5e2 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cbcbd6), color-stop(52%,#cbcbd6), color-stop(100%,#d5d5e2)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #cbcbd6 0%,#cbcbd6 52%,#d5d5e2 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #cbcbd6 0%,#cbcbd6 52%,#d5d5e2 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #cbcbd6 0%,#cbcbd6 52%,#d5d5e2 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #cbcbd6 0%,#cbcbd6 52%,#d5d5e2 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbcbd6', endColorstr='#d5d5e2',GradientType=0 ); /* IE6-9 */
+
+        width: 80px;
+        height: 110px;
+        position: absolute;
+        top: 58px;
+        left: 50%;
+        margin-left: -40px;
+      
+      &:before {
+        @include pseudo;
+        top: -26px; 
+        left: 50%; 
+        margin-left: -25px;
+        width: 0; 
+        height: 0; 
+        border-left: 25px solid transparent; 
+        border-right: 25px solid transparent; 
+        border-bottom: 10px solid #cbcbd6;
+        
+      }
+      
+      &:after {
+        @include pseudo;
+        width: 80px;
+        height: 60px;
+        background: #cbcbd6;
+        top: -22px;
+        -moz-border-radius: 50% 50% 0 0; 
+        -webkit-border-radius: 50% 50% 0 0; 
+        border-radius: 50% 50% 0 0;
+      }
+    }
+  } /*end gate*/
+  
+  .side {
+    width: 64px;
+    height: 142px;
+    background: #eaeaea;
+    position: absolute;
+    
+    &.far-left {
+      top: 202px;
+      left: 237px;
+      width: 54px;
+      background: #e5e5e5;
+    }
+    &.left {
+      top: 202px;
+      left: 294px;
+    }
+    &.right {
+      top: 202px;
+      right: 294px;
+    }
+    &.far-right {
+      top: 202px;
+      right: 237px;
+      width: 54px;
+      background: #efefef;
+    }
+    
+    .arch-frame {
+      height: 20px;
+      margin-left: 16px;
+      width: 32px;
+      &.top {
+        margin-top: 23px;
+      }
+      &.bottom {
+        margin-top: 93px;
+      }
+    }
+  } /*end side*/
+  
+  
+  /*pillars*/
+  .pillar {
+    width: 6px;
+    height: 160px;
+    background: #d7dbda;
+    position: absolute;
+    &:after {
+      @include pseudo;
+      border-left: 4px solid #efefef;
+      border-right: 4px solid #cccccc;
+      border-top: 4px solid #efefef;
+      border-bottom: 4px solid #cccccc;
+      border-radius: 50%;
+      top: -2px;
+      left: -1px;
+      -webkit-transform: rotate(45deg); 
+      -moz-transform: rotate(45deg); 
+      -ms-transform: rotate(45deg); 
+      -o-transform: rotate(45deg); 
+      transform: rotate(45deg);
+    }
+    &:before {
+      @include pseudo;
+      border-bottom: 10px solid darkgrey;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      left: 0;
+      top: -8px;
+    }
+    /*behind far left side*/
+    &.pillar1 {
+      left: 260px;
+      top: 174px;
+    }
+    /*behind far right side*/
+    &.pillar2 {
+      top: 174px;
+      left: 600px;
+    }
+    &.pillar3 {
+      top: 190px;
+      left: 235px;
+    }
+    &.pillar4 {
+      top: 190px;
+      left: 290px;
+    }
+    &.pillar5 {
+      top: 190px;
+      left: 358px;
+    }
+    &.pillar6 {
+      top: 190px;
+      left: 506px;
+    }
+    &.pillar7 {
+      top: 190px;
+      left: 575px;
+    }
+    &.pillar8 {
+      top: 190px;
+      left: 630px;
+    }
+    
+  }
+  .terrace {
+    background: #eaeaea;
+    width: 624px;
+    height: 40px;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    margin-left: -312px;
+  } /*end terrace*/
+  
+  .minaret {
+    border-bottom: 231px solid #eaeaea; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent; 
+    height: 0px; 
+    width: 44px;
+    
+    .base {
+      @include trigradient;
+      @include pseudo;
+      height: 44px;
+      width: 50px;
+      top: 231px;
+      left: -12px;
+      border-top: 3px solid #f9f9f9;
+    }
+    
+    .minaret-chattri {
+      position: relative;
+      width: 54px;
+      height: 70px;
+      top: -57px;
+      left: -11px;
+      .arch {
+        width: 14px;
+        height: 20px;
+        border-top-width: 5px;
+        margin-left: -3px;
+        margin-top:-1px;
+      }
+      .minaret-dome {
+        width: 30px;
+        height: 20px;
+      }
+      .lotus-base {  
+        width: 14px; 
+        height: 0; 
+        top: 10px;
+        left: 50%;
+        margin-left: -12px;
+      }
+      .spire {
+        top: 10px;
+        left: 50%;
+        margin-left: -10px;
+      }
+      /*left chattri*/
+      &.chattri-left {
+        left: 50%;
+        margin-left: -140px;
+        top: 108px;
+      }
+      &.chattri-right {
+        left: 50%;
+        margin-left: 72px;
+        top: 10px;
+      }
+    }
+    
+    /*position main minarets*/
+    &.left-minaret {
+      position: absolute;
+      top: 112px;
+      left: 82px;
+      
+      .band1 {
+        @extend .minaret-band;
+        width: 50px;
+        height: 10px;
+        top: 155px;
+        left: -13px;
+        &:after {
+         margin-top: 10px;
+        }
+      }
+      .band2 {
+        @extend .minaret-band;
+        width: 44px;
+        height: 8px;
+        top: 72px;
+        left: -10px;
+        &:after {
+         margin-top: 8px;
+        }
+      }
+      .band3 {
+        @extend .minaret-band;
+        width: 38px;
+        height: 6px;
+        top: -2px;
+        left: -7px;
+        &:after {
+         margin-top: 6px;
+        }
+      }
+    }
+    &.right-minaret {
+      position: absolute;
+      top: 112px;
+      right: 82px;
+      .band1 {
+        @extend .minaret-band;
+        width: 50px;
+        height: 10px;
+        top: 155px;
+        left: -13px;
+        &:after {
+         margin-top: 10px;
+        }
+      }
+      .band2 {
+        @extend .minaret-band;
+        width: 44px;
+        height: 8px;
+        top: 72px;
+        left: -10px;
+        &:after {
+         margin-top: 8px;
+        }
+      }
+      .band3 {
+        @extend .minaret-band;
+        width: 38px;
+        height: 6px;
+        top: -2px;
+        left: -7px;
+        &:after {
+         margin-top: 6px;
+        }
+      }
+    }
+  }
+  /*end main minarets*/
+  
+  .back-minaret {
+    border-bottom: 134px solid #e5e5e5; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent; 
+    height: 0px; 
+    width: 32px;
+    
+    .minaret-chattri {
+      position: relative;
+      width: 34px;
+      height: 50px;
+      top: -50px;
+      left: -12px;
+      
+      .arches {
+        left: 25%;
+      }
+      .arch {
+        width: 10px;
+        height: 20px;
+        border-top-width: 5px;
+        margin-left: -3px;
+      }
+      .minaret-dome {
+        width: 25px;
+        height: 15px;
+      }
+      .spire {
+        top: 10px;
+        left: 50%;
+        margin-left: -6px;
+      }
+    }
+    
+    &.backleft-minaret {
+      position: absolute;
+      top: 210px;
+      left: 178px;
+      
+      .band1 {
+        @extend .minaret-band;
+        width: 32px;
+        height: 6px;
+        top: 88px;
+        left: -10px;
+        &:after {
+         margin-top: 6px;
+        }
+      }
+      .band2 {
+        @extend .minaret-band;
+        width: 28px;
+        height: 6px;
+        top: 45px;
+        left: -8px;
+        &:after {
+         margin-top: 6px;
+        }
+      }
+      .band3 {
+        @extend .minaret-band;
+        width: 24px;
+        height: 5px;
+        top: -2px;
+        left: -7px;
+        &:after {
+         margin-top: 5px;
+        }
+      }
+    }
+
+    &.backright-minaret {
+      position: absolute;
+      top: 210px;
+      right: 178px;
+      
+      .band1 {
+        @extend .minaret-band;
+        width: 32px;
+        height: 6px;
+        top: 88px;
+        left: -10px;
+        &:after {
+         margin-top: 6px;
+        }
+      }
+      .band2 {
+        @extend .minaret-band;
+        width: 28px;
+        height: 6px;
+        top: 45px;
+        left: -8px;
+        &:after {
+         margin-top: 6px;
+        }
+      }
+      .band3 {
+        @extend .minaret-band;
+        width: 24px;
+        height: 5px;
+        top: -2px;
+        left: -7px;
+        &:after {
+         margin-top: 5px;
+        }
+      }
+    }
+  }
+  /*end back minarets*/
+  
+  .window-alcove {
+      background: #cbcbd6;
+      width: 34px;
+      height: 34px;
+      position: absolute;
+      left: 50%;
+      margin-left: -17px;
+      
+      &:before {
+        @include pseudo;
+        top: -13px; 
+        left: 50%; 
+        margin-left: -10px;
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent; 
+        border-right: 10px solid transparent; 
+        border-bottom: 5px solid #cbcbd6;
+      }
+      
+      &:after {
+        @include pseudo;
+        width: 34px;
+        height: 35px;
+        background: #cbcbd6;
+        top: -10px;
+        border-radius: 40%;
+      }
+    
+      &.top {
+        top: 38px;
+      }
+      &.bottom {
+        bottom: 0;
+      }
+      &.narrow {
+        width: 25px;
+        margin-left: -12px;
+        background: #c2c2ce;
+        &:before {
+          border-right-width: 8px;
+          border-left-width: 8px;
+          border-bottom-color: #c2c2ce;
+          margin-left: -8px;
+        }
+        &:after {
+          width: 25px;
+          background: #c2c2ce;
+        }
+      }
+    }
+   .window {
+     width: 12px;
+     height: 18px;
+     border: 2px solid #dedeeb;
+     border-bottom: 0px solid transparent;
+     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2PcsGHDfwYo0NOzZmAkLHDv3mu4FpBOADKwDp1X0Jv0AAAAAElFTkSuQmCC) repeat;
+     position: absolute;
+     left: 27px;
+     &.top {
+       top: 54px;
+     }
+     &.bottom {
+       top: 124px;
+     }
+     &.gate {
+       width: 24px;
+       height: 42px;
+       left: 60px;
+       border-radius: 40% 40% 0 0;
+     }
+   }
+  /*end windows*/
+}
+
+
+  

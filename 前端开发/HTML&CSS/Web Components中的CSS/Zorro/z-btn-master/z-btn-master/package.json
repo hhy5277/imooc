@@ -1,0 +1,20 @@
+{
+  "name": "z-btn",
+  "version": "1.0.0",
+  "description": "btn element in zorro",
+  "main": "z-btn.html",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zorro-html/z-btn.git"
+  },
+  "author": "Jinjiang",
+  "bugs": {
+    "url": "https://github.com/zorro-html/z-btn/issues"
+  },
+  "homepage": "https://github.com/zorro-html/z-btn",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "package": "^1.0.1"
+  }
+}

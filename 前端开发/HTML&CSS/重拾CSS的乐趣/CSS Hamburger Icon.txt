@@ -1,0 +1,28 @@
+<h3>CSS Hamburger Icon</h3>
+
+<a id="nav-toggle" href="#"><span></span></a>
+
+
+
+body { background-color: black; height: 100%; }
+h3 { color: white; }
+#nav-toggle span { position: absolute; left: 50%; top: 50%; }
+
+#nav-toggle span, 
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px; 
+}

@@ -1,0 +1,310 @@
+<section>
+      
+  <!-- START YouTube -->
+  <article>
+    <div id="youtube"></div>
+    <footer>
+      <h3>YouTube</h3>
+    </footer>
+  </article>
+  <!-- END YouTube -->
+  
+  
+  <!-- START Google Docs -->
+  <article>
+    <div id="docs">
+      <span class="line" id="line1"></span>
+      <span class="line" id="line2"></span>
+      <span class="line" id="line3"></span>
+      <span class="line" id="line4"></span>
+    </div>
+    <footer>
+      <h3>Google Docs</h3>
+    </footer>
+  </article>
+  <!-- END Google Docs -->
+  
+  
+  <!-- START Gmail -->
+  <article>
+    <div id="gmail">
+      <span id="shadow"></span>
+      <span id="top"></span>
+      <span id="left"></span>
+      <span id="right"></span>
+    </div>
+    <footer>
+      <h3>Gmail</h3>
+    </footer>
+  </article>
+  <!-- END Gmail -->
+  
+  
+  <!-- START Google Drive -->
+  <article>
+    <div id="drive">
+      <span id="yellow"></span>
+      <span id="blue"></span>
+      <span id="green"></span>
+    </div>
+    <footer>
+      <h3>Google Drive</h3>
+    </footer>
+  </article>
+  <!-- END Google Drive -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Layout */
+
+body {
+  text-align: center;
+}
+
+section {
+  display: table;
+  margin: 120px auto;
+  width: 800px;
+}
+
+section article {
+  display: table-cell;
+  width: 200px;
+  vertical-align: bottom;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+}
+
+#youtube, #docs, #gmail, #drive {
+  position: relative;
+  margin: 0 auto;
+}
+
+/* YouTube */
+
+#youtube {
+  background: #de473c;
+  border-radius: 14px / 21px;
+  width: 100px;
+  height: 70px;
+}
+
+#youtube:before {
+  content: "";
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 28px solid #f3f1e7;
+  width: 0; 
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -18px 0 0 -12px;
+}
+
+/* Google Docs */
+
+#docs {
+  background: #2d74ec;
+  border-radius: 8px 30px 8px 8px;
+  width: 88px;
+  height: 108px;
+}
+
+#docs:before {
+  content: "";
+  border-bottom: 13px solid #a0c3ff;
+  border-top: 13px solid #fff;
+  border-left: 13px solid #a0c3ff;
+  border-right: 13px solid #fff;
+  position: absolute;
+  top: 0;
+  right: 0;   
+}
+
+#docs:after {
+  content: "";
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid rgba(0, 0, 0, .3);
+  border-left: 13px solid transparent;
+  border-right: 13px solid rgba(0, 0, 0, .3);
+  position: absolute;
+  top: 26px;
+  right: 0;   
+}
+
+#docs .line {
+  background: #ebf2fe;
+  display: block;
+  width: 60px;
+  height: 6px;
+  margin: 0 14px;
+  position: absolute;
+  left: 0;
+}
+
+#docs #line1 {
+  top: 35px;
+}
+
+#docs #line2 {
+  top: 49px;
+}
+
+#docs #line3 {
+  top: 63px;
+}
+
+#docs #line4 {
+  top: 77px;
+  width: 34px;
+}
+
+/* Gmail */
+
+#gmail {
+  background: #e24f43;
+  border-radius: 7px;
+  height: 78px;
+  width: 108px;
+  overflow: hidden;
+  /* rounded corner fix */
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+#gmail #top {
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-top: 33px solid #f1f0e5;
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  -webkit-backface-visibility: hidden;
+}
+
+#gmail #left {
+  border-left: 40px solid #f1f0e5;
+  border-top: 29px solid rgba(255, 255, 255, 0);
+  border-bottom: 28px solid rgba(255, 255, 255, 0);
+  content: "";
+  display: block;
+  position: absolute;
+  left: 12px;
+  bottom: 2px;
+  z-index: 19;
+}
+
+#gmail:after {
+  border-right: 42px solid rgba(255, 255, 255, 0);
+  border-left: 42px solid #adaca2;
+  border-top: 29px solid rgba(255, 255, 255, 0);
+  border-bottom: 29px solid #adaca2;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 12px;
+  bottom: 0;
+}
+
+#gmail:before {
+  border-left: 42px solid rgba(255, 255, 255, 0);
+  border-right: 42px solid #f1f0e5;
+  border-top: 29px solid rgba(255, 255, 255, 0);
+  border-bottom: 29px solid #f1f0e5;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 12px;
+  bottom: 0;
+  z-index: 9;
+}
+
+#gmail #shadow {
+  content: "";
+  display: block;
+  border-left: 55px solid transparent;
+  border-right: 55px solid rgba(0, 0, 0, .25);
+  border-top: 37px solid transparent;
+  border-bottom: 37px solid transparent;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  z-index: 9;
+}
+
+/* Google Drive */
+
+#drive {
+  width: 112px;
+  height: 96px;
+}
+
+#drive #yellow {
+  background: #fdd04a;
+  display: block;
+  width: 39px;
+  height: 62px;
+  transform: skew(30deg);
+  -webkit-transform: skew(30deg);
+  position: absolute;
+  top: 0;
+  right: 19px;
+  z-index: 9;
+}
+
+#drive #blue {
+  background: #3f83f9;     
+  display: block;
+  width: 74px;
+  height: 34px;
+  transform: skew(-30deg);
+  -webkit-transform: skew(-30deg);
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  z-index: 7;
+}
+
+#drive #green {
+  background: #10a862;
+  display: block;
+  width: 38px;
+  height: 96px;
+  transform: skew(150deg);
+  -webkit-transform: skew(150deg);
+  position: absolute;
+  top: 0;
+  left: 9px;
+  z-index: 8;
+}
+
+#drive #green:after {
+  content: "";
+  border-bottom: 40px solid #fff;
+  border-right: 45px solid transparent;
+  position: absolute;
+  left: -6px;
+  bottom: -1px;
+} 
+</section>

@@ -1,0 +1,68 @@
+<div id="mailicon"></div>
+
+
+
+
+
+
+
+
+
+
+
+body {
+  padding:25px;
+  background:#0F2636;
+}
+
+#mailicon
+{
+width:25em;
+height:25em;
+background: #3268D9;
+margin:0 auto;
+border-radius:35%;
+overflow:hidden;
+position:relative;
+box-shadow:0px 3px 0px #194379,
+0px 4px 0px #3268D9,
+0px 7px 0px #194379,
+0px 8px 0px #3268D9,
+0px 11px 0px #194379,
+0px 12px 0px #3268D9;
+}
+#mailicon:before
+{
+content:"";
+border-radius:35%;
+position:absolute;
+width:25em;
+height:25em;
+background: #2680F3;
+left:0;
+top:-150px;
+-webkit-transform:rotate(45deg);
+-ms-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-0-transform:rotate(45deg);
+transform:rotate(45deg);
+transform:rotate(45deg);
+z-index:2;
+box-shadow:0px 0px 100px 10px #194379;
+}
+#mailicon:after
+{
+content:"";
+border-radius:35%;
+position:absolute;
+width:25em;
+height:25em;
+background: #2552a8;
+left:0;
+bottom:-150px;
+-webkit-transform:rotate(45deg);
+-ms-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-0-transform:rotate(45deg);
+transform:rotate(45deg);
+}

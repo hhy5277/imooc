@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://www.cnphp6.com/archives/61442 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML iframe 用法小总结 | 姜糖水</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://www.cnphp6.com/xmlrpc.php">
+<link rel="stylesheet" href="./HTML iframe 用法小总结   姜糖水_files/style.css" type="text/css" media="all">
+
+<link rel="alternate" type="application/rss+xml" title="姜糖水 » Feed" href="http://www.cnphp6.com/feed">
+<link rel="alternate" type="application/rss+xml" title="姜糖水 » 评论Feed" href="http://www.cnphp6.com/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="姜糖水 » HTML iframe 用法小总结评论Feed" href="http://www.cnphp6.com/archives/61442/feed">
+<link rel="stylesheet" id="contango-css-960-css" href="./HTML iframe 用法小总结   姜糖水_files/960.css" type="text/css" media="all">
+
+<script type="text/javascript" src="./HTML iframe 用法小总结   姜糖水_files/jquery.js"></script>
+<script type="text/javascript" src="./HTML iframe 用法小总结   姜糖水_files/jquery-migrate.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.cnphp6.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.cnphp6.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Linux 更新后异常（kernel 版本 3.17） VMware player" href="http://www.cnphp6.com/archives/61441">
+<link rel="next" title="Hello World" href="http://www.cnphp6.com/archives/61443">
+<meta name="generator" content="WordPress 4.0">
+<link rel="shortlink" href="http://www.cnphp6.com/?p=61442">
+
+<!-- All in One SEO Pack 2.2.3.1 by Michael Torbert of Semper Fi Web Designob_start_detected [-1,-1] -->
+<meta name="description" itemprop="description" content="iframe是框架的一种形式，也比较常用到,下面是对其在平时常用到属性的总结 Iframe用法,下面是一个常规的列子">
+
+<link rel="canonical" href="./HTML iframe 用法小总结   姜糖水_files/HTML iframe 用法小总结   姜糖水.html">
+<!-- /all in one seo pack -->
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-image: url('http://www.cnphp6.com/wp-content/themes/contango/images/bg-pattern.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+</style>
+</head>
+
+<body class="single single-post postid-61442 single-format-standard custom-background"><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./HTML iframe 用法小总结   姜糖水_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./HTML iframe 用法小总结   姜糖水_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div>
+<div id="page" class="wrapper hfeed site">  
+  
+  <header id="masthead" class="site-header" role="banner">
+    <div class="container_16 clearfix">
+      <div class="grid_16">
+        <div id="headimg">
+
+    
+  <div id="logo-text">
+    <span class="site-name"><a href="http://www.cnphp6.com/" title="姜糖水" rel="home">姜糖水</a></span>
+    <span class="site-description">又一个码农站点</span>
+  </div><!-- end of #logo -->
+  
+  
+</div>      </div>
+    </div>     
+  </header><!-- #masthead -->
+  
+  
+  <div class="container_16 clearfix">
+    <nav id="site-navigation" class="grid_16 main-navigation" role="navigation">
+      <div class="menu clearfix"><ul id="menu-%e8%8f%9c%e5%8d%951" class="sf-menu sf-js-enabled"><li id="menu-item-52813" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-52813"><a href="http://www.cnphp6.com/">主页</a></li>
+<li id="menu-item-52806" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-52806"><a href="http://www.cnphp6.com/archives/category/web%e5%bc%80%e5%8f%91">web开发</a></li>
+<li id="menu-item-52812" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52812"><a href="http://www.cnphp6.com/archives/category/%e7%a7%bb%e5%8a%a8%e5%bc%80%e5%8f%91">移动开发</a></li>
+<li id="menu-item-52808" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52808"><a href="http://www.cnphp6.com/archives/category/%e5%bc%80%e5%8f%91%e8%af%ad%e8%a8%80">开发语言</a></li>
+<li id="menu-item-52810" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52810"><a href="http://www.cnphp6.com/archives/category/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+<li id="menu-item-52811" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52811"><a href="http://www.cnphp6.com/archives/category/%e6%9c%8d%e5%8a%a1%e5%99%a8">服务器</a></li>
+<li id="menu-item-52805" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52805"><a href="http://www.cnphp6.com/archives/category/linux">linux</a></li>
+<li id="menu-item-52807" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52807"><a href="http://www.cnphp6.com/archives/category/windows">windows</a></li>
+<li id="menu-item-52809" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52809"><a href="http://www.cnphp6.com/archives/category/%e5%bc%80%e6%ba%90%e4%b8%8e%e5%b7%a5%e5%85%b7">开源与工具</a></li>
+</ul></div>    </nav><!-- #site-navigation -->
+  </div>
+<div id="content" class="site-content clearfix">
+
+      
+  <div class="container_16 clearfix">
+    
+    <div class="grid_11">
+      
+      <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+  	  
+      	  
+                      
+                            
+                <article id="post-61442" class="post-61442 post type-post status-publish format-standard hentry category-web">
+  
+  <div class="entry-meta-group clearfix">
+    <div class="grid_2 alpha">
+      <time class="entry-date entry-time updated" datetime="2014-11-17T12:26:01+00:00"><a href="./HTML iframe 用法小总结   姜糖水_files/HTML iframe 用法小总结   姜糖水.html" title="2014年11月17日 下午12:26" rel="bookmark"><span class="entry-date-day">17</span><span class="entry-date-month-year">十一 2014</span></a></time>    </div>
+    <div class="grid_8 omega">
+      <h1 class="entry-title entry-title-single">HTML iframe 用法小总结</h1>
+      <div class="entry-meta">    
+		<span class="entry-author author vcard">by <a href="http://www.cnphp6.com/archives/author/root" title="by root" rel="author"><span class="entry-author-name fn">root</span></a></span><span class="entry-meta-sep"> ⋅ </span><span class="comments-link"><a href="http://www.cnphp6.com/archives/61442#comments">Leave a Comment</a></span>      </div><!-- .entry-meta -->
+    </div>
+  </div>
+  
+  <div class="entry-content clearfix">
+  	<p>            <span>iframe是框架的一种形式，也比较常用到,下面是对其在平时常用到属性的总结</span></p>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">Iframe用法,下面是一个常规的列子</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;iframe&nbsp;border=2&nbsp;frameborder=0&nbsp;width=500&nbsp;height=500&nbsp;marginheight=0&nbsp;marginwidth=0&nbsp;scrolling=no&nbsp;src="move-ad.<span id="37_nwp" style="width: auto; height: auto; float: none;"><a id="37_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="37" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&gt;
+&lt;/iframe&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">其中:</span></p>
+<p><strong><span style="background-color: rgb(247, 252, 255); color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px;">iframe</span></strong><span style="background-color: rgb(247, 252, 255); color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px;">用于设置文本或图形的浮动图文框或容器。&nbsp;</span></p>
+<p><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">border</span></strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">设定围绕图文框的边缘<span id="7_nwp" style="width: auto; height: auto; float: none;"><a id="7_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=%BF%ED%B6%C8&k0=%BF%ED%B6%C8&kdi0=0&luki=5&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="7" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">宽度</span></a></span>&nbsp;</span><br><span style="color:#444444;font-family:Tahoma, Helvetica, Arial, 宋体, sans-serif"><span style="font-size: 14px; line-height: 25px;">&nbsp;&nbsp;&nbsp;&nbsp;其中还有快读高度的设计</span></span><br><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">scrolling=no</span></strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp;</span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">是否有滚动条（YES,NO,AUTO)&nbsp;</span><br><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">SRC</span></strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp;</span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">指定IFRAME调用的文件或图片(HTML,HTM,GIF,JPEG,JPG,PNG,TXT,*.*)&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">一、Iframe标记的使用&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">提起Iframe，可能你早已将之扔到“被遗忘的角落”了，不过，说起其兄弟Frame就不会陌生了。Frame标记即帧标记，我们所说的多帧结构就是在一个浏览器窗口中显示多个HTML文件。现在，我们遇到一种很现实的情况：如有一个教程，是一节一节地上，每页末尾做一个“上一节“、“下一节“的链接，除了每节教程内容不同之外，页面其它部分内容都是相同的，如果一页一页地做笨页面，这似乎太让人厌烦了，这时突发奇想，如果有一种方法让页面其它地方不变，只将教程做成一页一页的内容页，不含其它内容，在点击上下翻页链接时，只改变教程内容部分，其它保持不变，这样，一是省时，另则以后如教程有个三长两短的变动，也很方便，不致于牵一发而动全军了;更重要的是将那些广告Banner、栏目列表、导航等几乎每页的都有的东西只下载一次后就不再下载了。 Iframe标记，又叫浮动帧标记，你可以用它将一个HTML文档嵌入在一个HTML中显示。它不同于Frame标记最大的特征即这个标记所引用的 HTML文件不是与另外的HTML文件相互独立显示，而是可以直接嵌入在一个HTML文件中，与这个HTML文件内容相互融合，成为一个整体，另外，还可以多次在一个页面内显示同一内容，而不必重复写内容，一个形象的比喻即“画中画“电视。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">现在我们谈一下Iframe标记的使用。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">Iframe标记的使用格式是:&nbsp;</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;Iframe&nbsp;src="URL"&nbsp;width="x"&nbsp;height="x"&nbsp;scrolling="[OPTION]"&nbsp;frameborder="x"&gt;&lt;/iframe&gt;</pre>
+<p><strong><span style="background-color: rgb(247, 252, 255); color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px;">src</span></strong><span style="background-color: rgb(247, 252, 255); color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px;">：文件的路径，既可是HTML文件，也可以是文本、ASP等；&nbsp;</span><br><span style="background-color: rgb(246, 246, 246); font-family: Consolas, 微软雅黑, monospace, Verdana, sans-serif, 宋体; font-size: 12px; line-height: 18px;"></span></p>
+<p><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">width、height</span></strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">：”画中画”区域的宽与高；&nbsp;</span><br><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">scrolling</span></strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">:当SRC的指定的HTML文件在指定的区域不显不完时，滚动选项，如果设置为NO，则不出现滚动条；如为Auto：则自动出现滚动条；如为Yes，则显示;&nbsp;</span><br><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">FrameBorder</span></strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">：区域边框的<span id="6_nwp" style="width: auto; height: auto; float: none;"><a id="6_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=%BF%ED%B6%C8&k0=%BF%ED%B6%C8&kdi0=0&luki=5&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="6" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">宽度</span></a></span>，为了让“画中画“与邻近的内容相融合，常设置为0。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">比如:&nbsp;</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;Iframe&nbsp;src="http://www.jb51.net";;&nbsp;width="250"&nbsp;height="200"&nbsp;scrolling="no"&nbsp;frameborder="0"&gt;&lt;/iframe&gt;</pre>
+<p>&nbsp;</p>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">二、父窗体与浮动帧之间的相互控制 在脚本语言与对象层次中，包含Iframe的窗口我们称之为父窗体，而浮动帧则称为子窗体，弄清这两者的关系很重要，因为要在父窗体中访问子窗体或相反都必须清楚对象层次，才能通过程序来访问并控制窗体。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">1、在父窗体中访问并控制子窗体中的对象&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">在父窗体中，Iframe即子窗体是document对象的一个子对象，可以直接在脚本中访问子窗体中的对象。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">现在就有一个问题，即，我们怎样来控制这个Iframe，这里需要讲一下Iframe对象。当我们给这个标记设置了ID 属性后，就可通过文档对象模型DOM对Iframe所含的HTML进行一系列控制。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">比如在example.htm里嵌入test.htm文件，并控制test.htm里一些标记对象：&nbsp;</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;Iframe&nbsp;src="test.htm"&nbsp;id="test"&nbsp;width="250"&nbsp;height="200"&nbsp;scrolling="no"&nbsp;frameborder="0"&gt;&lt;/iframe&gt;</pre>
+<pre class="brush:html;toolbar: true; auto-links: false;">//test.htm
+&lt;html&gt;&nbsp;
+&lt;body&gt;&nbsp;
+&lt;h1&nbsp;id="myH1"&gt;hello,my&nbsp;boy&lt;/h1&gt;&nbsp;
+&lt;/body&gt;&nbsp;
+&lt;/html&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">如我们要改变ID号为myH1的H1标记里的文字为hello,my dear，则可用:&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">document.myH1.innerText=”hello,my dear”(其中，document可省)&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">在example.htm文件中，Iframe标记对象所指的子窗体与一般的DHTML对象模型一致，对对象访问控制方式一样，就不再赘述。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">2 、在子窗体中访问并控制父窗体中对象&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">在子窗体中我们可以通过其parent即父（双亲）对象来访问父窗口中的对象。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">如example.htm：&nbsp;</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;html&gt;&nbsp;
+&lt;body&nbsp;onclick="alert(tt.myH1.innerHTML)"&gt;&nbsp;
+&lt;Iframe&nbsp;name="tt"&nbsp;src="frame1.htm"&nbsp;width="250"&nbsp;height="200"&nbsp;scrolling="no"&nbsp;frameborder="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;h1&nbsp;id="myH2"&gt;hello,my&nbsp;wife&lt;/h1&gt;&nbsp;
+&lt;/body&gt;&nbsp;
+&lt;/html&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">如果要在frame1.htm中访问ID号为myH2中的标题文字并将之改为”hello,my friend”，我们就可以这样写：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">parent.myH2.innerText="hello,my&nbsp;friend"</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">这里parent对象就代表当前窗体(example.htm所在窗体)，要在子窗体中访问父窗体中的对象，无一例外都通过parent对象来进行。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">Iframe虽然内嵌在另一个HTML文件中，但它保持相对的独立，是一个“独立王国“哟，在单一HTML中的特性同样适用于浮动帧中。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">试想一下，通过Iframe标记，我们可将那些不变的内容以Iframe来表示，这样，不必重复写相同的内容，这有点象程序设计中的过程或函数，减省了多少繁琐的手工劳动！另外，至关重要的是，它使页面的修改更为可行，因为，不必因为版式的调整而修改每个页面，你只需修改一个父窗体的版式即可了。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">有一点要注意，Nestscape浏览器不支持Iframe标记，但在时下IE的天下，这似乎也无大碍，广泛采用Iframe标记，既为自己(网站)着了想，又为网友节省了网费，何乐而不为？&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">例子&nbsp;</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;iframe&nbsp;src="页面"&nbsp;width="<span id="35_nwp" style="width: auto; height: auto; float: none;"><a id="35_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=%BF%ED%B6%C8&k0=%BF%ED%B6%C8&kdi0=0&luki=5&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="35" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">宽度</span></a></span>"&nbsp;height="高度"&nbsp;align="排列可以是left或right,center"&nbsp;scrolling="是否有滚动条可以填no或yes"&nbsp;&gt;&lt;/iframe&gt;&nbsp;
+&lt;IFRAME&nbsp;frameBorder=0&nbsp;frameSpacing=0&nbsp;height=25&nbsp;marginHeight=0&nbsp;marginWidth=0&nbsp;scrolling=no&nbsp;name=main&nbsp;src="bgm/bgm.<span id="36_nwp" style="width: auto; height: auto; float: none;"><a id="36_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="36" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&nbsp;width=300&gt;&lt;/IFRAME&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">用了iframe后 发现滚动条不漂亮 想用图片来代替?&nbsp;</span></p>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">用下列代码替换网页的&nbsp;</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;title&gt;..&lt;/title&gt;&nbsp;
+&lt;SCRIPT&nbsp;LANGUAGE="<span id="33_nwp" style="width: auto; height: auto; float: none;"><a id="33_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=javascript&k0=javascript&kdi0=0&luki=3&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="33" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">javascript</span></a></span>"&gt;&nbsp;
+function&nbsp;scroll(n)&nbsp;
+{temp=n;&nbsp;
+Out1.scrollTop=Out1.scrollTop+temp;&nbsp;
+if&nbsp;(temp==0)&nbsp;return;&nbsp;
+setTimeout("scroll(temp)",80);&nbsp;
+}&nbsp;
+&lt;/SCRIPT&gt;&nbsp;
+&lt;TABLE&nbsp;WIDTH="330"&gt;&nbsp;
+&lt;TR&gt;&nbsp;
+&lt;TD&nbsp;WIDTH="304"&nbsp;VALIGN="TOP"&nbsp;ROWSPAN="2"&nbsp;&gt;&nbsp;
+&lt;DIV&nbsp;ID=Out1&nbsp;STYLE="width:100%;&nbsp;height:100;overflow:&nbsp;hidden&nbsp;;border-<span id="34_nwp" style="width: auto; height: auto; float: none;"><a id="34_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="34" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>:dashed;border-width:&nbsp;1px,1px,1px,1px;"&gt;&nbsp;
+内容
+内容
+内容
+内容
+&lt;/DIV&gt;&nbsp;
+&lt;/TD&gt;&nbsp;
+&lt;TD&nbsp;WIDTH="14"&nbsp;VALIGN="TOP"&gt;&lt;IMG&nbsp;SRC="photo/up0605.gif"&nbsp;WIDTH="14"&nbsp;HEIGHT&nbsp;="20"&nbsp;onmouseover="scroll(-1)"&nbsp;onmouseout="scroll(0)"&nbsp;onmousedown="scroll&nbsp;(-3)"&nbsp;BORDER="0"&nbsp;ALT="按下鼠标速度会更快！"&gt;&lt;/TD&gt;&nbsp;
+&lt;/TR&gt;&nbsp;
+&lt;TR&gt;&nbsp;
+&lt;TD&nbsp;WIDTH="14"&nbsp;VALIGN="BOTTOM"&gt;&lt;IMG&nbsp;SRC="photo/down0605.gif"&nbsp;onmouseover&nbsp;="scroll(1)"&nbsp;onmouseout="scroll(0)"&nbsp;onmousedown="scroll(3)"&nbsp;BORDER="0"&nbsp;WIDTH&nbsp;="15"&nbsp;HEIGHT="21"&nbsp;ALT="按下鼠标速度会更快！"&gt;&lt;/TD&gt;&nbsp;
+&lt;/TR&gt;&nbsp;
+&lt;/TABLE&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">内框架Iframe的使用&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">使用Iframe可以在一人表格内调用一个外部文件，是非常有用的。本网站在很多页面上都使用了iframe效果。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">现在我们学一下Iframe标记的使用。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">Iframe标记的使用格式是:&nbsp;</span></p>
+<p><strong>下面使更多的补充：</strong><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&lt;iframe&gt;是框架的一种形式，也比较常用到。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　<strong>例子1</strong>。a标签的<span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"><span id="0_nwp" style="width: auto; height: auto; float: none;"><a id="0_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=target&k0=target&kdi0=0&luki=4&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="0" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">target</span></a></span> 与</span>&nbsp;<span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">iframe 的&nbsp;</span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">name</span></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　如果一个页面里面有框架。。随便点页面里的连接，要求在这个&lt;iframe&gt; 里打开。在iframe 中加入name=名&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&lt;iframe name=<span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">名&nbsp;</span> &gt;&lt;/iframe&gt;&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　然后再修改默认打开模式，：网页HEAD中加上&lt;a href=URL <span id="5_nwp" style="width: auto; height: auto; float: none;"><a id="5_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=target&k0=target&kdi0=0&luki=4&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="5" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">target</span></a></span>=<span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">名&nbsp;</span>&gt;&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　<strong>例子2</strong>。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　要插入一个页面。要求只拿中间一部分。其他的都不要。，。。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　代码：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;iframe&nbsp;name=123&nbsp;align=middle&nbsp;marginwidth=0&nbsp;marginheight=0&nbsp;vspace=-170&nbsp;hspace=0&nbsp;src="http://www.jb51.net/"&nbsp;frameborder=no&nbsp;scrolling=no&nbsp;width=776&nbsp;height=2500&gt;&lt;/iframe&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp; &nbsp; &nbsp; &nbsp;其实相当于把源页面截图在iframe中显示,</span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">控制插入页被框架覆盖的深度 marginwidth=0 marginheight=0；控制框架覆盖上部分的深度 vspace=-170&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　scrolling滚动条要否（<strong>auto、yes、no</strong>） frameborder框架的边框大小，width=776 height=2500此框架的大小。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　</span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp; &nbsp;</span><span style="background-color: rgb(247, 252, 255); color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px;">如果把frameborder设为1，效果就像文本框一样&nbsp;</span></p>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　<strong>透明的IFRAME的用法</strong>&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　必需IE5.5以上版本才支持&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　在transparentBody.htm文件的&lt;body&gt;标签中，我已经加入了<span id="4_nwp" style="width: auto; height: auto; float: none;"><a id="4_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="4" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>=”background-color=transparent” 通过以下四种IFRAME的写法我想大概你对iframe背景透明效果的实现方法应该会有个清晰的了解：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;IFRAME&nbsp;ID="Frame1"&nbsp;SRC="transparentBody.htm"&nbsp;allowTransparency="true"&gt;&lt;/IFRAME&gt;&nbsp;
+&lt;IFRAME&nbsp;ID="Frame2"&nbsp;SRC="transparentBody.htm"&nbsp;allowTransparency="true"&nbsp;STYLE="background-color:&nbsp;green"&gt;&nbsp;&lt;/IFRAME&gt;&nbsp;
+&lt;IFRAME&nbsp;ID="Frame3"&nbsp;SRC="transparentBody.htm"&gt;&lt;/IFRAME&gt;&nbsp;
+&lt;IFRAME&nbsp;ID="Frame4"&nbsp;SRC="transparentBody.htm"&nbsp;STYLE="background-color:&nbsp;green"&gt;&nbsp;&lt;/IFRAME&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">重点1：利用<span id="3_nwp" style="width: auto; height: auto; float: none;"><a id="3_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=javascript&k0=javascript&kdi0=0&luki=3&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="3" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">javascript</span></a></span>指定iframe的src并重新加载该iframe(见本文最下面我的项目)&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">难点1：设置iframe的背景色&nbsp;</span><br><strong><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">a.html 中</span></strong><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;script&gt;&nbsp;
+function&nbsp;setBG(){&nbsp;
+var&nbsp;strColor=document.bgColor;&nbsp;
+frm.document.bgColor=strColor;&nbsp;
+}&nbsp;
+&lt;/script&gt;&nbsp;
+&lt;body&nbsp;<span id="32_nwp" style="width: auto; height: auto; float: none;"><a id="32_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="32" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>='background-color:red'&nbsp;onload='setBG()'&gt;&nbsp;
+&lt;iframe&nbsp;src='about:blank'&nbsp;name=frm&gt;&lt;/iframe&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">难点2：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">窗口与浮动帧之间的相互控制&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">在脚本语言与对象层次中，包含Iframe的窗口我们称之为父窗体，而浮动帧则称为子窗体，弄清这两者的关系很重要，因为要在父窗体中访问子窗体或相反都必须清楚对象层次，才能通过程序来访问并控制窗体。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　1、在父窗体中访问并控制子窗体中的对象&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　在父窗体中，Iframe即子窗体是document对象的一个子对象，可以直接在脚本中访问子窗体中的对象。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　现在就有一个问题，即，我们怎样来控制这个Iframe，这里需要讲一下Iframe对象。当我们给这个标记设置了ID 属性后，就可通过文档对象模型DOM对Iframe所含的HTML进行一系列控制。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　比如在example.htm里嵌入page.htm文件，并控制page.htm里一些标记对象：&nbsp;</span><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;Iframe&nbsp;src="test.htm"&nbsp;id="test"&nbsp;width="250"&nbsp;height="200"&nbsp;scrolling="no"&nbsp;frameborder="0"&gt;&lt;/iframe&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">page.htm文件代码为:&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;html&gt;&nbsp;
+　　　&lt;body&gt;&nbsp;
+　　　　&lt;h1&nbsp;id="myH1"&gt;hello,my&nbsp;boy&lt;/h1&gt;&nbsp;
+　　　&lt;/body&gt;&nbsp;
+　　&lt;/html&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　如我们要改变ID号为myH1的H1标记里的文字为hello,my dear，则可用:&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　document.myH1.innerText=”hello,my dear”(其中，document可省)&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　在example.htm文件中，Iframe标记对象所指的子窗体与一般的DHTML对象模型一致，对对象访问控制方式一样，就不再赘述。&nbsp;</span></p>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　2、在子窗体中访问并控制父窗体中对象&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　在子窗体中我们可以通过其parent即父（双亲）对象来访问父窗口中的对象。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　如example.htm：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;<span id="31_nwp" style="width: auto; height: auto; float: none;"><a id="31_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="31" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>&gt;&nbsp;
+　　　&lt;body&nbsp;onclick="alert(tt.myH1.innerHTML)"&gt;&nbsp;
+　　　　&lt;Iframe&nbsp;name="tt"&nbsp;src="frame1.htm"&nbsp;width="250"&nbsp;height="200"&nbsp;scrolling="no"&nbsp;frameborder="0"&gt;&lt;/iframe&gt;&nbsp;
+　　　　&lt;h1&nbsp;id="myH2"&gt;hello,my&nbsp;wife&lt;/h1&gt;&nbsp;
+　　　&lt;/body&gt;&nbsp;
+　　&lt;/html&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　如果要在frame1.htm中访问ID号为myH2中的标题文字并将之改为”hello,my friend”，我们就可以这样写：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">　parent.myH2.innerText="hello,my&nbsp;friend"</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;或者</span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">parent.document.getElementById("myH2").innerText="hello,my&nbsp;friend"</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">　　这里parent对象就代表当前窗体(example.htm所在窗体)，要在子窗体中访问父窗体中的对象，无一例外都通过parent对象来进行。&nbsp;</span></p>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">3:frame的一个子元素访问frame的另一个子元素&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">例如：框架文件frame.html中嵌入了另外两个html文件&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;div&nbsp;<span id="29_nwp" style="width: auto; height: auto; float: none;"><a id="29_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="29" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>Class="basewnd"&gt;&nbsp;
+&lt;!--&nbsp;搜索&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;id="search"&nbsp;name="test"&nbsp;align="center"&nbsp;class="top_list_home"&gt;&nbsp;
+&lt;iframe&nbsp;id="frameSearch"&nbsp;name="search"&nbsp;src="Search.<span id="30_nwp" style="width: auto; height: auto; float: none;"><a id="30_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="30" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="195px"&nbsp;height="150px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;单位目录树&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="welcome_tag_home"&gt;&nbsp;
+&lt;iframe&nbsp;src="DirectoryTree.html"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="195px"&nbsp;height="427px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;/div&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">那么现在要在DirectoryTree.html文件中访问Search.html文件中的一个id为section的&lt;font&gt;&lt;/font&gt;标签的innerHTML属性，则可以这样：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">alert(parent.document.search.section.innerHTML)</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">其中search是“搜索”div的id，或者：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">alert(parent.document.getElementById("search").section.innerHTML)</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">或者也可以这样：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">alert(parent.document.frames["frameSublist"].name)(这是直接访问iframe)</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">下面这段代码可以实现IFrame自适应高度，即随着页面的长度，自动适应以免除页面和IFrame同时出现滚动条。&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">源代码如下&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:js;toolbar: true; auto-links: false;">&lt;script&nbsp;type="text/<span id="24_nwp" style="width: auto; height: auto; float: none;"><a id="24_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=javascript&k0=javascript&kdi0=0&luki=3&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="24" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">javascript</span></a></span>"&gt;&nbsp;
+//**&nbsp;iframe自动适应页面&nbsp;**//&nbsp;
+//输入你希望根据页面高度自动调整高度的iframe的名称的列表&nbsp;
+//用逗号把每个iframe的ID分隔.&nbsp;例如:&nbsp;["myframe1",&nbsp;"myframe2"]，可以只有一个窗体，则不用逗号。&nbsp;
+//定义iframe的ID&nbsp;
+var&nbsp;iframeids=["test"]&nbsp;
+//如果用户的浏览器不支持iframe是否将iframe隐藏&nbsp;yes&nbsp;表示隐藏，no表示不隐藏&nbsp;
+var&nbsp;iframehide="yes"&nbsp;
+function&nbsp;dyniframesize()&nbsp;
+{&nbsp;
+var&nbsp;dyniframe=new&nbsp;Array()&nbsp;
+for&nbsp;(i=0;&nbsp;i&lt;iframeids.length;&nbsp;i++)&nbsp;
+{&nbsp;
+if&nbsp;(document.getElementById)&nbsp;
+{&nbsp;
+//自动调整iframe高度&nbsp;
+dyniframe[dyniframe.length]&nbsp;=&nbsp;document.getElementById(iframeids);&nbsp;
+if&nbsp;(dyniframe&nbsp;&amp;&amp;&nbsp;!window.opera)&nbsp;
+{&nbsp;
+dyniframe.<span id="25_nwp" style="width: auto; height: auto; float: none;"><a id="25_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="25" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>.display="<span id="26_nwp" style="width: auto; height: auto; float: none;"><a id="26_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=block&k0=block&kdi0=0&luki=2&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="26" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">block</span></a></span>"&nbsp;
+if&nbsp;(dyniframe.contentDocument&nbsp;&amp;&amp;&nbsp;dyniframe.contentDocument.body.offsetHeight)&nbsp;//如果用户的浏览器是NetScape&nbsp;
+dyniframe.height&nbsp;=&nbsp;dyniframe.contentDocument.body.offsetHeight;&nbsp;
+else&nbsp;if&nbsp;(dyniframe.Document&nbsp;&amp;&amp;&nbsp;dyniframe.Document.body.scrollHeight)&nbsp;//如果用户的浏览器是IE&nbsp;
+dyniframe.height&nbsp;=&nbsp;dyniframe.Document.body.scrollHeight;&nbsp;
+}&nbsp;
+}&nbsp;
+//根据设定的参数来处理不支持iframe的浏览器的显示问题&nbsp;
+if&nbsp;((document.all&nbsp;||&nbsp;document.getElementById)&nbsp;&amp;&amp;&nbsp;iframehide=="no")&nbsp;
+{&nbsp;
+var&nbsp;tempobj=document.all?&nbsp;document.all[iframeids]&nbsp;:&nbsp;document.getElementById(iframeids)&nbsp;
+tempobj.<span id="27_nwp" style="width: auto; height: auto; float: none;"><a id="27_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="27" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>.display="<span id="28_nwp" style="width: auto; height: auto; float: none;"><a id="28_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=block&k0=block&kdi0=0&luki=2&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="28" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">block</span></a></span>"&nbsp;
+}&nbsp;
+}&nbsp;
+}&nbsp;
+if&nbsp;(window.addEventListener)&nbsp;
+window.addEventListener("load",&nbsp;dyniframesize,&nbsp;false)&nbsp;
+else&nbsp;if&nbsp;(window.attachEvent)&nbsp;
+window.attachEvent("onload",&nbsp;dyniframesize)&nbsp;
+else&nbsp;
+window.onload=dyniframesize&nbsp;
+&lt;/script&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">以下是本人自己在实际项目开发时利用frame写的一段源代码，仅供参考：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">主文件（框架）：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;<span id="13_nwp" style="width: auto; height: auto; float: none;"><a id="13_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="13" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>&gt;&nbsp;
+&lt;<span id="14_nwp" style="width: auto; height: auto; float: none;"><a id="14_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=head&k0=head&kdi0=0&luki=7&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="14" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">head</span></a></span>&gt;&nbsp;
+&lt;title&gt;教育局资源管理系统&lt;/title&gt;&nbsp;
+&lt;script&nbsp;src="resources/js/DirectoryTree/DirectoryTree.js"&gt;&lt;/script&gt;&nbsp;
+&lt;script&nbsp;src="resources/js/date.js"&gt;&lt;/script&gt;&nbsp;
+&lt;link&nbsp;rel="stylesheet"&nbsp;type="text/<span id="15_nwp" style="width: auto; height: auto; float: none;"><a id="15_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=css&k0=css&kdi0=0&luki=9&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="15" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">css</span></a></span>"&nbsp;href="resources/css/frame.css"&gt;&nbsp;
+&lt;link&nbsp;rel="<span id="16_nwp" style="width: auto; height: auto; float: none;"><a id="16_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="16" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>sheet"&nbsp;type="text/css"&nbsp;href="resources/css/global.css"&gt;&nbsp;
+&lt;script&nbsp;language="<span id="17_nwp" style="width: auto; height: auto; float: none;"><a id="17_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=javascript&k0=javascript&kdi0=0&luki=3&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="17" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">javascript</span></a></span>"&gt;&nbsp;
+function&nbsp;setBgColor()&nbsp;
+{&nbsp;
+var&nbsp;bg=document.bgColor&nbsp;
+bottom.document.bgColor=bg&nbsp;
+}&nbsp;
+&lt;/script&gt;&nbsp;
+&lt;/<span id="18_nwp" style="width: auto; height: auto; float: none;"><a id="18_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=head&k0=head&kdi0=0&luki=7&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="18" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">head</span></a></span>&gt;&nbsp;
+&lt;body&nbsp;bgcolor="#f9edff"&nbsp;onload="setBgColor()"&gt;&nbsp;
+&lt;div&nbsp;styleClass="basewnd"&gt;&nbsp;
+&lt;!--&nbsp;LOGO&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="flag"&gt;&nbsp;
+&lt;iframe&nbsp;src="resources/HTMLFolders/Logo.<span id="19_nwp" style="width: auto; height: auto; float: none;"><a id="19_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="19" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="950px"&nbsp;height="115px"&nbsp;marginheight="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;用户登陆&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="user"&gt;&nbsp;
+&lt;iframe&nbsp;src="resources/HTMLFolders/UserLogin.html"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="195px"&nbsp;height="150px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;搜索&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;id="search"&nbsp;name="test"&nbsp;align="center"&nbsp;class="top_list_home"&gt;&nbsp;
+&lt;iframe&nbsp;id="frameSearch"&nbsp;name="search"&nbsp;src="resources/HTMLFolders/Search.<span id="20_nwp" style="width: auto; height: auto; float: none;"><a id="20_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="20" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="195px"&nbsp;height="150px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;导航条&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="navigation"&gt;&nbsp;
+&lt;iframe&nbsp;src="resources/HTMLFolders/Navigation.html"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="950px"&nbsp;height="25px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;最新主题列表&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="newest_topic"&gt;&nbsp;
+&lt;iframe&nbsp;src="resources/HTMLFolders/Sublist.<span id="21_nwp" style="width: auto; height: auto; float: none;"><a id="21_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="21" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="540px"&nbsp;height="427px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;单位目录树&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="welcome_tag_home"&gt;&nbsp;
+&lt;iframe&nbsp;src="resources/HTMLFolders/DirectoryTree.html"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="195px"&nbsp;height="427px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;!--&nbsp;页尾&nbsp;--&gt;&nbsp;
+&lt;div&nbsp;align="center"&nbsp;class="rights_home"&gt;&nbsp;
+&lt;iframe&nbsp;id="bottom"&nbsp;name="bottom"&nbsp;src="resources/HTMLFolders/Bottom.<span id="22_nwp" style="width: auto; height: auto; float: none;"><a id="22_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="22" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>"&nbsp;frameBorder="0"&nbsp;scrolling="no"&nbsp;width="950px"&nbsp;height="100px"&nbsp;marginheight="0"&nbsp;marginwidth="0"&nbsp;allowTransparency="true"&nbsp;<span id="23_nwp" style="width: auto; height: auto; float: none;"><a id="23_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="23" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>="background-color:&nbsp;red"&gt;&lt;/iframe&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;/div&gt;&nbsp;
+&lt;/body&gt;&nbsp;
+&lt;/html&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">被引用的文件UserLogin.<span id="2_nwp" style="width: auto; height: auto; float: none;"><a id="2_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=html&k0=html&kdi0=0&luki=8&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="2" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">html</span></a></span>：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:html;toolbar: true; auto-links: false;">&lt;link&nbsp;rel="<span id="9_nwp" style="width: auto; height: auto; float: none;"><a id="9_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="9" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>sheet"&nbsp;type="text/<span id="10_nwp" style="width: auto; height: auto; float: none;"><a id="10_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=css&k0=css&kdi0=0&luki=9&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="10" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">css</span></a></span>"&nbsp;href="../css/global.css"&gt;&nbsp;
+&lt;table&nbsp;border="0"&nbsp;align="left"&nbsp;width="193"&nbsp;cellpadding="1"&nbsp;cellspacing="0"&nbsp;style="border-style:solid;border-width:1px;border-color:#eeeeee;"&gt;&nbsp;
+&lt;tr&gt;&lt;td&gt;&nbsp;
+&lt;table&nbsp;border="0"&nbsp;align="left"&nbsp;width="190"&nbsp;cellpadding="0"&nbsp;cellspacing="0"&gt;&nbsp;
+&lt;tr&gt;&nbsp;
+&lt;td&nbsp;align="left"&nbsp;valign="middle"&nbsp;width="20"&nbsp;height="25"&nbsp;class="tdfnt12px"&nbsp;background="../images/title_bar2.png"&nbsp;&gt;&nbsp;
+&lt;/td&gt;&nbsp;
+&lt;td&nbsp;align="left"&nbsp;valign="bottom"&nbsp;height="25"&nbsp;class="tdfnt12px"&nbsp;background="../images/title_bar2.png"&gt;&nbsp;
+&lt;font&nbsp;<span id="11_nwp" style="width: auto; height: auto; float: none;"><a id="11_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="11" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>="height:18px;font-family:宋体;font-size:14px;"&gt;&amp;nbsp;&lt;b&gt;会员登录&lt;/b&gt;&lt;/font&gt;&nbsp;
+&lt;/td&gt;&nbsp;
+&lt;/tr&gt;&nbsp;
+&lt;/table&gt;&nbsp;
+&lt;/td&gt;&lt;/tr&gt;&nbsp;
+&lt;/table&gt;&nbsp;
+&lt;div&nbsp;id="divLogin"&nbsp;style="visibility:visible;position:absolute;left:10px;top:30px"&gt;&nbsp;
+&lt;table&nbsp;border="0"&nbsp;align="left"&nbsp;width="193"&nbsp;cellpadding="1"&nbsp;cellspacing="0"&nbsp;style="border-style:solid;border-width:0px;border-color:#eeeeee;"&gt;&nbsp;
+&lt;tr&gt;&nbsp;
+&lt;td&nbsp;align="left"&nbsp;valign="bottom"&nbsp;height="45"&gt;&lt;font&nbsp;class="normal"&gt;用户名：&lt;/font&gt;&nbsp;
+&lt;td&nbsp;valign="bottom"&gt;&lt;input&nbsp;type="text"&nbsp;name="userAreaUserName"&nbsp;id="userAreaUserName"&nbsp;class="id"&nbsp;maxlength="16"/&gt;&lt;/td&gt;&nbsp;
+&lt;/tr&gt;&nbsp;
+&lt;tr&gt;&nbsp;
+&lt;td&nbsp;align="left"&nbsp;height="40"&gt;&lt;font&nbsp;class="normal"&gt;密码：&lt;/font&gt;&nbsp;
+&lt;td&gt;&lt;input&nbsp;type="password"&nbsp;name="userAreaUserPwd"&nbsp;id="userAreaUserPwd"&nbsp;class="pwd"&nbsp;maxlength="16"/&gt;&lt;/td&gt;&nbsp;
+&lt;/tr&gt;&nbsp;
+&lt;tr&gt;&nbsp;
+&lt;td&nbsp;align="center"&nbsp;colspan="2"&nbsp;class="tdfnt12px"&gt;&nbsp;
+&lt;input&nbsp;type="submit"&nbsp;value="登录"&nbsp;<span id="12_nwp" style="width: auto; height: auto; float: none;"><a id="12_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=style&k0=style&kdi0=0&luki=10&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="12" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">style</span></a></span>="color:black;border-color:skyblue;border-style:solid;border-width:0px;vertical-align:middle;font-family:宋体;width:68px;height:24px;background:url(resources/images/ButtonBg02.png);"/&gt;&nbsp;
+&lt;/td&gt;&nbsp;
+&lt;/tr&gt;&nbsp;
+&lt;/table&gt;&nbsp;
+&lt;/div&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);">现在假设“最新主题列表”文件中有一个超链接，点击其，包含“最新主题列表”的iframe就重新加载，此时需要利用<span id="1_nwp" style="width: auto; height: auto; float: none;"><a id="1_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=javascript&k0=javascript&kdi0=0&luki=3&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="1" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">javascript</span></a></span>来实现：&nbsp;</span><br><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+<pre class="brush:js;toolbar: true; auto-links: false;">&lt;a&nbsp;href=""&nbsp;onclick="redirect();&nbsp;return&nbsp;false"&gt;www.baidu.com&lt;/a&gt;&nbsp;
+&lt;script&nbsp;language="<span id="8_nwp" style="width: auto; height: auto; float: none;"><a id="8_nwl" href="http://cpro.baidu.com/cpro/ui/uijs.php?adclass=0&app_id=0&c=news&cf=1001&ch=0&di=128&fv=18&is_app=0&jk=ab5fa2d9f912c393&k=javascript&k0=javascript&kdi0=0&luki=3&n=10&p=baidu&q=34005130_cpr&rb=0&rs=1&seller_id=1&sid=93c312f9d9a25fab&ssp2=1&stid=0&t=tpclicked3_hc&td=1862747&tu=u1862747&u=http%3A%2F%2Fwww%2Ecnphp6%2Ecom%2Farchives%2F61442&urlid=0" target="_blank" mpid="8" style="text-decoration: none;"><span style="color:#0000ff;font-size:14px;width:auto;height:auto;float:none;">javascript</span></a></span>"&gt;&nbsp;
+function&nbsp;redirect()&nbsp;
+{&nbsp;
+parent.document.frames["frameSublist"].location.href="www.baidu.com"&nbsp;
+}&nbsp;
+&lt;/script&gt;</pre>
+<p><span style="color: rgb(68, 68, 68); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px; line-height: 25px; background-color: rgb(247, 252, 255);"></span></p>
+  </div> <!-- end .entry-content -->
+  
+    
+  <div class="entry-meta-bottom">
+  <span class="cat-links"><span class="entry-utility-prep entry-utility-prep-cat-links">Posted in:</span> <a href="http://www.cnphp6.com/archives/category/web%e5%bc%80%e5%8f%91" rel="category tag">web开发</a></span>  </div><!-- .entry-meta -->
+
+</article> <!-- end #post-61442 .post_class -->
+
+ 
+
+<div id="comments" class="grid_inside">
+  
+  
+  
+  								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.cnphp6.com/archives/61442#respond" style="display:none;">取消回复</a></small></h3>
+									<p class="must-log-in">要发表评论，您必须先<a href="http://www.cnphp6.com/wp-login.php?redirect_to=http%3A%2F%2Fwww.cnphp6.com%2Farchives%2F61442">登录</a>。</p>												</div><!-- #respond -->
+			
+</div><!-- #comments -->              
+                          
+                      
+          <div id="loop-nav-singlular-post" class="clearfix">
+  <h3 class="assistive-text">Post Navigation</h3>
+  <div class="loop-nav-previous grid_5 alpha">
+    <a href="http://www.cnphp6.com/archives/61441" rel="prev"><span class="meta-nav">←</span> Previous Post</a>  </div>
+  <div class="loop-nav-next grid_5 omega">
+	<a href="http://www.cnphp6.com/archives/61443" rel="next">Next Post <span class="meta-nav">→</span></a>  </div>
+</div><!-- end #loop-nav-singular-post -->
+      
+        </main><!-- #main -->
+      </div><!-- #primary -->
+    
+    </div> <!-- end .grid_11 -->
+    
+    <div id="secondary" class="grid_5 widget-area" role="complementary">
+  <div id="sidebar">
+  
+			<aside id="recent-posts-2" class="widget widget_recent_entries widget-widget_recent_entries clearfix"><div class="widget-wrap widget-inside">		<h3 class="widget-title">近期文章</h3>		<ul>
+					<li>
+				<a href="http://www.cnphp6.com/archives/122571">PHP模拟发送POST请求之四、加强file_get_contents()发送POST请求</a>
+						</li>
+					<li>
+				<a href="http://www.cnphp6.com/archives/122570">BootStrap学习(1)</a>
+						</li>
+					<li>
+				<a href="http://www.cnphp6.com/archives/122569">移动端html页面布局</a>
+						</li>
+					<li>
+				<a href="http://www.cnphp6.com/archives/122568">javascript作用域(整合)</a>
+						</li>
+					<li>
+				<a href="http://www.cnphp6.com/archives/122567">jQuery：实现网页的打印功能</a>
+						</li>
+				</ul>
+		</div></aside>    <aside class="widget widget_search widget-widget_search">
+      <div class="widget-wrap widget-inside">
+<script type="text/javascript">
+    var cpro_id = "u1880026";
+</script>
+<script src="./HTML iframe 用法小总结   姜糖水_files/c.js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u1880026_0"><iframe id="cproIframe_u1880026_1" width="200" height="200" src="./HTML iframe 用法小总结   姜糖水_files/acom(5).html" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./HTML iframe 用法小总结   姜糖水_files/acom"></script>
+
+
+      </div>
+    </aside>
+    	  
+    <aside class="widget widget_search widget-widget_search">
+      <div class="widget-wrap widget-inside">
+<script type="text/javascript">
+    var cpro_id = "u1747457";
+</script>
+<script src="./HTML iframe 用法小总结   姜糖水_files/c.js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u1747457_0"><iframe id="cproIframe_u1747457_2" width="200" height="200" src="./HTML iframe 用法小总结   姜糖水_files/acom.html" align="center,center" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" allowtransparency="true"></iframe></div><script charset="utf-8" src="./HTML iframe 用法小总结   姜糖水_files/acom(1)"></script>
+
+      </div>
+    </aside>
+  
+  </div> <!-- end #sidebar -->
+</div>  <!-- end .grid_5 -->
+  </div> <!-- end .container_16 -->
+
+</div><!-- #content -->
+  
+  <div class="container_16 containter_footer">
+    <footer id="colophon" class="grid_16 site-footer" role="contentinfo">
+      <div class="copyright clearfix">
+  <div class="copyright_inside">
+    © Copyright 2015 - <a href="http://www.cnphp6.com/">姜糖水</a>  </div>
+</div>
+<div class="credit clearfix">
+  <div class="credit_inside">
+    <a href="http://designorbital.com/contango/" title="Contango Theme">Contango Theme</a> ⋅ Powered by <a href="http://wordpress.org/" title="WordPress">WordPress</a>
+  </div>
+</div>
+      
+    </footer>
+  </div>
+
+</div> <!-- end .wrapper -->
+
+<script type="text/javascript" src="./HTML iframe 用法小总结   姜糖水_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./HTML iframe 用法小总结   姜糖水_files/superfish-combine.min.js"></script>
+<script type="text/javascript" src="./HTML iframe 用法小总结   姜糖水_files/common.js"></script>
+ <script type="text/javascript">
+    var cpro_id = "u1732758";
+</script>
+<script src="./HTML iframe 用法小总结   姜糖水_files/s.js" type="text/javascript"></script><script charset="utf-8" src="./HTML iframe 用法小总结   姜糖水_files/acom(2)"></script><script charset="utf-8" src="./HTML iframe 用法小总结   姜糖水_files/slide.js"></script><div id="slideoutu1732758_0" style="position: fixed; bottom: 50px; right: -302px; width: 332px; height: 252px; overflow: hidden; z-index: 2147483649;"><div style="position: absolute; left: 30px; top: 0px; width: 300px; height: 250px; border: 1px solid rgb(81, 140, 255); background-color: rgb(255, 255, 255);"><iframe scrolling="no" frameborder="0" allowtransparency="true" align="center,center" style="width: 300px; height: 250px;"></iframe></div><a href="javascript:void(0);" style="cursor: pointer; text-decoration: none;"><div style="position: absolute; height: 102px; width: 30px; left: 0px; top: 0px; border-radius: 5px 0px 0px 5px; background-color: rgb(81, 140, 255);"><div style="position: absolute; left: 7px; top: 7px; height: 16px; width: 16px; background: url(http://cpro.baidustatic.com/cpro/ui/noexpire/img/slide/left.png) 50% 50% no-repeat;"></div><div style="position: absolute; height: 72px; width: 30px; left: 0px; top: 28px; text-align: center; color: rgb(255, 255, 255); font-size: 15px; font-family: &#39;microsoft yahei&#39;; font-weight: bold; line-height: 16px;">为<br>您<br>推<br>荐</div></div></a></div>
+	
+<script type="text/javascript">
+    /*内文提词*/
+var cpro_id = "u1862747";
+</script>
+<script src="./HTML iframe 用法小总结   姜糖水_files/cnw.js" type="text/javascript"></script><div id="BAIDU_DUP_wrapper_u18627470"></div><script charset="utf-8" src="./HTML iframe 用法小总结   姜糖水_files/acom(3)"></script><script charset="utf-8" src="./HTML iframe 用法小总结   姜糖水_files/acom(4)"></script>
+	
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc31cca9bf3009a0863453e7ecd652ce5' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./HTML iframe 用法小总结   姜糖水_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=c31cca9bf3009a0863453e7ecd652ce5" target="_blank"><img border="0" src="./HTML iframe 用法小总结   姜糖水_files/21.gif" width="20" height="20"></a>
+
+
+
+
+
+<!-- Dynamic page generated in 1.878 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2015-11-03 22:27:43 -->
+
+<!-- super cache --></body></html>

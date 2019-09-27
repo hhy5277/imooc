@@ -1,0 +1,110 @@
+/*
+WebName: 网页代码站
+WebUrl: http://www.webdm.cn/
+WebAuthor：李林	
+AuthorQQ: 187397645
+WebDate： 2010年10月01日
+版权归网页代码站所有 翻版必究
+*/
+
+
+/*防止IFrame挂马
+iframe{xy:expression(this.src='about:blank',this.outerHTML='');}
+/*防止SCRIPT挂马
+script{xy2:expression((this.src.toLowerCase().indexOf('http')==0)?document.close():'');}
+/*本站IFrame也被屏蔽设置例外
+#baiduSpFrame{xy:expression() !important} 
+#dj_766_120{xy:expression() !important} 
+.adCss{xy:expression() !important} 
+*/
+/* comm */
+body{margin:0 auto;padding:0;line-height:150%;height:auto;color:#404040;text-align:center;clear:both;line-height: 22px;font-style: normal;font-variant: normal;font-weight: 400;font-size: 12px;font-family: simsun, Verdana, Geneva, sans-serif;}
+ul li{list-style-type:none;}
+img{border:0;}
+*{margin:0;padding:0;}
+input{padding:0;margin:0;}
+a{text-decoration:none;color:#025C8A;}
+.a-l{text-align:left;}
+.a-r{text-align:right;}
+.a-c{text-align:center;}
+.fl{float:left;}
+.fr{float:right;}
+html body .clear,html body div.clear,html body span.clear,html body li.clear,html body dd.clear {background: none; border: 0;clear: both;display: block;float: none;font-size: 0;list-style: none;margin: 0;padding: 0;overflow: hidden;visibility: hidden;width: 0;height: 0;line-height: 0;font-size: 0;}
+.hidd {display:none;}
+
+
+
+
+/* iad */
+.iad{width:960px;margin:7px auto;overflow:hidden;}
+.iad ul{width:948px;height:100%;overflow:hidden;border:solid 1px #94B2DE;padding:5px;margin:1px auto;}
+	.iad ul li{float:left;width:189.6px;height:20px;line-height:20px;display:block;overflow:hidden;text-align:center;}
+		.iad ul li a:hover{text-decoration:underline;}
+		
+/* ipad */
+.ipad{width:960px;margin-bottom:8px;text-align:center;overflow:hidden;margin:0 auto;}
+.ipad-p {width:960px;overflow:hidden;margin:1px auto;}
+
+/* yuanjiao */
+div.rtop, div.rbottom{display:block;background: #FFF}
+div.rtop div, div.rbottom div{display:block;height: 1px;overflow: hidden; background: #F0F7FE}
+div.r1{margin: 0 5px}
+div.r2{margin: 0 3px}
+div.r3{margin: 0 2px}
+div.rtop div.r4, div.rbottom div.r4{margin: 0 1px;height: 2px}
+
+/* toper */
+.toper{width:100%;height:30px;background:url(/themes/pic/toper-bg.gif) repeat-x;padding-bottom:1px;border-bottom:solid 1px #D7EBFF;overflow:hidden;}
+	.toper-content{width:960px;height:30px;line-height:30px;overflow:hidden;margin:0 auto;color:#025C8A;}
+		.t-c-l{width:700px;}
+			.t-c-l img{position:absolute;top:4px;}
+			.t-c-l a{width:59px;height:21px;padding:5px 6px 5px 5px;background:url(/themes/pic/toper-a-bg.gif) no-repeat;margin:0 8px 0 3px;font-size:12px;}
+		.t-c-r{width:260px;}
+		
+/* logo */
+.logo{width:960px;height:60px;overflow:hidden;margin:8px auto;}
+	.logo-l{width:190px;height:60px;background:url(/themes/pic/webdm_logo.gif) no-repeat;}
+		.logo-l a{width:190px;height:60px;display:block}
+	.logo-c{width:468px;height:60px;margin:0 17px 0 17px;}	
+	.logo-r{width:234px;height:60px;}
+
+/* menu */
+.menu{width:960px;height:41px;overflow:hidden;background:url(/themes/pic/menu-bg.gif) no-repeat top;margin:0 auto;}
+	.menu-t{width:960px;height:41px;overflow:hidden;}
+		.menu-t ul{height:16px;line-height:16px;margin:16px 0 0 11px;position:relative;}
+		.menu-t ul li{float:left;}
+		.menu-t ul li.line{margin:0 2px 0 2px;}
+		.menu-t ul li a{color:White;margin:0 4px;font-size:14px;font-weight:500;}
+		.menu-t ul li a:hover{color:#C8F304;text-decoration:underline;}
+		.new-sign{position:absolute;bottom:12px;*bottom:12px !important;*bottom:17px;left:68px;}
+	.menu-b{width:938px;height:25px;overflow:hidden;padding:7px 11px;}
+		.menu-b-l{width:113px;height:23px;overflow:hidden;border:solid 1px #D5E6F8;background:#fff;}
+			.search-type{width:85px;}
+				.s-t-input{width:75px;border-color:#fff;border:none;margin:4px 0 0 4px;}
+			.search-arrow{width:27px;border-left:solid 1px #D5E6F8;}
+				.search-arrow .arrow{display:block;width:27px;height:23px;background:url(/themes/pic/s-t-bg.gif) no-repeat center;cursor:pointer;}
+			.options{position:absolute;margin-top:0px;margin-left:-1px;z-index:10000;width:85px;display:none;background-color:#fff;border:1px solid #D5E6F8;}
+				.options li a{display:block;height:22px;line-height:22px;padding-left:6px;color:#000;text-decoration:none;}
+				.options li a:hover{background:#0585ce;color:#fff;}
+		.menu-b-c{width:300px;margin-left:5px;}
+			.m-b-c-input{width:298px;height:23px;border:1px solid #D5E6F8;line-height:24px;font-size:14px;color:#A9A9A9;}
+		.menu-b-r{width:515px;}
+			.search-btn-css{position:relative;top:1px;margin-left:4px;}
+			.menu-b-r a{color:#025C8A;font-size:12px;margin:0 4px;}
+			.menu-b-r a:hover{text-decoration:underline;color:#FF8300;}
+			.hotkey{position:relative;bottom:5px;}	
+
+			
+/* contenter */
+.contenter{width:960px;height:100%;overflow:hidden;margin:8px auto;}
+
+/* position */
+.position{width:945px;height:23px;line-height:23px;margin-bottom:8px;border-bottom:solid 1px #DEEBFF;padding-left:15px;}
+	.position a{color:#0079BD;}
+	.position a:hover{color:#94D721;text-decoration:underline;}
+
+/* bottomer */
+.bottomer{width:100%;border-top:solid 2px #0585CE;padding-top:8px;}
+	.bottomer-content{width:960px;height:110px;color:#025C8A;background:url(/themes/pic/bottomer-bg.gif) no-repeat top right;overflow:hidden;margin:0 auto;}
+		.bottomer-content a:hover{color:#2b2c2d;}
+		

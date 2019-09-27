@@ -1,0 +1,145 @@
+<link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+  
+<a href="#" alt="Woo RSS!">
+  <div class="icon-corner"></div>
+  <div class="icon-bottom"></div>
+  <div class="circle"></div>
+  <div class="fold"></div>
+  <div class="waves">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+</a>
+
+<h1>Pure CSS RSS Icon</h1>
+
+body{
+  background:#eff2bf;
+  perspective:800;
+}
+
+h1{
+  font-size:32px;
+  font-family:Roboto, sans-serif;
+  font-wight:100;
+  color:#8c7249;
+  text-align:center;
+}
+
+a{
+  display:block;
+  width:150px;
+  height:150px;
+  margin: 40px auto;
+  position:relative;
+  -webkit-backface-visibility: hidden;
+  transition: all 300ms ease;
+}
+a:hover{
+  transform:scale(1.06) rotatex(20deg);
+  box-shadow: 0px 18px 25px -2px rgba(0,0,0,0.2); 
+}
+a:hover .icon-bottom, a:hover .wave:nth-child(odd){
+  background:#ffac3d;
+}
+a:hover .icon-corner{
+  border-color: transparent transparent #ffac3d;
+}
+a:hover .fold{
+  border-left:12px solid #ffc77a;
+  border-bottom:12px solid #ffc77a;  
+}
+
+.icon-corner{
+  width: 125px;
+  position: absolute;
+  border-style: solid;
+  border-color: transparent transparent #ffbb52;
+  border-width: 0 25px 25px 0;
+  z-index:1;
+}
+
+.icon-bottom {
+  width:150px;
+  height:125px;
+  position:absolute;
+  top:25px;
+  background:#ffbb52;
+  z-index:1;
+}
+
+.fold{
+  width:0; 
+  height:0;
+  position:absolute;
+  right:0.5%;
+  top:0.1%;
+  border-right:12px solid transparent;
+  border-top:12px solid transparent;
+  border-left:12px solid #ffd28e;
+  border-bottom:12px solid #ffd28e;
+  z-index:2;
+}
+
+.circle{
+  width:30px;
+  height:30px;
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  background:#fff;
+  border-radius:15px;
+  z-index:7;
+}
+
+.waves{
+  width:103px;
+  height:103px;
+  overflow:hidden;
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  z-index:2;
+}
+.wave{
+  border-radius:50%;
+  position:absolute;
+}
+
+.wave:nth-child(odd){
+  background:#ffbb52;
+}
+.wave:nth-child(even){
+  background:#fff;
+}
+
+.wave:nth-child(1){
+  width:106px;
+  height:106px;
+  bottom:-53px;
+  left:-53px;
+  z-index:4
+}
+.wave:nth-child(2){
+  width:140px;
+  height:140px;
+  bottom:-70px;
+  left:-70px;
+  z-index:3
+}
+.wave:nth-child(3){
+  width:174px;
+  height:174px;
+  bottom:-87px;
+  left:-87px;
+  z-index:2
+}
+.wave:nth-child(4){
+  width:206px;
+  height:206px;
+  bottom:-103px;
+  left:-103px;
+  z-index:1
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://preview.dabblet.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Loading animation like the one seen on http://www.freeger.com/projects/contextad/ with CSS ✿ Dabblet result</title>
+<style>/**
+ * Loading animation like the one seen on http://www.freeger.com/projects/contextad/ with CSS
+ * Caveat: Not DRY. The content needs to be repeated in a data- attribute (or directly in the CSS).
+ */
+
+body {
+	background: #ccc51c;
+	min-height: 100%;
+}
+
+h1 {
+	position: absolute;
+	left: 50%;
+	margin-left: -1.9em;
+	color: hsla(0,0%,100%,.3);
+	font: 900 800% Baskerville, 'Palatino Linotype', Palatino, serif;	
+}
+
+@-webkit-keyframes loading {
+	from { max-width: 0; }
+}
+
+h1:before {
+	content: attr(data-content);
+	position: absolute;
+	overflow: hidden;
+	max-width: 4em;
+	color: white;
+	-webkit-animation: loading 10s linear;
+}
+</style>
+<script src="render.js"></script>
+</head>
+<body><h1 data-content="Contad">Contad</h1></body></html>

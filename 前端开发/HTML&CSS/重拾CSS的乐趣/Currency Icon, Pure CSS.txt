@@ -1,0 +1,152 @@
+<!-- Also tentatively titled under "Too Many Divs And Not Enough Pseudos"-->
+<div class="container">
+  <div class="icon">
+    <div class="coin-overlay"></div>
+       <div class="coin">
+        <div class="inner"></div>
+    </div>
+    <div class="gradients">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    </div>
+  <h1>Currency To Go</h1>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Me being untrusting of Codepen's rest*/
+@import url(http://www.boltaway.com/css/reset.css);
+body {
+  background: #2C3E50;
+}
+.container {
+  position: relative;
+  margin: 30px auto;
+  width: 256px;
+}
+.icon {
+  background: #3498DB;
+  position: relative;
+  width: 256px;
+  height: 256px;
+  border-radius: 32px;
+  border-bottom: 4px solid #263441;
+  overflow: hidden;
+  /*It looks so cute when it's tiny!
+  -webkit-transform: scale(.25); */
+}
+.coin-overlay {
+  width: 128px;
+  height: 128px;
+  border-radius: 64px;
+  background: -webkit-linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 49%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 100%);
+  background: -moz-linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 49%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 100%);
+  background: -o-linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 49%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 100%);
+  background: linear-gradient(45deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 49%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 100%);
+  z-index: 10;
+  position: absolute;
+  top: 64px;
+  left: 32px;
+}
+.coin {
+  width: 128px;
+  height: 128px;
+  border-radius: 64px;
+  background: #E8CF12;
+  position: absolute;
+  top: 64px;
+  left: 32px;
+  -webkit-box-sizing: border-box;
+  moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 16px solid rgba(255,255,255,0.1);
+  box-shadow: 0px 3px 0px rgba(0,0,0,0.3);
+  z-index: 5;
+}
+.inner {
+  width: 112px;
+  height: 112px;
+  border-radius: 56px;
+  background: rgb(234,187,5);
+  border: 4px solid rgb(238,181,1);
+  box-shadow: 1px 1px 5px rgba(255,255,255,0.3);
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.inner::after {
+  content: '$';
+  display: block;
+  margin: .25em;
+  color: rgb(255,212,40);
+  font-size: 4em;
+  /* Need to find better font...or just do the font in css, which I shouldn't*/
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: -1px 1px 0px rgba(0,0,0,0.25);
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+.gradients {
+  z-index: 2;
+  height: 128px;
+  width: 128px;
+  position: absolute;
+  top: 64px;
+  left: 120px;
+}
+.gradients span {
+  display: block;
+  height: 16px;
+  margin: 4px 0px;
+  width: 100%;
+}
+.gradients span {
+   background: -moz-linear-gradient(left, rgba(222,231,232,1) 0%, rgba(52,152,219,1) 100%); 
+   background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(222,231,232,1)), color-stop(100%,rgba(52,152,219,1)));
+   background: -webkit-linear-gradient(left, rgba(222,231,232,1) 0%,rgba(52,152,219,1) 100%);
+   background: -o-linear-gradient(left, rgba(222,231,232,1) 0%,rgba(52,152,219,1) 100%);
+   background: -ms-linear-gradient(left, rgba(222,231,232,1) 0%,rgba(52,152,219,1) 100%);
+   background: linear-gradient(to right, rgba(222,231,232,1) 0%,rgba(52,152,219,1) 100%);
+}
+.gradients span:nth-of-type(1),
+.gradients span:nth-of-type(4),
+.gradients span:nth-of-type(6){ 
+   background: -webkit-gradient(linear, 100% 0, 0 0, from(rgba(87,169,225,1)), to(rgba(52,152,219,1)));
+   background: -webkit-linear-gradient(to right, rgba(87,169,225,1) 0%, rgba(52,152,219,1) 100%);
+   background: -moz-linear-gradient(to right, rgba(87,169,225,1) 0%, rgba(52,152,219,1) 100%);
+   background: -o-linear-gradient(to right, rgba(87,169,225,1) 0%, rgba(52,152,219,1) 100%);
+   background: linear-gradient(to right, rgba(87,169,225,1) 0%, rgba(52,152,219,1) 100%);
+}
+h1 {
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 2em;
+  margin-top: 20px;
+  text-align: center;
+  color: #DEE7E8;
+  text-shadow: -3px 1px 0px #263441,
+               2px 1px 0px #263441;
+}

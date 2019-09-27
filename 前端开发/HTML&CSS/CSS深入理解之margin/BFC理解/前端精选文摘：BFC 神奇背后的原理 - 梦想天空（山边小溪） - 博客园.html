@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0066)http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script charset="utf-8" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/hl.js"></script><script type="text/javascript" async="" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/ga.js"></script><script src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/hm.js"></script>
+
+<title>前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/bundle-summerGarden.css">
+<link type="text/css" rel="stylesheet" href="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/40553.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/lhb25/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/lhb25/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/lhb25/wlwmanifest.xml">
+<script src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/jquery.js" type="text/javascript"></script><style type="text/css">div#ad_b4,div#ad_b3,div#ad_b2,div#ad_b1{display:none !important;}</style>  
+<script type="text/javascript">var currentBlogApp = 'lhb25', cb_enable_mathjax=false;</script>
+<script src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/blog-common.js" type="text/javascript"></script>
+<script src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/great.box.min.js"></script></head>
+<body>
+<a name="top"></a>
+<div id="page_begin_html"><!--这个可能对点击率有影响，先去掉-->
+<!--<div style="display: none" id="__document_write_ajax_div-1"></div><script>window['__document_write_ajax_callbacks__']['1']();</script>--></div><script>load_page_begin_html();</script>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/lhb25/"><img id="blogLogo" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/lhb25/">梦想天空</a></h1>
+<h2>关注前端开发技术 ◆ 推动 <a href="http://www.yyyweb.com/tag/html5"><span style="color: green"><strong>HTML5</strong></span></a> &amp; <a href="http://www.yyyweb.com/tag/css3"><span style="color: green"><strong>CSS3</strong></span></a> 技术发展 ◆ 本博客全新站点：<a href="http://www.yyyweb.com/"><span style="color: #F31919"><strong>yyyweb.com</strong></span></a> 欢迎围观：） <!--<br><span style="color:red;">获得腾讯投资的移动医疗公司招聘前端开发工程师，工作地点杭州，内推邮箱：2673221870@qq.com</span>--></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	
+	<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/lhb25/">首页</a></li>
+	
+	<li></li>
+	
+	<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+	
+<li><a class="menu" href="http://www.cnblogs.com/lhb25/category/279316.html">网页设计</a></li><li><a class="menu" href="http://www.cnblogs.com/lhb25/category/146074.html">JavaScript</a></li><li><a class="menu" href="http://www.cnblogs.com/lhb25/category/277997.html">jQuery</a></li><li><a class="menu" href="http://www.cnblogs.com/lhb25/category/146076.html">HTML5</a></li><li><a class="menu" href="http://www.cnblogs.com/lhb25/category/146075.html">CSS3</a></li><li><a class="menu" href="http://www.cnblogs.com/lhb25/category/277769.html">精美素材</a></li><li><a class="menu" href="http://www.yyyweb.com/go/web">前端里</a></li><li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/lhb25/rss">订阅</a>
+	<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/lhb25/rss"><img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/xml.gif" alt="订阅"></a></li></ul>
+
+
+		<div class="blogStats">
+			
+			
+<!--done-->
+随笔- 2399&nbsp;
+文章- 1&nbsp;
+评论- 15877&nbsp;
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园.html">前端精选文摘：BFC 神奇背后的原理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><div class="month_index">
+<p>　　BFC 已经是一个耳听熟闻的词语了，网上有许多关于 BFC 的文章，介绍了如何触发 BFC 以及 BFC 的一些用处（如清浮动，防止 margin 重叠等）。虽然我知道如何利用 BFC 解决这些问题，但当别人问我 BFC 是什么，我还是不能很有底气地解释清楚。于是这两天仔细阅读了CSS2.1 spec 和许多文章来全面地理解BFC。</p>
+<h3 class="third_title">一、BFC是什么？</h3>
+<p>　　在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context的概念。</p>
+<h4 id="box-css-">　　Box: CSS布局的基本单位</h4>
+<p>　　Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的 Box， 会参与不同的 Formatting Context（一个决定如何渲染文档的容器），因此Box内的元素会以不同的方式渲染。让我们看看有哪些盒子：</p>
+<ul>
+<li>block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；</li>
+<li>inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；</li>
+<li>run-in box: css3 中才有， 这儿先不讲了。</li>
+</ul>
+<h4>　　Formatting context</h4>
+<p>　　Formatting context 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。最常见的 Formatting context 有 Block fomatting context (简称BFC)和 Inline formatting context (简称IFC)。</p>
+<p>　　CSS2.1 中只有&nbsp;<code>BFC&nbsp;</code>和&nbsp;<code>IFC</code>, <strong><a href="http://www.cnblogs.com/lhb25/category/146075.html" target="_blank">CSS3</a>&nbsp;</strong>中还增加了&nbsp;<code>GFC&nbsp;</code>和&nbsp;<code>FFC。</code></p>
+<h4 id="bfc-">　　BFC 定义</h4>
+<p>　　BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。</p>
+<h4 id="bfc-">　　BFC布局规则：</h4>
+<ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+<h3 class="third_title">二、哪些元素会生成BFC?</h3>
+<ol>
+<li>根元素</li>
+<li>float属性不为none</li>
+<li>position为absolute或fixed</li>
+<li>display为inline-block, table-cell, table-caption, flex, inline-flex</li>
+<li>overflow不为visible</li>
+</ol>
+<h3 class="third_title">三、BFC的作用及原理</h3>
+<h4 id="1-">　　1. 自适应两栏布局</h4>
+<p>　　代码：</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_647026" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">&lt;style&gt;</code></div><div class="line number2 index1 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">body {</code></div><div class="line number3 index2 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">width: 300px;</code></div><div class="line number4 index3 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">position: relative;</code></div><div class="line number5 index4 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.aside {</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">width: 100px;</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">height: 150px;</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">float: left;</code></div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">background:</code> <code class="javascript preprocessor">#f66;</code></div><div class="line number12 index11 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.main {</code></div><div class="line number15 index14 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">height: 200px;</code></div><div class="line number16 index15 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">background:</code> <code class="javascript preprocessor">#fcc;</code></div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number18 index17 alt1"><code class="javascript plain">&lt;/style&gt;</code></div><div class="line number19 index18 alt2"><code class="javascript plain">&lt;body&gt;</code></div><div class="line number20 index19 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;div </code><code class="javascript keyword">class</code><code class="javascript plain">=</code><code class="javascript string">"aside"</code><code class="javascript plain">&gt;&lt;/div&gt;</code></div><div class="line number21 index20 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;div </code><code class="javascript keyword">class</code><code class="javascript plain">=</code><code class="javascript string">"main"</code><code class="javascript plain">&gt;&lt;/div&gt;</code></div><div class="line number22 index21 alt1"><code class="javascript plain">&lt;/body&gt;</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>　　页面：<br>　　<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/4dca44a927d4c1ffc30e3ae5f53a0b79.png" alt="此处输入图片的描述"></p>
+<p>　　根据<code>BFC</code>布局规则第3条：</p>
+<blockquote>
+<p>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+<p>　　因此，虽然存在浮动的元素aslide，但main的左边依然会与包含块的左边相接触。</p>
+<p>　　根据<code>BFC</code>布局规则第四条：</p>
+<blockquote>
+<p><code>BFC</code>的区域不会与<code>float box</code>重叠。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+<p>　　我们可以通过通过触发main生成<code>BFC</code>， 来实现自适应两栏布局。</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_172386" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">.main {</code></div><div class="line number2 index1 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">overflow: hidden;</code></div><div class="line number3 index2 alt2"><code class="javascript plain">}</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>　　当触发main生成<code>BFC</code>后，这个新的<code>BFC</code>不会与浮动的aside重叠。因此会根据包含块的宽度，和aside的宽度，自动变窄。效果如下：</p>
+<p><em id="__mceDel">　　<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/t01077886a9706cb26b.png" alt="此处输入图片的描述"></em></p>
+<h4 id="2-">　　2. 清除内部浮动</h4>
+<p>　　代码：</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_53472" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">&lt;style&gt;</code></div><div class="line number2 index1 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.par {</code></div><div class="line number3 index2 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">border: 5px solid</code> <code class="javascript preprocessor">#fcc;</code></div><div class="line number4 index3 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">width: 300px;</code></div><div class="line number5 index4 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.child {</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">border: 5px solid</code> <code class="javascript preprocessor">#f66;</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">width:100px;</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">height: 100px;</code></div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">float: left;</code></div><div class="line number12 index11 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number13 index12 alt2"><code class="javascript plain">&lt;/style&gt;</code></div><div class="line number14 index13 alt1"><code class="javascript plain">&lt;body&gt;</code></div><div class="line number15 index14 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;div </code><code class="javascript keyword">class</code><code class="javascript plain">=</code><code class="javascript string">"par"</code><code class="javascript plain">&gt;</code></div><div class="line number16 index15 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;div </code><code class="javascript keyword">class</code><code class="javascript plain">=</code><code class="javascript string">"child"</code><code class="javascript plain">&gt;&lt;/div&gt;</code></div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;div </code><code class="javascript keyword">class</code><code class="javascript plain">=</code><code class="javascript string">"child"</code><code class="javascript plain">&gt;&lt;/div&gt;</code></div><div class="line number18 index17 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;/div&gt;</code></div><div class="line number19 index18 alt2"><code class="javascript plain">&lt;/body&gt;</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>　　页面：<br>　　<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/t016035b58195e7909a.png" alt="此处输入图片的描述"></p>
+<p>　　根据<code>BFC</code>布局规则第六条：</p>
+<blockquote>
+<p>计算<code>BFC</code>的高度时，浮动元素也参与计算</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+<p>　　为达到清除内部浮动，我们可以触发par生成<code>BFC</code>，那么par在计算高度时，par内部的浮动元素child也会参与计算。</p>
+<p>　　代码：</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_46851" class="syntaxhighlighter  css"><div class="toolbar"><span><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css plain">.par {</code></div><div class="line number2 index1 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">overflow</code><code class="css plain">: </code><code class="css value">hidden</code><code class="css plain">;</code></div><div class="line number3 index2 alt2"><code class="css plain">}</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>　　效果如下：<br>　　<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/t016bbbe5236ef1ffd5.png" alt="此处输入图片的描述">&nbsp;￼</p>
+<h4 id="3-margin-">　　3. 防止垂直 margin 重叠</h4>
+<p>　　代码：</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_4137" class="syntaxhighlighter  css"><div class="toolbar"><span><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="css plain">&lt;style&gt;</code></div><div class="line number2 index1 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">p {</code></div><div class="line number3 index2 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">color</code><code class="css plain">: </code><code class="css value">#f55</code><code class="css plain">;</code></div><div class="line number4 index3 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">background</code><code class="css plain">: </code><code class="css value">#fcc</code><code class="css plain">;</code></div><div class="line number5 index4 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">width</code><code class="css plain">: </code><code class="css value">200px</code><code class="css plain">;</code></div><div class="line number6 index5 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">line-height</code><code class="css plain">: </code><code class="css value">100px</code><code class="css plain">;</code></div><div class="line number7 index6 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">text-align</code><code class="css plain">:</code><code class="css value">center</code><code class="css plain">;</code></div><div class="line number8 index7 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css keyword">margin</code><code class="css plain">: </code><code class="css value">100px</code><code class="css plain">;</code></div><div class="line number9 index8 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">}</code></div><div class="line number10 index9 alt1"><code class="css plain">&lt;/style&gt;</code></div><div class="line number11 index10 alt2"><code class="css plain">&lt;body&gt;</code></div><div class="line number12 index11 alt1"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">&lt;p&gt;Haha&lt;/p&gt;</code></div><div class="line number13 index12 alt2"><code class="css spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="css plain">&lt;p&gt;Hehe&lt;/p&gt;</code></div><div class="line number14 index13 alt1"><code class="css plain">&lt;/body&gt;</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>　　页面：<br>　　<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/t01b47b8b7d153c07cc.png" alt="此处输入图片的描述"></p>
+<p>　　两个p之间的距离为100px，发送了margin重叠。<br>　　根据BFC布局规则第二条：</p>
+<blockquote>
+<p><code>Box</code>垂直方向的距离由margin决定。属于同一个<code>BFC</code>的两个相邻<code>Box</code>的margin会发生重叠</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+<p>　　我们可以在p外面包裹一层容器，并触发该容器生成一个<code>BFC</code>。那么两个P便不属于同一个<code>BFC</code>，就不会发生margin重叠了。<br>　　代码：</p>
+<div class="cnblogs_Highlighter sh-gutter">
+<div><div id="highlighter_574333" class="syntaxhighlighter  javascript"><div class="toolbar"><span><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="javascript plain">&lt;style&gt;</code></div><div class="line number2 index1 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">.wrap {</code></div><div class="line number3 index2 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">overflow: hidden;</code></div><div class="line number4 index3 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number5 index4 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">p {</code></div><div class="line number6 index5 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">color:</code> <code class="javascript preprocessor">#f55;</code></div><div class="line number7 index6 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">background:</code> <code class="javascript preprocessor">#fcc;</code></div><div class="line number8 index7 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">width: 200px;</code></div><div class="line number9 index8 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">line-height: 100px;</code></div><div class="line number10 index9 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">text-align:center;</code></div><div class="line number11 index10 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">margin: 100px;</code></div><div class="line number12 index11 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">}</code></div><div class="line number13 index12 alt2"><code class="javascript plain">&lt;/style&gt;</code></div><div class="line number14 index13 alt1"><code class="javascript plain">&lt;body&gt;</code></div><div class="line number15 index14 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;p&gt;Haha&lt;/p&gt;</code></div><div class="line number16 index15 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;div </code><code class="javascript keyword">class</code><code class="javascript plain">=</code><code class="javascript string">"wrap"</code><code class="javascript plain">&gt;</code></div><div class="line number17 index16 alt2"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;p&gt;Hehe&lt;/p&gt;</code></div><div class="line number18 index17 alt1"><code class="javascript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="javascript plain">&lt;/div&gt;</code></div><div class="line number19 index18 alt2"><code class="javascript plain">&lt;/body&gt;</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>　　效果如下:<br>　　<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/t0118d1d2badbb00521.png" alt="此处输入图片的描述"></p>
+<h3 class="third_title">总结</h3>
+<p>　　其实以上的几个例子都体现了<code>BFC</code>布局规则第五条：</p>
+<blockquote>
+<p><code>BFC</code>就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</blockquote>
+<p>　　因为<code>BFC</code>内部的元素和外部的元素绝对不会互相影响，因此， 当<code>BFC</code>外部存在浮动时，它不应该影响<code>BFC</code>内部Box的布局，<code>BFC</code>会通过变窄，而不与浮动有重叠。同样的，当<code>BFC</code>内部有浮动时，为了不影响外部元素的布局，<code>BFC</code>计算高度时会包括浮动的高度。避免margin重叠也是这样的一个道理。</p>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="third_title">您可能感兴趣的相关文章</div>
+<div class="month_index">
+<ul>
+<li><a href="http://www.cnblogs.com/lhb25/p/loading-spinners-animated-with-css3.html" target="_blank">使用 CSS3 实现超炫的加载动画效果</a></li>
+<li><a href="http://www.cnblogs.com/lhb25/p/css-balls.html" target="_blank">你想不到的！CSS 实现的各种球体效果</a></li>
+<li><a href="http://www.cnblogs.com/lhb25/archive/2012/09/27/10-css3-online-generator-tools.html" target="_blank">精心挑选的在线 CSS3 代码生成工具</a></li>
+<li><a href="http://www.cnblogs.com/lhb25/archive/2011/05/15/2046038.html" target="_blank">推荐10个特别方便的 CSS3 开发工具</a></li>
+<li><a href="http://www.cnblogs.com/lhb25/archive/2011/04/20/2001131.html" target="_blank">推荐收集的40款优秀的免费 CSS 工具</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<p>&nbsp;</p>
+<p>原文来自：<a href="http://blog.melonhuang.gitpress.org/~docs/css/1formattingContext.md" target="_blank">前端文摘：BFC 神奇背后的原理</a>&nbsp;via Melon Space<a href="http://www.cnblogs.com/lhb25/archive/2013/03/29/css-matic-the-ultimate-css-tools.html" target="_blank"><br></a></p>
+<p>编译来源：<a href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空 ◆ 关注前端开发技术 ◆ 分享网页设计资源</a></p>
+<p><span id="blog_ad_off">本文出处【<a href="http://www.cnblogs.com/lhb25/">http://www.cnblogs.com/lhb25/</a>】</span></p></div><div id="MySignature" style="display: block;"><div id="AllanboltSignature">
+       <div class="bottom-bar">
+        <!--<div style="margin:10px 0;color:red">获得腾讯投资的移动医疗公司招聘前端开发工程师，工作地点杭州，简历发送至2673221870@qq.com内推！</div>-->
+        <div class="month_index" style="float: left" id="recom">
+        <h3 id="recom_title">推荐博文</h3>
+        <ul>
+<li><a target="_blank" href="http://www.cnblogs.com/lhb25/p/must-read-links-for-web-designers-and-developers-volume-12.html">Web 前端工程师和设计师必读精华文章推荐</a></li>
+        <li><a href="http://www.cnblogs.com/lhb25//lhb25/archive/2011/07/28/html5-awesome-single-page-sites-inspiration.html" target="_blank">酷！15个精美的 HTML5 单页网站作品欣赏</a></li>
+        <li><a target="_blank" href="http://www.cnblogs.com/lhb25//lhb25/archive/2011/11/22/best-awesome-css3-animation-demos.html">炫！35个让人惊讶的 CSS3 动画效果演示</a></li>
+        <li><a href="http://www.cnblogs.com/lhb25//lhb25/archive/2012/03/02/30-mind-blowing-parallax-scrolling-effect-websites.html" target="_blank">赞！30个与众不同的优秀视差滚动效果网站</a></li>
+        <li><a target="_blank" href="http://www.cnblogs.com/lhb25//lhb25/archive/2012/01/13/25-outstanding-single-page-website-designs.html">靓！25个优秀的国外单页网站设计作品欣赏</a></li>
+        <li><a target="_blank" href="http://www.cnblogs.com/lhb25//lhb25/archive/2011/08/09/awesome-html5-and-javascript-effects.html">帅！8个惊艳的 HTML5 和 JavaScript 特效</a></li>
+        <li><a href="http://www.cnblogs.com/lhb25//lhb25/archive/2011/06/27/35-exclusive-rainbow-colored-flash-websites.html" target="_blank">顶！35个很漂亮的国外 Flash 网站作品欣赏</a></li>
+        <li><a href="http://www.cnblogs.com/lhb25//lhb25/archive/2011/08/24/outstanding-admin-panels-part-one.html" target="_blank">哇！34个漂亮网站和应用程序后台管理界面</a></li>
+        </ul>
+        </div>
+        <!--blog_bottom_GoogleAD-->
+        <div style="height: 280px; margin-left: 15px; float: left; overflow: hidden;">
+<a href="http://www.yyyweb.com/" target="_blank" rel="nofollow"><img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/36987-20150913115252950-1736386654.jpg" alt="Web 开发中很实用的10个效果【源码下载】"></a>
+        </div>
+        <div style="clear: both"></div>
+        </div>
+
+     <div style="top: 30px" id="ckepop"><a style="text-decoration: none" href="http://www.yyyweb.com/go/web" target="_blank"><span style="font-size: 24px; font-weight: bold; font-family: &#39;Microsoft Yahei&#39;;">本博客新站点 ◆ 前端里 ◆ 欢迎围观：）</span></a></div>
+     <div class="blog-signature">
+     <p style="line-height: 20px; border-top: #e0e0e0 1px dashed; border-right: #e0e0e0 1px dashed; border-bottom: #e0e0e0 1px dashed; border-left: #e0e0e0 1px dashed; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 60px; background: url(http://pic002.cnblogs.com/images/2010/36987/2010092119181033.png) #FFFAEA no-repeat 2% 50%; font-size: 12px;" id="PSignature">作者：<a href="http://home.cnblogs.com/lhb25" target="_blank">山边小溪</a>
+     <br>
+     出处：<a href="http://jizhula.com/" target="_blank">jizhula.com</a> <span style="color: green">记住啦：）</span>
+     <br>欢迎任何形式的转载，但请务必注明出处。
+     </p></div>
+</div></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/lhb25/category/146075.html">CSS3</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/lhb25/tag/css/">css</a>, <a href="http://www.cnblogs.com/lhb25/tag/BFC/">BFC</a></div>
+<div id="blog_post_info"><div id="green_channel">
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3674372,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" target="_blank">联系我</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/icon_weibo_24.png" alt=""></a>
+<a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/lhb25/" target="_blank"><img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/u36987.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/lhb25/">梦想天空（山边小溪）</a><br>
+<a href="http://home.cnblogs.com/u/lhb25/followees">关注 - 16</a><br>
+<a href="http://home.cnblogs.com/u/lhb25/followers">粉丝 - 10617</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(3674372,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">49</span>
+    </div>
+	<div class="buryit" onclick="votePost(3674372,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">1</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/lhb25/p/dynamic-browser-based-visualization-library.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/lhb25/p/dynamic-browser-based-visualization-library.html" title="发布于2014-04-23 15:07">Vis.js – 基于浏览器的动态 JavaScript 可视化库</a><br><a href="http://www.cnblogs.com/lhb25/p/css-vocabulary.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/lhb25/p/css-vocabulary.html" title="发布于2014-04-24 10:51">CSS Vocabulary – CSS 词汇表，你都掌握了吗？</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2014-04-23 22:47</span> <a href="http://www.cnblogs.com/lhb25/">梦想天空（山边小溪）</a> 阅读(<span id="post_view_count">31029</span>) 评论(<span id="post_comment_count">33</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=3674372" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" onclick="AddToWz(3674372);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=40553,cb_entryId=3674372,cb_blogApp=currentBlogApp,cb_blogUserGuid='be47420b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2014/4/23 22:47:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">发表评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2924067" class="layer">#1楼</a><a name="2924067" id="comment_anchor_2924067"></a> <span class="comment_date">2014-04-23 20:23</span> | <a id="a_comment_author_2924067" href="http://home.cnblogs.com/u/146879/" target="_blank">咿呀学语</a> <a href="http://msg.cnblogs.com/send/%E5%92%BF%E5%91%80%E5%AD%A6%E8%AF%AD" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2924067" class="blog_comment_body">学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2924067,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2924067,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2924376" class="layer">#2楼</a><a name="2924376" id="comment_anchor_2924376"></a> <span class="comment_date">2014-04-24 10:57</span> | <a id="a_comment_author_2924376" href="http://www.cnblogs.com/EricHan723/" target="_blank">十一加二</a> <a href="http://msg.cnblogs.com/send/%E5%8D%81%E4%B8%80%E5%8A%A0%E4%BA%8C" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2924376" class="blog_comment_body">好文！学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2924376,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2924376,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2925654" class="layer">#3楼</a><a name="2925654" id="comment_anchor_2925654"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2014-04-25 21:01</span> | <a id="a_comment_author_2925654" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2925654" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2924376" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2924376);">@</a>
+十一加二<br>@咿呀学语<br>Thank you! :)</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2925654,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2925654,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2925654_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2925791" class="layer">#4楼</a><a name="2925791" id="comment_anchor_2925791"></a> <span class="comment_date">2014-04-26 08:50</span> | <a id="a_comment_author_2925791" href="http://www.cnblogs.com/majinyun0802/" target="_blank">majinyun0802</a> <a href="http://msg.cnblogs.com/send/majinyun0802" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2925791" class="blog_comment_body">学习</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2925791,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2925791,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2925791_avatar" style="display:none;">http://pic.cnblogs.com/face/316181/20150729112459.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2927162" class="layer">#5楼</a><a name="2927162" id="comment_anchor_2927162"></a> <span class="comment_date">2014-04-28 17:28</span> | <a id="a_comment_author_2927162" href="http://www.cnblogs.com/zczczc/" target="_blank">绝忘</a> <a href="http://msg.cnblogs.com/send/%E7%BB%9D%E5%BF%98" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2927162" class="blog_comment_body">赞！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2927162,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2927162,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2927546" class="layer">#6楼</a><a name="2927546" id="comment_anchor_2927546"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2014-04-29 10:11</span> | <a id="a_comment_author_2927546" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2927546" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#2927162" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2927162);">@</a>
+绝忘<br>@majinyun0802<br>谢谢支持！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2927546,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2927546,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2927546_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3056798" class="layer">#7楼</a><a name="3056798" id="comment_anchor_3056798"></a> <span class="comment_date">2014-11-04 00:15</span> | <a id="a_comment_author_3056798" href="http://home.cnblogs.com/u/476363/" target="_blank">Venuluo</a> <a href="http://msg.cnblogs.com/send/Venuluo" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3056798" class="blog_comment_body">想问下博主 哪里看到 根元素会生成bfc。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3056798,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3056798,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3071200" class="layer">#8楼</a><a name="3071200" id="comment_anchor_3071200"></a> <span class="comment_date">2014-11-25 12:03</span> | <a id="a_comment_author_3071200" href="http://www.cnblogs.com/w3develop/" target="_blank">Janking丶琅琊</a> <a href="http://msg.cnblogs.com/send/Janking%E4%B8%B6%E7%90%85%E7%90%8A" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3071200" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3056798" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3056798);">@</a>
+Venuluo<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Block_formatting_context" target="_blank">https://developer.mozilla.org/zh-CN/docs/Web/CSS/Block_formatting_context</a></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3071200,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3071200,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3071200_avatar" style="display:none;">http://pic.cnblogs.com/face/443455/20130427115417.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3071201" class="layer">#9楼</a><a name="3071201" id="comment_anchor_3071201"></a> <span class="comment_date">2014-11-25 12:04</span> | <a id="a_comment_author_3071201" href="http://home.cnblogs.com/u/476363/" target="_blank">Venuluo</a> <a href="http://msg.cnblogs.com/send/Venuluo" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3071201" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3071200" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3071200);">@</a>
+Janking丶琅琊<br>谢谢。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3071201,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3071201,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3098890" class="layer">#10楼</a><a name="3098890" id="comment_anchor_3098890"></a> <span class="comment_date">2015-01-03 20:48</span> | <a id="a_comment_author_3098890" href="http://home.cnblogs.com/u/669887/" target="_blank">兵之诡道者</a> <a href="http://msg.cnblogs.com/send/%E5%85%B5%E4%B9%8B%E8%AF%A1%E9%81%93%E8%80%85" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3098890" class="blog_comment_body">good，刚来了解bfc</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3098890,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3098890,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3136370" class="layer">#11楼</a><a name="3136370" id="comment_anchor_3136370"></a> <span class="comment_date">2015-03-06 13:05</span> | <a id="a_comment_author_3136370" href="http://www.cnblogs.com/kaoyan/" target="_blank">androidfeng</a> <a href="http://msg.cnblogs.com/send/androidfeng" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3136370" class="blog_comment_body">好文 大赞！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3136370,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3136370,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3137105" class="layer">#12楼</a><a name="3137105" id="comment_anchor_3137105"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2015-03-08 11:58</span> | <a id="a_comment_author_3137105" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3137105" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3136370" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3136370);">@</a>
+androidfeng<br>@兵之诡道者<br>感谢支持！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3137105,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3137105,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3137105_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3146597" class="layer">#13楼</a><a name="3146597" id="comment_anchor_3146597"></a> <span class="comment_date">2015-03-23 11:03</span> | <a id="a_comment_author_3146597" href="http://www.cnblogs.com/oadaM92/" target="_blank">oadaM92</a> <a href="http://msg.cnblogs.com/send/oadaM92" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3146597" class="blog_comment_body">学习了！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3146597,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3146597,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3146597_avatar" style="display:none;">http://pic.cnblogs.com/face/731509/20150501010502.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3146867" class="layer">#14楼</a><a name="3146867" id="comment_anchor_3146867"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2015-03-23 16:10</span> | <a id="a_comment_author_3146867" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3146867" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3146597" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3146597);">@</a>
+oadaM92<br><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3146597" title="查看引用原文">引用</a></legend>学习了！</fieldset><br>欢迎继续关注！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3146867,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3146867,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3146867_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3151113" class="layer">#15楼</a><a name="3151113" id="comment_anchor_3151113"></a> <span class="comment_date">2015-03-28 17:22</span> | <a id="a_comment_author_3151113" href="http://www.cnblogs.com/chenjun-cs/" target="_blank">~风影*IT~</a> <a href="http://msg.cnblogs.com/send/~%E9%A3%8E%E5%BD%B1%2AIT~" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3151113" class="blog_comment_body">写得 通俗易懂·~已经收藏~~</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3151113,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3151113,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3152334" class="layer">#16楼</a><a name="3152334" id="comment_anchor_3152334"></a> <span class="comment_date">2015-03-30 14:47</span> | <a id="a_comment_author_3152334" href="http://www.cnblogs.com/xcchcaptain/" target="_blank">log琥珀①</a> <a href="http://msg.cnblogs.com/send/log%E7%90%A5%E7%8F%80%E2%91%A0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3152334" class="blog_comment_body">学习了，能否在讲讲ifc呢？<br>有个问题：<br>二 哪些元素会生成BFC?<br>   display为inline-block, table-cell, table-caption, flex, inline-flex<br>这里，inling-block 生成的不是inline-level box么 怎么会触发bfc，而不是ifc呢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3152334,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3152334,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3156262" class="layer">#17楼</a><a name="3156262" id="comment_anchor_3156262"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2015-04-04 20:25</span> | <a id="a_comment_author_3156262" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3156262" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3152334" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3152334);">@</a>
+log琥珀①<br><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3152334" title="查看引用原文">引用</a></legend>学习了，能否在讲讲ifc呢？<br>有个问题：<br>二 哪些元素会生成BFC?<br>   display为inline-block, table-cell, table-caption, flex, inline-flex<br>这里，inling-block 生成的不是inline-level box么 怎么会触发bfc，而不是ifc呢</fieldset><br>inline生成的才是IFC，inline-block生成的是BFC。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3156262,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3156262,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3156262_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3156263" class="layer">#18楼</a><a name="3156263" id="comment_anchor_3156263"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2015-04-04 20:25</span> | <a id="a_comment_author_3156263" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3156263" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3151113" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3151113);">@</a>
+~风影*IT~<br><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3151113" title="查看引用原文">引用</a></legend>写得 通俗易懂·~已经收藏~~</fieldset><br>谢谢支持！:)</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3156263,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3156263,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3156263_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3168415" class="layer">#19楼</a><a name="3168415" id="comment_anchor_3168415"></a> <span class="comment_date">2015-04-22 19:31</span> | <a id="a_comment_author_3168415" href="http://www.cnblogs.com/kite-Runner/" target="_blank">NancyChan</a> <a href="http://msg.cnblogs.com/send/NancyChan" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3168415" class="blog_comment_body">👍！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3168415,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3168415,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3168415_avatar" style="display:none;">http://pic.cnblogs.com/face/492783/20141126103527.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3168821" class="layer">#20楼</a><a name="3168821" id="comment_anchor_3168821"></a> <span class="comment_date">2015-04-23 10:53</span> | <a id="a_comment_author_3168821" href="http://home.cnblogs.com/u/671510/" target="_blank">lzx1022</a> <a href="http://msg.cnblogs.com/send/lzx1022" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3168821" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3156262" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3156262);">@</a>
+梦想天空（山边小溪）<br>@梦想天空（山边小溪）<br><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3156262" title="查看引用原文">引用</a></legend>@log琥珀①<br><fieldset class="comment_quote"><legend>引用</legend>引用学习了，能否在讲讲ifc呢？<br>有个问题：<br>二 哪些元素会生成BFC?<br>   display为inline-block, table-cell, table-caption, flex, inline-flex<br>这里，inling-block 生成的不是inline-level box么 怎么会触发bfc，而不是ifc呢</fieldset><br>inline生成的才是IFC，inline-block生成的是BFC。</fieldset><br>但是你文章里面前后有矛盾，“BFC 定义”里面写道“它是一个独立的渲染区域，只有Block-level box参与”，前面的 level box 分类里面 inline-block 是分类在 inline-level box 里面的，那按这个逻辑 inline-block 不应该是 IFC么? 为什么后文又说是 BFC?</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3168821,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3168821,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3193116" class="layer">#21楼</a><a name="3193116" id="comment_anchor_3193116"></a> <span class="comment_date">2015-05-26 08:59</span> | <a id="a_comment_author_3193116" href="http://www.cnblogs.com/popjohn/" target="_blank">boom boom pow</a> <a href="http://msg.cnblogs.com/send/boom%20boom%20pow" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3193116" class="blog_comment_body">第三个例子中，为什么那两个p元素算是同一个BFC呢？还有为什么加了一个包裹之后就变成两个BFC了呢？希望楼主帮忙解答疑惑，谢谢！XD</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3193116,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3193116,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3235628" class="layer">#22楼</a><a name="3235628" id="comment_anchor_3235628"></a> <span class="comment_date">2015-07-26 19:52</span> | <a id="a_comment_author_3235628" href="http://home.cnblogs.com/u/521049/" target="_blank">苏生不惑</a> <a href="http://msg.cnblogs.com/send/%E8%8B%8F%E7%94%9F%E4%B8%8D%E6%83%91" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3235628" class="blog_comment_body">nice</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3235628,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3235628,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3250377" class="layer">#23楼</a><a name="3250377" id="comment_anchor_3250377"></a> <span class="comment_date">2015-08-19 15:44</span> | <a id="a_comment_author_3250377" href="http://www.cnblogs.com/liuguodong/" target="_blank">xianglgd</a> <a href="http://msg.cnblogs.com/send/xianglgd" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3250377" class="blog_comment_body">内容有点自相矛盾。<br>最开始这样说：<br>inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；<br>然后又这样说：<br>BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与。<br>最后这样说：<br>display为inline-block, table-cell, table-caption, flex, inline-flex <br>会产生 BFC。<br><br><br>楼主，，，，求解答，，，，，<br>第一条说 inline-block 是 inline-level box。<br>第二条说 只有Block-level box 可以参与 BFC;<br>第三条说 display:inline-block 可以产生BFC .<br>= =,,,,,<br>被你搞的不懂了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3250377,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3250377,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3250577" class="layer">#24楼</a><a name="3250577" id="comment_anchor_3250577"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2015-08-19 22:36</span> | <a id="a_comment_author_3250577" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3250577" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3250377" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3250377);">@</a>
+xianglgd<br>inline-block 是 inline-level box，产生的是BFC，这个不矛盾啊。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3250577,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3250577,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3250577_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3257710" class="layer">#25楼</a><a name="3257710" id="comment_anchor_3257710"></a> <span class="comment_date">2015-08-31 17:02</span> | <a id="a_comment_author_3257710" href="http://home.cnblogs.com/u/805366/" target="_blank">happydddddog</a> <a href="http://msg.cnblogs.com/send/happydddddog" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3257710" class="blog_comment_body">关于定义我一向认为的观点是直接参考英文规范,所以前面的我觉得可以忽略,有些描述不太准备,毕竟每个人的理解层次是不同的,或者直接拿出规范来对照翻译.关于Block formatting contexts我也迷糊了一段时间,因为css2.1 Visual formatting model里的定义还是比较多的,要理清楚,英文功底不行的话不是那么容易,单独的讲Block formatting contexts我觉得并没有多大意义,最好结合containing block来说,因为后者才是计算盒子位置和尺寸的依据.这篇文章的最后一句话给了我一些启发.我觉得其实可以把Block formatting contexts理解为一块画布,类似于canvas,它并没有什么其他功能.</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3257710,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3257710,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3291846" class="layer">#26楼</a><a name="3291846" id="comment_anchor_3291846"></a> <span class="comment_date">2015-10-25 21:56</span> | <a id="a_comment_author_3291846" href="http://www.cnblogs.com/famingyuan/" target="_blank">famingyuan</a> <a href="http://msg.cnblogs.com/send/famingyuan" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3291846" class="blog_comment_body">3. 防止垂直 margin 重叠<br>这个例子中，为什么不能给其中一个p加上 overflow:hidden;来参数BFC呢？我试了没有效果。生成BFC的条件中不是有 overflow不为visible这一项吗?</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3291846,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3291846,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3361916" class="layer">#27楼</a><a name="3361916" id="comment_anchor_3361916"></a> <span class="comment_date">2016-02-16 16:25</span> | <a id="a_comment_author_3361916" href="http://www.cnblogs.com/tangshuimei/" target="_blank">糖水妹</a> <a href="http://msg.cnblogs.com/send/%E7%B3%96%E6%B0%B4%E5%A6%B9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3361916" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3291846" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3291846);">@</a>
+famingyuan<br>因为你只是给第二个p的内部元素营造一个新的bfc的环境，但是这个p他自己所在的bfc还是和第一个p所在的bfc一致的......我猜而已，说得不对不要打我</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3361916,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3361916,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3361916_avatar" style="display:none;">http://pic.cnblogs.com/face/843591/20160218093253.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3361942" class="layer">#28楼</a><a name="3361942" id="comment_anchor_3361942"></a> <span class="comment_date">2016-02-16 16:48</span> | <a id="a_comment_author_3361942" href="http://www.cnblogs.com/tangshuimei/" target="_blank">糖水妹</a> <a href="http://msg.cnblogs.com/send/%E7%B3%96%E6%B0%B4%E5%A6%B9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3361942" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3250377" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3250377);">@</a>
+xianglgd<br>我猜的，猜错不要打我，博主说的“只有Block-level box参与， 它规定了内部的Block-level Box如何布局”应该是针对说内部元素，如果父级触发了BFC（如设置了display：inline-block），那么内部元素中属于Block-level box属性，这些元素的布局就会按照BFC所规定的6条规则来布局，假如内部元素是inline-level box属性的，那么就不按照BFC的规则来布局<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/843591-20160216164819470-919613089.png" alt="" border="0" "=""><br><br><img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/843591-20160216164832251-974967265.png" alt="" border="0" "=""></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3361942,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3361942,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3361942_avatar" style="display:none;">http://pic.cnblogs.com/face/843591/20160218093253.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3361959" class="layer">#29楼</a><a name="3361959" id="comment_anchor_3361959"></a> <span class="comment_date">2016-02-16 17:15</span> | <a id="a_comment_author_3361959" href="http://www.cnblogs.com/tangshuimei/" target="_blank">糖水妹</a> <a href="http://msg.cnblogs.com/send/%E7%B3%96%E6%B0%B4%E5%A6%B9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3361959" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3152334" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3152334);">@</a>
+log琥珀①<br>今天看了一下bfc，讲错了不要打我，我觉得楼主讲的“block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；<br>inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；”是指block-level box的元素作为内部元素的时候，会遵循BFC的规则布局，同理inline-level box的的元素作为内部元素的时候，会遵循IFC的规则布局，这里讲的应该是作为内部元素参与布局.......语文不好，讲得有点复杂<img src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/843591-20160218094328988-1399325029.png" alt="" border="0" "=""><br></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3361959,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3361959,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3361959_avatar" style="display:none;">http://pic.cnblogs.com/face/843591/20160218093253.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3385974" class="layer">#30楼</a><a name="3385974" id="comment_anchor_3385974"></a> <span class="comment_date">2016-03-20 10:53</span> | <a id="a_comment_author_3385974" href="http://www.cnblogs.com/maczyt/" target="_blank">小白web之路</a> <a href="http://msg.cnblogs.com/send/%E5%B0%8F%E7%99%BDweb%E4%B9%8B%E8%B7%AF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3385974" class="blog_comment_body">学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3385974,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3385974,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3385974_avatar" style="display:none;">http://pic.cnblogs.com/face/756661/20151013203408.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3393036" class="layer">#31楼</a><a name="3393036" id="comment_anchor_3393036"></a>[<span class="louzhu">楼主</span>] <span class="comment_date">2016-03-27 22:16</span> | <a id="a_comment_author_3393036" href="http://www.cnblogs.com/lhb25/" target="_blank">梦想天空（山边小溪）</a> <a href="http://msg.cnblogs.com/send/%E6%A2%A6%E6%83%B3%E5%A4%A9%E7%A9%BA%EF%BC%88%E5%B1%B1%E8%BE%B9%E5%B0%8F%E6%BA%AA%EF%BC%89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3393036" class="blog_comment_body"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3385974" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3385974);">@</a>
+小白web之路<br><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3385974" title="查看引用原文">引用</a></legend>学习了</fieldset><br>感谢关注！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3393036,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3393036,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3393036_avatar" style="display:none;">http://pic.cnblogs.com/face/u36987.jpg?id=27111710</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3395715" class="layer">#32楼</a><a name="3395715" id="comment_anchor_3395715"></a> <span class="comment_date">2016-03-30 15:22</span> | <a id="a_comment_author_3395715" href="http://www.cnblogs.com/piaomiao1314/" target="_blank">piaomiao1314</a> <a href="http://msg.cnblogs.com/send/piaomiao1314" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3395715" class="blog_comment_body">我想问一下，关于那六条“BFC布局规则”， 权威的在线文档在哪里<br><br>mdn和w3c上似乎都没有完整的介绍</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3395715,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3395715,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3395715_avatar" style="display:none;">http://pic.cnblogs.com/face/519561/20130614100658.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#3462909" class="layer">#33楼</a><a name="3462909" id="comment_anchor_3462909"></a><span id="comment-maxId" style="display:none;">3462909</span><span id="comment-maxDate" style="display:none;">2016/7/3 11:49:55</span> <span class="comment_date">2016-07-03 11:49</span> | <a id="a_comment_author_3462909" href="http://www.cnblogs.com/alsy/" target="_blank">阿林十一</a> <a href="http://msg.cnblogs.com/send/%E9%98%BF%E6%9E%97%E5%8D%81%E4%B8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3462909" class="blog_comment_body">学习了！赞！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3462909,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3462909,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3462909_avatar" style="display:none;">http://pic.cnblogs.com/face/752429/20160227143825.png</span><br>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/" target="_blank">【推荐】融云即时通讯云－豆果美食、Faceu等亿级APP都在用</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/activereports_overview.htm?utm_source=cnblogs&utm_medium=blogpage&utm_term=bottom&utm_content=AR&utm_campaign=community" target="_blank"><img width="300" height="250" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/24442-20160630110639921-1991307518.gif" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/549021/" target="_blank">三星手机防水？《消费者报告》真把它们丢进了水里</a><br> ·  <a href="http://news.cnblogs.com/n/549020/" target="_blank">美国血液检测公司Theranos挨罚 两年内不得营业</a><br> ·  <a href="http://news.cnblogs.com/n/549019/" target="_blank">酷派预估上半年亏损20.5亿港元 与360合作亏掉18.9亿港元</a><br> ·  <a href="http://news.cnblogs.com/n/549018/" target="_blank">雷军内部发言：小米正在谷底 反弹马上就要开始了</a><br> ·  <a href="http://news.cnblogs.com/n/549017/" target="_blank">爱奇艺也进军直播了：发布奇秀直播APP 主打追星与造星</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block"><a href="https://www.jiguang.cn/?from=cnblogs01" target="_blank"><img width="468" height="60" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/24442-20160613130538213-1713265809.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/544641/" target="_blank">抽象：程序员必备的能力</a><br> ·  <a href="http://kb.cnblogs.com/page/213197/" target="_blank">编程同写作，写代码只是在码字</a><br> ·  <a href="http://kb.cnblogs.com/page/207265/" target="_blank">遇见程序员男友</a><br> ·  <a href="http://kb.cnblogs.com/page/511529/" target="_blank">设计师的视觉设计五项修炼</a><br> ·  <a href="http://kb.cnblogs.com/page/514193/" target="_blank">我听到过的最精彩的一个软件纠错故事</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"><b>历史上的今天:</b><br>2013-04-23 <a href="http://www.cnblogs.com/lhb25/archive/2013/04/23/must-read-links-for-web-designers-and-developers-volume-15.html">Web 前端开发精华文章推荐（jQuery、HTML5、CSS3）【系列十五】</a><br>2013-04-23 <a href="http://www.cnblogs.com/lhb25/archive/2013/04/23/build-enterprise-node-js-apps-with-sails-js.html">使用 Sails.js 构建和定制企业级的 Node.js 应用</a><br>2012-04-23 <a href="http://www.cnblogs.com/lhb25/archive/2012/04/23/10-incredible-sites-to-improve-your-typography-skills.html">十个帮助你提高字体使用和排版技巧的网站</a><br>2011-04-23 <a href="http://www.cnblogs.com/lhb25/archive/2011/04/23/2001099.html">分享12份非常有用的 Google 速查手册</a><br>2011-04-23 <a href="http://www.cnblogs.com/lhb25/archive/2011/04/23/2020765.html">WordPress免费精美主题分享系列之朴素风格篇</a><br>2011-04-23 <a href="http://www.cnblogs.com/lhb25/archive/2011/04/23/2018110.html">最新30佳精美网页设计作品欣赏</a><br></div>
+<script type="text/javascript">
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div class="focus-bar">
+<!--以下是QQ邮件列表订阅嵌入代码-->
+<div style="float: left; padding: 7px 3px 0 0;"><strong><a href="http://www.yyyweb.com/"><span style="color: green">2011年度十大杰出IT博客</span></a></strong></div>
+<div style="float: left; padding: 1px 0 0 0; padding-top: 4px\9; margin-top: 2px\9;"><a target="_blank" href="http://list.qq.com/cgi-bin/qf_invite?id=dbbe16fa3e3d38c2291e41a2530930ad46c66bde1a5cb754"><img border="0" alt="填写您的邮件地址，订阅我们的精彩内容：" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/picMode_light_s.png"></a></div>
+<!--feedsky-->
+<div><a href="http://www.yyyweb.com/"><img border="0" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/2011122523382161.png" alt="feedsky" height="29"></a></div>
+</div>
+<!--撑开广告区域-->
+<div style="margin: 285px 0 -2px 0">
+</div>
+<!--博客大赛荣誉-->
+<!--<div style="margin-top:6px"><a href="http://blog.51cto.com/contest2011/3956353" target="_blank"><img src="http://images.cnitblog.com/blog/36987/201305/29214339-fefd4aaf88c341d68325ce0550dd64ab.jpg"/></a></div>-->
+<!--微信公众账户-->
+<!--<div style="margin-top:6px"><img src="http://images.cnitblog.com/blog/36987/201303/05122704-ca56aeebda054d2186a98c5920038bee.jpg" width="172" height="172"/></div>-->
+<!--邮箱和微博-->
+<!--<div style="margin:5px 0px -2px 0px">邮箱：<img src="http://pic002.cnblogs.com/images/2011/36987/2011061915544817.jpg" style="margin-bottom:-5px;"/></div>-->
+<!--<div style="margin:5px 0px -2px 0px"><span>新浪微博：</span><a href="http://weibo.com/1752555111" target="_blank"><span>weibo.com/iamlhb</span></a></div>-->
+<!--关闭的功能-->
+<!--<div style="margin:5px 0px -2px 0px">
+RSS：<a href="http://feed.feedsky.com/lhb25" title="博客园-梦想天空" target="_blank"><img src="http://www.feedsky.com/feed/lhb25/sc/gif" style="border:0" alt="" /></a></div>-->
+<!--feedburner-->
+<!--<a href="http://feeds2.feedburner.com/frontfans" title="订阅" target="_blank"><img src="http://feeds2.feedburner.com/~fc/frontfans?bg=99CCFF&amp;fg=444444&amp;anim=1" height="26" width="88" style="border:0" alt="订阅" /></a>--><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/lhb25/">梦想天空（山边小溪）</a><br>园龄：<a href="http://home.cnblogs.com/u/lhb25/" title="入园时间：2008-07-20">7年11个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/lhb25/followers/">10617</a><br>关注：<a href="http://home.cnblogs.com/u/lhb25/followees/">16</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;be47420b-63cf-dd11-9e4d-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="日历">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2016/06/01&#39;);return false;">&lt;</a></td><td align="center">2016年7月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2016/08/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center"><a href="http://www.cnblogs.com/lhb25/archive/2016/07/03.html"><u>3</u></a></td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalTodayDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/lhb25/tag/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a>(400)</li><li><a href="http://www.cnblogs.com/lhb25/tag/jQuery/">jQuery</a>(272)</li><li><a href="http://www.cnblogs.com/lhb25/tag/javascript/">javascript</a>(256)</li><li><a href="http://www.cnblogs.com/lhb25/tag/HTML5/">HTML5</a>(219)</li><li><a href="http://www.cnblogs.com/lhb25/tag/CSS3/">CSS3</a>(195)</li><li><a href="http://www.cnblogs.com/lhb25/tag/PSD/">PSD</a>(94)</li><li><a href="http://www.cnblogs.com/lhb25/tag/%E5%AD%97%E4%BD%93/">字体</a>(90)</li><li><a href="http://www.cnblogs.com/lhb25/tag/css/">css</a>(74)</li><li><a href="http://www.cnblogs.com/lhb25/tag/wordpress/">wordpress</a>(51)</li><li><a href="http://www.cnblogs.com/lhb25/tag/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>(47)</li><li><a href="http://www.cnblogs.com/lhb25/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/lhb25/category/146075.html">CSS3(330)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/lhb25/category/146076.html">HTML5(287)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/lhb25/category/146074.html">JavaScript(374)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/lhb25/category/277997.html">jQuery(282)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/lhb25/category/527838.html">Node.js(38)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/lhb25/category/146077.html">Others(18)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/lhb25/category/254577.html">WordPress(80)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/lhb25/category/294827.html">创意欣赏(120)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/lhb25/category/277776.html">开发技巧(20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/lhb25/category/277998.html">浏览器兼容(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/lhb25/category/527524.html">名片设计(35)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/lhb25/category/277978.html">前端文摘(37)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/lhb25/category/521743.html">设计素材(133)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/lhb25/category/527523.html">摄影欣赏(55)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/lhb25/category/277770.html">实用工具 (194)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/lhb25/category/170160.html">数据库技术(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="http://www.cnblogs.com/lhb25/category/277769.html">网络资源(356)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="http://www.cnblogs.com/lhb25/category/279316.html">网页设计(818)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="http://www.cnblogs.com/lhb25/category/277977.html">网站优化(12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="http://www.cnblogs.com/lhb25/category/277779.html">我的博文(421)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="http://www.cnblogs.com/lhb25/category/300737.html">移动开发(104)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_21" href="http://www.cnblogs.com/lhb25/category/277778.html">原创翻译(961)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lhb25/p/responsive-jquery-lightbox-libraries.html#3466542">1. Re:推荐15款响应式的 jQuery Lightbox 插件</a></li>
+        <li class="recent_comment_body">第一个，我也搜到了。我再补充三个：...</li>
+        <li class="recent_comment_author">--rgqancy</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lhb25/p/html5-wysisyg-inline-editor.html#3465835">2. Re:小伙伴们惊呆了！10行 JavaScript 实现文本编辑器</a></li>
+        <li class="recent_comment_body">能不能弱弱的问一下，在这里下载的含三个文件夹的源代码用什么工具打开啊？eclipse吗？试了一下，不知道怎么弄</li>
+        <li class="recent_comment_author">--没有比脚更长的路</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lhb25/p/15-outstanding-css-tools-for-managing-css-code.html#3464848">3. Re:分享15个优秀的 CSS 解决方案和工具</a></li>
+        <li class="recent_comment_body">引用CSS 解决方案和工具一看就是从哪里扒来的文章！...</li>
+        <li class="recent_comment_author">--xgqfrms</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lhb25/archive/2011/11/22/best-awesome-css3-animation-demos.html#3463491">4. Re:35个让人惊讶的 CSS3 动画效果演示</a></li>
+        <li class="recent_comment_body">非常好</li>
+        <li class="recent_comment_author">--zeus_nine</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/lhb25/archive/2012/08/08/ajax-jquery-pagination-plugin-tutorial.html#3463249">5. Re:精心挑选的12款优秀 jQuery Ajax 分页插件和教程</a></li>
+        <li class="recent_comment_body">下载地址呢</li>
+        <li class="recent_comment_author">--Arison</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/lhb25/p/metronic-responsive-admin-dashboard-template.html">1. Metronic – 超赞！基于 Bootstrap 的响应式后台管理模板(241412)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/05/31/2056103.html">2. 60款很酷的 jQuery 幻灯片演示和下载(213771)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2013/01/24/google-search-problem.html">3. 实用技巧：Google 搜索打不开的解决方法【图文教程】(204737)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/10/19/10-free-html-admin-templates.html">4. 《特别推荐》10套精美的免费网站后台管理系统模板(196749)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2013/04/11/10-metro-bootstraps-ui-templates.html">5. 【今日推荐】10大流行的 Metro UI 风格的 Bootstrap 主题和模板(177979)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/11/22/best-awesome-css3-animation-demos.html">6. 35个让人惊讶的 CSS3 动画效果演示(177849)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/03/5-creative-html5-and-css3-templates.html">7. 推荐35款精致的 CSS3 和 HTML5 网页模板(177509)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/10/09/10-online-tools-to-simplify-html5-coding.html">8. 推荐10款非常优秀的 HTML5 开发工具(176254)</a></li><li><a href="http://www.cnblogs.com/lhb25/p/15-best-mind-mapping-tools-designers.html">9. 15款最好用的思维导图（心智图 ）工具(151334)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/08/ajax-jquery-pagination-plugin-tutorial.html">10. 精心挑选的12款优秀 jQuery Ajax 分页插件和教程(147452)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/06/27/7-great-html-5-video-player-scripts.html">11. 7款很棒的 HTML5 视频播放器(138917)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/07/08/showcase-of-html5-powered-sites.html">12. 12个优秀的 HTML5 网站设计案例欣赏(129063)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/04/07/1965738.html">13. 九个让人难以置信的HTML5和JavaScript实验(127349)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/07/28/html5-awesome-single-page-sites-inspiration.html">14. HTML5网站大观：15个精美的 HTML5 单页网站作品欣赏(127200)</a></li><li><a href="http://www.cnblogs.com/lhb25/p/free-business-card-templates-psd-one.html">15. 50款免费名片设计模板 PSD 源文件下载《上篇》(126919)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/lhb25/archive/2013/03/11/browser-css-js-hacks-browserhacks.html">1. 【必备】史上最全的浏览器 CSS &amp; JS Hack 手册(149)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/05/31/2056103.html">2. 60款很酷的 jQuery 幻灯片演示和下载(148)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/10/19/10-free-html-admin-templates.html">3. 《特别推荐》10套精美的免费网站后台管理系统模板(118)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/04/really-cool-and-creative-404-error-pages.html">4. 那些让人惊叹的的国外创意404错误页面设计(116)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/31/free-application-icon-sets.html">5. 让人爱不释手的13套精美 Web 应用程序图标素材(111)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2013/04/11/10-metro-bootstraps-ui-templates.html">6. 【今日推荐】10大流行的 Metro UI 风格的 Bootstrap 主题和模板(108)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2011/01/10/1932284.html">7. JavaScript初学者应注意的七个细节(108)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/03/5-creative-html5-and-css3-templates.html">8. 推荐35款精致的 CSS3 和 HTML5 网页模板(106)</a></li><li><a href="http://www.cnblogs.com/lhb25/p/10-useful-web-effect.html">9. Web 开发中很实用的10个效果【附源码下载】(106)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/08/ajax-jquery-pagination-plugin-tutorial.html">10. 精心挑选的12款优秀 jQuery Ajax 分页插件和教程(102)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/08/29/css-border-and-box-effect-a.html">11. 45个纯 CSS 实现的精美边框效果【附源码】【上篇】(101)</a></li><li><a href="http://www.cnblogs.com/lhb25/p/8-amazing-codepen-demos.html">12. 【特别推荐】小伙伴们惊呆了！8个超炫的 Web 效果(101)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2013/01/06/jquery-image-carousel-effect.html">13. 网站项目必备——12款经典的白富美型 jQuery 图片轮播插件(98)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/12/24/best-jquery-plugins-of-2012.html">14. 期待已久的2012年度最佳 jQuery 插件揭晓(95)</a></li><li><a href="http://www.cnblogs.com/lhb25/archive/2012/10/24/jquery-loading-animation-and-progress-bar-plugins.html">15. 8款效果精美的 jQuery 加载动画和进度条插件(93)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2016 梦想天空（山边小溪）
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+<script type="text/javascript" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/main.blog.20160618.js"></script>
+<script type="text/javascript">var google_ad_custom={state:0,opacity:'0.9',initShow:false};if(smartShow && smartShow.isShow()){google_ad_custom.state=1}loader("great.box.min.js");</script>
+
+<!--边栏功能-->
+<p id="back-top" style="display: none;"><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html#top"><span></span></a></p>
+
+<!--focus gg-->
+<div class="focus-gg" style="height: 280px;">
+<script async="" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/adsbygoogle.js"></script>
+<!-- 336x280页面左上大矩形 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-0608155192548477" data-ad-slot="8413225218"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<!--ads end-->
+
+
+<!--用于切换的推荐内容-->
+<div class="month_index" id="top_recom" style="display:none">
+<h3 id="recom_title" style="font-size:15px">最受欢迎的文章</h3>
+<ul style="margin-left:20px !important">
+<li><a href="http://www.yyyweb.com/350.html" target="_blank">Web 开发中很实用的10个效果【附源码下载】</a></li>
+<li><a href="http://www.yyyweb.com/370.html" target="_blank">10款精美好用的 jQuery 图片滚动插件</a></li>
+<li><a href="http://www.yyyweb.com/377.html" target="_blank">惊艳的 HTML5 &amp; CSS3 效果【附源码下载】</a></li>
+<li><a href="http://www.yyyweb.com/271.html" target="_blank">12个让人惊叹的的创意404错误页面设计</a></li>
+<li><a href="http://www.yyyweb.com/333.html" target="_blank">值得一试的8个最佳的云端集成开发环境</a></li>
+<li><a href="http://www.yyyweb.com/492.html" target="_blank">8个非常惊艳的 HTML5 和 JavaScript 特效</a></li>
+<li><a href="http://www.yyyweb.com/1676.html" target="_blank">分享10套精美的免费网站后台管理系统模板</a></li>
+<li><a target="_blank" href="http://www.cnblogs.com/lhb25/p/must-read-links-for-web-designers-and-developers-volume-12.html">Web 开发人员和设计师必读精华文章推荐</a></li>
+</ul>
+</div>
+
+<!-- bottom ad -->
+<div id="bottomAD"><div id="float-ads" style="text-align:center;">
+<script async="" src="./前端精选文摘：BFC 神奇背后的原理 - 梦想天空（山边小溪） - 博客园_files/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-0608155192548477" data-ad-slot="3701662930"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+$(function(){if($('.pub_index').length>0){$('#bottomAD').hide();}});
+</script>
+</div></div>
+<!--ads end-->
+
+
+<!--<div style="text-align:center;">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-0608155192548477"
+     data-ad-slot="2235211922"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>-->
+
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?244ff9d4fa95dcc8d7e59d2dfaf5b2c4";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<!--google统计-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23408017-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!--PageEndHtml Block End-->
+
+
+</body></html>

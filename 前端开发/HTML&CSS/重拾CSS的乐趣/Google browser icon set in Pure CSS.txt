@@ -1,0 +1,225 @@
+<a class="chrome-icon" href="http://codepen.io/scrapmac/pen/AExIw" target="_blank"></a>
+<a class="chromium-icon" href="http://codepen.io/scrapmac/pen/wdIKm" target="_blank"></a>
+<a class="canary-icon" href="http://codepen.io/scrapmac/pen/IwnGs" target="_blank"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "compass/css3";
+
+/* Demo specific styles begin */
+* {
+  margin :0;
+  padding:0;
+}
+
+.chrome-icon {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 350px);
+  z-index: 4;
+}
+
+.chromium-icon {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  z-index: 4;
+}
+
+.canary-icon {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% + 150px);
+  z-index: 4;
+}
+
+a {
+  font-family: arial,sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+  color: #333;
+}
+a:hover {
+  color: #777;
+}
+/* Demo specific styles end */
+
+/* Chrome icon */
+
+.chrome-icon {
+  width :200px;
+  height:200px;
+  border-radius:50%;
+  box-shadow:
+    inset 0 -20px 25px 0 rgba(0,0,0,.2),
+    0 2px 4px 1px rgba(0,0,0,0.4),
+    inset 0 40px 40px -15px rgba(255,255,255,.4);
+  overflow:hidden;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(-20deg, transparent 50%, #f5c90e 50%, #e4b11b),
+    linear-gradient(120deg, transparent 50%, #fcd209 50%),
+    linear-gradient(101deg, transparent 50%, #49b147 50%, #3f9c43),
+    linear-gradient(180deg, #e12c2d 28%, #fcd209 28%),
+    linear-gradient(60deg, #4cb648 35%, transparent 35%),
+    linear-gradient(42deg, #c3181c, #df2227 50%, transparent 50%),
+    linear-gradient(60deg, #e12c2d, #e12c2d 100%),
+    linear-gradient(60deg, #4db849, #4db849 100%);
+  background-size: 50% 17%, 21% 35%, 31% 48%, 49.5% 100%, 50.5% 57%, 30% 44%, 51% 55%, 51% 45%;
+  background-position: 100% 33.5%, 58% 100%, 50% 100%, 100% 0%, 0 0, 10% 20%, 0 0, 0 100%;
+}
+
+.chrome-icon:after, .chrome-icon:before {
+  content: '';
+  height: 45%;
+  width: 45%;
+  left: 27.5%;
+  top: 27.5%;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 -5px 50px 0 rgba(0,0,0,0.2);
+  position: absolute;
+}
+
+.chrome-icon:before {
+  z-index: 2;
+  top: 31%;
+  left: 31%;
+  height: 38%;
+  width: 38%;
+  background: #4788c7;
+  box-shadow: inset 0 -20px 30px 0 rgba(0,0,0,0.2);
+}
+
+/* Chromium icon */
+
+$top: #4071a0;
+$topRight: #b2cde9;
+$right: #ccdff0;
+$leftRight: #699dd3;
+$left: #8ec1e1;
+$topLeft: #2e5c91;
+$t: transparent;
+$center: #6697cd;
+
+.chromium-icon {
+  width :200px;
+  height:200px;
+  border-radius:50%;
+  box-shadow:
+    inset 0 -30px 30px 0 rgba(105,157,211,0.8),
+    0 2px 4px 1px rgba(0,0,0,0.4),
+    inset 0 45px 30px -15px rgba(255,255,255,0.5);
+  overflow:hidden;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(-20deg, $t 50%, $topRight 50%),
+    linear-gradient(120deg, $t 50%, $right 50%),
+    linear-gradient(101deg, $t 50%, $leftRight 50%),
+    linear-gradient(180deg, $top 28%, $right 28%),
+    linear-gradient(60deg, $left 35%, $t 35%),
+    linear-gradient(42deg, $topLeft 50%, $t 50%),
+    linear-gradient(60deg, $top, $top 100%),
+    linear-gradient(60deg, $left, $left 100%);
+  background-size: 50% 17%, 21% 35%, 31% 48%, 49.5% 100%, 50.5% 57%, 30% 44%, 51% 55%, 51% 45%;
+  background-position: 100% 33.5%, 58% 100%, 50% 100%, 100% 0%, 0 0, 10% 20%, 0 0, 0 100%;
+}
+
+.chromium-icon:after, .chromium-icon:before {
+  content: '';
+  height: 45%;
+  width: 45%;
+  left: 27.5%;
+  top: 27.5%;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 -5px 50px 0 rgba(0,0,0,0.2);
+  position: absolute;
+}
+
+.chromium-icon:before {
+  z-index: 2;
+  top: 31%;
+  left: 31%;
+  height: 38%;
+  width: 38%;
+  background: $center;
+  box-shadow:
+    inset 0 -10px 25px 0 rgba(0,0,0,.2),
+    inset 0 10px 25px 0 rgba(255,255,255,.2);
+}
+
+/* Canary icon */
+
+$top: #cb8f00;
+$topRight: #ebbe00;
+$right: #ecc21b;
+$leftRight: #dd9f00;
+$left: #e0a600;
+$topLeft: #c78600;
+$t: transparent;
+$center: #e4ac00;
+
+.canary-icon {
+  width :200px;
+  height:200px;
+  border-radius:50%;
+  box-shadow:
+    inset 0 -5px 25px 0 rgba(0,0,0,0.2),
+    0 2px 4px 1px rgba(0,0,0,0.4),
+    inset 0 45px 30px -20px rgba(255,255,255,.4);
+  overflow:hidden;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(-20deg, $t 50%, $topRight 50%),
+    linear-gradient(120deg, $t 50%, $right 50%),
+    linear-gradient(101deg, $t 50%, $leftRight 50%),
+    linear-gradient(180deg, $top 28%, $right 28%),
+    linear-gradient(60deg, $left 35%, $t 35%),
+    linear-gradient(42deg, $topLeft 50%, $t 50%),
+    linear-gradient(60deg, $top, $top 100%),
+    linear-gradient(60deg, $left, $left 100%);
+  background-size: 50% 17%, 21% 35%, 31% 48%, 49.5% 100%, 50.5% 57%, 30% 44%, 51% 55%, 51% 45%;
+  background-position: 100% 33.5%, 58% 100%, 50% 100%, 100% 0%, 0 0, 10% 20%, 0 0, 0 100%;
+}
+
+.canary-icon:after, .canary-icon:before {
+  content: '';
+  height: 45%;
+  width: 45%;
+  left: 27.5%;
+  top: 27.5%;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 -5px 50px 0 rgba(0,0,0,0.2);
+  position: absolute;
+}
+
+.canary-icon:before {
+  z-index: 2;
+  top: 31%;
+  left: 31%;
+  height: 38%;
+  width: 38%;
+  background: $center;
+  box-shadow:
+    inset 0 -20px 20px 0 rgba(0,0,0,.2),
+    inset 0 20px 20px 0 rgba(255,255,255,.3);
+}

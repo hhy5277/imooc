@@ -1,0 +1,184 @@
+<div class='fullWrapper'>
+  <div class='logo'>
+    <div class='circle'></div>
+    <div class='innerCircle'></div>
+  </div>
+</div>
+<div class='shadow'></div>
+<div class='credits'>
+  <h2>Opera Logo</h2>
+  <p>By: Chris Tieman</p>
+</div>
+
+
+@import compass
+
+$background: #141517
+$width: 360px
+$height: 360px
+
+=gradient($from, $to)
+	background-color: $from
+	background-image: -moz-linear-gradient($from, $to)
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to))
+	background-image: -webkit-linear-gradient($from, $to)
+	background-image: -o-linear-gradient($from, $to)
+
+body
+	background: $background
+
+.fullWrapper
+	position: relative
+	top: 0px
+	-webkit-animation: bounce 3s infinite ease-in-out
+	-moz-animation: bounce 3s infinite ease-in-out
+	-ms-animation: bounce 3s infinite ease-in-out
+
+	.logo
+		position: relative
+		margin: 0 auto
+		width: $width
+		height: $height
+		
+		.circle
+			position: relative
+			left: 50%
+			margin-left: -45.84%
+			width: 91.67%
+			height: 100%
+			border-radius: 49%
+			+gradient(#f74344,#d0000c)
+			
+			&:before
+				position: absolute
+				top: 0.56%
+				left: 1.52%
+				border-radius: 49%
+				content: ""
+				width: 96.97%
+				height: 98.89%
+				background: rgb(254,134,137) /* Old browsers */
+				background: -moz-linear-gradient(top, rgba(254,134,137,1) 0%, rgba(245,52,53,1) 25%, rgba(206,16,16,1) 50%, rgba(128,0,0,1) 75%, rgba(181,5,5,1) 100%) /* FF3.6+ */
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,134,137,1)), color-stop(25%,rgba(245,52,53,1)), color-stop(50%,rgba(206,16,16,1)), color-stop(75%,rgba(128,0,0,1)), color-stop(100%,rgba(181,5,5,1))) /* Chrome,Safari4+ */
+				background: -webkit-linear-gradient(top, rgba(254,134,137,1) 0%,rgba(245,52,53,1) 25%,rgba(206,16,16,1) 50%,rgba(128,0,0,1) 75%,rgba(181,5,5,1) 100%) /* Chrome10+,Safari5.1+ */
+				background: -o-linear-gradient(top, rgba(254,134,137,1) 0%,rgba(245,52,53,1) 25%,rgba(206,16,16,1) 50%,rgba(128,0,0,1) 75%,rgba(181,5,5,1) 100%) /* Opera 11.10+ */
+				background: -ms-linear-gradient(top, rgba(254,134,137,1) 0%,rgba(245,52,53,1) 25%,rgba(206,16,16,1) 50%,rgba(128,0,0,1) 75%,rgba(181,5,5,1) 100%) /* IE10+ */
+				background: linear-gradient(to bottom, rgba(254,134,137,1) 0%,rgba(245,52,53,1) 25%,rgba(206,16,16,1) 50%,rgba(128,0,0,1) 75%,rgba(181,5,5,1) 100%) /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fe8689', endColorstr='#b50505',GradientType=0 ) /* IE6-9 */
+		
+		.innerCircle
+			position: absolute
+			top: 50%
+			left: 50%
+			margin-left: -18.06%
+			margin-top: -41.67%
+			width: 36.11%
+			height: 83.33%
+			border-top-left-radius: 49% 45%
+			border-top-right-radius: 49% 45%
+			border-bottom-left-radius: 49% 45%
+			border-bottom-right-radius: 49% 45%
+			+gradient(#cc3836,#d20000)
+
+			&:before
+				content: ""
+				position: absolute
+				left: 2%
+				top: 1.2%
+				width: 97%
+				height: 98.3%
+				border-top-left-radius: 49% 45%
+				border-top-right-radius: 49% 45%
+				border-bottom-left-radius: 49% 45%
+				border-bottom-right-radius: 49% 45%
+				+gradient(#9a0000,#b80000)
+
+			&:after
+				content: ""
+				position: absolute
+				left: 10.5%
+				top: 4.5%
+				width: 80%
+				height: 91.5%
+				border-top-left-radius: 49% 45%
+				border-top-right-radius: 49% 45%
+				border-bottom-left-radius: 49% 45%
+				border-bottom-right-radius: 49% 45%
+				background: $background
+				
+
+.shadow
+	position: relative
+	left: 50%
+	margin-top: 30px
+	margin-left: -$width * 0.45
+	width: $width * 0.9
+	height: 50px
+	background: rgba(0,0,0,0.1)
+	border-radius: 50%
+	z-index: 0
+	-webkit-animation: shadow 3s infinite ease-in-out
+	-moz-animation: shadow 3s infinite ease-in-out
+	-ms-animation: shadow 3s infinite ease-in-out
+
+.credits
+	position: absolute
+	top: 15px
+	right: 30px
+	z-index: 999
+	font-family: Impact, Helvetica, sans-serif
+	color: #dcdcdc
+
+	h2
+		font-size: 25px
+		margin-bottom: 3px
+
+	p
+		font-family: Helvetica, sans-serif
+		font-size: 12px
+
+@-webkit-keyframes bounce
+	0%
+		top: 0px
+	50%
+		top: 20px
+@-moz-keyframes bounce
+	0%
+		top: 0px
+	50%
+		top: 20px
+@-ms-keyframes bounce
+	0%
+		top: 0px
+	50%
+		top: 20px
+
+@-webkit-keyframes shadow
+	0%
+		width: $width * 0.9
+		margin-left: -$width * 0.45
+		background: rgba(0,0,0,0.1)
+	50%
+		width: $width * 0.95
+		margin-left: -$width * 0.475
+		background: rgba(0,0,0,0.3)
+
+@-moz-keyframes shadow
+	0%
+		width: $width * 0.9
+		margin-left: -$width * 0.45
+		background: rgba(0,0,0,0.1)
+	50%
+		width: $width * 0.95
+		margin-left: -$width * 0.475
+		background: rgba(0,0,0,0.3)
+
+@-ms-keyframes shadow
+	0%
+		width: $width * 0.9
+		margin-left: -$width * 0.45
+		background: rgba(0,0,0,0.1)
+	50%
+		width: $width * 0.95
+		margin-left: -$width * 0.475
+		background: rgba(0,0,0,0.3)

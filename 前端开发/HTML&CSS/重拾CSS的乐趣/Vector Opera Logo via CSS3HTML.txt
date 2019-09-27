@@ -1,0 +1,207 @@
+<div class='fullWrapper'>
+  <div class='logo'>
+    <div class='circle'></div>
+    <div class='innerCircle'></div>
+  </div>
+</div>
+<div class='shadow'></div>
+<div class='credits'>
+  <h2>Opera Logo</h2>
+  <p>By: Chris Tieman</p>
+</div>
+
+
+
+
+
+
+
+
+body {
+  background: #141517;
+}
+
+.fullWrapper {
+  position: relative;
+  top: 0px;
+  -webkit-animation: bounce 3s infinite ease-in-out;
+  -moz-animation: bounce 3s infinite ease-in-out;
+  -ms-animation: bounce 3s infinite ease-in-out;
+}
+.fullWrapper .logo {
+  position: relative;
+  margin: 0 auto;
+  width: 360px;
+  height: 360px;
+}
+.fullWrapper .logo .circle {
+  position: relative;
+  left: 50%;
+  margin-left: -45.84%;
+  width: 91.67%;
+  height: 100%;
+  border-radius: 49%;
+  background-color: #f74344;
+  background-image: -moz-linear-gradient(#f74344, #d0000c);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f74344), to(#d0000c));
+  background-image: -webkit-linear-gradient(#f74344, #d0000c);
+  background-image: -o-linear-gradient(#f74344, #d0000c);
+}
+.fullWrapper .logo .circle:before {
+  position: absolute;
+  top: 0.56%;
+  left: 1.52%;
+  border-radius: 49%;
+  content: "";
+  width: 96.97%;
+  height: 98.89%;
+  background: #fe8689;
+  background: -moz-linear-gradient(top, #fe8689 0%, #f53435 25%, #ce1010 50%, maroon 75%, #b50505 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fe8689), color-stop(25%, #f53435), color-stop(50%, #ce1010), color-stop(75%, maroon), color-stop(100%, #b50505));
+  background: -webkit-linear-gradient(top, #fe8689 0%, #f53435 25%, #ce1010 50%, maroon 75%, #b50505 100%);
+  background: -o-linear-gradient(top, #fe8689 0%, #f53435 25%, #ce1010 50%, maroon 75%, #b50505 100%);
+  background: -ms-linear-gradient(top, #fe8689 0%, #f53435 25%, #ce1010 50%, maroon 75%, #b50505 100%);
+  background: linear-gradient(to bottom, #fe8689 0%, #f53435 25%, #ce1010 50%, #800000 75%, #b50505 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fe8689', endColorstr='#b50505',GradientType=0 );
+}
+.fullWrapper .logo .innerCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -18.06%;
+  margin-top: -41.67%;
+  width: 36.11%;
+  height: 83.33%;
+  border-top-left-radius: 49% 45%;
+  border-top-right-radius: 49% 45%;
+  border-bottom-left-radius: 49% 45%;
+  border-bottom-right-radius: 49% 45%;
+  background-color: #cc3836;
+  background-image: -moz-linear-gradient(#cc3836, #d20000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cc3836), to(#d20000));
+  background-image: -webkit-linear-gradient(#cc3836, #d20000);
+  background-image: -o-linear-gradient(#cc3836, #d20000);
+}
+.fullWrapper .logo .innerCircle:before {
+  content: "";
+  position: absolute;
+  left: 2%;
+  top: 1.2%;
+  width: 97%;
+  height: 98.3%;
+  border-top-left-radius: 49% 45%;
+  border-top-right-radius: 49% 45%;
+  border-bottom-left-radius: 49% 45%;
+  border-bottom-right-radius: 49% 45%;
+  background-color: #9a0000;
+  background-image: -moz-linear-gradient(#9a0000, #b80000);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#9a0000), to(#b80000));
+  background-image: -webkit-linear-gradient(#9a0000, #b80000);
+  background-image: -o-linear-gradient(#9a0000, #b80000);
+}
+.fullWrapper .logo .innerCircle:after {
+  content: "";
+  position: absolute;
+  left: 10.5%;
+  top: 4.5%;
+  width: 80%;
+  height: 91.5%;
+  border-top-left-radius: 49% 45%;
+  border-top-right-radius: 49% 45%;
+  border-bottom-left-radius: 49% 45%;
+  border-bottom-right-radius: 49% 45%;
+  background: #141517;
+}
+
+.shadow {
+  position: relative;
+  left: 50%;
+  margin-top: 30px;
+  margin-left: -162px;
+  width: 324px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+  -webkit-animation: shadow 3s infinite ease-in-out;
+  -moz-animation: shadow 3s infinite ease-in-out;
+  -ms-animation: shadow 3s infinite ease-in-out;
+}
+
+.credits {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  z-index: 999;
+  font-family: Impact, Helvetica, sans-serif;
+  color: #dcdcdc;
+}
+.credits h2 {
+  font-size: 25px;
+  margin-bottom: 3px;
+}
+.credits p {
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+  }
+}
+@-moz-keyframes bounce {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+  }
+}
+@-ms-keyframes bounce {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 20px;
+  }
+}
+@-webkit-keyframes shadow {
+  0% {
+    width: 324px;
+    margin-left: -162px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    width: 342px;
+    margin-left: -171px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+@-moz-keyframes shadow {
+  0% {
+    width: 324px;
+    margin-left: -162px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    width: 342px;
+    margin-left: -171px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+@-ms-keyframes shadow {
+  0% {
+    width: 324px;
+    margin-left: -162px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    width: 342px;
+    margin-left: -171px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
