@@ -1,0 +1,10 @@
+storm.apache.org/downloads.html
+
+Yahoo S4
+IBM的 StreamBase
+亚马逊的 Kinesis
+Spark Streaming
+Google Millwheel
+Apache Storm
+Twitter的 Summing Bird
+Google的 CloudDataflow
