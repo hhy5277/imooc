@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://www.cnblogs.com/kunpengit/archive/2012/10/17/2727357.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>webservices 快速生成wsdl文件的方法 - 骏马昆朋 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./webservices 快速生成wsdl文件的方法_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./webservices 快速生成wsdl文件的方法_files/bundle-darkgreentrip.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/kunpengit/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/kunpengit/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/kunpengit/wlwmanifest.xml">
+<script type="text/javascript" src="./webservices 快速生成wsdl文件的方法_files/encoder.js"></script><script src="./webservices 快速生成wsdl文件的方法_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'kunpengit', cb_enable_mathjax=false;</script>
+<script src="./webservices 快速生成wsdl文件的方法_files/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/kunpengit/"><img id="blogLogo" src="./webservices 快速生成wsdl文件的方法_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/kunpengit/">骏马昆朋</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/kunpengit/">首页</a></li>
+<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="MyLinks1_ContactLink" class="menu" rel="nofollow" href="http://msg.cnblogs.com/send/%E9%AA%8F%E9%A9%AC%E6%98%86%E6%9C%8B">联系</a></li>
+<li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/kunpengit/rss">订阅</a>
+<!--<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/kunpengit/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			
+<span id="stats_post_count">随笔 - 138&nbsp; </span>
+<span id="stats_article_count">文章 - 1&nbsp; </span>
+<span id="stats-comment_count">评论 - 26</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="./webservices 快速生成wsdl文件的方法_files/webservices 快速生成wsdl文件的方法.html">webservices 快速生成wsdl文件的方法</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>本方法是使用axis1.4引擎。</p>
+<p>从<a href="http://www.fayea.com/apache-mirror/ws/axis/1_4/">http://www.fayea.com/apache-mirror/ws/axis/1_4/</a>&nbsp;上可以下到bin包</p>
+<p>解压该包后，复制webapps下的文件到tomcat的webapps下。</p>
+<p>启动tomcat输入：<a href="http://localhost:8080/axis">http://localhost:8080/axis</a>便可看的axis已经部署上。</p>
+<p>&nbsp;</p>
+<p>接下来： 可写一个简单的类，一个简单的方法。</p>
+<p>把改类存储为拓展名为.jws文件放到webapps下的axis文件中。</p>
+<p>重新启动tomcat。 浏览器中输入：<a href="http://localhost:8080/axis">http://localhost:8080/axis/</a>类名&nbsp; 便可看到wsdl</p>
+<p>&nbsp;</p>
+<p>那么客户端怎么调用呢？&nbsp; 代码如下所示：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./webservices 快速生成wsdl文件的方法_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">import java.net.MalformedURLException;
+import java.net.URL;
+import javax.xml.rpc.ServiceException;
+import org.apache.axis.AxisFault;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+</span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> HelloClient {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> final String endPoint= <span style="color: #800000;">"</span><span style="color: #800000;">http://localhost:8080/axis/Test.jws?wsdl</span><span style="color: #800000;">"</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> main(String[] args) {
+        Service service </span>= <span style="color: #0000ff;">new</span><span style="color: #000000;"> Service();
+        </span><span style="color: #0000ff;">try</span><span style="color: #000000;"> {
+            Call call </span>=<span style="color: #000000;"> (Call) service.createCall();
+            call.setTargetEndpointAddress(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> URL(endPoint));
+            String name </span>= (String) call.invoke(<span style="color: #800000;">"</span><span style="color: #800000;">sayHello</span><span style="color: #800000;">"</span>,<span style="color: #0000ff;">new</span> Object[]{<span style="color: #800000;">"</span><span style="color: #800000;">毛哥</span><span style="color: #800000;">"</span><span style="color: #000000;">});
+            System.</span><span style="color: #0000ff;">out</span><span style="color: #000000;">.println(name);
+        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (ServiceException e) {
+            e.printStackTrace();
+        }</span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (MalformedURLException e) {
+            e.printStackTrace();
+        } </span><span style="color: #0000ff;">catch</span><span style="color: #000000;"> (AxisFault e) {
+            e.printStackTrace();
+        }
+    }
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./webservices 快速生成wsdl文件的方法_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>要引入axis的jar包</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/kunpengit/category/420655.html">webservices</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2727357,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://msg.cnblogs.com/send/%E9%AA%8F%E9%A9%AC%E6%98%86%E6%9C%8B" target="_blank">联系我</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./webservices 快速生成wsdl文件的方法_files/icon_weibo_24.png" alt=""></a>
+<a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./webservices 快速生成wsdl文件的方法_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/kunpengit/" target="_blank"><img src="./webservices 快速生成wsdl文件的方法_files/u341885.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/kunpengit/">骏马昆朋</a><br>
+<a href="http://home.cnblogs.com/u/kunpengit/followees">关注 - 3</a><br>
+<a href="http://home.cnblogs.com/u/kunpengit/followers">粉丝 - 30</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2727357,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+	<div class="buryit" onclick="votePost(2727357,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/16/2725503.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/kunpengit/archive/2012/10/16/2725503.html" title="发布于2012-10-16 10:13">PL/SQL如何快速打出select * from 记住登陆密码</a><br><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/19/2731255.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/kunpengit/archive/2012/10/19/2731255.html" title="发布于2012-10-19 16:32">webservice 存根方式</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-10-17 11:09</span> <a href="http://www.cnblogs.com/kunpengit/">骏马昆朋</a> 阅读(<span id="post_view_count">7102</span>) 评论(<span id="post_comment_count">0</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2727357" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/kunpengit/archive/2012/10/17/2727357.html#" onclick="AddToWz(2727357);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=100277,cb_entryId=2727357,cb_blogApp=currentBlogApp,cb_blogUserGuid='3e4cc05f-27f9-e011-b7b9-842b2b196315',cb_entryCreatedDate='2012/10/17 11:09:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/17/2727357.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/17/2727357.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/" target="_blank">【推荐】融云即时通讯云－豆果美食、Faceu等亿级APP都在用</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block"><a href="http://wijmo.gcpowertools.com.cn/microsoft-dynamics-adds-mobile-controls-powered-by-wijmo-5/?utm_source=cnblogs&utm_medium=blogpage&utm_term=bottom&utm_content=wijmo&utm_campaign=community" target="_blank"><img width="300" height="250" src="./webservices 快速生成wsdl文件的方法_files/24442-20160331135236051-2045919446.jpg" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/543739/" target="_blank">优酷上可直接开店了？阿里欲打造交易闭环</a><br> ·  <a href="http://news.cnblogs.com/n/543738/" target="_blank">大数据时代，穷人更难生活</a><br> ·  <a href="http://news.cnblogs.com/n/543737/" target="_blank">16个月后乐视无人驾驶汽车终于亮相 还要在北京国贸建旗舰店</a><br> ·  <a href="http://news.cnblogs.com/n/543736/" target="_blank">自动驾驶不远了：特斯拉或成首家实现全自动驾驶厂商</a><br> ·  <a href="http://news.cnblogs.com/n/543735/" target="_blank">海中漂了108年！科学家制最古老瓶中信被发现</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block"><a href="https://www.jpush.cn/?from=cnblogs01" target="_blank"><img width="468" height="60" src="./webservices 快速生成wsdl文件的方法_files/24442-20160307140747632-1210035054.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/543110/" target="_blank">架构漫谈（九）：理清技术、业务和架构的关系</a><br> ·  <a href="http://kb.cnblogs.com/page/542725/" target="_blank">架构漫谈（八）：从架构的角度看如何写好代码</a><br> ·  <a href="http://kb.cnblogs.com/page/542257/" target="_blank">架构漫谈（七）：不要空设架构师这个职位，给他实权</a><br> ·  <a href="http://kb.cnblogs.com/page/541740/" target="_blank">架构漫谈（六）：软件架构到底是要解决什么问题？</a><br> ·  <a href="http://kb.cnblogs.com/page/541188/" target="_blank">架构漫谈（五）：什么是软件</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news">访问次数：<div align="left"><a href="http://www.amazingcounters.com/"><img border="0" src="./webservices 快速生成wsdl文件的方法_files/counter.php" alt="AmazingCounters.com"></a></div>
+<br><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/kunpengit/">骏马昆朋</a><br>园龄：<a href="http://home.cnblogs.com/u/kunpengit/" title="入园时间：2011-10-18">4年6个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/kunpengit/followers/">30</a><br>关注：<a href="http://home.cnblogs.com/u/kunpengit/followees/">3</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;3e4cc05f-27f9-e011-b7b9-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="日历">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/09/01&#39;);return false;">&lt;</a></td><td align="center">2012年10月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2012/11/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td class="CalWeekendDay" align="center">6</td></tr><tr><td class="CalWeekendDay" align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td class="CalWeekendDay" align="center">13</td></tr><tr><td class="CalWeekendDay" align="center">14</td><td align="center">15</td><td align="center"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/16.html"><u>16</u></a></td><td align="center"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/17.html"><u>17</u></a></td><td align="center">18</td><td align="center"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/19.html"><u>19</u></a></td><td class="CalWeekendDay" align="center">20</td></tr><tr><td class="CalWeekendDay" align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/26.html"><u>26</u></a></td><td class="CalWeekendDay" align="center">27</td></tr><tr><td class="CalWeekendDay" align="center">28</td><td align="center"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/29.html"><u>29</u></a></td><td align="center">30</td><td align="center"><a href="http://www.cnblogs.com/kunpengit/archive/2012/10/31.html"><u>31</u></a></td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/kunpengit/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/kunpengit/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/kunpengit/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/kunpengit/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/kunpengit/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass(&#39;itemListLink&#39;, &#39;itemListLin_con&#39;);return false;" href="http://www.cnblogs.com/kunpengit/archive/2012/10/17/2727357.html#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_recentposts" class="sidebar-block">
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/kunpengit/p/5394307.html">1. JSON处理</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/5341797.html">2. spring中配置了事务，数据业务层捕获异常，事务配置不成功？</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/5148081.html">3. 字符串时间与Unix时间戳相互转换</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4996919.html">4. Ubuntu系统搭建SVN服务器</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4968891.html">5. Linux Ubuntu 能PING IP但不能PING主机域名的解决方法</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4963357.html">6. ubuntu下mysql远程连接和访问慢的解决方法</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4904441.html">7. linux下Ftp服务安装</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4871105.html">8. Tomcat内存溢出解决办法</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4826503.html">9. CXF总结</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4763773.html">10. plsql与64位的Oracle关联方法</a></li>
+</ul>
+</div>
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/kunpengit/tag/linux%E4%B8%8BFtp%E6%9C%8D%E5%8A%A1%E5%AE%89%E8%A3%85/">linux下Ftp服务安装</a>(1)</li><li><a href="http://www.cnblogs.com/kunpengit/tag/webservice%20%20cxf%20%20spring/">webservice  cxf  spring</a>(1)</li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(134)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/kunpengit/category/454783.html">drools(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/kunpengit/category/361398.html">dwr(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/kunpengit/category/340726.html">extjs(23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/kunpengit/category/340720.html">Flex(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/kunpengit/category/346305.html">hibernate(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/kunpengit/category/340717.html">java基础(23)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/kunpengit/category/433110.html">jquery(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/kunpengit/category/340725.html">jsp(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/kunpengit/category/432849.html">linux(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/kunpengit/category/467857.html">mybatis(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/kunpengit/category/357325.html">oracle(19)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/kunpengit/category/340724.html">spring(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/kunpengit/category/505547.html">svn和cvs(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/kunpengit/category/420655.html">webservices(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/kunpengit/category/448065.html">xml(3)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/kunpengit/category/490791.html">笔试面试(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_16" href="http://www.cnblogs.com/kunpengit/category/412591.html">激活(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_17" href="http://www.cnblogs.com/kunpengit/category/360128.html">其他(16)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_18" href="http://www.cnblogs.com/kunpengit/category/363523.html">生活琐事(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_19" href="http://www.cnblogs.com/kunpengit/category/459709.html">数据库系统工程师考试学习记录(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_20" href="http://www.cnblogs.com/kunpengit/category/340721.html">数据库相关(5)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(138)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/kunpengit/archive/2016/04.html">2016年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/kunpengit/archive/2016/03.html">2016年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/kunpengit/archive/2016/01.html">2016年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/kunpengit/archive/2015/11.html">2015年11月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/kunpengit/archive/2015/10.html">2015年10月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/kunpengit/archive/2015/09.html">2015年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/kunpengit/archive/2015/08.html">2015年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/kunpengit/archive/2015/04.html">2015年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/kunpengit/archive/2015/03.html">2015年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/kunpengit/archive/2014/10.html">2014年10月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/kunpengit/archive/2014/09.html">2014年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/kunpengit/archive/2014/06.html">2014年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/kunpengit/archive/2014/03.html">2014年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/kunpengit/archive/2013/09.html">2013年9月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/kunpengit/archive/2013/08.html">2013年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/kunpengit/archive/2013/07.html">2013年7月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/kunpengit/archive/2013/06.html">2013年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/kunpengit/archive/2013/05.html">2013年5月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/kunpengit/archive/2013/04.html">2013年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/kunpengit/archive/2013/03.html">2013年3月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/kunpengit/archive/2013/02.html">2013年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/kunpengit/archive/2013/01.html">2013年1月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/kunpengit/archive/2012/12.html">2012年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/kunpengit/archive/2012/11.html">2012年11月 (20)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/kunpengit/archive/2012/10.html">2012年10月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/kunpengit/archive/2012/09.html">2012年9月 (6)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/kunpengit/archive/2012/08.html">2012年8月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_27" href="http://www.cnblogs.com/kunpengit/archive/2012/07.html">2012年7月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_28" href="http://www.cnblogs.com/kunpengit/archive/2012/05.html">2012年5月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_29" href="http://www.cnblogs.com/kunpengit/archive/2012/04.html">2012年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_30" href="http://www.cnblogs.com/kunpengit/archive/2012/03.html">2012年3月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_31" href="http://www.cnblogs.com/kunpengit/archive/2012/02.html">2012年2月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_32" href="http://www.cnblogs.com/kunpengit/archive/2011/12.html">2011年12月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_33" href="http://www.cnblogs.com/kunpengit/archive/2011/11.html">2011年11月 (10)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_articlearchive" class="catListArticleArchive sidebar-block">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(1)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/kunpengit/archives/2011/11.html" rel="nofollow">2011年11月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	114378
+	</li>
+	<li class="liRank">
+		排名 -	1694
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/kunpengit/archive/2012/03/13/2393405.html#3397832">1. Re:MyEclipse + Maven开发Web工程的详细配置过程</a></li>
+        <li class="recent_comment_body">mark!</li>
+        <li class="recent_comment_author">--被罚站的树</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/kunpengit/p/4001681.html#3383351">2. Re:Junit结合Spring对Dao层进行单元测试</a></li>
+        <li class="recent_comment_body">sysEmployeeDao这个对象是怎么来的？</li>
+        <li class="recent_comment_author">--NaNO3</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/kunpengit/p/4001680.html#3338767">3. Re:各个JSON技术的比较</a></li>
+        <li class="recent_comment_body">写的很好，顶</li>
+        <li class="recent_comment_author">--飞龙在天001</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/kunpengit/p/4001680.html#3203405">4. Re:各个JSON技术的比较</a></li>
+        <li class="recent_comment_body">很详细，收藏！</li>
+        <li class="recent_comment_author">--garfieldtom</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/kunpengit/p/3145927.html#3166332">5. Re:写一个方法，用一个for循环打印九九乘法表</a></li>
+        <li class="recent_comment_body">for(int i=1, k=1, count=1; i&lt;=9; ){ if(k*count==i*i){ System.out.println(i*i); count = 1; ......</li>
+        <li class="recent_comment_author">--s201307109</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/kunpengit/archive/2012/11/07/2758710.html">1. PLSQL导入导出表的正确步骤(26520)</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4001680.html">2. 各个JSON技术的比较(16568)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2012/03/13/2393405.html">3. MyEclipse + Maven开发Web工程的详细配置过程(13566)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2012/11/06/2756709.html">4. 自定义设置Ext.grid.gridPanel样式(7533)</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4045334.html">5. zookeeper工作原理、安装配置、工具命令简介(7436)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/kunpengit/archive/2011/12/13/2285616.html">1. MyEclipse安装spket插件(3)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2013/03/19/2969569.html">2. 数据库常用的sql语句(3)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2011/12/26/2302395.html">3. Hibernate 用annotation写一个入门程序(2)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2012/09/29/2708559.html">4. eclipse 字体设置 Courier New字(2)</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4001681.html">5. Junit结合Spring对Dao层进行单元测试(2)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/kunpengit/archive/2011/12/13/2285933.html">1. 各种数据库对应的jar包、驱动类名和URL格式(3)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2012/03/13/2393405.html">2. MyEclipse + Maven开发Web工程的详细配置过程(3)</a></li><li><a href="http://www.cnblogs.com/kunpengit/p/4001680.html">3. 各个JSON技术的比较(2)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2012/04/05/2433279.html">4. struts2 结合extjs实现的一个登录实例(2)</a></li><li><a href="http://www.cnblogs.com/kunpengit/archive/2011/11/18/2254280.html">5. 线程安全的理解(2)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2016 骏马昆朋
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

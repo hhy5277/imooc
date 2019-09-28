@@ -1,0 +1,3 @@
+var OX_52d4018d = '';
+OX_52d4018d += "<"+"a href=\'//gg.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3546__zoneid=631__cb=bada252c71__oadest=http%3A%2F%2Fedutest.51cto.com%2Ftraining%2Ftraining_id-19.html%3Fxiaoshou\' target=\'_blank\'><"+"font color=\'red\'>Android开发120天完成9个APP项目<"+"/font><"+"/a><"+"div id=\'beacon_bada252c71\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'//gg3.51cto.com/www/delivery/lg.php?bannerid=3546&amp;campaignid=780&amp;zoneid=631&amp;loc=1&amp;referer=http%3A%2F%2Fdeveloper.51cto.com%2Fart%2F201509%2F490965.htm&amp;cb=bada252c71\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div>\n";
+document.write(OX_52d4018d);

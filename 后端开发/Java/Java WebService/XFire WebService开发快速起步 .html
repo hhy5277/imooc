@@ -1,0 +1,1751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0044)http://lavasoft.blog.51cto.com/62575/105956/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<script async="" src="./XFire WebService开发快速起步 _files/analytics.js"></script><script async="" src="./XFire WebService开发快速起步 _files/analytics.js"></script><script id="allmobilize" charset="utf-8" src="./XFire WebService开发快速起步 _files/allmobilize.min.js"></script><style type="text/css"></style><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" media="handheld" href="http://lavasoft.blog.51cto.com/#">
+
+
+<title>XFire WebService开发快速起步 - 熔  岩 - 51CTO技术博客</title>
+<meta name="description" content="XFireWebService开发快速起步&#160;环境：XFire-1.2.6JDK1.5MyEclipse6.5Tomcat-5.5.27WindowsXPProfessional简体中文版&#160;软件下载地址：[url]http://repository.codehaus.org/org/codehaus/xfire/xfire-dist..">
+<meta name="keywords" content="WebService,XFire,休闲,职场">
+<meta http-equiv="Cache-Control" content="private">
+<!--<base href="http://lavasoft.blog.51cto.com/">--><base href=".">
+<script src="./XFire WebService开发快速起步 _files/def.js"></script>
+<script language="javascript" src="./XFire WebService开发快速起步 _files/message.js" type="text/javascript"></script>
+<script language="javascript" src="./XFire WebService开发快速起步 _files/user_comment.js" type="text/javascript"></script>
+<script language="javascript" src="./XFire WebService开发快速起步 _files/base2.js" type="text/javascript"></script>
+<script language="javascript" src="./XFire WebService开发快速起步 _files/dialog_utf8.js" type="text/javascript"></script>
+<link href="./XFire WebService开发快速起步 _files/34.css" rel="stylesheet" type="text/css">
+<link rel="alternate" href="http://lavasoft.blog.51cto.com/rss.php?uid=62575" type="application/rss+xml" title="RSS 2.0">
+<link rel="edituri" type="application/rsd+xml" title="rsd" href="http://lavasoft.blog.51cto.com/xmlrpc.php?rsd=1">
+<link href="./XFire WebService开发快速起步 _files/header_master_top.css" rel="stylesheet" type="text/css">
+<link href="./XFire WebService开发快速起步 _files/base.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	.mainNav li a{display:inline-block}
+</style>
+<script>
+var myid = "767694";
+function add_flink(){
+	if(myid==""){
+
+        var refurlk = "http://lavasoft.blog.51cto.com/62575/105956";
+
+				//commentSubmit("",refurlk);
+				location.href="http://home.51cto.com/index.php?reback="+encodeURIComponent(encodeURIComponent(refurlk));
+				
+				return false;
+	}else{
+		var mtk = "ca24fdee2c943aeaebc19471a0b31f3b";
+      		var url='/mod/edit_flink.php?type=addflink&uid=62575&flink=http://lavasoft.blog.51cto.com&mtk='+mtk;
+		var ajax = InitAjax1();
+		ajax.open("GET", url, true);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				/*if(myid == 5290427){
+					alert(ajax.responseText);
+				}*/
+				if(ajax.responseText==""){
+					alert("添加成功。");
+				}
+				if(ajax.responseText=="1"){
+				alert("链接指向自己。");
+				}
+				if(ajax.responseText=="2"){
+				alert("友情链接已存在。")
+				}
+				if(ajax.responseText=="4"){
+					alert("验证已过期。")
+					}
+			}
+		}
+		ajax.send(null);
+	}
+
+
+
+}
+function sendmessage(){
+
+	var refurlk = "http://lavasoft.blog.51cto.com/62575/105956";
+
+	if(myid){
+		return true;
+	}else{
+		commentSubmit("",refurlk);
+		return false;
+	}
+}
+function copylink(ourl){
+	if(!ourl){
+		var clipBoardContent = "http://lavasoft.blog.51cto.com";
+	}else{
+		var clipBoardContent = ourl;
+	}
+	window.clipboardData.setData("Text",clipBoardContent);
+	alert("复制成功!");
+	return false;
+}
+function correctPNG() {
+if (document.getElementById('blog_touxian'))
+{
+var img = document.getElementById('blog_touxian');
+      var imgName = img.src.toUpperCase()
+      var imgID = (img.id) ? "id='" + img.id + "' " : ""
+      var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+      var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+      var imgStyle = "display:inline-block;" + img.style.cssText
+      if (img.align == "left") imgStyle = "float:left;" + imgStyle
+      if (img.align == "right") imgStyle = "float:right;" + imgStyle
+      if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+      var strNewHTML = "<span " + imgID + imgClass + imgTitle
+         + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+         + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+         + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" ;
+      img.outerHTML = strNewHTML;
+}
+}
+//window.attachEvent("onload", correctPNG);
+window.onload=correctPNG;
+
+function copy(){
+var text=document.getElementById("txtUser").value;
+if(copy2Clipboard(text)!=false){ 
+alert("复制成功了！ "); 
+} 
+}
+function copy2Clipboard(txt){ 
+if(window.clipboardData){ 
+window.clipboardData.clearData(); 
+window.clipboardData.setData("Text",txt); 
+}else if(navigator.userAgent.indexOf("Opera")!=-1){ 
+window.location=txt; 
+}else if(window.netscape){ 
+try{ 
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+} 
+catch(e){ 
+alert("您使用的浏览器不支持此复制功能，请使用Ctrl+C或鼠标右键。"); 
+return false; 
+} 
+var clip=Components.classes['@mozilla.org/widget/clipboard;1'].createInstance(Components.interfaces.nsIClipboard); 
+if(!clip)return; 
+var trans=Components.classes['@mozilla.org/widget/transferable;1'].createInstance(Components.interfaces.nsITransferable); 
+if(!trans)return; 
+trans.addDataFlavor('text/unicode'); 
+var str=new Object(); 
+var len=new Object(); 
+var str=Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString); 
+var copytext=txt;str.data=copytext; 
+trans.setTransferData("text/unicode",str,copytext.length*2); 
+var clipid=Components.interfaces.nsIClipboard; 
+if(!clip)return false; 
+clip.setData(trans,null,clipid.kGlobalClipboard); 
+return true;
+} 
+}
+
+function mod_close(){
+  document.getElementById('mod_tg').style.display="none";
+}
+
+function match_invite(uid) {
+    var url='/mod/match_invite.php';
+	var ajax = InitAjax();
+    var re = 'uid=' + uid;
+	ajax.open("POST", url, true);
+    ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	ajax.send(re);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState == 4 && ajax.status == 200) {
+            if(ajax.responseText == 1){
+                alert("邀请信息已经发送成功。");
+            } else if(ajax.responseText=="-1"){
+                alert("邀请失败，请稍候再试。");
+            } else if(ajax.responseText=="2"){
+                alert("该用户已经报名了。")
+            }
+        }
+    }
+}
+
+</script>
+<style type="text/css">
+/*
+.artContent img {max-width:450px !important;}
+.showContent img{max-width:650px!important;}
+*/
+
+.artContent img{max-width: 450px; width:expression(this.width > 450 ? "450px" : this.width)}
+/*
+.showContent img{max-width: 450px; width:expression(this.width > 650 ? "650px" : this.width)}
+*/
+
+
+</style>
+<script src="./XFire WebService开发快速起步 _files/share.js"></script><link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_32.css"></head>
+
+<body>
+
+<div id="home_top">
+<div class="top_nav" style="width:990px;">
+<div class="left" style="margin-top:10px; width:440px;"><a href="http://blog.51cto.com/" target="_blank"><img src="./XFire WebService开发快速起步 _files/head_blog_sibebar_logo.gif" align="absmiddle" style="margin-top:-4px;"></a><a target="_blank" href="http://www.51cto.com/">51CTO首页</a><img height="25" align="absmiddle" width="16" src="./XFire WebService开发快速起步 _files/top_bg_xian.gif" style="margin-top:-4px;"><a href="http://blog.51cto.com/" target="_blank">51CTO博客</a><img height="25" align="absmiddle" width="16" src="./XFire WebService开发快速起步 _files/top_bg_xian.gif" style="margin-top:-4px;"><a href="http://777694.blog.51cto.com/">我的博客</a><img height="25" align="absmiddle" width="16" src="./XFire WebService开发快速起步 _files/top_bg_xian.gif" style="margin-top:-4px;">
+
+<a target="_blank" href="http://blog.51cto.com/search.php">搜索</a>
+<a href="javascript:void(0);" style="color: rgb(255, 0, 0); text-decoration: underline;" id="showMessagerDim">每日博报</a>
+</div>
+
+<div class="right" style="width:550px;">
+<div class="more"><img height="16" align="absmiddle" width="27" src="./XFire WebService开发快速起步 _files/top_shequ.gif"><a target="_blank" style="color:#C00" href="http://gaozhao.51cto.com/">招聘</a><a target="_blank" href="http://edu.51cto.com/" style="color: rgb(204, 0, 0);">学院</a><a target="_blank" href="http://bbs.51cto.com/">论坛</a><a target="_blank" href="http://blog.51cto.com/">博客</a><a target="_blank" href="http://down.51cto.com/">下载</a><a href="javascript:viod(0);" onmouseout="popupClose()" onmouseover="show(3,this)">更多<img align="absmiddle" style="padding-left: 4px;" src="./XFire WebService开发快速起步 _files/nav_ico1.gif"></a>            </div>            <span id="login_status"><div style="margin:0px;" class="login2"><div style="float:right; padding-top:8px;"><a href="http://home.51cto.com/space?uid=767694" style="float:left;margin-top:-1px;text-decoration: none;" target="_self">hhy5277</a><span id="msg_view" style="display:inline; margin-left:5px;"><a target="_blank" href="http://home.51cto.com/msg/inbox" style="color:#CC0000;">消息(7)</a><a target="_blank" href="http://home.51cto.com/space/favorite?uid=767694">收藏</a></span><a href="http://home.51cto.com/index/logout?reback=http://lavasoft.blog.51cto.com/62575/105956/" target="_self" style="text-decoration:none">[退出]</a></div><div style="float:right;">	<a href="http://home.51cto.com/space?uid=767694" target="_self" style="text-decoration:none;">		<img src="./XFire WebService开发快速起步 _files/avatar.php" align="absmiddle" width="24" height="24" style="border: 2px solid #D5D5D5; margin-top:2px;">	</a></div></div></span>                </div>    </div></div>
+
+
+
+<div class="subMenu3" id="s3" onmouseover="popupNoClose()" onmouseout="popupClose()">
+<ul>
+<li><a href="http://home.51cto.com/" target="_blank">家园</a></li>
+<li><a href="http://edu.51cto.com/" target="_blank">学院</a></li>
+<li><a href="http://blog.51cto.com/" target="_blank">博客</a></li>
+<li><a href="http://bbs.51cto.com/" target="_blank">论坛</a></li>
+<li><a href="http://down.51cto.com/" target="_blank">下载</a></li>
+
+<li><a href="http://selftest.51cto.com/" target="_blank">自测</a></li>
+<li><a href="http://doctor.51cto.com/" target="_blank">门诊</a></li>
+<li><a href="http://blog.51cto.com/newsletter/" target="_blank">周刊</a></li>
+<li><a href="http://book.51cto.com/" target="_blank">读书</a></li>
+<li><a href="http://t.51cto.com/" style="color:red;" target="_blank">题库</a></li>
+<li><a href="http://gaozhao.51cto.com/" target="_blank">招聘</a></li>
+</ul>
+</div>
+<!--简导航end-->
+
+
+
+<div class="headerBox">
+<div class="header">
+<div class="header_l">
+<div class="logo_blogname">
+
+
+<div class="blogLogo">
+<a href="http://blog.51cto.com/blogcommend/13" target="_blank"><img src="./XFire WebService开发快速起步 _files/blogLogo02.png" width="161px;" height="70px;"></a>
+</div>
+
+
+<div class="blogName">
+<a href="http://lavasoft.blog.51cto.com/"><h1>熔  岩</h1></a>
+</div>
+</div><!--logo_blogname end-->
+<div class="blogLink">
+
+<a href="http://lavasoft.blog.51cto.com/">http://lavasoft.blog.51cto.com</a> <input id="txtUser" type="hidden" size="32" value="http://lavasoft.blog.51cto.com">   <a href="javascript:void(0);" onclick="copy();">【复制】</a> <a href="http://lavasoft.blog.51cto.com/rss.php?uid=62575" target="_blank"></a><a href="http://lavasoft.blog.51cto.com/rss.php?uid=62575" target="_blank">【订阅】</a>
+
+</div>
+
+
+
+<div class="editBrowse">
+<a class="edit" href="http://777694.blog.51cto.com/main.php">编辑</a><a class="browse" href="http://lavasoft.blog.51cto.com/#">浏览</a>
+</div>
+
+<div id="mod_tg" class="newmb" style="width:170px;height:20px;padding:15px 0 0 10px; text-align:left;font-size:12px;background:url(http://blog.51cto.com/images/long_msg.gif) no-repeat;color:#666;position:absolute;top:-10px;left:209px;z-index:9999">
+	<a href="http://down.51cto.com/data/1904076" target="_blank" style="color:#666;">
+	<em style="background:none;color:#f00" title="《51CTO博客月刊》总第8期">《51CTO博客月刊》总第8期</em></a>
+	<img onclick="mod_close();" style="position:absolute;top:8px;left:148px; cursor:pointer" src="./XFire WebService开发快速起步 _files/msgClose.gif" alt="关闭">
+</div>
+
+
+</div><!--header_l end-->
+<div class="header_r">
+<div class="blogInfo"><span><a href="http://lavasoft.blog.51cto.com/62575/o" title="察看leizhimin所有原创文章">原创</a>:640</span><span><a href="http://lavasoft.blog.51cto.com/62575/t" title="察看leizhimin所有翻译文章">翻译</a>:4</span><span><a href="http://lavasoft.blog.51cto.com/62575/c" title="察看leizhimin所有转载文章">转载</a>:0</span></div>
+<div class="blogNav"><a href="http://lavasoft.blog.51cto.com/">博 客</a>|<a href="http://home.51cto.com/apps/photo/index.php?s=/Index/photos/uid/62575">图库</a>|<a href="http://lavasoft.blog.51cto.com/addblog.php">写博文</a>|<a href="http://blog.51cto.com/user_index.php">管理博客</a>|<a href="http://51ctoblog.blog.51cto.com/all/26414/4" target="_blank">帮 助</a></div>
+</div>
+</div>
+<!--header end-->
+</div><!--headerBox end-->
+<div class="mainNav">
+<span class="mainNavT"></span>
+<ul>
+<li><a href="http://lavasoft.blog.51cto.com/">首页</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-1">J2SE</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-2">J2EE</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-3">Servlet/JSP</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-4">Spring</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-5">ORM/持久化</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-6">MVC框架</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-7">Java开源</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-8">W3C</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-9">IDE</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-10">GUI</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-11">设计模式</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-12">MySQL</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-13">DB2、SQL</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-14">Oracle</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-15">SOA</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-16">Tomcat/Jetty</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-17">AppServer</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-18">热爱生活</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-19">系统分析设计</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-20">配置管理</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-21">UML</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-22">软件工程</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-23">实用技术</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-24">J2ME</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-25">Sun认证</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-26">Linux</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-27">C</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-28">C++</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-29">趣味编程</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-30">PHP</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-31">JavaScript</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-32">ASP.NET</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-33">C#</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-34">嵌入式</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-35">ASM</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-36">Windows编程</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-37">集群/负载均衡/缓存</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-38">性能测试</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-39">配置管理</a></li>|<li><a href="http://lavasoft.blog.51cto.com/62575/d-40">其他</a></li>
+</ul>
+<span class="mainNavB"></span>
+</div>
+<!--mainNav end-->
+
+
+<style>
+.wrap_box{width:750px;float:left;}
+.box1{width:368px;background: #fff; border: 0px solid #626262;float:left;height: 162px;}
+.mr10{margin-right:10px;}
+</style>
+<script type="text/javascript" src="./XFire WebService开发快速起步 _files/jquery-1.7.1.min.js"></script>
+<!--[if IE 6]>
+  <script type="text/javascript" src="http://images.watchstor.com/newhomes/png.js"></script>
+  <script>
+    DD_belatedPNG.fix('img,input,ul,li, .get-box, div, .add, .sub, .ui-slider-handle, .footer-chopper');
+  </script>
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./XFire WebService开发快速起步 _files/fck_editorarea.css">
+<script type="text/javascript" charset="gbk" src="./XFire WebService开发快速起步 _files/shCores.js"></script>
+<link rel="stylesheet" type="text/css" href="./XFire WebService开发快速起步 _files/shCoreDefault.css">
+<script type="text/javascript" charset="gbk" src="./XFire WebService开发快速起步 _files/uparse.js"></script>
+<script type="text/javascript">
+	uParse('.showContent');
+	$(function(){
+		//SyntaxHighlighter.config.clipboardSwf = 'http://bbs.51cto.com/plugins/syntaxhighlighter/scripts/clipboard.swf'; 
+		//为了在编辑器之外能展示高亮代码
+		SyntaxHighlighter.highlight();
+	}); 
+</script>
+<script type="text/javascript">
+/**
+ * 回复评论需要用的js
+ * 2012-5-14
+ * by:chengtao
+ */
+ jQuery(function(){
+	blogpost.init();//初始化博客回复功能
+ })
+ /**
+  * 处理博文评论功能优化
+  */
+ blogpost={
+	abstruct_list:null,
+	init:function(){
+		blogpost.bind();//绑定一些时间
+		this.abstruct_list=new Array();//初始化保存评论信息的数组
+	},
+	/**
+	 * 博客回复需要绑定的一些事件
+	 */
+	bind:function(){
+		/**
+		 * 点击回复的事件
+		 */
+		jQuery('.repost').live('click',function(){
+			blogpost.repost(jQuery(this).attr('user_name'),jQuery(this).attr('parentid'));
+			return false;
+		});
+		/**
+		 * 点击楼层进行翻页且找到锚点
+		 */
+		jQuery('.anchor_page').live('click',function(){
+			var parentid = $(this).attr('parentid');
+			var tid=$(this).attr('tid');
+			$.get('/comments.php?tid='+tid+'&parentid='+parentid,function(data){
+				$('#artcomment').html(data);
+				window.location.hash=''+parentid;
+			})
+			return false;
+		}),
+		jQuery('.anchor_page').live('mouseover',function(){
+			var parentid = $(this).attr('parentid');
+			if(!blogpost.abstruct_list[parentid]){
+				var this_t = $(this);
+				$.get('/comments.php?cid='+parentid,function(data,textStatus){
+					blogpost.abstruct_list[parentid]=data;
+					this_t.attr('title',this_t.text()+':'+ blogpost.abstruct_list[parentid]);
+				});
+			}else{
+				$(this).attr('title',$(this).text()+':'+blogpost.abstruct_list[parentid]);
+			}
+		})
+	},
+	/**
+	 * @param user_name 用户名
+	 * @param parentid  父评论id
+	 */
+	repost:function(user_name,parentid){
+		window.location.hash='comment';
+		jQuery('#parentid').val(parentid);
+		jQuery('#commentcontent').val('回复 '+user_name+":\n").focus();
+		if(!$.browser.mozilla){
+			var elem = jQuery('#commentcontent')[0];		
+			var caretPos = elem.value.length;
+			if (elem.createTextRange) {
+				var range = elem.createTextRange();
+				range.move('character', caretPos);
+				range.select();
+			}else{
+				elem.setSelectionRange(caretPos, caretPos);	
+			}
+		}
+	},
+	/**
+	 * 发送完毕之后清理表单数据 不是ajax可能用不到
+	 */
+	clean:function(){
+		
+	}
+ }
+</script>
+<script type="text/javascript">
+jQuery(function(){
+	var anchor = document.location.hash;
+	var comment_id=anchor.split('#')[1];
+	if(!isNaN(parseInt(comment_id))){//是整形
+		jQuery.get('/comments.php?tid=105956&parentid='+comment_id,function(data){
+			jQuery('#artcomment').html(data);
+			window.location.hash=''+comment_id;
+		})
+	}
+});
+</script>
+
+
+
+<script type="text/javascript">
+jQuery(function() {
+	jQuery('#favourdiv').mouseover(function(){
+		if(jQuery(this).attr('className') == 'support01')
+		{
+			jQuery(this).attr('className', "support02");
+			jQuery(this).html('+1人');
+			jQuery(this).attr('title', "赞一个，我支持TA");
+		}
+		else if(jQuery(this).attr('className') == 'support03')
+		{
+			jQuery(this).attr('title', "你已经赞了这篇博文！");
+		}
+		
+	});
+	jQuery('#favourdiv').mouseout(function(){
+		if(jQuery(this).attr('className') == 'support02')
+		{
+			jQuery(this).attr('className', "support01");
+			jQuery(this).html("8人");
+		}
+	});
+	jQuery('.blog_match_yq').click(function(){
+		var wind_uid = '767694';
+		if(!wind_uid){
+			alert("请先登录！");
+			return false;
+		}
+		jQuery.ajax({
+			   type: "POST",
+			   url:"/contest2012/index.php?mod=sendmsg",
+			   dataType: "html",
+			   data: "vuid=" + 62575,
+			   success: function(data) {
+					if(data == 0)
+					{
+						alert("查无此人！");
+						return false;
+					}else if(data == 1){
+						alert("请先登录！");
+						return false;
+					}else if(data == 2){
+						alert("不能邀请自己！");
+						return false;
+					}else if(data == 22){  
+						alert("邀请信息已发出！");
+						return false;
+					}
+			   }
+		  });
+	});
+	jQuery('#favourdiv').click(function(){
+			jQuery.ajax({
+			   type: "POST",
+			   url:"/mod/favour.php",
+			   dataType: "html",
+			   data: "tid=" + 105956,
+			   success: function(data) {
+					if(data == 0)
+					{
+						alert("您还未登录或者已过期，请重新登录");
+						location.href = "http://home.51cto.com/index.php?reback=http%253A%252F%252Flavasoft.blog.51cto.com%252F62575%252F105956%252F";
+						return false;
+					}
+					else if(data == '-1')
+					{
+						alert("参数传递错误！");
+						return false;
+					}
+					else if(data == '-2')
+					{
+						alert("该博文已被删除或者不存在！");
+						return false;
+					}
+					else if(data == '-3')
+					{
+						alert("您已经赞过了！");
+						return false;
+					}
+					else if(data == '-4')
+					{
+						alert("赞操作失败！");
+						return false;
+					}
+					else
+					{  
+						//alert("操作成功，你已经赞了这篇博文！");
+						jQuery('#favourdiv').attr('className', "support03");
+
+						var num = 8 + 1 + "人";
+						jQuery('#favourdiv').html(num);
+						jQuery('#favourer').html(data);
+						return false;
+					}
+			   }
+		  });
+	});
+	//Jaydar http://blog.51cto.com/js/header.php?uid=blogdb[uid]&tid=tid
+	jQuery.post('/js/header.php',{uid:62575,tid:105956},function(data){
+		jQuery('#readNum').html(data[0]);
+		jQuery('#cmtNum').html(data[1]);
+	},'json');
+	
+
+})
+
+jQuery(function(){
+	jQuery('#darid').bind('click',function(){
+		if(confirm("你确定删除此篇文章？")){
+			jQuery.ajax({
+				'type':'post',
+				'url':'user_index.php?action=delarticle',
+				'data':{'job':'del', 'selid':'105956', 'mhash':''},
+				'dataType':'html',
+				'success':function(res){
+					if('ok' == res){
+						location.href="http://777694.blog.51cto.com";
+					}
+				
+				}
+			});
+		}
+	});
+});
+</script>
+
+
+
+
+<style type="text/css">
+.m_sharelinks{ 
+	line-height:30px; 
+	text-align:left; 
+	padding-left:20px; 
+	//background:url(http://img1.51cto.com/images/share/ico_lb.gif) no-repeat left center;
+	float:left; 
+	width:600px; 
+	height:30px;
+}
+.m_sharelinks a{ margin-left:10px;}
+.m_sharebtn{ height:50px; width:726px; margin:0 auto;}
+.m_sharebtn01{width:520px; float:left;}
+.weibo_51cto{ background:url(http://img1.51cto.com/images/share/ico_mweibo.gif) no-repeat center center; display:block; width:33px; height:33px; float:left; margin:3px 3px 0 0;cursor:pointer;}
+.shareMored {
+    line-height: 30px;
+	float:right; 
+	text-align:right; 
+	width:100px; 
+	height:30px;
+}
+
+.showContent {
+	margin:20px 15px 8px;
+}
+.userImage img {
+    text-align: center;
+	border:0;
+	padding:0;
+}
+.photo_links{ line-height:30px; padding-top:5px; font-size:13px;width:170px; margin:0 auto;}
+.photo_links_blue{ text-align:center;}
+.photo_links_blue a:link,.photo_links_blue a:visited,.photo_links_blue a:hover,.photo_links_blue a:active{ color:#015F91; text-decoration: underline;}
+.photo_links_red{ text-align:left;}
+.photo_links_red a:link,.photo_links_red a:visited,.photo_links_red a:hover,.photo_links_red a:active{ color:#fc4343; text-decoration:underline;}
+.photo_links_red02{ text-align:center;}
+
+.vlist{ margin:10px 10px; height:65px;}
+.vlist img{ float:left; margin-right:10px;}
+.vlist dl{ text-align:left;}
+.vlist dl dt{ height:40px;line-height: 20px; overflow:hidden; padding-top:5px;}
+.vlist dl dt,.vlist dl dt a{ color:#262626;}
+.vlist dl dd,.vlist dl dd a{ color:#777;}
+
+.video-icon{
+    position: relative;
+}
+.video-icon a.i_video {
+    background: url("http://www.51cto.com/images/homepage/Images/eduplay.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 25px;
+    left:31px;
+    position: absolute;
+    top:22px;
+    width: 25px;
+    z-index: 10;
+}
+
+.ipadFload{ position:fixed; width:136px; height:194px; background:url("http://bbs.51cto.com/images/IPad-bg.png") left top no-repeat #fff; font-family:"微软雅黑"; padding-left:18px;}
+.ipadClose{ text-align:right; font-size:14px; line-height:20px;}
+.ipadImg{ padding-top:38px;}
+.ipadImg img{ width:105px; height:105px;}
+.iPadair2{ font-size:12px;}
+.iPadair2 a{ color:#659b01; text-decoration:none; background:url("http://bbs.51cto.com/images/51CTO-IPAD-BOTTOM.png") right center no-repeat; display:block; line-height:30px;}
+
+</style>
+<div id="add_sys_type_div" style="width:600px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:30%;top:300px;display:none;z-index:255"></div>
+<div id="add_sys_type_dvs" style="width:550px;border:1px #58B0DD solid; background-color:#FFF; position:absolute;left:30%;top:300px;display:none;z-index:255"></div>
+	
+
+
+
+<div class="blogMain">
+<div class="blogLeft">
+
+
+<div class="box moduleUser">
+<div class="title">
+<h2><strong>leizhimin</strong> 的BLOG  </h2>
+</div>
+<div class="modCon">
+
+<div class="userImage" style="margin: 10px auto 5px;text-align: center;width: 130px;border: 1px solid #D4D4D4;">
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td valign="middle" align="center" height="130"><script src="./XFire WebService开发快速起步 _files/userface.php"></script><img src="./XFire WebService开发快速起步 _files/avatar(1).php" id="userface"></td>
+		</tr>
+	</tbody></table>
+</div>
+<div class="photo_links">
+</div>
+
+
+
+
+
+
+
+
+
+<div class="crumbs">
+<a href="http://home.51cto.com/index.php?s=/space/62575#message" class="writeMessage" target="_blank">写留言</a><a href="http://edu.51cto.com/" class="inCircle" target="_blank">去学院学习</a><a href="http://home.51cto.com/index.php?s=/Notify/write/uid/62575" class="message" target="_blank">发消息</a>
+ <a href="http://lavasoft.blog.51cto.com/" onclick="add_flink(62575);return false" class="joinLinks">加友情链接</a><a href="http://home.51cto.com/index.php?s=/space/62575" class="joinFriends" target="_blank">进家园 加好友</a>
+</div>
+
+<div style="width:239px;height:64px;display:none;">
+
+
+<div style="float:left;"><p style="padding:15px 0 0 28px; line-height:20px;">2012年度IT博客大赛<br><a target="_blank" href="http://blog.51cto.com/contest2012/#top10000" style="color:#F00; text-decoration:underline;">十大杰出IT博客诞生</a></p></div>
+<div style="float:right;"><a target="_blank" href="http://blog.51cto.com/contest2012/"><img width="57" height="27" src="./XFire WebService开发快速起步 _files/blog_match_endlook.jpg" style="margin:23px 20px 0 0;"></a></div>
+<!-- <div style="float:left;"><p style="padding:15px 0 0 28px; line-height:20px;">星光评委正在评选<br><a target="_blank" href="http://blog.51cto.com/contest2012/index.php?mod=userlist_sec" style="color:#F00; text-decoration:underline;">2012年度IT博客大赛50强</a></p></div>
+<div style="float:right;"><img class="blog_match_yq" width="57" height="27" src="http://img1.51cto.com/images/blog_match_invite.jpg" style="margin:23px 20px 0 0;"></div> -->
+
+
+
+<div class="clear"></div>
+</div>
+
+
+</div><!--modCon end-->
+<span class="modBot"></span>
+</div>
+
+
+<div class="infoList box">
+<div class="title">
+<h2>博客统计信息</h2>
+</div>
+<div class="modCon">
+<p>
+<span class="infoListHead"><a href="http://blog.51cto.com/blogcommend" target="_blank" class="operlink"><b>51CTO博客之星</b></a> <br></span>
+用户名：leizhimin<br>
+文章数：716<br>
+评论数：2653<br>
+访问量：15627066<br>
+<a href="http://home.51cto.com/index.php?s=/Account/credit" target="_blank">无忧币</a>：15932<br>
+<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank">博客积分</a>：16840<br>
+<a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank">博客等级</a>：10<br>
+注册日期：2006-11-01<br>
+</p>
+</div>
+<span class="modBot"></span>
+</div>
+
+
+<div class="infoList box">
+	<div class="title">
+		<h2 class="fl">热门专题</h2>
+		<a target="_blank" class="fr" href="http://blog.51cto.com/zt">更多&gt;&gt;</a>
+	</div>
+	<div class="modCon" style="height: 348px;">
+
+	
+		<div class="vlist">
+		  <a href="http://blog.51cto.com/zt/688" target="_blank"><img width="63" height="63" src="./XFire WebService开发快速起步 _files/wKioL1ZdX2GAIQ3gAAAc0cDSZ_w591.jpg"></a>
+		<dl>
+		<dt>
+		  <a href="http://blog.51cto.com/zt/688" target="_blank" title="Microsoft Dynamics CRM系统自学教程">Microsoft Dynamics CRM系统自学教程</a></dt>
+		<dd>阅读量：24883</dd>
+		</dl>
+		</div>
+	
+		<div class="vlist">
+		  <a href="http://blog.51cto.com/zt/14" target="_blank"><img width="63" height="63" src="./XFire WebService开发快速起步 _files/1304672337_index.jpg"></a>
+		<dl>
+		<dt>
+		  <a href="http://blog.51cto.com/zt/14" target="_blank" title="从菜鸟到老鸟-教你玩转Mac操作系统">从菜鸟到老鸟-教你玩转Mac操作系统</a></dt>
+		<dd>阅读量：263164</dd>
+		</dl>
+		</div>
+	
+		<div class="vlist">
+		  <a href="http://blog.51cto.com/zt/20" target="_blank"><img width="63" height="63" src="./XFire WebService开发快速起步 _files/1306310178_index.jpg"></a>
+		<dl>
+		<dt>
+		  <a href="http://blog.51cto.com/zt/20" target="_blank" title="QT学习之路：从入门到精通">QT学习之路：从入门到精通</a></dt>
+		<dd>阅读量：1000105</dd>
+		</dl>
+		</div>
+	
+		<div class="vlist">
+		  <a href="http://blog.51cto.com/zt/80" target="_blank"><img width="63" height="63" src="./XFire WebService开发快速起步 _files/1322811762_index.jpg"></a>
+		<dl>
+		<dt>
+		  <a href="http://blog.51cto.com/zt/80" target="_blank" title="从零开始学 Android 开发">从零开始学 Android 开发</a></dt>
+		<dd>阅读量：149858</dd>
+		</dl>
+		</div>
+		
+		
+	</div>
+	<span class="modBot"></span>
+</div>
+
+
+<div class="hotArt box">
+<div class="title">
+<h2>热门文章</h2>
+</div>
+<div class="modCon">
+<ul>
+<li><a href="http://lavasoft.blog.51cto.com/62575/27069">Java多线程编程总结</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/97730">IntelliJ Idea 常用快捷..</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/18771">Java关键字final、static..</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/99151">Java线程：创建与启动</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/53263">Java中的main()方法详解</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/275589">深入理解HTTP Session</a></li>
+<li><a href="http://lavasoft.blog.51cto.com/62575/99150">Java线程：概念与原理</a></li>
+
+</ul>
+</div>
+<span class="modBot"></span>
+</div>
+<div class="search box">
+<div class="title"><h2>搜索BLOG文章</h2></div>
+<div class="modCon">
+<form method="post" action="http://lavasoft.blog.51cto.com/search.php?" tabindex="99">
+<input type="hidden" name="step" value="2">
+<input type="hidden" name="authorid" value="62575">
+<input type="hidden" name="sch_area" value="S">
+<input type="text" value="" name="keyword" class="searchInput">
+<input type="submit" value="搜 索" class="searchBtn">
+</form>
+</div><!--modCon end-->
+<span class="modBot"></span>
+</div>
+
+
+<div class="box recentGuests">
+<div class="title">
+<h2>最近访客</h2>
+</div>
+<div class="modCon">
+<ul>
+
+<li><a href="http://777694.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(2).php"></a>
+<p><a href="http://777694.blog.51cto.com/">hhy5277</a></p>
+
+</li><li><a href="http://11543638.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(3).php"></a>
+<p><a href="http://11543638.blog.51cto.com/">说两..</a></p>
+
+</li><li><a href="http://11490002.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(4).php"></a>
+<p><a href="http://11490002.blog.51cto.com/">蓝湖湾</a></p>
+
+</li><li><a href="http://6016611.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(5).php"></a>
+<p><a href="http://6016611.blog.51cto.com/">tl20011</a></p>
+
+</li><li><a href="http://11507677.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(6).php"></a>
+<p><a href="http://11507677.blog.51cto.com/">阿呜</a></p>
+
+</li><li><a href="http://itshequkeng.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(7).php"></a>
+<p><a href="http://itshequkeng.blog.51cto.com/">IT社区坑</a></p>
+
+</li><li><a href="http://11539008.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(8).php"></a>
+<p><a href="http://11539008.blog.51cto.com/">loda90</a></p>
+
+</li><li><a href="http://5851967.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(9).php"></a>
+<p><a href="http://5851967.blog.51cto.com/">SheetaTu</a></p>
+
+</li><li><a href="http://2702607.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(10).php"></a>
+<p><a href="http://2702607.blog.51cto.com/">mill2008</a></p>
+
+</li><li><a href="http://10251538.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(11).php"></a>
+<p><a href="http://10251538.blog.51cto.com/">福建农大</a></p>
+
+</li><li><a href="http://11284899.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(12).php"></a>
+<p><a href="http://11284899.blog.51cto.com/">云飞梦翎</a></p>
+
+</li><li><a href="http://11529690.blog.51cto.com/"><img src="./XFire WebService开发快速起步 _files/avatar(13).php"></a>
+<p><a href="http://11529690.blog.51cto.com/">thwan..</a></p>
+
+</li></ul>
+<span class="clear"></span>
+</div>
+<span class="modBot"></span>
+</div>
+
+
+<div class="newComments box">
+<div class="title">
+<h2>最新评论 
+
+</h2>
+
+
+
+</div>
+<div class="modCon">
+<ul>
+
+<li><a href="http://10909334.blog.51cto.com/" class="operlink" target="_blank"><b>ltp810119644</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/73432" target="_blank">.。。。。。。。8年前，时间过得好快</a></li>
+
+<li><a href="http://553515787.blog.51cto.com/" class="operlink" target="_blank"><b>qq553515787</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/1401630" target="_blank">收下了</a></li>
+
+<li><a href="http://553515787.blog.51cto.com/" class="operlink" target="_blank"><b>qq553515787</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/1401630" target="_blank">要是能贴出pom文件的jar依赖就好了..</a></li>
+
+<li><a href="http://206153.blog.51cto.com/" class="operlink" target="_blank"><b>firekeen</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/15433" target="_blank">受教了，以前一直不理解class这个类..</a></li>
+
+<li><a href="http://8283358.blog.51cto.com/" class="operlink" target="_blank"><b>Jie_Jac</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/62686" target="_blank">你为何总是如此NB（牛B：非常厉害）..</a></li>
+
+<li><a href="http://5189603.blog.51cto.com/" class="operlink" target="_blank"><b>初音未来aa</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/97597" target="_blank">你好，捕获的XML验证信息是乱码？ </a></li>
+
+<li><a href="http://11391957.blog.51cto.com/" class="operlink" target="_blank"><b>jk蝈蝈</b></a>：<a href="http://lavasoft.blog.51cto.com/62575/204884" target="_blank">大神，能给些文字说明吗</a></li>
+
+
+</ul>
+</div>
+<span class="modBot"></span>
+</div>
+
+
+<div class="hotBlogArt box">
+<div class="title">
+  <h2 class="fl">51CTO推荐博文</h2>
+  <a href="http://blog.51cto.com/artcommend" class="fr">更多&gt;&gt;</a></div>
+<div class="modCon">
+<ul>
+<li><a href="http://nolinux.blog.51cto.com/4824967/1768708" title="如何远程调试Python代码" target="_blank">如何远程调试Python代码</a></li>
+<li><a href="http://1152313.blog.51cto.com/1142313/1767927" title="简单说说THP——记一次数据库服务器阻塞的问题解决" target="_blank">简单说说THP——记一次数据库服务..</a></li>
+<li><a href="http://passover.blog.51cto.com/2431658/1768101" title="Java线程泄露的分析与处理" target="_blank">Java线程泄露的分析与处理</a></li>
+<li><a href="http://983836259.blog.51cto.com/7311475/1767692" title="SpringMVC环境下实现的Ajax异步请求（JSON格式数据）" target="_blank">SpringMVC环境下实现的Ajax异步请..</a></li>
+<li><a href="http://jxzhfei.blog.51cto.com/1382161/1767126" title="greenplum分布式集群（数据仓库）实战" target="_blank">greenplum分布式集群（数据仓库）..</a></li>
+<li><a href="http://xpleaf.blog.51cto.com/9315560/1764849" title="深入理解Python中的__builtin__和__builtins__" target="_blank">深入理解Python中的__builtin__和..</a></li>
+<li><a href="http://crazy123.blog.51cto.com/1029610/1765644" title="Oliver运维管理系统之一庐山真面目" target="_blank">Oliver运维管理系统之一庐山真面目</a></li>
+<li><a href="http://dgd2010.blog.51cto.com/1539422/1765282" title="Linux Shell脚本之更新hosts文件以便于访问谷歌服务" target="_blank">Linux Shell脚本之更新hosts文件..</a></li>
+<li><a href="http://tiany.blog.51cto.com/513694/1765470" title="Oracle Study之-AIX6.1构建Oracle 11gR2 RAC(2)" target="_blank">Oracle Study之-AIX6.1构建Oracle..</a></li>
+<li><a href="http://ievan.blog.51cto.com/11177578/1765487" title="【MySQL】一次扩展平台引发的字符集调整" target="_blank">【MySQL】一次扩展平台引发的字符..</a></li>
+<li><a href="http://xpleaf.blog.51cto.com/9315560/1763567" title="对Python装饰器的个人理解方法" target="_blank">对Python装饰器的个人理解方法</a></li>
+
+</ul>
+</div><!--modCon end-->
+<span class="modBot"></span>
+</div>
+
+
+<div class="friendLink box">
+<div class="title">
+  <h2>友情链接</h2>
+</div>
+<div class="modCon">
+<ul>
+
+<li><a href="http://edu.51cto.com/" title="IT精品课程" target="_blank">IT精品课程</a></li>
+
+<li><a href="http://www.zhongguocaidao.com/" title="中国菜刀,中国菜刀管理工具" target="_blank">中国菜刀</a></li>
+
+<li><a href="http://songxj.blog.51cto.com/" title="顺妻自然" target="_blank">顺妻自然</a></li>
+
+<li><a href="http://www.88953.com/" title="" target="_blank">中国坤易学网</a></li>
+
+<li><a href="http://guoxue6.com/" title="" target="_blank">连云港国学网</a></li>
+
+<li><a href="http://www.dy2018.net/" title="" target="_blank">电影天堂</a></li>
+
+<li><a href="http://www.sb5th.com/" title="S60V5" target="_blank">S60V5</a></li>
+
+<li><a href="http://zhengfj.blog.51cto.com/" title="我的数据库之路" target="_blank">我的数据库之路</a></li>
+
+<li><a href="http://tonyxiaohome.blog.51cto.com/" title="肖舸的blog" target="_blank">肖舸的blog</a></li>
+
+<li><a href="http://itmov.blog.51cto.com/" title="ITMOV旗舰 Simon Xiao" target="_blank">ITMOV旗舰 Simon Xiao</a></li>
+
+<li><a href="http://blog.sina.com.cn/xql888" title="xql888" target="_blank">xql888</a></li>
+
+<li><a href="http://zhangjunhd.blog.51cto.com/" title="子 孑" target="_blank">子 孑</a></li>
+
+<li><a href="http://devbean.blog.51cto.com/" title="豆子空间" target="_blank">豆子空间</a></li>
+
+<li><a href="http://cping1982.blog.51cto.com/" title="Java究竟怎么玩" target="_blank">Java究竟怎么玩</a></li>
+
+<li><a href="http://litianping.blog.51cto.com/" title="李天平" target="_blank">李天平</a></li>
+
+<li><a href="http://useway.blog.51cto.com/" title="《Java程序员，上班那点事儿》的那点事儿" target="_blank">《Java程序员，上..</a></li>
+
+<li><a href="http://haoel.blog.51cto.com/" title="陈皓的个人专栏" target="_blank">陈皓的个人专栏</a></li>
+
+<li><a href="http://liuyu.blog.51cto.com/" title="seven" target="_blank">seven</a></li>
+
+<li><a href="http://www.btchina.net/" title="btchina" target="_blank">btchina</a></li>
+
+<li><a href="http://www.3gp2.com/" title="3GP手机视频下载" target="_blank">3GP手机视频下载</a></li>
+
+<li><a href="http://tech.sina.com.cn/hardware/" title="新浪硬件" target="_blank">新浪硬件</a></li>
+
+<li><a href="http://gaozhao.51cto.com/" title="技术人才招聘" target="_blank">技术人才招聘 </a></li>
+
+</ul>
+</div><!--modCon end-->
+<span class="modBot"></span>
+</div>
+
+
+
+</div>
+<!--left end-->
+
+<script type="text/javascript">
+    var favor_url = "http://lavasoft.blog.51cto.com/62575/105956/";
+    var favor_title = "XFire WebService开发快速起步";
+    var favor_fuid = "62575";
+</script>
+<script type="text/javascript" src="./XFire WebService开发快速起步 _files/favorbox.js"></script>
+
+
+<div class="blogRight" rel="62575###767694###WebService XFire 休闲 职场" id="article_edu_void">
+<input type="hidden" value="12" id="edu_jia">
+			
+	<p style="clear:both;" class="edu_insert"><div class="box edu-col-a" style="display:none;"><div class="title">的视频课程</div><div class="vbox" style=""><div class="clear hr10"></div></div></div><div class="box edu-col-b" style=""><div class="title"><a target="_blank" href="http://edu.51cto.com/index.php?do=search&m=course&q=WebService">相关视频课程</a><a href="http://edu.51cto.com/index.php?do=search&m=course&q=WebService" target="_blank" style="float:right;">更多</a></div><div class="vbox" style=""><div class="vlist video-icon" style="margin: 2px 8px;"><a href="http://edu.51cto.com/course/course_id-438.html?edu_recommend_adid=91" target="_blank"><img src="./XFire WebService开发快速起步 _files/wKiom1NUhUjCES-QAAFgnavB7fw188.jpg" height="63" width="86"></a><dl><dt> <a href="http://edu.51cto.com/course/course_id-438.html?edu_recommend_adid=91" target="_blank" title="疯狂软件WebService视频教程">疯狂软件WebService视频教程(共15课时)</a></dt><dd>7895人学习</dd></dl><a class="i_video" href="http://edu.51cto.com/course/course_id-438.html?edu_recommend_adid=91" target="_blank"></a></div><div class="vlist video-icon" style="margin: 2px 8px;"><a href="http://edu.51cto.com/course/course_id-258.html?edu_recommend_adid=91" target="_blank"><img src="./XFire WebService开发快速起步 _files/wKioL1NUhUeyYKS0AAB7lKebKAo144.jpg" height="63" width="86"></a><dl><dt> <a href="http://edu.51cto.com/course/course_id-258.html?edu_recommend_adid=91" target="_blank" title="Axis2+WebService常用功能用法系列视频教程">Axis2+WebService常用功能用法系列视频教程(共19课时)</a></dt><dd>34886人学习</dd></dl><a class="i_video" href="http://edu.51cto.com/course/course_id-258.html?edu_recommend_adid=91" target="_blank"></a></div><div class="vlist video-icon" style="margin: 2px 8px;"><a href="http://edu.51cto.com/course/course_id-1373.html?edu_recommend_adid=91" target="_blank"><img src="./XFire WebService开发快速起步 _files/wKiom1Q0m3-xN78xAAEK14wmETo675.jpg" height="63" width="86"></a><dl><dt> <a href="http://edu.51cto.com/course/course_id-1373.html?edu_recommend_adid=91" target="_blank" title="WebService培训视频教程">WebService培训视频教程(共21课时)</a></dt><dd>144502人学习</dd></dl><a class="i_video" href="http://edu.51cto.com/course/course_id-1373.html?edu_recommend_adid=91" target="_blank"></a></div><div class="clear hr10"></div></div></div></p>
+	<style type="text/css">
+.vlist {
+    float: left;
+    padding: 2px 0 0 10px;
+    width: 218px;
+	
+}
+.vlist img {
+    float: left;
+    margin-right: 10px;
+}
+.vlist dl {
+    float: left;
+    text-align: left;
+    width: 122px;
+}
+.vlist dl dt {
+    height: 44px;
+    overflow: hidden;
+    padding-top: 5px;
+}
+.vlist dl dt, .vlist dl dt a {
+    color: #262626;
+}
+.vlist dl dd, .vlist dl dd a {
+    color: #777777;
+}
+.vbox_tit {
+    border-bottom: 1px solid #B3D0E6;
+    color: #666666;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+.video-icon {
+    position: relative;
+}
+.video-icon a.i_video {
+    background: url("http://www.51cto.com/images/homepage/Images/eduplay.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 25px;
+    left: 41px;
+    position: absolute;
+    top: 22px;
+    width: 25px;
+    z-index: 10;
+}
+.vbox2 .vlist1{margin:0;}
+.edu-col-a{ float:left;margin-right:6px;}
+.edu-col-b{ float:left;}
+	</style><!--modCon end-->
+	<div class="artShow box" style="margin-top:5px;">
+   	  <div class="share" id="share">
+
+    <div class="shareItem">
+		<div class="m_sharelinks"><a target="_blank" href="" style="color:red;"></a><a target="_blank" href="" style="color:blue;"></a><a target="_blank" href="" style="color:blue;"></a></div>
+		<p class="shareMored"><a href="http://lavasoft.blog.51cto.com/all/62575">博主的更多文章&gt;&gt;</a></p>
+	</div>
+      </div>
+       <div class="modCon">
+   	  <div class="showBox" style="margin:0 0 10px;">
+      <div class="line_hd_r"></div>
+      <div class="art_tj">
+
+      <a href="http://blog.51cto.com/artcommend" target="_blank"><img src="./XFire WebService开发快速起步 _files/tj.png"></a>
+
+      </div>
+
+ 
+    		<div class="showHead">
+    		  <div class="showTitleBOx" style="text-align:center">
+              <div class="showTitle">
+
+             <img src="./XFire WebService开发快速起步 _files/artType01.jpg">
+
+
+    		    XFire WebService开发快速起步
+                </div>
+  		    </div>
+   		    <span class="artTime">2008-10-15 23:17:36</span></div><!--showHead end-->
+    <div class="showTags">标签：<a href="http://blog.51cto.com/tag-WebService.html" target="_blank" class="operlink">WebService</a> <a href="http://blog.51cto.com/tag-XFire.html" target="_blank" class="operlink">XFire</a> <a href="http://blog.51cto.com/tag-%E4%BC%91%E9%97%B2.html" target="_blank" class="operlink">休闲</a> <a href="http://blog.51cto.com/tag-%E8%81%8C%E5%9C%BA.html" target="_blank" class="operlink">职场</a>
+
+	</div>
+
+			<div class="CopyrightStatement lh22">
+			版权声明：原创作品，如需转载，请与作者联系。否则将追究法律责任。
+            </div>
+
+
+            <!--正文 begin-->
+    		<div class="showContent">
+    		  <div align="left"><strong><font color="#ff0000" size="3">XFire WebService开发快速起步</font></strong></div>
+<div>&nbsp;</div>
+<div><strong><font color="#ff0000">环境：</font></strong></div>
+<div>XFire-1.2.6</div>
+<div>JDK1.5</div>
+<div>MyEclipse 6.5</div>
+<div>Tomcat-5.5.27</div>
+<div>Windows XP Professional简体中文版</div>
+<div>&nbsp;</div>
+<div><strong><font color="#ff0000">软件下载地址：</font></strong></div>
+<div><a href="http://repository.codehaus.org/org/codehaus/xfire/xfire-distribution/1.2.6/xfire-distribution-1.2.6.zip">[url]http://repository.codehaus.org/org/codehaus/xfire/xfire-distribution/1.2.6/xfire-distribution-1.2.6.zip[/url]</a></div>
+<div><a href="http://apache.mirror.phpchina.com/tomcat/tomcat-5/v5.5.27/bin/apache-tomcat-5.5.27.zip">[url]http://apache.mirror.phpchina.com/tomcat/tomcat-5/v5.5.27/bin/apache-tomcat-5.5.27.zip[/url]</a></div>
+<div>&nbsp;</div>
+<div>有关WebService的概念、原理、数据发现、描述、绑定等过程、方式也不说了。这里就只关注如何快速开发出来一个通用的、易懂的Hello World例子。</div>
+<div>&nbsp;</div>
+<div><strong><font color="#ff0000">以下是开发步骤：</font></strong></div>
+<div>&nbsp;</div>
+<div><strong>1、创建工程</strong></div>
+<div><strong></strong>&nbsp;</div>
+<div>打开MyEclipse 6.5，新建一个WebService工程。如下图</div>
+<div><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224086469388.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div>&nbsp;</div>
+<div><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224086481060.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div>&nbsp;</div>
+<div>然后一路next，直到完成。</div>
+<div>&nbsp;</div>
+<div>创建完成后，打开生成的web.xml文件，可以看到，XFire已经配置好了。</div>
+<div>
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee"><font color="#0000ff">&lt;?</font><font color="#800000">xml</font> <font color="#ff0000">version</font><font color="#0000ff">="1.0"</font> <font color="#ff0000">encoding</font><font color="#0000ff">="UTF-8"</font><font color="#0000ff">?&gt;</font> <br><font color="#0000ff">&lt;</font><font color="#800000">web-app</font> <font color="#ff0000">xmlns</font><font color="#0000ff">="http://java.sun.com/xml/ns/javaee"</font> <font color="#ff0000">xmlns:xsi</font><font color="#0000ff">="http://www.w3.org/2001/XMLSchema-instance"</font> <font color="#ff0000">version</font><font color="#0000ff">="2.5"</font> <font color="#ff0000">xsi:schemaLocation</font><font color="#0000ff">="http://java.sun.com/xml/ns/javaee&nbsp;&nbsp;&nbsp;&nbsp; [url]http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd[/url]"</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">servlet</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">servlet-name</font><font color="#0000ff">&gt;</font>XFireServlet<font color="#0000ff">&lt;/</font><font color="#800000">servlet-name</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">servlet-class</font><font color="#0000ff">&gt;</font>org.codehaus.xfire.transport.http.XFireConfigurableServlet<font color="#0000ff">&lt;/</font><font color="#800000">servlet-class</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">load-on-startup</font><font color="#0000ff">&gt;</font>0<font color="#0000ff">&lt;/</font><font color="#800000">load-on-startup</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;/</font><font color="#800000">servlet</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">servlet-mapping</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">servlet-name</font><font color="#0000ff">&gt;</font>XFireServlet<font color="#0000ff">&lt;/</font><font color="#800000">servlet-name</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">url-pattern</font><font color="#0000ff">&gt;</font>/services/*<font color="#0000ff">&lt;/</font><font color="#800000">url-pattern</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;/</font><font color="#800000">servlet-mapping</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">welcome-file-list</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">welcome-file</font><font color="#0000ff">&gt;</font>index.jsp<font color="#0000ff">&lt;/</font><font color="#800000">welcome-file</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;/</font><font color="#800000">welcome-file-list</font><font color="#0000ff">&gt;</font> <br><font color="#0000ff">&lt;/</font><font color="#800000">web-app</font><font color="#0000ff">&gt;</font></div></div></div>
+<div>&nbsp;</div>
+<div><strong><font color="#000000">2、创建WebService服务</font></strong></div>
+<div><strong></strong>&nbsp;</div>
+<div>创建两个个包“wstest.server”和“wstest.client”，用来保存服务端和客户端程序。然后开始创建服务端程序，如下图</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224086527732.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div>&nbsp;</div>
+<div><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224086543107.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div>&nbsp;</div>
+<div><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224086567404.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="center">&nbsp;</div>
+<div>完成后，生成了一个Service的配置services.xml：</div>
+<div>&nbsp;</div>
+<div>
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee"><font color="#0000ff">&lt;?</font><font color="#800000">xml</font> <font color="#ff0000">version</font><font color="#0000ff">="1.0"</font> <font color="#ff0000">encoding</font><font color="#0000ff">="UTF-8"</font><font color="#0000ff">?&gt;</font> <br><font color="#0000ff">&lt;</font><font color="#800000">beans</font> <font color="#ff0000">xmlns</font><font color="#0000ff">="http://xfire.codehaus.org/config/1.0"</font><font color="#0000ff">&gt;</font> <br><br>&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">service</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">name</font><font color="#0000ff">&gt;</font>MyService<font color="#0000ff">&lt;/</font><font color="#800000">name</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">serviceClass</font><font color="#0000ff">&gt;</font>wstest.server.IMyService<font color="#0000ff">&lt;/</font><font color="#800000">serviceClass</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">implementationClass</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wstest.server.MyServiceImpl <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;/</font><font color="#800000">implementationClass</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">style</font><font color="#0000ff">&gt;</font>wrapped<font color="#0000ff">&lt;/</font><font color="#800000">style</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">use</font><font color="#0000ff">&gt;</font>literal<font color="#0000ff">&lt;/</font><font color="#800000">use</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">&lt;</font><font color="#800000">scope</font><font color="#0000ff">&gt;</font>application<font color="#0000ff">&lt;/</font><font color="#800000">scope</font><font color="#0000ff">&gt;</font> <br>&nbsp;&nbsp;<font color="#0000ff">&lt;/</font><font color="#800000">service</font><font color="#0000ff">&gt;</font> <br><font color="#0000ff">&lt;/</font><font color="#800000">beans</font><font color="#0000ff">&gt;</font></div></div></div>
+<div>&nbsp;</div>
+<div>也生成了接口和默认实现，改写后如下：</div>
+<div>
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee"><font color="#0000ff">package</font> wstest.server; <br><font color="#008000">//Generated by MyEclipse </font><br><br><font color="#0000ff">public</font> <font color="#0000ff">interface</font> IMyService { <br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">public</font> String sayHello(String user); <br>&nbsp;&nbsp;&nbsp;&nbsp;<br>}</div></div></div>
+<div>&nbsp;</div>
+<div>
+<div>
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee"><font color="#0000ff">package</font> wstest.server; <br><font color="#008000">//Generated by MyEclipse </font><br><br><font color="#0000ff">public</font> <font color="#0000ff">class</font> MyServiceImpl <font color="#0000ff">implements</font> IMyService { <br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;<font color="#0000ff">public</font> String sayHello(String user) { <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> <font color="#800000">"您好，"</font>+user; <br>&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;<br>}</div></div></div></div>
+<div>&nbsp;</div>
+<div>至此，服务端代码已经完成。</div>
+<div>&nbsp;</div>
+<div><strong>3、测试服务端代码</strong></div>
+<div>&nbsp;</div>
+<div>测试依赖与Servlet容器Tomcat，需要将做好的服务端打包部署到tomcat上，然后启动。才可以进行测试。假设你已经配置了Tomcat服务器，并完成了WebService服务端的部署。那么，现在就启动Tomcat，然后：</div>
+<div>&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224087626279.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div>&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224087649435.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload="" width="650"></div>
+<div>&nbsp;</div>
+<div>输入访问地址：<a href="http://localhost:8080/xfire126Demo/services/MyService?wsdl">[url]http://localhost:8080/xfire126Demo/services/MyService?wsdl[/url]</a>&nbsp; ，然后go一把！</div>
+<div>&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224087709170.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="center">&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224087725060.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="center">&nbsp;</div>
+<div align="left">这样，出现上上面的结果，表明测试成功了。</div>
+<div align="left">&nbsp;</div>
+<div align="left"><strong>4、生成客户端代码</strong></div>
+<div align="left">&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224088068248.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="left">&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224088101795.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="left">&nbsp;</div>
+<div align="left"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224088112279.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="left">&nbsp;</div>
+<div align="center"><img onload="if(this.width&gt;650) this.width=650;" onclick="" alt="" src="./XFire WebService开发快速起步 _files/200810161224088137967.png" border="0" onabort="" onblur="" onchange="" ondblclick="" onerror="" onfocus="" onkeydown="" onkeypress="" onkeyup="" onmousedown="" onmousemove="" onmouseout="" onmouseover="" onmouseup="" onreset="" onresize="" onselect="" onsubmit="" onunload=""></div>
+<div align="left">&nbsp;</div>
+<div align="left">很郁闷，这个生成的客户端代码一部分跑到服务端的包里面了。真是垃圾，rubbish！！！</div>
+<div align="left">&nbsp;</div>
+<div align="left">但是，这就是MyEclipse的功能，我改变不了。</div>
+<div align="left">&nbsp;</div>
+<div align="left"><strong>5、客户端测试</strong></div>
+<div align="left">&nbsp;</div>
+<div align="left">下面就耐心看怎么用这个客户端代码。</div>
+<div align="left">打开生成的代码如下：</div>
+<div align="left">
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee"><br><font color="#0000ff">package</font> wstest.client; <br><br><font color="#0000ff">import</font> java.net.MalformedURLException; <br><font color="#0000ff">import</font> java.util.Collection; <br><font color="#0000ff">import</font> java.util.HashMap; <br><font color="#0000ff">import</font> javax.xml.namespace.QName; <br><font color="#0000ff">import</font> org.codehaus.xfire.XFireRuntimeException; <br><font color="#0000ff">import</font> org.codehaus.xfire.aegis.AegisBindingProvider; <br><font color="#0000ff">import</font> org.codehaus.xfire.annotations.AnnotationServiceFactory; <br><font color="#0000ff">import</font> org.codehaus.xfire.annotations.jsr181.Jsr181WebAnnotations; <br><font color="#0000ff">import</font> org.codehaus.xfire.client.XFireProxyFactory; <br><font color="#0000ff">import</font> org.codehaus.xfire.jaxb2.JaxbTypeRegistry; <br><font color="#0000ff">import</font> org.codehaus.xfire.service.Endpoint; <br><font color="#0000ff">import</font> org.codehaus.xfire.service.Service; <br><font color="#0000ff">import</font> org.codehaus.xfire.soap.AbstractSoapBinding; <br><font color="#0000ff">import</font> org.codehaus.xfire.transport.TransportManager; <br><br><font color="#0000ff">public</font> <font color="#0000ff">class</font> MyServiceClient { <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">private</font> <font color="#0000ff">static</font> XFireProxyFactory proxyFactory = <font color="#0000ff">new</font> XFireProxyFactory(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">private</font> HashMap endpoints = <font color="#0000ff">new</font> HashMap(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">private</font> Service service0; <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> MyServiceClient() { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create0(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Endpoint MyServicePortTypeLocalEndpointEP = service0 .addEndpoint(<font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServicePortTypeLocalEndpoint"), new QName("http://server.wstest", "MyServicePortTypeLocalBinding"), "xfire.local://MyService"); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endpoints.put(<font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServicePortTypeLocalEndpoint"), MyServicePortTypeLocalEndpointEP); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Endpoint MyServiceHttpPortEP = service0 .addEndpoint(<font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServiceHttpPort"), new QName("http://server.wstest", "MyServiceHttpBinding"), "http://localhost:8080/xfire126Demo/services/MyService"); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endpoints.put(<font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServiceHttpPort"), MyServiceHttpPortEP); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> Object getEndpoint(Endpoint endpoint) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">try</font> { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> proxyFactory.create((endpoint).getBinding(), (endpoint).getUrl()); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <font color="#0000ff">catch</font> (MalformedURLException e) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">throw</font> <font color="#0000ff">new</font> XFireRuntimeException(<font color="#800000">"Invalid URL"</font>, e); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> Object getEndpoint(QName name) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Endpoint endpoint = ((Endpoint) endpoints.get((name))); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">if</font> ((endpoint) == <font color="#0000ff">null</font>) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">throw</font> <font color="#0000ff">new</font> IllegalStateException(<font color="#800000">"No such endpoint!"</font>); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> getEndpoint((endpoint)); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> Collection getEndpoints() { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> endpoints.values(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">private</font> <font color="#0000ff">void</font> create0() { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TransportManager tm = (org.codehaus.xfire.XFireFactory.newInstance().getXFire().getTransportManager()); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HashMap props = <font color="#0000ff">new</font> HashMap(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;props.put(<font color="#800000">"annotations.allow.<font color="#0000ff">interface</font>"</font>, <font color="#0000ff">true</font>); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AnnotationServiceFactory asf = <font color="#0000ff">new</font> AnnotationServiceFactory(<font color="#0000ff">new</font> Jsr181WebAnnotations(), tm, <font color="#0000ff">new</font> AegisBindingProvider(<font color="#0000ff">new</font> JaxbTypeRegistry())); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asf.setBindingCreationEnabled(<font color="#0000ff">false</font>); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service0 = asf.create((wstest.client.MyServicePortType.<font color="#0000ff">class</font>), props); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AbstractSoapBinding soapBinding = asf.createSoap11Binding(service0, <font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServiceHttpBinding"), "http://schemas.xmlsoap.org/soap/http"); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{ <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AbstractSoapBinding soapBinding = asf.createSoap11Binding(service0, <font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServicePortTypeLocalBinding"), "urn:xfire:transport:local"); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> MyServicePortType getMyServicePortTypeLocalEndpoint() { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> ((MyServicePortType)(<font color="#0000ff">this</font>).getEndpoint(<font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServicePortTypeLocalEndpoint"))); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> MyServicePortType getMyServicePortTypeLocalEndpoint(String url) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyServicePortType var = getMyServicePortTypeLocalEndpoint(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;org.codehaus.xfire.client.Client.getInstance(var).setUrl(url); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> var; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> MyServicePortType getMyServiceHttpPort() { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> ((MyServicePortType)(<font color="#0000ff">this</font>).getEndpoint(<font color="#0000ff">new</font> QName(<font color="#800000">"http:<font color="#008000">//server.wstest", "MyServiceHttpPort"))); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> MyServicePortType getMyServiceHttpPort(String url) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyServicePortType var = getMyServiceHttpPort(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;org.codehaus.xfire.client.Client.getInstance(var).setUrl(url); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">return</font> var; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000ff">public</font> <font color="#0000ff">static</font> <font color="#0000ff">void</font> main(String[] args) { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyServiceClient client = <font color="#0000ff">new</font> MyServiceClient(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//create a default service endpoint </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyServicePortType service = client.getMyServiceHttpPort(); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//TODO: Add custom client code here </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">// </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//service.yourServiceOperationHere(); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<font color="#800000">"test client completed"</font>); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(0); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br><br>} <br></font></font></font></font></font></font></font></font></div></div></div>
+<div align="left">&nbsp;</div>
+<div align="left">看得很晕，不知道啥意思，但是从“TODO”标记处，我知道了：</div>
+<div align="left">
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee">&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//TODO: Add custom client code here </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">// </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//service.yourServiceOperationHere(); </font><br></div></div></div>
+<div align="left">&nbsp;</div>
+<div align="left">现在就在这里添加测试代码吧：</div>
+<div align="left">
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee">&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//TODO: Add custom client code here </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">// </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008000">//service.yourServiceOperationHere(); </font><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String helloString = service.sayHello(<font color="#800000">"熔岩"</font>); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(helloString);</div></div></div>
+<div align="left">&nbsp;</div>
+<div align="left">添加了很傻蛋的两行代码后，就可以运行起来看看测试代码了。</div>
+<div align="left">&nbsp;</div>
+<div align="left">运行结果如下：</div>
+<div align="left">
+<div>
+<div style="border-right: #cccccc 1px solid; padding-right: 4px; border-top: #cccccc 1px solid; padding-left: 4px; font-size: 10pt; padding-bottom: 4px; border-left: #cccccc 1px solid; width: 98%; color: #000000; word-break: break-all; line-height: 16px; padding-top: 4px; border-bottom: #cccccc 1px solid; font-family: verdana,宋体; background-color: #eeeeee">您好，熔岩 <br>test client completed</div></div></div>
+<div align="left">&nbsp;</div>
+<div align="left">终于可以松一口气了。完整的例子跑起来了。</div>
+<div align="left">&nbsp;</div>
+<div align="left"><strong>6、总结</strong></div>
+<div align="left">&nbsp;</div>
+<div align="left">总感觉这个开发过程不爽，其实有更好的工具和开发方式：</div>
+<div align="left">&nbsp;</div>
+<div align="left">WebService的编写，比较麻烦的是客户端代码，客户端代码依靠人工去写基本上是不可能的，除非你愿意付出惊人的时间和精力，既便如此也得不偿失。</div>
+<div align="left">&nbsp;</div>
+<div align="left">MyEclipse的客户端开发太差，主要是生成的客户端代码混乱，解决办法是将客户端的编写放到单独一个工程里面来做。</div>
+<div align="left">&nbsp;</div>
+<div align="left">其实，只要服务端编写好了，就完全可以用别的方式根据wsdl的url去生成客户端代码，在这里不得不将一个强大的工具IDEA8推荐出来，IDEA8自带WebService开发工具，插件非常强大，易用。在后面的篇幅中，我会做专门介绍，敬请关注。</div>
+<div align="left">&nbsp;</div>
+<div align="left">当然，MyEclipse也并非一无是处，MyEclipse的服务端调试工具就很不错，很喜欢。提高了开发效率，这也是MyEclipse的过人之处。</div>
+<div align="left">&nbsp;</div>
+<div align="left">最后，告诫各位，即使WebService支持复杂对象参数，也不建议使用，因为数据绑定还不是那么完美，总有些缺憾，为了保险起见，还是建议使用String作为参数最好了。</div><p>本文出自 “<a href="http://lavasoft.blog.51cto.com/">熔  岩</a>” 博客，转载请与作者联系！</p>
+    		</div><!--正文 end-->
+<script type="text/javascript">
+	var kevent = 'onabort|onblur|onchange|onclick|ondblclick|onerror|onfocus|onkeydown|onkeypress|onkeyup|onload|onmousedown|onmousemove|onmouseout|onmouseover|onmouseup|onreset|onresize|onselect|onsubmit|onunload';
+	var aevent = kevent.split('|');
+
+	jQuery('.showContent img').each(function(){
+		var nimg = this;
+		jQuery.each(aevent, function(i, n){
+			if (n!='onload') {
+				jQuery(nimg).attr(n, '');
+			} else {
+				if (jQuery(nimg).attr(n) != 'if(this.width>650) this.width=650;') {
+					jQuery(nimg).attr(n, '');
+				}
+			}
+		});
+	});
+</script>
+<script type="text/javascript" charset="utf-8">
+var encodetitle = encodeURI('一篇很棒的博文分享给大家：《XFire WebService开发快速起步》');
+
+function show51share(){
+
+	window.open('http://t.51cto.com/index.php?m=share&url=http://lavasoft.blog.51cto.com/62575/105956/&type=l&count=&relateUid=&appkey=3843950324&title=' + encodetitle);
+}
+</script>		
+<div class="m_sharebtn clear">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tbody><tr>
+		<td width="11%" height="43" align="center" valign="middle"><img src="./XFire WebService开发快速起步 _files/ssk.png" alt="分享至"></td>
+		<td width="77%" align="left" valign="top">
+<!-- 			
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a><a href="#" class="bds_bdysc" data-cmd="bdysc" title="分享到百度云收藏"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></div>
+<script>
+var bds_config = {'wbUid':1706976420};
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false, 'bdPic':'http://blog.51cto.com/attachment/201305/173413310.jpg',"bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ -->
+
+<div class="bdsharebuttonbox bdshare-button-style1-32" data-bd-bind="1462179698741"><a href="http://lavasoft.blog.51cto.com/#" class="bds_more" data-cmd="more"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_bdhome" data-cmd="bdhome" title="分享到百度新首页"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_bdysc" data-cmd="bdysc" title="分享到百度云收藏"></a><a href="http://lavasoft.blog.51cto.com/#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"2065779340"},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"http://blog.51cto.com/img/blog_down0731.jpg","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+	<!-- Baidu Button END --></td>
+		<td width="12%" align="right" valign="middle"><a href="javascript:favorBox('open');" title="一键收藏，随时查看，分享好友！"><img src="./XFire WebService开发快速起步 _files/favorite_add_small.gif" border="0" alt="一键收藏，随时查看，分享好友！"></a></td>
+	  </tr>
+	</tbody></table>
+
+</div>			
+    		<div class="showBottom">
+            <!--<div class="reviews"><span class="fl" style="cursor:pointer;"><a onclick="openFavoulist();" id="favourer">langzun130、wxyong3、Stevenscj</a>
+
+            </span><div id="favourdiv" class="support01">8人</div>
+              <span class="fl">了这篇文章</span></div>-->
+              <table width="720" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td align="right"><img src="./XFire WebService开发快速起步 _files/icon01.png" width="15" height="16"> <span style="cursor:pointer;"><a onclick="openFavoulist();" id="favourer">langzun130、wxyong3、Stevenscj</a></span></td>
+    <td width="70" align="left"><div style="line-height:28px;" id="favourdiv" class="support01">8人</div></td>
+    <td width="60" align="left">了这篇文章</td>
+  </tr>
+</tbody></table>
+
+	<br><div class="ml10"><b>附件下载：</b><br>　　<a aid="8969" href="javascript:;" class="dialog_link"><img border="0" src="./XFire WebService开发快速起步 _files/plusfile.gif">xfire126Demo</a></div>
+	
+
+
+
+
+            <div class="showType">类别：<a href="http://lavasoft.blog.51cto.com/62575/d-15" class="operlink">SOA</a>┆阅读(<span id="readNum">63194</span>)┆评论(<span id="cmtNum">15</span>)
+
+┆
+<a href="http://lavasoft.blog.51cto.com/">返回博主首页</a>┆<a href="http://blog.51cto.com/">返回博客首页</a></div>
+            <div class="prevNext">
+
+			上一篇 <a href="http://lavasoft.blog.51cto.com/62575/105585" class="operlink" title="Java基本数据类型的输入输出">Java基本数据类型的输入输出</a>
+
+
+			下一篇 <a href="http://lavasoft.blog.51cto.com/62575/105957" class="operlink" title="用IDEA8快速开发WebService客户端">用IDEA8快速开发WebService客户端</a>
+
+
+            </div>
+
+            </div>
+
+	  </div><!--showBottom end-->
+      </div><!--modCon-->
+    <span class="modBot"></span>
+    </div><!--artShow end-->
+    <span class="blank"></span>
+	
+	<div class="relatedArt box">
+<a href="http://edu.51cto.com/activity/lists/id-22.html" target="_blank"><img src="./XFire WebService开发快速起步 _files/wKioL1cdknnQDbAIAAEWKGIZWxs199.jpg"></a>
+</div>
+
+<div class="artComm " style="height:170px;">
+   <div class="relatedArt box1 mr10">
+    <div class="title" name="zhuanti" id="zhuanti"><h2>相关文章</h2></div>
+    <div class="modCon">
+<ul>
+
+
+<li><a href="http://guojie.blog.51cto.com/59049/63397" title="使用XFire调用WebService需注意的事项" target="_blank">使用XFire调用WebService需注意的事项</a></li>
+
+
+<li><a href="http://guojie.blog.51cto.com/59049/86992" title="关于Xfire客户端HTTP/1.1 100 Continue的解决 " target="_blank">关于Xfire客户端HTTP/1.1 100 Continue的解决 </a></li>
+
+
+<li><a href="http://wangjierui.blog.51cto.com/186879/43349" title="关于如何获取WebService中返回的DataTable" target="_blank">关于如何获取WebService中返回的DataTable</a></li>
+
+
+
+
+
+
+</ul>
+
+
+
+<span class="blank6"></span>
+</div><!--modCon end-->
+<span class="modBot"></span>
+</div>
+
+<!--相关文章 end-->
+        <div class="relatedArt box1">
+    <div class="title" name="zhuanti" id="zhuanti"><h2>职位推荐</h2></div>
+    <div class="modCon">
+
+<ul>
+
+
+<li><a href="http://gaozhao.51cto.com/job/view/id-2180.html" target="_blank">java开发工程师</a></li>
+
+<li><a href="http://gaozhao.51cto.com/job/view/id-2734.html" target="_blank">JAVA WEB首席开发工程师</a></li>
+
+<li><a href="http://gaozhao.51cto.com/job/view/id-2974.html" target="_blank">JAVA工程师</a></li>
+
+<li><a href="http://gaozhao.51cto.com/job/view/id-975.html" target="_blank">中级Java工程师</a></li>
+
+<li><a href="http://gaozhao.51cto.com/job/view/id-2967.html" target="_blank">资深/高级Java开发工程师</a></li>
+
+
+
+</ul>
+
+
+
+
+<span class="blank6"></span>
+</div><!--modCon end-->
+<span class="modBot"></span>
+</div><!--职位推荐 end-->
+
+</div>
+
+
+<div class="artComm box">
+    <div class="title"><a name="replay"></a><h2>文章评论</h2></div>
+    <div class="modCon" id="artcomment">
+		<div>  &nbsp;</div><a name="136387"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid0"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[1楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]leoamin</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="leoamin" parentid="136387">回复</a></label></div></div><div align="right">2008-10-16 11:11:23</div><div class="commentcontent">OK，从这里跟着学起。</div></div><br><a name="206431"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid1"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[2楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]51CTO游客</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="51CTO游客" parentid="206431">回复</a></label></div></div><div align="right">2009-07-05 20:00:48</div><div class="commentcontent">不错，比那些莫名其妙的写的好多了</div></div><br><a name="232200"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid2"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[3楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://953394.blog.51cto.com/" class="operlink" ref="nofollow"><b>yjf_ruby</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="yjf_ruby" parentid="232200">回复</a></label></div></div><div align="right">2009-09-17 10:48:00</div><div class="commentcontent">你好:<br> &nbsp;   请问按照你的例子开发出的Web Services客户端如何在Dos下用Java命令运行?谢谢!</div></div><br><a name="232447"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid3"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[4楼]<a href="http://lavasoft.blog.51cto.com/">楼主</a>&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://lavasoft.blog.51cto.com/" class="operlink" ref="nofollow"><b>leizhimin</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="leizhimin" parentid="232447">回复</a></label></div></div><div align="right">2009-09-18 09:39:45</div><div class="commentcontent">回复 yjf_ruby:<a href="http://lavasoft.blog.51cto.com/#" class="anchor_page" title="加载中....." style="cursor:pointer" tid="105956" parentid="232200">[3楼]</a><br>这和一个含Main方法的类在dos下启动有啥区别呢？<br></div></div><br><a name="371214"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid4"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[5楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://pksniq.blog.51cto.com/" class="operlink" ref="nofollow"><b>pksniq</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="pksniq" parentid="371214">回复</a></label></div></div><div align="right">2011-01-17 09:53:23</div><div class="commentcontent">呵呵，学习了</div></div><br><a name="388492"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid5"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[6楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]1211</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="1211" parentid="388492">回复</a></label></div></div><div align="right">2011-04-13 23:03:01</div><div class="commentcontent">客户端调用服务端，服务端地址改变怎么办 调试有可能是测试机器.并不是实际环境</div></div><br><a name="408331"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid6"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[7楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://3325223.blog.51cto.com/" class="operlink" ref="nofollow"><b>sanjay1022</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="sanjay1022" parentid="408331">回复</a></label></div></div><div align="right">2011-07-10 15:13:31</div><div class="commentcontent">为什么我在wsdl中运行的时候报IWAB0379E Unable to open http://localhost:8080/xfire126Demo/services/MyService.<br>IWAB0135E An unexpected error has occurred.<br>WSDLException<br>WSDLException: faultCode=INVALID_WSDL: : The input source is not a valid WSDL document<br> <br>这个错啊</div></div><br><a name="420437"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid7"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[8楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]3669819</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="3669819" parentid="420437">回复</a></label></div></div><div align="right">2011-08-25 09:50:25</div><div class="commentcontent">恩，不错 &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  </div></div><br><a name="422530"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid8"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[9楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://2040823.blog.51cto.com/" class="operlink" ref="nofollow"><b>zhang814635992</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="zhang814635992" parentid="422530">回复</a></label></div></div><div align="right">2011-09-02 10:43:16</div><div class="commentcontent">恩，我的也报了6楼的那个错</div></div><br><a name="422573"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid9"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[10楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://2040823.blog.51cto.com/" class="operlink" ref="nofollow"><b>zhang814635992</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="zhang814635992" parentid="422573">回复</a></label></div></div><div align="right">2011-09-02 11:53:39</div><div class="commentcontent">是我自己的错，wsdl访问路径后面没加？wsdl，哎，太菜了点，献丑了，呵呵！</div></div><br><a name="492795"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid10"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[11楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]51CTO游客</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="51CTO游客" parentid="492795">回复</a></label></div></div><div align="right">2012-07-03 10:15:17</div><div class="commentcontent">回复 leizhimin:<a href="http://lavasoft.blog.51cto.com/#" class="anchor_page" title="加载中....." style="cursor:pointer" tid="105956" parentid="232447">[4楼]</a><br><br>右键run as -&gt;java application</div></div><br><a name="540022"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid11"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[12楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]~~</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="~~" parentid="540022">回复</a></label></div></div><div align="right">2013-02-22 11:02:55</div><div class="commentcontent">谢谢，马上就上手了。。。</div></div><br><a name="545164"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid12"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[13楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]snow_boy</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="snow_boy" parentid="545164">回复</a></label></div></div><div align="right">2013-03-26 11:14:30</div><div class="commentcontent">我也遇见了这个问题，请问6楼的问题解决了吗 求指点，谢谢！！</div></div><br><a name="545165"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid13"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[14楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;[匿名]snow_boy</label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="snow_boy" parentid="545165">回复</a></label></div></div><div align="right">2013-03-26 11:15:11</div><div class="commentcontent">回复 sanjay1022:<a href="http://lavasoft.blog.51cto.com/#" class="anchor_page" title="加载中....." style="cursor:pointer" tid="105956" parentid="408331">[7楼]</a><br><br>这个问题解决了吗 我也遇见这个问题了，求指教</div></div><br><a name="569180"></a><div class="itcomment" style="table-layout: fixed;word-wrap: break-word" id="itcommentid14"><div><div style="width:100%;border-bottom:1px solid #A0A0A0;height:20px"><label style="float:left">[15楼]&nbsp;&nbsp;&nbsp;&nbsp;<img src="./XFire WebService开发快速起步 _files/reply.gif">&nbsp;&nbsp;<a target="_blank" href="http://7543647.blog.51cto.com/" class="operlink" ref="nofollow"><b>IT小强</b></a></label><label style="float:right">&nbsp;<a href="http://lavasoft.blog.51cto.com/#" class="repost operlink" user_name="IT小强" parentid="569180">回复</a></label></div></div><div align="right">2013-07-19 17:55:10</div><div class="commentcontent">受教了  感谢楼主</div></div><br><div>  &nbsp;</div>
+    </div><!--modCon-->
+        <span class="modBot"></span>
+</div><!--commBox end-->
+<a href="" id="com_top_top"></a>
+<!--<div class="artComm box" style="750px;height:90px;">
+<script type="text/javascript">
+    var cpro_id = "u2386995";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+</div>--><form action="http://lavasoft.blog.51cto.com/comment.php?" method="post" name="form1" id="form1" onsubmit="return commentSubmit(this,&quot;&quot;);">
+<span class="blank1"></span>
+<div class="box writeComm" style="min-height:30px;">
+<a name="comment"></a>
+<input type="hidden" name="action" value="comment">
+<input id="commenttid" type="hidden" name="tid" value="105956">
+<input type="hidden" name="com_count_ajax" id="com_count_ajax" value="1">
+
+ <div class="title">
+	<h2 class="fl">发表评论&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+	<span class="fl" id="messageTj">
+<script type="text/javascript"><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://gg.51cto.com/www/delivery/ajs.php':'http://gg2.51cto.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=460");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><script type="text/javascript" src="./XFire WebService开发快速起步 _files/ajs.php"></script><a href="http://gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3687__zoneid=460__cb=980a11bdd1__oadest=http%3A%2F%2Fbbs.51cto.com%2Fthread-1376067-1.html" target="_blank"><div style=" color:red;font-family:微软雅黑 ">【热门话题】面试中被问到“现在的薪水是多少” 该如何回答？</div></a><div id="beacon_980a11bdd1" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./XFire WebService开发快速起步 _files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+
+</span>
+	<style type="text/css">
+		a.mred:link{ color:#ff0000; text-decoration:underline;}
+		a.mred:visited{color:#ff0000;}
+		a.mred:hover{color:#ff0000;}
+		a.mred:active{color:#ff0000;}
+	</style>
+</div>
+<div style="display:none" rel="51CTO电子期刊改版意见大征集，提你所需，建你所想！" id="ggBox">
+<script type="text/javascript"><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://gg.51cto.com/www/delivery/ajs.php':'http://gg2.51cto.com/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=460");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><script type="text/javascript" src="./XFire WebService开发快速起步 _files/ajs.php"></script><a href="http://gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3687__zoneid=460__cb=980a11bdd1__oadest=http%3A%2F%2Fbbs.51cto.com%2Fthread-1376067-1.html" target="_blank"><div style=" color:red;font-family:微软雅黑 ">【热门话题】面试中被问到“现在的薪水是多少” 该如何回答？</div></a><div id="beacon_980a11bdd1" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./XFire WebService开发快速起步 _files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+
+</div>
+<script>
+document.getElementById("messageTj").innerHTML = document.getElementById("ggBox").innerHTML;
+</script>
+ <div class="modCon">
+
+ <div class="commForm">
+<dl>
+<dt>昵&nbsp;&nbsp;称：</dt>
+<dd>
+
+<input type="text" id="commentusername" name="username" disabled="" value="hhy5277" class="commInput">
+
+
+</dd>
+</dl>
+
+<dl id="indexhidden">
+<dt>主&nbsp;&nbsp;页：</dt>
+<dd><input type="text" value="http://777694.blog.51cto.com" class="commInput" id="commentindex" name="index" disabled="disabled"></dd>
+</dl>
+
+
+
+<dl id="commentyanzheng">
+
+
+<dt>验证码：</dt>
+<dd><input class="code" type="text" value="" id="commentauthnum" name="authnum" onclick="displaysecunum();">
+
+  <img width="78" class="fl" height="29" id="secunum" onclick="refimg()" style="display:none;"><p class="fl"><span style="display:none;" id="spanfont">点击图片可刷新验证码</span><span style="display:inline;" id="clickfont">请点击后输入验证码</span><span class="pl5"><a href="http://51ctoblog.blog.51cto.com/26414/5591" target="_blank" style="text-decoration: underline;">博客过2级，无需填写验证码</a></span></p></dd>
+</dl>
+<dl>
+<dt>内&nbsp;&nbsp;容：</dt>
+<dd>
+<textarea class="writeCommCon f12" id="commentcontent" name="content"></textarea>
+</dd>
+</dl>
+</div>
+<div class="writeCommBot">
+  <input type="hidden" name="parentid" value="" id="parentid">
+  <input class="commBtn fl" name="submit" type="button" id="commentsubmit" value="" onclick="commentSubmitend2()">
+
+  <p class="fl"><input class="fl" type="checkbox" name="favour" id="favour" checked="checked" value="1"><span class="fl">同时赞一个</span></p>
+
+</div>
+<span class="blank"></span>
+
+</div><!--modCon-->
+<span class="modBot"></span>
+</div>
+</form>
+<div style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2283d46608159c3b39fc9f1178809c21' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./XFire WebService开发快速起步 _files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=2283d46608159c3b39fc9f1178809c21" target="_blank"><img border="0" src="./XFire WebService开发快速起步 _files/21.gif" width="20" height="20"></a>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57622524-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</div>
+<iframe id="iframe1" name="iframe1" width="0" height="0"></iframe>
+<!--发表评论 end-->
+</div>
+</div>
+<div id="f_close_box" style="width:150px; height:300px; position:fixed; top:42%;left:0; z-index:100; _position:absolute; _margin-top: 0; _top:expression(documentElement.scrollTop+(documentElement.clientHeight-this.offsetHeight)/2+50);">
+
+	<img src="./XFire WebService开发快速起步 _files/wKioL1VHFCjRwiyNAAB-jIackwQ674.jpg" border="0" usemap="#Map1">
+    <map name="Map1" id="Map1">
+      <area shape="rect" coords="124,7,143,25" href="javascript:void(0);" onclick="document.getElementById(&#39;f_close_box&#39;).style.display=&#39;none&#39;;">
+    </map>
+    
+</div>
+<script language="javascript">
+	function refimg(){
+		var randval = Math.random();
+		document.getElementById("secunum").src="/seccode.php?rnum="+randval;
+	}
+	function displaysecunum()
+	{
+		var displaystr = document.getElementById("secunum").style.display;
+		if(displaystr == 'none')
+		{
+			refimg();
+			document.getElementById("clickfont").style.display = 'none';
+			document.getElementById("secunum").style.display = 'inline';
+			document.getElementById("spanfont").style.display = 'inline';
+		}
+	}
+
+	function showMsn(){
+		document.getElementById("c02").style.display = "none";
+		document.getElementById("c01").style.display = "block";
+		document.getElementById("share").style.height = "83px";
+		document.getElementById("share").style.background = "none";
+	}
+	function showBBS(){
+		document.getElementById("c01").style.display = "none";
+		document.getElementById("c02").style.display = "block";
+		document.getElementById("share").style.height = "83px";
+		document.getElementById("share").style.background = "none";
+	}
+
+	//资源页面，分享按钮
+	function copyShareUrl(title){
+
+		if (window.clipboardData){
+
+			if(document.getElementById("c01").style.display == 'block')
+			{
+				copy = "推荐：" + title + "http://lavasoft.blog.51cto.com/62575/105956/";
+				var alertText = "复制成功，你可以粘贴到MSN或QQ中发给好友。";
+			}
+			else
+			{
+				copy = "[url=" + "http://lavasoft.blog.51cto.com/62575/105956/" + "][u]" + title + "[/u][/url]";
+				var alertText = "复制成功，你可以粘贴到论坛分享给坛友。";
+			}
+			window.clipboardData.clearData();
+			window.clipboardData.setData("Text", copy);
+			alert(alertText);
+		}
+		else if (window.netscape){
+			alert("您使用的浏览器不支持此复制功能，请使用Ctrl+C或鼠标右键。");
+			if(document.getElementById("c01").style.display == 'block')
+			{
+				document.getElementById("shareTextQM").value = "推荐：" + title + "http://lavasoft.blog.51cto.com/62575/105956/";
+				document.getElementById("shareTextQM").select();
+			}
+			else
+			{
+				document.getElementById("shareTextBBS").value = "[url=" + "http://lavasoft.blog.51cto.com/62575/105956/" + "][u]" + title + "[/u][/url]";
+                document.getElementById("shareTextBBS").select();
+			}
+		}
+		return false;
+	}
+	function select_login(){
+		document.getElementById('fixed').style.display='';
+	}
+	function commentcheck()
+	{
+		if(document.form1.content.value == "")
+		{
+			alert("评论内容为空!");
+			document.form1.content.focus();
+			return false;
+		}
+	}
+	function changename(){
+
+	var memberid=0;
+	memberid="8";
+
+	if(document.getElementById('commentniming').checked){
+		document.getElementById('commentusername').disabled=false;
+		document.getElementById('commentusername').value='';
+		document.getElementById("indexhidden").style.display="none";
+		document.getElementById("commentindex").value='';
+		document.getElementById("commentyanzheng").style.display="";
+	}else{
+		document.getElementById('commentusername').disabled=true;
+		document.getElementById('commentusername').value="hhy5277";
+		document.getElementById("indexhidden").style.display="";
+		document.getElementById("commentindex").value="http://777694.blog.51cto.com";
+		if(memberid>8)
+		{
+			document.getElementById("commentyanzheng").style.display="none";
+		}
+	}
+	}
+	function openFavoulist()
+	{
+		window.open ('http://blog.51cto.com/mod/favourlist.php?tid=105956','newwindow','height=300,width=500,top=400,left=400,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no,z-look=yes');
+	}
+
+	var e_zti = document.getElementById('zti');//有专题锚点
+	var maodian = window.location.href;//锚点
+	if (e_zti) {
+		//e_zti.href= (/[#]+/.test(maodian)) ? maodian : maodian + "#zhuanti";
+	}
+</script>
+<script src="./XFire WebService开发快速起步 _files/jquery-1.7.1.min.js"></script>
+<script src="./XFire WebService开发快速起步 _files/jquery.cookie.js"></script>
+<script src="./XFire WebService开发快速起步 _files/jquery.top.js"></script>
+<link href="./XFire WebService开发快速起步 _files/blog_top.css" rel="stylesheet" type="text/css">
+<!-- <script src="http://blog.51cto.com/js/blog_top_list.php" type="text/javascript" language="javascript"></script> -->
+<script type="text/javascript" src="./XFire WebService开发快速起步 _files/edu_search.js"></script>
+<div id="message" class="blogpop" style="z-index: 100; width: 389px; height: 196px; position: absolute; bottom: 0px; right: 0px; overflow: hidden; display: block; top: 10165px; background-color: rgb(255, 255, 255);"><iframe style="width:800px;height:536px;top:0px;left:0px;position:absolute;visibility:inherit;z-index:-1;" frameborder="0"></iframe>
+<div style="height:36px;background:url(http://blog.51cto.com/image/blog_top/popbgx.jpg) repeat-x; position:relative;width:387px;border-right-color:#2668B7;border-right-width:2px;border-right-style:solid 2px #2668B7;"><span style="right:10px;padding:12px 0 0;position:absolute;top:0"><span style="margin-right:80px;color:#828282;width:190px;padding:10px 0 0 10px;font-size:14px">每日博报 精彩不止一点</span><img title="关闭" id="message_close" src="./XFire WebService开发快速起步 _files/close.jpg" alt="关闭"></span><div style="width:387px;height:36px;left:0;overflow:hidden; text-indent:-999em;background:url(http://blog.51cto.com/image/blog_top/hdtit.jpg) no-repeat;border-right:solid 2px #2668B7;"><a style="display: block; height: 36px;width:138px;" target="_blank" href="http://blog.51cto.com/"></a>
+</div>
+<div style="clear:both;"></div>
+</div>
+	<div id="message_content" style="border-top:none;font-family:Microsoft YaHei;font-size:12px;width:389px;height:160pxpx;text-align:left;overflow:hidden;">
+	<script type="text/javascript"><!--//<![CDATA[
+	   var m3_u = (location.protocol=='https:'?'https://gg.51cto.com/www/delivery/ajs.php':'http://gg3.51cto.com/www/delivery/ajs.php');
+	   var m3_r = Math.floor(Math.random()*99999999999);
+	   if (!document.MAX_used) document.MAX_used = ',';
+	   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+	   document.write ("?zoneid=454");
+	   document.write ('&amp;cb=' + m3_r);
+	   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+	   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+	   document.write ("&amp;loc=" + escape(window.location));
+	   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+	   if (document.context) document.write ("&context=" + escape(document.context));
+	   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+	   document.write ("'><\/scr"+"ipt>");
+	//]]>--></script><script type="text/javascript" src="./XFire WebService开发快速起步 _files/ajs(1).php"></script><div class="blogpopMain">
+<div class="l">
+<a target="_blank" href="http://edu.51cto.com/course/course_id-5868.html"><img width="105" height="105" src="./XFire WebService开发快速起步 _files/wKioL1cfEQ6AgLicAACOl0eUEpw854.jpg"></a>
+<p>
+<a target="_blank" href="http://edu.51cto.com/course/course_id-5868.html">信息系统项目管理师重点串讲</a></p>
+</div>
+<div class="r">
+<h4 style="text-align:left;">
+<a target="_blank" href="http://passover.blog.51cto.com/2431658/1768101">Java线程泄露的分析与处理</a>
+</h4>
+<ul>
+<li>
+<a target="_blank" href="http://crazy123.blog.51cto.com/1029610/1765644">Oliver运维管理系统庐山真面目</a>
+</li>
+<li>
+<a target="_blank" href="http://iywdd.blog.51cto.com/11177578/1765487" style="color:red">一次扩展平台引发的字符集调整</a>
+</li>
+<li>
+<a target="_blank" href="http://506554897.blog.51cto.com/2823970/1764842">Haproxy+keepalived 高可用负载</a></li>
+<li><a target="_blank" href="http://bbs.51cto.com/thread-1376436-1.html" style="color:red">【活动】我是网络排障小能手</a></li>
+</ul>
+</div>
+</div><div id="beacon_b0eac91326" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./XFire WebService开发快速起步 _files/lg(1).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+
+	</div>
+</div>
+<style>
+.backToTop {
+    display: none;
+	WIDTH: 45px;
+	height:45px;
+	BOTTOM: 20px;
+     position: fixed;
+    _position: absolute;
+    right: 140px;
+    bottom: 10px;
+    _bottom: "auto";
+    cursor: pointer;
+    opacity: .6;
+    filter: Alpha(opacity=60);
+	text-indent:-9999px;
+}
+.tops { background:url(/images/tops.jpg) no-repeat center center; }
+</style>
+<script>
+(function() {
+	  $('#showMessagerDim').show();
+	   var _html = $("#addTop").html();
+	  if(get_cookie('blog_top')==''){
+//		 show_pop();
+	     jQuery.messager.showblogtop('', _html);
+	     $("#message").find("#adTop").show();
+	     var date=new Date();
+	     var test = date.getTime();
+	     document.cookie="blog_top=yes;domain=.blog.51cto.com;expires="+date.toGMTString()+";path=/;";
+	     }
+	    $("#showMessagerDim").click(function(){
+	    	jQuery.messager.showblogtop('', _html);
+			$("#message").find("#adTop").show();
+			//removeIframe();
+		});
+		
+		function get_cookie(Name) {
+		    var search = Name + "=";
+		    var returnvalue = "";
+		    if (document.cookie.length > 0) {
+		        offset = document.cookie.indexOf(search);
+		        if (offset != -1) {
+		            offset += search.length;
+
+		            end1 = document.cookie.indexOf(";", offset);
+
+		            if (end1 == -1)
+		            end1 = document.cookie.length;
+		            returnvalue=unescape(document.cookie.substring(offset, end1));
+		        }
+		    }
+		    return returnvalue;
+		}
+	})();
+
+</script>
+<script type="text/javascript">
+(function() {
+    var backToTopTxt = "返回顶部", backToTopEle = $('<div class="backToTop tops"></div>').appendTo($("body"))
+        .text(backToTopTxt).attr("title", backToTopTxt).click(function() {
+            $("html, body").animate({ scrollTop: 0 }, 520);
+    }), backToTopFun = function() {
+        var st = $(document).scrollTop(), winh = $(window).height();
+        (st > 0)? backToTopEle.show(): backToTopEle.hide();    
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            backToTopEle.css("top", st + winh - 60);    
+        }
+    };
+    $(window).bind("scroll", backToTopFun);
+    $(function() { backToTopFun(); });
+})();
+</script><div class="backToTop tops" title="返回顶部" style="display: block;">返回顶部</div>
+
+<link type="text/css" href="./XFire WebService开发快速起步 _files/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+<script type="text/javascript" src="./XFire WebService开发快速起步 _files/jquery-ui-1.8.21.custom.min.js"></script>
+<script type="text/javascript" src="./XFire WebService开发快速起步 _files/down.js"></script>	
+	<!-- ui-dialog -->
+	<form action="http://lavasoft.blog.51cto.com/ext/down_att.php" id="down_form" method="post">
+	
+	</form>
+
+
+
+
+
+
+<div class="clear"></div>
+<!-- <script>
+jQuery(function(){
+	var html= "<div id=\"sogou_se_tgbar\" style=\"text-align:center;margin:0px auto 2px auto;clear:both;background:url(http://home.51cto.com/public/images/notice/sogou_se_tgbar_bg_final1.gif) repeat-x;width:950px;color:#000;font-size:13px;height:36px;z-index:21474836471\"><div style=\"float:left;cursor:pointer;width:910px;text-align:center;border-left:solid #efbf00 1px;height:32px; line-height:32px;txt-align:center;\"><span style=\"\">	<a href=\"http://51ctoblog.blog.51cto.com/26414/1093282\">【新年祝福征集】51CTO社区年底嘉年华活动正在征集博主祝福语，祝福以红包的形式随机的赠送给访问51CTO的网友 点此送祝福>></a></span></div><div onclick=\"document.getElementById('sogou_se_tgbar').style.display = 'none';\" style=\"float:right;width:20px;cursor:pointer;height:28px;padding:4px 8px 0px 8px;border-right:solid #efbf00 1px\"><img style=\"border:none;margin:4px 0px 0px 0px;\" src=\"http://home.51cto.com/public/images/notice/sogou_se_tgbar_close_final1.gif\"></div></div>"
+	jQuery('body').prepend(html);
+})
+</script> -->
+
+<div id="footer">
+  <div id="innerFooter">
+	<center>
+		<small>
+			Copyright By 51CTO.COM 版权所有<br><br>
+			<a href="http://blog.51cto.com/" target="_blank"><img src="./XFire WebService开发快速起步 _files/copyright.jpg"></a>
+	  </small>
+	</center>
+  </div>
+</div>
+<script src="./XFire WebService开发快速起步 _files/index.php" charset="utf-8"></script>
+<div style="display:none">
+<script src="./XFire WebService开发快速起步 _files/count.js"></script><script src="./XFire WebService开发快速起步 _files/count.php"></script><script src="./XFire WebService开发快速起步 _files/countuser2.php"></script><script src="./XFire WebService开发快速起步 _files/scroll.js"></script>
+
+<div style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F2283d46608159c3b39fc9f1178809c21' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./XFire WebService开发快速起步 _files/h.js" type="text/javascript"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57622524-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</div>
+<iframe frameborder="0" scrolling="no" width="0" height="0" src="./XFire WebService开发快速起步 _files/pageview.html"></iframe>
+</div>
+<div style="display:none;"><script src="./XFire WebService开发快速起步 _files/stat.php" language="JavaScript"></script><script src="./XFire WebService开发快速起步 _files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=4274540" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./XFire WebService开发快速起步 _files/pic.gif"></a><div>
+<script src="./XFire WebService开发快速起步 _files/poptop.js"></script>
+
+
+
+</div></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog" style="display: none; z-index: 1002; outline: 0px; height: auto; width: 200px; top: 11418px; left: 571px;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog">附件下载</span><a href="http://lavasoft.blog.51cto.com/#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog" class="di ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0" style="width: auto; min-height: 56.2799997329712px; height: auto;">
+		请输入验证码：<br>
+		<input type="text" id="input_code" name="input_code" style="width:80px;height:23px;" value="">
+		<img width="78" title="单击更换验证码！" height="29" style="display: inline;float: left;" id="imgcode" class="fl" src="./XFire WebService开发快速起步 _files/seccode_att.php">
+		<input type="hidden" name="aid" id="aid" value="8969">
+	</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button">确认</button></div></div></div></body></html>

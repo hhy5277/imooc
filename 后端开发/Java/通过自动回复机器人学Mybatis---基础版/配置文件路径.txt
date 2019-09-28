@@ -1,0 +1,2 @@
+Mybatis 的 Jar 包下载路径及配置文件查找路径
+Mybatis 相关 Jar 包下载路径： https://github.com/mybatis/mybatis-3/releases Mybatis 配置文件查找路径： 本地解压缩路径下--src\test\java\org\apache\ibatis\submitted\complex_property\Configuration.xml

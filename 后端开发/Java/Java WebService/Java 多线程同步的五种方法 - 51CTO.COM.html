@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0048)http://developer.51cto.com/art/201509/490965.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>Java 多线程同步的五种方法 - 51CTO.COM</title>
+<meta name="description" content="前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。">
+<meta name="keywords" content="Java,多线程同步">
+<!--<base target="_blank">--><base href="." target="_blank">
+<link href="./Java 多线程同步的五种方法 - 51CTO.COM_files/grid.css" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="./Java 多线程同步的五种方法 - 51CTO.COM_files/art_master_top.css">
+<link href="./Java 多线程同步的五种方法 - 51CTO.COM_files/css3.css" rel="stylesheet" type="text/css">
+<script async="" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/analytics.js"></script><script type="text/javascript" async="" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/scvm"></script><script language="javaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/base_art.js"></script>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/index_1_down.js"></script>
+<style type="text/css">
+.bds_tools a{ padding:0; margin:0;}
+</style>
+<style type="text/css"></style><link href="./Java 多线程同步的五种方法 - 51CTO.COM_files/bdsstyle.css" rel="stylesheet" type="text/css"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/logger.js"></script><link rel="stylesheet" type="text/css" href="./Java 多线程同步的五种方法 - 51CTO.COM_files/layout_51cto.css"></head>
+<body><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><iframe frameborder="0" style="display: none;"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_bdysc bdysc">百度云收藏</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_renren rrw">人人网</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_douban db">豆瓣网</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_thx thx">和讯微博</a></li><li><a href="http://developer.51cto.com/art/201509/490965.htm#" class="bds_more">更多...</a></li></ul><p><a href="http://developer.51cto.com/art/201509/490965.htm#" class="goWebsite">百度分享</a></p></div></div></div>
+<!-- 导航 开始-->
+<script id="allmobilize" charset="utf-8" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/allmobilize.min.js"></script><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" media="handheld" href="http://developer.51cto.com/art/201509/490965.htm#">
+<div id="home_top">    <div class="top_nav">        <div class="left" style="width:400px"><div class="logo_51cto" title="51CTO.COM - 技术成就梦想 -  中国领先的IT技术网站"></div><a href="http://www.51cto.com/">首页</a><img width="16" height="25" align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/top_bg_xian.gif" style="padding-top: 2px;"><a onmouseover="show(1,this);" onmouseout="popupClose();" href="http://www.51cto.com/col/35/" target="_blank">技术频道<img align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/nav_ico1.gif" style="padding-left: 4px;"></a><img width="16" height="25" align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/top_bg_xian.gif"><a onmouseover="show(2,this);" onmouseout="popupClose();" href="http://www.51cto.com/" target="_blank">51CTO旗下网站<img align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/nav_ico1.gif" style="padding-left: 4px;"></a><img width="16" height="25" align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/top_bg_xian.gif"><a href="http://www.51cto.com/about/map.htm" target="_blank">地图</a> <a href="http://www.51cto.com/about/rss.html" target="_blank"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/143749870.gif" style="vertical-align:middle; margin-bottom: 5px; margin-left:5px;"></a>       </div>        <div class="right">            <div class="more"><img width="27" height="16" align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/top_shequ.gif"><a href="http://gaozhao.51cto.com/" target="_blank" style="color:#CC0000">招聘</a><a href="http://edu.51cto.com/" target="_blank" style="color:#CC0000">学院</a><a href="http://down.51cto.com/" target="_blank">下载</a><a href="http://bbs.51cto.com/" target="_blank">论坛</a><a href="http://blog.51cto.com/" target="_blank">博客</a><a onmouseover="show(3,this)" onmouseout="popupClose()" href="javascript:viod(0);">更多<img align="absmiddle" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/nav_ico1.gif" style="padding-left: 4px;"></a>            </div>            <span id="login_status"><div style="margin:0px;" class="login2"><div style="float:right; padding-top:8px;"><a href="http://home.51cto.com/space?uid=767694" style="float:left;margin-top:-1px;text-decoration: none;" target="_self">hhy5277</a><span id="msg_view" style="display:inline; margin-left:5px;"><a target="_blank" href="http://home.51cto.com/msg/inbox" style="color:#CC0000;">消息(7)</a><a target="_blank" href="http://home.51cto.com/space/favorite?uid=767694">收藏</a></span><a href="http://home.51cto.com/index/logout?reback=http://developer.51cto.com/art/201509/490965.htm" target="_self" style="text-decoration:none">[退出]</a></div><div style="float:right;">	<a href="http://home.51cto.com/space?uid=767694" target="_self" style="text-decoration:none;">		<img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/avatar.php" align="absmiddle" width="24" height="24" style="border: 2px solid #D5D5D5; margin-top:2px;">	</a></div></div></span>                </div>    </div></div>
+<div class="subMenu1" id="s1" onmouseover="popupNoClose();" onmouseout="popupClose();">
+<ul>
+<li><a href="http://network.51cto.com/" target="_blank">网络</a></li>
+<li><a href="http://netsecurity.51cto.com/" target="_blank">安全</a></li>
+<li><a href="http://developer.51cto.com/" target="_blank">开发</a></li>
+<li><a href="http://database.51cto.com/" target="_blank">数据库</a></li>
+<li><a href="http://server.51cto.com/" target="_blank">服务器</a></li>
+<li><a href="http://os.51cto.com/" target="_blank">系统</a></li>
+<li><a href="http://virtual.51cto.com/" target="_blank">虚拟化</a></li>
+<li><a href="http://cloud.51cto.com/" target="_blank">云计算</a></li>
+<li><a href="http://developer.51cto.com/embed/" target="_blank">嵌入式</a></li>
+<li><a href="http://mobile.51cto.com/" target="_blank">移动开发</a></li>
+</ul>
+</div> 
+<div class="subMenu2" id="s2" onmouseover="popupNoClose()" onmouseout="popupClose()">
+<ul>
+<li><a href="http://www.51cto.com/" target="_blank" title="中国领先的IT技术网站">51CTO.COM</a></li>
+<li><a href="http://www.cioage.com/" target="_blank" title="中国首个专门服务于CIO的专业网站">CIOage.com</a></li>
+<li><a href="http://www.watchstor.com/" target="_blank" title="领先的中文存储网络媒体">WatchStor.com</a></li>
+<li><a href="http://www.hc3i.cn/" target="_blank" title="中国首家专注于数字医疗及医疗信息化的专业网站">HC3i.cn</a></li>
+</ul>
+</div>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/jquery-1.8.3.min.js"></script>
+<script>
+$(function(){
+	$(".bann").height(265);	 
+	$(".bann").css("background-color","white");
+	$(".hot").css("top","450px");
+	//$(".fixfloat").css("height","640px");
+	$(".g_13").find(".focus").css("height","640px");
+});
+var edunum=2;
+$(function(){
+	$("#change").click(function(){
+		$("#edu > ul").css("display","none");
+		var eduid='edu'+edunum;
+		$("#" + eduid).css("display","block");	
+		if(edunum<4){
+			edunum++;	
+		}else{
+			edunum=1;	
+		}							
+	});  
+});
+</script>
+
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/head_art_more1.js"></script><div class="subMenu3" id="s3" onmouseover="popupNoClose()" onmouseout="popupClose()" style="z-index:9999;position: absolute;">
+<ul>
+<li><a href="http://home.51cto.com/" target="_blank">家园</a></li>
+<li><a href="http://gaozhao.51cto.com/" target="_blank" style="color:red;">招聘</a></li>
+<li><a href="http://edu.51cto.com/" target="_blank">学院</a></li>
+<li><a href="http://blog.51cto.com/" target="_blank">博客</a></li>
+<li><a href="http://bbs.51cto.com/" target="_blank">论坛</a></li>
+<li><a href="http://down.51cto.com/" target="_blank">下载</a></li>
+<li><a href="http://selftest.51cto.com/" target="_blank">自测</a></li>
+<li><a href="http://doctor.51cto.com/" target="_blank">门诊</a></li>
+<li><a href="http://blog.51cto.com/newsletter/" target="_blank">周刊</a></li>
+<li><a href="http://book.51cto.com/" target="_blank">读书</a></li>
+<li><a href="http://t.51cto.com/" target="_blank" style="color:red;">题库</a></li>
+</ul>
+</div>
+
+<!-- 登陆信息 -->
+<!-- 导航 结束--> 
+ <div class="g_39 mb10">
+	<div id="tonglanad" class="fl"><script language="JavaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ad.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ad.php"></script><iframe width="760" height="90" noresize="" scrolling="No" frameborder="0" marginheight="0" marginwidth="0" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/developer.html" align="center"></iframe></div>
+	<div id="list4" class="fr">
+		<ul>
+			<li id="wordlinkad1"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink1.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs.php"></script><a href="http://gg2.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3042__zoneid=270__cb=6dbcdb96c5__oadest=http%3A%2F%2Fcloud.51cto.com%2Fact%2Fveritas%2F201604" target="_blank"><font color="red">数据保护秘籍 点击免费领取</font></a><div id="beacon_6dbcdb96c5" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</li>
+			<li id="wordlinkad2"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink2.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs(1).php"></script><a href="http://gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3546__zoneid=631__cb=14efc87fd2__oadest=http%3A%2F%2Fedutest.51cto.com%2Ftraining%2Ftraining_id-19.html%3Fxiaoshou" target="_blank"><font color="red">Android开发120天完成9个APP项目</font></a><div id="beacon_14efc87fd2" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg(1).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</li>
+			<li id="wordlinkad3"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink3.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs(2).php"></script><a href="http://gg.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=2370__zoneid=594__cb=4830202d02__oadest=http%3A%2F%2Fnetsecurity.51cto.com%2Fsecu%2FBlackHat%2F2015%2F" target="_blank"><font color="red">2015黒帽大会现场报道</font></a><div id="beacon_4830202d02" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg(2).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</li>
+			<li id="wordlinkad4"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink4.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs(3).php"></script><a href="http://gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3549__zoneid=636__cb=b194e058a5__oadest=http%3A%2F%2Fedutest.51cto.com%2Ftraining%2Ftraining_id-17.html%3Fxiaoshou" target="_blank"><font color="red">2016年备战软考-重难点解析</font></a><div id="beacon_b194e058a5" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg(3).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</li>
+		</ul>
+	</div>
+<br class="dle">
+</div>
+
+<div class="g_39 menu">
+<div class="subNav_logo"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/kaifa_logo.gif"></div>
+<div class="subNav_l"><a href="http://developer.51cto.com/">首页</a> | <a href="http://developer.51cto.com/java/">Java</a> | <a href="http://developer.51cto.com/net/">.NET</a> | <a href="http://developer.51cto.com/web/">Web</a> | <a href="http://developer.51cto.com/col/585/">语言工具</a> | <a href="http://developer.51cto.com/col/1312/">测试</a> | <a href="http://developer.51cto.com/col/583/" target="_blank">移动</a> | <a href="http://developer.51cto.com/col/1308/">架构</a> | <a href="http://developer.51cto.com/col/586/">项目管理</a> | <a href="http://developer.51cto.com/col/577/">大数据</a> | <a href="http://publish.51cto.com/list/460/">全部文章</a></div>
+  
+<div class="search fr">
+<dl>
+<form name="searchform" action="http://www.51cto.com/php/search.php" target="_blank" method="post" style="margin:0px; padding:0px;">
+<dt class="fl"><input name="keyword" type="text" class="searchInput f14 input" value="请输入关键字" onfocus="doempty(this, &#39;请输入关键字&#39;);" onblur="doempty(this, &#39;请输入关键字&#39;);"></dt>
+<dd class="fl"><input type="image" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/search.gif"></dd></form>
+</dl>
+</div>
+<br class="dle">
+</div>
+<div class="g_39 b3-s-4273B3 rel">
+<!--width : 26*25 - 15 = 635px-->
+<div class="g_26 fl m_l">
+<div class="brief bgF8F8F8">
+<p class="crumb ">您所在的位置：<a href="http://developer.51cto.com/">开发</a> &gt; <a href="http://developer.51cto.com/java/">Java</a> &gt; <a href="http://developer.51cto.com/col/1005/">Java基础</a> &gt;  <b>Java 多线程同步的五种方法</b> </p>
+<h1>Java 多线程同步的五种方法</h1>
+<div class="msg">
+<div>2015-09-10 09:30    winton_by  字号：<span class="f14-b"><a href="javascript:setfont(12);" target="_self">T</a></span> | <span class="f16-b"><a href="javascript:setfont(16);" target="_self">T</a></span></div>
+<div class="artHd" id="books" style="padding:5px 25px;display:none;"><script language="JavaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/getBookData.php"></script></div>
+<div class="fav"><a href="javascript:favorBox('open');" title="一键收藏，随时查看，分享好友！" target="_self"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/Fav.gif" alt="一键收藏，随时查看，分享好友！" border="0"></a></div>
+</div>
+<div class="brieftext">
+<p class="f14 green">前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。</p>
+<p class="ad">AD：<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/keywords_ad_new.js"></script><a href="http://mobile.51cto.com/mobile/mdsa11/" target="_blank" style="text-decoration: none;color:red">网+线下沙龙 | 移动APP模式创新：给你一个做APP的理由&gt;&gt;</a>
+</p>
+</div>
+<!--  <div style="border-left:5px solid #4065aa;height:25px; line-height:25px;margin-top:10px;background:#eef7ff;padding-left:10px;">
+<a style="text-decoration: none;color:red" target="_blank" href="http://server.51cto.com/exp/OpenPower/">IBM POWER8通过一年充分融入了“开放”基因，现在有哪些成效？快来注册观看直播，一起拥抱开源的力量。</a>
+</div> -->
+
+
+
+</div>
+<div class="tag bgF8F8F8" id="indexlist" style="display:none;">
+<ul id="indexliststr">
+</ul>
+<br class="dle">
+</div>
+<div class="content bgF8F8F8 f14">
+<div id="content">
+<p></p><p><strong>一、引言</strong></p>
+<p>前几天面试，被大师虐残了，好多基础知识必须得重新拿起来啊。闲话不多说，进入正题。</p>
+<p style="text-align: center;"><a target="_blank" href="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1Xw3sjBejzZAAAe0_YVT2Q906.jpg"><img class="fit-image" onload="javascript:if(this.width&gt;498)this.width=498;" onmousewheel="javascript:return big(this)" width="350" border="0" height="261" alt="" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1Xw3sjBejzZAAAe0_YVT2Q906.jpg"></a></p>
+<p><strong>二、为什么要线程同步</strong></p>
+<p>因为当我们有多个线程要同时访问一个变量或对象时，如果这些线程中既有读又有写操作时，就会导致变量值或对象的状态出现混乱，从而导致程序异常。举 个例子，如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果 呢？取钱不成功，账户余额是100.取钱成功了，账户余额是0.那到底是哪个呢？很难说清楚。因此多线程同步就是要解决这个问题。</p>
+<p><strong>三、不同步时的代码</strong></p>
+<p></p>
+<pre><ol class="dp-j"><li class="alt"><span><span>Bank.java&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="keyword">package</span><span>&nbsp;threadTest;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="comment">/**</span>&nbsp;</span></li><li><span><span class="comment">*&nbsp;@author&nbsp;ww</span>&nbsp;</span></li><li class="alt"><span><span class="comment">*</span>&nbsp;</span></li><li><span><span class="comment">*/</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;Bank&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">int</span><span>&nbsp;count&nbsp;=</span><span class="number">0</span><span>;</span><span class="comment">//账户余额&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//存钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;&nbsp;</span><span class="keyword">void</span><span>&nbsp;addMoney(</span><span class="keyword">int</span><span>&nbsp;money){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=money;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(System.currentTimeMillis()+<span class="string">"存进："</span><span>+money);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//取钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;&nbsp;</span><span class="keyword">void</span><span>&nbsp;subMoney(</span><span class="keyword">int</span><span>&nbsp;money){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(count-money&nbsp;&lt;&nbsp;</span><span class="number">0</span><span>){&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"余额不足"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;-=money;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(+System.currentTimeMillis()+<span class="string">"取出："</span><span>+money);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//查询&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;lookMoney(){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"账户余额："</span><span>+count);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>SyncThreadTest.java&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="keyword">package</span><span>&nbsp;threadTest;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;SyncThreadTest&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">final</span><span>&nbsp;Bank&nbsp;bank=</span><span class="keyword">new</span><span>&nbsp;Bank();&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread&nbsp;tadd=<span class="keyword">new</span><span>&nbsp;Thread(</span><span class="keyword">new</span><span>&nbsp;Runnable()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;run()&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;TODO&nbsp;Auto-generated&nbsp;method&nbsp;stub&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span><span>(</span><span class="keyword">true</span><span>){&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><span>&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(<span class="number">1000</span><span>);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keyword">catch</span><span>&nbsp;(InterruptedException&nbsp;e)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;TODO&nbsp;Auto-generated&nbsp;catch&nbsp;block&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bank.addMoney(<span class="number">100</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bank.lookMoney();&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"\n"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread&nbsp;tsub&nbsp;=&nbsp;<span class="keyword">new</span><span>&nbsp;Thread(</span><span class="keyword">new</span><span>&nbsp;Runnable()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;run()&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;TODO&nbsp;Auto-generated&nbsp;method&nbsp;stub&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span><span>(</span><span class="keyword">true</span><span>){&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bank.subMoney(<span class="number">100</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bank.lookMoney();&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"\n"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><span>&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.sleep(<span class="number">1000</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span class="keyword">catch</span><span>&nbsp;(InterruptedException&nbsp;e)&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;TODO&nbsp;Auto-generated&nbsp;catch&nbsp;block&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.printStackTrace();&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tsub.start();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tadd.start();&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>}&nbsp;</span></li></ol></pre>
+<p>代码很简单，我就不解释了，看看运行结果怎样呢？截取了其中的一部分，是不是很乱，有写看不懂。</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>余额不足&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790503354存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790504354存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790504354取出：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790505355存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790505355取出：100&nbsp; <br>
+账户余额：100</p>
+<p><strong>四、使用同步时的代码</strong></p>
+<p><strong>（1）同步方法：</strong></p>
+<p>即有synchronized关键字修饰的方法。&nbsp;由于java的每个对象都有一个内置锁，当用此关键字修饰方法时，内置锁会保护整个方法。在调用该方法前，需要获得内置锁，否则就处于阻塞状态。</p>
+<p>修改后的Bank.java</p>
+<p></p>
+<p>再看看运行结果：</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441790837380存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790838380取出：100&nbsp; <br>
+账户余额：0&nbsp; <br>
+1441790838380存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441790839381取出：100&nbsp; <br>
+账户余额：0</p>
+<p>瞬间感觉可以理解了吧。</p>
+<p>注： synchronized关键字也可以修饰静态方法，此时如果调用该静态方法，将会锁住整个类</p>
+<p><strong>（2）同步代码块</strong></p>
+<p>即有synchronized关键字修饰的语句块。被该关键字修饰的语句块会自动被加上内置锁，从而实现同步</p>
+<p>Bank.java代码如下：</p>
+<pre><ol class="dp-j"><li class="alt"><span><span class="keyword">package</span><span>&nbsp;threadTest;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="comment">/**</span>&nbsp;</span></li><li><span><span class="comment">*&nbsp;@author&nbsp;ww</span>&nbsp;</span></li><li class="alt"><span><span class="comment">*</span>&nbsp;</span></li><li><span><span class="comment">*/</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;Bank&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">int</span><span>&nbsp;count&nbsp;=</span><span class="number">0</span><span>;</span><span class="comment">//账户余额&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//存钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;&nbsp;&nbsp;</span><span class="keyword">void</span><span>&nbsp;addMoney(</span><span class="keyword">int</span><span>&nbsp;money){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">synchronized</span><span>&nbsp;(</span><span class="keyword">this</span><span>)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=money;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(System.currentTimeMillis()+<span class="string">"存进："</span><span>+money);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//取钱&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;&nbsp;&nbsp;</span><span class="keyword">void</span><span>&nbsp;subMoney(</span><span class="keyword">int</span><span>&nbsp;money){&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">synchronized</span><span>&nbsp;(</span><span class="keyword">this</span><span>)&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(count-money&nbsp;&lt;&nbsp;</span><span class="number">0</span><span>){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"余额不足"</span><span>);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;-=money;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(+System.currentTimeMillis()+<span class="string">"取出："</span><span>+money);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//查询&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;lookMoney(){&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"账户余额："</span><span>+count);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;</span></li></ol></pre>
+<p>运行结果如下：</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441791806699存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441791806700取出：100&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441791807699存进：100&nbsp; <br>
+账户余额：100</p>
+<p>效果和方法一差不多。</p>
+<p>注：同步是一种高开销的操作，因此应该尽量减少同步的内容。通常没有必要同步整个方法，使用synchronized代码块同步关键代码即可。</p>
+<p><strong>（3）使用特殊域变量(</strong><span class="wp_keywordlink"><a target="_blank" title="Volatile" href="http://www.codeceo.com/article/java-volatile-var.html"><strong>Volatile</strong></a></span><strong>)实现线程同步</strong></p>
+<p>a.volatile关键字为域变量的访问提供了一种免锁机制<br>
+b.使用volatile修饰域相当于告诉虚拟机该域可能会被其他线程更新<br>
+c.因此每次使用该域就要重新计算，而不是使用寄存器中的值<br>
+d.volatile不会提供任何原子操作，它也不能用来修饰final类型的变量</p>
+<p>Bank.java代码如下：</p>
+<p></p>
+<pre><ol class="dp-j"><li class="alt"><span><span class="keyword">package</span><span>&nbsp;threadTest;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="comment">/**</span>&nbsp;</span></li><li><span><span class="comment">*&nbsp;@author&nbsp;ww</span>&nbsp;</span></li><li class="alt"><span><span class="comment">*</span>&nbsp;</span></li><li><span><span class="comment">*/</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;Bank&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">volatile</span><span>&nbsp;</span><span class="keyword">int</span><span>&nbsp;count&nbsp;=&nbsp;</span><span class="number">0</span><span>;</span><span class="comment">//&nbsp;账户余额&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;存钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;addMoney(</span><span class="keyword">int</span><span>&nbsp;money)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;money;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(System.currentTimeMillis()&nbsp;+&nbsp;<span class="string">"存进："</span><span>&nbsp;+&nbsp;money);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;取钱&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;subMoney(</span><span class="keyword">int</span><span>&nbsp;money)&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(count&nbsp;-&nbsp;money&nbsp;&lt;&nbsp;</span><span class="number">0</span><span>)&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"余额不足"</span><span>);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;-=&nbsp;money;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(+System.currentTimeMillis()&nbsp;+&nbsp;<span class="string">"取出："</span><span>&nbsp;+&nbsp;money);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;查询&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;lookMoney()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"账户余额："</span><span>&nbsp;+&nbsp;count);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;</span></li></ol></pre>
+<p>运行效果怎样呢？</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>余额不足&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441792010959存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441792011960取出：100&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441792011961存进：100&nbsp; <br>
+账户余额：100</p>
+<p>是不是又看不懂了，又乱了。这是为什么呢？就是因为volatile不能保证原子操作导致的，因此volatile不能代替 synchronized。此外volatile会组织编译器对代码优化，因此能不使用它就不适用它吧。它的原理是每次要线程要访问volatile修饰 的变量时都是从内存中读取，而不是存缓存当中读取，因此每个线程访问到的变量值都是一样的。这样就保证了同步。</p>
+<p><strong>（4）使用重入锁实现线程同步</strong></p>
+<p>在JavaSE5.0中新增了一个java.util.concurrent包来支持同步。ReentrantLock类是可重入、互斥、实现了Lock接口的锁，&nbsp;它与使用synchronized方法和快具有相同的基本行为和语义，并且扩展了其能力。<br>
+ReenreantLock类的常用方法有：<br>
+ReentrantLock() : 创建一个ReentrantLock实例<br>
+lock() : 获得锁<br>
+unlock() : 释放锁<br>
+注：ReentrantLock()还有一个可以创建公平锁的构造方法，但由于能大幅度降低程序运行效率，不推荐使用<br>
+Bank.java代码修改如下：</p>
+<pre><ol class="dp-j"><li class="alt"><span><span class="keyword">package</span><span>&nbsp;threadTest;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="keyword">import</span><span>&nbsp;java.util.concurrent.locks.Lock;&nbsp;&nbsp;</span></span></li><li><span><span class="keyword">import</span><span>&nbsp;java.util.concurrent.locks.ReentrantLock;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span><span class="comment">/**</span>&nbsp;</span></li><li class="alt"><span><span class="comment">*&nbsp;@author&nbsp;ww</span>&nbsp;</span></li><li><span><span class="comment">*</span>&nbsp;</span></li><li class="alt"><span><span class="comment">*/</span><span>&nbsp;&nbsp;</span></span></li><li><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;Bank&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;&nbsp;</span><span class="keyword">int</span><span>&nbsp;count&nbsp;=&nbsp;</span><span class="number">0</span><span>;</span><span class="comment">//&nbsp;账户余额&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//需要声明这个锁&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;Lock&nbsp;lock&nbsp;=&nbsp;</span><span class="keyword">new</span><span>&nbsp;ReentrantLock();&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;存钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;addMoney(</span><span class="keyword">int</span><span>&nbsp;money)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lock.lock();<span class="comment">//上锁&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><span>{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;+=&nbsp;money;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(System.currentTimeMillis()&nbsp;+&nbsp;<span class="string">"存进："</span><span>&nbsp;+&nbsp;money);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<span class="keyword">finally</span><span>{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lock.unlock();<span class="comment">//解锁&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;取钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;subMoney(</span><span class="keyword">int</span><span>&nbsp;money)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lock.lock();&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span><span>{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(count&nbsp;-&nbsp;money&nbsp;&lt;&nbsp;</span><span class="number">0</span><span>)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"余额不足"</span><span>);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;-=&nbsp;money;&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(+System.currentTimeMillis()&nbsp;+&nbsp;<span class="string">"取出："</span><span>&nbsp;+&nbsp;money);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<span class="keyword">finally</span><span>{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lock.unlock();&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;查询&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;lookMoney()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"账户余额："</span><span>&nbsp;+&nbsp;count);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>}&nbsp;</span></li></ol></pre>
+<p>运行效果怎么样呢？</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441792891934存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>1441792892935存进：100&nbsp; <br>
+账户余额：200&nbsp;</p>
+<p>1441792892954取出：100&nbsp; <br>
+账户余额：100</p>
+<p>效果和前两种方法差不多。</p>
+<p>如果synchronized关键字能满足用户的需求，就用synchronized，因为它能简化代码 。如果需要更高级的功能，就用ReentrantLock类，此时要注意及时释放锁，否则会出现死锁，通常在finally代码释放锁</p>
+<p><strong>（5）使用局部变量实现线程同步</strong></p>
+<p>Bank.java代码如下：</p>
+<p></p>
+<pre><ol class="dp-j"><li class="alt"><span><span class="keyword">package</span><span>&nbsp;threadTest;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="comment">/**</span>&nbsp;</span></li><li><span><span class="comment">*&nbsp;@author&nbsp;ww</span>&nbsp;</span></li><li class="alt"><span><span class="comment">*</span>&nbsp;</span></li><li><span><span class="comment">*/</span><span>&nbsp;&nbsp;</span></span></li><li class="alt"><span><span class="keyword">public</span><span>&nbsp;</span><span class="keyword">class</span><span>&nbsp;Bank&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span><span>&nbsp;</span><span class="keyword">static</span><span>&nbsp;ThreadLocal&lt;Integer&gt;&nbsp;count&nbsp;=&nbsp;</span><span class="keyword">new</span><span>&nbsp;ThreadLocal&lt;Integer&gt;(){&nbsp;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span><span>&nbsp;Integer&nbsp;initialValue()&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;TODO&nbsp;Auto-generated&nbsp;method&nbsp;stub&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>&nbsp;</span><span class="number">0</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;&nbsp;</span></li><li><span>&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;存钱&nbsp;</span><span>&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;addMoney(</span><span class="keyword">int</span><span>&nbsp;money)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count.set(count.get()+money);&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(System.currentTimeMillis()&nbsp;+&nbsp;<span class="string">"存进："</span><span>&nbsp;+&nbsp;money);&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;取钱&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;subMoney(</span><span class="keyword">int</span><span>&nbsp;money)&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>&nbsp;(count.get()&nbsp;-&nbsp;money&nbsp;&lt;&nbsp;</span><span class="number">0</span><span>)&nbsp;{&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"余额不足"</span><span>);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span><span>;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count.set(count.get()-&nbsp;money);&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(+System.currentTimeMillis()&nbsp;+&nbsp;<span class="string">"取出："</span><span>&nbsp;+&nbsp;money);&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li class="alt"><span>&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;查询&nbsp;</span><span>&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span><span>&nbsp;</span><span class="keyword">void</span><span>&nbsp;lookMoney()&nbsp;{&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="string">"账户余额："</span><span>&nbsp;+&nbsp;count.get());&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li><li><span>}&nbsp;</span></li></ol></pre>
+<p>运行效果：</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441794247939存进：100&nbsp; <br>
+账户余额：100&nbsp;</p>
+<p>余额不足&nbsp; <br>
+1441794248940存进：100&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>账户余额：200&nbsp;</p>
+<p>余额不足&nbsp; <br>
+账户余额：0&nbsp;</p>
+<p>1441794249941存进：100&nbsp; <br>
+账户余额：300</p>
+<p>看了运行效果，一开始一头雾水，怎么只让存，不让取啊？看看<span class="wp_keywordlink"><a target="_blank" title="ThreadLocal" href="http://www.codeceo.com/article/threadlocal-usage.html">ThreadLocal</a></span>的原理：</p>
+<p>如果使用ThreadLocal管理变量，则每一个使用该变量的线程都获得该变量的副本，副本之间相互独立，这样每一个线程都可以随意修改自己的变 量副本，而不会对其他线程产生影响。现在明白了吧，原来每个线程运行的都是一个副本，也就是说存钱和取钱是两个账户，知识名字相同而已。所以就会发生上面 的效果。</p>
+<p><strong>ThreadLocal与同步机制</strong></p>
+<p>a.ThreadLocal与同步机制都是为了解决多线程中相同变量的访问冲突问题<br>
+b.前者采用以”空间换时间”的方法，后者采用以”时间换空间”的方式</p>
+<p>现在都明白了吧。各有优劣，各有适用场景。手工，吃饭去了。</p><p>【编辑推荐】</p><div><ol><li><a href="http://developer.51cto.com/art/201509/490794.htm" target="_blank">阿里面试经历及总结（数据研发、Java研发方向）</a></li><li><a href="http://developer.51cto.com/art/201509/490802.htm" target="_blank">JavaScript设计模式之策略模式</a></li><li><a href="http://developer.51cto.com/art/201509/490842.htm" target="_blank">Java Json API：Gson使用简单入门</a></li><li><a href="http://developer.51cto.com/art/201509/490843.htm" target="_blank">Java ThreadLocal 使用详解</a></li><li><a href="http://developer.51cto.com/art/201509/490845.htm" target="_blank">甲骨文解雇Java技术讲师：放弃的节奏？</a></li><li><a href="http://developer.51cto.com/art/201509/490954.htm" target="_blank">Java面试题：栈和队列的实现</a></li></ol></div><div align="right">【责任编辑：<a class="ln" href="mailto:wangxy@51cto.com">wangxueyan</a> TEL：（010）68476606】</div><br> 
+<p class="blank10"></p> 
+ 
+ 
+
+
+<div class="f12"> <span class="fl">原文：<a href="./Java 多线程同步的五种方法 - 51CTO.COM_files/Java 多线程同步的五种方法 - 51CTO.COM.html" class="blue"><b>Java 多线程同步的五种方法</b></a></span> <span class="fr"><a href="http://developer.51cto.com/">返回开发首页</a></span> </div>
+<p class="blank1"></p>
+</div>
+<hr style="border-top: #555555 1px solid; height: 1px; border-right: medium none; border-bottom: medium none; border-left: medium none">
+<div style="width: 600px; background: #ffffff"><img width="600" height="140" alt="" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKioL1ZOwrbDjDqxAABJOr5GFjU021.png" border="0"></div>
+<hr style="border-top: #555555 1px solid; height: 1px; border-right: medium none; border-bottom: medium none; border-left: medium none">
+<iframe width="600" height="239" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/bulkfollow.html" frameborder="0" scrolling="no"></iframe>
+<div class="tips">
+<div style="float:left;">
+<span style="float:left; margin-top:4px;">分享到：</span>
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" style="margin-right:5px; float:left;">
+        <a class="bds_qzone" title="分享到QQ空间" href="http://developer.51cto.com/art/201509/490965.htm#"></a>
+        <a class="bds_tsina" title="分享到新浪微博" href="http://developer.51cto.com/art/201509/490965.htm#"></a>
+        <a class="bds_tqq" title="分享到腾讯微博" href="http://developer.51cto.com/art/201509/490965.htm#"></a>
+        <a class="bds_renren" title="分享到人人网" href="http://developer.51cto.com/art/201509/490965.htm#"></a>
+        <a class="bds_t163" title="分享到网易微博" href="http://developer.51cto.com/art/201509/490965.htm#"></a>
+        <span class="bds_more"></span>
+		<a class="shareCount" href="http://developer.51cto.com/art/201509/490965.htm#" title="累计分享2次">2</a>
+
+</div>
+<!--<div class="fl"> 
+    </div>
+--><script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=585532" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/bds_s_v2.js"></script>
+
+<script type="text/javascript">
+	var bds_config = {'snsKey':{'tsina':'2378297317'}};
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+
+
+
+</div><div class="fr blue"><a href="javascript:AddFavorite(document.location.href,document.title);" target="_self">收藏</a>|<a href="javascript:window.print();" target="_self">打印</a>|<a id="msnqqcopy" title="分享本资源给好友" target="_self">复制</a></div>
+</div>
+</div>
+<!--内容 end-->
+<p class="blank10"></p>
+<div class="comment center">
+	<div class="inner center" id="cmscmt_iframe"><div class="title"><span class="word">内容点评</span><p class="con">已有<span class="total" id="cmt_num">0</span>条评论,<span class="total" id="zan_num">0</span>次赞</p><p style="float:right; margin-top: 17px;">还可以输入<span id="uyan_tts">500</span>字</p></div><div class="frame center"><textarea value="" id="comment" onblur="window.CMSCMT.shoIntro(this);" onfocus="window.CMSCMT.hidIntro(this);" onkeydown="window.CMSCMT.checkTxt(this, 140);" onkeyup="window.CMSCMT.checkTxt(this, 140);" style="color:#7c7c7c; font-family:Microsoft Yahei;">请输入你的评论</textarea></div><div class="user"><a id="uyan_cmt_btn" onclick="window.CMSCMT.addCmt(this);" class="submit">提交</a><dl><dt class="icon"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/avatar(1).php" alt=""></dt><dd class="msg"><span class="name">hhy5277</span>欢迎您！</dd></dl></div><ul class="list center first" id="uyan_cmt_list"><div style="margin-top: 10px; padding-top: 10px; font-size: 12px; color: #303030; text-align: center;" id="uyan_cmt_list_warn">还没有评论内容</div></ul></div>
+</div>
+<script type="text/javascript" id="UYScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/iframe_cmt.js" async=""></script>
+
+<p class="blank10"></p>
+<div class="bor">
+<div class="titbg pl15">关于<a href="http://www.51cto.com/php/search.php?keyword=Java" target="_blank" class="underline">Java</a>&nbsp;&nbsp;<a href="http://www.51cto.com/php/search.php?keyword=%B6%E0%CF%DF%B3%CC%CD%AC%B2%BD" target="_blank" class="underline">多线程同步</a>的更多文章</div>
+<div class="reltag">
+<ul class="fl list02">
+  <li><a href="./Java 多线程同步的五种方法 - 51CTO.COM_files/Java 多线程同步的五种方法 - 51CTO.COM.html" title="Java 多线程同步的五种方法">Java 多线程同步的五种方法</a></li><li><a href="http://developer.51cto.com/art/201509/490954.htm" title="Java面试题：栈和队列的实现">Java面试题：栈和队列的实现</a></li><li><a href="http://developer.51cto.com/art/201509/490843.htm" title="Java ThreadLocal 使用详解">Java ThreadLocal 使用详解</a></li><li><a href="http://developer.51cto.com/art/201509/490778.htm" title="Java参数按值传递？按引用传递">Java参数按值传递？按引用传递</a></li><li><a href="http://developer.51cto.com/art/201509/490775.htm" title="Java Socket编程----通信是这样炼成的">Java Socket编程----通信是这样炼成的</a></li>
+</ul>
+<div class="fr">
+<div class="h5 f12"><a href="http://developer.51cto.com/art/201508/487763.htm" title="编程语言排行榜Java夺冠 面向未来强力新特性早知道"><b>编程语言排行榜Java夺冠 面向未来强力新特</b></a></div>
+<a href="http://developer.51cto.com/art/201508/487763.htm" title="编程语言排行榜Java夺冠 面向未来强力新特性早知道"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1XEMFTTNXhnAAAclg8S7q4225.jpg" alt="编程语言排行榜Java夺冠 面向未来强力新特性早知道" width="100" height="80" border="0"></a>
+<p class="c666">TIOBE编程语言排行榜Java以4.5%的差距遥遥领先于第二名，以后使<a class="blue" href="http://developer.51cto.com/art/201508/487763.htm" title="编程语言排行榜Java夺冠 面向未来强力新特性早知道">[详细]</a></p>
+</div>
+</div>
+<!--reltag end-->
+</div>
+<p class="blank10"></p>
+
+<!--box end-->
+<p class="blank10"></p>
+<div class="relart fl bor">
+<div class="titbg">
+<h3 class="fl t1">栏目热门</h3>
+<a href="http://developer.51cto.com/click/1005" class="tmore">更多&gt;&gt;</a></div>
+<ul>
+  
+	  <li><a href="http://developer.51cto.com/art/201504/473474.htm" title="100多道经典的JAVA面试题及答案解析">100多道经典的JAVA面试题及答案解析</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201505/476122.htm" title="40个Java集合面试问题和答案">40个Java集合面试问题和答案</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201505/477817.htm" title="Java编程中最容易忽略的10个常见问题">Java编程中最容易忽略的10个常见问题</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201505/475084.htm" title="详谈Struts+Hibernate+Spring三大框架">详谈Struts+Hibernate+Spring三大框架</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201505/477637.htm" title="Java 8 默认方法和多继承深入解析">Java 8 默认方法和多继承深入解析</a></li>
+	  
+</ul>
+</div>
+<div class="cathot fr bor">
+<div class="titbg">
+<h3 class="fl t1">同期最新</h3>
+<a href="http://developer.51cto.com/col/1005" class="tmore">更多&gt;&gt;</a></div>
+<ul>
+	
+	  <li><a href="http://developer.51cto.com/art/201509/490954.htm" title="Java面试题：栈和队列的实现">Java面试题：栈和队列的实现</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201509/490843.htm" title="Java ThreadLocal 使用详解">Java ThreadLocal 使用详解</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201509/490842.htm" title="Java Json API：Gson使用简单入门">Java Json API：Gson使用简单入门</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201509/490778.htm" title="Java参数按值传递？按引用传递">Java参数按值传递？按引用传递</a></li>
+	  
+	  <li><a href="http://developer.51cto.com/art/201509/490775.htm" title="Java Socket编程----通信是这样炼成的">Java Socket编程----通信是这样炼成的</a></li>
+	  
+</ul>
+</div>
+<p class="blank10"></p>
+<div class="bor">
+<div class="titbg">
+<h3 class="fl t1"><a href="http://developer.51cto.com/">开发</a></h3>
+<span class="pl10">频道导航</span></div>
+ <ul class="xtlist">
+<li><span class="tit">Java</span>
+<div><a href="http://developer.51cto.com/java/">Java开发</a>|<a href="http://developer.51cto.com/col/1005/">Java基础</a>|<a href="http://developer.51cto.com/col/1014/">Java EE开发</a>|<a href="http://developer.51cto.com/col/1004/">Java框架</a>|<a href="http://developer.51cto.com/col/1007/">设计模式</a></div>
+</li>
+<li><span class="tit">WEB开发</span>
+<div><a href="http://developer.51cto.com/col/1441/">PHP开发</a>|<a href="http://developer.51cto.com/col/1455/">Python</a>|<a href="http://developer.51cto.com/col/1552/">Ruby</a>|<a href="http://developer.51cto.com/col/1552/">JSP</a>|<a href="http://developer.51cto.com/art/200907/133407.htm">HTML 5</a>|<a href="http://developer.51cto.com/col/1450/">DIV+CSS</a></div>
+</li>
+<li class="last"><span class="tit">综合</span>
+<div><a href="http://developer.51cto.com/net/">.NET开发</a>|<a href="http://developer.51cto.com/embed/">嵌入式开发</a>|<a href="http://developer.51cto.com/col/586/">项目管理</a>|<a href="http://developer.51cto.com/col/1308/">架构设计</a></div>
+</li>
+</ul> 
+</div> 
+<p class="blank10"></p>
+<p class="blank10"></p>
+<div class="leftbotcon">
+<div class="bor jdlist">
+<div class="titbg">
+<h3 class="t2">热点推荐</h3></div>
+<ul>
+<li><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-t-4&#39;]);" href="http://mobile.51cto.com/mobile-182392.htm"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/153546162.jpg"></a> 
+<div class="name"><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-t-4&#39;]);" href="http://mobile.51cto.com/mobile-182392.htm">Android开发应用详解</a></div></li>
+<li><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-t-4&#39;]);" href="http://developer.51cto.com/art/201106/266369.htm"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/133620622.jpg"></a> 
+<div class="name"><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-t-4&#39;]);" href="http://developer.51cto.com/art/201106/266369.htm">那些性感的让人尖叫的程序员</a></div></li>
+<li><a href="http://developer.51cto.com/art/200907/133407.htm"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/134217922.jpg"></a> 
+<div class="name"><a href="http://developer.51cto.com/art/200907/133407.htm">HTML5 下一代Web开发标准详解</a></div></li>
+<li><a href="http://developer.51cto.com/art/201104/257581.htm"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/123123954.jpg"></a> 
+<div class="name"><a href="http://developer.51cto.com/art/201104/257581.htm">高性能WEB开发应用指南</a></div></li>
+<li><a href="http://os.51cto.com/art/200706/49181.htm"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/195816929.jpg"></a> 
+<div class="name"><a href="http://os.51cto.com/art/200706/49181.htm">Ubuntu开源技术交流频道</a></div></li></ul></div>
+<p class="blank10"></p>
+<div class="bor hotTag"><strong>热门标签：</strong> <a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-2]);" href="http://os.51cto.com/windows/">windows频道</a><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-w&#39;]);" href="http://mobile.51cto.com/">移动开发</a><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-w&#39;]);" href="http://cloud.51cto.com/">云计算</a><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-w&#39;]);" href="http://mobile.51cto.com/mobile/objc/">objective-c</a><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-w&#39;]);" href="http://network.51cto.com/art/200909/151122.htm">tp-link路由器设置图解</a><a onclick="javascript: _gaq.push([&#39;_trackPageview&#39;, &#39;/51cto/neirong/d-w&#39;]);" href="http://developer.51cto.com/art/200907/133407.htm">html5</a> </div></div>
+<div class="leftbotbox"> </div>
+</div>
+<!--left end-->
+<div class="g_13 fr">
+<div class="focus fixfloat" style="height: 1490px;"> 
+ <a href="https://www-01.ibm.com/marketing/iwm/dre/signup?source=mrs-form-674&S_PKG=ov47055" target="_blank"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1cZzPvSAMsGAAIgFOxyJL8109.jpg"></a>
+<img width="298" style="border: 1px solid #CCCCCC; margin:5px 0px 5px;" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/weixin.jpg"><div class="hot" style="top: 1300px;">
+<ul>
+<li class="tit"><em>热点</em> <a href="http://developer.51cto.com/art/201603/507060.htm">可是姑娘，你为什么要编程呢?</a> </li>
+<li class="con"><dl><dt><a href="http://developer.51cto.com/art/201603/507060.htm"><img border="0" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKioL1beT4SQccgbAABxqJkiof8210.jpg"></a></dt>
+<dd>所以姑娘，让我们做一枚花见花开的程序媛。</dd>
+</dl></li></ul><ol class="hotlist"><li><a href="http://developer.51cto.com/art/201602/506409.htm">快速使用大规模机器学习的核心技术</a></li><li><a href="http://developer.51cto.com/art/201602/505817.htm">十年，我终于离开了360</a></li></ol></div>
+<script type="text/javascript">
+	$(function(){
+		$(".hot").css("top","1300px");
+		$(".g_13").find(".focus").css("height","1490px");
+	});
+	$('#goangga').css('display', 'block');
+</script>
+<p>
+<script language="JavaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ad(1).js" type="text/javascript"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ad(2).php"></script><iframe width="300" height="260" noresize="" scrolling="No" frameborder="0" marginheight="0" marginwidth="0" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/4.html" align="left"></iframe>
+</p>
+</div>
+<div class="bor vlist" id="edu">
+	<div class="titbg">
+    <h3 class="fl t1"><a href="http://edu.51cto.com/" target="_blank">视频课程</a></h3>
+    <a class="tmore" id="change" style="cursor:pointer">换一换</a>
+    </div>
+    
+    	<ul class="plist01" id="edu1"><li><a class="ico" href="http://edu.51cto.com/course/course_id-4420.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4420.html" target="_blank"><img title="解析HTML5与Phonegap跨平台框架视频课程" alt="解析HTML5与Phonegap跨平台框架视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/25ac8fd696ccfddf11d0232a2c330f10a5084b.png" height="80" width="100"></a><h5><a title="解析HTML5与Phonegap跨平台框架视频课程" href="http://edu.51cto.com/course/course_id-4420.html" target="_blank">解析HTML5与Phonegap跨平台框架视频课程</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-8194129.html" target="_blank">高焕堂</a></p><p> 5人学习过</p></div></li><li><a class="ico" href="http://edu.51cto.com/course/course_id-4419.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4419.html" target="_blank"><img title="SVN版本管理实践与大中小型代码上线解决方案精讲视频课程" alt="SVN版本管理实践与大中小型代码上线解决方案精讲视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/b6b13cf61843510cf8c75420e7457d9fea276d.png" height="80" width="100"></a><h5><a title="SVN版本管理实践与大中小型代码上线解决方案精讲视频课程" href="http://edu.51cto.com/course/course_id-4419.html" target="_blank">SVN版本管理实践与大中小型代码上线解决方案</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-2561410.html" target="_blank">老男孩</a></p><p> 22人学习过</p></div></li><li><a class="ico" href="http://edu.51cto.com/course/course_id-4416.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4416.html" target="_blank"><img title="cityengine案例系列（Tutorial_17_Desert_City）视频课程" alt="cityengine案例系列（Tutorial_17_Desert_City）视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/f20939f311d6c95816483430ead712beb19dd9.png" height="80" width="100"></a><h5><a title="cityengine案例系列（Tutorial_17_Desert_City）视频课程" href="http://edu.51cto.com/course/course_id-4416.html" target="_blank">cityengine案例系列（Tutorial_17_Desert_Cit</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-9828130.html" target="_blank">张一波</a></p><p> 25人学习过</p></div></li></ul><ul class="plist01" id="edu2" style="display:none"><li><a class="ico" href="http://edu.51cto.com/course/course_id-4415.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4415.html" target="_blank"><img title="cityengine案例系列（Tutorial_16_Urban_Planning）" alt="cityengine案例系列（Tutorial_16_Urban_Planning）" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/91d1f1855a406c2247a277301201489148a570.png" height="80" width="100"></a><h5><a title="cityengine案例系列（Tutorial_16_Urban_Planning）" href="http://edu.51cto.com/course/course_id-4415.html" target="_blank">cityengine案例系列（Tutorial_16_Urban_Plan</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-9828130.html" target="_blank">张一波</a></p><p> 4人学习过</p></div></li><li><a class="ico" href="http://edu.51cto.com/course/course_id-4414.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4414.html" target="_blank"><img title="WordPress企业站建站实战视频课程" alt="WordPress企业站建站实战视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/e3a0d91713c44aff1c0622c6576c605c2bdc41.png" height="80" width="100"></a><h5><a title="WordPress企业站建站实战视频课程" href="http://edu.51cto.com/course/course_id-4414.html" target="_blank">WordPress企业站建站实战视频课程</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-7631164.html" target="_blank">丘杰</a></p><p> 182人学习过</p></div></li><li><a class="ico" href="http://edu.51cto.com/course/course_id-4412.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4412.html" target="_blank"><img title="实战HDFS精讲视频课程" alt="实战HDFS精讲视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/122c7e78943a8dad6f3801208ad632a8c37d2c.jpg" height="80" width="100"></a><h5><a title="实战HDFS精讲视频课程" href="http://edu.51cto.com/course/course_id-4412.html" target="_blank">实战HDFS精讲视频课程</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-3613394.html" target="_blank">吴超</a></p><p> 18人学习过</p></div></li></ul><ul class="plist01" id="edu3" style="display:none"><li><a class="ico" href="http://edu.51cto.com/course/course_id-4410.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4410.html" target="_blank"><img title="数据结构基础系列(3)：栈和队列视频课程" alt="数据结构基础系列(3)：栈和队列视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/a59d287163d0aa2b944134d28b1de588c5a90b.jpg" height="80" width="100"></a><h5><a title="数据结构基础系列(3)：栈和队列视频课程" href="http://edu.51cto.com/course/course_id-4410.html" target="_blank">数据结构基础系列(3)：栈和队列视频课程</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-3160987.html" target="_blank">贺利坚</a></p><p> 18人学习过</p></div></li><li><a class="ico" href="http://edu.51cto.com/course/course_id-4407.html" target="_blank"></a><a href="http://edu.51cto.com/course/course_id-4407.html" target="_blank"><img title="2011年网络规划设计师真题详解视频课程" alt="2011年网络规划设计师真题详解视频课程" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/d2aef6b05f817de07a9252820f73dd39e858f9.jpg" height="80" width="100"></a><h5><a title="2011年网络规划设计师真题详解视频课程" href="http://edu.51cto.com/course/course_id-4407.html" target="_blank">2011年网络规划设计师真题详解视频课程</a></h5><div class="c666"><p>讲师：<a href="http://edu.51cto.com/lecturer/user_id-5957446.html" target="_blank">朱小平</a></p><p> 17人学习过</p></div></li></ul>
+	
+</div>
+<div class="rank">
+<div class="tlt">
+      <h3>文章排行</h3>
+      <a onmouseover="change_top10(3);" id="top_3">本月</a><a onmouseover="change_top10(2);" id="top_2">本周</a><a onmouseover="change_top10(1);" class="myon" id="top_1">24小时</a> </div>
+ <div id="top10_1" style="display: block;" class="list"><ul>
+<li><a href="http://developer.51cto.com/art/201006/205212.htm" target="_blank" title="多图详解Spring框架的设计理念与设计模">多图详解Spring框架的设计理念与设计模</a>
+</li><li><a href="http://developer.51cto.com/art/201107/274075.htm" target="_blank" title="29个非常实用的HTML 5实例、教程和技巧">29个非常实用的HTML 5实例、教程和技巧</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464543.htm" target="_blank" title="PHP对战Node.js：一场关于开发者喜好的">PHP对战Node.js：一场关于开发者喜好的</a>
+</li><li><a href="http://developer.51cto.com/art/200906/128274.htm" target="_blank" title="Java数组声明、创建、初始化">Java数组声明、创建、初始化</a>
+</li><li><a href="http://developer.51cto.com/art/200903/117512.htm" target="_blank" title="详解Java解析XML的四种方法">详解Java解析XML的四种方法</a>
+</li><li><a href="http://developer.51cto.com/art/201302/380661.htm" target="_blank" title="现在就开始使用AngularJS的三个重要原">现在就开始使用AngularJS的三个重要原</a>
+</li><li><a href="http://developer.51cto.com/art/201502/464853.htm" target="_blank" title="游戏中的“战争黑雾”和现实中的程序员">游戏中的“战争黑雾”和现实中的程序员</a>
+</li><li><a href="http://developer.51cto.com/art/200908/146071.htm" target="_blank" title="五个免费UML建模工具推荐">五个免费UML建模工具推荐</a>
+</li><li><a href="http://developer.51cto.com/art/201103/248670.htm" target="_blank" title="25个超棒的jQuery日历和日期选取插件">25个超棒的jQuery日历和日期选取插件</a>
+</li><li><a href="http://developer.51cto.com/art/201502/464832.htm" target="_blank" title="Visual C++ 2015引入更新的C++ 特性到W">Visual C++ 2015引入更新的C++ 特性到W</a>
+</li></ul></div>
+<div id="top10_2" style="display: none;" class="list"><ul>
+<li><a href="http://developer.51cto.com/art/201501/464543.htm" target="_blank" title="PHP对战Node.js：一场关于开发者喜好的">PHP对战Node.js：一场关于开发者喜好的</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464238.htm" target="_blank" title="关于大型网站技术演进的思考：存储的瓶">关于大型网站技术演进的思考：存储的瓶</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464538.htm" target="_blank" title="我辞去了工作 住在帐篷中写代码">我辞去了工作 住在帐篷中写代码</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464391.htm" target="_blank" title="【博文推荐】来自某CTO的演讲：对码农">【博文推荐】来自某CTO的演讲：对码农</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464539.htm" target="_blank" title="Java架构师与开发者提高效率的10个工具">Java架构师与开发者提高效率的10个工具</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464382.htm" target="_blank" title="能让程序员心花怒放的七种礼物">能让程序员心花怒放的七种礼物</a>
+</li><li><a href="http://developer.51cto.com/art/201502/464640.htm" target="_blank" title="如何在发型不乱的前提下应对单日十亿计">如何在发型不乱的前提下应对单日十亿计</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464537.htm" target="_blank" title="微信开放JS-SDK后 创业还需要开发App么">微信开放JS-SDK后 创业还需要开发App么</a>
+</li><li><a href="http://developer.51cto.com/art/201502/464638.htm" target="_blank" title="优秀网站看前端：小米Note介绍页面代码">优秀网站看前端：小米Note介绍页面代码</a>
+</li><li><a href="http://developer.51cto.com/art/201502/464632.htm" target="_blank" title="软件项目将死的 27 个征兆">软件项目将死的 27 个征兆</a>
+</li></ul></div>
+<div id="top10_3" style="display: none;" class="list"><ul>
+<li><a href="http://developer.51cto.com/art/201501/464174.htm" target="_blank" title="近200篇机器学习&amp;深度学习资料分享（含">近200篇机器学习&amp;深度学习资料分享（含</a>
+</li><li><a href="http://developer.51cto.com/art/201501/463840.htm" target="_blank" title="2015年薪酬大涨的15个IT岗位">2015年薪酬大涨的15个IT岗位</a>
+</li><li><a href="http://developer.51cto.com/art/201501/463946.htm" target="_blank" title="成为高级程序员的 10 个步骤">成为高级程序员的 10 个步骤</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464113.htm" target="_blank" title="程序员愤怒了：我们不仅要当管理者还要">程序员愤怒了：我们不仅要当管理者还要</a>
+</li><li><a href="http://developer.51cto.com/art/201501/463234.htm" target="_blank" title="2015年1月编程语言排行榜：JavaScript">2015年1月编程语言排行榜：JavaScript</a>
+</li><li><a href="http://developer.51cto.com/art/201501/463338.htm" target="_blank" title="参考淘宝团队实践：一个简单粗暴的前后">参考淘宝团队实践：一个简单粗暴的前后</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464232.htm" target="_blank" title="2014年最热门的国人开发开源软件TOP100">2014年最热门的国人开发开源软件TOP100</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464170.htm" target="_blank" title="不要浪费时间去写所谓的完美代码">不要浪费时间去写所谓的完美代码</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464543.htm" target="_blank" title="PHP对战Node.js：一场关于开发者喜好的">PHP对战Node.js：一场关于开发者喜好的</a>
+</li><li><a href="http://developer.51cto.com/art/201501/464238.htm" target="_blank" title="关于大型网站技术演进的思考：存储的瓶">关于大型网站技术演进的思考：存储的瓶</a>
+</li></ul></div>
+ 
+ </div>
+<p class="blank1"></p>
+<div class="bor">
+<div class="titbg">
+<h3 class="fl t1">热点职位</h3>
+<a href="http://gaozhao.51cto.com/job-search/list" class="tmore">更多&gt;&gt;</a></div>
+	<div class="rmzwn_xx"><dl><dt><a href="http://gaozhao.51cto.com/job/view/id-2915.html" target="_blank"> PHP开发工程师 </a></dt><dd><h2>全职/1-3年/大专</h2><span>5k-10k</span><a href="http://gaozhao.51cto.com/company/view/id-1.html" target="_blank">新浪网</a></dd></dl><dl><dt><a href="http://gaozhao.51cto.com/job/view/id-2180.html" target="_blank"> java开发工程师 </a></dt><dd><h2>全职/3-5年/本科</h2><span>10k-20k</span><a href="http://gaozhao.51cto.com/company/view/id-515.html" target="_blank">齐聚科技</a></dd></dl><dl><dt><a href="http://gaozhao.51cto.com/job/view/id-2367.html" target="_blank"> C++开发工程师 </a></dt><dd><h2>全职/1-3年/本科</h2><span>7k-12k</span><a href="http://gaozhao.51cto.com/company/view/id-205.html" target="_blank">北辰德</a></dd></dl><dl><dt><a href="http://gaozhao.51cto.com/job/view/id-2130.html" target="_blank"> PHP开发工程师 </a></dt><dd><h2>全职/1-3年/大专</h2><span>8k-12k</span><a href="http://gaozhao.51cto.com/company/view/id-513.html" target="_blank">租租车</a></dd></dl><dl><dt><a href="http://gaozhao.51cto.com/job/view/id-2735.html" target="_blank"> WEB前端设计师 </a></dt><dd><h2>全职/1-3年/大专</h2><span>4k-6k</span><a href="http://gaozhao.51cto.com/company/view/id-593.html" target="_blank">找家电网</a></dd></dl></div>
+</div>
+<div class="blank10"></div>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/51cto_sha1.js"></script>
+<div class="bor">
+<div class="titbg">
+<h3 class="fl t1">热点专题</h3>
+<a href="http://developer.51cto.com/speclist/1005" class="tmore">更多&gt;&gt;</a></div>
+<ul class="plist01">
+<li><a href="http://developer.51cto.com/art/201410/455968.htm" title="八年艰辛努力 HTML5标准规范最终制定完成"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1RR4XmgGdHeAAAV0pCRhkg807.gif" alt="八年艰辛努力 HTML5标准规范最终制定完成" width="100" height="80"></a>
+<h5><a href="http://developer.51cto.com/art/201410/455968.htm" title="八年艰辛努力 HTML5标准规范最终制定完成">八年艰辛努力 HTML5标</a></h5>
+<div class="c666">在此之前的几年时间里，已经有很多开发者陆续使用了HT</div>
+</li><li><a href="http://developer.51cto.com/art/201405/437602.htm" title="2014四大开发技术点评 给你那些不知道的"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKioL1Nl096yalTOAAAYEJ2fi1E706.jpg" alt="2014四大开发技术点评 给你那些不知道的" width="100" height="80"></a>
+<h5><a href="http://developer.51cto.com/art/201405/437602.htm" title="2014四大开发技术点评 给你那些不知道的">2014四大开发技术点评</a></h5>
+<div class="c666">编程领域在这几年里迎来了翻天覆地的变化，如果说C、C</div>
+</li><li><a href="http://developer.51cto.com/art/201404/436647.htm" title="创业，你不知道的那些事"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1NWlFSQvyKVAAAYpf9k_nQ093.jpg" alt="创业，你不知道的那些事" width="100" height="80"></a>
+<h5><a href="http://developer.51cto.com/art/201404/436647.htm" title="创业，你不知道的那些事">创业，你不知道的那些</a></h5>
+<div class="c666">我们都知道在20世纪90年代是多元文化和多媒体时代，而</div>
+</li> 
+</ul>
+</div>
+<p class="blank10"></p>
+<div class="tagCloud">
+<div class="tlt">
+<h3>热点标签</h3>
+</div>
+<div class="taglist"><a title="编程语言排行榜" href="http://developer.51cto.com/art/200911/165281.htm">编程语言排行榜</a> <a title="敏捷开发" href="http://developer.51cto.com/art/200803/68222.htm">敏捷开发</a> <a title="Eclipse" href="http://developer.51cto.com/art/201006/207407.htm">Eclipse 3.6</a> <a title="PHP设计模式" href="http://developer.51cto.com/art/201004/195765.htm">PHP设计模式</a> <a title="NetBeans7" href="http://developer.51cto.com/art/201105/259431.htm">NetBeans 7</a> <a title="Java7" href="http://developer.51cto.com/art/201001/175830.htm">Java7</a> <a title="Scala编程语言" href="http://developer.51cto.com/art/200906/127830.htm">Scala编程语言</a> <a title="Python编程世界" href="http://developer.51cto.com/art/201011/234347.htm">Python编程世界</a> <a title="Ruby" on="" rails开发="" href="http://developer.51cto.com/art/201007/215101.htm">Ruby On Rails开发</a> <a class="imp" title="LINQ" href="http://developer.51cto.com/art/200911/165090.htm">LINQ</a> <a title="ASP.NET视频教程" href="http://developer.51cto.com/art/200904/120314.htm">ASP.NET视频教程</a> <a title="Visual Studio" href="http://developer.51cto.com/art/201004/194262.htm">Visual Studio</a> <a title="智能手机" href="http://p.linkphone.cn/">智能手机</a> <a title="软件下载" href="http://download.linkphone.cn/">软件下载</a></div>
+</div>
+<div class="rss">
+<ul>
+<li class="lin f12-c"><a href="http://news.51cto.com/col/1323/"><strong>点击这里查看样刊</strong></a></li>
+<li>
+<dl>
+<dt> </dt>
+<dd><a href="http://home.51cto.com/index.php?s=/Subscribe"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/dingy.gif"></a></dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="bor">
+<div class="titbg">
+<h3 class="t1">全站热点</h3>
+</div>
+<div class="webhot fixfloat">
+<ul>
+
+<li>
+  <a href="http://developer.51cto.com/art/201508/489821.htm" title="JAVA精品外电 技术与工具热文"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1XlV7fy6L-hAAA3JRH3AlE567.jpg"></a>
+  <div><a href="http://developer.51cto.com/art/201508/489821.htm" title="JAVA精品外电 技术与工具热文">JAVA精品外电 技术与工具热文</a></div>
+</li>
+
+<li>
+  <a href="http://developer.51cto.com/art/201508/488342.htm" title="毕业季开头难？分享一些IT技术大牛的心得"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wKiom1XVgbig-mJMAAAyB5WXfQo951.jpg"></a>
+  <div><a href="http://developer.51cto.com/art/201508/488342.htm" title="毕业季开头难？分享一些IT技术大牛的心得">毕业季开头难？分享一些IT技术大牛的</a></div>
+</li>
+
+</ul>
+</div>
+<p class="blank1"></p>
+<ul class="list03">
+
+<li><a href="http://network.51cto.com/art/201509/490012.htm" title="暖通空调知识：机房制冷系统的维护和优化">暖通空调知识：机房制冷系统的维护和</a></li>
+
+<li><a href="http://developer.51cto.com/art/201509/490011.htm" title="在 Linux 中使用日志来排错">在 Linux 中使用日志来排错</a></li>
+
+<li><a href="http://netsecurity.51cto.com/art/201509/490010.htm" title="服务器如何防止DDoS攻击？">服务器如何防止DDoS攻击？</a></li>
+
+<li><a href="http://cloud.51cto.com/art/201509/490009.htm" title="云计算和大数据的标准化需求和标准化组织">云计算和大数据的标准化需求和标准化</a></li>
+
+<li><a href="http://netsecurity.51cto.com/art/201509/490008.htm" title="不要永远失去你的数据">不要永远失去你的数据</a></li>
+
+</ul>
+</div>
+<p class="blank10"></p>
+<div class="bor">
+<div class="titbg">
+<h3 class="t1">读书</h3>
+</div>
+  
+<div class="catbook"><a href="http://book.51cto.com/art/200707/50437.htm" title="精通ASP.NET 2.0+XML+CSS网络开发混合编程"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/162325405.gif" width="66" height="98" border="0"></a>
+<h5><a href="http://book.51cto.com/art/200707/50437.htm">精通ASP.NET 2.0+XML+CSS网络开发混合编程</a></h5>
+<div class="c666 text">本书以最新的ASP.NET 2.0为基础，详细阐述了当前网络开发的经典架构ASP.NET 2.0+XML+CSS的各个知识点，以及SQL Server 2005的相</div>
+</div>
+
+
+<ul class="list03">
+
+<li><a href="http://book.51cto.com/art/200709/55461.htm" title="超级网管员——网络管理">超级网管员——网络管理</a></li>
+
+<li><a href="http://book.51cto.com/art/200709/55557.htm" title="超级网管员——网络基础">超级网管员——网络基础</a></li>
+
+<li><a href="http://book.51cto.com/art/200709/55729.htm" title="超级网管员——网络设备">超级网管员——网络设备</a></li>
+
+<li><a href="http://book.51cto.com/art/200709/56036.htm" title="超级网管员——网络安全">超级网管员——网络安全</a></li>
+
+</ul>
+</div>
+<p class="blank10"></p>
+<div class="bor">
+<div class="titbg">
+<h3 class="t1 fl">博文推荐</h3>
+<a class="tmore" href="http://blog.51cto.com/">更多&gt;&gt;</a></div>
+
+<ul class="list03">
+ <li><a href="http://freebird.blog.51cto.com/372076/163563/" target="_blank" title="对编程的一点感悟">对编程的一点感悟</a></li><li><a href="http://dynamic.blog.51cto.com/711418/163497/" target="_blank" title="IT-标准化-系列-7.使用VPC+VNC管理虚拟机">IT-标准化-系列-7.使用VPC+VNC管理虚</a></li><li><a href="http://dynamic.blog.51cto.com/711418/163487/" target="_blank" title="IT-标准化-系列-4.远程控制-VNC">IT-标准化-系列-4.远程控制-VNC</a></li><li><a href="http://tonyguo.blog.51cto.com/379574/163475/" target="_blank" title=" DHCP工作过程详解"> DHCP工作过程详解</a></li>
+</ul>
+</div>
+<p class="blank10"></p>
+<div class="tj">
+<div class="tlt">
+<h3>最新热帖</h3>
+<a class="more" href="http://bbs.51cto.com/hotthreads.php">更多&gt;&gt;</a></div>
+<ul>
+<li><a href="http://bbs.51cto.com/thread-26429-1.html" target="_blank" title="通用WAP网站生成系统(PowerDiamond) v.1">通用WAP网站生成系统(PowerDiamond) </a></li><li><a href="http://bbs.51cto.com/thread-11063-1.html" target="_blank" title="八类大学毕业生求职时不受欢迎">八类大学毕业生求职时不受欢迎</a></li><li><a href="http://bbs.51cto.com/thread-6946-1.html" target="_blank" title="IT人为什么难以拿到高薪？【转帖】">IT人为什么难以拿到高薪？【转帖】</a></li><li><a href="http://bbs.51cto.com/thread-4333-1.html" target="_blank" title="想去外企上班">想去外企上班</a></li>
+</ul>
+</div>
+<div class="picAD">
+<iframe class="bann" frameborder="0" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/baidu.html" scrolling="No" style="height: 265px; width: 300px; padding: 0px; margin: 0px; overflow: hidden; background-color: white;"></iframe>
+</div>
+</div>
+<p class="blank1"></p> 
+<!--leftbotcon end-->
+</div> 
+<div style="width:960px; margin:0 auto;">
+<script type="text/javascript">
+    /*960*90 创建于 2015-11-05文章页 旗下网站上方通栏*/
+    var cpro_id = "u2386966";
+</script>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/c.js" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u2386966_0"><iframe id="iframeu2386966_0" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/scvm.html" width="960" height="90" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0; vertical-align:bottom;margin:0;" allowtransparency="true"></iframe></div>
+</div>
+<div class="subweb">
+<h4>51CTO旗下网站</h4>
+<div>
+<a target="_blank" href="http://www.51cto.com/">领先的IT技术网站 51CTO</a>
+<a target="_blank" href="http://www.watchstor.com/">领先的中文存储媒体 WatchStor</a>
+<a target="_blank" href="http://www.cioage.com/">中国首个CIO网站 CIOage</a>
+<a target="_blank" href="http://www.hc3i.cn/">中国首家数字医疗网站 HC3i</a>
+</div>
+</div>
+<div id="ft"><div id="foot" align="center"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/copy_right.js"></script>Copyright&#169;2005-2016 <a href="http://www.51cto.com/">51CTO.COM</a> 版权所有 未经许可 请勿转载<div style="display:none;"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=d55da66c9f787db48875408c202cde11" target="_blank"><img border="0" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/21.gif" width="20" height="20"></a></div></div></div>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/count.js"></script><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/count.php"></script><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/countuser2.php"></script><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/scroll.js"></script>
+
+<script type="text/javascript">
+	$("#uyan_cmt_list").next().remove();	
+	$("#uyan_cmt_list").next().css("display","none");	
+</script>
+<style>
+.Nfloat { position: fixed; right: 2%; top: 35%; z-index: 801; }
+</style>
+
+
+
+<!-- 新监测代码 -->
+<!-- 新监测代码 -->
+<div id="MyMoveAd" style="display: none; height: 2px;">
+<span id="wordlink_1"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink1.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs.php"></script><a href="http://gg2.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3042__zoneid=270__cb=6dbcdb96c5__oadest=http%3A%2F%2Fcloud.51cto.com%2Fact%2Fveritas%2F201604" target="_blank"><font color="red">数据保护秘籍 点击免费领取</font></a><div id="beacon_6dbcdb96c5" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</span>
+<span id="wordlink_2"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink2.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs(1).php"></script><a href="http://gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3546__zoneid=631__cb=14efc87fd2__oadest=http%3A%2F%2Fedutest.51cto.com%2Ftraining%2Ftraining_id-19.html%3Fxiaoshou" target="_blank"><font color="red">Android开发120天完成9个APP项目</font></a><div id="beacon_14efc87fd2" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg(1).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</span>
+<span id="wordlink_3"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink3.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs(2).php"></script><a href="http://gg.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=2370__zoneid=594__cb=4830202d02__oadest=http%3A%2F%2Fnetsecurity.51cto.com%2Fsecu%2FBlackHat%2F2015%2F" target="_blank"><font color="red">2015黒帽大会现场报道</font></a><div id="beacon_4830202d02" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg(2).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</span>
+<span id="wordlink_4"><script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/wordlink4.js"></script><script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ajs(3).php"></script><a href="http://gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3549__zoneid=636__cb=b194e058a5__oadest=http%3A%2F%2Fedutest.51cto.com%2Ftraining%2Ftraining_id-17.html%3Fxiaoshou" target="_blank"><font color="red">2016年备战软考-重难点解析</font></a><div id="beacon_b194e058a5" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Java 多线程同步的五种方法 - 51CTO.COM_files/lg(3).php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+</span>
+<span id="pinglun"><script language="JavaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/getArtCount.php"></script>0</span>
+<span id="tonglan"></span>
+<span id="wordlink"><script language="JavaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ad(3).js"></script></span>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/ad(3).js"></script>
+<span id="bookss"><script language="JavaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/getBookData.php"></script></span>
+</div>   
+<script language="javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/favorite.js"></script>
+
+<script language="javaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/dialog_utf8.js"></script>
+<script language="javaScript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/mail.js"></script>  
+<script type="text/javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/favorbox.js"></script>
+<script language="javascript" src="./Java 多线程同步的五种方法 - 51CTO.COM_files/clipboard.js"></script>
+<script language="javaScript"> 
+	var thistid=490965; 
+	
+	//收藏按钮
+	var favor_url = 'http://developer.51cto.com/art/201509/490965.htm';  // 如：http://bbs.51cto.com/thread-789649-1.html
+	var favor_title = 'Java 多线程同步的五种方法';       //  
+	
+	//绑定复制按钮
+	copy('msnqqcopy', 'http://developer.51cto.com/art/201509/490965.htm', '分享到MSN/QQ的链接复制成功!');
+//	copy('bbscopy', '[url=http://developer.51cto.com/art/201509/490965.htm][u]Java 多线程同步的五种方法[/u][/url]', '分享到论坛的UBB代码复制成功!');
+
+</script><div style="position: absolute; left: 784px; top: 10486px; width: 34px; height: 12px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="http://images.51cto.com/images/art/newart1012/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="34" height="12" name="ZeroClipboardMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=34&amp;height=12" wmode="transparent"></div> 
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/index.php" charset="utf-8"></script>
+<script src="./Java 多线程同步的五种方法 - 51CTO.COM_files/count(1).php" language="javascript"></script>
+<script language="javascript">
+document.getElementById('books').innerHTML = document.getElementById("bookss").innerHTML; 
+</script>
+
+
+
+</body></html>
