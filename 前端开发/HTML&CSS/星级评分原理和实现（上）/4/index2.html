@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		
+		.rating{
+			position: relative;
+			width: 130px;
+			height: 26px;
+			background: url(img/rating.png) repeat-x;
+			margin: 100px auto;
+		}		
+		
+		.rating-item{
+			position: absolute;
+			top: 0;
+			z-index: 3;
+			width: 26px;
+			height: 26px;
+		}
+		.rating-item-1{
+			left: 0;
+		}
+		.rating-item-1{
+			left: 26px;
+		}
+		.rating-item-1{
+			left: 52px;
+		}
+		.rating-item-1{
+			left: 78px;
+		}
+		.rating-item-1{
+			left: 104px;
+		}
+		.rating-item:hover{
+			left: 0;
+			z-index: 2;
+			background: url(img/rating.png) no-repeat 0 -26px;
+		}
+		.rating-item-1:hover{
+			width: 26px;
+		}
+		.rating-item-2:hover{
+			width: 52px;
+		}
+		.rating-item-3:hover{
+			width: 78px;
+		}
+		.rating-item-4:hover{
+			width: 104px;
+		}
+		.rating-item-5:hover{
+			width: 130px;
+		}
+	</style>
+</head>
+<body>
+<!-- IE8以上 -->
+		<div class="rating">
+			<a href="javascript:;" class="rating-item rating-item-1" title="很不好"></a>
+			<a href="javascript:;" class="rating-item rating-item-2" title="不好"></a>
+			<a href="javascript:;" class="rating-item rating-item-3" title="一般"></a>
+			<a href="javascript:;" class="rating-item rating-item-4" title="好"></a>
+			<a href="javascript:;" class="rating-item rating-item-5" title="很好"></a>
+		</div>
+		
+	
+</body>
+</html>

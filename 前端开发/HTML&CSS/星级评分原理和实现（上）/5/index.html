@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    body,
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        list-style-type: none;
+    }
+    .rating,
+    .rating-display {
+        background: url(img/rating.png) repeat-x;
+    }
+    .rating {
+        position: relative;
+        width: 130px;
+        margin: 100px auto;
+        /*overflow: hidden;*/
+    }
+    .rating-display {
+        width: 0;
+        height: 26px;
+        background-position: 0 26px;
+    }
+    .rating-mask {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .rating-item {
+        float: left;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- IE8以上 -->
+    <div id="" rating class="rating">
+        <div class="rating-display"></div>
+        <ul class="rating-mask">
+            <li class="rating-item"></li>
+            <li class="rating-item"></li>
+            <li class="rating-item"></li>
+            <li class="rating-item"></li>
+            <li class="rating-item"></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="d:/workspace/jquery-2.0.3/jquery-2.0.3/jquery.js"></script>
+    <script type="text/javascript">
+    var rating = (function() {
+
+        var strategies = {
+            entire: function() {
+                return 1;
+            },
+            half: function() {
+                return 2;
+            },
+            quarter: function() {
+                return 4;
+            }
+        };
+
+        Rating = function(el, options) {
+            this.$el = $(el);
+            this.opts = $.extend({}, Rating.DEFAULTS, options);
+
+            if (!strategies[this.opts.mode]) {
+                this.opts.mode = 'entire';
+            }
+            this.ratio = strategies[this.opts.mode]();
+
+            this.opts.total *= this.ratio;
+            this.opts.num *= this.ratio;
+            this.itemWidth = 26 / this.ratio;
+            this.displayWidth = this.opts.num * this.itemWidth;
+        };
+        Rating.DEFAULTS = {
+            mode: 'entire',
+            total: 5,
+            num: 2,
+            readOnly: false,
+            select: function() {
+
+            },
+            chosen: function() {
+
+            }
+        };
+        Rating.prototype.init = function() {
+            this.buildHtml();
+            this.setCSS();
+            if (!this.opts.readOnly) {
+
+                this.bindEvent();
+            }
+        };
+        Rating.prototype.buildHtml = function() {
+            var html = '';
+            html += '<div class="rating-display"></div>';
+            html += '<ul class="rating-mask">';
+            for (var i = 0, i < this.opts.total; i++) {
+
+                html += '<li class="rating-item"></li>';
+            }
+            html += '</ul>';
+
+            this.$el.html(html);
+        }
+        Rating.prototype.setCSS = function() {
+            this.$el.width(this.opts.total * this.itemWidth);
+            this.$display = this.$el.find('.rating-display');
+            this.$display.width(this.displayWidth);
+            this.$el.find('.rating-item').width(this.itemWidth);
+        }
+        Rating.prototype.bindEvent = function() {
+            var self = this;
+            this.$el.on('mouseover', '.rating-item', function(event) {
+                var count = $(this).index() + 1;
+
+                self.$display.width(count * itemWidth);
+
+                (typeof self.opts.select === 'function') && self.opts.select.call(this, count, self.opts.total);
+                self.$el.trigger('select', [count, self.opts.total]);
+            }).on('click', '.rating-item', function() {
+
+                var count = $(this).index() + 1;
+
+                self.displayWidth = count * self.itemWidth;
+
+                (typeof self.opts.chosen === 'function') && self.opts.chosen.call(this, count, self.opts.total);
+                self.$el.trigger('chosen', [count, self.opts.total]);
+            }).on('mouseout', function() {
+
+                self.$display.width(self.displayWidth);
+            });
+        };
+        Rating.prototype.unbindEvent = function() {
+            this.$el.off();
+        }
+        var init = function(el, option) {
+            // new Rating(el, option).init();
+            var $el = $(el),
+                rating = $el.data('rating');
+
+            if (!rating) {
+                $el.data('rating', (rating = new Rating(el, typeof option === 'object' && option)));
+                rating.init();
+
+            }
+            if (typeof option === 'string') rating[option]();
+        };
+
+        $.fn.extend({
+            rating: function(option) {
+                return this.$.each(function(index, val) {
+                    init(this, option)
+                });
+            }
+        });
+
+
+        return {
+            init: init
+        }
+    })();
+
+    $('#rating').rating({
+            total: 7,
+            num: 4,
+            select: function(count, total) {
+                console.log(this);
+                console.log(count + '/' + total);
+
+            },
+            chosen: function(count, total) {
+                console.log(this);
+                console.log(count + '/' + total);
+                $('#rating').rating('unbindEvent');
+            }
+        })
+        // rating.init('#rating', {
+        //     total: 6,
+        //     num: 3,
+        //     select: function(count, total) {
+        //         console.log(this);
+        //         console.log(count + '/' + total);
+
+    //     },
+    //     chosen: function(count, total) {
+    //         console.log(this);
+    //         console.log(count + '/' + total);
+    // rating.init('#rating','unbindEvent');
+    //     }
+    // });
+    </script>
+
+</body>
+
+</html>

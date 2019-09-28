@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		
+		.rating{
+			position: relative;
+			width: 130px;
+			height: 26px;
+			background: url(img/rating.png) repeat-x;
+			margin: 100px auto;
+			overflow: hidden;
+		}		
+		.rating:hover .rating-item{
+			background-image: none;
+		}
+		.rating input{
+			position: absolute;
+			left: 0;
+			top: -20px;
+		}
+		.rating-item{
+			position: absolute;
+			top: 0;
+			z-index: 3;
+			width: 26px;
+			height: 26px;
+		}
+		.rating-item-1{
+			left: 0;
+		}
+		.rating-item-1{
+			left: 26px;
+		}
+		.rating-item-1{
+			left: 52px;
+		}
+		.rating-item-1{
+			left: 78px;
+		}
+		.rating-item-1{
+			left: 104px;
+		}
+		.rating-item:hover{
+			left: 0;
+			z-index: 2;
+			background: url(img/rating.png) no-repeat 0 -26px!important;
+		}
+		input:checked + .rating-item{
+			left: 0;
+			z-index: 1;
+			background: url(img/rating.png) no-repeat 0 -26px;
+		}
+		input:checked + .rating-item ~ .rating-item:hover{
+			z-index: 0;
+		}
+		.rating-item-1:hover,#rating-1:checked + .rating-item{
+			width: 26px;
+		}
+		.rating-item-2:hover,#rating-2:checked + .rating-item{
+			width: 52px;
+		}
+		.rating-item-3:hover,#rating-3:checked + .rating-item{
+			width: 78px;
+		}
+		.rating-item-4:hover,#rating-4:checked + .rating-item{
+			width: 104px;
+		}
+		.rating-item-5:hover,#rating-5:checked + .rating-item{
+			width: 130px;
+		}
+	</style>
+</head>
+<body>
+<!-- IE8以上 -->
+		<form>
+			<div class="rating">
+				<input type="radio" name="rating" id="rating-1" value="1">
+				<a href="javascript:;" class="rating-item rating-item-1" title="很不好"><label for="rating-1"></label></a>
+				<input type="radio" name="rating" id="rating-2" value="2" checked="checked">
+				<a href="javascript:;" class="rating-item rating-item-2" title="不好"><label for="rating-2"></label></a>
+				<input type="radio" name="rating" id="rating-3" value="3">
+				<a href="javascript:;" class="rating-item rating-item-3" title="一般"><label for="rating-3"></label></a>
+				<input type="radio" name="rating" id="rating-4" value="4">
+				<a href="javascript:;" class="rating-item rating-item-4" title="好"><label for="rating-4"></label></a>
+				<input type="radio" name="rating" id="rating-5" value="5">
+				<a href="javascript:;" class="rating-item rating-item-5" title="很好"><label for="rating-5"></label></a>
+			</div>
+			<input type="submit" value="提交">
+		</form>
+		
+	
+</body>
+</html>

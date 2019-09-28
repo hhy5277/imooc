@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body,ul,li{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style-type: none;
+		}
+		.rating{
+			width: 130px;
+			height: 26px;
+			margin: 100px auto;
+		}
+		.rating-item{
+			float: left;
+			width: 26px;
+			height: 26px;
+			background: url(img/rating.png) no-repeat center center;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<ul class="rating" id="rating">
+		<li class="rating-item" title="很不好"></li>
+		<li class="rating-item" title="不好"></li>
+		<li class="rating-item" title="一般"></li>
+		<li class="rating-item" title="好"></li>
+		<li class="rating-item" title="很好"></li>
+	</ul>
+	<script type="text/javascript" src="d:/workspace/jquery-2.0.3/jquery-2.0.3/jquery.js"></script>
+	<script type="text/javascript">
+	var rating = (function  () {
+		
+		var lightOn = function  ($item,num) {
+			
+			$item.each(function  (index) {
+				if(index<num){
+					$(this).css('background-position','0 -26px');
+				}else{
+					$(this).css('background-position','0 0');
+
+				}
+			})
+		};
+
+		var init = function  (el,num) {
+			var $rating = $(el),
+			$item = $rating.find('rating-item');
+			lightOn($item,num);
+
+			$rating.on('mouseover','rating-item',function  () {
+				lightOn($item,$(this).index()+1);
+			}).on('click',function  () {
+				num = $(this).index()+1;
+			}).on('mouseout','rating-item',function () {
+				lightOn($item,num);
+			});
+		};
+
+		$.fn.$.extend({
+			rating:function (num) {
+				return this.each(function() {
+					init(this,num);
+				});
+			}
+		});
+		
+
+		return {
+			init:init
+		}
+		
+	})();
+	</script>
+</body>
+</html>
