@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+	<meta charset="UTF-8">
+	<title>todo list</title>
+	<link rel="stylesheet" href="static/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5" ng-controller="todos">
+				<form  ng-submit="add()">
+					<label for="">将下面输入的文本放入todo list 中！</label>
+					<input type="text" ng-model="txt" class="form-control">
+				</form>
+				<p id="todoCount" ng-hide="todolist.length===0"></p>
+				<ol ng-repeat="todo in todolist track by $index">
+					<li>
+					{{todo}}
+						<a href="javascript:void(0);" ng-click="todolist.splic($index,1)" class="todoDelete">x</a>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="static/angular.js"></script>
+	<script type="text/javascript" src="static/example-angular.js"></script>
+</body>
+</html>
