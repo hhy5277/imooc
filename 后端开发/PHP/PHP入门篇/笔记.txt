@@ -1,0 +1,39 @@
+echo '字符串';
+
+$var
+
+讲解：”var_dump”函数可以将我们的变量的数据类型显示出来。
+
+特别需要注意的是，在PHP中变量名是区分大小写的
+
+python区分大小写
+
+我们可以通过使用“memory_get_usage”获取当前PHP消耗的内存。
+
+PHP是一门松散类型的语言，不必向PHP声明变量的数据类型，PHP会自动把变量转换为自动的数据类型
+
+Notepad++：文本编辑器，简单实用，推荐备用。
+
+Eclipse for PHP：免费，开源，插件丰富。
+
+zend studio：基于Eclipse，付费。
+
+phpStrom：基于intellij，付费。
+
+下载zend studio地址http://www.zendstudio.net/zend-studio-all-in-one-download/
+
+然后破解步骤http://jingyan.baidu.com/article/a3aad71aa4d0f8b1fb0096a6.html
+
+zendStudio 快捷键
+
+复制当前行：ctrl+alt+方向下
+
+删除当前行：ctrl+d
+
+上下行互换：alt+上下方向键
+
+行注释 ctrl+/
+
+块注释 ctrl+shift+/
+
+提示助手 alt+/
