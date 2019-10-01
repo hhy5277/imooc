@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://segmentfault.com/a/1190000000443523 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script charset="utf-8" async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/fixed7o.js"></script><script charset="utf-8" async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/ecom"></script><script charset="utf-8" async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/ecom(1)"></script><script charset="utf-8" async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/ecom(2)"></script><script charset="utf-8" async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/ecom(3)"></script><script charset="utf-8" async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/ecom(4)"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="15317273575564615446375">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no">
+    <meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ">
+    <meta name="apple-itunes-app" content="app-id=958101793, app-argument=">
+    <title>使用Move.js创建CSS3动画 - SegmentFault</title>
+
+
+            <meta name="description" content="原文链接，请移步creating-css-animations-using-move-js 第一次翻译，如有误解，请移步原文 在网站上，CSS3 的过渡和动画是当前创建轻量级动画的首选方法。不幸的是，很多开发者发现他们自己的语法和复杂和混乱...">
+    
+            <meta name="keywords" content="web前端开发 web javascript css3">
+    
+    <link rel="search" type="application/opensearchdescription+xml" href="http://segmentfault.com/opensearch.xml" title="SegmentFault">
+    <link rel="shortcut icon" href="http://static.segmentfault.com/global/img/favicon.30f7204d.ico">
+    <link rel="apple-touch-icon" href="http://static.segmentfault.com/global/img/touch-icon.c78b1075.png">
+
+    <meta name="msapplication-TileColor" content="#009a61">
+    <meta name="msapplication-square150x150logo" content="//static.segmentfault.com/global/img/touch-icon.c78b1075.png">
+
+    <meta name="userId" value="" id="SFUserId">
+    <meta name="userRank" value="" id="SFUserRank">
+
+    <link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="http://segmentfault.com/feeds/questions">
+    <link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="http://segmentfault.com/feeds/blogs">
+    
+    
+    
+                    <link rel="stylesheet" href="http://static.segmentfault.com/build/global/css/global.547d4645.css">
+                            <link rel="stylesheet" href="http://static.segmentfault.com/build/blog/css/blog_all.172f5961.css">
+                <link rel="stylesheet" href="http://static.segmentfault.com/build/global/css/responsive.bd526ce5.css">
+        
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="//static.segmentfault.com/global/css/ie.css?"/>
+    <script src="//static.segmentfault.com/global/js/html5shiv.js?"></script>
+    <script src="//static.segmentfault.com/global/js/respond.js?"></script>
+    <![endif]-->
+
+</head>
+<body class="blog-post"><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./使用Move.js创建CSS3动画 - SegmentFault_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div>
+<!--[if lt IE 9]>
+<div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank"
+                                                                                                        class="alert-link"
+                                                                                                        href="http://browsehappy.com">立即升级</a>
+</div>
+<![endif]-->
+
+
+<div class="global-nav">
+    <nav class="container nav">
+        <div class="dropdown m-menu">
+            <a href="javascript:void(0);" id="dLabel" class="visible-xs-block m-toptools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-align-justify"></span>
+                <span class="mobile-menu__unreadpoint"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/questions/newest">问答</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/blogs">文章</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/events">活动</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/notes">笔记</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/jobs">职位</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/tags">标签</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/users">榜单</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/sites">子站</a></li>
+                            </ul>
+        </div>
+
+        <h1 class="logo"><a class="sf" href="http://segmentfault.com/">SegmentFault</a></h1>
+
+                <a href="http://segmentfault.com/user/login" class="visible-xs-block pull-right m-ask m-toptools"><span class="glyphicon glyphicon-log-in"></span></a>
+        
+        <form action="http://segmentfault.com/search" class="header-search pull-left hidden-sm hidden-xs">
+            <button type="submit" class="btn btn-link"><span class="sr-only">搜索</span><span class="glyphicon glyphicon-search"></span></button>
+            <input id="searchBox" name="q" type="text" placeholder="输入关键字搜索" class="form-control" value="">
+        </form>
+
+        <ul class="menu list-inline pull-left hidden-xs">
+            <li class="menu__item"><a href="http://segmentfault.com/questions">问答</a></li>
+            <li class="menu__item"><a href="http://segmentfault.com/blogs">文章</a></li>
+            <li class="menu__item"><a href="http://segmentfault.com/events">活动</a></li>
+            <li class="menu__item"><a href="http://segmentfault.com/users">榜单</a></li>
+            <li class="menu__item dropdown hoverDropdown">
+                <a data-toggle="dropdown" href="http://segmentfault.com/sites" class="more dropdownBtn">
+                    ···<span class="sr-only">更多</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://segmentfault.com/notes">笔记</a></li>
+                    <li><a href="http://segmentfault.com/jobs">职位</a></li>
+                    <li><a href="http://segmentfault.com/tags">标签</a></li>
+                    <li><a href="http://segmentfault.com/sites">子站</a></li>
+                    <li><a href="http://segmentfault.com/app">移动 App</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="opts pull-right list-inline hidden-xs">
+                    <!-- <li class="opts__item">赶快加入吧 <a id="sfLogin" href="/user/login" class="SFLogin em ml10" onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">立即登录</a></li> -->
+            <li class="opts__item message has-unread">
+                <a target="_blank" href="http://segmentfault.com/tour">
+                    <span class="sr-only">消息</span>
+                    <span id="messageCount" class="glyphicon glyphicon-envelope"></span><span class="has-unread__count">1</span>
+                </a>
+            </li>
+            <li class="opts__item">
+                <a href="http://segmentfault.com/user/login" class="SFLogin em ml10" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Button&#39;, &#39;Click&#39;, &#39;Login&#39;]);">注册 · 登录</a>
+            </li>
+                    </ul>
+    </nav>
+</div>
+
+<div class="wrap">
+    <div class="post-topheader custom-wanghl">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <ol class="breadcrumb">
+                        <li><a href="http://segmentfault.com/blogs">文章</a></li>
+                        <li><a href="http://segmentfault.com/blog/wanghl">wanghl</a></li>
+                        <li class="active">文章详情</li>
+                    </ol>
+                    <h1 class="h3 title" id="articleTitle" data-id="1190000000443523"><a href="./使用Move.js创建CSS3动画 - SegmentFault_files/使用Move.js创建CSS3动画 - SegmentFault.html"> 使用Move.js创建CSS3动画</a></h1>
+                    <div class="author" data-username="王焕亮" data-userslug="wanghl" data-useravatar="//static.segmentfault.com/global/img/user-128.png">
+                        <a href="http://segmentfault.com/u/wanghl" class="mr5"><img class="avatar-24 mr10" src="./使用Move.js创建CSS3动画 - SegmentFault_files/user-128.png" alt="王焕亮"><strong>王焕亮</strong></a> <strong class="text-black mr10">32</strong>
+                        2014年03月24日 发布
+                                                                    </div>
+                </div>
+                <div class="col-md-3">
+                    <ul class="widget-action--ver list-unstyled">
+                        <li>
+                                                                                            <button type="button" class="btn btn-success btn-sm" data-id="1190000000443523" id="sideLike">推荐</button>
+                                                                                        <strong id="sideLiked">2</strong> 推荐
+                        </li>
+                        <li>
+                                                                                            <button type="button" id="sideBookmark" class="btn btn-default btn-sm" data-id="1190000000443523" data-type="article">收藏</button>
+                                                                                        <strong id="sideBookmarked">6</strong> 收藏，<strong class="no-stress">3.5k</strong> 浏览
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- end .post-topheader -->
+
+    <div class="container mt30">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main">
+
+                                                <div class="article fmt">
+                    
+<p>原文链接，请移步<a rel="nofollow" href="http://www.sitepoint.com/creating-css-animations-using-move-js/" target="_blank">creating-css-animations-using-move-js</a></p>
+
+<p>第一次翻译，如有误解，请移步<a rel="nofollow" href="http://www.sitepoint.com/creating-css-animations-using-move-js/" target="_blank">原文</a></p>
+
+<p>在网站上，CSS3 的过渡和动画是当前创建轻量级动画的首选方法。不幸的是，很多开发者发现他们自己的语法和复杂和混乱的。如果这听起来像你自己，对你来说，或许<a rel="nofollow" href="https://github.com/visionmedia/move.js" target="_blank">Move.js</a>是完美的方案。Move.js是使用简单函数创建 CSS3 动画的一个简单的JavaScript库。本教程将探讨Move.js的基础知识，并提供一个在线demo。</p>
+
+<p><strong>基础知识</strong></p>
+
+<p>Move.js 提供了创建 CSS3 动画的最简单的 JavaScript API。让我们假设有一个带类 box 的 div 元数，当鼠标 移动到 div 上面的时候我们想从左侧移动元素100个像素。在这种情况下，我们的代码如果所示：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".box {
+  -webkit-transition: margin 1s;
+  -moz-transition: margin 1s;
+  -o-transition: margin 1s;
+  transition: margin 1s;
+}
+.box:hover {
+  margin-left: 100px;
+}
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs css"><code><span class="hljs-class">.box</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">-webkit-transition</span>:<span class="hljs-value"> margin <span class="hljs-number">1s</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">-moz-transition</span>:<span class="hljs-value"> margin <span class="hljs-number">1s</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">-o-transition</span>:<span class="hljs-value"> margin <span class="hljs-number">1s</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transition</span>:<span class="hljs-value"> margin <span class="hljs-number">1s</span></span></span>;
+<span class="hljs-rule">}</span></span>
+<span class="hljs-class">.box</span><span class="hljs-pseudo">:hover</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">margin-left</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+<span class="hljs-rule">}</span></span>
+</code></pre>
+
+<p>使用 Move.js 我们可以简单调用 set()方法实现同样的结果，如下：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="move(&#39;.box&#39;)
+  .set(&#39;margin-left&#39;, 100)
+  .end();
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>move(<span class="hljs-string">'.box'</span>)
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'margin-left'</span>, <span class="hljs-number">100</span>)
+  .end();
+</code></pre>
+
+<p><strong>入门</strong></p>
+
+<p>首先，访问 <a rel="nofollow" href="https://github.com/visionmedia/move.js" target="_blank">Move.js GitHub page</a>并下载最新的包，提取并拷贝 Move.js 文件到你的工作目录。接下来，在你的html 页面中引入该文件。完成后的页面应该如下：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Move.js Demo&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt; 
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a href=&quot;#&quot; id=&quot;playButton&quot;&gt;Play&lt;/a&gt;
+    &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;js/move.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs xml"><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Move.js Demo<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"styles.css"</span>&gt;</span> 
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"playButton"</span>&gt;</span>Play<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"box"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"js/move.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+
+<p>我们 已经定义了一个类为 box 的 div  元数和一个ID为playButton的a链接以用于我们的demo。让我们创建一个styles.css文件并添加下面的样式。注意下面的样式对于Move.js来说不是必须的：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".box {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  background: #7C9DD4;
+  box-shadow: 5px 5px 0px #D1D1D1;
+}
+#playButton {
+  display: block;
+  font-size: 20px;
+  margin: 20px 10px;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+}
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs css"><code><span class="hljs-class">.box</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">10px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#7C9DD4</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">box-shadow</span>:<span class="hljs-value"> <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0px</span> <span class="hljs-hexcolor">#D1D1D1</span></span></span>;
+<span class="hljs-rule">}</span></span>
+<span class="hljs-id">#playButton</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">20px</span> <span class="hljs-number">10px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> bold</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#222</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">text-decoration</span>:<span class="hljs-value"> none</span></span>;
+<span class="hljs-rule">}</span></span>
+</code></pre>
+
+<p>我们的html页面看起来应该如下图：<br><img src="./使用Move.js创建CSS3动画 - SegmentFault_files/1395585501372-QQ截图20140323223913.jpg" alt="enter image description here"><br>
+现在，让我们写下第一个Move.js片段。我们需要附加一个onclick事件处理程序到palyButton上，并在单击的时候使其向右移动。事件处理程序的JavaScript代码如下，这段代码添加 transform:translateX(300px) 到 box 元数上：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="document.getElementById(&#39;playButton&#39;).onclick = function(e) {
+  move(&#39;.box&#39;)
+    .x(300)
+    .end();
+};
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs javascript"><code><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'playButton'</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+  move(<span class="hljs-string">'.box'</span>)
+    .x(<span class="hljs-number">300</span>)
+    .end();
+};
+</code></pre>
+
+<p>添加Move.js代码后的完整代码如下：</p>
+
+<p><em>HTML</em></p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Move.js Demo&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles.css&quot;&gt; 
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a href=&quot;#&quot; id=&quot;playButton&quot;&gt;Play&lt;/a&gt;
+    &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;js/move.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      document.getElementById(&#39;playButton&#39;).onclick = function(e){
+        move(&#39;.box&#39;)
+          .x(300)
+          .end();
+      };
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs xml"><code><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Move.js Demo<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">"stylesheet"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"styles.css"</span>&gt;</span> 
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"playButton"</span>&gt;</span>Play<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"box"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"js/move.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/javascript"</span>&gt;</span><span class="javascript">
+      <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'playButton'</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+        move(<span class="hljs-string">'.box'</span>)
+          .x(<span class="hljs-number">300</span>)
+          .end();
+      };
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+
+<p><em>CSS</em></p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".box {
+  margin-left: 10px;
+  width: 100px;
+  height: 100px;
+  background: #7C9DD4;
+  box-shadow: 5px 5px 0px #D1D1D1;
+}
+#playButton {
+  display: block;
+  font-size: 20px;
+  margin: 20px 10px;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+}
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs css"><code><span class="hljs-class">.box</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">margin-left</span>:<span class="hljs-value"> <span class="hljs-number">10px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#7C9DD4</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">box-shadow</span>:<span class="hljs-value"> <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0px</span> <span class="hljs-hexcolor">#D1D1D1</span></span></span>;
+<span class="hljs-rule">}</span></span>
+<span class="hljs-id">#playButton</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">20px</span> <span class="hljs-number">10px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">font-weight</span>:<span class="hljs-value"> bold</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#222</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">text-decoration</span>:<span class="hljs-value"> none</span></span>;
+<span class="hljs-rule">}</span></span>
+</code></pre>
+
+<p><strong>Move.js的方法</strong></p>
+
+<p>在前面的demo中，我们看到了x()方法。现在，让我们了解Move.js的其他方法。</p>
+
+<h2 id="articleHeader0">set(prop, val)</h2>
+
+<p>set()方法用于设置元素的css属性，他带有两个参数：css属性和属性值。示例用法：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".set(&#39;background-color&#39;, &#39;#CCC&#39;)
+.set(&#39;margin-left&#39;, 500)
+.set(&#39;color&#39;, &#39;#222&#39;)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>.<span class="hljs-keyword">set</span>(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'#CCC'</span>)
+.<span class="hljs-keyword">set</span>(<span class="hljs-string">'margin-left'</span>, <span class="hljs-number">500</span>)
+.<span class="hljs-keyword">set</span>(<span class="hljs-string">'color'</span>, <span class="hljs-string">'#222'</span>)
+</code></pre>
+
+<h2 id="articleHeader1">add(prop, val)</h2>
+
+<p>add()方法用来增加其已经设置的属性值。该方法必须数值型值，以便用来增加。该方法必须有两个参数：属性值和其增量：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".add(&#39;margin-left&#39;, 200)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs coffeescript"><code>.add(<span class="hljs-string">'margin-left'</span>, <span class="hljs-number">200</span>)
+</code></pre>
+
+<p>在前面的代码片段调用后，会在其值的基础上增加200px。</p>
+
+<h2 id="articleHeader2">sub(prop, val)</h2>
+
+<p>sub()是add()的逆过程，他接受两个相同的参数，但其值将从属性值中减去。</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".sub(&#39;margin-left&#39;, 200)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs coffeescript"><code>.sub(<span class="hljs-string">'margin-left'</span>, <span class="hljs-number">200</span>)
+</code></pre>
+
+<h2 id="articleHeader3">rotate(deg)</h2>
+
+<p>正如名称所暗示的，该方法通过提供的数值作为参数来旋转元素。当方法被调用的时候通过附加到元素的 transform 属性上。下面的代码旋转元素90deg：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".rotate(90)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs"><code>.rotate(90)
+</code></pre>
+
+<p>这段代码将添加如下css到元素上：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="transform:rotate(90deg)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs css"><code><span class="hljs-tag">transform</span><span class="hljs-pseudo">:rotate(90deg)</span>
+</code></pre>
+
+<h2 id="articleHeader4">duration(n)</h2>
+
+<p>通过该方法，你可以设置动画的播放时间。例如：如下代码，2秒钟将元素从左侧往右移动200px：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".set(&#39;margin-left&#39;, 200)
+.duration(&#39;2s&#39;)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>.<span class="hljs-keyword">set</span>(<span class="hljs-string">'margin-left'</span>, <span class="hljs-number">200</span>)
+.duration(<span class="hljs-string">'2s'</span>)
+</code></pre>
+
+<p>另一例子，下面的代码。Move.js在2秒钟内将会修改元素的margin属性，设置背景色，同时将元素旋转90度。</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".set(&#39;margin-left&#39;, 200)
+.set(&#39;background-color&#39;, &#39;#CCC&#39;)
+.rotate(90)
+.duration(&#39;2s&#39;)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>.<span class="hljs-keyword">set</span>(<span class="hljs-string">'margin-left'</span>, <span class="hljs-number">200</span>)
+.<span class="hljs-keyword">set</span>(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'#CCC'</span>)
+.rotate(<span class="hljs-number">90</span>)
+.duration(<span class="hljs-string">'2s'</span>)
+</code></pre>
+
+<h2 id="articleHeader5">translate(x[, y])</h2>
+
+<p>translate()方法用于修改元素的默认位置，使用提供的坐标作为参数，如果仅设置一个参数，将作为x坐标，如果提供了第二个参数，将作为y坐标：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".translate(200, 400)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs"><code>.translate(200, 400)
+</code></pre>
+
+<h2 id="articleHeader6">x() and y()</h2>
+
+<p>x()方法用于调整元素的x坐标，y()方法用于调整元素的y坐标。两个方法的参数可以是正数也可以是负数，如下：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".x(300)
+.y(-20)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs"><code>.x(300)
+.y(-20)
+</code></pre>
+
+<h2 id="articleHeader7">skew(x, y)</h2>
+
+<p>skew()用于调整一个相对于x和y轴的角度。该方法可以被分为skewX(deg)和skewY(deg)两个方法：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".skew(30, 40)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs"><code>.skew(30, 40)
+</code></pre>
+
+<h2 id="articleHeader8">scale(x, y)</h2>
+
+<p>该方法用于放大或压缩元素的大小，按照提供的每一个值，将调用transform的scale方法：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".scale(3, 3)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs"><code>.scale(3, 3)
+</code></pre>
+
+<h2 id="articleHeader9">ease(fn)</h2>
+
+<p>如果你使用过CSS3过渡，你就了解ease函数作用在transition属性上。他指定了过渡的行为。每个 ease 函数是 in、out、in-out、snap、cubic-bezeir等。这些函数可以通过Move.js提供的ease()方法得到调用。例如：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text=".ease(&#39;in&#39;).x(400)
+.ease(&#39;cubic-bezier(0,1,1,0)&#39;).x(400)
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs coffeescript"><code>.ease(<span class="hljs-string">'in'</span>).x(<span class="hljs-number">400</span>)
+.ease(<span class="hljs-string">'cubic-bezier(0,1,1,0)'</span>).x(<span class="hljs-number">400</span>)
+</code></pre>
+
+<h2 id="articleHeader10">end()</h2>
+
+<p>该方法用于Move.js代码片段的结束，他标识动画的结束。技术上，该方法触发动画的播放。该方法接受一个可选的callback回掉函数。代码如下：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="move(&#39;.box&#39;)
+  .set(&#39;background-color&#39;, &#39;red&#39;)
+  .duration(1000)
+  .end(function() {
+    alert(&quot;Animation Over!&quot;);
+  });
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs javascript"><code>move(<span class="hljs-string">'.box'</span>)
+  .set(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'red'</span>)
+  .duration(<span class="hljs-number">1000</span>)
+  .end(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    alert(<span class="hljs-string">"Animation Over!"</span>);
+  });
+</code></pre>
+
+<h2 id="articleHeader11">delay(n)</h2>
+
+<p>正如方法所暗示的，该方法提供一个时间的数值作为动画的延时。如下：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="move(&#39;.box&#39;)
+  .set(&#39;background-color&#39;, &#39;red&#39;)
+  .delay(1000)
+  .end();
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>move(<span class="hljs-string">'.box'</span>)
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'red'</span>)
+  .delay(<span class="hljs-number">1000</span>)
+  .end();
+</code></pre>
+
+<h2 id="articleHeader12">then()</h2>
+
+<p>该方法是Move.js中一个最重要的函数。他用于分割动画为两个集合，并按顺序执行。如下动画被分为两步，通过then()方法实现分割：</p>
+
+<div class="widget-codetool" style="display:none;"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="move(&#39;.box&#39;)
+  .set(&#39;background-color&#39;, &#39;red&#39;)
+  .x(500)
+  .then()
+  .y(400)
+  .set(&#39;background-color&#39;, &#39;green&#39;)
+  .end();
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>move(<span class="hljs-string">'.box'</span>)
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'red'</span>)
+  .x(<span class="hljs-number">500</span>)
+  .then()
+  .y(<span class="hljs-number">400</span>)
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'green'</span>)
+  .end();
+</code></pre>
+
+<p>## 使用Move.js创建复杂动画 ##</p>
+
+<p>在本教程中，我们已经写了很多基本的 动画来了解各个方法。接下来，我们使用Move.js可以很容易的创建复杂的动画。该demo阐述了Move.js的大部分内容，在<a rel="nofollow" href="http://codepen.io/fazlerocks/full/jucIv" target="_blank">demo page</a><button class="btn btn-xs btn-default ml10 preview" data-url="fazlerocks/full/jucIv" data-typeid="3">点击预览</button>上我们创建了动画的描述，代码如下：</p>
+
+<div class="widget-codetool"><button class="selectCode btn btn-xs">全选</button><button href="javascript:void(0);" class="copyCode btn btn-xs" data-clipboard-text="move(&#39;.square&#39;)
+  .to(500, 200)
+  .rotate(180)
+  .scale(.5)
+  .set(&#39;background-color&#39;, &#39;#FF0551&#39;)
+  .set(&#39;border-color&#39;, &#39;black&#39;)
+  .duration(&#39;3s&#39;)
+  .skew(50, -10)
+  .then()
+  .set(&#39;opacity&#39;, 0)
+  .duration(&#39;0.3s&#39;)
+  .scale(0.1)
+  .pop()
+  .end();
+" data-toggle="tooltip" data-placement="top" title="">复制</button><button href="javascript:void(0);" class="saveToNote btn btn-xs">放进笔记</button></div><pre class="hljs cs"><code>move(<span class="hljs-string">'.square'</span>)
+  .to(<span class="hljs-number">500</span>, <span class="hljs-number">200</span>)
+  .rotate(<span class="hljs-number">180</span>)
+  .scale(<span class="hljs-number">.5</span>)
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'#FF0551'</span>)
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'border-color'</span>, <span class="hljs-string">'black'</span>)
+  .duration(<span class="hljs-string">'3s'</span>)
+  .skew(<span class="hljs-number">50</span>, -<span class="hljs-number">10</span>)
+  .then()
+  .<span class="hljs-keyword">set</span>(<span class="hljs-string">'opacity'</span>, <span class="hljs-number">0</span>)
+  .duration(<span class="hljs-string">'0.3s'</span>)
+  .scale(<span class="hljs-number">0.1</span>)
+  .pop()
+  .end();
+</code></pre>
+
+<h2 id="articleHeader13">结论</h2>
+
+<p>希望本篇教程能带给你关于Move.js是什么的清晰的认识和如何创建CSS3动画。使用Movejs能帮助你在一个地方正确的组织所有的动画代码。在任何时候你想修复一个动画，你就知道他在那里。<br>
+请检查这篇文章的<a rel="nofollow" href="http://extremecss.com/demos/movejs/movejs_tutorial_demo_files.zip" target="_blank">source code</a>，并阅读下面使用css和js的有关动画的资源</p>
+
+<ul>
+<li>
+<a rel="nofollow" href="http://www.sitepoint.com/css3-animations-101/" target="_blank">CSS3 Animations 101: What are Animations?</a> </li>
+<li><a rel="nofollow" href="http://www.sitepoint.com/animation-keyframe-gotcha/" target="_blank">The Animation Keyframe Gotcha</a></li>
+<li><a rel="nofollow" href="http://www.sitepoint.com/css3-animations-javascript-api/" target="_blank">CSS3 Animation and the JavaScript API</a></li>
+</ul>
+
+                </div>
+                                
+                <div class="clearfix">
+
+                    <ul class="taglist--inline pull-left">
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/blogs" data-toggle="popover" data-img="" data-placement="top" data-original-title="web前端开发" data-id="1040000000117807">web前端开发</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/web/blogs" data-toggle="popover" data-img="//sfault-avatar.b0.upaiyun.com/337/848/3378480946-1040000000089794_huge100" data-placement="top" data-original-title="web" data-id="1040000000089794">web</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/javascript/blogs" data-toggle="popover" data-img="//sfault-avatar.b0.upaiyun.com/195/823/1958237468-1040000000089436_huge100" data-placement="top" data-original-title="javascript" data-id="1040000000089436">javascript</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/css3/blogs" data-toggle="popover" data-img="//sfault-avatar.b0.upaiyun.com/357/990/3579900889-1040000000090141_huge100" data-placement="top" data-original-title="css3" data-id="1040000000090141">css3</a></li>
+                                            </ul>
+
+                </div>
+                <div class="clearfix mt10">
+                    <ul class="article-operation list-inline pull-left">
+                        <li><a href="./使用Move.js创建CSS3动画 - SegmentFault_files/使用Move.js创建CSS3动画 - SegmentFault.html" class="text-muted">链接</a></li>
+                                                                                                <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle text-muted" data-toggle="dropdown">更多<b class="caret"></b></a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <li><a href="http://segmentfault.com/a/1190000000443523#911" data-toggle="modal" data-target="#911" data-type="article" data-id="1190000000443523" data-typetext="文章">举报</a></li>
+                                                                                                                                                                                                        </ul>
+                        </li>
+                    </ul>
+                    <div class="pull-right post-share">
+                        <div class="widget-share sharer-0" data-text="使用Move.js创建CSS3动画" style="display: block;">分享 <ul id="share" data-title="" class="sn-inline"><li data-network="weibo"><a href="javascript:void(0);" class="entypo-weibo icon-sn-weibo share-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至新浪微博">新浪微博</a></li><li data-network="wechart"><a href="javascript:void(0);" class="entypo-wechart icon-sn-wechat share-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至微信">微信</a></li><li data-network="twitter"><a href="javascript:void(0);" class="entypo-twitter icon-sn-twitter share-3" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Twitter">Twitter</a></li><li data-network="facebook"><a href="javascript:void(0);" class="entypo-facebook icon-sn-facebook share-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Facebook">Facebook</a></li><li data-network="renren"><a href="javascript:void(0);" class="entypo-renren icon-sn-renren share-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至人人网">人人网</a></li><li data-network="douban"><a href="javascript:void(0);" class="entypo-douban icon-sn-douban share-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至豆瓣">豆瓣</a></li></ul></div>
+
+                    </div>
+                </div>
+
+                <div class="text-center mt10">
+                
+                    <button type="button" id="mainLike" data-id="1190000000443523" class="btn btn-success btn-lg mr10">
+                        2 推荐
+                    </button>
+                
+                                    <button type="button" id="mainBookmark" data-type="article" data-id="1190000000443523" class="btn btn-default btn-lg ">
+                        收藏
+                    </button>
+                                </div>
+
+                
+                                <div class="recommend-post pt30 mt40 mb30 border-top">
+                    <h4 class="mt0">你可能感兴趣的文章</h4>
+                    <ul class="widget-links list-unstyled">
+                                                <li class="widget-links__item">
+                            <a href="http://segmentfault.com/a/1190000000682618" title="极客Web前端开发资源大荟萃#006">极客Web前端开发资源大荟萃#006</a>
+                            <small class="text-muted">
+                                4 收藏，712 浏览
+                            </small>
+                        </li>
+                                                <li class="widget-links__item">
+                            <a href="http://segmentfault.com/a/1190000000643701" title="极客Web前端开发资源大荟萃#001">极客Web前端开发资源大荟萃#001</a>
+                            <small class="text-muted">
+                                11 收藏，1.1k 浏览
+                            </small>
+                        </li>
+                                                <li class="widget-links__item">
+                            <a href="http://segmentfault.com/a/1190000000660160" title="极客Web前端开发资源大荟萃#004">极客Web前端开发资源大荟萃#004</a>
+                            <small class="text-muted">
+                                9 收藏，810 浏览
+                            </small>
+                        </li>
+                                            </ul>
+                </div>
+                                <!-- <ul class="list-unstyled text-muted mt30">
+                                        <li>上一篇：<a href="/a/1190000000420828">html5与css交互API《二》</a></li>
+                                                            <li class="mt5">下一篇：<a href="/a/1190000000475220">Git 学习记录-基础（1）</a></li>
+                                    </ul> -->
+
+                <h2 class="h4 post-comment-title">讨论区</h2>
+                <div class="widget-comments" id="comment-1190000000443523" data-id="1190000000443523"><div class="widget-comments__item hover-show " id="1050000000444335">    <div class="votes widget-vote">        <button class="like " data-id="1050000000444335" type="button" data-do="like" data-type="comment"></button><span class="count">&nbsp;</span>    </div>    <div class="comment-content wordbreak">          <div class="content fmt"><p>没看出来比原生 CSS Animation 高明或者简单到哪儿去，现在当然不会用原生 CSS 来写啦，因为我们有 Sass，Less……不会比用 JS 更费劲。而且这个库貌似有点 Bug，官网上的范例 transition-timing-function 时灵时不灵。</p>
+ </div>        <textarea name="text" rows="3" id="commentText-1050000000444335" class="editTextarea form-control mb10 hidden">没看出来比原生 CSS Animation 高明或者简单到哪儿去，现在当然不会用原生 CSS 来写啦，因为我们有 Sass，Less……不会比用 JS 更费劲。而且这个库貌似有点 Bug，官网上的范例 transition-timing-function 时灵时不灵。</textarea>        <p class="comment-meta">            <a href="http://segmentfault.com/c/1050000000444335" class="text-muted">#1</a>&nbsp;<a href="http://segmentfault.com/u/nightire" class="commentUser" data-userid="1030000000125916" data-username="nightire" data-userslug="nightire" data-useravatar="//sfault-avatar.b0.upaiyun.com/263/018/2630188223-1030000000125916_medium40"><strong>nightire</strong></a> · <span class="createdDate">2014年03月24日</span>                        · <a href="http://segmentfault.com/a/1190000000443523#" class="commentReply" data-userid="1030000000125916" data-id="1050000000444335" data-username="nightire">回复</a>                                    <span class="pull-right commentTools hover-show-obj">                                                <a href="http://segmentfault.com/a/1190000000443523#911" class="ml10" data-toggle="modal" data-target="#911" data-type="comment" data-id="1050000000444335" data-typetext="评论" data-placement="top" title="举报">举报</a>            </span>        </p>    </div></div><div class="widget-comments__item hover-show " id="1050000000445266">    <div class="votes widget-vote">        <button class="like " data-id="1050000000445266" type="button" data-do="like" data-type="comment"></button><span class="count">&nbsp;</span>    </div>    <div class="comment-content wordbreak">          <div class="content fmt"><p>是啊，对于熟悉css3动画的，是没必要使用这个库的。而对于Sass、Less...是融入了各种运算，虽说不需要写原生的css，但原生css还是要了解的，然后借助Less.js进行翻译成浏览器识别的css。</p>
+ </div>        <textarea name="text" rows="3" id="commentText-1050000000445266" class="editTextarea form-control mb10 hidden">是啊，对于熟悉css3动画的，是没必要使用这个库的。而对于Sass、Less...是融入了各种运算，虽说不需要写原生的css，但原生css还是要了解的，然后借助Less.js进行翻译成浏览器识别的css。</textarea>        <p class="comment-meta">            <a href="http://segmentfault.com/c/1050000000445266" class="text-muted">#2</a>&nbsp;<a href="http://segmentfault.com/u/wanghl" class="commentUser" data-userid="1030000000345473" data-username="王焕亮" data-userslug="wanghl" data-useravatar="//static.segmentfault.com/global/img/user-40.png"><strong>王焕亮</strong></a> · <span class="createdDate">2014年03月25日</span>                        · <a href="http://segmentfault.com/a/1190000000443523#" class="commentReply" data-userid="1030000000345473" data-id="1050000000445266" data-username="王焕亮">回复</a>                                    <span class="pull-right commentTools hover-show-obj">                                                <a href="http://segmentfault.com/a/1190000000443523#911" class="ml10" data-toggle="modal" data-target="#911" data-type="comment" data-id="1050000000445266" data-typetext="评论" data-placement="top" title="举报">举报</a>            </span>        </p>    </div></div>
+        
+        
+                        
+        <div class="widget-comments__form row">
+                                    <div class="col-md-12">
+                    请先 <a class="commentLogin" href="javascript:void(0);">登录</a> 后评论
+                </div>
+            
+    </div><!-- /.widget-comments__form -->
+    </div><!-- /.widget-comments -->
+
+
+
+                                    
+                
+            </div><!-- /.main -->
+
+
+            <div class="col-xs-12 col-md-3 side">
+                <div class="sfad-sidebar">
+    <div class="sfad-item" data-adn="ad-1119908" id="adid-1119908"><div id="BAIDU_DUP_wrapper_1119908_0"><iframe id="baidu_clb_slot_iframe_1119908_0" src="./使用Move.js创建CSS3动画 - SegmentFault_files/使用Move.js创建CSS3动画 - SegmentFault.html" onload="BAIDU_DUP_CLB_renderFrame(&#39;1119908_0&#39;)" width="233" height="150" vspace="0" hspace="0" allowtransparency="true" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border:0; vertical-align:bottom; margin:0; display:block;"></iframe></div></div>
+
+</div>
+
+
+                <div class="widget-box no-border">
+                    <p class="text-muted">本文隶属于专栏</p>
+                    <h4 class="fz16"><a href="http://segmentfault.com/blog/wanghl">wanghl</a></h4>
+                    <p class="wordbreak">前行的路上，感谢你一路相伴与支持。</p>
+                                                        <button type="button" class="btn btn-default follow-article" data-do="follow" data-type="blog" data-id="1200000000380508">关注专栏</button>
+                                                    </div>
+
+                
+                                
+                <div class="post-nav hidden-xs side-outline hidden-sm fixed" style="display: block; width: 233px; top: 0px;">
+                    <div class="panel panel-default widget-outline">
+                        <div class="panel-heading">文章目录</div>
+                        <div class="panel-body">
+                            <div class="nav-body" style="top: -2.5px;">
+                                <div class="highlight-title" style="display: block; top: 324px; height: 27px;"></div>
+                                <ul class="articleIndex"><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader0">set(prop, val)</a></li><li><a href="http://segmentfault.com/a/1190000000443523#articleHeader1">add(prop, val)</a></li><li><a href="http://segmentfault.com/a/1190000000443523#articleHeader2">sub(prop, val)</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader3">rotate(deg)</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader4">duration(n)</a></li><li><a href="http://segmentfault.com/a/1190000000443523#articleHeader5">translate(x[, y])</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader6">x() and y()</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader7">skew(x, y)</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader8">scale(x, y)</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader9">ease(fn)</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader10">end()</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader11">delay(n)</a></li><li class="active"><a href="http://segmentfault.com/a/1190000000443523#articleHeader12">then()</a></li><li class=""><a href="http://segmentfault.com/a/1190000000443523#articleHeader13">结论</a></li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+<div id="shareToWeiboModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">分享</h4>
+            </div>
+            <div class="modal-body">
+                <p class="sfModal-content">
+                    分享到微博？
+                </p>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-default dont-likeweibo" data-dismiss="modal">取消并且不再弹出</button>
+                <a href="" id="shareLink" class="btn btn-primary done-btn" target="_blank" onclick="$(&#39;#shareToWeiboModal&#39;).modal(&#39;hide&#39;)">分享</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="widget-register widget-welcome-question mt20 hidden-xs widget-welcome widget-register-slideUp">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="title h4">与我们一起探索更多的未知</h2>
+            <p>专业的开发者技术社区，为用户提供多样化的线上知识交流，丰富的线下活动及给力的工作机会</p>
+        </div>
+        <form action="http://segmentfault.com/api/user/register/fast" method="post">
+            <div class="col-sm-5">
+                <div class="form-group mb0">
+                    <input type="text" class="form-control" placeholder="邮箱地址" name="mail" required="">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-primary btn-block">加入只需一步</button>
+            </div>
+            <div class="col-sm-10 mt10 captcha-part" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-4 pr0">
+                        <input type="text" class="form-control" name="captcha" placeholder="请输入验证码" disabled="" required="">
+                    </div>
+                    <div class="col-sm-4 pr0">
+                        <a href="javascript:void(0)"><img src="" height="35"></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <a class="close" href="javascript:void(0);"><span>×</span></a>
+    </div>
+</div>
+</div>
+
+<div id="911" class="modal widget-911">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">举报<span class="type-911">问题</span></h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-warning" id="J_returnMsg" style="display:none"></p>
+                <p><strong class="required">举报理由：</strong></p>
+                <div id="reportDescription">
+                <div class="radio-911 radio all">
+                    <label>
+                        <input type="radio" name="descRadio" checked="" value="推广（招聘、广告、SEO 等）方面的内容">
+                        推广（招聘、广告、SEO 等）方面的内容
+                    </label>
+                </div>
+                <div class="radio-911 radio all">
+                    <label>
+                        <input type="radio" name="descRadio" value="带有人身攻击、辱骂、仇恨等违反条款的内容">
+                        带有人身攻击、辱骂、仇恨等违反条款的内容
+                    </label>
+                </div>
+                <div class="radio-911 radio question-only">
+                    <label>
+                        <input type="radio" name="descRadio" value="与已有问题重复">
+                        与已有问题重复（请编辑该提问指向已有相同问题）
+                    </label>
+                </div>
+                <div class="radio-911 radio all">
+                    <label>
+                        <input type="radio" name="descRadio" value="不友善内容">
+                        不友善内容
+                    </label>
+                </div>
+                <div class="radio-911 radio answer-only">
+                    <label>
+                        <input type="radio" name="descRadio" value="答非所问，不符合答题要求">
+                        答非所问，不符合答题要求
+                    </label>
+                </div>
+                <div class="radio-911 radio all" id="btwRadio">
+                    <label>
+                        <input type="radio" name="descRadio" value="">
+                        其他原因（请补充说明）
+                    </label>
+                </div>
+                <div class="hide btw">
+                    <p class="mt20"><strong>补充说明：</strong></p>
+                    <textarea class="form-control" rows="3" autocomplete="false" id="911Desc"></textarea>
+                </div>
+                                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="911Submit" class="btn btn-primary">提交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<footer id="footer">
+<div class="container">
+    <div class="row hidden-xs">
+        <dl class="col-sm-2 site-link">
+            <dt>网站相关</dt>
+            <dd><a href="http://segmentfault.com/about">关于我们</a></dd>
+            <dd><a href="http://segmentfault.com/tos">服务条款</a></dd>
+            <dd><a href="http://segmentfault.com/faq">帮助中心</a></dd>
+            <dd><a href="http://segmentfault.com/repu">声望与权限</a></dd>
+            <dd><a href="http://segmentfault.com/markdown">编辑器语法</a></dd>
+            <dd><a href="http://weekly.segmentfault.com/">每周精选</a></dd>
+            <dd><a href="http://segmentfault.com/app">App 下载</a></dd>
+        </dl>
+        <dl class="col-sm-2 site-link">
+            <dt>联系合作</dt>
+            <dd><a href="http://segmentfault.com/contact">联系我们</a></dd>
+            <dd><a href="http://segmentfault.com/hiring">加入我们</a></dd>
+            <dd><a href="http://segmentfault.com/link">合作伙伴</a></dd>
+            <dd><a href="http://segmentfault.com/press">媒体报道</a></dd>
+            <dd><a href="http://0x.segmentfault.com/">建议反馈</a></dd>
+            <dd><a href="http://pan.baidu.com/share/link?shareid=604288&uk=839272106" target="_blank">Logo 下载</a></dd>
+        </dl>
+        <dl class="col-sm-2 site-link">
+            <dt>常用链接</dt>
+            <dd><a href="http://mirrors.segmentfault.com/" target="_blank">文档镜像</a></dd>
+            <dd>订阅：<a href="http://segmentfault.com/feeds">问答</a> / <a href="http://segmentfault.com/feeds/blogs">文章</a></dd>
+            <dd><a href="http://segmentfault.com/events?category=4">黑客马拉松</a></dd>
+<!--             <dd><a href="http://zs.segmentfault.com/" target="_blank">一起涨姿势</a></dd> -->
+            <dd><a href="http://namebeta.com/" target="_blank">域名搜索注册</a></dd>
+        </dl>
+        <dl class="col-sm-2 site-link">
+            <dt>关注我们</dt>
+            <dd><a href="http://twitter.com/segment_fault" target="_blank">Twitter</a></dd>
+            <!-- <dd><a href="http://page.renren.com/699146294" target="_blank">人人网</a></dd> -->
+            <dd><a href="https://www.linkedin.com/company/segmentfault" target="_blank">LinkedIn</a></dd>
+            <dd><a href="http://weibo.com/segmentfault" target="_blank">新浪微博</a></dd>
+            <dd><a href="http://i.youku.com/segmentfault" target="_blank">优酷主页</a></dd>
+            <dd><a href="http://segmentfault.com/giveaways" target="_blank">开发者福利</a></dd>
+            <dd><a href="http://segmentfault.com/blog/segmentfault" target="_blank">开发日志</a></dd>
+        </dl>
+        <dl class="col-sm-4 site-link" id="license">
+            <dt>内容许可</dt>
+            <dd>除特别说明外，用户内容均采用 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/cn/">知识共享署名-相同方式共享 3.0 中国大陆许可协议</a> 进行许可</dd>
+            <dd>本站由 <a target="_blank" href="http://qingcloud.com/">青云 QingCloud</a> 提供云计算服务<br><a target="_blank" href="https://www.upyun.com/?utm_source=segmentfault&utm_medium=link&utm_campaign=upyun&md=segmentfault">又拍云</a> 提供 CDN 存储服务</dd>
+            <dd><a key="55e59bd4efbfb0241247d4e4" logo_size="83x30" logo_type="realname" href="http://www.anquan.org/authenticate/cert/?site=segmentfault.com&at=realname" target="_blank"><script src="./使用Move.js创建CSS3动画 - SegmentFault_files/hm.js"></script><script async="" src="./使用Move.js创建CSS3动画 - SegmentFault_files/analytics.js"></script><script src="./使用Move.js创建CSS3动画 - SegmentFault_files/aq_auth.js"></script><span style="display:none;" class="LOGO_aq_jsonp_wrap_" id="AQ_logo_span_init_1"><script src="./使用Move.js创建CSS3动画 - SegmentFault_files/saved_resource" type="text/javascript" async="true"></script></span><img src="./使用Move.js创建CSS3动画 - SegmentFault_files/sm_83x30.png" alt="安全联盟认证" width="83" height="30" style="border: none;"></a></dd>
+        </dl>
+    </div>
+    <div class="copyright">
+        Copyright © 2011-2015 SegmentFault. 当前呈现版本 15.10.09<br><a href="http://www.miibeian.gov.cn/" rel="nofollow">浙ICP备15005796号-2</a>
+    </div>
+</div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+  <a id="backtop" class="border-bottom" href="http://segmentfault.com/a/1190000000443523#">回顶部</a>
+  <div class="qrcodeWraper">
+    <a href="http://segmentfault.com/app#qrcode"><span class="glyphicon glyphicon-qrcode"></span></a>
+    <img id="qrcode" class="border" alt="sf-wechat" src="./使用Move.js创建CSS3动画 - SegmentFault_files/appQrcode.92de1876.png">
+      <p class="qrcode-text">扫扫下载 App</p>
+  </div>
+</div>
+
+
+<div class="app-promotion-bar">
+    <a href="javascript:;"><i class="fa fa-close close"></i></a>
+    <div class="icon"></div>
+    <h5 class="title h5">SegmentFault</h5>
+    <p class="describe">一起探索更多未知</p>
+    <a class="download-btn btn btn-sm btn-primary" href="http://segmentfault.com/app#qrcode">下载 App</a>
+</div>
+
+<script id="loginModal" type="text/template">
+<div class="row bg-white login-modal">
+    <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+        <h1 class="h4 text-muted login-title">用户登录</h1>
+        <form action="/api/user/login" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="密码">
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right pl20 pr20">登录</button>
+            </div>
+        </form>
+        <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+        <div class="widget-login mt30">
+            <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+            <a href="/user/oauth/google" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google"><span class="icon-sn-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+            <a href="/user/oauth/github" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github"><span class="icon-sn-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+            <a href="/user/oauth/weibo" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+            <a href="/user/oauth/qq" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+            <a href="/user/oauth/weixin" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+            <button type="button" class="btn mb5 btn-default btn-sm btn-sn-more" id="loginShowMore">...</button>
+            <a href="/user/oauth/twitter" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm hidden"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+            <a href="/user/oauth/facebook" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm hidden"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+            <a href="/user/oauth/douban" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm hidden"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+        </div>
+    </div>
+    <div class="login-vline hidden-xs hidden-sm"></div>
+    <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+        <h1 class="h4 text-muted login-title">创建新账号</h1>
+        <form action="/api/user/register" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label for="name" class="control-label">用户名</label>
+                <input type="text" class="form-control" name="name" required placeholder="字母、数字等，用户名唯一">
+            </div>
+            <div class="form-group">
+                <label for="mail" class="control-label">Email</label>
+                <input type="hidden" style="display:none" name="mail">
+                <input type="email" autocomplete="off" class="form-control register-mail" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+            </div>
+            <div class="form-group" style="display:none;">
+                <label class="required control-label">验证码</label>
+                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                <div class="mt10"><a id="loginReloadCaptcha"  href="javascript:void(0)"><img data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50" /></a></div>
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                </div>
+                <button type="submit" class="btn btn-primary pl20 pr20 pull-right">注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="text-center text-muted mt30">
+    <a href="/user/forgot" class="ml5">找回密码</a>
+</div>
+</script>
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "//static.segmentfault.com",
+        };
+        w.SF.token = (function () {
+    var _3AP = //'o'
+'6'+//'ka'
+'55f'+''///*'NA'*/'NA'
++'0e'//'qk7'
++'227'//'gI1'
++//'T'
+'T'+//'kXw'
+'kXw'+//'w6'
+'1'+//'Gca'
+'6'+//'KT'
+'592'+/* 'Un'//'Un' */''+//'Fz'
+'a2'+'a'//'2ge'
++//'e'
+'c'+'46f'//'WX'
++//'2'
+'df7'+//'f'
+'90c'+//'j6s'
+'e'+'3'//'7hT'
++'Goe'//'Goe'
++//'X'
+'16'+'a'//'1'
+, _vZf = [[9,10],[9,12],[29,32]];
+
+    for (var i = 0; i < _vZf.length; i ++) {
+        _3AP = _3AP.substring(0, _vZf[i][0]) + _3AP.substring(_vZf[i][1]);
+    }
+
+    return _3AP;
+})();;
+    })(window);
+</script>
+
+    <script src="./使用Move.js创建CSS3动画 - SegmentFault_files/assets.ce4fe392.js"></script>
+    <script>
+    requirejs.config({
+        baseUrl: "//static.segmentfault.com/build/global/js"
+    });
+    </script>
+            <script src="./使用Move.js创建CSS3动画 - SegmentFault_files/post.c3c65e92.js"></script>
+    
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-918487-8']);
+  _gaq.push(['_trackPageview']);
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-918487-8', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script src="./使用Move.js创建CSS3动画 - SegmentFault_files/m.js"></script>
+<script>
+if(typeof BAIDU_CLB_fillSlotAsync === 'function') {
+    BAIDU_CLB_fillSlotAsync('981183','adid-981183');
+    BAIDU_CLB_fillSlotAsync('981184','adid-981184');
+    BAIDU_CLB_fillSlotAsync('981694','adid-981694');
+    BAIDU_CLB_fillSlotAsync('981179','adid-981179');
+    BAIDU_CLB_fillSlotAsync('1119908','adid-1119908');
+}
+</script>
+
+
+
+
+<div id="noteWidget" class="noteWidget hidden hidden-xs">
+    <div class="noteWidget-header clearfix">
+        <h2 class="h4 pull-left">记笔记</h2>
+        <ul class="list-inline pull-right mb0">
+            <li id="noteWidgetMinimize"><span class="icon-minimize"></span></li><li id="noteWidgetZoom"><span class="icon-zoom"></span></li><li id="noteWidgetClose"><span class="icon-close"></span></li>
+        </ul>
+    </div>
+    <form method="POST" action="http://segmentfault.com/api/notes/add" role="form">
+        <div class="form-group">
+            <label for="title" class="sr-only">标题</label>
+            <input type="hidden" value="" id="draftId">
+            <input type="text" name="title" data-error="" autocomplete="off" class="form-control" placeholder="笔记描述" value="">
+        </div>
+        <div class="editor-config clearfix">
+            <select name="lang" class="form-control pull-left input-sm">
+                <optgroup label="文本语法">
+                    <option value="text" data-mode="text">纯文本</option>
+                    <option value="markdown" data-mode="markdown">Markdown</option>
+                    <option value="javascript" data-mode="javascript">Javascript</option>
+                    <option value="css" data-mode="css">CSS</option>
+                    <option value="html5" data-mode="htmlmixed">HTML</option>
+                    <option value="php" data-mode="php">PHP</option>
+                    <option value="python" data-mode="python">Python</option>
+                    <option value="ruby" data-mode="ruby">Ruby</option>
+                    <option value="go" data-mode="go">Go</option>
+                    <option value="c" data-mode="clike">C/C++</option>
+                    <option value="java" data-mode="java">Java</option>
+                    <option value="bash" data-mode="shell">Shell/Bash</option>
+                </optgroup>
+            </select>
+            <div class="pull-right hidden-xs">
+                <select name="indentWithTabs" class="form-control inline-block input-sm">
+                    <optgroup label="缩进模式">
+                        <option value="false">空格缩进</option>
+                        <option value="true">Tabs 缩进</option>
+                    </optgroup>
+                </select>
+                <select name="tabSize" class="form-control inline-block input-sm">
+                    <optgroup label="缩进大小">
+                        <option value="2">2</option>
+                        <option value="4" selected="">4</option>
+                    </optgroup>
+                </select>
+                <select name="lineWrap" class="form-control inline-block input-sm">
+                    <optgroup label="换行方式">
+                        <option value="true">自动换行</option>
+                        <option value="false">不换行</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <textarea id="codeMirror" class="form-control" style="display: none;"></textarea><div class="CodeMirror cm-s-default CodeMirror-wrap"><div style="overflow: hidden; position: relative; width: 3px; height: 0px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 0px;"><div style="height: 100%; min-height: 1px;"></div></div><div class="CodeMirror-vscrollbar"><div style="min-width: 1px;"></div></div><div class="CodeMirror-scrollbar-filler"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px;"><div style="position: relative;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"></div><div class="CodeMirror-code"></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px;"></div><div class="CodeMirror-gutters"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 1px;"></div></div></div></div>
+        <div class="mt20 clearfix">
+            <div class="pull-right">
+                <span class="text-muted hidden" id="editorStatus">已保存</span>
+                <a id="dropIt" href="javascript:void(0);" class="mr10 hidden">[舍弃]</a>
+                <button data-type="note" id="publishIt2" class="btn btn-default ml10" data-id="" data-do="add" data-url="" data-text="保存私密笔记" data-name="">保存私密笔记</button>
+                <button data-type="note" id="publishIt" class="btn btn-primary ml10" data-id="" data-do="add" data-url="" data-text="保存公开笔记" data-name="">保存公开笔记</button>
+                </div>
+            </div>
+        </form></div>
+    
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" width="100%" height="100%" type="application/x-shockwave-flash" data="http://static.segmentfault.com/build/3rd/zeroclipboard/dist/ZeroClipboard.swf?noCache=1444829354967"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=segmentfault.com%2C%2F%2Fsegmentfault.com%2Chttp%3A%2F%2Fsegmentfault.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div><div id="atwho-container"></div></body></html>
