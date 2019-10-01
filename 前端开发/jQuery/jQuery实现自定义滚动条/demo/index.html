@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<link rel="stylesheet" type="text/css" href="resource/reset.css">
+	<style type="text/css">
+		body{
+			background:#ccc;
+		}
+		.scroll-demo{
+			width:540px;
+			border: 1px solid #e5e5e5;
+			background:#fff;
+			margin:30px auto;
+		}
+		.scroll-tab{
+			height: 34px;
+			border: 1px solid #e5e5e5;
+			color:#666;
+			background:#f8f8f8;
+		}
+		.scroll-tab .tab-item{
+			float: left;
+			font；14px/34px "Microsoft Yahei"
+			height: 34px;
+			text-align: center;
+			border-right: 1px solid #e5e5e5;
+			padding:0 20px;
+		}
+		.scroll-tab .tab-active{
+			color:#00be3c;
+			background:#fff;
+			border-top: 2px solid #00be3c;
+			margin:-1px 0;
+		}
+		.scroll-wrap{
+			width: 100%;
+			 height: 300px;
+		}
+
+		.scroll-wrap .scroll-cont{
+			height: 100%;
+			padding: 0 15px;
+			overflow: hidden;
+		}
+		.scroll-wrap .scroll-cont h3{
+			font: 16px/3 "Microsoft Yahei";
+			text-align: center;
+		}
+		.scroll-wrap .scroll-cont{
+			font-size: 14px;
+			line-height: 20px;
+			text-indent: 2em;
+			margin-bottom: 10px;
+		}
+		.scroll-wrap .scroll-bar{
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 10px;
+			height: 100%;
+			background-color: #eaeaea;
+		}
+		.scroll-wrap .scroll-slider{
+			position: absolute;
+			top: 0;
+			left:1px;
+			width: 8px;
+			height: 30px;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="scroll-demo">
+	<!-- 标签切换区 -->
+		<ul class="scroll-tab clearfix">
+			<li class="tab-item tab-active">第一篇</li>
+			<li class="tab-item">第二篇</li>
+			<li class="tab-item">第三篇</li>
+			<li class="tab-item">第四篇</li>
+		</ul>
+		<!-- 滚动内容区 -->
+		<div class="scroll-wrap">
+			<!-- 滚动内容 -->
+			<div class="scroll-cont">
+				<h3 class="anchor">春天来了</h3>
+				<div class="scroll-ol">
+					<p>春天来了，桃花笑红了脸，嫩绿的小草睡醒了，直往外伸懒腰，柳树吐出点点小芽儿，成了春天的音符，小溪解冻了，叮叮咚咚地流向大海。轰隆隆，春雷公公重重地敲起了大鼓，紧接着，春雨姑娘沙沙地弹着琴。大雨过后，天上慢慢地出现太阳公公放出的光。春笋也悄悄地钻出土地，还穿了很多衣服。冬眠的动物也苏醒了，刺猬高兴地打着滚儿，蛇慢慢地从洞里爬出来……</p>
+					<p>春天的景色真美！</p>　　
+				</div>
+
+				<h3 class="anchor">夏天来了</h3>
+				<div class="scroll-ol">
+					<p>
+					夏天来了,他从很远很远的地方来了。
+					</p>
+					<p>
+    				夏天对太阳说：“ 燃烧吧！火球，拿出你的热情，把大地烤得滚烫滚烫的。”
+						
+					</p>
+					<p>						
+    				夏天对云朵说：“调皮的云儿，叫上你们的兄弟姐妹， 大家一起玩变脸的游戏，和太阳玩玩捉迷藏，和雷公一起打打架。”
+					</p>
+					<p>
+    					夏天对所有的青蛙说：“你们又可以呱呱呱的唱歌了，将夜晚变得热热闹闹。”
+					</p>
+					<p>
+    					夏天对所有的萤火虫说：“带上你们的小灯笼，跳着轻快的舞蹈，到田里、到山里、到小溪，将夜晚装扮得更迷人。”
+					</p>
+					<p>
+    					夏天对所有的小麦说：“你们可以快快的长高了，一片挨着一片，变成绿色的海洋。”
+						
+					</p>
+					<p>
+						
+    					夏天对所有的西瓜说：“你们把自己变得更凉快一点、圆圆的、甜甜的、红红的，为所有人带来清凉。”
+					</p>
+					<p>
+						
+    					夏天做完这一切累极了，靠在弯弯的月牙上就像他的摇摇椅。
+					</p>
+					<p>
+    					他听到一阵小鸟的叫声，叽叽喳喳，他们在说：“唉呀，最近好热啊，青蛙也叫得好响，知了也是，田里的麦子也长高了好多，嗯，夏天来					了！”夏天听到小鸟的话非常开心的笑了。
+						
+					</p>					
+				</div>
+
+
+				<h3 class="anchor">秋天来了</h3>
+				<div class="scroll-ol">
+					<p>
+					我爱秋。虽然在这个季节里，炫耀了一个夏天的浓绿的树叶开始有了倦意，一片片金黄的枯叶静静地落下，在大地母亲的怀抱里沉沉睡去；百花零落，世界变得苍凉，寂静。但我就是爱秋，爱她的那一份寂寥，也爱她的一份多彩。 
+					</p>
+					<p>
+    				　　秋天来了，但她带来了不一样的色彩。那菊花，黄的、白的、粉的、紫的，还有淡绿的和墨色的。那优雅卷曲的花瓣，那高贵优雅的姿态，那绚丽的色彩，虽然没有令人沉醉的香气，但还是令人着迷。菊是秋天的代表，高雅脱俗，不惧严寒。在中秋之夜，赏着金黄的圆月，品着香甜的月饼，再加上几盆金菊与明月相呼应，也颇有一番情趣。 
+						
+					</p>
+					<p>						
+    				在秋天来临的时候，桂花也是极其吸引我的。虽然桂花就像“故乡的桂花雨”一文中写的，桂花不开花时只是一树绿叶，即使开花时也得从浓密的树叶里找细花。我没像作者一样“吃”过花，也没有品过“桂花栗子羹”，但我只要闻一闻花香就满足了。学校里有几株桂花，每日去交晨检表时，无不沉浸在桂花香里。桂花一开，也意味着秋天来到了。 
+					</p>
+					<p>
+    					　江滩边上的芦苇也告诉我们秋天来了。那奶白色的芦花在秋风中摇曳，偌大一片芦苇滩，秋风一过，像激起了一层又一层白色的浪花。
+					</p>
+					<p>
+    					秋天来了，各种果实也该熟了，毕竟秋天是收获的季节。田里玉米、稻谷……眼前一片金黄，虽然我从不曾看到如此美妙、壮观的场景，但在我的想象中，田野里是一片连一片的金黄，金灿灿的耀花了人的眼睛。旁边的果园里，各种水果沉甸甸的压弯了树枝。人们都露出了笑脸，但之前对秋的厌恶到哪里去了呢？秋不是多彩的吗？秋不也是四处充满了生命吗？充满了收获的欣喜吗？ 
+					</p>
+					<p>
+    					秋天来了，我也像过去一样爱着秋。秋天还是那样寂静。树叶还是一样的落，娇艳的花还是一样在凋零，桂花、菊却灿烂地开着，丰收的果实却在散发着诱人的香甜。 
+						
+					</p>
+					<p>
+						
+    					秋天是如此美好，与夏天又差什么呢？秋天来了，与夏天只差一抹绿色，一份炽热。 
+					</p>
+							
+				</div>
+
+				<h3 class="anchor">冬天来了</h3>
+				<div class="scroll-ol">
+					<p>
+					秋姑娘走了，冬爷爷悄悄的来临了，北风呼呼的刮起来了，它告诉我们寒冷的冬天已经到来了。
+
+						北风吹到了树梢上树梢就冻得直颤抖，它吹到了草地上青草变了颜色。它吹到了小花的上，花儿都谢了，只剩下光秃秃的小脑dai。只有蜡梅和水仙它们不怕寒冷依然开放着，它们悄然飘来了淡淡的清香，为寒冷的冬天带来了生机。
+
+						小动物到哪儿去了呢?小燕子、丹顶鹤、大雁早在秋天的时候就飞到温暖的南方去了。小蚂蚁在暖和的洞里吃食物。青蛙、蟒蛇----它们正在洞里呼呼大睡呢!
+
+						清晨，我醒来的时候看见玻璃窗上结了一朵朵洁白的冰花，我惊奇的叫着：“妈妈，你看，玻璃窗上开花了。”啊!真漂亮!它像宽大的树叶，像柔嫩的小草，像丰满的牡丹，一朵朵、晶亮洁白我知道这一定是冬爷爷给大地的礼物。
+
+						过一会儿一大-片一大-片的雪花纷纷扬扬地飘落下来，那飞舞的雪，像天女撒下的玉叶，银花那样晶莹那样美丽，我穿好衣服，刷完牙，洗完脸，饭也没吃就下楼堆雪人了，我看见小朋友，三五成群的玩耍着，有的滑雪，有的溜冰，有的跳绳，还有的打雪仗。
+
+						啊!我喜欢你冬天小朋友们喜欢这银白色的冬天吗?
+
+						篇二
+
+						冬，就这么冷峻地沉默着，不动声色地看着曾经喧闹的色彩凄惨地凋谢，听着曾经悠扬快乐的鸟儿孤孤零零地呻吟，任凭鲜花枯去，任凭小河冰封，冬日无语。
+
+						我踩着厚厚的积雪，望着四周苍凉的景色，是冬!是冬将昔日的生气变成了今日的死寂，将往日的缤纷幻化成今天的虚无，将世界变得没有希望!
+
+						猛的，我闻到了一股清雅的香，循香望去，是梅!是腊梅在大雪纷飞万簌俱寂中微笑粲然!忽的，我想到了青松，它不也是在北风呼啸昏天黑地中挺拔依旧?它们在冬日中传播着希望的气息，向我微笑，我明白了……
+
+						冬没有迷人的诱-惑，浅薄的人觉得他冷面呆板肃杀单调;冬没有浮华的躁动，平庸的人悟不出他冰冷背后的深刻与激-情。
+
+						冬没法让人沉醉，你要亲近他，要耐得无法寻路的寂寞和有苦说不出的痛楚。
+
+						冬没法让人轻松，你要亲近他，要捧出你火热的心，走入风中，立于雪中，聆听他那悠远的教诲。 
+					</p>
+					<p>
+					</p>
+					<p>						
+					</p>
+					<p>
+					</p>
+					<p>
+					</p>
+					<p>
+					</p>
+					<p>
+					</p>
+							
+				</div>
+
+
+			</div>
+			<!-- 滚动条 -->
+			<div class="scroll-bar">
+				<!-- 滚动滑块 -->
+				<div class="scroll-slider">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="resource/jquery-3.0.0.js"></script>
+	<script type="text/javascript">
+	(function(win,doc,$){
+		function CusScrollBar(options){
+			this._init(options);
+		}
+		$.extend(CusScrollBar.prototype,{
+			_init:function  (options) {
+				var self = this;
+				self.options = {
+					scrollDir:"y",
+					contSelector:"",
+					barSelector:"",
+					sliderSelector:"",
+					tabItemSelector:"tab-item",
+					tabActiveClass:"tab-active",
+					wheelStep:10
+				}
+				$.extend(true,self.options,options||{})
+				console.log("test1");
+				self._initDomEvent();
+				return self;
+			},
+			_initDomEvent: function  () {
+				var opts = this.options;
+				this.$cont = $(opts.contSelector);
+				this.$slider = $(opts.sliderSelector);
+				this.$bar = opts.barSelector?$(opts.$barSelector):self.$slider.parent();
+				this.$tabItem = $(opts.tabItemSelector);
+				this.$doc = $(doc);
+
+				this._initSliderDragEvent()
+				._initTabEvent()
+				._bindContScroll()
+				._bindMouseWheel();
+			},
+
+			_initSliderDragEvent:function  () {
+				var slider = this.$slider,
+				sliderEl = slider[0];
+				if(sliderEl){
+					var doc = this.$doc,
+					dragStartPagePosition,
+					dragStartScrollPosition,
+					dragContBarRate;
+					function mousemoveHandler (e) {
+						e.preventDefault();
+						console.log("mousermove");
+						if(dragStartPagePosition==null){
+							return;
+						}
+						self.scrollTo(dragStartPagePosition + (e.pageY - dragStartPagePosition) * dragContBarRate);
+					}
+					slider.on("mouserdown",function  (e) {
+						e.preventDefault();
+						dragStartPagePosition = e.pageY;
+						dragStartScrollPosition = self.$cont[0].scrollTop;
+						dragContBarRate = self.getMaxScrollPosition()/self.getMax
+						SliderPosition();
+
+						console.log("mousedown");
+						doc.on("mousemove",function  (e) {
+							console.log("mousermove.scroll");//.scroll是命名空间
+						}).on("mouseup.scroll",function  (e) {
+							console.log("mouserup");
+							doc.off(".scroll");
+						})
+					})
+				}
+			},
+			_initTabEvent:function  () {
+				var self = this;
+				self.$tabItem.on("click",function  (e) {
+					e.preventDefault();
+					var index = $(this).index();
+					self.changeTabSelect(index);
+				})
+				return self;
+			},
+			changeTabSelect:function  (index) {
+				var self = this,
+				active = self.options.tabActiveClass;
+				return self.$tabItem.eq(index).addClass(active).siblings().removeClass(active);
+
+			},
+			//监听内容的滚动，同步滑块的位置
+			_bindContScroll:function  () {
+				var self = this;
+				self.$cont.on('scroll',function  () {
+					var sliderEl = self.$slider && self.$slider[0];
+					if(sliderEl){
+						sliderEl.style.top = self.getSliderPosition() + "px";
+
+					}
+				})
+				return self;
+			},
+			_bindMouseWheel:function  () {
+				var self = this;
+
+				self.$cont.on("mousewheel DOMMouseScroll", function  (e) {
+					e.preventDefault();
+					var oEv = e.originalEvent;
+					wheelRange = oEv.wheelDelta ? - oEv.wheelDelta/120 : (oEv.detail || 0)/3;
+					self.scrollTo(self.$cont[0].scrollTop + wheelRange * self.options.wheelStep);
+				});
+				return self;
+			},
+			//计算滑块儿的当前位置
+			getSliderPosition:function () {
+				var self = this;
+				maxSliderPosition = self.getMaxSliderPosition();
+				return Math.min(maxSliderPosition,maxSliderPosition * self.$cont[0].scrollTop/self.getMaxScrollPosition());
+			},
+			//内容可滚动的高度
+			getMaxScrollPosition:function  () {
+				var self = this;
+				return Math.max(self.$cont.height(),self.$cont[0].scrollHeight)-self.$cont.height();
+			},
+			//滑块可移动的距离
+			getMaxSliderPosition:function  () {
+				var self = this;
+				return self.$.bar.height() - self.$.slider.height();
+			},
+			scrollTo:function  (positionVal) {
+				var self = this;
+				self.$cont.scrollTop(positionVal);
+			}
+		});
+
+				
+		// CusScrollBar.prototype._init=function(){
+		// 	console.log("test");
+		// }
+		win.CusScrollBar = CusScrollBar;
+	})(window,document,jQuery);
+	new CusScrollBar({
+					contSelector:".scroll-wrap",
+					barSelector:".scroll-bar",
+					sliderSelector:".scroll-slider"
+				});
+	</script>
+</body>
+</html>

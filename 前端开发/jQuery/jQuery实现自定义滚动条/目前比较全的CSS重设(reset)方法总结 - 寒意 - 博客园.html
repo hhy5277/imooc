@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0060)http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/bundle-coffee.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/hnyei/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/hnyei/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/hnyei/wlwmanifest.xml">
+<script src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/jquery.js" type="text/javascript"></script><style type="text/css">div#ad_b4,div#ad_b3,div#ad_b2,div#ad_b1{display:none !important;}</style>  
+<script type="text/javascript">var currentBlogApp = 'hnyei', cb_enable_mathjax=false;</script>
+<script src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<!--PageBeginHtml Block Begin-->
+<div id="hnyei_css" style="display:none;">
+<br>
+昵称：<a href="http://www.cnblogs.com/hnyei/">hnyei-WEB前端设计经验</a><br>
+园龄：<a href="http://www.cnblogs.com/hnyei/" title="入园时间：2010-07-16">5年1个月</a><br>
+粉丝：<a href="http://www.cnblogs.com/hnyei/followers/">356</a><br>
+关注：<a href="http://www.cnblogs.com/hnyei//followees/">27</a>
+<br>
+<br>
+<p></p>
+<p>=============+============</p>
+</div>
+<div id="hnyei_ad2" style="display:none;">
+<a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D0KZesIbX2uAjmraEDZVrLqac1UJyAGFrV04OluWItWGLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK9lwB965XPJ1rhI2nl4zYaA%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s1.jpg" width="300" height="288"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DxxmUmM2zzcAjmraEDZVrLqYJK5%252BAdQOFKww%252BJCCRHnuLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK9lwB965XPJ0gFRXuD%252Bq25A%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s2.jpg" width="300" height="288"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3Do9fwayAzOkzuDAZjWhpTWOzrkAGYc0n4TsiJPzCOLitBWJVBnwmj7tnO073KpEUuesayvrQ7hvkEwiwEAUVRm%252FZyNpO%252BHv9A0fmUKFYx9nyjSfbU6kZpZR6IQnsDfLM6QS7f%252BbyIPlqx115wscj2FQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s3.jpg" width="300" height="288"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D7ObD7fI%252FFtu6k0Or%252B%252BH4tGOHmtzR5L6AOHn0s68if2OLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK2pzrSiLuG55DkjFk0R33wQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s4.jpg" width="300" height="288"></a>
+</div>
+<!--PageBeginHtml Block End-->
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/hnyei/"><img id="blogLogo" src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/hnyei/">HTML,DIV+CSS,js,JQ,UI-WEB前端设计经验 @ hnyei 寒意</a></h1>
+<h2>寒意 hnyei - HTML,<b>DIV+CSS</b>,js,JQ,UI,flash等WEB前端开发笔记</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent" style="margin: 0px -320px 0px 0px;">
+	<div class="forFlow" style="margin: 0px 320px 0px 0px;">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/hnyei/">首页</a></li>
+	<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="MyLinks1_ContactLink" accesskey="9" class="menu" rel="nofollow" href="http://msg.cnblogs.com/send/%E5%AF%92%E6%84%8F">联系</a></li>
+	<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+	<li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/hnyei/rss">订阅</a>
+	<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/hnyei/rss"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+			<div class="blogStats">
+				
+				
+<!--done-->
+随笔- 187&nbsp;
+文章- 0&nbsp;
+评论- 105&nbsp;
+
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园.html">目前比较全的CSS重设(reset)方法总结</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>在当今网页设计/开发实践中，使用CSS来为语义化的(X)HTML标记添加样式风格是重要的关键。在设计师们的梦想中都存在着这样的一个完美世界:所有的浏览器都能够理解和适用多有CSS规则，并且呈现相同的视觉效果(没有兼容性问题)。但是，我们并没有生活在这个完美的世界，现实中发生的失窃却总是恰恰相反，很多CSS样式在不同的浏览器中有着不同的解释和呈现。</p>
+<p>　　当今流行的浏览器(如:Firefox、Opera、Internet Explorer、Chrome、Safari等等)中，有一些都是以自己的方式去理解CSS规范，这就会导致有的浏览器对CSS的解释与设计师的CSS定义初衷相冲突，使得网页的样子在某些浏览器下能正确按照设计师的想法显示，但有些浏览器却并没有按照设计师想要的样子显示出来，这就导致浏览器的兼容性问题。更糟的是，有的浏览器完全无视CSS的一些声明和属性。</p>
+<p>　　正因为上述冲突和问题依然存在于这个”不完美的世界”，所以一些设计师想到了一种避免浏览器兼容性问题的方法，那就是CSS Reset，什么是CSS Reset？我们可以把它叫做CSS重设，也有人叫做CSS复位、默认CSS、CSS重置等。CSS重设就是由于各种浏览器解释CSS样式的初始值有所不同，导致设计师在没有定义某个CSS属性时，不同的浏览器会按照自己的默认值来为没有定义的样式赋值，所以我们要先定义好一些CSS样式，来让所有浏览器都按照同样的规则解释CSS，这样就能避免发生这种问题。</p>
+<h3>一.最简化的CSS Reset(重设) :</h3>
+<blockquote>
+<p>* {<br>&nbsp;&nbsp; &nbsp; &nbsp;padding: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp;margin: 0;<br>}</p>
+</blockquote>
+<p>　　这是最普遍最简单的CSS重设，将所有元素的padding和margin值都设为0，可以避免一些浏览器在理解这两个属性默认值上的”分歧”。</p>
+<blockquote>
+<p>* {<br>&nbsp;&nbsp; &nbsp; &nbsp; padding: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; margin: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; border: 0;<br>}</p>
+</blockquote>
+<p>　　这是在上一个重设的基础上添加了对border属性的重设，初始值为0的确能避免一些问题。</p>
+<blockquote>
+<p>* {<br>&nbsp;&nbsp; &nbsp; &nbsp; outline: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; padding: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; margin: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; border: 0;<br>}</p>
+</blockquote>
+<p>　　在前两个的基础上添加了outline属性的重设，防止一些冲突。</p>
+<p><span id="more-1913"></span></p>
+<h3>二.浓缩实用型CSS Reset(重设):</h3>
+<blockquote>
+<p>* {<br>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;vertical-align: baseline;<br>&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;font-weight: inherit; <br>&nbsp;&nbsp; &nbsp; &nbsp; font-family: inherit; <br>&nbsp;&nbsp; &nbsp; &nbsp; font-style: inherit;<br>&nbsp;&nbsp; &nbsp; &nbsp; font-size: 100%;<br>&nbsp;&nbsp; &nbsp; &nbsp; outline: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; padding: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; margin: 0;<br>&nbsp;&nbsp; &nbsp; &nbsp; border: 0;<br>}</p>
+</blockquote>
+<p>　　该CSS重设方法出自Perishable Press，这是他常用的方法。</p>
+<h3>三.Poor Man 的CSS Reset:</h3>
+<blockquote>
+<p>html, body { <br>&nbsp;&nbsp; &nbsp; &nbsp; padding: 0; <br>&nbsp;&nbsp; &nbsp; &nbsp; margin: 0; <br>}<br>html {<br>&nbsp;&nbsp; &nbsp; &nbsp; font-size:1em;<br>}&nbsp;<br>body {<br>&nbsp;&nbsp; &nbsp; &nbsp; font-size:100%;<br>}&nbsp;<br>a img, :link img, :visited img {<br>&nbsp;&nbsp; &nbsp; &nbsp; border:0px;<br>}&nbsp;</p>
+</blockquote>
+<p>　　这个重设方法将html和body下元素的padding和margin都设为0，并分别为html标签和body标签下的所有元素设置了初始的字体大小，最重要的是把有链接的图片的默认边框去掉了。</p>
+<h3>四.Siolon’s Global Reset</h3>
+<blockquote>
+<p>* { <br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;<br>&nbsp;&nbsp; &nbsp;fo<br>
+<script type="text/javascript" src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/zh.js"></script>
+<br>nt-style: inherit;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;<br>&nbsp;&nbsp; &nbsp;border: none;<br>&nbsp;&nbsp; &nbsp;padding: 0;<br>&nbsp;&nbsp; &nbsp;margin: 0; <br>}<br>body {<br>&nbsp;&nbsp; &nbsp;padding: 5px;<br>} <br>h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, ul, ol, dl {<br>&nbsp;&nbsp; &nbsp;margin: 20px 0;<br>}<br>li, dd, blockquote { <br>&nbsp;&nbsp; &nbsp;margin-left: 40px;<br>} <br>table { <br>&nbsp;&nbsp; &nbsp;border-collapse: collapse; <br>&nbsp;&nbsp; &nbsp;border-spacing: 0; <br>}</p>
+</blockquote>
+<h3>五.Shaun Inman’s Global Reset</h3>
+<blockquote>
+<p>body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, table, th, td, embed, object {<br>&nbsp;&nbsp; &nbsp;padding: 0;<br>&nbsp;&nbsp; &nbsp;margin: 0; <br>}<br>table {<br>&nbsp;&nbsp; &nbsp;border-collapse: collapse;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;<br>}<br>&nbsp;&nbsp; &nbsp;fieldset, img, abbr {<br>&nbsp;&nbsp; &nbsp;border: 0;<br>}<br>address, caption, cite, code, dfn, em, <br>h1, h2, h3, h4, h5, h6, strong, th, var {<br>&nbsp;&nbsp; &nbsp;font-weight: normal;<br>&nbsp;&nbsp; &nbsp;font-style: normal;<br>}<br>ul {<br>&nbsp;&nbsp; &nbsp;list-style: none;<br>}<br>caption, th {<br>&nbsp;&nbsp; &nbsp;text-align: left;<br>}<br>h1, h2, h3, h4, h5, h6 {<br>&nbsp;&nbsp; &nbsp;font-size: 1.0em;<br>}<br>q:before, q:after {<br>&nbsp;&nbsp; &nbsp;content: ”;<br>}<br>a, ins {<br>&nbsp;&nbsp; &nbsp;text-decoration: none;<br>}</p>
+</blockquote>
+<h3>六.Yahoo(YUI) CSS Reset:</h3>
+<blockquote>
+<p>body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,&nbsp;<br>form,fieldset,input,textarea,p,blockquote,th,td {&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>}&nbsp;<br>table {&nbsp;<br>&nbsp;&nbsp; &nbsp;border-collapse: collapse;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;&nbsp;<br>}&nbsp;<br>fieldset,img {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>}&nbsp;<br>address,caption,cite,code,dfn,em,strong,th,var {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: normal;&nbsp;<br>}&nbsp;<br>ol,ul {&nbsp;<br>&nbsp;&nbsp; &nbsp;list-style: none;&nbsp;<br>}&nbsp;<br>caption,th {&nbsp;<br>&nbsp;&nbsp; &nbsp;text-align: left;&nbsp;<br>}&nbsp;<br>h1,h2,h3,h4,h5,h6 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>}&nbsp;<br>q:before,q:after {&nbsp;<br>&nbsp;&nbsp; &nbsp;content:”;&nbsp;<br>}&nbsp;<br>abbr,acronym { <br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>}</p>
+</blockquote>
+<h3>七.Eric Meyer’s CSS Reset</h3>
+<blockquote>
+<p>html, body, div, span, applet, object, iframe, table, caption,&nbsp;<br>tbody, tfoot, thead, tr, th, td, del, dfn, em, font, img, ins,&nbsp;<br>kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,&nbsp;<br>h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,&nbsp;<br>acronym, address, big, cite, code, dl, dt, dd, ol, ul, li,&nbsp;<br>fieldset, form, label, legend {&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>}&nbsp;<br>:focus {&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>}&nbsp;<br>body {&nbsp;<br>&nbsp;&nbsp; &nbsp;background: white;&nbsp;<br>&nbsp;&nbsp; &nbsp;line-height: 1;&nbsp;<br>&nbsp;&nbsp; &nbsp;color: black;&nbsp;<br>}&nbsp;<br>ol, ul {&nbsp;<br>&nbsp;&nbsp; &nbsp;list-style: none;&nbsp;<br>}&nbsp;<br>table {&nbsp;<br>&nbsp;&nbsp; &nbsp;border-collapse: separate;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;&nbsp;<br>}&nbsp;<br>caption, th, td {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;&nbsp;<br>&nbsp;&nbsp; &nbsp;text-align: left;&nbsp;<br>}&nbsp;<br>blockquote:before, blockquote:after, q:before, q:after {&nbsp;<br>&nbsp;&nbsp; &nbsp;content: “”;&nbsp;<br>}&nbsp;<br>blockquote, q {&nbsp;<br>&nbsp;&nbsp; &nbsp;quotes: “” “”;&nbsp;<br>}</p>
+</blockquote>
+<h3>八.Condensed Meyer Reset:</h3>
+<blockquote>
+<p>body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, <br>pre, form, fieldset, input, textarea, p, blockquote, th, td { <br>&nbsp;&nbsp; &nbsp;padding: 0;<br>&nbsp;&nbsp; &nbsp;margin: 0;<br>}<br>&nbsp;&nbsp; &nbsp;fieldset, img { <br>&nbsp;&nbsp; &nbsp;border: 0;<br>}<br>table {<br>&nbsp;&nbsp; &nbsp;border-collapse: collapse;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;<br>}<br>ol, ul {<br>&nbsp;&nbsp; &nbsp;list-style: none;<br>}<br>address, caption, cite, code, dfn, em, strong, th, var {<br>&nbsp;&nbsp; &nbsp;font-weight: normal;<br>&nbsp;&nbsp; &nbsp;font-style: normal;<br>}<br>caption, th {<br>&nbsp;&nbsp; &nbsp;text-align: left;<br>}<br>h1, h2, h3, h4, h5, h6 {<br>&nbsp;&nbsp; &nbsp;font-weight: normal;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;<br>}<br>q:before, q:after {<br>&nbsp;&nbsp; &nbsp;content: ”;<br>}<br>abbr, acronym { <br>&nbsp;&nbsp; &nbsp;border: 0;<br>}</p>
+</blockquote>
+<h3>九.Ateneu Popular CSS Reset</h3>
+<blockquote>
+<p>html, body, div, span, applet, object, iframe, h1, h2, h3,&nbsp;<br>h4, h5, h6, p, blockquote, pre, a, abbr, acronym,&nbsp;<br>address, big, cite, code, del, dfn, em, font, img, ins,&nbsp;<br>kbd, q, s, samp, small, strike, strong, sub, sup, tt,&nbsp;<br>var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,&nbsp;<br>table, caption, tbody, tfoot, thead, tr, th, td {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;&nbsp;<br>}&nbsp;<br>:focus {<br>&nbsp;&nbsp; &nbsp;outline: 0;<br>}&nbsp;<br>a, a:link, a:visited, a:hover, a:active{<br>&nbsp;&nbsp; &nbsp;text-decoration:none<br>}&nbsp;<br>table {<br>&nbsp;&nbsp; &nbsp;border-collapse: separate;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;<br>}&nbsp;<br>th, td {<br>&nbsp;&nbsp; &nbsp;text-align: left;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;<br>}&nbsp;<br>img, iframe {<br>&nbsp;&nbsp; &nbsp;border: none;<br>&nbsp;&nbsp; &nbsp;text-decoration:none;<br>}&nbsp;<br>ol, ul {<br>&nbsp;&nbsp; &nbsp;list-style: none;<br>}&nbsp;<br>input, textarea, select, button {<br>&nbsp;&nbsp; &nbsp;font-size: 100%;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;<br>}&nbsp;<br>select {<br>&nbsp;&nbsp; &nbsp;margin: inherit;<br>}&nbsp;<br>hr {<br>&nbsp;&nbsp; &nbsp;margin: 0;<br>&nbsp;&nbsp; &nbsp;padding: 0;<br>&nbsp;&nbsp; &nbsp;border: 0;<br>&nbsp;&nbsp; &nbsp;color: #000;<br>&nbsp;&nbsp; &nbsp;background-color: #000;<br>&nbsp;&nbsp; &nbsp;height: 1px<br>}</p>
+</blockquote>
+<h3>十.Chris Poteet’s Reset CSS</h3>
+<blockquote>
+<p>* {&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>}&nbsp;<br>body {&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 5px;&nbsp;<br>}&nbsp;<br>h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, ul, ol, dl {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 20px 0;&nbsp;<br>}&nbsp;<br>li, dd, blockquote {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin-left: 40px;&nbsp;<br>}&nbsp;<br>table {&nbsp;<br>&nbsp;&nbsp; &nbsp;border-collapse: collapse;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;&nbsp;<br>}</p>
+</blockquote>
+<h3>十一.Tantek Celik Reset CSS</h3>
+<blockquote>
+<p>:link,:visited { text-decoration:none }&nbsp;<br>ul,ol { list-style:none }&nbsp;<br>h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }&nbsp;<br>ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input&nbsp;<br>{ margin:0; padding:0 }&nbsp;<br>a img,:link img,:visited img { border:none }&nbsp;<br>address { font-style:normal }</p>
+</blockquote>
+<h3>十二.Christian Montoya Reset CSS</h3>
+<blockquote>
+<p>html, body, form, fieldset {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;font: 100%/120% Verdana, Arial, Helvetica, sans-serif;&nbsp;<br>}&nbsp;<br>h1, h2, h3, h4, h5, h6, p, pre,&nbsp;<br>blockquote, ul, ol, dl, address {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 1em 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>}&nbsp;<br>li, dd, blockquote {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin-left: 1em;&nbsp;<br>}&nbsp;<br>form label {&nbsp;<br>&nbsp;&nbsp; &nbsp;cursor: pointer;&nbsp;<br>}&nbsp;<br>fieldset {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>}&nbsp;<br>input, select, textarea {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>}</p>
+</blockquote>
+<h3>十三.Rudeworks Reset CSS</h3>
+<blockquote>
+<p>* {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>}&nbsp;<br>html {&nbsp;<br>&nbsp;&nbsp; &nbsp;font: 62.5% “Lucida Grande”, Lucida, Verdana, sans-serif;&nbsp;<br>&nbsp;&nbsp; &nbsp;text-shadow: #000 0px 0px 0px;&nbsp;<br>}&nbsp;<br>ul {&nbsp;<br>&nbsp;&nbsp; &nbsp;list-style: none;&nbsp;<br>&nbsp;&nbsp; &nbsp;list-style-type: none;&nbsp;<br>}&nbsp;<br>h1, h2, h3, h4, h5, h6, p, pre,&nbsp;<br>blockquote, ul, ol, dl, address {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0 0 1em 0;&nbsp;<br>}&nbsp;<br>cite, em, dfn {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: italic;&nbsp;<br>}&nbsp;<br>sup {&nbsp;<br>&nbsp;&nbsp; &nbsp;position: relative;&nbsp;<br>&nbsp;&nbsp; &nbsp;bottom: 0.3em;&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;&nbsp;<br>}&nbsp;<br>sub {&nbsp;<br>&nbsp;&nbsp; &nbsp;position: relative;&nbsp;<br>&nbsp;&nbsp; &nbsp;bottom: -0.2em;&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;&nbsp;<br>}&nbsp;<br>li, dd, blockquote {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin-left: 1em;&nbsp;<br>}&nbsp;<br>code, kbd, samp, pre, tt, var, input[type='text'], textarea {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: monaco, “Lucida Console”, courier, mono-space;&nbsp;<br>}&nbsp;<br>del {&nbsp;<br>&nbsp;&nbsp; &nbsp;text-decoration: line-through;&nbsp;<br>}&nbsp;<br>ins, dfn {&nbsp;<br>&nbsp;&nbsp; &nbsp;border-bottom: 1px solid #ccc;&nbsp;<br>}&nbsp;<br>small, sup, sub {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 85%;&nbsp;<br>}&nbsp;<br>abbr, acronym {&nbsp;<br>&nbsp;&nbsp; &nbsp;text-transform: uppercase;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 85%;&nbsp;<br>&nbsp;&nbsp; &nbsp;letter-spacing: .1em;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-bottom-style: dotted;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-bottom-width: 1px;&nbsp;<br>}&nbsp;<br>a abbr, a acronym {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>}&nbsp;<br>sup {&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: super;&nbsp;<br>}&nbsp;<br>sub {&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: sub;&nbsp;<br>}&nbsp;<br>h1 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 2em;&nbsp;<br>}&nbsp;<br>h2 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 1.8em;&nbsp;<br>}&nbsp;<br>h3 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 1.6em;&nbsp;<br>}&nbsp;<br>h4 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 1.4em;&nbsp;<br>}&nbsp;<br>h5 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 1.2em;&nbsp;<br>}&nbsp;<br>h6 {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 1em;&nbsp;<br>}&nbsp;<br>a, a:link, a:visited, a:hover, a:active {&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;text-decoration: none;&nbsp;<br>}&nbsp;<br>a img {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>&nbsp;&nbsp; &nbsp;text-decoration: none;&nbsp;<br>}&nbsp;<br>img {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>&nbsp;&nbsp; &nbsp;text-decoration: none;&nbsp;<br>}&nbsp;<br>label, button {&nbsp;<br>&nbsp;&nbsp; &nbsp;cursor: pointer;&nbsp;<br>}&nbsp;<br>input:focus, select:focus, textarea:focus {&nbsp;<br>&nbsp;&nbsp; &nbsp;background-color: #FFF;&nbsp;<br>}&nbsp;<br>fieldset {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>}&nbsp;<br>.clear {&nbsp;<br>&nbsp;&nbsp; &nbsp;clear: both;&nbsp;<br>}&nbsp;<br>.float-left {&nbsp;<br>&nbsp;&nbsp; &nbsp;float: left;&nbsp;<br>}&nbsp;<br>.float-right {&nbsp;<br>&nbsp;&nbsp; &nbsp;float: right;&nbsp;<br>}&nbsp;<br>body {&nbsp;<br>&nbsp;&nbsp; &nbsp;text-align: center;&nbsp;<br>}&nbsp;<br>#wrapper {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0 auto;&nbsp;<br>&nbsp;&nbsp; &nbsp;text-align: left;&nbsp;<br>}</p>
+</blockquote>
+<h3>十四.&nbsp;Anieto2K Reset CSS</h3>
+<blockquote>
+<p>html, body, div, span, applet, object, iframe,&nbsp;<br>h1, h2, h3, h4, h5, h6, p,&nbsp;<br>blockquote, pre, a, abbr, acronym, address, big,&nbsp;<br>cite, code, del, dfn, em, font, img,&nbsp;<br>ins, kbd, q, s, samp, small, strike,&nbsp;<br>strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,&nbsp;<br>fieldset, form, label, legend,&nbsp;<br>table, caption, tbody, tfoot, thead, tr, th, td,&nbsp;<br>center, u, b, i {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: normal;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline&nbsp;<br>}&nbsp;<br>body {&nbsp;<br>&nbsp;&nbsp; &nbsp;line-height: 1&nbsp;<br>}&nbsp;<br>:focus {&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0&nbsp;<br>}&nbsp;<br>ol, ul {&nbsp;<br>&nbsp;&nbsp; &nbsp;list-style: none&nbsp;<br>}&nbsp;<br>table {&nbsp;<br>&nbsp;&nbsp; &nbsp;border-collapse: collapse;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0&nbsp;<br>}&nbsp;<br>blockquote:before, blockquote:after, q:before, q:after {&nbsp;<br>&nbsp;&nbsp; &nbsp;content: “”&nbsp;<br>}&nbsp;<br>blockquote, q {&nbsp;<br>&nbsp;&nbsp; &nbsp;quotes: “” “”&nbsp;<br>}&nbsp;<br>input, textarea {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0&nbsp;<br>}&nbsp;<br>hr {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;color: #000;&nbsp;<br>&nbsp;&nbsp; &nbsp;background-color: #000;&nbsp;<br>&nbsp;&nbsp; &nbsp;height: 1px&nbsp;<br>}</p>
+</blockquote>
+<h3>十五.CSSLab CSS Reset</h3>
+<blockquote>
+<p>html, body, div, span, applet, object, iframe, h1, h2, h3,&nbsp;<br>h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,&nbsp;<br>big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,&nbsp;<br>small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,&nbsp;<br>fieldset, form, label, legend, table, caption, tbody, tfoot,&nbsp;<br>thead, tr, th, td {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;padding: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;border: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-style: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>&nbsp;&nbsp; &nbsp;vertical-align: baseline;&nbsp;<br>}&nbsp;<br>:focus {&nbsp;<br>&nbsp;&nbsp; &nbsp;outline: 0;&nbsp;<br>}&nbsp;<br>table {&nbsp;<br>&nbsp;&nbsp; &nbsp;border-collapse: separate;&nbsp;<br>&nbsp;&nbsp; &nbsp;border-spacing: 0;&nbsp;<br>}&nbsp;<br>caption, th, td {&nbsp;<br>&nbsp;&nbsp; &nbsp;text-align: left;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-weight: normal;&nbsp;<br>}&nbsp;<br>a img, iframe {&nbsp;<br>&nbsp;&nbsp; &nbsp;border: none;&nbsp;<br>}&nbsp;<br>ol, ul {&nbsp;<br>&nbsp;&nbsp; &nbsp;list-style: none;&nbsp;<br>}&nbsp;<br>input, textarea, select, button {&nbsp;<br>&nbsp;&nbsp; &nbsp;font-size: 100%;&nbsp;<br>&nbsp;&nbsp; &nbsp;font-family: inherit;&nbsp;<br>}&nbsp;<br>select {&nbsp;<br>&nbsp;&nbsp; &nbsp;margin: inherit;&nbsp;<br>}&nbsp;<br>/* Fixes incorrect placement of numbers in ol’s in IE6/7 */&nbsp;<br>ol { margin-left:2em; }&nbsp;<br>/* == clearfix == */&nbsp;<br>.clearfix:after {&nbsp;<br>&nbsp;&nbsp; &nbsp;content: “.”;&nbsp;<br>&nbsp;&nbsp; &nbsp;display: block;&nbsp;<br>&nbsp;&nbsp; &nbsp;height: 0;&nbsp;<br>&nbsp;&nbsp; &nbsp;clear: both;&nbsp;<br>&nbsp;&nbsp; &nbsp;visibility: hidden;&nbsp;<br>}&nbsp;<br>.clearfix {display: inline-block;}&nbsp;<br>* html .clearfix {height: 1%;}&nbsp;<br>.clearfix {display: block;}</p>
+</blockquote>
+<p>　　好了，<a href="http://blog.bingo929.com/category/technology/css"><span style="color: #00a0e3;" color="#00a0e3">CSS</span></a>重设目前先总结到这里，这15套重设方法其实都是有共同点的，也许有的实现方法不同，但大部分都是同一个目的，就是为了让更多的浏览器能显示同样的效果。有了这些CSS重设作为资料和参考，也许会对你的工作有所帮助甚至提高效率，但是，毕竟这些重设都是别人写的，你完全也可以为自己量身定制一套CSS重设。</p></div><div id="MySignature" style="display: block;"><div style="width: 615px; text-align: center;">
+<div style="width: 300px; margin-right: 10px; float: left; display: inline;">
+
+
+</div>
+<div style="width: 300px; float: left; display: inline;">
+
+
+</div>
+<div style="clear: both;"></div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/hnyei/tag/%E8%AE%BE%E8%AE%A1%E6%95%88%E6%9E%9C/">设计效果</a>, <a href="http://www.cnblogs.com/hnyei/tag/web%E5%BC%80%E5%8F%91/">web开发</a>, <a href="http://www.cnblogs.com/hnyei/tag/css/">css</a>, <a href="http://www.cnblogs.com/hnyei/tag/div%2Bcss/">div+css</a>, <a href="http://www.cnblogs.com/hnyei/tag/css3/">css3</a></div>
+<div id="blog_post_info"><div id="green_channel">
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2198779,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://msg.cnblogs.com/send/%E5%AF%92%E6%84%8F" target="_blank">联系我</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/icon_weibo_24.png" alt=""></a>
+<a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/hnyei/" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/u332727.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/hnyei/">寒意</a><br>
+<a href="http://home.cnblogs.com/u/hnyei/followees">关注 - 11</a><br>
+<a href="http://home.cnblogs.com/u/hnyei/followers">粉丝 - 195</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2198779,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">10</span>
+    </div>
+	<div class="buryit" onclick="votePost(2198779,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198773.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198773.html" title="发布于2011-10-04 08:45">CSS布局口诀 - CSS BUG顺口溜</a><br><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2211127.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2211127.html" title="发布于2011-10-14 09:04">js网页进度条等待特效</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2011-10-04 08:55</span> <a href="http://www.cnblogs.com/hnyei/">寒意</a> 阅读(<span id="post_view_count">17555</span>) 评论(<span id="post_comment_count">3</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2198779" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#" onclick="AddToWz(2198779);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=97293,cb_entryId=2198779,cb_blogApp=currentBlogApp,cb_blogUserGuid='344b53f4-f4df-e011-8ee0-842b2b196315',cb_entryCreatedDate='2011/10/4 8:55:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#2214737" class="layer">#1楼</a><a name="2214737" id="comment_anchor_2214737"></a> <span class="comment_date">2011-10-08 16:15</span> | <a id="a_comment_author_2214737" href="http://www.cnblogs.com/CherryGhost/" target="_blank">§ 薄樱 §</a> <a href="http://msg.cnblogs.com/send/%26%23167%3B%20%E8%96%84%E6%A8%B1%20%26%23167%3B" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2214737" class="blog_comment_body">我用的一套很简单的css重设，才15行。基本够用吧。看了你这些。我想应该扩充一下了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2214737,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2214737,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2214737_avatar" style="display:none;">http://pic.cnblogs.com/face/129966/20130618134239.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#2760433" class="layer">#2楼</a><a name="2760433" id="comment_anchor_2760433"></a> <span class="comment_date">2013-08-26 12:03</span> | <a id="a_comment_author_2760433" href="http://www.cnblogs.com/humin/" target="_blank">幻天芒</a> <a href="http://msg.cnblogs.com/send/%E5%B9%BB%E5%A4%A9%E8%8A%92" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2760433" class="blog_comment_body">强大，！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2760433,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2760433,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2760433_avatar" style="display:none;">http://pic.cnblogs.com/face/343299/20150320135757.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#3074640" class="layer">#3楼</a><a name="3074640" id="comment_anchor_3074640"></a><span id="comment-maxId" style="display:none;">3074640</span><span id="comment-maxDate" style="display:none;">2014/11/30 0:55:16</span> <span class="comment_date">2014-11-30 00:55</span> | <a id="a_comment_author_3074640" href="http://www.cnblogs.com/xwin/" target="_blank">XCPP</a> <a href="http://msg.cnblogs.com/send/XCPP" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3074640" class="blog_comment_body">YUI CSS RESET:<br>q:before,q:after { <br>    content:”; <br>} <br>这里少了一个引号<br>q:before,q:after { <br>    content:”“; <br>}</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3074640,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3074640,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3074640_avatar" style="display:none;">http://pic.cnblogs.com/face/681102/20151002030525.png</span>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav" style="bottom: 55px; position: fixed; right: 350px; background: rgb(255, 255, 255);"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/" target="_blank">【推荐】融云即时通讯云－豆果美食、Faceu等亿级APP都在用</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block" style="display: none;"><a href="http://www.gcpowertools.com.cn/products/componentone.htm?utm_source=cnblogs&utm_medium=blogpage&utm_term=bottom&utm_content=C1&utm_campaign=community" target="_blank"><img width="300" height="250" src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/24442-20160630110653437-3203292.jpg" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/549325/" target="_blank">微信扫码为什么快？官方科普终于来了</a><br> ·  <a href="http://news.cnblogs.com/n/549324/" target="_blank">三星独家获得苹果显示器订单 LG承认投资OLED显示屏太晚</a><br> ·  <a href="http://news.cnblogs.com/n/549323/" target="_blank">深圳一公交软件疑被同行黑客盗走数据 案值过亿元</a><br> ·  <a href="http://news.cnblogs.com/n/549322/" target="_blank">菜鸟裹裹启动一键公益项目 试图解决传统公益难题</a><br> ·  <a href="http://news.cnblogs.com/n/549321/" target="_blank">李彦宏：外界嘲笑百度送外卖 岂知背后涉及机器学习</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block" style="display: none;"><a href="https://www.jiguang.cn/?from=cnblogs01" target="_blank"><img width="468" height="60" src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/24442-20160613130538213-1713265809.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/549080/" target="_blank">编程的智慧</a><br> ·  <a href="http://kb.cnblogs.com/page/549049/" target="_blank">写给初学前端工程师的一封信</a><br> ·  <a href="http://kb.cnblogs.com/page/544641/" target="_blank">抽象：程序员必备的能力</a><br> ·  <a href="http://kb.cnblogs.com/page/213197/" target="_blank">编程同写作，写代码只是在码字</a><br> ·  <a href="http://kb.cnblogs.com/page/207265/" target="_blank">遇见程序员男友</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block" style="display: none;"></div>
+<script type="text/javascript">
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar" style="width: 300px;">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle"></h3>
+	<div id="blog-news"><div style="width:300px;margin:15px 0px 0px 5px;overflow:hidden"></div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/hnyei/">寒意</a><br>园龄：<a href="http://home.cnblogs.com/u/hnyei/" title="入园时间：2011-09-16">4年9个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/hnyei/followers/">195</a><br>关注：<a href="http://home.cnblogs.com/u/hnyei/followees/">11</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;344b53f4-f4df-e011-8ee0-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar" style="visibility: visible; width: 300px; height: 288px; overflow: hidden; position: relative;">
+<div id="KSS_moveBox" style="width: 300px; height: 288px; overflow: hidden; position: relative;"><div id="KSS_XposBox" style="float: left; width: 2000%;"><div id="KSS_content" style="float: left;"><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D0KZesIbX2uAjmraEDZVrLqac1UJyAGFrV04OluWItWGLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK9lwB965XPJ1rhI2nl4zYaA%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s1.jpg" width="300" height="288" style="border: 0px;"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DxxmUmM2zzcAjmraEDZVrLqYJK5%252BAdQOFKww%252BJCCRHnuLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK9lwB965XPJ0gFRXuD%252Bq25A%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s2.jpg" width="300" height="288" style="border: 0px;"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3Do9fwayAzOkzuDAZjWhpTWOzrkAGYc0n4TsiJPzCOLitBWJVBnwmj7tnO073KpEUuesayvrQ7hvkEwiwEAUVRm%252FZyNpO%252BHv9A0fmUKFYx9nyjSfbU6kZpZR6IQnsDfLM6QS7f%252BbyIPlqx115wscj2FQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s3.jpg" width="300" height="288" style="border: 0px;"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D7ObD7fI%252FFtu6k0Or%252B%252BH4tGOHmtzR5L6AOHn0s68if2OLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK2pzrSiLuG55DkjFk0R33wQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s4.jpg" width="300" height="288" style="border: 0px;"></a></div><div id="KSS_contentClone" style="float: left;"><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D0KZesIbX2uAjmraEDZVrLqac1UJyAGFrV04OluWItWGLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK9lwB965XPJ1rhI2nl4zYaA%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s1.jpg" width="300" height="288" style="border: 0px;"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DxxmUmM2zzcAjmraEDZVrLqYJK5%252BAdQOFKww%252BJCCRHnuLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK9lwB965XPJ0gFRXuD%252Bq25A%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s2.jpg" width="300" height="288" style="border: 0px;"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3Do9fwayAzOkzuDAZjWhpTWOzrkAGYc0n4TsiJPzCOLitBWJVBnwmj7tnO073KpEUuesayvrQ7hvkEwiwEAUVRm%252FZyNpO%252BHv9A0fmUKFYx9nyjSfbU6kZpZR6IQnsDfLM6QS7f%252BbyIPlqx115wscj2FQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s3.jpg" width="300" height="288" style="border: 0px;"></a><a href="http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3D7ObD7fI%252FFtu6k0Or%252B%252BH4tGOHmtzR5L6AOHn0s68if2OLltG5xFicOdXrTUTgh9sMDPIwxrc30rhw6fJG2k8K5m4PZTZMQ6AmQ2CP5m5DGGVL9%252FZbeBI1KvlYGH3A75GK2pzrSiLuG55DkjFk0R33wQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_110614749_10116181_33680173" target="_blank"><img src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/o_s4.jpg" width="300" height="288" style="border: 0px;"></a></div></div></div>
+<div class="KSS_titleBar" style="height: 40px; width: 100%; position: absolute; bottom: 0px; left: 0px; opacity: 0.5; background: rgb(0, 0, 0);"></div><div class="KSS_titleBox" style="height: 40px; width: 100%; position: absolute; bottom: 0px; left: 0px;"><h2 class="title" style="margin: 3px 0px 0px 6px; padding: 0px; font-size: 12px; color: rgb(255, 255, 255); font-family: Verdana; font-weight: bold;"></h2></div><div class="KSS_btnBox" style="position:absolute;right:10px;bottom:5px; z-index:100"><ul id="btnlistID" style="margin:0;padding:0; overflow:hidden"><li style="list-style: none; float: left; width: 18px; height: 18px; border: 1px solid rgb(255, 0, 0); text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Verdana; line-height: 18px; opacity: 0.7; color: rgb(0, 0, 0); background: rgb(204, 0, 0);">1</li><li style="list-style: none; float: left; width: 18px; height: 18px; border: 1px solid rgb(153, 153, 153); text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Verdana; line-height: 18px; opacity: 0.7; color: rgb(204, 204, 204); background: rgb(102, 102, 102);">2</li><li style="list-style: none; float: left; width: 18px; height: 18px; border: 1px solid rgb(153, 153, 153); text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Verdana; line-height: 18px; opacity: 0.7; color: rgb(204, 204, 204); background: rgb(102, 102, 102);">3</li><li style="list-style: none; float: left; width: 18px; height: 18px; border: 1px solid rgb(153, 153, 153); text-align: center; cursor: pointer; margin-left: 3px; font-size: 12px; font-family: Verdana; line-height: 18px; opacity: 0.7; color: rgb(204, 204, 204); background: rgb(102, 102, 102);">4</li></ul></div></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/hnyei/tag/web%E5%BC%80%E5%8F%91/">web开发</a>(108)</li><li><a href="http://www.cnblogs.com/hnyei/tag/%E8%AE%BE%E8%AE%A1%E6%95%88%E6%9E%9C/">设计效果</a>(102)</li><li><a href="http://www.cnblogs.com/hnyei/tag/div%2Bcss/">div+css</a>(92)</li><li><a href="http://www.cnblogs.com/hnyei/tag/javascript%E6%95%88%E6%9E%9C/">javascript效果</a>(72)</li><li><a href="http://www.cnblogs.com/hnyei/tag/css/">css</a>(54)</li><li><a href="http://www.cnblogs.com/hnyei/tag/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/">网站架构</a>(41)</li><li><a href="http://www.cnblogs.com/hnyei/tag/HTML5/">HTML5</a>(37)</li><li><a href="http://www.cnblogs.com/hnyei/tag/jQuery/">jQuery</a>(36)</li><li><a href="http://www.cnblogs.com/hnyei/tag/css3/">css3</a>(29)</li><li><a href="http://www.cnblogs.com/hnyei/tag/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/">编程思想</a>(27)</li><li><a href="http://www.cnblogs.com/hnyei/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/hnyei/category/323360.html">Asp.net编程(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/hnyei/category/362951.html">CSS3(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/hnyei/category/323362.html">Div+Css(86)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/hnyei/category/362950.html">Html5(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/hnyei/category/323363.html">Html语言及发展(42)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/hnyei/category/323364.html">JavaScript特效(44)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/hnyei/category/323365.html">jQuery应用(26)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/hnyei/category/323366.html">SEO优化(4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/hnyei/category/323371.html">操作系统(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/hnyei/category/323370.html">其他(8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/hnyei/category/323369.html">前沿IT动态(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/hnyei/category/323368.html">数据库开发(5)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/09/20/2182199.html#3397871">1. Re:让DIV的滚动条自动滚动到最底部 - 4种方法</a></li>
+        <li class="recent_comment_body">虽然和我遇到的问题是一样的，但我看完感觉都不太好用</li>
+        <li class="recent_comment_author">--tabibi</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/11/12/hnyei.html#3392242">2. Re:10个非常有用的CSS技巧</a></li>
+        <li class="recent_comment_body">亲 ，写的很好。但是图碎了 QAQ</li>
+        <li class="recent_comment_author">--sakura丶羽</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/09/28/2194171.html#3292919">3. Re:3个你可能从未用过的HTML标签</a></li>
+        <li class="recent_comment_body">&lt;ABBR&gt;&lt;/ABBR&gt; <br>这个标签挺好用</li>
+        <li class="recent_comment_author">--.Net菜鸟123</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2012/03/05/2380458.html#3289105">4. Re:使用纯CSS实现圆角边框并完美兼容</a></li>
+        <li class="recent_comment_body">推荐使用<a href="" target="_blank"></a> ，可以生成各种效果的按钮css，包括圆角、渐进颜色、阴影，并兼容各大主流浏览器</li>
+        <li class="recent_comment_author">--coosummer</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2212189.html#3220660">5. Re:别过来，过来我就撕票了！</a></li>
+        <li class="recent_comment_body">MLGB</li>
+        <li class="recent_comment_author">--李阿呆</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/p/4605103.html#3217324">6. Re:100多个基础常用JS函数和语法集合大全</a></li>
+        <li class="recent_comment_body">手册不错</li>
+        <li class="recent_comment_author">--badmonster</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2211139.html#3203522">7. Re:常用的DIV+CSS网站布局的基本框架结构－完整版</a></li>
+        <li class="recent_comment_body">thanks  初学者感觉非常有用</li>
+        <li class="recent_comment_author">--.Net菜鸟123</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/10/04/2198779.html#3074640">8. Re:目前比较全的CSS重设(reset)方法总结</a></li>
+        <li class="recent_comment_body">YUI CSS RESET:q:before,q:after { content:”; } 这里少了一个引号q:before,q:after { content:”“; }...</li>
+        <li class="recent_comment_author">--XCPP</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2012/02/23/2364812.html#3073394">9. Re:Access sql语句创建表及字段类型</a></li>
+        <li class="recent_comment_body">谢谢，今天看了这篇文章解决我的实验问题</li>
+        <li class="recent_comment_author">--月之漫步</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2212189.html#3047935">10. Re:别过来，过来我就撕票了！</a></li>
+        <li class="recent_comment_body">好笑</li>
+        <li class="recent_comment_author">--倒霉熊初识程序@贝勒</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/26/2191181.html">1. 50个黄色网站(93668)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/12/2392017.html">2. 网页背景图固定不动，不跟随滚动条滚动(52338)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/10/19/2217358.html">3. Css &lt;ul&gt;&lt;li&gt;列表的样式的控制&lt;/li&gt;&lt;/ul&gt;(48938)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/20/2182199.html">4. 让DIV的滚动条自动滚动到最底部 - 4种方法(43938)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2211147.html">5. CSS隐藏多余文字的几个方法(27520)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/02/23/2364812.html">6. Access sql语句创建表及字段类型(23864)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/19/2181367.html">7. DIV+CSS兼容解决DIV最大宽度和最小宽度问题(19919)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/12/05/2276485.html">8. jq 使用手册(19661)</a></li><li><a href="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园.html">9. 目前比较全的CSS重设(reset)方法总结(17554)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/29/2195010.html">10. 21个强大漂亮Ajax/CSS表格设计(12966)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2211139.html">11. 常用的DIV+CSS网站布局的基本框架结构－完整版(12365)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/23/2186531.html">12. 推荐12款可用于前端开发的免费文本编辑器(11963)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/26/2191209.html">13. 11个jQuery表单元素美化插件(9830)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/23/2186523.html">14. 用CSS3制作50个超棒动画效果教程(9725)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/01/2375022.html">15. 休息一下：熊和兔子在森林里便便，完了熊问兔子“你掉毛吗？” 兔子说“不掉~” 于是熊就拿起兔子擦屁股(8139)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/23/2186535.html">16. 精选30个优秀的CSS技术和实例(7830)</a></li><li><a href="http://www.cnblogs.com/hnyei/p/3753693.html">17. 15款HTML5/CSS3案例展示，导航，日历，钟表。(7735)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/05/29/2523728.html">18. Access转成Sql 2008步骤，同时解决自动编号问题，主键，id数值不重置。(6938)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/05/2380458.html">19. 使用纯CSS实现圆角边框并完美兼容(6899)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/13/2394306.html">20. 兼容所有浏览器的CSS3圆角效果(6199)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/10/19/2217205.html">21. 固定高度div,随内容自动变高css定义方法(5912)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/14/2395325.html">22. 舞动你的文字,巧用CSS中marquee属性(5627)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/12/2392026.html">23. css中 Span 元素的 width 属性无效果原因及多种解决方案(5439)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/19/2181442.html">24. CSS技巧！像table一样布局div(5308)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/02/16/2353878.html">25. HTML5 不可限量的发展前景(5153)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/hnyei/archive/2011/10/28/2227402.html">1. 一个border引发的血案(8)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/09/28/2194171.html">2. 3个你可能从未用过的HTML标签(6)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2011/10/14/2211139.html">3. 常用的DIV+CSS网站布局的基本框架结构－完整版(5)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/13/2393199.html">4. 25条div+CSS编程提醒及小技巧整理(5)</a></li><li><a href="http://www.cnblogs.com/hnyei/archive/2012/03/23/2413471.html">5. 10 件有关 JavaScript  让人费解的事情(4)</a></li></ul></div>
+</div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2016 寒意
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+<!--PageEndHtml Block Begin-->
+<div style="width:600PX; margin:0 auto; line-height:24PX;">HTML,DIV+CSS,js,JQ,UI等WEB前端设计经验 友情链接：<a href="http://www.uzysj.com/" target="_blank">偏方治疗不孕不育</a><script src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/stat.php" language="JavaScript"></script><script src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=2066740" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/pic.gif"></a>
+</div>
+<script src="./目前比较全的CSS重设(reset)方法总结 - 寒意 - 博客园_files/jquery.KinSlideshow-1.2.1.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+  $("#profile_block").html($("#hnyei_css").html());
+  $("#blog_ad_google").hide();
+  $(".catListTitle").eq(0).html("");
+$("#mainContent").css("margin","0 -320px 0 0");
+$(".forFlow").css("margin","0 320px 0 0");
+$("#sideBar").css("width","300px");
+$("#green_channel").css("bottom","3px");
+$("#green_channel").css("position","fixed");
+$("#green_channel").css("right","350px");
+$("#green_channel").css("background","#fff");
+$("#site_nav_under").css("display","none");
+$("#comment_nav").css("bottom","55px");
+$("#comment_nav").css("position","fixed");
+$("#comment_nav").css("right","350px");
+$("#comment_nav").css("background","#fff");
+$("#kb_block").css("display","none");
+$(".c_ad_block").css("display","none");
+$("#calendar").html($("#hnyei_ad2").html());
+$("#calendar").KinSlideshow();
+});
+</script>
+<!--PageEndHtml Block End-->
+
+
+</body></html>
