@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/13411 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>  在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国
+</title>
+  <link href="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/application-60de99199aee4d48a8363b5a7632e13f.css" media="all" rel="stylesheet" type="text/css">
+  <link href="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/scaffolds-7453f720367d42cbf77569f0da014632.css" media="all" rel="stylesheet" type="text/css">
+  <script src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/application-58145f6cd9e9fb46c18f521287340193.js" type="text/javascript"></script>
+  <link href="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/articles-1312927fd4ea2c5d8617fd04c97c8348.css" media="all" rel="stylesheet" type="text/css">
+  <script src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/articles-1f44c18d68ad372a746ce19aa1b3f481.js" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param">
+<meta content="QozTCFx8CN9RgygGOooecPR/TndFfSNeBCzCF5y05XA=" name="csrf-token">
+  <script>
+    var boke_highlightbutton = false; //此全局变量为application.js调用
+  </script>
+    <link href="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/articles_show-2b7be89069e5e79e524e25640e8b02b2.css" media="all" rel="stylesheet" type="text/css">
+  <script src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/articles_show-0517476fca473f2f9db49c345ed56cf8.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+<div id="top-nav">
+  <div class="hd">
+    <div class="l">
+      <a href="http://www.bccn.net/">首页</a> &nbsp;
+      <a href="http://my.bccn.net/news/">新闻</a> &nbsp;
+      <a href="http://my.bccn.net/group/">小组</a> &nbsp;
+      <a href="http://down.bccn.net/">下载</a> &nbsp;
+      <a href="http://blog.bccn.net/"><b>博客</b></a> &nbsp;
+      <a href="http://my.bccn.net/paste/">代码贴</a> &nbsp;
+      <a href="http://bbs.bccn.net/">论坛</a> &nbsp;
+    </div>
+    <div class="r">
+        <a href="http://bbs.bccn.net/register.php">注册</a> |
+        <a href="http://bbs.bccn.net/logging.php?action=login">登录</a>
+    </div>
+  </div>
+</div>
+
+<div id="wrapper">
+  
+<div class="leftbox" style="height: 3460px;">
+  
+
+  <h3>在chrome下实现jquery跨域访问iframe的方法</h3>
+
+  <div id="pub_info">
+    <a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19256" title="本文所在的分类">WEB开发</a> | 2014-02-20 14:33:54 | 3273次阅读 | <a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/13411#comments">0评</a>
+  </div>
+
+  <div class="content">给chrome启动加个参数 <strong><span style="color:#E53333;">--disable-web-security</span></strong> 
+<p>
+	<strong>方法1</strong> 
+</p>
+<ul>
+	<li>
+		在命令行运行 "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security
+	</li>
+</ul>
+<p>
+	<strong>方法2</strong> 
+</p>
+<ul>
+	<li>
+		在桌面复制一个chrome的快捷方式，重命名为“Chrome跨域”，右键“属性”，在“目标”后面加上&nbsp;--disable-web-security，即目标改为上面的<span style="color:#E53333;">"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security</span>，以后点击上面的“Chrome跨域”启动浏览器，就可以跨域访问了
+	</li>
+</ul>
+<p>
+	<br>
+</p>
+<p>
+	注意：启动chrome的时候一定要关闭开着的所有chrome程序，然后再启动才能生效
+</p></div>
+
+  <div class="operate">
+  </div>
+
+
+  <a name="comments"></a>
+  <div class="comment_head">网友评论，共0条</div>
+  
+
+  <form accept-charset="UTF-8" action="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/articles/13411/comments" class="new_comment" id="new_comment" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="QozTCFx8CN9RgygGOooecPR/TndFfSNeBCzCF5y05XA="></div>
+    <div class="field">
+      <textarea cols="50" id="comment_content" name="comment[content]" rows="8"></textarea>
+    </div>
+    <div class="actions">
+      <input name="commit" type="submit" value="添加评论">
+    </div>
+</form>
+</div>
+
+<div class="rightbox">
+  <div class="box" style="margin-top: 14px;">
+    <div class="title"><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D">静夜沉思</a></div>
+    <div class="userface">
+      <a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D"><img alt="Avatar" src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/avatar.php"></a><br>
+      <a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D">静夜思</a>
+    </div>
+    <div style="margin-top: 10px;">
+      浏览518781次
+    </div>
+    <form accept-charset="UTF-8" action="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/search" class="search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+      <input id="category_id" name="category_id" type="hidden" value="0">
+      <input id="keyword" name="keyword" placeholder="搜索TA的博客" type="text"><input type="submit" value="搜索">
+</form>  </div>
+  <div class="box">
+    <div class="title">分类</div>
+    <ul>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/1">默认分类(33)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19256">WEB开发(32)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19266">Python(38)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/21822">Ruby(33)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19257">Windows(37)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19259">Linux(40)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19260">博客维护(8)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19261">论坛维护(9)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19262">MySQL(9)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19263">互联网/计算(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19264">PHP开发(35)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19265">BCCN快报(4)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19267">Vim(4)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19268">NoSQL(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/23143">ObjectPHP(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/24106">golang(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/33065">Git(7)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/19258">心情随笔(14)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/categories/138280">Android(1)</a></li>
+    </ul>
+  </div>
+  <div class="box">
+    <div class="title">归档</div>
+    <ul>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4112">2015年08月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4095">2015年07月(6)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4080">2015年06月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4050">2015年05月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4024">2015年04月(9)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4010">2015年03月(8)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4002">2015年02月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3987">2015年01月(4)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3974">2014年12月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3952">2014年11月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3935">2014年10月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3914">2014年09月(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3909">2014年08月(10)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3896">2014年07月(7)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3883">2014年06月(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3871">2014年05月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3842">2014年04月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3820">2014年03月(17)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3806">2014年02月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3800">2014年01月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3770">2013年12月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3735">2013年10月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3713">2013年09月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3692">2013年08月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3679">2013年07月(7)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3557">2013年03月(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3545">2013年02月(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3527">2013年01月(20)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3513">2012年12月(18)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3504">2012年11月(10)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/38">2012年02月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/37">2011年11月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/36">2011年09月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/35">2010年10月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/34">2010年09月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/33">2010年08月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/32">2010年07月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/31">2010年06月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/30">2010年05月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/29">2010年04月(17)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/28">2010年03月(12)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/27">2010年02月(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/26">2010年01月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/25">2009年12月(4)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/24">2009年11月(7)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/23">2009年07月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/22">2008年11月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/21">2008年08月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/20">2008年07月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/19">2008年06月(7)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/18">2008年05月(7)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/17">2008年04月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/16">2008年03月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/15">2008年01月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/14">2007年12月(6)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/13">2007年07月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/12">2007年05月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/11">2007年04月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/9">2007年02月(5)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/8">2007年01月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/7">2006年12月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/6">2006年11月(3)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/5">2006年10月(8)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/4">2006年08月(2)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/3">2006年07月(1)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/2">2006年06月(4)</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/archivers/1">2006年05月(18)</a></li>
+    </ul>
+  </div>
+  <div class="box">
+    <div class="title">阅读排行</div>
+    <ul class="rank"><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/81" title="call_user_func的参数及相关说明">call_user_func的参数及相关说明</a><span>(11946)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/87" title="call_user_func和call_user_func_array">call_user_func和call_user_func_array</a><span>(11639)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/38" title="windows 2003服务器定时重启的设置方法">windows 2003服务器定时重启的设置方法</a><span>(10169)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/73" title="济南网通DNS服务器地址">济南网通DNS服务器地址</a><span>(10017)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/86" title="PHP统计数组元素出现的次数并按出现的次数排序">PHP统计数组元素出现的次数并按出现的次数排序</a><span>(8726)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/85" title="关于电脑让人变笨变懒的说法和爱因斯坦的一则幽默回答">关于电脑让人变笨变懒的说法和爱因斯坦的一则幽默回答</a><span>(8667)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/22" title="让DIV在firefox中居中的方法">让DIV在firefox中居中的方法</a><span>(7942)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/71" title="正则表达式修饰符">正则表达式修饰符</a><span>(7864)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/78" title="吕氏春秋经典名句">吕氏春秋经典名句</a><span>(6648)</span></li><li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/49" title="关闭开机硬盘自检的方法">关闭开机硬盘自检的方法</a><span>(6539)</span></li></ul>
+  </div>
+  <div class="box">
+    <div class="title">最新评论</div>
+    <ul class="comments">
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/16878#comment_5994"><b>清兒</b>：</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/16794#comment_5953"><b>love云彩</b>：ob_start()是打开缓冲区，那么每当调用这个函数的时候，有哪些代码被写入缓冲区</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/15144#comment_5912"><b>静夜思</b>：还是放弃了，windows下弄这些东西就是瞎折腾，浮沙筑高台</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/41#comment_5771"><b>静夜思</b>：七年了，我已经成为Firefox粉，开发离不开Firefox了，感慨万千</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/21#comment_5770"><b>kingfangden</b>：学习了。</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/4#comment_5769"><b>kingfangden</b>：学习了。</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/12888#comment_5701"><b>beyondyf</b>：呵呵，头一回看这里的博客。++运算符是与汇编中的inc指令对应的，效率比i=i+1高的多（按语义编译）。当然，现在的编译器能够自动优化，但作为C程序员，++运算早已习以为常，看到i=i+1反倒觉得不习惯。</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/12888#comment_5602"><b>peach5460</b>：++和i = i+1对编译器而言是两种语句...++更有效率的好吧</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/12867#comment_5576"><b>不是小白免</b>：什么意思</a></li>
+        <li><a href="http://blog.bccn.net/%E9%9D%99%E5%A4%9C%E6%80%9D/12867#comment_5562"><b>ahyo555</b>：做人个人站长，敏捷开发的年代，php在我的开发世界里正在死去</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div style="clear: both;"></div>
+<div style="width:950px; margin:60px auto 0;">
+  <a href="http://www.ucancode.com/index.htm" target="_blank"><img src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/www.ucancode.com-e51a478addd3ecac9aefab6d4efb1db7.jpg" style="border:none; width:100%;"></a>
+</div>
+<div id="footer">
+  Copyrights©2012-2015, BCCN.NET, ALL Rights Reserved
+</div>
+
+<div style="display:none;">
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1255590163'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1255590163' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_1255590163"><a href="http://www.cnzz.com/stat/website.php?web_id=1255590163" target="_blank" title="站长统计">站长统计</a></span><script src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/stat.php" type="text/javascript"></script><script src="./在chrome下实现jquery跨域访问iframe的方法 - 静夜沉思 - 编程中国_files/core.php" charset="utf-8" type="text/javascript"></script>
+</div>
+
+
+</body></html>

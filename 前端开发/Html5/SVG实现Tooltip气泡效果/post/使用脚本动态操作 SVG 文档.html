@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0053)http://www.ibm.com/developerworks/cn/xml/x-svgscript/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN" xml:lang="zh-CN" class="dj_webkit dj_chrome dj_contentbox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>使用脚本动态操作 SVG 文档</title>
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/">
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico">
+<meta name="DC.Rights" content="© Copyright IBM Corporation 2005">
+<meta name="Keywords" content="svg，batik， DOM，ECMAScript, 陈珂, tttxca">
+<meta name="DC.Date" scheme="iso8601" content="2005-05-01">
+<meta name="Source" content="v17 delivery:developerWorks">
+<meta name="Security" content="Public">
+<meta name="Abstract" content="本文适用于那些希望使用可伸缩向量图形（SVG）创建交互式 SVG 图形的开发人员。它讨论了使用ECMAScript（JavaScript）对现有的 SVG 图像进行实时操作得技术。">
+<meta name="Description" content="本文适用于那些希望使用可伸缩向量图形（SVG）创建交互式 SVG 图形的开发人员。它讨论了使用ECMAScript（JavaScript）对现有的 SVG 图像进行实时操作得技术。">
+<meta name="IBM.Effective" scheme="W3CDTF" content="2005-05-01">
+<meta name="Owner" content="developerWorks/China/IBM">
+<meta name="DC.Language" scheme="rfc1766" content="zh-CN">
+<meta name="IBM.SpecialPurpose" content="SP001">
+<meta name="IBM.Country" content="CN">
+<meta name="Robots" content="index,follow">
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT316">
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="TTC00">
+<meta name="dW.ContentArea" content="3">
+<meta name="dW.Topic" content="29">
+
+<meta scheme="IBM_WTMCategory" name="IBM.WTMCategory" content="SOFDCXMLCN">
+
+<link rel="canonical" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/index.html">
+<!-- HEADER_SCRIPTS_AND_CSS_INCLUDE -->
+<link href="./使用脚本动态操作 SVG 文档_files/www.css" rel="stylesheet" title="www" type="text/css">
+<link href="./使用脚本动态操作 SVG 文档_files/cnzh.css" rel="stylesheet" title="www" type="text/css">
+<!-- Masthead/footer -->
+<link href="./使用脚本动态操作 SVG 文档_files/dw-mfN2015-01.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<link href="./使用脚本动态操作 SVG 文档_files/dw-article-6.css" rel="stylesheet" title="www" type="text/css">
+<link href="./使用脚本动态操作 SVG 文档_files/dw-common-features.css" rel="stylesheet" title="www" type="text/css">
+<link href="./使用脚本动态操作 SVG 文档_files/dw-local-site-v17-N2014-05.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+        <link href="./使用脚本动态操作 SVG 文档_files/dw-bluemix-regbar.css" media="screen,projection" rel="stylesheet" title="www" type="text/css">
+<script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/www.js">//</script><script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/eluminate.js"></script>
+<script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/dw-www-v2.js">//</script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/Dialog.xd.js"></script>   
+<script type="text/javascript">dojo.addOnLoad(function(){var dw_lang="zh_CN";var dw_source="dwchina";var dw_content=window.location.pathname.split("/")[window.location.pathname.split("/").length-2];if(dw_content=="library"){dw_content=window.location.pathname.split("/")[window.location.pathname.split("/").length-1];dw_content=window.location.pathname.split("/")[window.location.pathname.split("/").length-3]+"-"+dw_content.substring(0,dw_content.indexOf(".html"))}var lnkID="article-rbar-bmix-home-regbar";dojo.attr(dojo.query(".dw-regbar-btn")[0],"id",lnkID);var lnkHref=dojo.attr(dojo.byId(lnkID),"href")+"?lang="+dw_lang+"&ca="+dw_source+"-_-bluemix-_-"+dw_content+"-_-regbar-article";dojo.attr(dojo.byId(lnkID),"href",lnkHref);var rbstate=dojo.cookie("dwspck");if(rbstate==undefined)rbstate=0;rbstate=Number(rbstate);if(rbstate>=2)rbstate=0;if(rbstate==1){dojo.destroy("dw-regbar");return}var dwRegbarShow=dojo.animateProperty({node:"dw-regbar",duration:1000,delay:1000,properties:{opacity:{start:0,end:1},top:0}});var ibmTopSlideDown=dojo.animateProperty({node:"ibm-top",duration:1000,delay:1000,properties:{marginTop:{start:0,end:42}}});dwRegbarShow.play();ibmTopSlideDown.play();dwHideRegbar=function(){var dwRegbarHide=dojo.animateProperty({node:"dw-regbar",duration:1000,delay:0,properties:{opacity:{start:1,end:0},top:-100}});var ibmTopSlideUp=dojo.animateProperty({node:"ibm-top",duration:1000,delay:0,properties:{marginTop:{start:42,end:0}}});dwRegbarHide.play();ibmTopSlideUp.play();setTimeout(function(){dojo.destroy("dw-regbar")},1000);dojo.cookie("dwspck","1",{expires:3650,path:"/"})}});</script><script type="text/javascript">
+//  ibmweb.config.set({ sbs: { enabled: false }});
+</script>
+<script type="text/javascript">
+        dojo.addOnLoad(function(){
+                var dw_lang = "zh_CN";        	
+                var dw_source = "dwchina";
+                var dw_register = "注册免费的 Bluemix 试用版";
+                var dw_connect = "连接 Bluemix 开发者";
+                var dw_vp = "在 IBM Bluemix 云平台上开发并部署您的下一个应用。";
+                var dw_cta = "开始您的试用";
+                var dw_tile_alt = "在 IBM Bluemix 云平台上开发并部署您的下一个应用。现在就开始免费试用";
+        var dw_campaign = "bluemix";
+        var dw_content = window.location.pathname.split("/")[window.location.pathname.split("/").length-2];
+        if (dw_content == "library") {
+            dw_content = window.location.pathname.split("/")[window.location.pathname.split("/").length-1];
+            dw_content = window.location.pathname.split("/")[window.location.pathname.split("/").length-3] + "-" + dw_content.substring(0,dw_content.indexOf(".html"));
+            }   
+		var bluDevComURL = "https://developer.ibm.com/bluemix/";
+        var bluLink = "https://www.bluemix.net/";
+        var lnkID;
+        var lnkIDd;
+        var lnkIDt;       
+        var bLinkEnd;
+        var bLinkTemp;
+        var idTrkr = [];
+        var idCnt; 
+            var artTop = dojo.query("div.ibm-col-1-1")[0];
+            var artChildren = dojo.query(artTop).children();  
+            var edgy = false;
+            if (dojo.hasClass(artChildren[0], "ibm-inset")) edgy = true;
+            if ((artChildren[0].nodeName == "H2") && (dojo.hasClass(artChildren[1], "ibm-inset"))) edgy = true;                
+            if (dojo.hasClass(artChildren[0], "codesection")) edgy = true; 
+            if ((artChildren[0].nodeName == "H5") && (dojo.hasClass(artChildren[1], "codesection"))) edgy = true;
+            if ((artChildren[0].nodeName == "H5") && (artChildren[1].width >= 701)) edgy = true;
+            if (artChildren[1].width >= 701) edgy = true;
+            if (dojo.hasClass(artChildren[0], "ibm-data-table")) edgy = true; 
+            if ((artChildren[0].nodeName == "H5") && (dojo.hasClass(artChildren[1], "ibm-data-table"))) edgy = true;
+            if (!(edgy)) {                     
+                var	sBarAB = '<div class="dw-article-sidebar dw-bluemix" id="dwc-exp-a">' +
+                '<img src="//dw1.s81c.com/developerworks/i/bluemix-graphic.png" height="64" width="64" alt=""/>' +
+                '<p>' + dw_vp + '</p>' +
+                '<p class="ibm-button-link-alternate dw-button-green">' +
+                '<a id="tutc-sbar-bmix-home-btn-ABa" href="'+ bluLink +'" class="dw-button-large">'+ dw_cta +'</a></p></div>';
+                dojo.place(sBarAB, artTop, "first");  
+            }             
+        dojo.forEach(dojo.query ("#ibm-content-main a"), function (item, index) {
+            var dw_medium = "article";
+            var bLink = dojo.attr(item, "href");
+            var linkClass = dojo.attr(item, "class");     
+            if ((dojo.attr(item, "id") != null) && (dojo.attr(item, "id").indexOf("-sbar-") > -1)) dw_medium = "sidebar";
+            if ((dojo.attr(item, "id") != null) && (dojo.attr(item, "id").indexOf("-vpromo-") > -1)) dw_medium = "video-promotion";           
+            if (bLink && (bLink.indexOf("//bluemix.net") > -1)) bLink = bLink.replace("//bluemix.net","//www.bluemix.net");
+            if (bLink && (bLink.indexOf("//ace.ng.bluemix.net") > -1)) bLink = bLink.replace("//ace.ng.bluemix.net","//www.bluemix.net");
+            if (bLink && (bLink.indexOf("//console.ng.bluemix.net") > -1)) bLink = bLink.replace("//console.ng.bluemix.net","//www.bluemix.net");
+            if (bLink && ((bLink.indexOf("//www.bluemix.net") > -1) || (bLink.indexOf("//www.ng.bluemix.net") > -1) || (bLink.indexOf("//hub.jazz.net") > -1) || (bLink.indexOf("//developer.ibm.com/open") > -1) )) {
+                bLinkEnd = "";                
+                bLink = bLink.split("?");              
+                if ((bLink[1]) && (bLink[1].indexOf("repository=") != -1)) {
+                    var deployBtn = true;                   
+                    bLink[0] = bLink[0] + "?" + bLink[1];
+                    bLink[1] = null;
+                }               
+                if ((bLink[1]) && (bLink[1].indexOf("/") != -1)) bLinkEnd = bLink[1].substring(bLink[1].indexOf("/"));                
+                bLink = bLink[0];
+                if (bLink.indexOf("//developer.ibm.com/open") == -1) {
+                    if (bLink.indexOf("//hub.jazz.net") > -1) {
+                        if (!(deployBtn) && ((bLink.indexOf("//hub.jazz.net/git") > -1) || (bLink.indexOf("//hub.jazz.net/project") > -1))) {             
+                            bLink = "https://login.jazz.net/psso/proxy/jazzregister?utm_source=" + dw_source + "&utm_medium=" + dw_medium + "&utm_content=" + dw_content + "&utm_campaign=" + dw_campaign + "&redirect_uri=" + bLink;
+                        } else  {
+                            if (deployBtn) {
+                                bLink = bLink + "&cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium;                      
+                            } else {
+                                bLink = bLink + "?utm_source=" + dw_source + "&utm_campaign=" + dw_campaign + "&utm_content=" + dw_content + "&utm_medium=" + dw_medium;
+                            }
+                        }
+                    } else {
+                        if (bLink.indexOf("/#/") == -1) {                     
+                            if (bLink.substring(bLink.length-7) == "/docs/#") {
+                                bLink = bLink.replace("/docs/#","/docs/" + "?cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium);                    
+                            }
+                            else if (bLink.substring(bLink.length-5) == "/docs") {
+                                bLink = bLink.replace("/docs","/docs/" + "?cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium);                    
+                            } else {
+                                bLink = bLink + "?cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium;
+                            }
+                        } else {
+                            bLink = bLink.substring(0,bLink.indexOf("#")) + "?cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium + bLink.substring(bLink.indexOf("#")-1);                             
+                        }
+                    }
+                    if (bLinkEnd) bLink = bLink + bLinkEnd;
+                    if (linkClass.indexOf("bluemix-home") == -1) {
+                        if ((bLink.indexOf("#") == -1) && (bLink.indexOf("/solutions") == -1) && (bLink.indexOf("/catalog") == -1) && (bLink.indexOf("//www.bluemix.net/") != -1)) {
+                            bLink = bLink.replace("//www.bluemix.net/","//developer.ibm.com/sso/bmregistration");
+                        if (bLink.indexOf("http://") == 0) bLink = bLink.replace("http://","https://");
+                            if (bLink.indexOf("//") == 0) bLink = bLink.replace("//","https://");
+                            if (bLink.indexOf("?cm_mmc=") != -1) bLink = bLink.replace("?cm_mmc=","?lang="+ dw_lang +"&ca=");
+                    }
+                    if ((bLink.indexOf("#") == -1) && (bLink.indexOf("/solutions") == -1) && (bLink.indexOf("//www.bluemix.net?") != -1)) {
+                            bLink = bLink.replace("//www.bluemix.net","//developer.ibm.com/sso/bmregistration");                     
+                            if (bLink.indexOf("http://") == 0) bLink = bLink.replace("http://","https://");
+                            if (bLink.indexOf("//") == 0) bLink = bLink.replace("//","https://");                         
+                            if (bLink.indexOf("?cm_mmc=") != -1) bLink = bLink.replace("?cm_mmc=","?lang="+ dw_lang +"&ca=");
+                        }
+                    }
+                    if ((bLink.indexOf("#") != -1) && (bLink.indexOf("solutions") != -1)) {
+                        bLinkTemp = bLink.substring(0,bLink.indexOf("?"));
+                        bLink = bLink.substring(bLink.indexOf("/#/")+3,bLink.length);
+                        bLink = bLinkTemp + bLink;
+                        bLinkTemp = bLink.substring(0,bLink.indexOf("solution="));                   
+                        bLink = bLink.substring(bLink.indexOf("/solution=")+10,bLink.length);
+                        bLink = bLinkTemp + bLink;
+                        bLink = bLink + "?cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium;                   
+                    }
+                    if ((bLink.indexOf("#") != -1) && (bLink.indexOf("store") != -1)) {
+                        if (bLink.indexOf("&cloudOEPaneId=store") != -1) {
+                            bLinkTemp = bLink.split("&cloudOEPaneId=store");
+                            bLink = bLinkTemp[0];
+                        }
+                        bLinkTemp = bLink.substring(bLink.indexOf("serviceOfferingGuid=")+20,bLink.length);            
+                        bLink = bLink.substring(0,bLink.indexOf(".net/")+5) + "catalog/" + bLinkTemp + "?cm_mmc=" + dw_source + "-_-" + dw_campaign + "-_-" + dw_content + "-_-" + dw_medium;
+                    }
+                }
+                    dojo.attr(item, "href", bLink);
+            }
+        });
+    });			
+</script><!-- LEADSPACE_STYLES -->
+
+<script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/cnzh-utf8.js" id="dojoIoScript2" charset="utf-8"></script><script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/saved_resource" id="dojoIoScript3" charset="utf-8"></script><script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/profiling.js" id="dojoIoScript4" charset="utf-8"></script><script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/eluminate(1).js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/move.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/TimedMoveable.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/_CssStateMixin.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/_FormMixin.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/_DialogMixin.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/DialogUnderlay.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/ContentPane.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/common.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/TooltipDialog.xd.js"></script><script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/blackwhite_lists.json" id="dojoIoScript5" charset="utf-8"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/Mover.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/Moveable.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/_ContentPaneResizeMixin.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/html.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/loading.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/common.xd(1).js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/autoscroll.xd.js"></script><script type="text/javascript" charset="utf-8" src="./使用脚本动态操作 SVG 文档_files/_LayoutWidget.xd.js"></script><script language="javascript" type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/50200000.js"></script><script language="javascript" type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/cookie-id.js"></script><script language="javascript" type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/rules_50200000.js"></script><script language="javascript" type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/dispatcher-v3.js"></script><script src="./使用脚本动态操作 SVG 文档_files/yahoo-min.js" type="text/javascript"></script><script src="./使用脚本动态操作 SVG 文档_files/cp-v3.js" type="text/javascript"></script><script src="./使用脚本动态操作 SVG 文档_files/json-min.js" type="text/javascript"></script></head>
+<body id="ibm-com" class="v17" aria-busy="false">
+<div id="dw-regbar" class="dw-home-band" aria-labelledby="dw-regbar-vp" role="complementary" style="opacity: 1; top: 0px;">
+    <div class="ibm-columns">
+        <div class="ibm-col-6-6">
+            <span id="dw-regbar-bluemix">IBM <strong>Bluemix</strong></span>
+            <span id="dw-regbar-vp">点击按钮，开始云上的开发！</span>
+            <p class="ibm-button-link-alternate dw-button-green">
+                <a class="dw-button-large dw-regbar-btn" href="https://developer.ibm.com/sso/bmregistration?lang=zh_CN&ca=dwchina-_-bluemix-_-x-svgscript-_-regbar-article" id="article-rbar-bmix-home-regbar">开始您的试用</a>                
+            </p>               
+        </div>
+    </div> 
+</div>	<div id="ibm-top" class="ibm-landing-page ibm-no-scroll" style="margin-top: 42px;"><img src="./使用脚本动态操作 SVG 文档_files/ibm_logo_print.png" width="43" height="15" id="ibm-print-masthead" alt="IBM Print">
+
+<!-- MASTHEAD_BEGIN -->		
+<div id="ibm-masthead" role="banner">
+
+    <!-- TOP ROW -->    
+	<div id="dw-masthead-top-row">
+		<ul id="ibm-mast-options-dw" role="toolbar" aria-label="Masthead navigation">
+			<li id="dw-mast-top-4" role="presentation">
+				<a href="http://www.ibm.com/developerworks/cn/" tabindex="0"><img src="./使用脚本动态操作 SVG 文档_files/dwn-dw-badge.png" width="43" height="22" alt="dW" aria-label="dW"></a>
+			</li>
+			<li id="dw-mast-top-0" role="presentation">
+				<div id="dw-mast-signin">
+					<a id="dw-mf-signin-link" class="" href="http://www.ibm.com/developerworks/dwwi/jsp/ssologin.jsp?d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&lang=zh_CN&a=dwmav" title="" tabindex="2">登录</a>
+					<span class="dw-mf-signin-spacer">|</span>
+					<a id="dw-mf-reg-link" class="" href="http://www.ibm.com/developerworks/dwwi/jsp/ssoregister.jsp?d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&lang=zh_CN&a=dwmav" title="" tabindex="3">注册</a>
+				</div>
+				<div id="dw-mast-auth-link" class="dw-mf-hide">
+					<a class="authenticated ibm-active" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" role="button" tabindex="2"></a>
+					<ul id="dw-mast-auth-menu" class="dw-mf-hide">
+						<li class="dw-mast-auth-menu-title" aria-hidden="true">developerWorks 社区</li>
+						<li>
+							<span class="dw-mast-auth-menu-arrow" aria-hidden="true">›</span><a href="http://www.ibm.com/developerworks/community/profiles/html/myProfileView.do?lang=zh" tabindex="3">我的概要信息</a>
+						</li>
+						<li>
+							<span class="dw-mast-auth-menu-arrow" aria-hidden="true">›</span><a href="http://www.ibm.com/developerworks/community/groups/service/html/mycommunities?lang=zh" tabindex="4">我的社区</a>
+						</li>
+						<li>
+							<span class="dw-mast-auth-menu-arrow" aria-hidden="true">›</span><a href="http://www.ibm.com/developerworks/community/news/?lang=zh" tabindex="5">设置</a>
+						</li>
+						<li class="dw-mast-auth-menu-divider"><hr></li>
+						<li>
+							<span class="dw-mast-auth-menu-arrow" aria-hidden="true">›</span><a id="dw-mast-signout-link" href="http://www.ibm.com/developerworks/dwwi/jsp/ssologout.jsp?d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2F&a=dwmav" tabindex="6">退出</a>
+						</li>
+					</ul>				
+				</div>
+			</li>
+			<li id="dw-mast-top-1">
+				<div></div>
+			</li>
+			<li id="dw-mast-top-3" role="presentation">
+				<a href="http://www.ibm.com/cn/zh/" tabindex="1">IBM</a>
+			</li>
+		</ul>
+	</div>
+
+    <!-- BOTTOM ROW -->
+	<div id="ibm-universal-nav-dw" aria-label="Site map">
+		<ul id="ibm-unav-links-dw">
+			<li id="ibm-unav-home-dwlogo">
+				<a href="http://www.ibm.com/developerworks/cn/"><img src="./使用脚本动态操作 SVG 文档_files/dwn-dw-wordmark.png" width="225" height="28" alt="developerWorks®"></a>
+			</li>
+		</ul>
+		<ul id="ibm-menu-links-dw" class="ibm-menu-links-dw-cn" role="toolbar" aria-label="Site map">
+			<li id="dw-mast-nav-0" role="presentation"><a href="http://www.ibm.com/developerworks/cn/topics/" tabindex="0">技术主题</a></li>
+			<li id="dw-mast-nav-1" role="presentation"><a href="http://www.ibm.com/developerworks/cn/downloads/" tabindex="0">软件下载</a></li>
+			<li id="dw-mast-nav-2" role="presentation"><a href="http://www.ibm.com/developerworks/community/?lang=zh" tabindex="0">社区</a></li>
+			<li id="dw-mast-nav-3" role="presentation"><a href="https://www.ibm.com/developerworks/community/groups/service/html/communityview?communityUuid=6d7f9e5d-5f89-4767-a006-a81b8d186370&lang=zh" tabindex="0">技术讲座</a></li>
+		</ul>
+		<form id="ibm-search-form" action="http://www.ibm.com/search/csass/search/" method="get" name="form1" aria-label="搜索 developerWorks" role="search">
+			<p>
+				<label for="q"><span class="ibm-access">搜索 developerWorks</span></label>
+				<input id="q" type="text" name="q" value="搜索 developerWorks" maxlength="100">
+				<input type="hidden" name="sn" value="dw">
+				<input type="hidden" name="lang" value="zh">
+				<input type="hidden" name="cc" value="CN">
+				<input type="hidden" name="en" value="utf">
+				<input type="hidden" name="hpp" value="20">
+				<input type="hidden" name="dws" value="cndw">
+				<input type="hidden" name="lo" value="zh">
+				<input id="ibm-search" class="ibm-btn-search" type="submit" value="提交">
+			</p>
+		</form>
+	</div>    
+	
+<div id="ibm-social-tools" role="navigation" aria-label="社交工具" style="display: block;"><ul role="toolbar" aria-label="Social tool list"><li><a class="ibm-share-print" title="打印本页面" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" rel="print" dojoattrid="1" role="button" tabindex="0">打印本页面</a></li><li><a class="ibm-share-email" title="用电子邮件发送本页面" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" rel="email" dojoattrid="2" role="button" tabindex="-1">用电子邮件发送本页面</a></li><li></li><li></li><li><a class="ibm-share-weibo" tabindex="-1" role="button" dojoattrid="2" rel="新浪微博" title="新浪微博" href="http://service.weibo.com/share/share.php?title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3&url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&language=zh_cn" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://service.weibo.com/share/share.php?title=%{TITLE}&amp;url=%{URL}&amp;language=zh_cn&#39;});">新浪微博</a></li><li><a class="ibm-share-renren" tabindex="-1" role="button" dojoattrid="3" rel="人人网" title="人人网" href="http://share.renren.com/share/buttonshare?title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3&link=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://share.renren.com/share/buttonshare?title=%{TITLE}&amp;link=%{URL}&#39;});">人人网</a></li><li><a class="dwcn-tencent-link" tabindex="-1" role="button" dojoattrid="4" rel="腾讯微博" title="腾讯微博" href="http://v.t.qq.com/share/share.php?title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3&url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://v.t.qq.com/share/share.php?title=%{TITLE}&amp;url=%{URL}&#39;});">腾讯微博</a></li><li><a class="dwcn-sohu-link" tabindex="-1" role="button" dojoattrid="5" rel="搜狐微博" title="搜狐微博" href="http://t.sohu.com/third/post.jsp?title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3%20&link=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://t.sohu.com/third/post.jsp?title=%{TITLE}%20&amp;link=%{URL}&#39;});">搜狐微博</a></li><li><a class="dwcn-netease-link" tabindex="-1" role="button" dojoattrid="6" rel="网易微博" title="网易微博" href="http://t.163.com/article/user/checkLogin.do?info=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3%20http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://t.163.com/article/user/checkLogin.do?info=%{TITLE}%20%{URL}&#39;});">网易微博</a></li><li><a class="ibm-share-digg" title="Digg" href="http://digg.com/submit?phase=2&url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3" rel="digg" dojoattrid="7" role="button" tabindex="-1" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://digg.com/submit?phase=2&amp;url=%{URL}&amp;title=%{TITLE}&#39;});">Digg</a></li><li><a class="ibm-share-facebook" title="Facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&t=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3" rel="facebook" dojoattrid="8" role="button" tabindex="-1" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://www.facebook.com/sharer.php?u=%{URL}&amp;t=%{TITLE}&#39;});">Facebook</a></li><li><a class="ibm-share-twitter" title="Twitter" href="http://twitter.com/?status=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F%20-%20%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3" rel="twitter" dojoattrid="9" role="button" tabindex="-1" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://twitter.com/?status=%{URL}%20-%20%{TITLE}&#39;});">Twitter</a></li><li><a class="ibm-share-delicious" title="Delicious" href="http://delicious.com/post?url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3" rel="delicious" dojoattrid="10" role="button" tabindex="-1" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://delicious.com/post?url=%{URL}&amp;title=%{TITLE}&#39;});">Delicious</a></li><li><a class="ibm-share-linkedin" title="Linked In" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F&title=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3" rel="linkedin" dojoattrid="11" role="button" tabindex="-1" onclick="ibmweb.sbs.clickHandler(event,{url:&#39;http://www.linkedin.com/shareArticle?mini=true&amp;url=%{URL}&amp;title=%{TITLE}&#39;});">Linked In</a></li></ul></div></div>
+<div id="fdiv" class="ibm-access"></div><!-- MASTHEAD_END -->
+	    
+<!-- LAYOUT -->
+<!-- LEADSPACE_BEGIN --> 
+<div id="ibm-access-cntr" role="main"><div id="ibm-leadspace-head">
+	<!-- LEADSPACE_BODY_BEGIN --> 
+	<div id="ibm-leadspace-body">
+		<!-- Navigation_Trail_BEGIN -->
+      <ul id="ibm-navigation-trail" role="navigation" aria-label="Bread Crumbs"><li><a href="http://www.ibm.com/developerworks/cn/">developerWorks 中国</a></li><li><a href="http://www.ibm.com/developerworks/cn/topics/">技术主题</a></li><li><a href="http://www.ibm.com/developerworks/cn/xml/">XML</a></li><li><a href="http://www.ibm.com/developerworks/cn/views/xml/libraryview.jsp">文档库</a></li></ul>
+		<!-- END_Navigation_Trail -->
+			<!-- Title_Subtitle -->
+			<h1>使用脚本动态操作 SVG 文档</h1>
+	</div>
+	<!-- LEADSPACE_BODY_END --> 
+	<!-- SUMMARY_BEGIN -->
+	<div id="dw-summary-area" class="dw-summary-columns">
+		<div class="ibm-col-6-4">
+		<p>本教程适用于那些希望使用可伸缩向量图形（SVG）创建交互式 SVG 图形的开发人员。它讨论了使用ECMAScript（JavaScript）对现有的 SVG 图像进行实时操作得技术。</p>
+		<p class="ibm-no-print ibm-ind-link">
+
+			
+			<span id="nCmts"><span>1</span><img class="dw-cmts-arrow" alt="" src="./使用脚本动态操作 SVG 文档_files/dw-cmts-arrow.png" height="7" width="7"> <a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#icomments" class="dw-cmt-link">评论：</a></span>
+		</p>
+		</div>
+		<div class="ibm-col-6-2 dw-toc-margin">
+			<p class="dw-summary-author"><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#authorN10019" class="ibm-popup-link" onclick="ibmweb.overlay.show(&#39;authorN10019&#39;,this);return false;" role="button">陈珂</a> (<a href="mailto:chenke@snmobile.com?subject=%E4%BD%BF%E7%94%A8%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E6%93%8D%E4%BD%9C%20SVG%20%E6%96%87%E6%A1%A3">chenke@snmobile.com</a>), 技术总监, 南京安元科技</p>
+<div id="authorN10019" class="ibm-common-overlay"><div class="ibm-head"><p><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#close" class="ibm-common-overlay-close">关闭 [x]</a></p></div><div class="ibm-body"><div class="ibm-main"><div class="ibm-title"><!--this is where the h2 usually
+                                    goes--></div><div class="ibm-container ibm-alternate"><div class="ibm-container-body">
+<p><!--.-->
+陈珂 <a href="mailto:chenke@snmobile.com?cc=">chenke@snmobile.com</a> ，从业以来一直从事政府信息化建设和GIS的相关工作，自从多年前接触SVG以来就对其产生极大的兴趣。现在南京安元科技担任技术总监。
+您可以通过<a href="http://sourceforge.net/projects/antgis/" target="_blank">这里</a>访问我创建的基于SVG的GIS开源项目，我把它叫做AntGIS（小而强大）。</p><br><br></div></div></div></div><div class="ibm-footer"><!----></div></div>
+			<p class="dw-summary-date">2005 年 5 月 01 日</p>
+			
+
+
+			<div aria-hidden="true" class="ibm-container" id="dw-toc"><div class="ibm-container-body"><ul class="ibm-twisty"><li><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#toggle" class="ibm-twisty-trigger ibm-twisty-trigger-closed"><img src="./使用脚本动态操作 SVG 文档_files/c.gif" alt="+"></a><span class="ibm-twisty-head">内容</span><div class="ibm-twisty-body" style="display: none;"><ul style="font-size:0.8em" class="ibm-link-list"><li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#N1003B">1.	理解 SVG 对象结构</a></li><li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#N10056">2.	将 JavaScript 脚本放在哪里</a></li><li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#N10079">3.	通过 JavaScript 动态操作 SVG 文档</a></li><li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#N100C2">4.	由浏览工具提供的脚本支持</a></li><li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#N10124">5.	在Batik 下通过 java DOM 实现 SVG 文档操作</a></li>
+<li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#resources">参考资料 </a></li>
+<li><a class="ibm-anchor-down-em-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#icomments">评论</a></li></ul></div></li></ul></div></div>
+		</div>
+	</div>
+	<!-- SUMMARY_END -->
+</div><div id="ibm-pcon">
+
+<!-- BEGIN_IBM-CONTENT -->
+<div id="ibm-content">
+
+<!-- BEGIN_IBM-CONTENT-BODY -->
+<div id="ibm-content-body">
+
+<!-- BEGIN_IBM-CONTENT-MAIN -->
+<div id="ibm-content-main">
+
+<!-- 1_1_COLUMN_BEGIN -->
+<div class="ibm-columns">
+<div class="ibm-col-1-1"><div class="dw-article-sidebar dw-bluemix" id="dwc-exp-a"><img src="./使用脚本动态操作 SVG 文档_files/bluemix-graphic.png" height="64" width="64" alt=""><p>在 IBM Bluemix 云平台上开发并部署您的下一个应用。</p><p class="ibm-button-link-alternate dw-button-green"><a id="tutc-sbar-bmix-home-btn-ABa" href="https://developer.ibm.com/sso/bmregistration?lang=zh_CN&ca=dwchina-_-bluemix-_-x-svgscript-_-sidebar" class="dw-button-large">开始您的试用</a></p></div>
+
+<p>本文主要介绍在 SVG 中通过编程实现动态操作 SVG 图像的知识。</p><p>SVG 图像的结构是用 XML 文档表示的，因此可以使用 XML 编程技术如"文档对象模型（Document Object Model，DOM）"来操纵它。本文描述了如何使用 ECMAScript/JavaScript 来支持与 SVG 图像的交互。理论上说我们可以用这些知识实现类似射击游戏这样复杂的图形交互程序。</p><p>有两种方法可以对SVG文档的DOM对象进行操作：通过JavaScript在SVG文档内部进行处理；在Batik环境下通过相关接口获取当前显示SVG视图的DOM对象引用使用Java语言对SVG文档进行处理。本文重点描述使用JavaScript对SVG进行操作的相关技术，并在文章最后用一个简单的例子实现Batik下通过Java实现操作DOM对象。另外还用相当的篇幅讨论了常用SVG浏览工具中支持的特殊 ECMAScript/JavaScript 用法，这些方法可以显著提高我们的开发速度。</p><h2 id="N1003B">1.	理解 SVG 对象结构</h2><p>在 SVG 浏览器上下文环境（"上下文环境"一词来自"context"的直译）中，除了 SVG 本身作为 XML 文档所包含的 DOM 对象外，还包含一些其他对象，这些支持对象随着浏览工具的不同而在细节上有所区别。</p><h5 id="N10043">图 1.	SVG 对象结构</h5><img alt="图 1. SVG 对象结构" border="0" src="./使用脚本动态操作 SVG 文档_files/image002.gif" width="479"><p>Window 是一个全局变量，该变量表示 SVG 运行时的浏览器窗口对象。因为脚本的运行就是在 window 对象内部进行的，所以调用该对象方法和属性时可以省去对 window 变量的指定，例如 window.document 可以直接通过 document 实现引用。完全介绍 window 对象的属性和方法内容已经超出了本文的范围，有兴趣的读者可以通过参考资料查阅详细说明。</p><p>Document 是 window 对象中的静态全局变量，通过该变量我们可以立即获取当前浏览 SVG 图形的 SVG 文档对象（SVGDocument）。通过获取 SVG 文档对象我们就可以在 DOM 框架下对当前 SVG 文档的内容进行动态操作。</p><p>contextMenu 变量只在 Adobo SVG Viewer3.0中有效，该变量同 document 变量一样，也是 window 对象的静态全局变量。它引用了在Adobo SVG Viewer3.0浏览环境下单击鼠标右键时所展示菜单的 XML 文档对象（Document），通过重新构建该变量引用的对象内容，我们可以重新构建浏览时鼠标右键菜单的字体和条目。</p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><h2 id="N10056">2.	将 JavaScript 脚本放在哪里</h2><p>使用 JavaScript 首先我们要解决一个简单的问题：我们把脚本代码放在哪里？SVG 标准允许将JavaScript 脚本代码以两种方式来实现:使用 script 元素将 JavaScript 脚本内嵌在 SVG 文件中；或使用script 的 xlink:href 属性从 SVG 文件之外连接 JavaScript 脚本文件。从脚本实现的功能上来说，这两种代码加载方式没有区别，我们可以将共享的脚本代码放在外边连接文件中，把该 SVG 文件个性化的代码嵌在自身的文件中。</p><p>下面是一个 SVG 文件和一份 JavaScript 脚本文件，将这两个文件放在同一个文件夹下打开即可运行。</p><h5 id="N1005F">表1：	jslocation.svg</h5><div class="codesection"><pre class="displaycode">1.	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+2.	&lt;svg
+3.	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+4.	&lt;script language="JavaScript" xlink:href="lib.js" /&gt;
+5.	&lt;script language="JavaScript"&gt;&lt;![CDATA[
+6.	function Body_function(str){
+7.	alert("Body_function-&gt;"+str)
+8.	}
+9.	]]&gt;&lt;/script&gt;
+10.	&lt;g id="funciton_load"  transform="translate(10 10)"&gt;
+11.	&lt;g onclick="Body_function('onclike')"  transform="translate(0 0)"&gt;
+12.	&lt;text x="6px" y="30px"  style="font-size:20"&gt;Body_function&lt;/text&gt;
+13.	&lt;/g&gt;
+14.	&lt;g onclick="Lib_function('onclike')"   transform="translate(160 0)"&gt;
+15.	&lt;text x="6px" y="30px"  style="font-size:20"&gt;Lib_function&lt;/text&gt;
+16.	&lt;/g&gt;
+17.	&lt;/g&gt;
+18.	&lt;/svg&gt;</pre></div><p>因为在 SVG 引用外部脚本文件时是以 utf 编码方式引入的，所以我们不能在待引用的脚本文件中使用中文，甚至在注释中使用中文也会使代码运行出现不确定的异常。所以在实际运行时，需要删除本文后续例子中为代码所做的中文注释。</p><h5 id="N1006D">表2：	lib.js</h5><div class="codesection"><pre class="displaycode">function Lib_function(str){
+	alert("Lib_function-&gt;"+str)
+}</pre></div><p>jslocation.svg 文件的第5－9行之间内嵌了一段 JavaScript 脚本，第4行引用了一个外部 js 文件。第 11 行和第 14 行分别通过 onclick 事件调用了这两种代码加载方式所包含的两个不同的函数。</p><p>特别需要留意的是第 3 行的对名称空间的声明。名称空间的声明指定了这些 SVG 元素位于 SVG 名称空间内，编写这些元素时无需带任何名称空间的前缀。在使用Adobo SVG Viewer3.0浏览 SVG 图像时可以缺省定义这些命名空间，Adobo SVG Viewer3.0浏览环境会默认的将文档内的 XML 元素识别为SVG 元素。但当我们使用Batik 浏览 SVG 图像时，这些命名空间是必须要指定的，否则，脚本的链接和其他一些复杂的功能将不能起作用。</p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><h2 id="N10079">3.	通过 JavaScript 动态操作 SVG 文档</h2><h3 id="N1007E">3.1	通过 DOM 对象操作节点</h3><p>在 JavaScript 环境下，通过 DOM 定义的接口，我们可以在 SVG 的 XML 树中漫游，可以对找到的节点属性重新赋值，还可以在当前文档中删除节点或添加新创建的节点。</p><p>下面的例子展示了通过 DOM 接口如何删除现有节点,添加新的节点并为新节点设置了超级链接地址:</p><h5 id="N10087">表3：	对 SVG 文档进行动态操作</h5><div class="codesection"><pre class="displaycode">&lt;g onclick="operate_Dom()"  id="g5" transform="translate(0 80)"&gt;
+			&lt;text id="txt1" x="6px" y="30px" style="font-size:15"&gt;operate DOM&lt;/text&gt;
+			&lt;text id="txt2" x="6px" y="50px" style="font-size:15"&gt;operate DOM&lt;/text&gt;
+&lt;/g&gt;
+&lt;!-内嵌脚本代码'
+&lt;script language="JavaScript"&gt;&lt;![CDATA[
+function operate_Dom(){
+	//通过document环境变量获取id值为"g5"的节点
+	var g5=document.getElementById("g5");
+    //将g5节点下所有text节点删除
+	var txts=g5.getElementsByTagName("text");
+	for(var i=txts.length-1;i&gt;=0;i--){
+		g5.removeChild(txts.item(i));
+	}
+	//将g5节点的onclick事件删除
+	g5.removeAttribute("onclick");
+	
+	//创造一个文本节点对象
+	var text = document.createElement ("text");
+	text.setAttribute("x", 100);
+	text.setAttribute("y", 100);
+	//将文本内容添加到text节点对象中
+	text.appendChild(document.createTextNode("new text"));
+	
+	//创造一个链接节点,注意在这里给设置节点和属性时必须指定命名空间
+	var a=document.createElementNS("http://www.w3.org/2000/svg","a");
+	a.setAttributeNS(
+	  "http://www.w3.org/2000/xlink/namespace/",
+	  "xlink:href",
+	  "http://www.sina.com");
+	//将text节点添加到链接节点中
+	a.appendChild(text);
+	
+//将链接节点添加到g5节点中
+	g5.appendChild(a);	
+    
+//获取视图范围
+var bBox=(document.getDocumentElement().getBBox());
+//创建一个矩形节点
+var shape = document.createElement("rect ");
+//配置属性
+shape.setAttribute("x", bBox.x);
+shape.setAttribute("y", bBox.y);
+shape.setAttribute("width",  bBox.width);
+shape.setAttribute("height",   bBox.height);
+shape.setAttribute("style", "fill: #eeeeee");
+shape.getStyle().setProperty("stroke","red");
+shape.getStyle().setProperty("stroke-width","1");
+	//将矩形节点添加到SVG根节点子节点队列的最前边
+document.getDocumentElement().insertBefore(shape,document.getDocumentElement().firstChild);
+}
+]]&gt;&lt;/script&gt;</pre></div><p>关于 DOM 接口的详细定义，我们可以通过参考资料提供的相关链接获取。除了在 DOM 接口中定义的相关方法和属性之外，SVG 在具体实现 JavaScript 时根据图形处理的需要对 DOM 接口也进行了相应的扩展。比较重要的扩展是关于 SVG 视图比例池相关的方法，这些方法可以让我们通过 document.getDocumentElement()获取 SVG 文档的坐标系统的附加信息。</p><h5 id="N1009E">表4：	文档根节点扩展的坐标系统附加信息</h5><img alt="表4： 文档根节点扩展的坐标系统附加信息" border="0" src="./使用脚本动态操作 SVG 文档_files/table4.gif" width="623"><p>除了这里提到的比较重要的接口之外，我们还可以通过使用的 SVG 浏览器产品的开发文档获取详细信息。但遗憾的是这些文档往往写的非常简略，很多操作接口只是给出了 IDL 定义并没有对接口的内容进行详细阐述，这就需要我们发挥想像力去猜测并进行具体的测试验证了。比较常用的方法是分析 Batik 的源代码跟踪相关函数的具体实现来获取函数的执行过程。</p><p>需要特别指出的是用于创建超级链接节点的相关代码，当需要创建超级链接节点的时候需要明确指出节点的命名空间"http://www.w3.org/2000/svg"，为节点设置链接属性的时候也必须指定属性的命名空间"http://www.w3.org/2000/xlink/namespace/"。关于命名空间在 SVG 中的意义我们可以通过在 Batik 中的脚本改写来深刻体会其中的内涵。</p><h3 id="N100AF">3.2	针对 Batik 的脚本改写：</h3><p>在 Batik 环境下运行刚才的例子时，你会发现根本得不到我们在 Adobo SVG Viewer3.0 下看到的效果。这是因为在 Adobo 的环境下对 DOM 编程的要求不是很严格，所以我们可以用比较模糊的代码来实现这些功能，IE浏览器的 JavaScript 引擎会对我们调用的函数进行自动匹配（这类似于 C 语法中的默认参数值）。但在Batik 环境下使用的 JavaScript 的引擎是引自 Apache 的脚本引擎库，该脚本引擎对 JavaScript 的代码要求非常严格。为了能在 Batik 环境下运行，我们必须对 JavaScript 脚本进行严谨的修改，使其能经过 Batik脚本引擎的考验。我们将红色部分的代码注释掉换上新的代码就可以看到在Batik环境下JavaScript 对 DOM对象的操作起作用了。</p><p>在 Batik 环境下需要创建新节点时，必须指定新节点引用的命名空间"http://www.w3.org/2000/svg"才能有效。</p><h5 id="N100B8">表5：	针对 Batik 的改写</h5><div class="codesection"><pre class="displaycode">创建新节点的时候必须明确指定该节点的命名空间
+//var shape = document.createElement("rect");
+var shape = document.createElementNS("http://www.w3.org/2000/svg"," rect ");
+//var text = document.createElement ("text");
+var text = document.createElementNS("http://www.w3.org/2000/svg","text");
+定义样式属性时必须指定该属性的优先级，一般设置一个空白字符串就可以了。
+//shape.getStyle().setProperty("stroke","red");
+//shape.getStyle().setProperty("stroke-width","10");
+shape.getStyle().setProperty("stroke","red","");
+shape.getStyle().setProperty("stroke-width","10","");</pre></div><p>为 Batik 改写的脚本代码在Adobo SVG Viewer3.0环境下是可以正确运行，这意味着通过对代码进行细致的处理，我们能够编写在两种平台下都能运行的脚本。</p><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><h2 id="N100C2">4.	由浏览工具提供的脚本支持</h2><p>在 W3C 的 SVG 标准之外，各种品牌的 SVG 浏览器还提供了一些在 SVG 编程中支持的特殊函数和对象，用于实现一些特殊功能或提高开发效率。其中有些函数是各个产品都实现了的，这就大大降低了我们在移植过程中的难度。</p><h3 id="N100C9">4.1	数据通讯函数</h3><p>函数名称：getURL(uri, GetURLHandler) <br>
+支持环境：Adobe SVG Viewer3.0；Batik1.5.1<br>
+用途：
+该函数是 window 对象的提供的方法，可以允许你从指定的 URL 路径实时加载数据。GetURLHandler 参数用于指定一个用于处理加载数据的函数指针。</p><h5 id="N100D4">表6：	使用 getURL</h5><div class="codesection"><pre class="displaycode">function loadFile () {
+	getURL("menuitem_en-us.xml", fileLoaded);
+}
+function fileLoaded (data) {
+   if(data.success) {
+        alert(data.contentType);
+	    alert(data.content);
+   }
+}</pre></div><p>示例中的 fileLoaded 函数用于处理实时加载的文件，其中的 data 参数是一个关于指定 URL 文件信息的对象，该对象的 success 属性用于标识是否成功加载指定文件；content 属性用于记录加载文件的文本内容；contentType 属性标识文件类型(该属性在 Batik 中未被支持)。</p><p>由 Adobo 实现的 getURL 方法在加载文件时可以智能的判断加载文件的文件类型和编码方式，你可以加载gzip 压缩的 xml 文件，比如压缩存储格式的.svgz 文件在加载后会自动进行必要的解压操作。在加载文本文件的时候还可以根据加载文件的编码格式（ASCII ，UTF-8，UTF-16）进行自动识别。</p><p>警告：在Adobe SVG Viewer 的早期版本（3.0以前）中可以为 getURL 的 url 参数设定任意路径的文件，远程攻击者可以利用这个漏洞读取系统本地或远程文件，泄露敏感信息。不过 IE6 SP1 对从 Internet 域读取本地文件内容做了限制，因此 IE6 SP1 不存在此问题，也可以通过下载 Adobe SVG Viewer3.01 版本来弥补这个漏洞。弥补漏洞后只可以为 getURL（）设定 SVG 文件所在 URI 域的文件路径。</p><h3 id="N100E2">4.2	XML 转换函数</h3><p>函数名称：String printNode(Node)<br>
+支持环境：Adobe SVG Viewer3.0<br>
+用途：参数中的node节点解析为字符串。</p><p>函数名称：Node parseXML(String ,document) <br>
+支持环境：Adobe SVG Viewer3.0；Batik1.5.1<br>
+用途：将字符串解析成一个节点对象。</p><p>这一对函数用于进行字符串和DOM节点之间的转换。我们可以使用printNode（）序列化指定节点用于将当前SVG文档中的Node元素生成字符串用于保存为文本文件或提交给远程服务器。相反的我们可以通过parseXML（）将一个字符串用指定的Document解析为一个Node对象，为parseXML（）配置的document参数用于指定解析Node对象的Document；在Adobo SVG Viewer环境下可以不指定document对象，系统会默认用当前SVG文档的Document对象解析字符串。</p><h5 id="N100F5">表7：	将字符串编译成SVG节点并添加到当前SVG文档</h5><div class="codesection"><pre class="displaycode">function parseAndAddData (string) {
+	var node = parseXML(string, document);
+	document.documentElement.appendChild(node);
+}</pre></div><h3 id="N100FD">4.3	在Adobo SVG Viewer中重构菜单</h3><p>Adobe SVG Viewer3.0为浏览用户提供了单击鼠标右键弹出的菜单用于实现常用的浏览操作功能，在实际应用中我们有时会需要定义自己的鼠标右键菜单的语言或裁减相应的菜单功能。Adobe SVG Viewer3.0的脚本环境中提供了一个环境变量"contextMenu"。 变量contextMenu是一个document对象，我们可以通过重新定义contextMenu文档对象的节点内容来重构菜单的内容和样式，并在设定菜单条目显示的文字时通过"&amp;*"来定义相应条目的快捷键。</p><h5 id="N10104">表8：	根据系统默认语言动态加载不同的菜单文档</h5><div class="codesection"><pre class="displaycode">function setMenuLanguage(){
+	if(top.navigator.userLanguage=="zh-cn"){		
+	}else if(top.navigator.userLanguage=="zh-tw"){
+		getURL("menuitem_zh-tw.xml", fileLoaded);
+	}else{
+		getURL("menuitem_en-us.xml", fileLoaded);		
+        }
+}
+function fileLoaded (data) {
+	var msg = '';
+	if(data.success) {
+		var newMenuRoot=parseXML(data.content,contextMenu);
+		contextMenu.replaceChild(newMenuRoot,contextMenu.getDocumentElement());		
+	} 
+}</pre></div><p>下面是针对英文操作系统配置的菜单定义文件，读着可以根据模板定义其他语言的菜单。</p><h5 id="N1010E">表9：	使用英文的菜单文件"menuitem_en-us.xml"</h5><div class="codesection"><pre class="displaycode">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;menu id="myCustomMenu"&gt;
+	&lt;header&gt;Adobe SVG Viewer&lt;/header&gt;
+	&lt;item action="Open" id="Open"&gt;Open&lt;/item&gt;
+	&lt;item action="OpenNew" id="OpenNew"&gt;Open in New Window&lt;/item&gt;
+	&lt;separator/&gt;
+	&lt;item action="ZoomIn" id="ZoomIn"&gt;Zoom In^_^&amp;E&lt;/item&gt;
+	&lt;item action="ZoomOut" id="ZoomOut"&gt;Zoom Out&lt;/item&gt;
+	&lt;item action="OriginalView" id="OriginalView"&gt;Original View&lt;/item&gt;
+	&lt;separator/&gt;
+	&lt;item action="Quality" id="Quality"&gt;Higher Quality&lt;/item&gt;
+	&lt;item action="Pause" id="Pause"&gt;Pause&lt;/item&gt;
+	&lt;item action="Mute" id="Mute"&gt;Mute&lt;/item&gt;
+	&lt;separator/&gt;
+	&lt;item action="Find" id="Find"&gt;Find...&lt;/item&gt;
+	&lt;item action="FindAgain" id="FindAgain"&gt;Find Again&lt;/item&gt;
+	&lt;separator/&gt;
+	&lt;item action="Copy" id="Copy"&gt;Copy Selected Text&lt;/item&gt;
+	&lt;item action="CopySVG" id="CopySVG"&gt;Copy SVG&lt;/item&gt;
+	&lt;item action="ViewSVG" id="ViewSVG"&gt;View SVG&lt;/item&gt;
+	&lt;item action="ViewSource" id="ViewSource"&gt;View Source&lt;/item&gt;
+	&lt;item action="SaveAs" id="SaveAs"&gt;Save SVG As...&lt;/item&gt;
+	&lt;separator/&gt;
+	&lt;item action="Help" id="Help"&gt;Help&lt;/item&gt;
+	&lt;item action="About" id="About"&gt;About Adobe SVG Viewer...&lt;/item&gt;
+&lt;/menu&gt;</pre></div><h5 id="N10117">图 2.	重构后的菜单</h5><img alt="图 2. 重构后的菜单" border="0" src="./使用脚本动态操作 SVG 文档_files/image004.jpg" width="554"><div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p><h2 id="N10124">5.	在Batik 下通过 java DOM 实现 SVG 文档操作</h2><p>在 Batik 环境下还可以通过 Java 环境下的 DOM 接口直接操作当前视图使用的 SVG 文档。我们可以通过Batik 提供的 org.apache.batik.swing.JSVGCanvas 对象获取当前显示 SVG 文件的 DOM 文档对象引用，通过对该 DOM 的操作改变当前 SVG 图像的内容：</p><div class="codesection"><pre class="displaycode">JSVGCanvas svgCanvas = new JSVGCanvas();
+svgCanvas.setURI("dom.svg");
+SVGDocument svgDocument=svgCanvas.getSVGDocument();
+SVGSVGElement svgRoot=svgDocument.getRootElement()  ;
+Element g5=svgDocument.getElementById("g5"); 
+g5.setAttribute("transform","translate(225, 250) ");
+		
+Element shape=svgDocument.createElementNS("http://www.w3.org/2000/svg","circle");
+shape.setAttribute("cx", "100");
+shape.setAttribute("cy", "100");
+shape.setAttribute("r",  "20");
+shape.setAttribute("style", "fill: green");
+g5.appendChild(shape);</pre></div><p>需要重点提出来的是，在 Batik 中添加新的节点的时候，一定要指明添加节点的命名空间。另外需要特别注意的是，在 Batik 的 java 编程环境中，不支持对样式如"shape.getStyle(). setProperty("stroke","red")；"这样的属性设置，必须通过对 style 属性的一次性赋值来设定元素的样式。</p><p>你可以从参考资料中获取 Batik 的详细定义文档。</p><!--CMA ID: 84137--><!--Site ID: 10--><!--XSLT stylesheet used to transform this file: dw-document-html-7.0.xsl-->
+
+
+</div>
+</div>
+<!-- 1_1_COLUMN_END -->
+
+<!-- SPLIT_COLUMNS_BEGIN -->
+<div class="ibm-columns">
+
+<!-- 6_4_COLUMN_BEGIN -->
+<div class="ibm-col-6-4">
+
+<h2 id="resources" class="ibm-rule">参考资料 </h2><ul class="ibm-bullet-list"><li>有关 SVG 的背景知识，请阅读 developerWorks 上的教程，"<a href="http://www.ibm.com/developerworks/cn/views/xml/tutorials.jsp?cv_doc_id=84896">可伸缩向量图形介绍</a>"</li><li>可以参考教程<a href="http://www.ibm.com/developerworks/cn/views/xml/tutorials.jsp?cv_doc_id=84922">交互式动态可伸缩向量图形</a></li><li>通过 <a href="http://www.w3.org/TR/SVG11/">http://www.w3.org/TR/SVG11/</a> 获取当前最新 SVG 标准文档</li><li>Batik 项目介绍 <a href="http://xml.apache.org/batik/">http://xml.apache.org/batik/</a></li><li>可以从<a href="http://www.adobe.com/svg/indepth/pdfs/CurrentSupport.pdf">http://www.adobe.com/svg/indepth/pdfs/CurrentSupport.pdf</a>获取 Adobo SVG Viewer3.0的技术细节</li><li>可以通过<a href="http://www.w3.org/TR/DOM-Level-2-Core">http://www.w3.org/TR/DOM-Level-2-Core</a>了解 DOM 对象的细节</li><li>通过<a href="http://www.xml.com/pub/at/22">Sacré SVG</a>你可以找到最近关于 SVG 的文章和新闻。</li></ul>
+
+<!-- INLINE_COMMENTS_BEGIN -->
+<h2 id="icomments" class="ibm-alternate-rule ibm-no-print">条评论</h2>
+    
+<div class="ibm-no-print" id="dw-icomments-container">	
+	<div id="threadShow"><img id="imgPlHdr" src="./使用脚本动态操作 SVG 文档_files/animated-progress-38x38c.gif" alt="" style="display: none;"><div id="cmtTog"><div class="ibm-container ibm-alternate-two dw-commentbox dw-noborder"><div class="ibm-container-body dw-commentbox dw-noborder"><p id="signInSect">请 <a onclick="var e=arguments[0] || window.event; dwsi.siInst &amp;&amp; dwsi.siInst.showSignIn(); if (e.stopPropagation){ e.stopPropagation();} else { e.cancelBubble = true; } e.preventDefault &amp;&amp; e.preventDefault(); return false;" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#">登录</a> 或 <a href="http://www.ibm.com/developerworks/dwwi/jsp/ssoregister.jsp?d=http%3A%2F%2Fwww.ibm.com%2Fdeveloperworks%2Fcn%2Fxml%2Fx-svgscript%2F%23icomments&lang=cn&a=dwmav">注册</a>  后发表评论。</p><p id="cmtHead"><label for="newCmt"><strong>添加评论:</strong></label></p><p>注意：评论中不支持 HTML 语法</p><div id="infoCmt"></div><form focus="name" enctype="multipart/form-data" method="post" action="" name="form" class="ibm-column-form ibm-styled-form"><p class="6-4-textarea"><textarea rows="5" name="newCmt" id="newCmt" class="dw-inoperable" disabled=""></textarea><br></p><span class="ibm-input-group"><input type="checkbox" value="1" name="comment_notification" id="comment_notification" disabled="disabled"><label id="notifyText" class="ibm-form-note dw-btn-cancel-sec" for="comment_notification">有新评论时提醒我</label></span><span class="ibm-form-note dw-btn-cancel-sec notifySection" id="maxCharsCount">剩余 <span id="charCount">1000</span> 字符</span><p class="ibm-buttons-row"><input type="button" value="发布" name="postCmt" id="postCmt" class="ibm-btn-sec ibm-btn-small ibm-disabled" disabled="disabled"></p></form></div></div><div class="ibm-alternate-rule"><hr></div><div id="topControl" class="ibm-container ibm-alternate-two dw-comment-totals" style=""><div class="ibm-container-body"><form id="selectComments" method="get" action=""><p>&nbsp;<span class="dw-comment-totals-label"><strong>共有评论 (<span id="numCmts">1</span>)</strong></span><span class="dw-how-many-comments-label" style="display:none" id="dropdownCmts"><label for="howManyComments"><strong>显示：</strong></label>&nbsp;<select name="comments" id="howManyComments" class="dw-how-many-comments"><option selected="selected" value="recent">最新评论 </option></select><input type="image" class="ibm-btn-go" name="ibm-go" value="Go" src="./使用脚本动态操作 SVG 文档_files/short-btn.gif" alt="Go"><br></span></p></form></div></div><div id="cmtSect"><div class="comment"><div class="dw-icomment-container"><div class="dw-icomment-body dw-noborder"><div class="dw-icomment-body dw-noborder"><p>3.1节的动态增加超链接的例子有一处错误<br><br>//创造一个链接节点,注意在这里给设置节点和属性时必须指定命名空间<br>var a=document.createElementNS("http://www.w3.org/2000/svg","a");<br>a.setAttributeNS(<br>  "http://www.w3.org/2000/xlink/namespace/",  <br>  "xlink:href",<br>  "http://www.sina.com");<br><br> "http://www.w3.org/2000/xlink/namespace/",  应改为 "http://www.w3.org/1999/xlink“</p><p class="ibm-item-note-alternate dw-item-note-alternate-left">由 <strong><a href="https://www.ibm.com/developerworks/community/profiles/user/acoder1983">acoder1983</a></strong>  于 2015年06月24日发布 </p><p class="ibm-ind-link ibm-item-note-alternate dw-item-note-alternate-right"><a class="ibm-caution-link dw-report-abuse" href="http://www.ibm.com/developerworks/community/report?lang=zh&referingURL=http://www.ibm.com/developerworks/cn/xml/x-svgscript/&mymessage=%E8%AF%84%E8%AE%BA%EF%BC%9A%203.1%E8%8A%82%E7%9A%84%E5%8A%A8%E6%80%81%E5%A2%9E%E5%8A%A0%E8%B6%85%E9%93%BE%E6%8E%A5%E7%9A%84%E4%BE%8B%E5%AD%90%E6%9C%89%E4%B8%80%E5%A4%84%E9%94%99%E8%AF%AF%2F%2F%E5%88%9B%E9%80%A0%E4%B8%80%E4%B8%AA%E9%93%BE%E6%8E%A5%E8%8A%82%E7%82%B9%2C%E6%B3%A8%E6%84%8F%E5%9C%A8%E8%BF%99%E9%87%8C%E7%BB%99%E8%AE%BE%E7%BD%AE%E8%8A%82%E7%82%B9%E5%92%8C%E5%B1%9E%E6%80%A7%E6%97%B6%E5%BF%85%E9%A1%BB%E6%8C%87%E5%AE%9A%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4var%20a%3Ddocument.createElementNS(%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2C%22a%22)%3Ba.setAttributeNS(%20%20%22http%3A%2F%2Fwww.w3.org%2F2000%2Fxlink%2Fnamespace%2F%22%2C%20%20%20%20%22xlink%3Ahref%22%2C%20%20%22http%3A%2F%2Fwww.sina.com%22)%3B%20%22http%3A%2F%2Fwww.w3.org%2F2000%2Fxlink%2Fnamespace%2F%22%2C%20%20%E5%BA%94%E6%94%B9%E4%B8%BA%20%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%E2%80%9C%0D%E7%94%B1%20acoder1983%20%20%E4%BA%8E%202015%E5%B9%B406%E6%9C%8824%E6%97%A5%E5%8F%91%E5%B8%83%20%0D%0D--%E5%9C%A8%E4%B8%8B%E6%96%B9%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA--" target="_self">报告滥用</a></p><div class="dw-clear-both"></div></div></div></div></div></div></div><div id="bottomControl" class="ibm-container ibm-alternate-two dw-comment-totals" style="display:none"><div class="ibm-container-body"><form id="selectComments2" method="get" action=""><p>&nbsp;<span class="dw-comment-totals-label"><strong>共有评论 (<span id="numCmts2">1</span>)</strong></span><span class="dw-how-many-comments-label" style="display:none" id="dropdownCmts2"><label for="howManyComments2"><strong>显示：</strong></label>&nbsp;<select name="comments" id="howManyComments2" class="dw-how-many-comments"><option selected="selected" value="recent">最新评论 </option></select><input type="image" class="ibm-btn-go" name="ibm-go" value="Go" src="./使用脚本动态操作 SVG 文档_files/short-btn.gif" alt="Go"><br></span></p></form></div></div></div>
+</div>
+<!-- Sign in OVERLAY STARTS HERE -->
+    
+<!-- Sign in OVERLAY STARTS HERE -->
+<div class="ibm-common-overlay" id="signin_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" onclick="dwsi.siInst.clearForm();">关闭 [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+
+ <div class="ibm-title">
+<h2>developerWorks: 登录</h2>
+<div id="ibm-overlay-error-signin" class="no-display"></div>
+</div>
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">标有星（<span class="ibm-required">*</span>）号的字段是必填字段。</p> 
+<form class="ibm-column-form" id="sFormId" action="" method="post" name="sForm" onsubmit="return false;">
+<p><label for="ibmid">IBM ID:<span class="ibm-required">*</span></label><span>
+    <input name="ibm-id" id="ibmid" size="25" value="" class="required" type="text" onkeypress="dwsi.siInst.handleEP(event,this.form);" aria-required="true">
+    <br><a onclick="window.location=&#39;/developerworks/dwwi/DWAuthRouter?m=reg&amp;lang=zh_CN&amp;d=&#39;+encodeURIComponent(location.protocol + &#39;//&#39; + location.hostname + location.pathname + &#39;#icomments&#39;); return false;" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" class="ibm-forward-link">需要一个 IBM ID？</a> <br>
+    <a class="ibm-forward-link" href="http://www.ibm.com/developerworks/dwwi/jsp/WSHelp.jsp?lang=zh_CN">忘记 IBM ID？</a> 
+</span>
+</p> 
+<p><label for="password">密码：<span class="ibm-required">*</span></label><span>
+    <input name="password" id="password" size="25" value="" class="required" type="password" onkeypress="dwsi.siInst.handleEP(event,this.form);">
+    <br><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" onclick="(function ()
+        {window.location=&#39;https://www.ibm.com/account/profile?page=forgot&amp;lang=zh_CN&amp;appname=ibm&amp;required=null&amp;d=&#39;+encodeURIComponent(dwsi.siInst.getAuthUrl())+&#39;%3Fm%3Dloginpage%26lang%3Dzh_CN%26d%3D&#39;+encodeURIComponent(location.href);})();">忘记密码？</a>
+    <br><a class="ibm-forward-link" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" onclick="(function () {window.location=&#39;https://www.ibm.com/account/profile?page=chpw&amp;lang=zh_CN&amp;appname=ibm&amp;required=null&amp;d=&#39;+encodeURIComponent(location.href);})();">更改您的密码</a></span></p> 
+<p class="dw-perm-box">
+	<span><input id="perm" type="checkbox" name="perm_name"><label for="perm"> 保持登录。</label></span>
+</p>
+<p>单击提交则表示您同意developerWorks 的条款和条件。 <a href="http://www.ibm.com/developerworks/community/terms?lang=zh">查看条款和条件</a>。</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="提交" onclick="dwsi.siInst.signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+<input value="取消" type="button" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="dwsi.siInst.clearForm();ibmweb.overlay.hide(&#39;signin_overlay&#39;);return false;"></p>
+</div>
+</form>
+ <div class="ibm-overlay-rule"><hr></div> 
+
+<p>在您首次登录 developerWorks 时，会为您创建一份个人概要。<strong>您的个人概要中的信息（您的姓名、国家/地区，以及公司名称）是公开显示的，而且会随着您发布的任何内容一起显示，除非您选择隐藏您的公司名称。</strong>您可以随时更新您的 IBM 帐户。</p>
+<div><p class="dw-c-overlay-secure">所有提交的信息确保安全。</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+<!-- Display name OVERLAY STARTS HERE -->
+<div class="ibm-common-overlay" id="displayname_overlay">
+<div class="ibm-head">
+<p><a class="ibm-common-overlay-close" href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#" onclick="dwsi.siInst.clearForm();">关闭 [x]</a></p>
+</div>
+<div class="ibm-body">
+<div class="ibm-main">
+<div class="ibm-title">
+<h2>选择您的昵称</h2><br><br>
+<div id="ibm-overlay-error-dname" class="no-display"></div>
+</div>
+<div class="ibm-container ibm-alternate ibm-buttons-last">
+<div class="ibm-container-body">
+<p class="ibm-overlay-intro">当您初次登录到 developerWorks 时，将会为您创建一份概要信息，您需要指定一个昵称。您的昵称将和您在 developerWorks 发布的内容显示在一起。</p><p><strong>昵称长度在 3 至 31 个字符之间</strong>。 
+    您的昵称在 developerWorks 社区中必须是唯一的，并且出于隐私保护的原因，不能是您的电子邮件地址。</p>
+<p class="ibm-overlay-intro">标有星（<span class="ibm-required">*</span>）号的字段是必填字段。</p> 
+<form id="dFormId" method="post" action="" name="dForm" onsubmit="return false;" class="ibm-column-form">
+<p><label for="displayname">昵称：<span class="ibm-required">*</span></label><span>
+    <input name="displayname" id="displayname" size="25" value="" type="text" onkeypress="dwsi.siInst.handleEP(event,this.form);" aria-required="true"></span>
+    <span class="ibm-form-note">(昵称长度在 3 至 31 个字符之间)</span>
+</p>
+<p>单击<strong>提交</strong>则表示您同意developerWorks 的条款和条件。 <a href="http://www.ibm.com/developerworks/community/terms?lang=zh">查看条款和条件</a>.</p>
+<div class="ibm-buttons-row">
+   <p><input class="ibm-btn-arrow-pri" name="ibm-submit" value="提交" onclick="dwsi.siInst.signin();return false;" type="submit"><span class="ibm-sep">&nbsp;</span>
+<input value="取消" type="button" name="ibm-cancel" class="ibm-btn-cancel-sec" onclick="dwsi.siInst.clearForm();ibmweb.overlay.hide(&#39;displayname_overlay&#39;);return false;"></p>
+</div>
+</form>
+<div class="ibm-overlay-rule"><hr></div>
+<div><p class="dw-c-overlay-secure">所有提交的信息确保安全。</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ibm-footer"></div>
+</div>
+
+
+<!-- INLINE_COMMENTS_END -->
+
+</div>
+<!-- 6_4_COLUMN_END -->
+
+<!-- 6_2_COLUMN_BEGIN -->
+<div class="ibm-col-6-2">
+
+<!-- Next_Steps -->
+<!-- Dig_Deeper -->
+
+
+<!-- Promotion_Module -->
+    
+<!-- PROMOTION_MODULE_START -->
+<div class="ibm-alternate-rule"><hr></div>
+<ul class="ibm-portrait-module-list">
+<li><a class="" href="http://www.ibm.com/developerworks/cn/puresystems/" tabindex="-1" role="presentation"><img height="60" width="60" src="./使用脚本动态操作 SVG 文档_files/sm-f-cl-puresystems70.jpg" alt=""></a>
+<h3><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/puresystems/">IBM PureSystems</a></h3>
+<p>IBM PureSystems™ 系列解决方案是一个专家集成系统</p></li>
+<li><a class="" href="http://www.ibm.com/developerworks/cn/views/global/libraryview.jsp?type_by=Knowledge+paths" tabindex="-1" role="presentation"><img height="60" width="60" src="./使用脚本动态操作 SVG 文档_files/sm-f-knowledgepath50.jpg" alt=""></a>
+<h3><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/views/global/libraryview.jsp?type_by=Knowledge+paths">developerWorks 学习路线图</a></h3>
+<p>通过学习路线图系统掌握软件开发技能</p></li>
+<li><a class="" href="http://www.ibm.com/developerworks/cn/downloads/" tabindex="-1" role="presentation"><img height="60" width="60" src="./使用脚本动态操作 SVG 文档_files/sm-f-evaluationsoftware60.png" alt=""></a>
+<h3><a class="ibm-feature-link" href="http://www.ibm.com/developerworks/cn/downloads/">软件下载资源中心</a></h3>
+<p>软件下载、试用版及云计算</p></li>
+</ul>
+<!-- PROMOTION_MODULE_END -->
+
+</div>
+<!-- 6_2_COLUMN_END -->
+
+</div>
+<!-- SPLIT_COLUMNS_END -->
+
+<!-- BOTTOM_BACK_TO_TOP -->
+<div class="ibm-columns">
+<div class="ibm-col-1-1">
+	<div class="ibm-alternate-rule"><hr></div><p class="ibm-ind-link ibm-back-to-top"><a href="http://www.ibm.com/developerworks/cn/xml/x-svgscript/#ibm-pcon" class="ibm-anchor-up-link">回页首</a></p>
+</div>
+</div>
+
+<!-- Rating_Meta_BEGIN -->
+<!--Rating_Meta_BEGIN--><div class="metavalue">static.content.url=http://www.ibm.com/developerworks/js/artrating/</div><div class="metavalue">SITE_ID=10</div><div class="metavalue">Zone=XML</div><div class="metavalue">ArticleID=84137</div><div class="metavalue">ArticleTitle=使用脚本动态操作 SVG 文档</div><div class="metavalue">publish-date=05012005</div><script language="javascript" type="text/javascript">document.write('<div class="metavalue">url='+location.href.replace(/</g,  '%3C')+'</div>');</script><div class="metavalue">url=http://www.ibm.com/developerworks/cn/xml/x-svgscript/</div><!--Rating_Meta_END-->
+<!-- Rating_Meta_END -->
+
+</div>
+<!-- END_IBM_CONTENT_MAIN -->
+
+</div>
+<!-- END_IBM_CONTENT_BODY -->
+
+</div>
+<!-- END_IBM_CONTENT -->
+
+</div></div>
+<!-- LEADSPACE_END -->
+
+
+<!-- END_IBM_PCON -->
+<!-- FOOTER_BEGIN -->
+<div id="ibm-footer" aria-label="页脚"><!-- IBM footer container; disabled --></div>
+
+<div id="ibm-footer-module-dwwrapper" role="contentinfo" aria-label="developerWorks Footer">
+
+<div id="ibm-footer-module-dw">
+	<div class="dw-footer-columns">
+		<div class="dw-footer-col-6-1 dw-footer-col-6-1-cn">
+			<ul>
+				<li><a href="https://www.ibm.com/developerworks/secure/feedback.jsp?domain=dwchina" tabindex="0">帮助</a></li>
+				<li><a href="http://www.ibm.com/developerworks/cn/author/" tabindex="0">联系编辑</a></li>
+				<li><a href="https://www.ibm.com/developerworks/secure/myideas2.jsp?domain=dwchina" tabindex="0">提交内容</a></li>
+				<li><a href="http://www.ibm.com/developerworks/cn/rss/" tabindex="0">订阅源</a></li>
+			</ul>
+        </div>
+		<div class="dw-footer-col-6-2">
+			<ul>
+				<li><a href="http://www.ibm.com/vrm/newsletter/10104?S_TACT=105AGX52&S_CMP=dwcntop" tabindex="0">在线浏览每周时事通讯</a></li>
+				<li><a class="dwcn-sina-link" href="http://weibo.com/ibmdw/" target="_blank" tabindex="0">新浪微博</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/report?lang=zh" tabindex="0">报告滥用</a></li>
+				<li><a href="https://www.ibm.com/developerworks/community/terms?lang=zh" tabindex="0">使用条款</a></li>
+				<li><a href="https://www.ibm.com/developerworks/cn/community/terms/thirdparty/" tabindex="0">第三方提示</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-3">
+			<ul>
+				<li><a href="http://www.ibm.com/privacy/cn/zh/" tabindex="0">隐私条约</a></li>
+				<li><a href="http://www.ibm.com/ibm/accessibility/cn/" tabindex="0">浏览辅助</a></li>
+				<li><a href="http://www.ibm.com/developerworks/cn/academic/" tabindex="0">IBM 教育学院教育培养计划</a></li><li><a href="http://www.ibm.com/developerworks/cn/gep/">IBM 创业企业全球扶持计划</a></li><li><a href="http://www.ibm.com/partnerworld/isv/">ISV 资源 (英语)</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-4"> 
+			<ul>
+				<li><a href="http://www.ibm.com/developerworks/cn/newsletter/" tabindex="0">dW 中国每周时事通讯</a></li>
+			</ul>
+			
+		</div>
+		<div class="dw-footer-col-6-5">
+			<ul>
+				<li class="dw-footer-lang-head">选择语言：</li>
+				<li><a href="http://www.ibm.com/developerworks/" tabindex="0">English</a></li>
+				<li><a href="http://www.ibm.com/developerworks/cn/" lang="zh" tabindex="0">中文</a></li>
+				<li><a href="http://www.ibm.com/developerworks/jp/" lang="ja" tabindex="0">日本語</a></li>
+				<li><a href="http://www.ibm.com/developerworks/ru/" lang="ru" tabindex="0">Русский</a></li>
+				<li><a href="http://www.ibm.com/developerworks/br/" lang="pt" tabindex="0">Português (Brasil)</a></li>
+				<li><a href="http://www.ibm.com/developerworks/ssa/" lang="es" tabindex="0">Español</a></li>
+				<li><a href="http://www.ibm.com/developerworks/vn/" lang="vi" tabindex="0">Việt</a></li>
+			</ul>
+		</div>
+		<div class="dw-footer-col-6-6">
+			<img width="223" height="46" alt="IBM®" src="./使用脚本动态操作 SVG 文档_files/dwn-ibm-logo-v17.png">
+			<img class="dw-preload" src="./使用脚本动态操作 SVG 文档_files/ibm_sprite_social_blue_ON.png" alt="" width="1" height="1">
+		</div>
+	</div>
+</div>
+
+</div><!-- FOOTER_END -->
+
+<!-- END_IBM-TOP -->
+</div>
+
+<!-- SCRIPTS_INCLUDE_BEGIN -->
+<script type="text/javascript" src="./使用脚本动态操作 SVG 文档_files/dw-comments.js">//</script>
+<script type="text/javascript" language="JavaScript">
+	dojo.ready(function(){
+		rBHash = typeof rBHash == "undefined" ? {} : rBHash;
+		rBHash['viperLang'] = 'zh';
+		rBHash['urlLang'] = 'cn';
+		rBHash['dwwi2Lang'] = 'zh_CN';
+		rBHash['appCode'] = 'dwmav';
+		rBHash['signoutUrl'] = (location.host.toLowerCase() === "www.ibm.com" || location.host.toLowerCase() === "developer.ibm.com") ? 'http://www.ibm.com/developerworks/cn/' : ''; 
+		dwsi.siInst = new dwweb.dynnav.dwsi();
+		dwsi.siInst.initSI();		
+
+		// construct the comment widget
+dwc.cmts = '条评论';
+dwc.signInPreText = '请';
+dwc.signIn = '登录';
+dwc.or = '或';
+dwc.register = '注册';
+dwc.signInPostText = '';
+dwc.leaveCmt = '后发表评论。';
+dwc.view = '查看';
+dwc.totalCmts = '共有评论';
+dwc.postYourCmt = '添加您的评论';
+dwc.show = '显示：';
+dwc.recentCmts = '最新评论';
+dwc.allCmts = '所有评论';
+dwc.tooLongCmt = '您的评论超过了 1000 字符限制';
+dwc.numCharsLeft = '剩余 <span id="charCount">{1}</span> 字符';
+dwc.reportAbuse = '报告滥用';
+dwc.notifyMsg = '有新评论时提醒我';
+dwc.htmlWarning = '注意：评论中不支持 HTML 语法'; 
+dwc.cmt = '评论：';
+dwc.addCmts = '添加评论';
+dwc.addCmt = '添加评论';
+dwc.doNotErase = '--在下方添加评论--'; 
+dwc.viewOrAddCmts = '查看或添加评论';
+dwc.reportInapprCont = '举报不良信息';
+dwc.reportInapprContLink = 'http://www.ibm.com/developerworks/forums/forum.jspa?forumID=1834';
+dwc.postingCmt = '正在发布评论……';
+dwc.noCmt = '快来添加第一条评论';
+dwc.netwkErr = '在检索评论时出错，请稍后刷新。';
+dwc.addACmt = '添加评论';
+dwc.instructCmt = '标有星号（<span class="ibm-required">*</span>）的是必填项目。';
+dwc.btnPost = '发布';
+dwc.btnPostAnon = '匿名发布';
+dwc.btnClrCmt = '清除评论';
+dwc.btnCancel = '取消';
+dwc.showRecent = '显示最新的 {1} 条评论'; // {1} is the count to be substituted
+dwc.showNext = '显示后 {1} 条评论'; // {1} is the count to be substituted
+dwc.showAllCmts = '显示所有评论';
+dwc.enterCmt = '请输入评论内容。';
+dwc.loginErr = '暂时无法验证您的登录状态，请稍后再试。';
+dwc.postErr = '暂时无法发布您的评论，请稍后再试。';
+dwc.postBy = '由 <strong>{1}</strong>  于 {2} '; // {1} is the author to be substituted; {2} is the date
+dwc.siteId = 10;
+dwc.lang = 'zh_CN';
+dwc.viperLang = 'zh';
+//dwc.abuseHref =  null;
+dwc.maxChars = 1000;
+dwc.cmtTxt =  '评论：';
+dwc.cmtsTxt =  '评论：';  
+		dwc && new dwc.comments('threadShow','95%',5,'nCmts','icomments');
+		});
+</script>
+
+
+
+<!-- BEGIN: Use this section to set page specific variables for the Unica Page Tag -->
+<script language="JavaScript">var NTPT_PGEXTRA="ibmSkillLevel=1&ibmCmaId=84137&ibmContentAreas=xml";</script>
+<!--END --><!-- SCRIPTS_INCLUDE_END -->
+
+<div id="ibm-metrics">
+<script src="./使用脚本动态操作 SVG 文档_files/stats.js" type="text/javascript">//</script>
+</div>
+
+
+
+<iframe src="./使用脚本动态操作 SVG 文档_files/pixel.gif" style="width: 0px; height: 0px;"></iframe></body></html>

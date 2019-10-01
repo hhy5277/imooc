@@ -1,0 +1,1 @@
+$(document).ready(function(){var e=$("div.content div.image").next();e.is("br")&&e.remove(),$("div.content div.image img").load(function(){var e=$(this);e.width()>600&&e.width(600).wrap("<a href='"+e.attr("src")+"' title='点击在新窗口中打开' target='_blank'>")})});

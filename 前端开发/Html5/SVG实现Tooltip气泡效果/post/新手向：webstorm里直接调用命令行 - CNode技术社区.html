@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://cnodejs.org/topic/5197390c63e9f8a54243f137 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="description" content="CNode：Node.js专业中文社区">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="nodejs, node, express, connect, socket.io">
+  <meta name="apple-itunes-app" content="app-id=954734793">
+  <!-- see http://smerity.com/articles/2013/where_did_all_the_http_referrers_go.html -->
+  <meta name="referrer" content="always">
+
+  
+  <meta name="author" content="EDP@TaoBao">
+  
+  <meta property="wb:webmaster" content="617be6bd946c6b96">
+  
+
+  <link title="RSS" type="application/rss+xml" rel="alternate" href="https://cnodejs.org/rss">
+
+  
+  <link rel="icon" href="https://dn-cnodestatic.qbox.me/public/images/cnode_icon_32.png" type="image/x-icon">
+  
+
+  <!-- style -->
+  <link rel="stylesheet" href="https://dn-cnodestatic.qbox.me/public/stylesheets/index.min.36689462.min.css" media="all">
+
+
+  <!-- scripts -->
+  <script async="" src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/analytics.js"></script><script src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/index.min.4dde195f.min.js"></script>
+
+
+  
+  <title>新手向：webstorm里直接调用命令行 - CNode技术社区</title>
+  
+  <meta content="_csrf" name="csrf-param">
+  <meta content="w3gD67cX-8odbp2yaiWXrHPhx0bsKMTPTLME" name="csrf-token">
+</head>
+<body>
+<!-- navbar -->
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="https://cnodejs.org/">
+        
+          <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/cnodejs_light.svg">
+        
+      </a>
+
+      <form id="search_form" class="navbar-search" action="https://cnodejs.org/search">
+        <input type="text" id="q" name="q" class="search-query span3" value="">
+      </form>
+      <ul class="nav pull-right">
+        <li><a href="https://cnodejs.org/">首页</a></li>
+        
+        <li><a href="https://cnodejs.org/getstart">新手入门</a></li>
+        <li><a href="https://cnodejs.org/api">API</a></li>
+        
+        <li><a href="https://cnodejs.org/about" target="">关于</a></li>
+        
+        
+        <li><a href="https://cnodejs.org/signup">注册</a></li>
+        <li><a href="https://cnodejs.org/signin">登录</a></li>
+        
+      </ul>
+      <a class="btn btn-navbar" id="responsive-sidebar-trigger">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="main">
+  <div id="sidebar">
+  <div class="panel">
+    <div class="header">
+      <span class="col_fade">作者</span>
+    </div>
+    <div class="inner">
+      <div class="user_card">
+  <div>
+    <a class="user_avatar" href="https://cnodejs.org/user/eggcanfly">
+      <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/d96937ad5bcb677d761061f1f6cd44d3" title="eggcanfly">
+    </a>
+    <span class="user_name"><a class="dark" href="https://cnodejs.org/user/eggcanfly">eggcanfly</a></span>
+
+    <div class="board clearfix">
+      <div class="floor">
+        <span class="big">积分: 10 </span>
+      </div>
+    </div>
+    <div class="space clearfix"></div>
+    <span class="signature">
+        “
+        
+            这家伙很懒，什么个性签名都没有留下。
+        
+        ”
+    </span>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+
+  
+    
+<div class="panel">
+  <div class="inner ads">
+
+    
+      
+      <a href="https://bearychat.com/" target="_blank" class="banner sponsor_outlink" data-label="bearychat">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/Foy27SgPGvfuZ3w9rSGik4crv8oW">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="http://www.apicloud.com/" target="_blank" class="banner sponsor_outlink" data-label="apicloud">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FsmD61Bf12f7l4zTXp6hoJ-6D4Ao">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="https://cnodejs.org/topic/559e927f3d79442724b9f1e2" target="_blank" class="banner sponsor_outlink" data-label="shimo">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FsIC6DBRkw1sfVF5V0G-Qc5UOYZP">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="http://www.oneapm.com/ai/feature.html?utm_source=cnode&utm_medium=billboard&utm_term=Performance&utm_campaign=AugAds&from=maadfiauco" target="_blank" class="banner sponsor_outlink" data-label="oneapm">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/Fqpg1-mUVrdAQjwRpi7zLwqxoe8Y">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="https://www.jpush.cn/" target="_blank" class="banner sponsor_outlink" data-label="jpush">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FvD_i-ZHxWI5h7L9GZGP6C5zC9xB">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="http://100offer.com/join/cnode71?utm_source=cnode71&utm_medium=dis&utm_campaign=cnode71" target="_blank" class="banner sponsor_outlink" data-label="100offer">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FojExpHUPJ_1iG7qDOJvnRQ7RmnX">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="https://www.wilddog.com/" target="_blank" class="banner sponsor_outlink" data-label="wilddog">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FgF7oZaTe70WOGoM-FB9r_f4kRPH">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="http://www.videojj.com/?hmsr=https%3A%2F%2Fcnodejs.org%2F&hmmd=%E5%9B%BE%E6%96%87%E5%B9%BF%E5%91%8A&hmpl=%E4%BB%98%E8%B4%B9banner&hmkw=&hmci=" target="_blank" class="banner sponsor_outlink" data-label="videojj">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FuBkApd_djji3AtnUm4i4A0aAO6S">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="http://www.jiankongbao.com/" target="_blank" class="banner sponsor_outlink" data-label="jiankongbao">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FgqoCO3YpU7B5jdG_7GPhVnXc1eG">
+      </a>
+    
+      
+        <div class="sep10"></div>
+      
+      <a href="https://talk.ai/?s=cnodejs" target="_blank" class="banner sponsor_outlink" data-label="teambition">
+        <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FsJ2QW9zAHLvrPgC767PvuMWBkRQ">
+      </a>
+    
+  </div>
+</div>
+
+  
+
+  <div class="panel">
+    <div class="header">
+      <span class="col_fade">作者其它话题</span>
+    </div>
+    <div class="inner">
+      
+      <p>无</p>
+      
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="header">
+      <span class="col_fade">无人回复的话题</span>
+    </div>
+    <div class="inner">
+      
+      <ul class="unstyled">
+        <li>
+  <div><a class="dark topic_title" href="https://cnodejs.org/topic/55e2b9f82d6081237ee556f9" title="【Moklr】一个Http API测试(类似postman)、状态监控工具">【Moklr】一个Http API测试(类似postman)、状态监控工具</a>
+  </div>
+</li>
+<li>
+  <div><a class="dark topic_title" href="https://cnodejs.org/topic/55e2ab595907b2a74da74599" title="在node上架設的網站 如何實現錄音功能  ( web audio api ? recorder.js? )">在node上架設的網站 如何實現錄音功能  ( web audio api ? recorder.js? )</a>
+  </div>
+</li>
+<li>
+  <div><a class="dark topic_title" href="https://cnodejs.org/topic/55e163ac423f096e2d718764" title="分享2个图表在线工具">分享2个图表在线工具</a>
+  </div>
+</li>
+<li>
+  <div><a class="dark topic_title" href="https://cnodejs.org/topic/55e028552d860fdb2f583c51" title="请问有 XPath 版的 &amp;quot;cheerio&amp;quot; 吗？">请问有 XPath 版的 &amp;quot;cheerio&amp;quot; 吗？</a>
+  </div>
+</li>
+<li>
+  <div><a class="dark topic_title" href="https://cnodejs.org/topic/55e00d756920e26d1627b21b" title="DFRobot 蓝牙智能设备开发大赛">DFRobot 蓝牙智能设备开发大赛</a>
+  </div>
+</li>
+
+      </ul>
+      
+    </div>
+  </div>
+</div>
+
+<div id="content">
+  <div class="panel">
+    <div class="header topic_header">
+      <span class="topic_full_title">
+
+        
+
+
+        新手向：webstorm里直接调用命令行
+      </span>
+      <div class="changes">
+        <span>
+          发布于 2年前
+        </span>
+        <span>
+          作者 <a href="https://cnodejs.org/user/eggcanfly">eggcanfly</a>
+        </span>
+        <span>
+          5720 次浏览
+        </span>
+        
+        
+      </div>
+      
+    </div>
+    <div class="inner topic">
+
+      <div class="topic_content">
+        <div class="markdown-text"><p>写代码写到一半要切换窗口出去敲命令行？webstorm的external tools可以帮你省下一点时间<br>
+举例说明，比如我要直接使用npm：<br>
+ctrl+alt+s打开<strong>setting</strong>菜单，找到<strong>external tools</strong>
+点+号，在tool setting里填空：
+program -&gt; 外部命令所在位置，填入npm的完整路径
+parameters -&gt; 参数，这里设为 $Prompt$运行命令时表示弹个窗口让你输入
+Working Directory -&gt; 在哪个目录下运行这条命令，输入$ProjectFileDir$表示在当前项目的根目录下运行。
+点右边的insert macro可以看到更多的选项，除了macro的说明，webstorm还会告诉你对应macro在当前环境下是个什么值的，不怕看不懂e文了。
+<img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/7327f6d5gw1e4sips6984j20ig0irtag.jpg" alt="1">
+最后给这个命令起个名字，叫npm保存完事，在顶部菜单找到tools就可以看到刚保存的npm。点击它就会弹出个窗口，输入install express试试吧。
+<img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/7327f6d5gw1e4siqh4em2j205p06ewep.jpg" alt="2">
+<img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/7327f6d5gw1e4siqz9rkgj20br03s0st.jpg" alt="3"></p>
+</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel">
+    <div class="header">
+      <span class="col_fade">2 回复</span>
+    </div>
+    <div class="cell reply_area reply_item
+  " id="reply1" reply_id="5199d2ed63e9f8a54277b4c8" reply_to_id="">
+  <a class="anchor" id="5199d2ed63e9f8a54277b4c8"></a>
+
+  <div class="author_content">
+    <a href="https://cnodejs.org/user/chihuohuo" class="user_avatar">
+      <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/2072b92e8b6ffb7513fa4f3933135775" title="chihuohuo"></a>
+
+    <div class="user_info">
+      <a class="dark reply_author" href="https://cnodejs.org/user/chihuohuo">chihuohuo
+      </a>
+      <a class="reply_time" href="https://cnodejs.org/topic/5197390c63e9f8a54243f137#5199d2ed63e9f8a54277b4c8">1楼•2年前</a>
+    </div>
+    <div class="user_action">
+      <span>
+        <i class="fa up_btn
+          fa-thumbs-o-up
+          invisible" title="喜欢"></i>
+        <span class="up-count">
+          
+        </span>
+      </span>
+      
+      <span>
+        
+      </span>
+    </div>
+  </div>
+  <div class="reply_content from-chihuohuo">
+    <div class="markdown-text"><p>这个好哇~  感谢分享</p>
+</div>
+  </div>
+  <div class="clearfix">
+    <div class="reply2_area">
+      
+    </div>
+  </div>
+</div>
+<div class="cell reply_area reply_item
+  " id="reply2" reply_id="52a81ae0a6957a0809b30659" reply_to_id="">
+  <a class="anchor" id="52a81ae0a6957a0809b30659"></a>
+
+  <div class="author_content">
+    <a href="https://cnodejs.org/user/simdm" class="user_avatar">
+      <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/7d676b9c56d56b2dbe5505c09452180a" title="simdm"></a>
+
+    <div class="user_info">
+      <a class="dark reply_author" href="https://cnodejs.org/user/simdm">simdm
+      </a>
+      <a class="reply_time" href="https://cnodejs.org/topic/5197390c63e9f8a54243f137#52a81ae0a6957a0809b30659">2楼•2年前</a>
+    </div>
+    <div class="user_action">
+      <span>
+        <i class="fa up_btn
+          fa-thumbs-o-up
+          invisible" title="喜欢"></i>
+        <span class="up-count">
+          
+        </span>
+      </span>
+      
+      <span>
+        
+      </span>
+    </div>
+  </div>
+  <div class="reply_content from-simdm">
+    <div class="markdown-text"><p>mark</p>
+</div>
+  </div>
+  <div class="clearfix">
+    <div class="reply2_area">
+      
+    </div>
+  </div>
+</div>
+
+  </div>
+  
+  
+</div>
+
+<div class="replies_history" style="display: none;">
+  <div class="inner_content"></div>
+  <div class="anchor"></div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  (function(){
+    var timer = null; //对话框延时定时器
+    // 初始化 $('.replies_history')
+    var $repliesHistory = $('.replies_history');
+    var $repliesHistoryContent = $repliesHistory.find('.inner_content');
+    $repliesHistory.hide();
+    // END
+    // 鼠标移入对话框清除隐藏定时器；移出时隐藏对话框
+    $repliesHistory.on('mouseenter', function(){
+      clearTimeout(timer);
+    }).on('mouseleave', function(){
+      $repliesHistory.fadeOut('fast');
+    });
+    // 显示被 at 用户的本页评论
+    if ($('.reply2_item').length === 0) {
+      // 只在流式评论布局中使用
+
+      $('#content').on('mouseenter', '.reply_content a', function (e) {
+        clearTimeout(timer);
+        var $this = $(this);
+        if ($this.text()[0] === '@') {
+          var thisText = $this.text().trim();
+          var loginname = thisText.slice(1);
+          var offset = $this.offset();
+          var width = $this.width();
+          var mainOffset = $('#main').offset();
+          $repliesHistory.css('left', offset.left-mainOffset.left+width+10); // magic number
+          $repliesHistory.css('top', offset.top-mainOffset.top-10); // magic number
+          $repliesHistory.css({
+            'z-index': 1,
+          });
+          $repliesHistoryContent.empty();
+          var chats = [];
+          var replyToId = $this.closest('.reply_item').attr('reply_to_id');
+          while (replyToId) {
+            var $replyItem = $('.reply_item[reply_id=' + replyToId + ']');
+            var replyContent = $replyItem.find('.reply_content').text().trim();
+            if (replyContent.length > 0) {
+              chats.push([
+                $($replyItem.find('.user_avatar').html()).attr({
+                  height: '30px',
+                  width: '30px',
+                }), // avatar
+                (replyContent.length>300?replyContent.substr(0,300)+'...':replyContent), // reply content
+                '<a href="#'+replyToId+'" class="scroll_to_original" title="查看原文">↑</a>'
+              ]);
+            }
+            replyToId = $replyItem.attr('reply_to_id');
+          }
+          if(chats.length > 0) {
+            chats.reverse();
+
+            $repliesHistoryContent.append('<div class="title">查看对话</div>');
+            chats.forEach(function (pair, idx) {
+              var $chat = $repliesHistoryContent.append('<div class="item"></div>');
+              $chat.append(pair[0]); // 头像
+              $chat.append($('<span>').text(pair[1])); // 内容
+              $chat.append(pair[2]); // 查看原文 anchor
+            });
+            $repliesHistory.fadeIn('fast');
+          }else{
+            $repliesHistory.hide();
+          }
+        }
+      }).on('mouseleave', '.reply_content a', function (e) {
+        timer = setTimeout(function(){
+          $repliesHistory.fadeOut('fast');
+        }, 500);
+      });
+    }
+    // END 显示被 at 用户的本页评论
+  })();
+
+  // 点赞
+  $('.up_btn').click(function (e) {
+    var $this = $(this);
+    var replyId = $this.closest('.reply_area').attr('reply_id');
+    $.ajax({
+      url: '/reply/' + replyId + '/up',
+      method: 'POST',
+    }).done(function (data) {
+      if (data.success) {
+        $this.removeClass('invisible');
+        var currentCount = Number($this.next('.up-count').text().trim()) || 0;
+        if (data.action === 'up') {
+          $this.next('.up-count').text(currentCount + 1);
+          $this.addClass('uped');
+        } else {
+          if (data.action === 'down') {
+            $this.next('.up-count').text(currentCount - 1);
+            $this.removeClass('uped');
+          }
+        }
+      } else {
+        alert(data.message);
+      }
+    }).fail(function (xhr) {
+      if (xhr.status === 403) {
+        alert('请先登录，登陆后即可点赞。');
+      }
+    });
+  });
+  // END 点赞
+</script>
+
+</div>
+<div id="backtotop" style="top: 317px; right: 0px; display: none;">回到顶部</div>
+<div id="footer">
+  <div id="footer_main">
+    <div class="links">
+      <a class="dark" href="https://cnodejs.org/rss">RSS</a>
+      |
+      <a class="dark" href="https://github.com/cnodejs/nodeclub/">源码地址</a>
+    </div>
+
+    <div class="col_fade">
+  <p>服务器赞助商为
+    <a href="https://www.ucloud.cn/" target="_blank" class="sponsor_outlink" data-label="ucloud">
+      <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/FmZmxXDULF26HWvSMLGZX6Vxp5MH" title="ucloud" alt="ucloud" width="92px">
+    </a>
+  ，存储赞助商为
+    <a href="http://www.qiniu.com/?ref=cnode" target="_blank" class="sponsor_outlink" data-label="qiniu_bottom">
+      <img src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/qiniu.png" title="七牛云存储" alt="七牛云存储" width="115px">
+    </a>
+  </p>
+  <p>新手搭建 Node.js 服务器，推荐使用无需备案的 <a href="https://www.linode.com/?r=15ca84df052ab2ac2cc4ac21714969900782a827">Linode(https://www.linode.com)</a> 或 <a href="https://www.digitalocean.com/?refcode=eba02656eeb3">DigitalOcean(https://www.digitalocean.com/)</a></p>
+</div>
+
+
+  </div>
+</div>
+<div id="sidebar-mask"></div>
+
+
+<script>
+  // google analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script', "https://www.google-analytics.com/analytics.js",'ga');
+
+  ga('create', 'UA-41753901-5', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<div style="display:none;">
+  <script src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/z_stat.php" language="JavaScript"></script><script src="./新手向：webstorm里直接调用命令行 - CNode技术社区_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=1254020586" target="_blank" title="站长统计">站长统计</a>
+</div>
+
+
+
+
+</body></html>
