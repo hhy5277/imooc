@@ -1,0 +1,13 @@
+url£ºparse
+format
+resolve
+
+querystring:
+stringify()
+parse()
+escapse
+unescape
+
+²é¿´chrome DNS»º´æ
+
+chrome://net-internals/#dns

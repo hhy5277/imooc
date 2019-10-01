@@ -1,0 +1,9 @@
+对于新手，推荐四个网站。
+一、nodejs.org看看nodejs的版本升级，新特性的加入，重要bug的修复等
+二、www.npmjs.com模块社区，看他人源代码，省力
+三、github.com大量的项目和源码
+四、stackoverflow.com技术解答社区以及查询相关资源，环境配置，异常均可找到答案
+
+Git bash下载
+
+http://git-scm.com/download/win
