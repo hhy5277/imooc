@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0070)http://game.ceeger.com/Unity/Doc/2014/Unity3D_Android_SDK_Install.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Unity3D Android手机开发环境配置 - Unity圣典</title>
+<meta name="keywords" content="Android,AndroidSDK,开发环境,eclipse">
+<meta name="description" content="Unity3D Android手机开发环境配置，解决常遇到的各种问题。搭建好环境能直接在Unity3D中编译并烧录到手机。">
+<link href="./Unity3D Android手机开发环境配置 - Unity圣典_files/index.css" rel="stylesheet" type="text/css">
+<link href="./Unity3D Android手机开发环境配置 - Unity圣典_files/prettify.css" type="text/css" rel="stylesheet">
+<script async="" type="text/javascript" src="./Unity3D Android手机开发环境配置 - Unity圣典_files/ca-pub-8054246454688368.js"></script><script type="text/javascript" src="./Unity3D Android手机开发环境配置 - Unity圣典_files/prettify.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+    prettyPrint(); 
+}
+</script></head>
+<body>
+<div class="head">
+<div class="logo"><a href="http://game.ceeger.com/"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/unitylogo.png" alt="Unity圣典" width="280" height="76" title="Unity圣典"></a></div>
+<div class="menu"><a href="http://game.ceeger.com/"><span>首页</span></a><a href="http://game.ceeger.com/Unity_Classroom"><span>Unity大学堂</span></a><a href="http://game.ceeger.com/Unity/News"><span>新闻</span></a><a href="http://game.ceeger.com/Unity/Doc"><span>教程</span></a><a href="http://game.ceeger.com/Unity/Resources"><span>资源</span></a><a href="http://game.ceeger.com/Manual"><span>用户手册</span></a><a href="http://game.ceeger.com/Components"><span>组件手册</span></a><a href="http://game.ceeger.com/Script"><span>脚本手册</span></a><a href="http://game.ceeger.com/forum"><span>论坛</span></a></div>
+</div><div class="mainbody">
+	<div class="mainright">
+		<h2 class="titlebar">目录</h2>
+		<ul>
+			<li><a href="http://game.ceeger.com/Components/index.html">Components</a>(281)</li>
+<li><a href="http://game.ceeger.com/Unity/index.html">Unity圣典</a>(11)</li>
+<li><a href="http://game.ceeger.com/Unity/News/index.html">新闻</a>(19)</li>
+<li><a href="http://game.ceeger.com/Unity/Doc/index.html">教程</a>(13)</li>
+<li><a href="http://game.ceeger.com/Unity/Resources/index.html">资源</a>(2)</li>
+<li><a href="http://game.ceeger.com/Manual/index.html">Manual</a>(319)</li>
+<li><a href="http://game.ceeger.com/Unity/Doc/Substance/index.html">Substance</a>(5)</li>
+<li><a href="http://game.ceeger.com/Unity/Doc/Substance/Designer/index.html">Designer</a>(5)</li>
+<li><a href="http://game.ceeger.com/Unity/Doc/ezgui/index.html">EZ GUI </a>(1)</li>
+<li><a href="http://game.ceeger.com/Unity_Classroom/index.html">Unity大学堂</a>(0)</li>
+
+		</ul>		
+		<h3 class="titlebar">RSS订阅</h3>
+		<p><a href="http://game.ceeger.com/rss.php">订阅更新</a></p>
+
+<div id="googlead" width="250" height="250">
+<div style="text-align:center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8054246454688368";
+/* 右侧 */
+google_ad_slot = "9880573745";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./Unity3D Android手机开发环境配置 - Unity圣典_files/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><iframe width="250" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</div>
+
+</div>
+<div id="googleadcode" style="display:none">
+<div style="text-align:center">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8054246454688368";
+/* 右侧 */
+google_ad_slot = "9880573745";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./Unity3D Android手机开发环境配置 - Unity圣典_files/show_ads.js">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent"><iframe width="250" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</div>
+
+</div>
+<script language="javascript">
+if(document.all.item("googlead") != null)
+{
+  googlead.innerHTML = googleadcode.innerHTML;
+}
+</script>
+
+		<h3 class="titlebar">热门文章</h3>
+		<ul class="hottext">
+			<li><a href="http://game.ceeger.com/Unity/Doc/2011/Gimbal_Lock.html">万向节死锁(Gimbal Lock)</a></li><li><a href="http://game.ceeger.com/Unity/Doc/2011/Lightmap_Vertex-Lighting.html">静态模型的Lightmap（光照贴图）与Vertex-Lighting（顶点光照）比较</a></li><li><a href="http://game.ceeger.com/Unity/Doc/2011/Unity_Projects.html">Unity自带范例的默认安装路径（AngryBots和Bootcamp Demo）</a></li><li><a href="http://game.ceeger.com/Unity/Doc/2011/3D_to_Unity.html">三维软件转Unity的系统单位设置研究</a></li><li><a href="http://game.ceeger.com/Unity/Doc/2011/Unity3D_For_Android.html">Unity3D For Android  开发教程</a></li><li><a href="http://game.ceeger.com/Unity/Doc/2013/vs-icon.html">vs 提示图标的含义</a></li><li><a href="./Unity3D Android手机开发环境配置 - Unity圣典_files/Unity3D Android手机开发环境配置 - Unity圣典.html">Unity3D Android手机开发环境配置</a></li>
+		</ul>
+		<h3 class="titlebar">最新评论</h3>
+		<ul class="review">
+			<li>mac呢？ @ <a href="http://game.ceeger.com/Unity/Doc/2011/Unity_Projects.html">Unity自带范例的默认安装路径（AngryBots和Bootcamp Demo）</a></li><li>7777 @ <a href="http://game.ceeger.com/Manual/Tutorials.html">Tutorials</a></li><li>没讲清楚, 怎么就对不上呢? @ <a href="http://game.ceeger.com/Unity/Doc/2011/Gimbal_Lock.html">万向节死锁(Gimbal Lock)</a></li><li>Shuriken粒子有没有具体的翻译啊 @ <a href="http://game.ceeger.com/Unity/News/2011/3_5_Developer_Preview.html">Unity 3.5公众测试版发布（开发人员预览版）</a></li><li>受教了！！多谢 @ <a href="http://game.ceeger.com/Unity/Doc/2011/3D_to_Unity.html">三维软件转Unity的系统单位设置研究</a></li><li>有视频教程吗 @ <a href="http://game.ceeger.com/Unity/Doc/Substance/Designer/Creating_a_simple_Substance.html">Creating a simple Substance (创建一个简单的Substance)</a></li><li>good @ <a href="http://game.ceeger.com/Unity/Doc/Substance/Designer/Introduction_Conventions.html">Substance Designer User Guide（Substance Designer 用户指南 - 介绍和规范）</a></li><li>感谢你！！！ @ <a href="http://game.ceeger.com/Unity/Doc/2011/Lightmap_Vertex-Lighting.html">静态模型的Lightmap（光照贴图）与Vertex-Lighting（顶点光照）比较</a></li><li>未来很强大！  @ <a href="http://game.ceeger.com/Components/gui-Controls.html">Controls</a></li><li>我有，要的给我发邮件，mac下的，邮箱zhoukaijun1988@126.com @ <a href="http://game.ceeger.com/Unity/Doc/ezgui/Simple_introduction.html">EZGUI基本操作简单介绍 </a></li>			
+		</ul>
+	</div>
+	<div class="mainleft">
+		<div class="view">
+			<h1>Unity3D Android手机开发环境配置</h1>
+			<div class="date">Date:2014-01-01 07:09</div>
+			
+			<div class="content"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">1、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">配置<span style="font-family:Times New Roman;">eclipse</span><span style="font-family:宋体;">环境：首先在官网下载安装包：</span></span><a href="http://developer.android.com/sdk/index.html"><span style="font-family:&#39;宋体&#39;;color:#0000ff;">http://developer.android.com/sdk/index.html</span></a><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，点击这个按钮开始下载</span><p style="text-align:justify;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/CpmCss.png" alt="" height="53" width="297"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">进入下一页，选择对应你系统的版本，继续下载。</span></p><p style="text-align:justify;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/JYLD20.png" alt="" height="125" width="412"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">32<span style="font-family:宋体;">和</span><span style="font-family:Times New Roman;">64</span><span style="font-family:宋体;">位版本千万不能选错了，如果不清楚就查看一下你的系统版本。</span></span></p><p style="text-align:justify;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/Vns0xR.png" alt="" width="630"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">下载完成后就是类似这样的包<span style="font-family:Times New Roman;">adt-bundle-windows-x86_64-20131030.zip</span><span style="font-family:宋体;">，解压出来像这样</span></span></p><p style="text-align:justify;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/dm7HD7.png" alt="" height="146" width="365"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">为了方便我们把它们让入<span style="font-family:Times New Roman;">adt</span><span style="font-family:宋体;">文件夹，移动到</span><span style="font-family:Times New Roman;">C</span><span style="font-family:宋体;">盘根目录，当然你也可以放到其他目录</span></span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">。</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">2<span style="font-family:宋体;">、配置</span><span style="font-family:Times New Roman;">java</span><span style="font-family:宋体;">环境：打开</span><span style="font-family:Times New Roman;">eclipse</span><span style="font-family:宋体;">文件中的</span><span style="font-family:Times New Roman;">eclipse.exe</span><span style="font-family:宋体;">文件会提示</span></span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/Wg27N9.png" alt="" height="229" width="437"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">这是缺少<span style="font-family:Times New Roman;">JRE</span><span style="font-family:宋体;">运行环境，下面我们来下载安装它</span></span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">打开<span style="font-family:Times New Roman;">java</span><span style="font-family:宋体;">官网</span><a href="http://www.java.com/zh_CN/download/"><span style="font-family:Times New Roman;">http://www.java.com/zh_CN/download/</span></a><span style="font-family:宋体;">，点击左侧的“所以</span><span style="font-family:Times New Roman;">Java</span><span style="font-family:宋体;">下载”链接。</span></span></p><p style="text-align:justify;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/57FaVC.png" alt="" width="630"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">然后选择<span style="font-family:Times New Roman;">Windows&nbsp;64</span><span style="font-family:宋体;">位版本下载</span></span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/RIsgV5.png" alt="" height="198" width="607"></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">下载完成后</span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/qF95Vj.png" alt="" height="142" width="119"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">安装，勾选更改目标文件夹，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;"><br></span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/QxKPpY.png" alt="" height="393" width="506"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;"><br></span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">为了便于管理我们也把它放入<span style="font-family:Times New Roman;">adt</span><span style="font-family:宋体;">文件夹中</span></span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;"><br></span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/yY8ChG.png" alt="" height="447" width="387"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">你自建一个<span style="font-family:Times New Roman;">jre</span><span style="font-family:宋体;">目录，然后完成安装。</span></span></p><p style="text-align:justify;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">3、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">配置<span style="font-family:Times New Roman;">android&nbsp;SDK</span><span style="font-family:宋体;">：这时候打开</span><span style="font-family:Times New Roman;">eclipse.exe</span><span style="font-family:宋体;">就可以启动了，首先弹出的是开发的项目目录，你可以自定义的随便啦，</span></span></p><p style="text-align:justify;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/rLjCkk.png" alt="" height="319" width="625"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">OK<span style="font-family:宋体;">，进入主界面。</span></span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">4<span style="font-family:宋体;">、为了更新</span><span style="font-family:Times New Roman;">SDK</span><span style="font-family:宋体;">需要修改系统</span><span style="font-family:Times New Roman;">Hosts</span><span style="font-family:宋体;">文件，如果你使用代理上网，这步可以跳过。</span></span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">在这个目录</span><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">C:\Windows\System32\drivers\etc</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">找到<span style="font-family:Times New Roman;">hosts</span><span style="font-family:宋体;">文件，拖到桌面</span></span></p><p><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/l6ZUFw.png" alt="" width="630"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">右键打开方式选择记事本，在最下面添加下面一行并保存，然后把<span style="font-family:Times New Roman;">hosts</span><span style="font-family:宋体;">再拖回去。注意这个</span><span style="font-family:Times New Roman;">IP</span><span style="font-family:宋体;">是有时效的，不能用的话就到网上搜一个。</span></span></p><p><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">203.208.46.146&nbsp;&nbsp;&nbsp;&nbsp;dl-ssl.google.com</span></p><p><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">然后进行下面的设置。</span></p><p><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/jOqTBY.png" alt="" width="630"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/9ovRhN.png" alt="" height="400" width="450"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">5、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">更新<span style="font-family:Times New Roman;">Angdroid&nbsp;SDK</span><span style="font-family:宋体;">：</span></span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/zQQ7Lw.png" alt="" height="172" width="557"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">打开<span style="font-family:Times New Roman;">Android&nbsp;SDK</span><span style="font-family:宋体;">管理器窗口，选择各版本更新，开始下载。</span></span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/bPya2g.png" alt="" width="630"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">这边全部变成对号才会安装。</span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/c19y39.png" alt="" width="630"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">6、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">设置<span style="font-family:Times New Roman;">Unity&nbsp;Android&nbsp;SDK</span><span style="font-family:宋体;">目录：打开</span><span style="font-family:Times New Roman;">Unity&nbsp;Edit&nbsp;-&gt;&nbsp;Preferences...</span><span style="font-family:宋体;">浏览</span><span style="font-family:Times New Roman;">Andoid&nbsp;SDK</span><span style="font-family:宋体;">的目录，也就是我们之前自定义的</span><span style="font-family:Times New Roman;">C:\adt\sdk</span><span style="font-family:宋体;">目录</span></span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/Fxe3Fk.png" alt="" height="436" width="513"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">接下来我们进行<span style="font-family:Times New Roman;">Unity</span><span style="font-family:宋体;">发布测试，打开</span><span style="font-family:Times New Roman;">File&nbsp;-&gt;&nbsp;Build&nbsp;Setting</span><span style="font-family:宋体;">编译设置对话框，选中</span><span style="font-family:Times New Roman;">Android</span><span style="font-family:宋体;">图标，点击</span><span style="font-family:Times New Roman;">Switch&nbsp;Platform</span><span style="font-family:宋体;">按钮，这样就可以切换到</span><span style="font-family:Times New Roman;">android</span><span style="font-family:宋体;">发布平台了。连上手机，然后点击</span><span style="font-family:Times New Roman;">Build&nbsp;And&nbsp;Run</span><span style="font-family:宋体;">来发布试试看。</span></span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/Ie5JLN.png" alt="" height="617" width="564"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">但是没有如愿，提示这样</span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/QD35qi.png" alt="" height="162" width="469"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">提示是<span style="font-family:Times New Roman;">JDK</span><span style="font-family:宋体;">没有安装，但是我们已经安装了呀，下面解决问题。</span></span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">7、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">设置环境变量：</span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/j2uQ8m.png" alt="" width="630"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">。</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">这样就可以了，为了方便输入<span style="font-family:Times New Roman;">eclipse</span><span style="font-family:宋体;">命令也可以把</span><span style="font-family:Times New Roman;">C:\adt\sdk\platform-tools\;C:\adt\sdk\tools\;</span><span style="font-family:宋体;">添加到</span><span style="font-family:Times New Roman;">Path</span><span style="font-family:宋体;">。</span></span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">8、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">检查<span style="font-family:Times New Roman;">eclipse</span><span style="font-family:宋体;">的设置是否成功，打开命令提示行，先</span><span style="font-family:Times New Roman;">CD&nbsp;C:\adt\sdk\platform-tools</span><span style="font-family:宋体;">进入目录，再输入</span></span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">adb&nbsp;nodaemon&nbsp;server</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，</span></p><p style="text-align:left;"><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/wJZ9R1.png" alt="" width="630"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;">&nbsp;</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">发现<span style="font-family:Times New Roman;">adb</span><span style="font-family:宋体;">的</span><span style="font-family:Times New Roman;">5037</span><span style="font-family:宋体;">端口绑定失败了，再用</span></span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">netstat&nbsp;-ano&nbsp;|&nbsp;findstr&nbsp;"5037"</span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">查找端口被谁占用了，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">原来是<span style="font-family:Times New Roman;">1884</span><span style="font-family:宋体;">进程，一般会是</span><span style="font-family:Times New Roman;">QQ</span><span style="font-family:宋体;">或是其他的手机管理程序，主要每个人查找出的结果是不一样的。</span></span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">打开任务管理器，</span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/vDLbKa.png" alt="" width="630"><span style="font-family:&#39;Times New Roman&#39;;font-size:10.5000pt;"><br></span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">把<span style="font-family:Times New Roman;">PID</span><span style="font-family:宋体;">显示出来，找到</span><span style="font-family:Times New Roman;">1884</span><span style="font-family:宋体;">那就结束任务，记得要先关闭</span><span style="font-family:Times New Roman;">QQ</span><span style="font-family:宋体;">和其他手机工具的所有软件，如果没有找到，那就重启电脑，记得不要先启动</span><span style="font-family:Times New Roman;">QQ</span><span style="font-family:宋体;">和其他手机工具。当然也可以</span></span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">tasklist&nbsp;|&nbsp;findstr&nbsp;"</span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">1884</span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">"</span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">，</span><span style="font-family:&#39;宋体&#39;;font-size:12.0000pt;">快速找到占用的程序。</span></p><p style="text-align:left;"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">&nbsp;</span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">然后，在命令行输入<span style="font-family:Times New Roman;">adb&nbsp;start-server</span></span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/TbE4hS.png" alt="" height="57" width="427"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">这时候就安装成功了。</span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">8、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">这个提示</span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/ASKvKr.png" alt="" height="214" width="393"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">是让你改<span style="font-family:Times New Roman;">Bundle&nbsp;Identifier</span><span style="font-family:宋体;">的名称，不要用默认的，格式为“</span><span style="font-family:Times New Roman;">com.</span><span style="font-family:宋体;">公司名</span><span style="font-family:Times New Roman;">.</span><span style="font-family:宋体;">产品名”。</span></span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">9、</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">如果最后编译出现的仍然是这个提示</span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/jKohwD.png" alt="" height="203" width="394"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;"><br></span></p><p><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">那么打开“设备管理器”，如果有这样的条目</span><img src="./Unity3D Android手机开发环境配置 - Unity圣典_files/pFNaaZ.png" alt="" height="41" width="175"><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">，</span><span style="font-family:&#39;宋体&#39;;font-size:10.5000pt;">那么就说明你的手机驱动没有安装成功，去网上找个新的驱动吧。</span></p></div>
+<div style="text-align:center">
+<div id="googlead" width="300" height="250"></div>
+<div id="googleadcode" style="display:none">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8054246454688368";
+/* 中 */
+google_ad_slot = "2427279403";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./Unity3D Android手机开发环境配置 - Unity圣典_files/show_ads.js">
+</script><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+&nbsp;&nbsp;
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8054246454688368";
+/* 中 */
+google_ad_slot = "2427279403";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./Unity3D Android手机开发环境配置 - Unity圣典_files/show_ads.js">
+</script><ins id="aswift_2_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</div>
+<script language="javascript">
+if(document.all.item("googlead") != null)
+{
+  googlead.innerHTML = googleadcode.innerHTML;
+}
+</script>
+
+
+</div>			<div class="tbar">标签: <a href="http://game.ceeger.com/search.php?keyboard=Android">Android</a> <a href="http://game.ceeger.com/search.php?keyboard=AndroidSDK">AndroidSDK</a> <a href="http://game.ceeger.com/search.php?keyboard=%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">开发环境</a> <a href="http://game.ceeger.com/search.php?keyboard=eclipse">eclipse</a> </div>
+		        <div class="tbar" style="margin-bottom:20px">分类：<a href="http://game.ceeger.com/Unity/Doc/index.html">教程</a>|<span>评论: 0</span>|  <span>作者： hawk</span></div>
+
+
+<div id="comments">
+				<div class="titlebar"><strong>评论</strong></div>			
+				<div class="post-body">暂无评论</div>
+			</div>
+<script type="text/javascript" language="javascript">
+function r() {
+	s = new String('abcdefghijklmnopqrstuvwxyz0123456789');
+	var sid = "";
+	for(i = 0; i < 6; i ++) {
+		x = Math.ceil(Math.random() * 1000) % s.length;
+		sid += s.substring(x, x + 1);
+	}
+	return sid;
+}
+function sc() {
+	if(document.getElementById("sid").value == "") {
+		cc();
+		$("captchadiv").style.display = "block";
+	}
+}
+function cc() {
+	ran = r();
+	$("captchaimage").src = "http://game.ceeger.com/akcms_captcha.php?sid=" + ran;
+	$("sid").value = ran;
+}
+var xmlhttp = function() {
+	var xmlObj = null;
+	if(window.XMLHttpRequest) {
+		xmlObj = new XMLHttpRequest();
+	} else if(window.ActiveXObject){
+		xmlObj = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		return;
+	}
+	return xmlObj;
+}
+function iposts(purl, data2, callback) {
+	var nxmlhttp = new xmlhttp();
+	nxmlhttp.onreadystatechange = function() {
+		if (nxmlhttp.readyState == 4) {
+			if(nxmlhttp.status == 200 || nxmlhttp.status == 304) {
+				callback(nxmlhttp.responseText);
+			} else {
+				callback("$error$");
+			}
+		}
+	}
+	
+	nxmlhttp.open("post", purl, true);
+	nxmlhttp.setRequestHeader("Content-Length", data2.length);
+	nxmlhttp.setRequestHeader("CONTENT-TYPE", "application/x-www-form-urlencoded");
+	nxmlhttp.send(data2);
+}
+function receivecomment(strers) {
+	if(strers == "$error$") return false;
+	if(strers == "0") {
+		alert("恭喜，评论发表成功");
+		document.location.reload();
+	} else {
+		alert("错误代码："+strers);
+	}
+}
+function postcomment() {
+	postvalue = "";
+	postvalue += "comment="+encodeURI(vchar($("comment").value));
+	postvalue += "&itemid="+$("itemid").value;
+	postvalue += "&username="+$("username").value;
+	postvalue += "&captcha="+$("captcha").value;
+	postvalue += "&sid="+$("sid").value;
+	iposts("http://game.ceeger.com/akcms_comment.php", postvalue, receivecomment);
+}
+function vchar(str) { 
+	str = str.replace(/\+/g, "%2B"); 
+	str = str.replace(/\&/g, "%26");
+	return str;
+}
+</script>
+			<div id="commentdiv">
+				<div class="titlebar">发表评论</div>
+				<div class="comment-username">用户名：<input id="username" type="text" value="匿名" size="10"></div>
+			<div id="captchadiv" style="display:none">
+验证码：<input type="text" id="captcha" size="10">
+<a href="javascript:cc()"><img src="" id="captchaimage" border="0"></a>
+</div>
+			<textarea id="comment" cols="74" rows="3" onfocus="sc()" onblur="sc()"></textarea><br>
+			评论审核后才会显示！ <input id="submitbutton" type="button" value="发表评论" onclick="postcomment()">
+			<input type="hidden" id="itemid" value="671">
+			<input type="hidden" id="sid" value="">
+			</div>
+	
+
+
+		</div>
+	<!--mainleft-->
+	</div>
+	<div class="clear"></div>
+	<!--mainbody-->
+</div>
+<div class="footer">
+<span>投资合作请联系ceeger@qq.com</span>&nbsp;&nbsp;&nbsp;&nbsp;英文部分版权属©<a href="http://unity3d.com/">Unity</a>公司所有，中文部分©
+<a href="http://game.ceeger.com/">Unity圣典</a> 版权所有，未经许可，严禁转载 。<a href="http://www.miibeian.gov.cn/">浙ICP备10041254号-1</a>
+</div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc1db76f3814dcb5c26b89de9614beba8' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Unity3D Android手机开发环境配置 - Unity圣典_files/h.js" type="text/javascript"></script>
+
+
+</body></html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0040)http://yiyanwan77.iteye.com/blog/1667267 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Unity3D自带例子AngryBots的分析   - 择善固执，止于至善 - ITeye技术网站</title>
+    <meta name="description" content="          研究一下Unity3d自带的AngryBots项目，了解基本的游戏运行机制：  1. 人物的动作控制逻辑***Player对象***[外形]Player对象里有一个对象具有Skinned Mesh Renderer组件，该组件使用的Mesh名为main_player_lorez。类似的还有表达武器的，名为main_weapon001的GameObject。  [操作]: (Inp ...">
+    <meta name="keywords" content=" Unity3D自带例子AngryBots的分析  ">
+    <link rel="shortcut icon" href="http://yiyanwan77.iteye.com/images/favicon.ico" type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://yiyanwan77.iteye.com/open_search.xml" title="ITeye">
+    <link href="http://yiyanwan77.iteye.com/rss" rel="alternate" title="择善固执，止于至善" type="application/rss+xml">
+    <link href="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/blog.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/blue.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/ga.js"></script><script src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/application.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-535605-1']);
+  _gaq.push(['_setDomainName', 'iteye.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+      <link href="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/shCoreCommon.js" type="text/javascript"></script>
+<script src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/hotkey.js" type="text/javascript"></script>
+  <script src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/code_favorites.js" type="text/javascript"></script>
+<script src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/weiboshare.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="blog_site_nav">
+  <a href="http://www.iteye.com/" class="homepage">首页</a>
+  <a href="http://www.iteye.com/news">资讯</a>
+  <a href="http://www.iteye.com/magazines">精华</a>
+  <a href="http://www.iteye.com/forums">论坛</a>
+  <a href="http://www.iteye.com/ask">问答</a>
+  <a href="http://www.iteye.com/blogs">博客</a>
+  <a href="http://www.iteye.com/blogs/subjects">专栏</a>
+  <a href="http://www.iteye.com/groups">群组</a>
+  <a href="http://yiyanwan77.iteye.com/blog/1667267#" onclick="return false;" id="msna"><u>更多</u> <small>▼</small></a>
+  <div class="quick_menu" style="display:none;">
+    <a target="_blank" href="http://job.iteye.com/iteye">招聘</a>
+    <a href="http://www.iteye.com/search">搜索</a>
+  </div>
+</div>
+
+      <div id="user_nav">
+      <a href="http://yiyanwan77.iteye.com/login" class="welcome" title="登录">您还未登录 !</a>
+    <a href="http://yiyanwan77.iteye.com/login">登录</a>
+    <a href="http://yiyanwan77.iteye.com/signup" class="nobg">注册</a>
+  </div>
+
+    </div>
+
+    <div id="page">
+      <div id="branding" class="clearfix">
+        <div id="blog_name">
+          <h1><a href="http://yiyanwan77.iteye.com/">择善固执，止于至善</a></h1>
+        </div>
+        <div id="fd"></div>
+        <div id="blog_navbar">
+          <ul>
+            <li class="blog_navbar_for"><a href="http://yiyanwan77.iteye.com/"><strong>博客</strong></a></li>
+            <li><a href="http://yiyanwan77.iteye.com/weibo">微博</a></li>
+            <li><a href="http://yiyanwan77.iteye.com/album">相册</a></li>
+            <li><a href="http://yiyanwan77.iteye.com/link">收藏</a></li>
+            <li><a href="http://yiyanwan77.iteye.com/blog/guest_book">留言</a></li>
+            <li><a href="http://yiyanwan77.iteye.com/blog/profile">关于我</a></li>
+          </ul>
+    
+          <div class="search">
+            <form action="http://yiyanwan77.iteye.com/blog/search" method="get">
+              <input class="search_text" id="query" name="query" style="margin-left: 10px;width: 110px;" type="text" value="">
+              <input class="submit_search" type="submit" value="">
+            </form>
+          </div> 
+          <div id="fd"></div>         
+        </div>
+      </div>
+      
+      <div id="content" class="clearfix">
+        <div id="main">
+          
+
+
+
+          
+
+
+<div class="h-entry" style="display:none">
+  <a href="http://yiyanwan77.iteye.com/" class="p-author" target="_blank">yiyanwan77</a>
+</div>
+
+
+<div class="blog_main">
+  <div class="blog_title">
+    <h3>
+      <a href="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站.html">Unity3D自带例子AngryBots的分析  </a>
+      <em class="actions">      </em>
+    </h3>
+    <ul class="blog_categories"><strong>博客分类：</strong> <li><a href="http://yiyanwan77.iteye.com/category/241203">unity3d</a></li> </ul>
+        <div class="news_tag">&nbsp;</div>
+  </div>
+
+  <div id="blog_content" class="blog_content">
+    <p>
+</p>
+<div class="multicntwrap" style="color: #3f3f3f; font-family: Arial, Helvetica, simsun, u5b8bu4f53;">
+<div class="multicnt">
+<h3 class="title pre fs1" style="overflow: hidden; font-size: 14px; margin: 30px 0px 20px; padding: 0px; line-height: 24px;">
+</h3>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">研究一下Unity3d自带的AngryBots项目，了解基本的游戏运行机制：</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">1. 人物的动作控制逻辑<br>***Player对象***<br>[外形]<br>Player对象里有一个对象具有Skinned Mesh Renderer组件，该组件使用的Mesh名为main_player_lorez。<br>类似的还有表达武器的，名为main_weapon001的GameObject。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[操作]: (InputManager)<br>**移动**<br>定义：<br>移动在InputManager里添加了2种操作方式：<br>水平移动，名为 Horizontal<br>垂直移动，名为 Vertical<br>并设置了一些属性，比如对应的按键，加速度，类型等等。<br>在脚本(PlayerMoveController.js)里，通过Input.GetAxis("Horizontal") 和 Input.GetAxis("Vertical")获得玩家的按键状态转化成的运动方向。<br>并储存在MovementMotor.js脚本定义的movementDirection变量里。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">实现：<br>Player添加了RigidBody组件，该组件提供了按物理规律改变GameObject的Transform的能力。<br>在FreeMovementMotor.js脚本里，定义了一些参数，用于和movementDirection一起，计算出作用于RigidBody对象上的力(Force)。角色就开始向指定方向移动了。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">**面向(facingDirection)**<br>直接使用Input.mousePosition作为屏幕坐标,用角色所在位置定义一个平面，求得射线焦点，将该角色所在位置到该点的方向作为面向。<br>并储存在MovementMotor.js脚本定义的facingDirection变量里。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[动作播放]:Player Animation(Script)(PlayerAnimation.js)<br>var moveAnimations : MoveAnimation[]; 因为是public变量，所以可以在inspector中直接修改,<br>例子中定义了6个动作 run_forward/run_backward/run_right/run_left 和 idle/turn 。<br>由于这个例子里角色的动作定义了6个clip，和上述6个动作名称一一对应。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">动作的播放不是在转向发生，或是ASWD按下时发生的。<br>该脚本对比Player的Transform在2帧内的变化，根据面向、移动方向，计算出具体播放哪个动作。<br>同时，有动作混合逻辑，使得动作的切换是有过程并且平滑的。<br>上半身转动到一定角度，下半身也会调整，这个也是逻辑做的功能。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">2. 从射击到命中的整个处理流程，射击特效的制作原理<br>[创建子弹]<br>Cache对象<br>ObjectCache类<br>var prefab : GameObject;<br>var cacheSize : int = 10;<br>Spawner.js<br>var caches : ObjectCache[];<br>function Awake () {<br>caches[i].Initialize ();<br>}<br>static function Spawn(...);<br>static function Destroy(...);</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">有一个对象cache池，即为objectCache对象的实例，<br>该对象初始化固定数量的对象实例，并顺序的提供对象实例。<br>Spawner对象按Prefab类型将多个ObjectCache对象组织起来，<br>并通过Spawn 和 Destroy 函数提供统一的接口来创建和销毁各种对象实例--例如子弹，导弹。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[发射子弹的时机]<br>WeaponSlot<br>TriggerOnMouseOrJoystick.js<br>public var mouseDownSignals : SignalSender;<br>public var mouseUpSignals : SignalSender;<br>SignalSender.js<br>public function SendSignals (sender : MonoBehaviour)<br>public var receivers : ReceiverItem[];<br>AutoFire.js<br>function Update ()<br>if (firing) {<br>if (Time.time &gt; lastFireTime + 1 / frequency) {<br>var go : GameObject = Spawner.Spawn (bulletPrefab, spawnPoint.position, spawnPoint.rotation * coneRandomRotation) as GameObject;<br><br><br>WeaponSlot(GameObject)对象有一个脚本组件 , 名为TriggerOnMouseOrJoystick<br>该脚本的update方法通过Input.GetMouseButtonDown (0) 来监测鼠标左键的按下状态，同时使用SignalSender对象将事件Fire出去。<br>SignalSender本质上来说是一个发布订阅模式,EventSource通过声明SignalSender变量，<br>来声明会发起的事件(event name)，并在必要的时机，调用SignalSender.SendSignals(this)来fire事件。<br>事件的接收方由SignalSender的receivers变量给出。<br>因为它是个全局变量，所以可以在inspector里设置。<br>客户方的处理逻辑和事件源就是通过这样的方式关联起来的。<br>事件的名称也是通过inspector来设置的。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">SendSignals方法接受的参数为MonoBehaviour类型，因此可以通过这个事件机制，在不同的脚本中调用不同的功能。<br>由于GameObject的SendMessage的实现原理，只需要保证事件的接收方包含与事件名称相同的函数，即会被自动调用。<br>（疑惑：这种方式是不带参数的，如果需要对Event做额外的参数传递怎么办呢？能想到的是在一个公共的地方做数据交换）<br>通过SignalSender，武器的逻辑状态--"开火"--已经被逻辑识别了，例子将结果保存在AutoFire脚本的firing变量中。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">开火后，在AutoFire里，激活了子弹的实例对象。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;"><br>[开火的特效]<br>WeaponSlot<br>AutoFire.js<br>muzzleFlashFront.active = true;<br>audio.Play ();<br><br>通过SignalSender，武器的逻辑状态--"开火"--已经被逻辑识别了，<br>例子将结果保存在AutoFire脚本的firing变量中。同一时刻，也播放了一些开火的特效：<br>*武器开火的音效，这只是调用AudioSource组件。<br>*武器枪口的火花，muzzleFlashFront对象，在inspector中指定为一个GameObject。<br>其中包含一些Mesh和一个Light，以及一个将Mesh旋转和缩放以达到比较酷的喷射火光的脚本。<br>*人物的射击动作--通过另一组监听实现的，不在AutoFire脚本中触发。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[命中时的事情]<br>PerFrameRaycast.js<br>private var hitInfo : RaycastHit;<br>AutoFire.js（命中判定）<br>var hitInfo : RaycastHit = raycast.GetHitInfo ();<br>AutoFire.js（击退敌人）<br>var force : Vector3 = transform.forward * (forcePerSecond / frequency);<br>hitInfo.rigidbody.AddForceAtPosition (force, hitInfo.point, ForceMode.Impulse);<br>AutoFire.js（播放击中的音效）<br>var sound : AudioClip = MaterialImpactManager.GetBulletHitSound (hitInfo.collider.sharedMaterial);<br>AudioSource.PlayClipAtPoint (sound, hitInfo.point, hitSoundVolume);<br><br>游戏中实现的命中，和子弹飞行无关，是通过PerFrameRaycast.js脚本提供的射线查询结果来做的命中判定。<br>PerFrameRaycast每帧做一次射线查询，将得到的结果保存在hitInfo中。<br>AutoFire在update的时候，检查是否命中了对象。<br>如果命中了对象，计算各种伤害，并调用Health脚本组件的相关方法。（Health相关的事情稍后详细描述）</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[子弹的飞行]<br>子弹是一个名为InstanceBullet的GameObject，<br>它由名为InstanceBullet的Prefab对象来描述，<br>主要包含了一个表达子弹轨迹的长条形的mesh，和一个用于控制其飞行的脚本SimpleBullet.js。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">SimpleBullet.js<br>function Update () {<br>tr.position += tr.forward * speed * Time.deltaTime;<br><br>function Update () {<br>if (Time.time &gt; spawnTime + lifeTime || dist &lt; 0) {<br>Spawner.Destroy (gameObject);</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">SimpleBullet.js包含了一些参数，保证子弹有以下行为：<br>沿创建的方向飞行<br>有时限，时间到了会被休眠(Spawner.Destroy)<br>有距离上限，超过距离会休眠(Spawner.Destroy)</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">AutoFire.js<br>bullet.dist = hitInfo.distance;<br>除了上述2种方式消隐子弹实例外，子弹可以穿过场景里的石头，但是无法穿越箱子，也无法穿越将石头移开后露出的场景边界。<br>这是因为在AutoFire做命中判定的同时，根据射线查询的结果调整了子弹的距离上限参数。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">3. 怪物的激活、攻击、动作控制原理，你所遇到的第一个怪物KamikazeBuzzer的攻击特效的实现原理<br>[第1个KamikazeBuzzer]<br>SimpleBuzzers7<br>EnemyArea.js<br>Box Collider<br><br>KamikazeBuzzer<br>KamikazeMovementMotor.js<br>BuzzerKamikazeControllerAndAi.js<br>DestroyObject.js<br>Health.js<br>AudioSource</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[外形]<br>buzzer_bot</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[动作]<br>这个怪物的mesh没动作。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[激活]<br>EnemyArea.js<br>function OnTriggerEnter (other : Collider) {<br>if (other.tag == "Player")<br>ActivateAffected (true);<br><br>角色进入 Box Collider 的范围时，会触发OnTriggerEnter，<br>这时会将SimpleBuzzers7的子对象KamikazeBuzzer设置为激活的。挂载到KamikazeBuzzer对象上的脚本组件也就可以开始执行了。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[移动]<br>KamikazeMovementMotor.js<br>该脚本控制KamikazeBuzzer的刚体属性，根据参数和一定的计算规则计算出力，作用于刚体，让KamikazeBuzzer动起来，类似于Player的移动原理。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">BuzzerKamikazeControllerAndAi.js<br>该脚本根据怪物和Player之间的位置关系，按一定计算规则算出KamikazeMovementMotor需要的参数，从而达到控制其移动的目的。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">direction = (player.position - character.position);<br>因为方向总是朝着player，所以看起来就有个“追击”的效果。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">rechargeTimer &lt; 0.0f &amp;&amp; threatRange &amp;&amp; Vector3.Dot (character.forward, direction) &gt; 0.8f<br>这个判断达到了“追过头”的效果。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[攻击特效]<br>当移动流程里“追到了”条件达成后，主要调用DoElectricArc函数来表达攻击方式。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">zapNoise = Vector3 (Random.Range (-1.0f, 1.0f), 0.0f, Random.Range(-1.0f, 1.0f)) * 0.5f;&nbsp;<br>zapNoise = transform.rotation * zapNoise;<br>这里有些小随机，是为了让每次电到Player的位置不一样。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">public var electricArc : LineRenderer;<br>electricArc.SetPosition (0, electricArc.transform.position);<br>electricArc.SetPosition (1, player.position + zapNoise);<br>主要靠LineRenderer来描述闪电弧。<br>LineRenderer用来构造若干条连续的线段，可以设置起始的宽度和结束的宽度。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;"><br>[被击]<br>DamagePos(GameObject)<br>Transform(Component)<br>KamikazeBuzzer(GameObject)<br>Health.js<br>Health.js<br>private var damageEffect : ParticleEmitter;<br>function OnDamage (amount : float, fromDirection : Vector3) {<br>damageEffect.Emit();<br><br>DamagePos对象聚合了一个Transform组件，该组件为被击效果提供坐标信息。<br>KamikazeBuzzer聚合了一个Health.js，其中的damageEffect指定为ElectricSparksHitA(prefab)。<br>在之前子弹的命中流程中，被击中的target，会调用其Health组件的OnDamage函数。<br>KamikazeBuzzer的Health的OnDamage，就是创建ElectricSparksHitA(Clone) 对象，从而达到播放被击特效。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;"><br>[死亡和爆炸]<br>Health.js<br>public var dieSignals : SignalSender;<br>function OnDamage (amount : float, fromDirection : Vector3) {<br>if (health &lt;= 0)<br>{<br>dieSignals.SendSignals (this);<br><br>SpawnObject.js<br>function OnSignal () {<br>spawned = Spawner.Spawn (objectToSpawn, transform.position, transform.rotation);<br><br>DestroyObject.js<br>function OnSignal () {<br>Spawner.Destroy (objectToDestroy);</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">当health值减少到0及0以下，对象就被判定为死亡了。<br>DamagePos对象聚合了一个SpawnObject.js脚本。在其OnSignal函数里创建一个ExplosionSequenceBuzzer(prefab);<br>ExplosionSequenceBuzzer是用来表达爆炸效果的。在其EffectSequencer.js脚本中，控制了一些粒子的变化。<br>KamikazeBuzzer对象聚合了一个DestroyObject.js脚本。在其OnSignal函数里销毁了KamikazeBuzzer对象实例。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">4. 人物与怪相关的health处理相关流程<br>Player和怪物的血量，都是通过聚合一个Health.js脚本组件来完成。<br>伤害计算则是在各自的组件里独立编写计算的。Player是AutoFire,KamikazeBuzzer是在其AI脚本里。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">Health组件主要定义了<br>血量<br>被击特效<br>受伤的痕迹<br>被击事件<br>死亡事件<br>协作方式已经在分析Player和KamikazeBuzzer的行为方式时有所表述。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">5. 摄像机跟随与控制<br>PlayerMoveController.js<br>里面根据角色位置计算摄像机位置。根据鼠标位置，微调摄像机位置。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;"><br>6. 雨滴相关效果的实现原理，包括雨滴掉落、落到地面产生的波纹、地表水面的实现与反射效果等<br>【雨滴】<br>[相关GameObject]<br>Rain 表达雨声<br>RainBox 表达雨滴<br>RainEffect 将各种东西组织起来的Root对象<br>RainDrops 雨滴掉落的Root对象<br>RainslpashesBig 表达雨滴的大涟漪的Root对象<br>RainslpashesSmall 表达雨滴的小涟漪的Root对象<br>splashbox 表达涟漪</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[Mesh&amp;Material]<br>RainDrops_LQ0/1/2<br>RainsplashesBig_LQ0/1/2<br>RainsplashesSmall_LQ0/1/2</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[Shader]<br>Rain<br>RainSplash</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[组织关系]<br>Environment(dynamic)<br>RainEffects(位置000)<br>RainDrops(RainManager.js)<br>RainBox*N<br>RainBox.js<br>Rain(Shader)<br>RainDrops_LQ0(Mesh)<br>RainslpashesBig(RainsplashManager.js)<br>splashbox<br>RainsplashBox.js<br>RainSplash(Shader)<br>RainsplashesBig_LQ0(Mesh)<br>RainslpashesSmall<br>splashbox<br>RainsplashBox.js<br>RainSplash(Shader)<br>RainsplashesSmall_LQ0(Mesh)</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[落雨]<br>RainManager.js<br>function CreateMesh () : Mesh {<br>public function GetPreGennedMesh () : Mesh {</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">RainManager 在运行期创建了雨幕的Mesh和Material，思路为在固定大小的长方体里，随机生成只有4个顶点的小片。<br>生成的对象和名字有关，即为 GameObject.name + _LQ0/1/2，一共3种类型的Mesh，只是生成的片的位置，uv坐标等不一致。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">RainBox.js<br>function Update() {&nbsp;<br>function OnDrawGizmos () {</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">Update里的逻辑让雨幕Mesh在Y方向上从上自下的循环运动，从而达到雨滴落下的效果。<br>OnDrawGizmos函数是为了在编辑期绘制雨幕的外形。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[涟漪的创建]<br>RainsplashManager.js<br>RainsplashBox.js</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">涟漪的创建方式和雨幕原理一样，只是在小片生成时的坐标，法线方向略有不同。<br>大涟漪和小涟漪只是创建的片的数量和区域大小不同而已。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[涟漪的扩散]<br>RainSplash(Shader)里，对传进来的定点上的uv坐标和颜色做了一定的变换，从而做出涟漪从小变大和逐渐消隐。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">（疑问）材质从哪里指定的？inspector手工指定？<br>（疑问）RainBox.js 里的enable，禁止和允许了哪些调用?</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">【地表水面与反射】<br>[相关GameObject]<br>polySurface5097 地表<br>RealtimeReflectionInWaterFlow.shader 处理水面模拟和反射的shader<br>Main CameraReflectionMain Camera 反射摄像机<br>RealtimeReflectionReplacement.shader 备用的shader方案<br>Main Camera 主摄像机<br>ReflectionFx.cs 生成反射贴图的脚本<br>public System.String reflectionSampler = "_ReflectionTex"; 反射贴图<br>reflectionMask</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[关键代码]<br>ReflectionFx.cs<br>public Transform[] reflectiveObjects;<br>private Camera reflectionCamera;<br>public LayerMask reflectionMask;<br>计算反射摄像机的位置和朝向,将变换合并为反射矩阵<br>渲染到反射贴图<br><br>RealtimeReflectionInWaterFlow.shader<br>_ReflectionTex("_ReflectionTex", 2D) = "black" {}<br>v2f_full vert (appdata_full v)&nbsp;<br>o.fakeRefl = EthansFakeReflection(v.vertex);&nbsp;<br>fixed4 frag (v2f_full i) : COLOR0&nbsp;<br>fixed4 rtRefl = tex2D (_ReflectionTex, (i.screen.xy / i.screen.w) + nrml.xy);<br>rtRefl += tex2D (_FakeReflect, i.fakeRefl + nrml.xy * 2.0);<br><br>RealtimeReflectionReplacement.shader</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[LateUpdate]<br>在LateUpdate里处理反射<br>因为反射需要等所有对象的运动都结束了。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[reflectiveObjects]<br>reflectiveObjects是可以产生反射的对象，手工添加的，例子里有3个，分别是：<br>polySurface5097<br>polySurface425<br>polySurface5095</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[helperCameras为什么要Clear]<br>helperCameras从设计意图上来看，是为了支持游戏里任意数量的摄像机的反射，也就是ReflectionFx.cs的通用性。<br>为了确保一帧之内只渲染一次反射贴图，所以就clear了。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">[被反射对象的筛选]<br>reflectionMask<br>可以被反射的对象必须是以下layer之一<br>Reflection<br>Player<br>Enemies<br>这个通过Inspector设置GameObject的Layer属性即可。</p>
+<p style="line-height: 25px; margin-bottom: 10px; padding: 0px; font-weight: normal;">7. 其它你觉着重要的主题<br>Coroutine.协程，协程不是多线程，是将代码的执行控制权转移出去的一种机制。通过这种机制，可以让代码的执行流程不那么顺序化，达到各种模块协作的目的。<br>AudioSource 音源对象，需要AudioClip载入声音资源，用AudioListener(ears)一起计算音频的声音大小。<br>Animation 动画对象，控制骨骼动画相关，支持混合和IK。<br>WWW 封装URL操作的类，可以支持http,https,file,ftp协议。其中ftp只能支持匿名登录。<br>NGUI 一个轻量级UI库</p>
+
+</div>
+</div>
+
+  </div>
+
+  
+
+  
+  
+  <iframe src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/187.html" scrolling="no" width="468" height="60" frameborder="0"></iframe>
+  
+  <div id="bottoms" class="clearfix">
+    
+    <div id="share_weibo">分享到：
+      <a data-type="sina" href="javascript:;" title="分享到新浪微博"><img src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/sina.jpg"></a>
+      <a data-type="qq" href="javascript:;" title="分享到腾讯微博"><img src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/tec.jpg"></a>
+    </div>
+  </div>
+
+  <div class="blog_nav">
+    <div class="pre_next">
+      <a href="http://yiyanwan77.iteye.com/blog/1667270" class="next" title="Unity界面插件NGUI核心组件说明">Unity界面插件NGUI核心组件说明</a>
+      |
+      <a href="http://yiyanwan77.iteye.com/blog/1663009" class="pre" title="Terrain Light Water ">Terrain Light Water </a>
+    </div>
+  </div>
+  <div class="blog_bottom">
+    <ul>
+      <li>2012-08-29 23:13</li>
+      <li>浏览 4129</li>
+      <li><a href="http://yiyanwan77.iteye.com/blog/1667267#comments">评论(0)</a></li>
+      
+      
+      <li>分类:<a href="http://www.iteye.com/blogs/category/language">编程语言</a></li>      
+      <li class="last"><a href="http://www.iteye.com/wiki/blog/1667267" target="_blank" class="more">相关推荐</a></li>
+    </ul>
+  </div>
+
+  <div class="blog_comment">
+    <h5>评论</h5>
+    <a id="comments" name="comments"></a>
+    
+    
+    
+  </div>
+
+  <div class="blog_comment">
+    <h5>发表评论</h5>
+            <p style="text-align:center; margin-top:30px;margin-bottom:0px;"><a href="http://yiyanwan77.iteye.com/login" style="background-color:white;"> <img src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/login_icon.png" style="vertical-align:middle; margin-right: 10px;"></a><a href="http://yiyanwan77.iteye.com/login">  您还没有登录,请您登录后再发表评论 </a></p>
+      </div>
+</div>
+
+
+<script type="text/javascript">
+  dp.SyntaxHighlighter.HighlightAll('code', true, true);
+
+  $$('#main .blog_content pre[name=code]').each(function(pre, index){ // blog content
+    var post_id = 1667267;
+    var location = window.location;
+    source_url = location.protocol + "//" + location.host + location.pathname + location.search;
+    pre.writeAttribute('codeable_id', post_id);
+    pre.writeAttribute('codeable_type', "Blog");
+    pre.writeAttribute('source_url', source_url);
+    pre.writeAttribute('pre_index', index);
+    pre.writeAttribute('title', 'Unity3D自带例子AngryBots的分析  ');
+  });
+
+  fix_image_size($$('div.blog_content img'), 700);
+
+  function processComment() {
+    $$('#main .blog_comment > div').each(function(comment){// comment
+      var post_id = comment.id.substr(2);
+      $$("#"+comment.id+" pre[name=code]").each(function(pre, index){
+        var location = window.location;
+        source_url = location.protocol + "//" + location.host + location.pathname + location.search;
+        source_url += "#" + comment.id;
+        pre.writeAttribute('codeable_id', post_id);
+        pre.writeAttribute('codeable_type', "BlogComment");
+        pre.writeAttribute('source_url', source_url);
+        pre.writeAttribute('pre_index', index);
+        pre.writeAttribute('title', 'Unity3D自带例子AngryBots的分析  ');
+      });
+    });
+  }
+
+  function quote_comment(id) {
+    new Ajax.Request('/editor/quote', {
+      parameters: {'id':id, 'type':'BlogComment'},
+      onSuccess:function(response){editor.bbcode_editor.textarea.insertAfterSelection(response.responseText);
+        Element.scrollTo(editor.bbcode_editor.textarea.element);}
+    });
+  }
+
+  code_favorites_init();
+  processComment();
+  new WeiboShare({share_buttons: $('share_weibo'), img_scope: $('blog_content')});
+</script>
+
+
+
+
+        </div>
+
+        <div id="local">
+          <div class="local_top"></div>
+          <div id="blog_owner">
+  <div id="blog_owner_logo"><a href="http://yiyanwan77.iteye.com/"><img alt="yiyanwan77的博客" class="logo" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/ed855bfa-7f8b-38d9-9237-156691c6836d.jpg" title="yiyanwan77的博客: 择善固执，止于至善" width=""></a></div>
+  <div id="blog_owner_name">yiyanwan77</div>
+</div>
+
+          <div id="blog_actions">
+            <ul>
+              <li>浏览: 81858 次</li>
+              <li>性别: <img alt="Icon_minigender_1" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/icon_minigender_1.gif" title="男"></li>
+              <li>来自: 威海</li>
+              <li><img src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/offline.gif"></li>
+              
+            </ul>
+          </div>
+          <div id="user_visits" class="clearfix">
+            <h5>最近访客 <span style="font-weight:normal;font-size:12px;padding-left:30px;"><a href="http://yiyanwan77.iteye.com/blog/user_visits">更多访客&gt;&gt;</a></span></h5>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://dylinshi126.iteye.com/" target="_blank"><img alt="dylinshi126的博客" class="logo" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/user-logo-thumb.gif" title="dylinshi126的博客: " width="48px"></a></div>
+                <div class="left"><a href="http://dylinshi126.iteye.com/" target="_blank" title="dylinshi126">dylinshi126</a></div>
+              </div>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://skycastaway.iteye.com/" target="_blank"><img alt="skycastaway的博客" class="logo" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/user-logo-thumb.gif" title="skycastaway的博客: " width="48px"></a></div>
+                <div class="left"><a href="http://skycastaway.iteye.com/" target="_blank" title="skycastaway">skycastaway</a></div>
+              </div>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://firepix.iteye.com/" target="_blank"><img alt="Firepix的博客" class="logo" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/user-logo-thumb.gif" title="Firepix的博客: Thunderfox" width="48px"></a></div>
+                <div class="left"><a href="http://firepix.iteye.com/" target="_blank" title="Firepix">Firepix</a></div>
+              </div>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://wangjinpeng0417.iteye.com/" target="_blank"><img alt="没有意外的博客" class="logo" src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/77577ee7-2e9d-411c-b364-3a763ba37a89-thumb.jpg" title="没有意外的博客: 没有意外" width="48px"></a></div>
+                <div class="left"><a href="http://wangjinpeng0417.iteye.com/" target="_blank" title="没有意外">没有意外</a></div>
+              </div>
+            
+          </div>
+
+          
+
+                      <div id="blog_menu">
+              <h5>文章分类</h5>
+              <ul>
+                <li><a href="http://yiyanwan77.iteye.com/">全部博客 (96)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50811">javascript (9)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50814">css (4)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50812">java (5)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50813">xml (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50815">dhtml (5)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50816">ajax (0)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50817">spring (0)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50818">版本控制 (3)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/50819">tomcat (0)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/52729">web技术 (9)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/75982">eclipse插件 (3)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/75983">flex (9)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/76121">android (3)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/135647">性能测试 (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/144692">flash (4)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/145257">Academic (4)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/145664">EJB (2)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/145665">JSF (0)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/149362">ExtJS (2)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/153284">ROR (9)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/184308">linux (2)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/184909">oracle (2)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/188395">wtc (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/193414">extjs4 (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/194617">servlet (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/231152">postgreSQL (3)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/232253">OS (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/232254">线程 (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/241203">unity3d (4)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/242257">html (1)</a></li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/category/274041">rvm (0)</a></li>
+                
+              </ul>
+            </div>
+            <div id="month_blogs">
+              <h5>社区版块</h5>
+              <ul>
+                <li><a href="http://yiyanwan77.iteye.com/blog/news">我的资讯</a> (0)</li>
+                <li>
+                  <a href="http://yiyanwan77.iteye.com/blog/post">我的论坛</a> (4)
+                </li>
+                <li><a href="http://yiyanwan77.iteye.com/blog/answered_problems">我的问答</a> (4)</li>
+              </ul>
+            </div>
+            <div id="month_blogs">
+              <h5>存档分类</h5>
+              <ul>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/blog/monthblog/2013-02">2013-02</a> (1)</li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/blog/monthblog/2013-01">2013-01</a> (1)</li>
+                
+                  <li><a href="http://yiyanwan77.iteye.com/blog/monthblog/2012-10">2012-10</a> (1)</li>
+                
+                <li><a href="http://yiyanwan77.iteye.com/blog/monthblog_more">更多存档...</a></li>
+              </ul>
+            </div>
+            
+            
+
+            <div id="guest_books">
+              <h5>最新评论</h5>
+              <ul>
+                
+                <li>
+                  <a href="http://zxjlwt.iteye.com/" target="_blank" title="zxjlwt">zxjlwt</a>： 
+                  学习了。素人派http://surenpi.com<br>
+                  <a href="http://yiyanwan77.iteye.com/blog/449971#bc2368197">eclipse插件开发手记之编辑器上下文菜单</a>
+                </li>
+                
+                <li>
+                  <a href="http://176170847.iteye.com/" target="_blank" title="176170847">176170847</a>： 
+                  你也遇到了？请问你怎么解决的啊？<br>
+                  <a href="http://yiyanwan77.iteye.com/blog/1612901#bc2329867">flex swfloader 加载swf帧频变化</a>
+                </li>
+                
+                <li>
+                  <a href="http://kim-t.iteye.com/" target="_blank" title="Kim_T">Kim_T</a>： 
+                  我的完全没用 , 不知道怎么回事? 俩个地方我都设置了<br>
+                  <a href="http://yiyanwan77.iteye.com/blog/294807#bc2305831">svn忽略无关文件thumbs.db等</a>
+                </li>
+                
+                <li>
+                  <a href="http://yiyanwan77.iteye.com/" target="_blank" title="yiyanwan77">yiyanwan77</a>： 
+                  babydeed 写道挺好的 建议弄成 chm格式的 呵呵 呵 ...<br>
+                  <a href="http://yiyanwan77.iteye.com/blog/1290761#bc2233395">EXTJS4开发指南中文翻译</a>
+                </li>
+                
+                <li>
+                  <a href="http://babydeed.iteye.com/" target="_blank" title="babydeed">babydeed</a>： 
+                  挺好的 建议弄成 chm格式的 呵呵 <br>
+                  <a href="http://yiyanwan77.iteye.com/blog/1290761#bc2233259">EXTJS4开发指南中文翻译</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="local_bottom"></div>
+          
+        </div>
+      </div>
+
+      <div id="footer" class="clearfix">
+        <div id="copyright">
+          <hr>
+          声明：ITeye文章版权属于作者，受法律保护。没有作者书面许可不得转载。若作者同意转载，必须以超链接形式标明文章原始出处和作者。<br>
+          © 2003-2015 ITeye.com.   All rights reserved.  [ 京ICP证110151号  京公网安备110105010620 ]
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+  document.write("<img src='http://stat.iteye.com/?url="+ encodeURIComponent(document.location.href) + "&referrer=" + encodeURIComponent(document.referrer) + "&user_id=' width='0' height='0' />");
+</script><img src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/saved_resource" width="0" height="0">
+
+<script src="./Unity3D自带例子AngryBots的分析 - 择善固执，止于至善 - ITeye技术网站_files/tracking.js" type="text/javascript"></script>
+
+    
+    
+  
+
+</body></html>
