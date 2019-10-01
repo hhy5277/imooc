@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://segmentfault.com/a/1190000000357534 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script charset="utf-8" async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/fixed7o.js"></script><script charset="utf-8" async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/ecom"></script><script charset="utf-8" async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/ecom(1)"></script><script charset="utf-8" async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/ecom(2)"></script><script charset="utf-8" async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/ecom(3)"></script><script charset="utf-8" async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/ecom(4)"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta property="qc:admins" content="15317273575564615446375">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no">
+    <meta name="alexaVerifyID" content="LkzCRJ7rPEUwt6fVey2vhxiw1vQ">
+    <meta name="apple-itunes-app" content="app-id=958101793, app-argument=">
+    <title>Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault</title>
+    
+
+            <meta name="description" content="Jade 是一个高性能的模板引擎，它深受 Haml 影响，它是用 JavaScript 实现的，并且可以供 Node 使用。 试玩 你可以在网上试玩 Jade。 特性 客户端支持 代码高可读 灵活的缩进 块展开 Mixins 静态包含 属性改写 安...">
+    
+            <meta name="keywords" content="jade node.js 模板引擎 web 开源项目介绍">
+    
+    <link rel="search" type="application/opensearchdescription+xml" href="http://segmentfault.com/opensearch.xml" title="SegmentFault">
+    <link rel="shortcut icon" href="http://static.segmentfault.com/global/img/favicon.30f7204d.ico">
+    <link rel="apple-touch-icon" href="http://static.segmentfault.com/global/img/touch-icon.c78b1075.png">
+
+    <meta name="msapplication-TileColor" content="#009a61">
+    <meta name="msapplication-square150x150logo" content="//static.segmentfault.com/global/img/touch-icon.c78b1075.png">
+
+    <meta name="userId" value="" id="SFUserId">
+    <meta name="userRank" value="" id="SFUserRank">
+
+    <link rel="alternate" type="application/atom+xml" title="SegmentFault 最新问题" href="http://segmentfault.com/feeds/questions">
+    <link rel="alternate" type="application/atom+xml" title="SegmentFault 最新文章" href="http://segmentfault.com/feeds/blogs">
+    
+    
+    
+            <link rel="stylesheet" href="http://static.segmentfault.com/build/global/css/global.74df8000.css">
+                    <link rel="stylesheet" href="http://static.segmentfault.com/build/blog/css/blog_all.3a4fbf5d.css">
+                <link rel="stylesheet" href="http://static.segmentfault.com/build/global/css/responsive.61fdda2e.css">
+        
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" href="//static.segmentfault.com/global/css/ie.css?"/>
+    <script src="//static.segmentfault.com/global/js/html5shiv.js?"></script>
+    <script src="//static.segmentfault.com/global/js/respond.js?"></script>
+    <![endif]-->
+
+</head>
+<body class="blog-post"><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><div class="alert alert-warning topframe js-alert"><span class="content"></span><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></div>
+<!--[if lt IE 9]>
+<div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank"
+                                                                                                        class="alert-link"
+                                                                                                        href="http://browsehappy.com">立即升级</a>
+</div>
+<![endif]-->
+
+
+<div class="global-nav">
+    <nav class="container nav">
+        <div class="dropdown m-menu">
+            <a href="javascript:void(0);" id="dLabel" class="visible-xs-block m-toptools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-align-justify"></span>
+                <span class="mobile-menu__unreadpoint"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/questions/newest">问答</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/blogs">文章</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/events">活动</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/jobs">职位</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/tags">标签</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/users">榜单</a></li>
+                <li class="mobile-menu__item"><a href="http://segmentfault.com/sites">子站</a></li>
+                            </ul>
+        </div>
+
+        <h1 class="logo"><a class="sf" href="http://segmentfault.com/">SegmentFault</a></h1>
+
+                <a href="http://segmentfault.com/user/login" class="visible-xs-block pull-right m-ask m-toptools"><span class="glyphicon glyphicon-log-in"></span></a>
+        
+        <form action="http://segmentfault.com/search" class="header-search pull-left hidden-sm hidden-xs">
+            <button type="submit" class="btn btn-link"><span class="sr-only">搜索</span><span class="glyphicon glyphicon-search"></span></button>
+            <input id="searchBox" name="q" type="text" placeholder="输入关键字搜索" class="form-control" value="">
+        </form>
+
+        <ul class="menu list-inline pull-left hidden-xs">
+            <li class="menu__item"><a href="http://segmentfault.com/questions/newest">问答</a></li>
+            <li class="menu__item"><a href="http://segmentfault.com/blogs">文章</a></li>
+            <li class="menu__item"><a href="http://segmentfault.com/events">活动</a></li>
+            <li class="menu__item"><a href="http://segmentfault.com/users">榜单</a></li>
+            <li class="menu__item dropdown hoverDropdown">
+                <a data-toggle="dropdown" href="http://segmentfault.com/sites" class="more dropdownBtn">
+                    ···<span class="sr-only">更多</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://segmentfault.com/jobs">职位</a></li>
+                    <li><a href="http://segmentfault.com/tags">标签</a></li>
+                    <li><a href="http://segmentfault.com/sites">子站</a></li>
+                    <li><a href="http://segmentfault.com/app">移动 App</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="opts pull-right list-inline hidden-xs">
+                    <!-- <li class="opts__item">赶快加入吧 <a id="sfLogin" href="/user/login" class="SFLogin em ml10" onClick="_gaq.push(['_trackEvent', 'Button', 'Click', 'Login']);">立即登录</a></li> -->
+            <li class="opts__item message has-unread">
+                <a target="_blank" href="http://segmentfault.com/tour">
+                    <span class="sr-only">消息</span>
+                    <span id="messageCount" class="glyphicon glyphicon-envelope"></span><span class="has-unread__count">1</span>
+                </a>
+            </li>
+            <li class="opts__item">
+                <a href="http://segmentfault.com/user/login" class="SFLogin em ml10" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Button&#39;, &#39;Click&#39;, &#39;Login&#39;]);">注册 · 登录</a>
+            </li>
+                    </ul>
+    </nav>
+</div>
+
+<div class="wrap">
+    <div class="post-topheader custom-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <ol class="breadcrumb">
+                        <li><a href="http://segmentfault.com/blogs">文章</a></li>
+                        <li><a href="http://segmentfault.com/blog/news">新闻</a></li>
+                        <li class="active">文章详情</li>
+                    </ol>
+                    <h1 class="h3 title" id="articleTitle" data-id="1190000000357534"><a href="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault.html"> Jade —— 源于 Node.js 的 HTML 模板引擎</a></h1>
+                    <div class="author" data-username="weakish" data-userslug="weakish" data-useravatar="http://sfault-avatar.b0.upaiyun.com/266/538/2665388308-1030000000323597_huge128">
+                        <a href="http://segmentfault.com/u/weakish" class="mr5"><img class="avatar-24 mr10" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/2665388308-1030000000323597_huge128" alt="weakish"><strong>weakish</strong></a> <strong class="text-black mr10">13.1k</strong>
+                        2013年12月11日 发布
+                                                                    </div>
+                </div>
+                <div class="col-md-3">
+                    <ul class="widget-action--ver list-unstyled">
+                        <li>
+                                                                                            <button type="button" class="btn btn-success btn-sm" data-id="1190000000357534" id="sideLike">推荐</button>
+                                                                                        <strong id="sideLiked">7</strong> 推荐
+                        </li>
+                        <li>
+                                                                                            <button type="button" id="sideBookmark" class="btn btn-default btn-sm" data-id="1190000000357534" data-type="article">收藏</button>
+                                                                                        <strong id="sideBookmarked">39</strong> 收藏，<strong class="no-stress">19.6k</strong> 浏览
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- end .post-topheader -->
+
+    <div class="container mt30">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 main">
+
+                                                <div class="article fmt">
+                    
+<p>Jade 是一个高性能的模板引擎，它深受 <a rel="nofollow" href="http://haml-lang.com/" target="_blank">Haml</a> 影响，它是用 JavaScript 实现的，并且可以供 <a rel="nofollow" href="http://nodejs.org/" target="_blank">Node</a> 使用。</p>
+
+<p><img src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/bVbFaO" alt="jade" style="cursor: pointer;"></p>
+
+<h2 id="articleHeader0">试玩</h2>
+
+<p>你可以在网上<a rel="nofollow" href="http://naltatis.github.com/jade-syntax-docs" target="_blank">试玩 Jade</a>。</p>
+
+<h2 id="articleHeader1">特性</h2>
+
+<ul>
+<li>客户端支持</li>
+<li>代码高可读</li>
+<li>灵活的缩进</li>
+<li>块展开</li>
+<li>Mixins</li>
+<li>静态包含</li>
+<li>属性改写</li>
+<li>安全，默认代码是转义的</li>
+<li>运行时和编译时上下文错误报告 </li>
+<li>命令行下编译jade模板</li>
+<li>HTML5 模式 (使用 <code>!!! 5</code> 文档类型)</li>
+<li>在内存中缓存(可选)</li>
+<li>合并动态和静态标签类</li>
+<li>可以通过 <code>filters</code> 修改树</li>
+<li>模板继承</li>
+<li>原生支持 <a rel="nofollow" href="http://expressjs.com/" target="_blank">Express JS</a> </li>
+<li>通过 <code>each</code> 枚举对象、数组甚至是不能枚举的对象</li>
+<li>块注释</li>
+<li>没有前缀的标签</li>
+<li>AST Filters</li>
+<li>过滤器<br><br><ul>
+<li>
+<code>:stylus</code> 必须已经安装 <a rel="nofollow" href="http://github.com/LearnBoost/stylus" target="_blank">stylus</a>
+</li>
+<li>
+<code>:less</code> 必须已经安装 <a rel="nofollow" href="http://github.com/cloudhead/less.js" target="_blank">less.js</a> </li>
+<li>
+<code>:markdown</code> 必须已经安装 <a rel="nofollow" href="http://github.com/evilstreak/markdown-js" target="_blank">markdown-js</a> 或者 <a rel="nofollow" href="http://github.com/visionmedia/node-discount" target="_blank">node-discount</a> </li>
+<li><code>:cdata</code></li>
+<li>
+<code>:coffeescript</code> 必须已经安装<a rel="nofollow" href="http://jashkenas.github.com/coffee-script/" target="_blank">coffee-script</a> </li>
+</ul>
+</li>
+<li><a rel="nofollow" href="https://github.com/brianc/jade-mode" target="_blank">Emacs Mode</a></li>
+<li><a rel="nofollow" href="https://github.com/digitaltoad/vim-jade" target="_blank">Vim Syntax</a></li>
+<li><a rel="nofollow" href="http://github.com/miksago/jade-tmbundle" target="_blank">TextMate Bundle</a></li>
+<li><a rel="nofollow" href="https://github.com/aaronmccall/jade.mode" target="_blank">Coda/SubEtha syntax Mode</a></li>
+<li><a rel="nofollow" href="http://tjholowaychuk.com/post/1004255394/jade-screencast-template-engine-for-nodejs" target="_blank">Screencasts</a></li>
+<li>
+<a rel="nofollow" href="https://github.com/donpark/html2jade" target="_blank">html2jade</a> 转换器 </li>
+</ul>
+<h2 id="articleHeader2">其它实现</h2>
+
+<p>jade有其他语言的实现，可以实现前后端渲染的统一：</p>
+
+<ul>
+<li><a rel="nofollow" href="http://github.com/everzet/jade.php" target="_blank">php</a></li>
+<li><a rel="nofollow" href="http://scalate.fusesource.org/versions/snapshot/documentation/scaml-reference.html" target="_blank">scala</a></li>
+<li><a rel="nofollow" href="https://github.com/slim-template/slim" target="_blank">ruby</a></li>
+<li><a rel="nofollow" href="https://github.com/SyrusAkbary/pyjade" target="_blank">python</a></li>
+<li><a rel="nofollow" href="https://github.com/neuland/jade4j" target="_blank">java</a></li>
+</ul>
+<h2 id="articleHeader3">安装</h2>
+
+<pre class="hljs coffeescript"><code class="lang-sh"><span class="hljs-built_in">npm</span> install jade
+</code></pre>
+
+<h2 id="articleHeader4">浏览器支持</h2>
+
+<p>把 Jade 编译为一个可供浏览器使用的单文件，只需要简单的执行:</p>
+
+<pre class="hljs nginx"><code class="lang-sh"><span class="hljs-title">make</span> jade.js
+</code></pre>
+
+<p>如果你已经安装了 uglifyjs (<code>npm install uglify-js</code>)，你可以执行下面的命令它会生成所有的文件。其实每一个正式版本里都帮你做了这事。</p>
+
+<pre class="hljs nginx"><code class="lang-sh"><span class="hljs-title">make</span> jade.min.js
+</code></pre>
+
+<p>默认情况下，为了方便调试Jade会把模板组织成带有形如 <code>__.lineno = 3</code> 的行号的形式。 在浏览器里使用的时候，你可以通过传递一个选项 <code>{ compileDebug: false }</code> 来去掉这个。<br>
+下面的模板</p>
+
+<pre class="hljs nginx"><code class="lang-sh"><span class="hljs-title">p</span> Hello <span class="hljs-comment">#{name}</span>
+</code></pre>
+
+<p>会被翻译成下面的函数：</p>
+
+<pre class="hljs javascript"><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">anonymous</span><span class="hljs-params">(locals, attrs, escape, rethrow)</span> </span>{
+  <span class="hljs-keyword">var</span> buf = [];
+  <span class="hljs-keyword">with</span> (locals || {}) {
+    <span class="hljs-keyword">var</span> interp;
+    buf.push(<span class="hljs-string">'\n&lt;p&gt;Hello '</span> + <span class="hljs-built_in">escape</span>((interp = name) == <span class="hljs-literal">null</span> ? <span class="hljs-string">''</span> : interp) + <span class="hljs-string">'\n&lt;/p&gt;'</span>);
+  }
+  <span class="hljs-keyword">return</span> buf.join(<span class="hljs-string">""</span>);
+}
+</code></pre>
+
+<p>通过使用 Jade 的 <code>./runtime.js</code>你可以在浏览器使用这些预编译的模板而不需要使用 Jade, 你只需要使用 <code>runtime.js</code> 里的工具函数, 它们会放在 <code>jade.attrs</code>, <code>jade.escape</code> 这些里。 把选项 <code>{ client: true }</code> 传递给 <code>jade.compile()</code>, Jade 会把这些帮助函数的引用放在<code>jade.attrs</code>, <code>jade.escape</code>.</p>
+
+<pre class="hljs javascript"><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">anonymous</span><span class="hljs-params">(locals, attrs, escape, rethrow)</span> </span>{
+  <span class="hljs-keyword">var</span> attrs = jade.attrs, <span class="hljs-built_in">escape</span> = jade.escape, rethrow = jade.rethrow;
+  <span class="hljs-keyword">var</span> buf = [];
+  <span class="hljs-keyword">with</span> (locals || {}) {
+    <span class="hljs-keyword">var</span> interp;
+    buf.push(<span class="hljs-string">'\n&lt;p&gt;Hello '</span> + <span class="hljs-built_in">escape</span>((interp = name) == <span class="hljs-literal">null</span> ? <span class="hljs-string">''</span> : interp) + <span class="hljs-string">'\n&lt;/p&gt;'</span>);
+  }
+  <span class="hljs-keyword">return</span> buf.join(<span class="hljs-string">""</span>);
+}
+</code></pre>
+
+<h2 id="articleHeader5">API</h2>
+
+<pre class="hljs javascript"><code class="lang-javascript"><span class="hljs-keyword">var</span> jade = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jade'</span>);
+
+<span class="hljs-comment">// Compile a function</span>
+<span class="hljs-keyword">var</span> fn = jade.compile(<span class="hljs-string">'string of jade'</span>, options);
+fn(locals);
+</code></pre>
+
+<h3 id="articleHeader6">选项</h3>
+
+<ul>
+<li>
+<code>self</code>      使用 <code>self</code> 命名空间来持有本地变量. <em>(默认为 <code>false</code>)</em>
+</li>
+<li>
+<code>locals</code>    本地变量对象</li>
+<li>
+<code>filename</code>  异常发生时使用，includes 时必需</li>
+<li>
+<code>debug</code>     输出 token 和翻译后的函数体</li>
+<li>
+<code>compiler</code>  替换掉 jade 默认的编译器</li>
+<li>
+<code>compileDebug</code>  <code>false</code>的时候调试的结构不会被输出</li>
+<li>
+<code>pretty</code>    为输出加上了漂亮的空格缩进 <em>(默认为 <code>false</code>)</em>
+</li>
+</ul>
+<h3 id="articleHeader7">标签</h3>
+
+<p>标签就是一个简单的单词:</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">html</span>
+</code></pre>
+
+<p>它会被转换为 <code>&lt;html&gt;&lt;/html&gt;</code></p>
+
+<p>标签也是可以有 id 的:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">div<span class="hljs-comment">#container</span>
+</code></pre>
+
+<p>它会被转换为 <code>&lt;div id="container"&gt;&lt;/div&gt;</code></p>
+
+<p>怎么加 class 呢？</p>
+
+<pre class="hljs"><code class="lang-jade">div.user-details
+</code></pre>
+
+<p>转换为 <code>&lt;div class="user-details"&gt;&lt;/div&gt;</code></p>
+
+<p>多个 class 和 id? 也是可以搞定的:</p>
+
+<pre class="hljs coffeescript"><code>div<span class="hljs-comment">#foo.bar.baz</span>
+</code></pre>
+
+<p>转换为 <code>&lt;div id="foo" class="bar baz"&gt;&lt;/div&gt;</code></p>
+
+<p>不停的 <code>div div div</code> 很讨厌啊 , 可以这样:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-comment">#foo</span>
+.bar
+</code></pre>
+
+<p>这个算是我们的语法糖，它已经被很好的支持了，上面的会输出：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"foo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+
+<h3 id="articleHeader8">标签文本</h3>
+
+<p>只需要简单的把内容放在标签之后：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">p</span> wahoo!
+</code></pre>
+
+<p>它会被渲染为 <code>&lt;p&gt;wahoo!&lt;/p&gt;</code>.</p>
+
+<p>很帅吧，但是大段的文本怎么办呢：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">p
+  | foo bar baz
+  | rawr rawr
+  | <span class="hljs-keyword">super</span> cool
+  | go jade go
+</code></pre>
+
+<p>渲染为 <code>&lt;p&gt;foo bar baz rawr.....&lt;/p&gt;</code></p>
+
+<p>怎么和数据结合起来？ 所有类型的文本展示都可以和数据结合起来，如果我们把 <code>{ name: 'tj', email: 'tj@vision-media.ca' }</code> 传给编译函数，下面是模板上的写法:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-comment">#user #{name} &amp;lt;#{email}&amp;gt;</span>
+</code></pre>
+
+<p>它会被渲染为 <code>&lt;div id="user"&gt;tj &amp;lt;tj@vision-media.ca&amp;gt;&lt;/div&gt;</code></p>
+
+<p>当就是要输出 <code>#{}</code> 的时候怎么办? 转义一下!</p>
+
+<pre class="hljs nginx"><code><span class="hljs-title">p</span> \<span class="hljs-comment">#{something}</span>
+</code></pre>
+
+<p>它会输出 <code>&lt;p&gt;#{something}&lt;/p&gt;</code></p>
+
+<p>同样可以使用非转义的变量 <code>!{html}</code>, 下面的模板将直接输出一个 <code>&lt;script&gt;</code> 标签:</p>
+
+<pre class="hljs xml"><code class="lang-jade">- var html = "<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>"
+| !{html}
+</code></pre>
+
+<p>内联标签同样可以使用文本块来包含文本：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">label</span>
+  | Username:
+  input(name=<span class="hljs-string">'user[name]'</span>)
+</code></pre>
+
+<p>或者直接使用标签文本:</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">label</span> Username:
+  input(name=<span class="hljs-string">'user[name]'</span>)
+</code></pre>
+
+<p><em>只</em> 包含文本的标签，比如 <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>, 和 <code>&lt;textarea&gt;</code> 不需要前缀 <code>|</code> 字符, 比如:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">html
+  head
+    title Example
+    script
+      <span class="hljs-keyword">if</span> (foo) {
+        bar();
+      } <span class="hljs-keyword">else</span> {
+        baz();
+      }
+</code></pre>
+
+<p>这里还有一种选择，可以使用 <code>.</code> 来开始一段文本块，比如：</p>
+
+<pre class="hljs"><code class="lang-jade">p.
+  foo asdf
+  asdf
+   asdfasdfaf
+   asdf
+  asd.
+</code></pre>
+
+<p>会被渲染为:</p>
+
+<pre class="hljs xml"><code class="lang-jade"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>foo asdf
+asdf
+  asdfasdfaf
+  asdf
+asd
+.
+<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<p>这和带一个空格的 <code>.</code> 是不一样的, 带空格的会被 Jade 的解析器忽略，当作一个普通的文字:</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">p</span> .
+</code></pre>
+
+<p>渲染为:</p>
+
+<pre class="hljs xml"><code class="lang-jade"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<p>需要注意的是文本块需要两次转义。比如想要输出下面的文本：</p>
+
+<pre class="hljs xml"><code class="lang-jade"><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>foo\bar<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<p>使用:</p>
+
+<pre class="hljs"><code class="lang-jade">p.
+  foo\\bar
+</code></pre>
+
+<h3 id="articleHeader9">注释</h3>
+
+<p>单行注释和 JavaScript 里是一样的，通过 <code>//</code> 来开始，并且必须单独一行：</p>
+
+<pre class="hljs cs"><code class="lang-jade"><span class="hljs-comment">// just some paragraphs</span>
+p foo
+p bar
+</code></pre>
+
+<p>渲染为：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-comment">&lt;!-- just some paragraphs --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<p>Jade 同样支持不输出的注释，加一个短横线就行了：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-regexp">//</span>- will <span class="hljs-keyword">not</span> output within markup
+p foo
+p bar
+</code></pre>
+
+<p>渲染为：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>foo<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<h3 id="articleHeader10">块注释</h3>
+
+<p>块注释也是支持的：</p>
+
+<pre class="hljs cs"><code class="lang-jade">body
+  <span class="hljs-comment">//</span>
+    <span class="hljs-preprocessor">#content</span>
+      h1 Example
+</code></pre>
+
+<p>渲染为：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-comment">&lt;!--
+  &lt;div id="content"&gt;
+    &lt;h1&gt;Example&lt;/h1&gt;
+  &lt;/div&gt;
+  --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+</code></pre>
+
+<p>Jade 同样很好的支持了条件注释：</p>
+
+<pre class="hljs cs"><code class="lang-jade">body
+  <span class="hljs-comment">//if IE</span>
+    a(href=<span class="hljs-string">'http://www.mozilla.com/en-US/firefox/'</span>) Get Firefox
+</code></pre>
+
+<p>渲染为：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-comment">&lt;!--[if IE]&gt;
+    &lt;a href="http://www.mozilla.com/en-US/firefox/"&gt;Get Firefox&lt;/a&gt;
+  &lt;![endif]--&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+</code></pre>
+
+<h3 id="articleHeader11">内联</h3>
+
+<p>Jade 支持以自然的方式定义标签嵌套:</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">ul</span>
+  li.first
+    a(href=<span class="hljs-string">'#'</span>) foo
+  li
+    a(href=<span class="hljs-string">'#'</span>) bar
+  li.<span class="hljs-built_in">last</span>
+    a(href=<span class="hljs-string">'#'</span>) baz
+</code></pre>
+
+<h3 id="articleHeader12">块展开</h3>
+
+<p>块展开可以帮助你在一行内创建嵌套的标签，下面的例子和上面的是一样的：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">ul</span>
+  li.first: a(href=<span class="hljs-string">'#'</span>) foo
+  li: a(href=<span class="hljs-string">'#'</span>) bar
+  li.<span class="hljs-built_in">last</span>: a(href=<span class="hljs-string">'#'</span>) baz
+</code></pre>
+
+<h3 id="articleHeader13">Case</h3>
+
+<p><code>case</code> 表达式按下面这样的形式写:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">html
+  body
+    friends = <span class="hljs-number">10</span>
+    <span class="hljs-reserved">case</span> friends
+      <span class="hljs-keyword">when</span> <span class="hljs-number">0</span>
+        p you have <span class="hljs-literal">no</span> friends
+      <span class="hljs-keyword">when</span> <span class="hljs-number">1</span>
+        p you have a friend
+      <span class="hljs-reserved">default</span>
+        p you have <span class="hljs-comment">#{friends} friends</span>
+</code></pre>
+
+<p>块展开在这里也可以使用:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">friends = <span class="hljs-number">5</span>
+
+html
+  body
+    <span class="hljs-reserved">case</span> friends
+      <span class="hljs-keyword">when</span> <span class="hljs-number">0</span>: p you have <span class="hljs-literal">no</span> friends
+      <span class="hljs-keyword">when</span> <span class="hljs-number">1</span>: p you have a friend
+      <span class="hljs-attribute">default</span>: p you have <span class="hljs-comment">#{friends} friends</span>
+</code></pre>
+
+<h3 id="articleHeader14">属性</h3>
+
+<p>Jade 现在支持使用 <code>(</code> 和 <code>)</code> 作为属性分隔符</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">a(href=<span class="hljs-string">'/login'</span>, title=<span class="hljs-string">'View login page'</span>) Login
+</code></pre>
+
+<p>当一个值是 <code>undefined</code> 或者 <code>null</code> 属性 <em>不</em> 会被加上,<br>
+所以呢，它不会编译出 'something="null"'.</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">div(something=<span class="hljs-literal">null</span>)
+</code></pre>
+
+<p>Boolean 属性也是支持的:</p>
+
+<pre class="hljs cs"><code class="lang-jade">input(type=<span class="hljs-string">"checkbox"</span>, <span class="hljs-keyword">checked</span>)
+</code></pre>
+
+<p>使用代码的 Boolean 属性只有当属性为 <code>true</code> 时才会输出：</p>
+
+<pre class="hljs cs"><code class="lang-jade">input(type=<span class="hljs-string">"checkbox"</span>, <span class="hljs-keyword">checked</span>=someValue)
+</code></pre>
+
+<p>多行同样也是可用的：</p>
+
+<pre class="hljs cs"><code class="lang-jade">input(type=<span class="hljs-string">'checkbox'</span>,
+  name=<span class="hljs-string">'agreement'</span>,
+  <span class="hljs-keyword">checked</span>)
+</code></pre>
+
+<p>多行的时候可以不加逗号：</p>
+
+<pre class="hljs cs"><code class="lang-jade">input(type=<span class="hljs-string">'checkbox'</span>
+  name=<span class="hljs-string">'agreement'</span>
+  <span class="hljs-keyword">checked</span>)
+</code></pre>
+
+<p>加点空格，格式好看一点？同样支持</p>
+
+<pre class="hljs cs"><code class="lang-jade">input(
+  type=<span class="hljs-string">'checkbox'</span>
+  name=<span class="hljs-string">'agreement'</span>
+  <span class="hljs-keyword">checked</span>)
+</code></pre>
+
+<p>冒号也是支持的:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">rss(<span class="hljs-attribute">xmlns</span>:atom=<span class="hljs-string">"atom"</span>)
+</code></pre>
+
+<p>假如我有一个 <code>user</code> 对象 <code>{ id: 12, name: 'tobi' }</code><br>
+我们希望创建一个指向 <code>/user/12</code> 的链接 <code>href</code>, 我们可以使用普通的 JavaScript 字符串连接，如下:</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">a(href=<span class="hljs-string">'/user/'</span> + user.id)= user.name
+</code></pre>
+
+<p>或者我们使用 Jade 的修改方式, 这个我想很多使用 Ruby 或者 CoffeeScript 的人会看起来像普通的 JS..:</p>
+
+<pre class="hljs ruby"><code class="lang-jade">a(href=<span class="hljs-string">'/user/<span class="hljs-subst">#{user.id}</span>'</span>)= user.name
+</code></pre>
+
+<p><code>class</code> 属性是一个特殊的属性，你可以直接传递一个数组，比如 <code>bodyClasses = ['user', 'authenticated']</code> :</p>
+
+<pre class="hljs cs"><code class="lang-jade">body(<span class="hljs-keyword">class</span>=bodyClasses)
+</code></pre>
+
+<h3 id="articleHeader15">HTML</h3>
+
+<p>内联的 HTML 是可以的，我们可以使用管道定义一段文本 :</p>
+
+<pre class="hljs xml"><code class="lang-jade">html
+  body
+    | <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+    | <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>foo bar baz<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<p>或者我们可以使用 <code>.</code> 来告诉 Jade 我们需要一段文本：</p>
+
+<pre class="hljs xml"><code class="lang-jade">html
+  body.
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>foo bar baz<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+</code></pre>
+
+<p>上面的两个例子都会渲染成相同的结果：</p>
+
+<pre class="hljs xml"><code class="lang-jade"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>foo bar baz<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+
+<p>这条规则适应于在 Jade 里的任何文本：</p>
+
+<pre class="hljs nginx"><code><span class="hljs-title">html</span>
+  body
+    h1 User &lt;em&gt;<span class="hljs-comment">#{name}&lt;/em&gt;</span>
+</code></pre>
+
+<h3 id="articleHeader16">Doctypes</h3>
+
+<p>添加文档类型只需要简单的使用 <code>!!!</code>, 或者 <code>doctype</code> 跟上下面的可选项:</p>
+
+<pre class="hljs diff"><code class="lang-jade"><span class="hljs-change">!!!</span>
+</code></pre>
+
+<p>会渲染出 <em>transitional</em> 文档类型, 或者:</p>
+
+<pre class="hljs diff"><code class="lang-jade"><span class="hljs-change">!!! 5</span>
+</code></pre>
+
+<p>或</p>
+
+<pre class="hljs diff"><code class="lang-jade"><span class="hljs-change">!!! html</span>
+</code></pre>
+
+<p>或</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">doctype</span> html
+</code></pre>
+
+<p>Doctype 是大小写不敏感的, 所以下面两个是一样的:</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">doctype</span> Basic
+doctype basic
+</code></pre>
+
+<p>当然也是可以直接传递一段文档类型的文本：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">doctype</span> html PUBLIC <span class="hljs-string">"-//W3C//DTD XHTML Basic 1.1//EN"</span>
+</code></pre>
+
+<p>渲染后:</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"&gt;</span>
+</code></pre>
+
+<p>会输出 <em>HTML5</em> 文档类型. 下面的默认的文档类型，可以很简单的扩展：</p>
+
+<pre class="hljs xml"><code class="lang-javascript">var doctypes = exports.doctypes = {
+  '5': '<span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>',
+  'xml': '<span class="hljs-pi">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>',
+  'default': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>',
+  'transitional': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>',
+  'strict': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</span>',
+  'frameset': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;</span>',
+  '1.1': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;</span>',
+  'basic': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd"&gt;</span>',
+  'mobile': '<span class="hljs-doctype">&lt;!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd"&gt;</span>'
+};
+</code></pre>
+
+<p>通过下面的代码可以很简单的改变默认的文档类型：</p>
+
+<pre class="hljs coffeescript"><code class="lang-javascript">    jade.doctypes.<span class="hljs-reserved">default</span> = <span class="hljs-string">'whatever you want'</span>;
+</code></pre>
+
+<h2 id="articleHeader17">过滤器</h2>
+
+<p>过滤器前缀 <code>:</code>, 比如 <code>:markdown</code> 会把下面块里的文本交给专门的函数进行处理。查看顶部 <em>特性</em> 里有哪些可用的过滤器。</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">body</span>
+  :markdown
+    Woah! jade _and_ markdown, very **cool**
+    we can even link to [stuff](<span class="hljs-url">http://google.com)</span>
+</code></pre>
+
+<p>渲染为:</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Woah! jade <span class="hljs-tag">&lt;<span class="hljs-title">em</span>&gt;</span>and<span class="hljs-tag">&lt;/<span class="hljs-title">em</span>&gt;</span> markdown, very <span class="hljs-tag">&lt;<span class="hljs-title">strong</span>&gt;</span>cool<span class="hljs-tag">&lt;/<span class="hljs-title">strong</span>&gt;</span> we can even link to <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"http://google.com"</span>&gt;</span>stuff<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+</code></pre>
+
+<h2 id="articleHeader18">代码</h2>
+
+<p>Jade 目前支持三种类型的可执行代码。第一种是前缀 <code>-</code>， 这是不会被输出的：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-reserved">var</span> foo = <span class="hljs-string">'bar'</span>;
+</code></pre>
+
+<p>这可以用在条件语句或者循环中：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-keyword">for</span> (<span class="hljs-reserved">var</span> key <span class="hljs-keyword">in</span> obj)
+  p= obj[key]
+</code></pre>
+
+<p>由于 Jade 的缓存技术，下面的代码也是可以的：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-keyword">if</span> (foo)
+  ul
+    li yay
+    li foo
+    li worked
+- <span class="hljs-keyword">else</span>
+  p oh <span class="hljs-literal">no</span>! didnt work
+</code></pre>
+
+<p>哈哈，甚至是很长的循环也是可以的：</p>
+
+<pre class="hljs php"><code>- <span class="hljs-keyword">if</span> (items.length)
+  ul
+    - items.<span class="hljs-keyword">forEach</span>(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>{
+      li= item
+    - })
+</code></pre>
+
+<p>所以你想要的！</p>
+
+<p>下一步我们要 <em>转义</em> 输出的代码，比如我们返回一个值，只要前缀一个 <code>=</code>：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-reserved">var</span> foo = <span class="hljs-string">'bar'</span>
+= foo
+h1= foo
+</code></pre>
+
+<p>它会渲染为 <code>bar&lt;h1&gt;bar&lt;/h1&gt;</code>. 为了安全起见，使用 <code>=</code> 输出的代码默认是转义的,如果想直接输出不转义的值可以使用 <code>!=</code>：</p>
+
+<pre class="hljs makefile"><code class="lang-jade"><span class="hljs-constant">p</span>!= aVarContainingMoreHTML
+</code></pre>
+
+<p>Jade 同样是设计师友好的，它可以使 JavaScript 更直接更富表现力。比如下面的赋值语句是相等的，同时表达式还是通常的 JavaScript：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-reserved">var</span> foo = <span class="hljs-string">'foo '</span> + <span class="hljs-string">'bar'</span>
+foo = <span class="hljs-string">'foo '</span> + <span class="hljs-string">'bar'</span>
+</code></pre>
+
+<p>Jade 会把 <code>if</code>, <code>else if</code>, <code>else</code>, <code>until</code>, <code>while</code>, <code>unless</code> 同别的优先对待, 但是你得记住它们还是普通的 JavaScript：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-keyword">if</span> foo == <span class="hljs-string">'bar'</span>
+  ul
+    li yay
+    li foo
+    li worked
+<span class="hljs-keyword">else</span>
+  p oh <span class="hljs-literal">no</span>! didnt work  
+</code></pre>
+
+<h2 id="articleHeader19">循环</h2>
+
+<p>尽管已经支持 JavaScript 原生代码，Jade 还是支持了一些特殊的标签，它们可以让模板更加易于理解，其中之一就是 <code>each</code>, 这种形式：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">each VAL[, KEY] <span class="hljs-keyword">in</span> OBJ
+</code></pre>
+
+<p>一个遍历数组的例子 ：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-reserved">var</span> items = [<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>]
+each item <span class="hljs-keyword">in</span> items
+  li= item
+</code></pre>
+
+<p>渲染为:</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>one<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>two<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>three<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+</code></pre>
+
+<p>遍历一个数组同时带上索引：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">items = [<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>]
+each item, i <span class="hljs-keyword">in</span> items
+  li <span class="hljs-comment">#{item}: #{i}</span>
+</code></pre>
+
+<p>渲染为:</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>one: 0<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>two: 1<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>three: 2<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+</code></pre>
+
+<p>遍历一个数组的键值：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">obj = { <span class="hljs-attribute">foo</span>: <span class="hljs-string">'bar'</span> }
+each val, key <span class="hljs-keyword">in</span> obj
+  li <span class="hljs-comment">#{key}: #{val}</span>
+</code></pre>
+
+<p>将会渲染为：<code>&lt;li&gt;foo: bar&lt;/li&gt;</code></p>
+
+<p>Jade 在内部会把这些语句转换成原生的 JavaScript 语句，就像使用 <code>users.forEach(function(user){</code>, 词法作用域和嵌套会像在普通的 JavaScript 中一样：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">each user <span class="hljs-keyword">in</span> users
+  each role <span class="hljs-keyword">in</span> user.roles
+    li= role
+</code></pre>
+
+<p>如果你喜欢，也可以使用 <code>for</code> ：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users
+  <span class="hljs-keyword">for</span> role <span class="hljs-keyword">in</span> user.roles
+    li= role
+</code></pre>
+
+<h2 id="articleHeader20">条件语句</h2>
+
+<p>Jade 条件语句和使用了(<code>-</code>) 前缀的 JavaScript 语句是一致的,然后它允许你不使用圆括号，这样会看上去对设计师更友好一点，<br>
+同时要在心里记住这个表达式渲染出的是 <em>常规</em> JavaScript：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users
+  <span class="hljs-keyword">if</span> user.role == <span class="hljs-string">'admin'</span>
+    p <span class="hljs-comment">#{user.name} is an admin</span>
+  <span class="hljs-keyword">else</span>
+    p= user.name
+</code></pre>
+
+<p>和下面的使用了常规 JavaScript 的代码是相等的：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users
+  - <span class="hljs-keyword">if</span> (user.role == <span class="hljs-string">'admin'</span>)
+    p <span class="hljs-comment">#{user.name} is an admin</span>
+  - <span class="hljs-keyword">else</span>
+    p= user.name
+</code></pre>
+
+<p>Jade 同时支持 <code>unless</code>, 这和 <code>if (!(expr))</code> 是等价的：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade"><span class="hljs-keyword">for</span> user <span class="hljs-keyword">in</span> users
+  <span class="hljs-keyword">unless</span> user.isAnonymous
+    p
+      | Click to view
+      a(href=<span class="hljs-string">'/users/'</span> + user.id)= user.name 
+</code></pre>
+
+<h2 id="articleHeader21">模板继承</h2>
+
+<p>Jade 支持通过 <code>block</code> 和 <code>extends</code> 关键字来实现模板继承。 一个块就是一个 Jade 的 block ，它将在子模板中实现，同时是支持递归的。</p>
+
+<p>Jade 块如果没有内容，Jade 会添加默认内容，下面的代码默认会输出 <code>block scripts</code>, <code>block content</code>, 和 <code>block foot</code>.</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">html</span>
+  head
+    h1 My Site - <span class="hljs-comment">#{title}</span>
+    block scripts
+      script(src=<span class="hljs-string">'/jquery.js'</span>)
+  body
+    block content
+    block foot
+      <span class="hljs-comment">#footer</span>
+        p some footer content
+</code></pre>
+
+<p>现在我们来继承这个布局，简单创建一个新文件，像下面那样直接使用 <code>extends</code>，给定路径（可以选择带 <code>.jade</code> 扩展名或者不带）. 你可以定义一个或者更多的块来覆盖父级块内容, 注意到这里的 <code>foot</code> 块 <em>没有</em> 定义，所以它还会输出父级的 "some footer content"。</p>
+
+<pre class="hljs cs"><code class="lang-jade">extends extend-<span class="hljs-function">layout
+
+block scripts
+  <span class="hljs-title">script</span><span class="hljs-params">(src=<span class="hljs-string">'/jquery.js'</span>)</span>
+  <span class="hljs-title">script</span><span class="hljs-params">(src=<span class="hljs-string">'/pets.js'</span>)</span>
+
+block content
+  h1</span>= title
+  each pet <span class="hljs-keyword">in</span> pets
+    include pet
+</code></pre>
+
+<p>同样可以在一个子块里添加块，就像下面实现的块 <code>content</code> 里又定义了两个可以被实现的块 <code>sidebar</code> 和 <code>primary</code>，或者子模板直接实现 <code>content</code>。</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">extends</span> regular-layout
+
+block content
+  .sidebar
+    block sidebar
+      p nothing
+  .primary
+    block primary
+      p nothing
+</code></pre>
+
+<h2 id="articleHeader22">前置、追加代码块</h2>
+
+<p>Jade允许你 <em>替换</em> （默认）、 <em>前置</em> 和 <em>追加</em> blocks. 比如，假设你希望在 <em>所有</em> 页面的头部都加上默认的脚本，你可以这么做：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">html</span>
+  head
+    block head
+      script(src=<span class="hljs-string">'/vendor/jquery.js'</span>)
+      script(src=<span class="hljs-string">'/vendor/caustic.js'</span>)
+  body
+    block content
+</code></pre>
+
+<p>现在假设你有一个Javascript游戏的页面，你希望在默认的脚本之外添加一些游戏相关的脚本，你可以直接<code>append</code>上代码块：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">extends</span> layout
+
+block append head
+  script(src=<span class="hljs-string">'/vendor/three.js'</span>)
+  script(src=<span class="hljs-string">'/game.js'</span>)
+</code></pre>
+
+<p>使用 <code>block append</code> 或 <code>block prepend</code> 时 <code>block</code> 是可选的:</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">extends</span> layout
+
+append head
+  script(src=<span class="hljs-string">'/vendor/three.js'</span>)
+  script(src=<span class="hljs-string">'/game.js'</span>)
+</code></pre>
+
+<h2 id="articleHeader23">包含</h2>
+
+<p>Includes 允许你静态包含一段 Jade, 或者别的存放在单个文件中的东西比如 CSS, HTML 非常常见的例子是包含头部和页脚。 假设我们有一个下面目录结构的文件夹：</p>
+
+<pre class="hljs coffeescript"><code>./layout.jade
+.<span class="hljs-regexp">/includes/</span>
+  ./head.jade
+  ./tail.jade
+</code></pre>
+
+<p>下面是 <code>layout.jade</code> 的内容:</p>
+
+<pre class="hljs ruby"><code class="lang-jade">html
+  <span class="hljs-keyword">include</span> includes/head  
+  body
+    h1 <span class="hljs-constant">My</span> <span class="hljs-constant">Site</span>
+    p <span class="hljs-constant">Welcome</span> to my <span class="hljs-keyword">super</span> amazing site.
+    <span class="hljs-keyword">include</span> includes/foot
+</code></pre>
+
+<p>这两个包含 <code>includes/head</code> 和 <code>includes/foot</code> 都会读取相对于给 <code>layout.jade</code> 参数<code>filename</code> 的路径的文件, 这是一个绝对路径，不用担心Express帮你搞定这些了。Include 会解析这些文件，并且插入到已经生成的语法树中，然后渲染为你期待的内容：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>My Site<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/javascripts/jquery.js"</span>&gt;</span><span class="javascript">
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/javascripts/app.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>My Site<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Welcome to my super lame site.<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"footer"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Copyright&gt;(c) foobar<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre>
+
+<p>前面已经提到，<code>include</code> 可以包含比如 HTML 或者 CSS 这样的内容。给定一个扩展名后，Jade 不会把这个文件当作一个 Jade 源代码，并且会把它当作一个普通文本包含进来：</p>
+
+<pre class="hljs php"><code>html
+  head
+    <span class="hljs-comment">//- css and js have simple filters that wrap them in</span>
+        &lt;style&gt; <span class="hljs-keyword">and</span> &lt;script&gt; tags, respectively
+    <span class="hljs-keyword">include</span> stylesheet.css
+    <span class="hljs-keyword">include</span> script.js
+  body
+    <span class="hljs-comment">//- "markdown" files will use the "markdown" filter</span>
+        to convert Markdown to HTML
+    <span class="hljs-keyword">include</span> introduction.markdown
+    <span class="hljs-comment">//- html files have no filter and are included verbatim</span>
+    <span class="hljs-keyword">include</span> content.html
+</code></pre>
+
+<p>Include 也可以接受块内容，给定的块将会附加到包含文件 <em>最后</em> 的块里。 举个例子，<code>head.jade</code> 包含下面的内容：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">head</span>
+  script(src=<span class="hljs-string">'/jquery.js'</span>)
+</code></pre>
+
+<p>我们可以像下面给<code>include head</code>添加内容, 这里是添加两个脚本.</p>
+
+<pre class="hljs nginx"><code><span class="hljs-title">html</span>
+  include head
+    script(src=<span class="hljs-string">'/foo.js'</span>)
+    script(src=<span class="hljs-string">'/bar.js'</span>)
+  body
+    h1 test
+</code></pre>
+
+<p>在被包含的模板中，你也可以使用<code>yield</code>语句。<code>yield</code>语句允许你明确地标明<code>include</code>的代码块的放置位置。比如，假设你希望把代码块放在scripts之前，而不是附加在scripts之后：</p>
+
+<pre class="hljs cs"><code class="lang-jade"><span class="hljs-function">head
+  <span class="hljs-keyword">yield</span>
+  <span class="hljs-title">script</span><span class="hljs-params">(src=<span class="hljs-string">'/jquery.js'</span>)</span>
+  <span class="hljs-title">script</span><span class="hljs-params">(src=<span class="hljs-string">'/jquery.ui.js'</span>)</span>
+</span></code></pre>
+
+<p>由于被包含的Jade会按字面解析并合并到AST中，词法范围的变量的效果和直接写在同一个文件中的相同。这就意味着<code>include</code>可以用作partial的替代，例如，假设我们有一个引用了<code>user</code>变量的user.jade`文件：</p>
+
+<pre class="hljs ini"><code class="lang-jade"><span class="hljs-setting">h1= <span class="hljs-value">user.name</span></span>
+<span class="hljs-setting">p= <span class="hljs-value">user.occupation</span></span>
+</code></pre>
+
+<p>接着，当我们迭代users的时候，只需简单地加上<code>include user</code>。因为在循环中<code>user</code>变量已经被定义了，被包含的模板可以访问它。</p>
+
+<pre class="hljs ruby"><code class="lang-jade">users = [{ <span class="hljs-symbol">name:</span> <span class="hljs-string">'Tobi'</span>, <span class="hljs-symbol">occupation:</span> <span class="hljs-string">'Ferret'</span> }]
+
+each user <span class="hljs-keyword">in</span> users
+  .user
+    <span class="hljs-keyword">include</span> user
+</code></pre>
+
+<p>以上代码会生成：</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"user"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Tobi<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Ferret<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+
+<p><code>user.jade</code>引用了<code>user</code>变量，如果我们希望使用一个不同的变量<code>user</code>，那么我们可以直接定义一个新变量<code>user = person</code>，如下所示：</p>
+
+<pre class="hljs ruby"><code class="lang-jade">each person <span class="hljs-keyword">in</span> users
+  .user
+    user = person
+    <span class="hljs-keyword">include</span> user
+</code></pre>
+
+<h2 id="articleHeader24">Mixins</h2>
+
+<p>Mixins 在编译的模板里会被 Jade 转换为普通的 JavaScript 函数。 Mixins 可以带参数，但不是必需的：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">mixin</span> list
+  ul
+    li foo
+    li bar
+    li baz
+</code></pre>
+
+<p>使用不带参数的 mixin 看上去非常简单，在一个块外：</p>
+
+<pre class="hljs nginx"><code class="lang-jade"><span class="hljs-title">h2</span> Groceries
+mixin list
+</code></pre>
+
+<p>Mixins 也可以带一个或者多个参数，参数就是普通的 JavaScript 表达式，比如下面的例子：</p>
+
+<pre class="hljs cs"><code class="lang-jade"><span class="hljs-function">mixin <span class="hljs-title">pets</span><span class="hljs-params">(pets)</span>
+  ul.pets
+    - each pet <span class="hljs-keyword">in</span> pets
+      li</span>= <span class="hljs-function">pet
+
+mixin <span class="hljs-title">profile</span><span class="hljs-params">(user)</span>
+  .user
+    h2</span>= user.<span class="hljs-function">name
+    mixin <span class="hljs-title">pets</span><span class="hljs-params">(user.pets)</span>
+</span></code></pre>
+
+<p>会输出像下面的 HTML:</p>
+
+<pre class="hljs xml"><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"user"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">h2</span>&gt;</span>tj<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"pets"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>tobi<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>loki<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>jane<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span>manny<span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+
+<h2 id="articleHeader25">产生输出</h2>
+
+<p>假设我们有下面的 Jade 源码：</p>
+
+<pre class="hljs coffeescript"><code class="lang-jade">- <span class="hljs-reserved">var</span> title = <span class="hljs-string">'yay'</span>
+h1.title <span class="hljs-comment">#{title}</span>
+p Just an example
+</code></pre>
+
+<p>当 <code>compileDebug</code> 选项不是 <code>false</code>, Jade 会编译时会把函数里加上 <code>__.lineno = n;</code>, 这个参数会在编译出错时传递给 <code>rethrow()</code>, 而这个函数会在 Jade 初始输出时给出一个有用的错误信息。</p>
+
+<pre class="hljs javascript"><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">anonymous</span><span class="hljs-params">(locals)</span> </span>{
+  <span class="hljs-keyword">var</span> __ = { lineno: <span class="hljs-number">1</span>, input: <span class="hljs-string">"- var title = 'yay'\nh1.title #{title}\np Just an example"</span>, filename: <span class="hljs-string">"testing/test.js"</span> };
+  <span class="hljs-keyword">var</span> rethrow = jade.rethrow;
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">var</span> attrs = jade.attrs, <span class="hljs-built_in">escape</span> = jade.escape;
+    <span class="hljs-keyword">var</span> buf = [];
+    <span class="hljs-keyword">with</span> (locals || {}) {
+      <span class="hljs-keyword">var</span> interp;
+      __.lineno = <span class="hljs-number">1</span>;
+       <span class="hljs-keyword">var</span> title = <span class="hljs-string">'yay'</span>
+      __.lineno = <span class="hljs-number">2</span>;
+      buf.push(<span class="hljs-string">'&lt;h1'</span>);
+      buf.push(attrs({ <span class="hljs-string">"class"</span>: (<span class="hljs-string">'title'</span>) }));
+      buf.push(<span class="hljs-string">'&gt;'</span>);
+      buf.push(<span class="hljs-string">''</span> + <span class="hljs-built_in">escape</span>((interp = title) == <span class="hljs-literal">null</span> ? <span class="hljs-string">''</span> : interp) + <span class="hljs-string">''</span>);
+      buf.push(<span class="hljs-string">'&lt;/h1&gt;'</span>);
+      __.lineno = <span class="hljs-number">3</span>;
+      buf.push(<span class="hljs-string">'&lt;p&gt;'</span>);
+      buf.push(<span class="hljs-string">'Just an example'</span>);
+      buf.push(<span class="hljs-string">'&lt;/p&gt;'</span>);
+    }
+    <span class="hljs-keyword">return</span> buf.join(<span class="hljs-string">""</span>);
+  } <span class="hljs-keyword">catch</span> (err) {
+    rethrow(err, __.input, __.filename, __.lineno);
+  }
+}
+</code></pre>
+
+<p>当 <code>compileDebug</code> 参数是 <code>false</code>, 这个参数会被去掉，这样对于轻量级的浏览器端模板是非常有用的。结合 Jade 的参数和当前源码库里的 <code>./runtime.js</code> 文件，你可以通过 <code>toString()</code> 来编译模板而不需要在浏览器端运行整个 Jade 库，这样可以提高性能，也可以减少载入的 JavaScript 数量。</p>
+
+<pre class="hljs javascript"><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">anonymous</span><span class="hljs-params">(locals)</span> </span>{
+  <span class="hljs-keyword">var</span> attrs = jade.attrs, <span class="hljs-built_in">escape</span> = jade.escape;
+  <span class="hljs-keyword">var</span> buf = [];
+  <span class="hljs-keyword">with</span> (locals || {}) {
+    <span class="hljs-keyword">var</span> interp;
+    <span class="hljs-keyword">var</span> title = <span class="hljs-string">'yay'</span>
+    buf.push(<span class="hljs-string">'&lt;h1'</span>);
+    buf.push(attrs({ <span class="hljs-string">"class"</span>: (<span class="hljs-string">'title'</span>) }));
+    buf.push(<span class="hljs-string">'&gt;'</span>);
+    buf.push(<span class="hljs-string">''</span> + <span class="hljs-built_in">escape</span>((interp = title) == <span class="hljs-literal">null</span> ? <span class="hljs-string">''</span> : interp) + <span class="hljs-string">''</span>);
+    buf.push(<span class="hljs-string">'&lt;/h1&gt;'</span>);
+    buf.push(<span class="hljs-string">'&lt;p&gt;'</span>);
+    buf.push(<span class="hljs-string">'Just an example'</span>);
+    buf.push(<span class="hljs-string">'&lt;/p&gt;'</span>);
+  }
+  <span class="hljs-keyword">return</span> buf.join(<span class="hljs-string">""</span>);
+}
+</code></pre>
+
+<h2 id="articleHeader26">Makefile 的一个例子</h2>
+
+<p>通过执行 <code>make</code>， 下面的 Makefile 例子可以把 <code>pages/*.jade</code> 编译为 <code>pages/*.html</code> 。</p>
+
+<pre class="hljs ruby"><code class="lang-make"><span class="hljs-constant">JADE</span> = <span class="hljs-variable">$(</span>shell find pages/*.jade)
+<span class="hljs-constant">HTML</span> = <span class="hljs-variable">$(</span><span class="hljs-constant">JADE</span><span class="hljs-symbol">:</span>.jade=.html)
+
+<span class="hljs-symbol">all:</span> <span class="hljs-variable">$(</span><span class="hljs-constant">HTML</span>)
+
+%.<span class="hljs-symbol">html:</span> %.jade
+    jade &lt; <span class="hljs-variable">$&lt;</span> --path <span class="hljs-variable">$&lt;</span> &gt; <span class="hljs-variable">$@</span>
+
+<span class="hljs-symbol">clean:</span>
+    rm -f <span class="hljs-variable">$(</span><span class="hljs-constant">HTML</span>)
+
+.<span class="hljs-constant">PHONY</span><span class="hljs-symbol">:</span> clean
+</code></pre>
+
+<p>这个可以和 <code>watch(1)</code> 命令起来产生像下面的行为：</p>
+
+<pre class="hljs ruby"><code class="lang-sh"><span class="hljs-variable">$ </span>watch make
+</code></pre>
+
+<h2 id="articleHeader27">命令行的 Jade</h2>
+
+<pre class="hljs ruby"><code><br>使用<span class="hljs-symbol">:</span> jade [options] [dir|file ...]
+
+选项<span class="hljs-symbol">:</span>
+
+  -h, --help         输出帮助信息
+  -v, --version      输出版本号
+  -o, --out &lt;dir&gt;    输出编译后的 <span class="hljs-constant">HTML</span> 到 &lt;dir&gt;
+  -<span class="hljs-constant">O</span>, --obj &lt;str&gt;    <span class="hljs-constant">JavaScript</span> 选项
+  -p, --path &lt;path&gt;  在处理 stdio 时，查找包含文件时的查找路径
+  -<span class="hljs-constant">P</span>, --pretty       格式化 <span class="hljs-constant">HTML</span> 输出
+  -c, --client       编译浏览器端可用的 runtime.js
+  -<span class="hljs-constant">D</span>, --no-debug     关闭编译的调试选项(函数会更小)
+  -w, --watch        监视文件改变自动刷新编译结果
+
+<span class="hljs-constant">Examples</span><span class="hljs-symbol">:</span>
+
+  <span class="hljs-comment"># 编译整个目录</span>
+  <span class="hljs-variable">$ </span>jade templates
+
+  <span class="hljs-comment"># 生成 {foo,bar}.html</span>
+  <span class="hljs-variable">$ </span>jade {foo,bar}.jade
+
+  <span class="hljs-comment"># 在标准IO下使用jade </span>
+  <span class="hljs-variable">$ </span>jade &lt; my.jade &gt; my.html
+
+  <span class="hljs-comment"># 在标准IO下使用jade, 同时指定用于查找包含的文件</span>
+  <span class="hljs-variable">$ </span>jade &lt; my.jade -p my.jade &gt; my.html
+
+  <span class="hljs-comment"># 在标准IO下使用jade </span>
+  <span class="hljs-variable">$ </span>echo <span class="hljs-string">"h1 Jade!"</span> | jade
+
+  <span class="hljs-comment"># foo, bar 目录渲染到 /tmp</span>
+  <span class="hljs-variable">$ </span>jade foo bar --out /tmp 
+
+</code></pre>
+
+<p><em>注意: 从 <code>v0.31.0</code> 的 <code>-o</code> 选项已经指向 <code>--out</code>, <code>-O</code> 相应做了交换</em></p>
+
+<h2 id="articleHeader28">教程</h2>
+
+<ul>
+<li>cssdeck interactive <a rel="nofollow" href="http://cssdeck.com/labs/learning-the-jade-templating-engine-syntax" target="_blank">Jade syntax tutorial</a>
+</li>
+<li>cssdeck interactive <a rel="nofollow" href="http://cssdeck.com/labs/jade-templating-tutorial-codecast-part-2" target="_blank">Jade logic tutorial</a>
+</li>
+</ul>
+<h2 id="articleHeader29">许可</h2>
+
+<p>Jade使用MIT许可证。</p>
+
+<h2 id="articleHeader30">项目主页</h2>
+
+<p><a rel="nofollow" href="http://jade-lang.com/" target="_blank">jade-lang.com</a></p>
+
+                </div>
+                                
+                <div class="clearfix">
+
+                    <ul class="taglist--inline pull-left">
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/jade/blogs" data-toggle="popover" data-img="" data-placement="top" data-original-title="jade" data-id="1040000000167593">jade</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/node.js/blogs" data-toggle="popover" data-img="http://sfault-avatar.b0.upaiyun.com/740/312/74031254-1040000000089918_huge100" data-placement="top" data-original-title="node.js" data-id="1040000000089918">node.js</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/blogs" data-toggle="popover" data-img="" data-placement="top" data-original-title="模板引擎" data-id="1040000000090520">模板引擎</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/web/blogs" data-toggle="popover" data-img="http://sfault-avatar.b0.upaiyun.com/337/848/3378480946-1040000000089794_huge100" data-placement="top" data-original-title="web" data-id="1040000000089794">web</a></li>
+                                                <li class="tagPopup"><a class="tag" href="http://segmentfault.com/t/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/blogs" data-toggle="popover" data-img="" data-placement="top" data-original-title="开源项目介绍" data-id="1040000000414117">开源项目介绍</a></li>
+                                            </ul>
+
+                </div>
+                <div class="clearfix mt10">
+                    <ul class="article-operation list-inline pull-left">
+                        <li><a href="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault.html" class="text-muted">链接</a></li>
+                                                                                                <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle text-muted" data-toggle="dropdown">更多<b class="caret"></b></a>
+                            <ul class="dropdown-menu dropdown-menu-left">
+                                <li><a href="http://segmentfault.com/a/1190000000357534#911" data-toggle="modal" data-target="#911" data-type="article" data-id="1190000000357534" data-typetext="文章">举报</a></li>
+                                                                                                                                                                                                        </ul>
+                        </li>
+                    </ul>
+                    <div class="pull-right post-share">
+                        <div class="widget-share sharer-0" data-text="Jade —— 源于 Node.js 的 HTML 模板引擎" style="display: block;">分享 <ul id="share" data-title="" class="sn-inline"><li data-network="weibo"><a href="javascript:void(0);" class="entypo-weibo icon-sn-weibo share-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至新浪微博">新浪微博</a></li><li data-network="wechart"><a href="javascript:void(0);" class="entypo-wechart icon-sn-wechat share-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至微信">微信</a></li><li data-network="twitter"><a href="javascript:void(0);" class="entypo-twitter icon-sn-twitter share-3" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至 Twitter">Twitter</a></li><li data-network="facebook"><a href="javascript:void(0);" class="entypo-facebook icon-sn-facebook share-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至Facebook">Facebook</a></li><li data-network="renren"><a href="javascript:void(0);" class="entypo-renren icon-sn-renren share-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至人人网">人人网</a></li><li data-network="douban"><a href="javascript:void(0);" class="entypo-douban icon-sn-douban share-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="分享至豆瓣">豆瓣</a></li></ul></div>
+
+                    </div>
+                </div>
+
+                <div class="text-center mt10">
+                
+                    <button type="button" id="mainLike" data-id="1190000000357534" class="btn btn-success btn-lg mr10">
+                        7 推荐
+                    </button>
+                
+                                    <button type="button" id="mainBookmark" data-type="article" data-id="1190000000357534" class="btn btn-default btn-lg ">
+                        收藏
+                    </button>
+                                </div>
+
+                
+                                <div class="recommend-post pt30 mt40 mb30 border-top">
+                    <h4 class="mt0">你可能感兴趣的文章</h4>
+                    <ul class="widget-links list-unstyled">
+                                                <li class="widget-links__item">
+                            <a href="http://segmentfault.com/a/1190000000502743" title="10个最好的 JavaScript 模板引擎">10个最好的 JavaScript 模板引擎</a>
+                            <small class="text-muted">
+                                20 收藏，3.8k 浏览
+                            </small>
+                        </li>
+                                                <li class="widget-links__item">
+                            <a href="http://segmentfault.com/a/1190000003090514" title="Node.js开发入门—使用jade模板引擎">Node.js开发入门—使用jade模板引擎</a>
+                            <small class="text-muted">
+                                2 收藏，247 浏览
+                            </small>
+                        </li>
+                                                <li class="widget-links__item">
+                            <a href="http://segmentfault.com/a/1190000003116841" title="Node.js开发入门—使用AngularJS">Node.js开发入门—使用AngularJS</a>
+                            <small class="text-muted">
+                                6 收藏，234 浏览
+                            </small>
+                        </li>
+                                            </ul>
+                </div>
+                                <!-- <ul class="list-unstyled text-muted mt30">
+                                        <li>上一篇：<a href="/a/1190000000357447">马上着手开发Mac应用程序</a></li>
+                                                            <li class="mt5">下一篇：<a href="/a/1190000000357687">Craft：C 语言写的开源 Minecraft 克隆</a></li>
+                                    </ul> -->
+
+                <h2 class="h4 post-comment-title">讨论区</h2>
+                <div class="widget-comments" id="comment-1190000000357534" data-id="1190000000357534"><div class="widget-comments__item hover-show " id="1050000000358319">    <div class="votes widget-vote">        <button class="like " data-id="1050000000358319" type="button" data-do="like" data-type="comment"></button><span class="count">&nbsp;</span>    </div>    <div class="comment-content wordbreak">          <div class="content fmt"><p>比较喜欢Jade的语法</p>
+ </div>        <textarea name="text" rows="3" id="commentText-1050000000358319" class="editTextarea form-control mb10 hidden">比较喜欢Jade的语法</textarea>        <p class="comment-meta">            <a href="http://segmentfault.com/c/1050000000358319" class="text-muted">#1</a>&nbsp;<a href="http://segmentfault.com/u/gregwym" class="commentUser" data-userid="1030000000187616" data-username="咳嗽di小鱼" data-userslug="gregwym" data-useravatar="http://sfault-avatar.b0.upaiyun.com/231/148/2311480219-1030000000187616_medium40"><strong>咳嗽di小鱼</strong></a> · <span class="createdDate">2013年12月12日</span>                        · <a href="http://segmentfault.com/a/1190000000357534#" class="commentReply" data-userid="1030000000187616" data-id="1050000000358319" data-username="咳嗽di小鱼">回复</a>                                    <span class="pull-right commentTools hover-show-obj">                                                <a href="http://segmentfault.com/a/1190000000357534#911" class="ml10" data-toggle="modal" data-target="#911" data-type="comment" data-id="1050000000358319" data-typetext="评论" data-placement="top" title="举报">举报</a>            </span>        </p>    </div></div><div class="widget-comments__item hover-show " id="1050000000358323">    <div class="votes widget-vote">        <button class="like " data-id="1050000000358323" type="button" data-do="like" data-type="comment"></button><span class="count">&nbsp;</span>    </div>    <div class="comment-content wordbreak">  <span>回复 <a href="http://segmentfault.com/u/gregwym">咳嗽di小鱼</a>：</span>        <div class="content fmt"><p>拼语法简洁，都拼不过Jade</p>
+ </div>        <textarea name="text" rows="3" id="commentText-1050000000358323" class="editTextarea form-control mb10 hidden">拼语法简洁，都拼不过Jade</textarea>        <p class="comment-meta">            <a href="http://segmentfault.com/c/1050000000358323" class="text-muted">#2</a>&nbsp;<a href="http://segmentfault.com/u/weakish" class="commentUser" data-userid="1030000000323597" data-username="weakish" data-userslug="weakish" data-useravatar="http://sfault-avatar.b0.upaiyun.com/266/538/2665388308-1030000000323597_medium40"><strong>weakish</strong></a> · <span class="createdDate">2013年12月12日</span>                        · <a href="http://segmentfault.com/a/1190000000357534#" class="commentReply" data-userid="1030000000323597" data-id="1050000000358323" data-username="weakish">回复</a>                                    <span class="pull-right commentTools hover-show-obj">                                                <a href="http://segmentfault.com/a/1190000000357534#911" class="ml10" data-toggle="modal" data-target="#911" data-type="comment" data-id="1050000000358323" data-typetext="评论" data-placement="top" title="举报">举报</a>            </span>        </p>    </div></div><div class="widget-comments__item hover-show " id="1050000002703481">    <div class="votes widget-vote">        <button class="like " data-id="1050000002703481" type="button" data-do="like" data-type="comment"></button><span class="count">&nbsp;</span>    </div>    <div class="comment-content wordbreak">          <div class="content fmt"><p><strong>bold</strong>就喜欢这种故意这么小酷拽的东东</p>
+ </div>        <textarea name="text" rows="3" id="commentText-1050000002703481" class="editTextarea form-control mb10 hidden">**bold**就喜欢这种故意这么小酷拽的东东</textarea>        <p class="comment-meta">            <a href="http://segmentfault.com/c/1050000002703481" class="text-muted">#3</a>&nbsp;<a href="http://segmentfault.com/u/dannyliu" class="commentUser" data-userid="1030000000422389" data-username="dannyliu" data-userslug="dannyliu" data-useravatar="http://sf-static.b0.upaiyun.com/global/img/user-40.png"><strong>dannyliu</strong></a> · <span class="createdDate">4月23日</span>                        · <a href="http://segmentfault.com/a/1190000000357534#" class="commentReply" data-userid="1030000000422389" data-id="1050000002703481" data-username="dannyliu">回复</a>                                    <span class="pull-right commentTools hover-show-obj">                                                <a href="http://segmentfault.com/a/1190000000357534#911" class="ml10" data-toggle="modal" data-target="#911" data-type="comment" data-id="1050000002703481" data-typetext="评论" data-placement="top" title="举报">举报</a>            </span>        </p>    </div></div><div class="widget-comments__item hover-show " id="1050000002723119">    <div class="votes widget-vote">        <button class="like " data-id="1050000002723119" type="button" data-do="like" data-type="comment"></button><span class="count">&nbsp;</span>    </div>    <div class="comment-content wordbreak">          <div class="content fmt"><p><em>赞</em></p>
+ </div>        <textarea name="text" rows="3" id="commentText-1050000002723119" class="editTextarea form-control mb10 hidden">_赞_</textarea>        <p class="comment-meta">            <a href="http://segmentfault.com/c/1050000002723119" class="text-muted">#4</a>&nbsp;<a href="http://segmentfault.com/u/haaaiiimmm" class="commentUser" data-userid="1030000002714931" data-username="haaaiiimmm" data-userslug="haaaiiimmm" data-useravatar="http://sf-static.b0.upaiyun.com/global/img/user-40.png"><strong>haaaiiimmm</strong></a> · <span class="createdDate">5月2日</span>                        · <a href="http://segmentfault.com/a/1190000000357534#" class="commentReply" data-userid="1030000002714931" data-id="1050000002723119" data-username="haaaiiimmm">回复</a>                                    <span class="pull-right commentTools hover-show-obj">                                                <a href="http://segmentfault.com/a/1190000000357534#911" class="ml10" data-toggle="modal" data-target="#911" data-type="comment" data-id="1050000002723119" data-typetext="评论" data-placement="top" title="举报">举报</a>            </span>        </p>    </div></div>
+        
+        
+        
+        
+                        
+        <div class="widget-comments__form row">
+                                    <div class="col-md-12">
+                    请先 <a class="commentLogin" href="javascript:void(0);">登录</a> 后评论
+                </div>
+            
+    </div><!-- /.widget-comments__form -->
+    </div><!-- /.widget-comments -->
+
+
+
+                                    <div class="widget-welcome-question mt20 mb20 hidden-xs widget-welcome">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="title h4">不要错过 TA 的任何更新</h2>
+            <p>如果这篇文章对你有帮助，记得点赞收藏哦，你的支持是我们的动力 ^___^</p>
+        </div>
+        <form id="user">
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-4 pr0">
+                        <input type="text" class="form-control" placeholder="用户名" name="name" required="">
+                    </div>
+                    <div class="col-sm-4 pr0">
+                        <input type="text" class="form-control" placeholder="Email" name="mail" required="">
+                    </div>
+                    <div class="col-sm-4 pr0">
+                        <input type="password" class="form-control" placeholder="密码" name="password" required="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">注册</button>
+            </div>
+            <div class="col-sm-10 mt10 captcha-part" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-4 pr0">
+                        <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入验证码" disabled="" required="">
+                    </div>
+                    <div class="col-sm-4 pr0">
+                        <a id="reloadCaptcha" href="javascript:void(0)"><img src="" height="35"></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+                
+            </div><!-- /.main -->
+
+
+            <div class="col-xs-12 col-md-3 side">
+                <div class="sfad-sidebar">
+    <div class="sfad-item" data-adn="ad-1119908" id="adid-1119908"><div id="BAIDU_DUP_wrapper_1119908_0"><iframe id="baidu_clb_slot_iframe_1119908_0" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault.html" onload="BAIDU_DUP_CLB_renderFrame(&#39;1119908_0&#39;)" width="233" height="150" vspace="0" hspace="0" allowtransparency="true" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border:0; vertical-align:bottom; margin:0; display:block;"></iframe></div></div>
+
+</div>
+
+
+                <div class="widget-box no-border">
+                    <p class="text-muted">本文隶属于专栏</p>
+                    <h4 class="fz16"><a href="http://segmentfault.com/blog/news">新闻</a></h4>
+                    <p class="wordbreak">新闻资讯一手掌握</p>
+                                                        <button type="button" class="btn btn-default follow-article" data-do="follow" data-type="blog" data-id="1200000000309635">关注专栏</button>
+                                                    </div>
+
+                
+                                
+                <div class="post-nav hidden-xs side-outline hidden-sm fixed" style="display: block; width: 233px; top: 0px;">
+                    <div class="panel panel-default widget-outline">
+                        <div class="panel-heading">文章目录</div>
+                        <div class="panel-body">
+                            <div class="nav-body" style="top: -322.5px;">
+                                <div class="highlight-title" style="display: block; top: 621px; height: 27px;"></div>
+                                <ul class="articleIndex"><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader0">试玩</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader1">特性</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader2">其它实现</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader3">安装</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader4">浏览器支持</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader5">API</a></li><li style="list-style:none;"><ul><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader6">选项</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader7">标签</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader8">标签文本</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader9">注释</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader10">块注释</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader11">内联</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader12">块展开</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader13">Case</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader14">属性</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader15">HTML</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader16">Doctypes</a></li></ul></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader17">过滤器</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader18">代码</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader19">循环</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader20">条件语句</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader21">模板继承</a></li><li class=""><a href="http://segmentfault.com/a/1190000000357534#articleHeader22">前置、追加代码块</a></li><li class="active"><a href="http://segmentfault.com/a/1190000000357534#articleHeader23">包含</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader24">Mixins</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader25">产生输出</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader26">Makefile 的一个例子</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader27">命令行的 Jade</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader28">教程</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader29">许可</a></li><li><a href="http://segmentfault.com/a/1190000000357534#articleHeader30">项目主页</a></li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.side -->
+        </div>
+    </div>
+</div>
+
+<div id="shareToWeiboModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">分享</h4>
+            </div>
+            <div class="modal-body">
+                <p class="sfModal-content">
+                    分享到微博？
+                </p>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-default dont-likeweibo" data-dismiss="modal">取消并且不再弹出</button>
+                <a href="" id="shareLink" class="btn btn-primary done-btn" target="_blank" onclick="$(&#39;#shareToWeiboModal&#39;).modal(&#39;hide&#39;)">分享</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="widget-register widget-welcome-question mt20 hidden-xs widget-welcome widget-register-slideUp">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="title h4">与我们一起探索更多的未知</h2>
+            <p>专业的开发者技术社区，为用户提供多样化的线上知识交流，丰富的线下活动及给力的工作机会</p>
+        </div>
+        <form action="http://segmentfault.com/api/user/register/fast" method="post">
+            <div class="col-sm-5">
+                <div class="form-group mb0">
+                    <input type="text" class="form-control" placeholder="邮箱地址" name="mail" required="">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary btn-block">加入只须一步</button>
+            </div>
+            <div class="col-sm-10 mt10 captcha-part" style="display:none;">
+                <div class="row">
+                    <div class="col-sm-4 pr0">
+                        <input type="text" class="form-control" name="captcha" placeholder="请输入验证码" disabled="" required="">
+                    </div>
+                    <div class="col-sm-4 pr0">
+                        <a href="javascript:void(0)"><img src="" height="35"></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <a class="close" href="javascript:void"><span>×</span></a>
+    </div>
+</div>
+</div>
+
+<div id="911" class="modal widget-911">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">举报<span class="type-911">问题</span></h4>
+            </div>
+            <div class="modal-body">
+                <p><strong class="required">举报理由：</strong></p>
+                <div id="reportDescription">
+                <div class="radio-911 radio all">
+                    <label>
+                        <input type="radio" name="descRadio" value="推广（招聘、广告、SEO 等）方面的内容">
+                        推广（招聘、广告、SEO 等）方面的内容
+                    </label>
+                </div>
+                <div class="radio-911 radio all">
+                    <label>
+                        <input type="radio" name="descRadio" value="带有人身攻击、辱骂、仇恨等违反条款的内容">
+                        带有人身攻击、辱骂、仇恨等违反条款的内容
+                    </label>
+                </div>
+                <div class="radio-911 radio question-only">
+                    <label>
+                        <input type="radio" name="descRadio" value="与已有问题重复">
+                        与已有问题重复（请编辑该提问指向已有相同问题）
+                    </label>
+                </div>
+                <div class="radio-911 radio all">
+                    <label>
+                        <input type="radio" name="descRadio" value="内容质量差，或不适合在本网站出现">
+                        内容质量差，或不适合在本网站出现
+                    </label>
+                </div>
+                <div class="radio-911 radio answer-only">
+                    <label>
+                        <input type="radio" name="descRadio" value="答非所问，不符合答题要求">
+                        答非所问，不符合答题要求
+                    </label>
+                </div>
+                <div class="radio-911 radio all" id="btwRadio">
+                    <label>
+                        <input type="radio" name="descRadio" value="">
+                        其他原因（请补充说明）
+                    </label>
+                </div>
+                <div class="hide btw">
+                    <p class="mt20"><strong>补充说明：</strong></p>
+                    <textarea class="form-control" rows="3" autocomplete="false" id="911Desc"></textarea>
+                </div>
+                                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="911Submit" class="btn btn-primary">提交</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<footer id="footer">
+<div class="container">
+    <div class="row hidden-xs">
+        <dl class="col-sm-2 site-link">
+            <dt>网站相关</dt>
+            <dd><a href="http://segmentfault.com/about">关于我们</a></dd>
+            <dd><a href="http://segmentfault.com/tos">服务条款</a></dd>
+            <dd><a href="http://segmentfault.com/faq">帮助中心</a></dd>
+            <dd><a href="http://segmentfault.com/repu">声望与权限</a></dd>
+            <dd><a href="http://segmentfault.com/markdown">编辑器语法</a></dd>
+            <dd><a href="http://weekly.segmentfault.com/">每周精选</a></dd>
+            <dd><a href="http://segmentfault.com/app">App 下载</a></dd>
+        </dl>
+        <dl class="col-sm-2 site-link">
+            <dt>联系合作</dt>
+            <dd><a href="http://segmentfault.com/contact">联系我们</a></dd>
+            <dd><a href="http://segmentfault.com/hiring">加入我们</a></dd>
+            <dd><a href="http://segmentfault.com/link">合作伙伴</a></dd>
+            <dd><a href="http://segmentfault.com/press">媒体报道</a></dd>
+            <dd><a href="http://0x.segmentfault.com/">建议反馈</a></dd>
+            <dd><a href="http://pan.baidu.com/share/link?shareid=604288&uk=839272106" target="_blank">Logo 下载</a></dd>
+        </dl>
+        <dl class="col-sm-2 site-link">
+            <dt>常用链接</dt>
+            <dd><a href="http://mirrors.segmentfault.com/" target="_blank">文档镜像</a></dd>
+            <dd>订阅：<a href="http://segmentfault.com/feeds">问答</a> / <a href="http://segmentfault.com/feeds/blogs">文章</a></dd>
+            <dd><a href="http://segmentfault.com/events?category=4">黑客马拉松</a></dd>
+<!--             <dd><a href="http://zs.segmentfault.com/" target="_blank">一起涨姿势</a></dd> -->
+            <dd><a href="http://namebeta.com/" target="_blank">域名搜索注册</a></dd>
+        </dl>
+        <dl class="col-sm-2 site-link">
+            <dt>关注我们</dt>
+            <dd><a href="http://twitter.com/segment_fault" target="_blank">Twitter</a></dd>
+            <!-- <dd><a href="http://page.renren.com/699146294" target="_blank">人人网</a></dd> -->
+            <dd><a href="https://www.linkedin.com/company/segmentfault" target="_blank">LinkedIn</a></dd>
+            <dd><a href="http://weibo.com/segmentfault" target="_blank">新浪微博</a></dd>
+            <dd><a href="http://i.youku.com/segmentfault" target="_blank">优酷主页</a></dd>
+            <dd><a href="http://segmentfault.com/giveaways" target="_blank">开发者福利</a></dd>
+            <dd><a href="http://segmentfault.com/blog/segmentfault" target="_blank">开发日志</a></dd>
+        </dl>
+        <dl class="col-sm-4 site-link" id="license">
+            <dt>内容许可</dt>
+            <dd>除特别说明外，用户内容均采用 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-sa/3.0/cn/">知识共享署名-相同方式共享 3.0 中国大陆许可协议</a> 进行许可</dd>
+            <dd>本站由 <a target="_blank" href="http://qingcloud.com/">青云 QingCloud</a> 提供云计算服务<br><a target="_blank" href="https://www.upyun.com/?utm_source=segmentfault&utm_medium=link&utm_campaign=upyun&md=segmentfault">又拍云</a> 提供 CDN 存储服务</dd>
+        </dl>
+    </div>
+    <div class="copyright">
+        Copyright © 2011-2015 SegmentFault. 当前呈现版本 15.08.10<br><a href="http://www.miibeian.gov.cn/" rel="nofollow">浙ICP备15005796号-2</a>
+    </div>
+</div>
+</footer>
+
+<div id="fixedTools" class="hidden-xs hidden-sm">
+  <a id="backtop" class="border-bottom" href="http://segmentfault.com/a/1190000000357534#">回顶部</a>
+  <div class="qrcodeWraper">
+    <a href="http://segmentfault.com/app#qrcode"><span class="glyphicon glyphicon-qrcode"></span></a>
+    <img id="qrcode" class="border" alt="sf-wechat" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/appQrcode.92de1876.png">
+      <p class="qrcode-text">扫扫下载 App</p>
+  </div>
+</div>
+
+
+<div class="app-promotion-bar" style="display: block;">
+    <a href="javascript:;"><i class="fa fa-close close"></i></a>
+    <div class="icon"></div>
+    <p class="title">SegmentFault</p>
+    <p class="describe">一起探索更多未知</p>
+    <a class="download-btn" href="http://segmentfault.com/app#qrcode">下载 App</a>
+</div>
+
+<script src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/hm.js"></script><script async="" src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/analytics.js"></script><script id="loginModal" type="text/template">
+<div class="row bg-white login-modal">
+    <div class="col-md-4 col-sm-12 col-md-push-7 login-wrap">
+        <h1 class="h4 text-muted login-title">用户登录</h1>
+        <form action="/api/user/login" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label class="control-label">Email</label>
+                <input type="email" class="form-control" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="密码">
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    <label><input name="remember" type="checkbox" value="1" checked> 记住登录状态</label>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right pl20 pr20">登录</button>
+            </div>
+        </form>
+        <p class="h4 text-muted visible-xs-block h4">快速登录</p>
+        <div class="widget-login mt30">
+            <p class="text-muted mt5 mr10 pull-left hidden-xs">快速登录</p>
+            <a href="/user/oauth/google" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-google"><span class="icon-sn-google"></span> <strong class="visible-xs-inline">Google 账号</strong></a>
+            <a href="/user/oauth/github" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-github"><span class="icon-sn-github"></span> <strong class="visible-xs-inline">Github 账号</strong></a>
+            <a href="/user/oauth/weibo" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-weibo"><span class="icon-sn-weibo"></span> <strong class="visible-xs-inline">新浪微博账号</strong></a>
+            <a href="/user/oauth/qq" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-qq"><span class="icon-sn-qq"></span> <strong class="visible-xs-inline">QQ 账号</strong></a>
+            <a href="/user/oauth/weixin" class="btn pl5 pr5 mb5 btn-default btn-sm btn-sn-wechat"><span class="icon-sn-wechat"></span> <strong class="visible-xs-inline">微信账号</strong></a>
+            <button type="button" class="btn mb5 btn-default btn-sm btn-sn-more" id="loginShowMore">...</button>
+            <a href="/user/oauth/twitter" class="btn pl5 pr5 mb5 btn-default btn-sn-twitter btn-sm hidden"><span class="icon-sn-twitter"></span> <strong class="visible-xs-inline">Twitter 账号</strong></a>
+            <a href="/user/oauth/facebook" class="btn pl5 pr5 mb5 btn-default btn-sn-facebook btn-sm hidden"><span class="icon-sn-facebook"></span> <strong class="visible-xs-inline">Facebook 账号</strong></a>
+            <a href="/user/oauth/douban" class="btn pl5 pr5 mb5 btn-default btn-sn-douban btn-sm hidden"><span class="icon-sn-douban"></span> <strong class="visible-xs-inline">豆瓣账号</strong></a>
+        </div>
+    </div>
+    <div class="login-vline hidden-xs hidden-sm"></div>
+    <div class="col-md-4 col-md-pull-3 col-sm-12 login-wrap">
+        <h1 class="h4 text-muted login-title">创建新账号</h1>
+        <form action="/api/user/register" method="POST" role="form" class="mt30">
+            <div class="form-group">
+                <label for="name" class="control-label">用户名</label>
+                <input type="text" class="form-control" name="name" required placeholder="字母、数字等，用户名唯一">
+            </div>
+            <div class="form-group">
+                <label for="mail" class="control-label">Email</label>
+                <input type="hidden" name="mail">
+                <input type="email" class="form-control register-mail" name="mail" required placeholder="hello@segmentfault.com">
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">密码</label>
+                <input type="password" class="form-control" name="password" required placeholder="不少于 6 位">
+            </div>
+            <div class="form-group" style="display:none;">
+                <label class="required control-label">验证码</label>
+                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入下方的验证码">
+                <div class="mt10"><a id="loginReloadCaptcha"  href="javascript:void(0)"><img data-src="/user/captcha?w=240&h=50" class="captcha" width="240" height="50" /></a></div>
+            </div>
+            <div class="form-group clearfix">
+                <div class="checkbox pull-left">
+                    同意并接受<a href="/tos" target="_blank">《服务条款》</a>
+                </div>
+                <button type="submit" class="btn btn-primary pl20 pr20 pull-right">注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="text-center text-muted mt30">
+    <a href="/user/forgot" class="ml5">找回密码</a>
+</div>
+</script>
+
+
+<script>
+    (function (w) {
+        w.SF = {
+            staticUrl: "//static.segmentfault.com",
+        };
+        w.SF.token = (function () {
+    var _p5N = //'QK'
+'QK'+//'c'
+'ae'+''///*'OU'*/'OU'
++//'T'
+'2e'+'fb2'//'X'
++'V'//'V'
++'DS'//'DS'
++/* 'Tq2'//'Tq2' */''+'02'//'c'
++'5f0'//'GF'
++//'2HZ'
+'4'+//'uxB'
+'5'+''///*'1tG'*/'1tG'
++//'1'
+'f'+//'tjC'
+'e'+'ef'//'iC'
++//'w'
+'74'+'wND'//'wND'
++'6'//'16v'
++'o'//'o'
++'f7'//'Ky'
++'VJ'//'VJ'
++//'o'
+'da6'+'ba'//'fbn'
++'90e'//'x'
++/* 'wJ'//'wJ' */''+/* 'eF'//'eF' */''+''///*'Wp'*/'Wp'
++'tbY'//'tbY'
++/* '0gn'//'0gn' */''+//'bO'
+'e', _iQX = [[0,2],[7,8],[7,9],[20,23],[21,22],[23,25],[31,34]];
+
+    for (var i = 0; i < _iQX.length; i ++) {
+        _p5N = _p5N.substring(0, _iQX[i][0]) + _p5N.substring(_iQX[i][1]);
+    }
+
+    return _p5N;
+})();
+    })(window);
+</script>
+
+    <script src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/assets.ce4fe392.js"></script>
+    <script>
+    requirejs.config({
+        baseUrl: "//static.segmentfault.com/build/global/js"
+    });
+    </script>
+            <script src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/post.dca52d32.js"></script>
+    
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-918487-8']);
+  _gaq.push(['_trackPageview']);
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-918487-8', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e23800c454aa573c0ccb16b52665ac26";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script src="./Jade —— 源于 Node.js 的 HTML 模板引擎 - SegmentFault_files/m.js"></script>
+<script>
+if(typeof BAIDU_CLB_fillSlotAsync === 'function') {
+    BAIDU_CLB_fillSlotAsync('981183','adid-981183');
+    BAIDU_CLB_fillSlotAsync('981184','adid-981184');
+    BAIDU_CLB_fillSlotAsync('981694','adid-981694');
+    BAIDU_CLB_fillSlotAsync('981179','adid-981179');
+    BAIDU_CLB_fillSlotAsync('1119908','adid-1119908');
+}
+</script>
+
+
+
+
+<div id="atwho-container"></div></body></html>

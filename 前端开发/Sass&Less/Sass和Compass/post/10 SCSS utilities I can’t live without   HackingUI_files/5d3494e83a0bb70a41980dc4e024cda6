@@ -1,0 +1,71 @@
+<html>
+<head>
+		<title>404 Page Not Found</title>
+		<!--link rel="stylesheet" type="text/css" href="style.css"-->
+<style>	
+body {
+	height: 100%;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #00D0C9),
+		color-stop(1, #016ACC)
+		);
+	background-image: -o-linear-gradient(bottom, #00D0C9 0%, #016ACC 100%);
+	background-image: -moz-linear-gradient(bottom, #00D0C9 0%, #016ACC 100%);
+	background-image: -webkit-linear-gradient(bottom, #00D0C9 0%, #016ACC 100%);
+	background-image: -ms-linear-gradient(bottom, #00D0C9 0%, #016ACC 100%);
+	background-image: linear-gradient(to bottom, #00D0C9 0%, #016ACC 100%);
+	font-family: Helvetica Neue, Arial, Tahoma, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+}
+
+#content {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background: url(http://igovphil.github.io/gwhs/igovlogo.png) no-repeat;
+	margin-top: 10%;
+	margin-left: 10%;
+}
+
+#text {
+	padding-top: 110px;
+	padding-left: 80px;
+	opacity: 0.9;
+	-moz-opacity: 0.9;
+	-khtml-opacity: 0.9;
+	filter: alpha(opacity=90);
+}
+
+h1 { font-size: 2rem; }
+
+h1 span {
+	font-size: 16px;
+}
+
+p {}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #ffdc2a;
+}
+</style>	
+	
+</head>
+<body>	
+	<div id="content">
+		<div id="text">
+			<h1>404 Page Not Found<br><span>The page you were looking for appears to have been moved, deleted, or does not exist.</span></h1>
+			<ul>
+				<li>If you typed in the address, check your spelling.</li>
+				<li>If you followed a link, it's probably broken.</li>
+				<li>If you're not sure what you're looking for, you could go back to <a href="#" onclick="history.go(-1)">where you were</a>.</li>
+			</ul>
+		</div>	
+	</div>
+</body>	
+</html>

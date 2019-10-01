@@ -1,0 +1,99 @@
+.old-theme {
+	background: #4F5255;
+	font-size: 12px;
+	font-family: Helvetica, Tahoma, Verdana, Georgia, Sans-Serif;
+	font-size: 100%;
+}
+.old-theme a {
+	color: #618898;
+	font-weight: bold;
+}
+.old-theme a:hover {
+	color: #92c2d7;
+}
+.old-theme #page {
+	background: #e5e5e5;
+	color: #303030;
+	width: 720px;
+	padding: 30px 8px 10px 12px;
+}
+.old-theme #masthead {
+	display: none;
+}
+.old-theme #notice {
+	position: fixed;
+	top: 10px;
+	width: 150px;
+	margin-left: -75px;
+	left: 50%;
+	z-index: 1;
+}
+.old-theme .entry-content {
+	font-size: 12px;
+}
+.old-theme .entry-content p {
+	margin-top: 10px;
+	margin-bottom: 8px;
+	line-height: 160%;
+}
+.old-theme blockquote {
+	font-family: Helvetica, Tahoma, Verdana, Georgia, STHeiti, Heiti, Sans-Serif !important;
+}
+.old-theme blockquote,
+.old-theme code {
+	overflow: auto;
+	padding: 0 10px 0 4px;
+	margin: 3px 60px 3px 20px;
+	line-height: 140%;
+	background-color: #F0F0F0;
+	border: 1px solid #737373 !important;
+	color: #0A0A0A;
+	font-size: 12px;	
+}
+.old-theme blockquote:hover,
+.old-theme code:hover {
+	background-color: #ffffff;
+		border: 1px solid #424242;
+}
+.old-theme code {
+	font-family: "Courier New", Consolas, Verdana, Sans-Serif;
+}
+.old-theme .entry-footer {
+	display: none;
+}
+.old-theme #rss {
+	display: none;
+}
+.old-theme .comments-title {
+	font-size: 18px;
+	border-top: 1px dotted #4F5255;
+	padding-top: 6px;
+}
+.old-theme .comment-list {
+	margin-left: 6px;
+	width: 592px;
+	padding-left: 2px;
+}
+.old-theme .comment-list ul {
+	display: none;
+}
+.old-theme .comment-list li {
+	padding: 2px 2px 2px 8px;
+	min-height: 55px;
+}
+.old-theme .comment-list li.even {
+	background: #d8d8d8;
+}
+.old-theme .comment-meta {
+	display: none;
+}
+.old-theme .comment-text {
+	border: 0;
+	padding: 0;
+}
+.old-theme .fn:after {
+	content: ' 说：';
+}
+.old-theme #respond {
+	display: none;
+}

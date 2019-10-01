@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://codetank.alloyteam.com/ -->
+<html class=" javascriptEnabled win win6_1 chrome chrome39_0 webkit webkit537_4 flash flash18_0"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="Author" content="Tencent.AlloyTeam.Csonlai">
+	<meta name="keywords" content="CodeTank, 代码坦克, 编程游戏, 全世界首款 Javascript 程序员的游戏, Tank, Robot,腾讯 Alloy 团队">
+	<meta name="description" content="CodeTank（代码坦克）是全世界首款 Javascript 程序员的游戏, 由腾讯 AlloyTeam 用 HTML5、Javascript 等 Web 新技术来构建一个基于互联网的智能坦克机器人战斗仿真引擎，通过我们的代码包，每个人都可以方便的构建属于自己富有个性的 Tank 机器人，并通过互联网进行在线互动和竞赛！玩家可以使用 Javascript 对坦克机器人进行编程，给机器人设计智能的代码逻辑来指挥它探测敌人、发动攻击、躲避炮弹等等。">
+	<meta property="wb:webmaster" content="cec40dae58a47a27">
+	<meta name="application-name" content="CodeTank">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<meta property="qc:admins" content="43252073745416361447145156375">
+	
+
+	<meta name="viewport" content="minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, width=device-width, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://codetank.alloyteam.com/favicon.ico">
+	<title>CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏</title>
+	<!--[if lt IE 9]>
+    <script src="js/excanvas/excanvas.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/main.css">
+	<link rel="apple-touch-icon" href="http://codetank.alloyteam.com/style/site/codetank_icon.png">
+	<link rel="apple-touch-startup-image" href="http://codetank.alloyteam.com/style/site/startup.png">
+
+	<!-- for iPhone Retina Display high 适配高分辨率iPhone -->
+	<link rel="apple-touch-startup-image" sizes="640x960" href="http://codetank.alloyteam.com/style/site/startup_640x960.png">
+
+	<!-- for iPad Landscape 适配iPad横屏 -->
+	<link rel="apple-touch-startup-image" sizes="1024x748" href="http://codetank.alloyteam.com/style/site/startup_1024x748.png">
+
+	<!-- for iPad Portrait 适配iPad竖屏 -->
+	<link rel="apple-touch-startup-image" sizes="768x1004" href="http://codetank.alloyteam.com/style/site/startup_768x1004.png">
+	<script type="text/javascript" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jquery-2.1.4.min.js"></script>
+	<script>
+	var getUrlParam = function (name, href, noDecode) {
+	    var re = new RegExp("(?:\\?|#|&)" + name + "=([^&]*)(?:$|&|#)", "i"),
+	        m = re.exec(href);
+	    var ret = m ? m[1] : "";
+	    return !noDecode ? decodeURIComponent(ret) : ret
+	};
+	if(getUrlParam("student",location.href) == "2"){
+		window.location.href = "http://codetank.alloyteam.com/tips.html";
+	}
+	
+	</script>
+	<style>
+		.social-icon {
+			display: none !important;
+			line-height: 100px;
+			display: inline-block;
+			color:red;
+			/*background: url(http://www.ipresst.com/style/image/service-icons-color.png);*/
+			/*background-color:Red;
+			background-repeat: no-repeat;
+			overflow: hidden;
+			vertical-align: -3px;
+			background-position: 0 -192px;*/
+		}
+	</style>
+</head>
+<body class="" cmd="void">
+<div id="codeTankWrapper" class="wrapper codeTank" cmd="void">
+
+		<!-- TOP BAR -->
+		<div id="toolbar" class="toolbar normal">
+
+			<div class="toolbarLeft">
+				<a class="title" href="http://www.alloyteam.com/" target="_blank" title="CodeTank 互联网智能代码坦克机器人 Ver1.0.20120810.001 - AlloyTeam.com">
+					<div class="left titleLogo">
+						<span class="code">Code</span>
+						<span class="tank">Tank</span>
+					</div>
+					<div class="logoBeta">beta</div>
+					<div class="subTitle">互联网智能代码坦克机器人</div>
+
+				</a>
+				<div cmd="shareCodeTank" class="btn btn-info shareButton" report="site.share">分享</div>
+          
+			</div>
+
+			<!-- TOP RIGHT -->
+
+			<div cmd="about" class="btn btn-info siteButton" report="site.about" title="这里有好多小秘密 ^_-">关于</div>
+			
+			<div cmd="feeback" class="btn btn-info siteButton" report="site.feedback"><a href="http://www.alloyteam.com/2012/08/welcome-to-codetank/" target="_blank">留言</a></div>
+			<div cmd="discuss" class="btn btn-info siteButton" report="site.feedback"><a href="http://djt.qq.com/forum-101-1.html" target="_blank">讨论区</a></div>
+			<div cmd="help" class="btn btn-info siteButton" report="site.help"><a href="http://codetank.alloyteam.com/help.html" target="_blank">帮助</a></div>
+			<div cmd="getDocs" class="btn btn-info siteButton" report="site.apidoc"><a href="http://codetank.alloyteam.com/doc/" target="_blank">API 文档</a></div>
+			<div cmd="showRanking" class="btn btn-info siteButton" report="site.ranking">全球排行</div>
+            
+			<div id="accountContainer" class="right" cmd="void" style="display: block;">
+				<div class="btn btn-info siteButton" cmd="signup" report="site.signup">注册</div>
+				<div class="btn btn-info siteButton" cmd="login" report="site.login">登录</div>
+			</div>
+		</div>
+		<!-- LEFT -->
+    	<div id="leftMain" class="leftMain noSelect" style="width: 800px;">
+
+    		<div class="explainWallWrap">
+				<ul id="explainWall">
+				</ul>
+    		</div>
+
+    		<!-- ROBOT BATTLE CONTROL -->
+    		<div id="battleControl">
+				<div class="QQ"><span class="text">Q群: </span><span class="group"> 261043460</span></div>
+				<div class="followUsBtn">
+					<span id="sSBtn">
+						<iframe id="followUsBtnSina" width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/followbutton.html"></iframe>
+					</span>
+					<span>
+						<iframe id="followUsBtnTencent" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/index.html" frameborder="0" scrolling="auto" width="63" height="24" marginwidth="0" marginheight="0" allowtransparency="true"></iframe>
+					</span>
+				</div>
+	
+                <div cmd="battle" class="btn btn-success battleControlButton battleButton" report="site.battle">
+                	<select id="battleMode" class="battleMode" cmd="setMode">
+	                    <option value="dev" title="开发模式下可以由任意多的Robot参与混战，此种模式的战斗计分不会参与排行">开发模式</option>
+	                    <option value="oneVSOne" title="一对一单挑模式">一对一</option>
+	                    <option value="melee" title="选择10个Robot进行群殴混战">十人混战</option>
+	                    <option value="teamTwo" title="每个队两个人进行双打">双人对决</option>
+	                    <option value="teamFive" title="每个队5人，组两个队进行战斗！">战队对决</option>
+	                </select>
+                    <span id="battleText" title="快捷键：Ctrl+B">战　斗</span> 
+                </div>
+ 				<div cmd="endBattle" class="btn btn-info battleControlButton" report="site.end">
+                     结 束 
+                </div>
+                
+                <div cmd="robotStore" class="btn btn-success battleControlButton" report="site.tanklib" title="快捷键：Esc 或 Ctrl+Space空格">坦克库</div>
+                <div cmd="setting" class="btn btn-success battleControlButton" report="site.setting">设置</div>
+                <div cmd="console" class="btn btn-success battleControlButton" report="site.console" title="快捷键：Ctrl+Shift+`[即：~]">控制台</div>
+                
+                
+            </div>
+
+            <!-- ROBOT BATTLE CANVAS -->
+            <div class="robotMain">
+                <!-- GAME TITLE -->
+                <div id="gameTitle" style="width: 800px; height: 600px;">
+                    <div class="gameLogo">
+                        <span class="code">Code</span>
+                        <span class="tank">Tank</span>
+                    </div>
+                    <div id="loadingBar" _olddisplay="block" style="opacity: 0.00557662103703704; display: none;">100%</div>
+                </div>
+                <canvas id="canvas" class="robotCanvas" width="800" height="600" style="width: 800px; height: 600px; background-image: url(http://codetank.alloyteam.com/style/battlefield/bg_grid.png), url(http://codetank.alloyteam.com/style/battlefield/bg4.jpg);">请使用支持canvas的浏览器查看</canvas>
+                <div id="info" style="width: 800px;">
+                    <p class="fps">
+                        <span>FPS:</span><span id="fps"></span>
+                        <span>TPS:</span><span id="tps"></span>
+                    </p>
+                    <p class="detail">
+                        <span>Size:</span><span id="size">800 X 600</span>
+                        <span>Browser:</span><span id="browser">chrome 39.0</span>
+                        <span>Tank:</span><span id="tankNum"></span>
+                    </p>
+            
+                </div>
+    
+                
+                
+            </div>
+        
+            
+
+            <div class="tps">
+                <input id="tpsSetting" type="range" name="tps" min="1" max="200" value="30">
+                <span id="tpsValue">tps: 30</span>
+            </div>
+
+
+            
+            <div class="copyright">Copyright © 2012 <a href="http://www.alloyteam.com/" target="_blank">Tencent AlloyTeam</a>. All Rights Reserved.</div>
+		</div>     
+
+
+		
+		<!-- ROBOT FACTORY -->
+		<div id="robotFactory" cmd="stopPropagation" class="robotFactory robotFactoryStretch noSelect sideUnfold">
+			<div id="sideButton" cmd="robotStore" class="sideButton sideButtonRight" title="展开/收起【坦克库】：Esc 或 Ctrl+Space空格" report="sidebar.toggle">
+				<div class="sideArrow"></div>
+			</div>
+			<div id="robotListWrap" class="robotListWrap">
+				<div id="tankbaseControl" class="tankbaseControl">
+
+                    <div cmd="ViewNetTank" class="btn btn-warning tankbaseControlButton" report="sidebar.nettank">坦克对战</div>
+                    <div cmd="ViewNetTeam" class="btn btn-warning tankbaseControlButton" report="sidebar.netteam">战队对战</div>
+                    <div cmd="CreateTeam" class="btn btn-success siteButton" report="sidebar.createTeam">组建战队</div>                    
+					<div cmd="CreateTank" class="btn btn-success siteButton" report="sidebar.createTank">创建坦克</div> 
+				</div>
+                <ul id="robotList" style="height: 54px;">
+                    <li id="netRobot" class="">
+                    	<a href="javascript:void(0);" class="parent" cmd="showChild">官方坦克示例</a>
+                        <ul class="child" id="netRobotList"><li id="tank_50153f2d40a0e2df5c00003f" tid="50153f2d40a0e2df5c00003f" title="alloyteam.spinbot"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList50153f2d40a0e2df5c00003f" class="robotCheckInput" type="checkbox" inputtype="robot" tid="50153f2d40a0e2df5c00003f">								<label class="robotCheckLabel" for="checknetRobotList50153f2d40a0e2df5c00003f">alloyteam.spinbot<span class="battleCount" title="战斗次数">[26007]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="50153f2d40a0e2df5c00003f" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="50153f2d40a0e2df5c00003f" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_50153f5640a0e2df5c000040" tid="50153f5640a0e2df5c000040" title="alloyteam.ramFire"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList50153f5640a0e2df5c000040" class="robotCheckInput" type="checkbox" inputtype="robot" tid="50153f5640a0e2df5c000040">								<label class="robotCheckLabel" for="checknetRobotList50153f5640a0e2df5c000040">alloyteam.ramFire<span class="battleCount" title="战斗次数">[22316]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="50153f5640a0e2df5c000040" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="50153f5640a0e2df5c000040" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_501540ec40a0e2df5c00004c" tid="501540ec40a0e2df5c00004c" title="alloyteam.walls"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList501540ec40a0e2df5c00004c" class="robotCheckInput" type="checkbox" inputtype="robot" tid="501540ec40a0e2df5c00004c">								<label class="robotCheckLabel" for="checknetRobotList501540ec40a0e2df5c00004c">alloyteam.walls<span class="battleCount" title="战斗次数">[13530]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="501540ec40a0e2df5c00004c" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="501540ec40a0e2df5c00004c" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_5015414c40a0e2df5c00004d" tid="5015414c40a0e2df5c00004d" title="alloyteam.tracker"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList5015414c40a0e2df5c00004d" class="robotCheckInput" type="checkbox" inputtype="robot" tid="5015414c40a0e2df5c00004d">								<label class="robotCheckLabel" for="checknetRobotList5015414c40a0e2df5c00004d">alloyteam.tracker<span class="battleCount" title="战斗次数">[11264]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="5015414c40a0e2df5c00004d" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="5015414c40a0e2df5c00004d" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_50154f5840a0e2df5c000053" tid="50154f5840a0e2df5c000053" title="alloyteam.corner"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList50154f5840a0e2df5c000053" class="robotCheckInput" type="checkbox" inputtype="robot" tid="50154f5840a0e2df5c000053">								<label class="robotCheckLabel" for="checknetRobotList50154f5840a0e2df5c000053">alloyteam.corner<span class="battleCount" title="战斗次数">[11000]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="50154f5840a0e2df5c000053" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="50154f5840a0e2df5c000053" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_501603df9023a2bd58000012" tid="501603df9023a2bd58000012" title="alloyteam.crazy"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList501603df9023a2bd58000012" class="robotCheckInput" type="checkbox" inputtype="robot" tid="501603df9023a2bd58000012">								<label class="robotCheckLabel" for="checknetRobotList501603df9023a2bd58000012">alloyteam.crazy<span class="battleCount" title="战斗次数">[12622]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="501603df9023a2bd58000012" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="501603df9023a2bd58000012" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_5016054a9023a2bd58000014" tid="5016054a9023a2bd58000014" title="alloyteam.myFirstRobot"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList5016054a9023a2bd58000014" class="robotCheckInput" type="checkbox" inputtype="robot" tid="5016054a9023a2bd58000014">								<label class="robotCheckLabel" for="checknetRobotList5016054a9023a2bd58000014">alloyteam.myFirstRobot<span class="battleCount" title="战斗次数">[8951]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="5016054a9023a2bd58000014" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="5016054a9023a2bd58000014" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_50188a819023a2bd5800026e" tid="50188a819023a2bd5800026e" title="alloyteam.fire"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList50188a819023a2bd5800026e" class="robotCheckInput" type="checkbox" inputtype="robot" tid="50188a819023a2bd5800026e">								<label class="robotCheckLabel" for="checknetRobotList50188a819023a2bd5800026e">alloyteam.fire<span class="battleCount" title="战斗次数">[14782]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="50188a819023a2bd5800026e" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="50188a819023a2bd5800026e" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_50188ae09023a2bd5800026f" tid="50188ae09023a2bd5800026f" title="alloyteam.trackFire"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList50188ae09023a2bd5800026f" class="robotCheckInput" type="checkbox" inputtype="robot" tid="50188ae09023a2bd5800026f">								<label class="robotCheckLabel" for="checknetRobotList50188ae09023a2bd5800026f">alloyteam.trackFire<span class="battleCount" title="战斗次数">[13992]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="50188ae09023a2bd5800026f" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="50188ae09023a2bd5800026f" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_502c65f820df375c1a0006a0" tid="502c65f820df375c1a0006a0" title="alloyteam.paint"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList502c65f820df375c1a0006a0" class="robotCheckInput" type="checkbox" inputtype="robot" tid="502c65f820df375c1a0006a0">								<label class="robotCheckLabel" for="checknetRobotList502c65f820df375c1a0006a0">alloyteam.paint<span class="battleCount" title="战斗次数">[7122]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="502c65f820df375c1a0006a0" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="502c65f820df375c1a0006a0" report="netlist.addFav,tank.addFav">收藏</a></li><li id="tank_502cbaa020df375c1a0007ad" tid="502cbaa020df375c1a0007ad" title="alloyteam.slient"><a href="http://codetank.alloyteam.com/###">								<input id="checknetRobotList502cbaa020df375c1a0007ad" class="robotCheckInput" type="checkbox" inputtype="robot" tid="502cbaa020df375c1a0007ad">								<label class="robotCheckLabel" for="checknetRobotList502cbaa020df375c1a0007ad">alloyteam.slient<span class="battleCount" title="战斗次数">[5356]</span></label>							</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="viewCode" param="2" tid="502cbaa020df375c1a0007ad" report="tank.view,netlist.view">查看</a><a href="http://codetank.alloyteam.com/###" class="viewCode" cmd="collectCode" tid="502cbaa020df375c1a0007ad" report="netlist.addFav,tank.addFav">收藏</a></li></ul>
+                    </li>       
+              
+                    <li id="myRobot" class="showChild">
+                    	<a href="javascript:void(0);" class="parent" cmd="showChild">我的坦克</a>
+                        <ul class="child" id="myRobotList"><li class="loading">请先登录!</li></ul>
+                    </li>
+                    <li id="team">
+                    	<a href="javascript:void(0);" class="parent" cmd="showChild">我的战队</a>
+                        <ul class="child" id="myTeamList"><li class="loading">请先登录!</li></ul>
+                    </li>  
+                    <li id="myFavRobot">
+                    	<a href="javascript:void(0);" class="parent" cmd="showChild">收藏的坦克</a>
+                        <ul class="child" id="myFavRobotList"><li class="loading">请先登录!</li></ul>
+                    </li>
+                    <li id="favTeam">
+                    	<a href="javascript:void(0);" class="parent" cmd="showChild">收藏的战队</a>
+                        <ul class="child" id="myFavTeamList"><li class="loading">请先登录!</li></ul>
+                    </li>  
+            
+                </ul>
+			</div>
+            <!-- 网络坦克 -->
+            <div id="sideNetTankWrap" class="sideWrap sideCollapse">
+            	<div class="editControl">
+					<div id="netTankBack" class="left button cancel-button dark-button back-button" report="nettank.goback">返回</div> 	
+                    <div class="sideTitle">网络坦克</div>
+                    <span id="searchTankPage"></span>
+                    <div id="sideNetTankOpBox" class="sideNetTankOpBox">
+                    	<div id="sideNetTankOpNext" cmd="Next" class="btn btn-success siteButton" report="nettank.next">下页</div>
+                        <div id="sideNetTankOpPre" cmd="Pre" class="btn btn-success siteButton" report="nettank.pre">上页</div>
+                        <div cmd="Index" class="btn btn-success siteButton" report="nettank.index">首页</div>
+                        <div cmd="Refresh" class="btn btn-warning siteButton" report="nettank.refresh">刷新</div>
+                        <div cmd="Search" class="btn btn-warning siteButton" report="nettank.search">搜索</div>
+
+                    	<input id="searchTank" class="gray" type="text" value="请输入用户名">
+                    </div>			
+				</div>
+            	<div id="sideNetTankBox" class="sideNetTankBox">
+                	<ul id="sideNetTankList" class="sideContent"></ul>
+                </div>
+            </div>
+            <!-- 网络战队 -->
+            <div id="sideNetTeamWrap" class="sideWrap sideCollapse">
+            	<div class="editControl">
+					<div id="netTeamBack" class="left button cancel-button dark-button back-button" report="netteam.goback">返回</div> 	
+                    <div class="sideTitle">网络战队</div>
+                    <span id="searchTeamPage"></span>
+                    <div id="sideNetTeamOpBox" class="sideNetTankOpBox">
+                    	<div id="sideNetTeamOpNext" cmd="Next" class="btn btn-success siteButton" report="netteam.next">下页</div>
+                    	<div id="sideNetTeamOpPre" cmd="Pre" class="btn btn-success siteButton" report="netteam.pre">上页</div>
+                    	<div cmd="Index" class="btn btn-success siteButton" report="netteam.index">首页</div>
+                    	<div cmd="Refresh" class="btn btn-warning siteButton" report="netteam.refresh">刷新</div>
+                        <div cmd="Search" class="btn btn-warning siteButton" report="netteam.search">搜索</div>
+                        <input id="searchTeam" class="gray" type="text" value="请输入用户名">
+
+                    </div>			
+				</div>
+            	<div id="sideNetTeamBox" class="sideNetTankBox">
+                	<ul id="sideNetTeamList" class="sideContent"></ul>
+                </div>
+            </div>
+            
+			<div id="editorWrap" class="sideWrap sideCollapse">
+				<div id="editControl" class="editControl">
+					<div id="cancelEdit" class="left button cancel-button dark-button back-button" cmd="cancelEdit" report="editor.goback"><span></span>返回</div>
+					<div class="left"><input id="nameText" type="text" title="坦克机器人的名字"></div>
+					<div id="editorBtnBox">
+                        <div cmd="save" class="btn btn-success editControlButton" report="editor.save,tank.save" title="快捷键：Ctrl+S">保存</div>
+                        <div cmd="delete" class="btn btn-danger editControlButton" report="editor.del,tank.del">删除</div>
+						<div cmd="editorCollect" class="btn btn-success editControlButton" report="editor.addFav,tank.addFav">收藏</div>
+					
+                    </div>
+					<div id="shareCodeButton" cmd="shareCode" class="btn btn-info editControlButton" report="editor.share,tank.share">分享</div>
+					
+				<div id="openSourceBtn">
+				
+					</div>	
+				</div>
+				<div id="editor" class="editor" style="height: 54px;"></div>
+			</div>
+		</div>
+		
+		<!-- MASK COVER -->
+		<div id="maskCover" class="maskCover"></div>
+		<div id="maskCover2" class="maskCover maskCover2"></div>
+        <div id="alertTips" class="alertTips">
+        	<div class="alertTipsBox">
+            	<div id="alertTipsClose" class="alertTipsClose" cmd="Close">X</div>
+                <div class="alertTipsContent" id="alertTipsContent">Hello</div>
+                <div class="alertTipsBtnBox">
+                	<div class="right btn btn-warning" cmd="Close">取消</div>
+                    <div class="right btn btn-warning" cmd="Ok">确认</div>
+                </div>
+            </div>
+        </div>
+        
+		<!-- OPEN WIN -->
+		<div id="openWin" class="openWin">
+			<div id="openTips" class="openWinTips"></div>
+			<div class="openHeader">
+				<div class="openHeaderTitle" id="openHeaderTitle"></div>
+                <button class="panelCloseButton" cmd="OpenClose">X</button> 
+			</div>
+            <div id="openContent" class="openContent">
+            </div>            
+        </div>
+</div>
+<!-- all templates  -->
+<!-- POPUP WINDOW -->
+<script id="popupPanelTmpl" type="text/template">
+	<header>
+		<button cmd="closePopupPanel" param="<%=panelId%>" class="panelCloseButton">X</button>
+		<h1 title="<%=title%>"><%=titleText%></h1>
+	</header>
+	<section>
+	<%=html%>
+	</section>
+<% if(buttons){ %>
+	<footer>
+	<% for(var i in buttons){ %>
+		<button cmd="<%=buttons[i].cmd %>" param="<%=panelId%>" class="panelButton"><%=buttons[i].text %></button>
+	<% } %>
+	</footer>
+<% } %>
+<% if(footerText){ %>
+	<footer>
+	<%= footerText %>
+	</footer>
+<% } %>
+</script>
+<!-- END POPUP WINDOW -->
+<!-- Account -->
+<script id="loginPanel" type="text/template">
+<form>
+	<p class="uidArea"><input id="loginUid" class="input" placeholder="USERNAME" title="USERNAME" cmd="validate"><span class="tips"></span></p>
+	<p class="pwdArea"><input id="loginPwd" type="password" class="input" placeholder="PASSWORD" title="PASSWORD" cmd="validate"><span class="tips"></span></p>
+	<p class="social-icon qq"><a href="http://account.alloyteam.com/qqconnect?redirect=http%3A%2F%2Fcodetank.alloyteam.com%2Findex.html&callback=http%3A%2F%2Fcodetank.alloyteam.com%2Findex.html">QQ登录</a></p>
+	<p class="buttonArea"><button cmd="login" class="panelButton">登　录</button></p>
+</form>
+</script>
+<script id="signupPanel" type="text/template">
+<form>
+	<p class="uidArea"><input id="signupUid" class="input" placeholder="USERNAME" title="USERNAME" cmd="validate"><span class="tips"></span></p>
+	<p><input id="signupPwd" type="password" class="input" placeholder="PASSWORD" title="PASSWORD" cmd="validate"><span class="tips"></span></p>
+	<p><input id="signupConfirmPwd" type="password" class="input" placeholder="CONFIRM PASSWORD" title="CONFIRM PASSWORD" cmd="validate"><span class="tips"></span></p>
+	<p><input id="signupEmail" type="email" class="input" placeholder="EMAIL" title="EMAIL" cmd="validate"><span class="tips"></span></p>
+	<p><button cmd="signup" class="panelButton">注　册</button></p>
+</form>
+</script>
+<!-- end Account -->
+<!-- About -->
+<script id="aboutCodeTank" type="text/template">
+	<div class="titleLogo">
+		<span class="code">Code</span>
+		<span class="tank">Tank</span>
+	</div>
+	<ul class="creditsInfo">
+		<li>Copyright © 2012 <a href="http://www.alloyteam.com/" target="_blank">Tencent AlloyTeam</a>. All Rights Reserved.</li>
+		<li>微博：<a href="//t.qq.com/codetank" target="_blank">@CodeTank</a>(腾讯)　<a href="//www.weibo.com/codetank" target="_blank">@CodeTank</a>(新浪)</li>
+		<li>官方网站：<a href="//CodeTank.AlloyTeam.com/" target="_blank">http://CodeTank.AlloyTeam.com/</a></li>
+		<li>团队博客：<a href="//www.AlloyTeam.com/" target="_blank">AlloyTeam.com</a></li>
+		
+	</ul>
+	<p class="creditsTitle">游戏出品人</p>
+	<ul class="credits">
+		<li><a href="//blog.lifeclaw.com/" target="_blank" title="高高山头立，深深海底行">周志超</a></li>
+	</ul>
+	<p class="creditsTitle">创作者</p>
+	<ul class="credits">
+
+		<li><a href="//www.alloyteam.com/author/azrael/" target="_blank" title="小小的天有大大的梦想">Azrael</a></li>
+		<li><a href="//cnblogs.com/Cson/" target="_blank" title="我是小C">Csonlai</a></li>
+		<li><a href="//www.alloyteam.com/author/horizonchen/" target="_blank" title="">Horizon</a></li>
+		<li><a href="//www.alloyteam.com/author/iptton/" target="_blank" title="">iptton</a></li>
+		<li><a href="//www.weibo.com/kinvix" target="_blank" title="不是你不能，而是你对自己要求没有那么高...">@Kinvix</a></li>
+		<li><a href="//www.weibo.com/lingeomor" target="_blank" title="">@Lingeomor</a></li>
+		<li><a href="//www.weibo.com/tgchuan" target="_blank" title="超越自己，成就未来~~">@Lightning</a></li>
+		<li><a href="//weibo.com/u/2614677810" target="_blank" title="">@Tealin</a></li>
+		<li><a href="//yukin.alloyteam.com/" target="_blank" title="">Yukin</a></li>
+
+	</ul>
+	<p class="creditsTitle">出品团队</p>
+	<ul class="creditsTeam">
+		<li>
+			<a class="teamLogoLink" title="腾讯 Alloy 团队荣誉出品" href="//www.alloyteam.com/" target="_blank">
+				<img class="alloyTeamLogo" src="./style/site/alloy40.png">
+				<span class="alloyTeamLogoText">Tencent AlloyTeam</span>
+			</a>
+		</li>
+
+		<li>
+			<a class="teamLogoLink" title="HTML5 梦工场联合出品" href="//www.html5dw.com/" target="_blank">
+				<img class="dreamworksLogo" src="./style/site/dreamworks40.png">
+				<span class="dreamworksLogoText">HTML5 梦工场</span>
+			</a>
+		</li>
+
+	</ul>
+</script>
+
+<!-- ROBOT SETTING -->
+<script id="robotSetting" type="text/template">
+<form>
+	<fieldset>
+		<legend><h3>系统设置</h3></legend>
+		<dl>
+			<dt><input id="sound" name="sound" type="checkbox" checked="checked" /></dt>
+			<dd><label for="sound">声音</label></dd>
+			<dt><input id="radar" name="radar" type="checkbox" checked="checked" /></dt>
+			<dd><label for="radar">显示雷达扫描范围</label></dd>
+			<dt><input id="msgBox" name="msgBox" type="checkbox" checked="checked" /></dt>
+			<dd><label for="msgBox">显示对话气泡</label></dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend><h3>战场设置</h3></legend>
+		<div class="row">
+			<h4>背景</h4>
+			<div id="battlegroundList" class="battlegroundList" cmd="void"></div>
+            <h4>尺寸</h4>
+			<ul id="battleSizeList" class="battleSizeList"></ul>
+		</div>
+	</fieldset>
+</form>
+</script>
+<!-- SHARE -->
+<script id="shareInfoTmpl" type="text/template">
+<div class="shareLogo">
+	<span>
+		<label class="tlShare">
+			<input type="checkbox" id="shareTButton" class="shareChecked" report="share.tencent">
+			<span class="shareTencentLogo"></span>	腾讯微博  
+		</label>
+	</span>
+	<span>
+		<label class="slShare">
+			<input type="checkbox" id="shareSButton" class="shareChecked" report="share.sina">
+			<span class="shareSinaLogo"></span> 新浪微博
+		</label>
+	</span>
+	<span style="display:none;">
+		<label class="slShare">
+			<input type="checkbox"  id="shareFButton"  class="shareChecked" report="share.follow">
+			 关注我们
+		</label>
+	</span>
+</div>
+<div id="shareSomething" class="shareSomething">
+	<span class="sharePic">
+		<img id="shareWbPic" width='140px' height='170px'/>
+	</span>
+	<span class="shareText">
+	<textarea id="shareTextArea" class="shareTextArea"></textarea>
+	</span>
+</div>
+<div class="shareInfoText" id="shareInfoWord">	
+	您还可以输入<span>140</span>字
+</div>
+</script>
+
+<script language="javascript">
+//处理内嵌iframe逻辑
+function getQuery(name){ 
+	if (!name){
+		return '';	
+	}
+	var regReg = /[.*+$(){}?\|\^\-\[\]\&\\]/g;
+	function fStrToReg($0) {
+		return '\\' + $0;
+	}
+	var reg =  new RegExp("(#|&)"+ (name + '').replace(regReg, fStrToReg) +"=([^&?]*)");
+	var res = location.href.match(reg);  
+	return res && res[2];
+}
+var mode = getQuery('mode');
+if (typeof mode != 'undefined'){
+	var clsName = '';
+	if (mode == 'battle'){ 
+		clsName += ' tankBattle';	
+	}
+	var theme = getQuery('theme');
+	if (theme == 'transparent'){
+		clsName += ' tankTransparent';	
+	} 
+	document.body.className = clsName;	// document.getElementById('codeTankWrapper').className = clsName;	 
+}
+</script>
+
+	<script type="text/javascript">
+    var isInQplus=function(){
+        var isQp=navigator.userAgent.match(/Qplus\/([\d.]+)/);
+        return !!isQp;
+    }
+	if(isInQplus())	document.getElementById("sSBtn").style.display='none';
+	</script>
+	<!--	JX 框架	-->
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.core.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.base.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.dom.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.browser.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.event.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.array.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.string.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.http.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.format.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.ui.masklayer.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.ui.drag.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.console.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.cookie.js"></script>
+	<script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.mini.js"></script>
+    <script out="js/jx.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/jx.json.js"></script>
+
+    <script type="text/javascript">
+(function(){
+	document.domain = 'alloyteam.com';
+	var J = Jx();
+    var ie = parseInt(J.browser.ie);
+    if(ie && ie < 9){
+    	var text = '检测到您正在使用 IE ' + ie + ' 或 IE ' + ie + ' 模式<br/>CodeTank 目前不支持 IE 8 以及以下浏览器<br/>请使用现代浏览器（Chrome、Firefox 等）进行游戏<br/>改变世界，您也可以！'
+        var div = J.dom.node('div', {
+            'class': 'oldBrowserTips'
+        });
+        div.innerHTML = '<span>' + text + '</span>';
+        document.body.appendChild(div);
+    }
+})();
+    </script>
+
+	<!--	游戏脚本	-->
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/game.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.config.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.collision.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.state.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.event.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.class.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.score.js"></script>
+	<script out="js/game.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/coderobot.core.js"></script>
+	
+
+	<!--	代码编辑器	-->
+	<!-- // <script src="js/ace/ace.js"></script> -->
+	<!-- // <script src="js/ace/mode-javascript.js"></script> -->
+	<!-- // <script src="js/ace/theme-tumblr.js"></script> -->
+	
+	<!--Google Analytics-->
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-23019343-8']);
+		_gaq.push(['_setDomainName', 'alloyteam.com']);
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_trackPageview']);
+
+	</script>
+	<script src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/ga.js"></script>
+
+	<!--	CodeTank site文件	-->
+	<!-- // <script src="http://cdn.qplus.com/js/qplus.api.js"></script> -->
+
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/qtool.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/qtemplate.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.util.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.account.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.rpc.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.panelmanager.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.sidebar.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.robotmanager.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/aes.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.editor.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.setting.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.urlbattle.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.explainwall.js"></script>
+	<script out="js/site.all.js" src="./CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏_files/site.main.js"></script>
+
+
+
+</body></html>

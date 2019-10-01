@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- saved from url=(0107)http://account.alloyteam.com/page/ptlogin?redirect=http%3A%2F%2Faeditor.alloyteam.com%2Fcgi%2Flogin&close=1 -->
+<html class="os_win7"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="description" content="注册">
+    <meta name="author" content="alloyteam">
+    <meta name="copyright" content="www.alloyteam.com">
+    <meta name="version" content="1.0">
+    <title>Alloy账号平台 | 统一登录</title>
+    <link rel="stylesheet" href="http://account.alloyteam.com/style/reset.css">
+    
+        <link rel="stylesheet" href="http://account.alloyteam.com/style/index.css">
+    
+    <style type="text/css">
+    .login,.login_no_qlogin{
+        background-color:#fff;
+    }
+    </style>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://account.alloyteam.com/js/lib/fix/DD_belatedPNG.js"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix(".pngFix,.pngFix:hover");
+    </script>
+    <![endif]-->
+    <script>
+    var Alloy = { browser: { isLtIE9: false }}
+</script>
+<!--[if lt IE 9]>
+    <script src="/js/lib/html5.js"></script>
+    <script>
+        var Alloy = {
+            browser: {
+                isLtIE9: true
+            }
+        }
+    </script>
+<![endif]-->
+<script type="text/javascript">
+    ;(function(m, o, d, u, l, a, r) {
+        if(m[o]) return
+        function f(n) { return function() { r.push(n, arguments); return a } }
+        m[o] = a = { args: (r = []), config: f(1), use: f(2), on: f(3) }
+        m.define = f(0)
+        u = d.createElement("script")
+        u.id = o + "node"
+        u.async = true
+        u.src = "http://account.alloyteam.com/js/lib/seajs/2.0.0/sea.js"
+        l = d.getElementsByTagName("head")[0]
+        l.appendChild(u)
+    })(window, "seajs", document);
+
+    seajs.config({
+        base:'http://account.alloyteam.com/js/',
+        charset:'utf-8',
+        debug:0,
+        alias:{
+            'ipresst': '/js/lib/ipresst',
+            'jquery' : '/js/lib/jquery/' + (Alloy.browser.isLtIE9 ? '1.10.1/jquery' : '2.0.0/jquery'),
+            'json'   : '/js/lib/fix/json2',
+            'sizzle' : '/js/lib/fix/sizzle'
+        },
+        paths: {
+            'cssBase': '/style/'
+        },
+        preload: [
+            this.JSON ? '' : 'json',
+            document.querySelectorAll ? '' : 'sizzle'
+        ],
+        map: [
+            [ /^(.*\.(?:css|js))(.*)$/i, '$1?20130624' ]
+        ]
+    });
+    
+    (function(w, NS) {
+        var wp;
+        wp = w[NS] = w[NS] || {};
+        wp.domains = {
+            "pt"     : "alloyteam.com",
+            "cookie" : "alloyteam.com",
+            "root"   : "alloyteam.com",
+            "main"   : "account.alloyteam.com",
+            "api"    : "account.alloyteam.com/api",
+            "reg"    : "account.alloyteam.com/register"
+        };
+    })(window, 'Alloy');
+</script><script id="seajsnode" async="" src="sea.js"></script>
+</head>
+<body style="background-color: transparent;">
+    <div class="login" id="login">
+        <div id="header" class="header">
+            
+            <div class="logo">
+                <img src="logo.png" alt="" width="100%" height="100%" class="pngFix">
+            </div>
+        </div>
+        <div class="web_qr_login">
+            <div class="web_login" id="web_login">
+                <div class="tips" id="tips">
+                    <div class="error_tips" id="error_tips">
+                        <span class="pngFix error_logo" id="error_logo"></span>
+                        <span class="err_m" id="err_m">
+                        </span>
+                    </div>
+                    <div class="loading_tips" id="loading_tips">
+                        <span id="loading_wording">登录中</span>
+                        <img src="load.gif" align="absmiddle">
+                    </div>
+                </div>
+                <div class="login_form">
+                    <form id="loginform" autocomplete="off" name="loginform" action="" method="post" target="_self" style="margin:0px;">
+                            <div class="input_wrap">
+                                <div class="ipt">
+                                    <div class="inputOuter active" id="uinArea">
+                                        <label class="input_tips" id="uin_tips" for="u">Alloy通行证</label>
+                                        <input type="text" class="inputstyle" id="u" name="u" value="" tabindex="1" autofocus="">
+                                        <a class="uin_del" id="uin_del" href="javascript:void(0);"></a>
+                                    </div>
+                                </div>
+                                <div class="ipt">
+                                    <div class="inputOuter" id="pwdArea">
+                                        <label class="input_tips" id="pwd_tips" for="p">密码</label>
+                                        <input type="password" class="inputstyle" id="p" name="p" value="" maxlength="21" tabindex="2">
+                                    </div>
+                                    <div class="lock_tips" id="caps_lock_tips">
+                                        <span class="lock_tips_row">
+                                        </span>
+                                        <span>
+                                        大写锁定已打开
+                                        </span>
+                                    </div>
+                                </div>
+                                <input id="redirect" type="hidden" name="redirect" value="http://aeditor.alloyteam.com/cgi/login">
+                            </div>
+
+                            <!-- <div class="verifyArea" id="verifyArea">
+                                <div class="verifyinputArea" id="verifyinputArea" >
+                                    <label class="input_tips" id="vc_tips"  for="verifycode">验证码</label>
+                                    <div class="inputOuter">
+                                    <input name="verifycode" type="text"  class="inputstyle verifycode" id="verifycode" value="" maxlength="5" tabindex="3"/>
+                                    </div>
+                                </div>
+                                <div class="verifyimgArea" id="verifyimgArea">
+                                     <img class="verifyimg" id="verifyimg"  title="看不清，换一张" />
+                                    <a tabindex="4" href="javascript:void(0);" class="verifyimg_tips">看不清，换一张</a>
+                                </div>
+
+                            </div> -->
+
+                        <div class="submit">
+                        <a class="login_button" href="javascript:void(0);">
+                            <input type="submit" tabindex="6" value="登 录" class="btn" id="login_button">
+                        </a>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="bottom-wrap">
+                    <div id="qq-connect">
+                         <a href="http://account.alloyteam.com/sns/qq?redirect=http%3A%2F%2Faeditor.alloyteam.com%2Fcgi%2Flogin" title="使用QQ登录"><span class="social-icon qq"></span> QQ登录</a>
+                         
+                    </div>
+                    <div class="bottom" id="bottom_web">
+                        <a href="http://account.alloyteam.com/page/register?from=ptlogin&redirect=http://aeditor.alloyteam.com/cgi/login" class="link" target="_blank">注册帐号</a>
+                        &nbsp;|&nbsp;
+                        <a href="http://account.alloyteam.com/page/pwd/forget" class="link" target="_blank">忘记密码？</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        seajs.use(['ipresst', 'common/form/index'], function (I, formPack) {
+            var ipt = I.$$('.inputOuter');
+                formPack.TxtControl.create({
+                    curTarget: ipt[0],
+                    enter: I.byTagName('input', ipt[0])[0],
+                    label: I.byTagName('label', ipt[0])[0],
+                    actClass: 'active',
+                    initState: 'active',
+                    lock: false
+                });
+                formPack.TxtControl.create({
+                    curTarget: ipt[1],
+                    enter: I.byTagName('input', ipt[1])[0],
+                    label: I.byTagName('label', ipt[1])[0],
+                    actClass: 'active',
+                    lock: false
+                });
+        });
+
+        seajs.use(['jquery', 'module/ptlogin/index'], function ($, ptlogin) {
+            ptlogin.main({
+                form     : $('#loginform'),
+                username : $('#u'),
+                password : $('#p'),
+                redirect : $('#redirect'),
+                submit   : $('#login_button'),
+                tipsWrap : $('#error_tips'),
+                tips     : $('#err_m'),
+                close    : $('#close'),
+                qqLogin  : $('#qq-connect > a')
+            });
+        });
+    </script>
+
+</body></html>

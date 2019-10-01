@@ -1,0 +1,14 @@
+ADFHOST2167="http://csdnim.qtmojo.com";
+ADFCID2167=219;
+ADFBID2167=2167;
+ADFLOC='CNJSNJ00';
+ADFUSER2167="http://csdnim.qtmojo.com/c?d=csdnim&i=z219,10359423,2167,10930&rf=&a=deCz5oZdq1Mxy2A5yG615FXcCCiI&u=";
+ALLYESID4="096B29A4AA709F67";
+ADFPGC="2,4,219,0,2846,2167,10930,10359423";
+
+document.write("<script type=\"text/javascript\">\n");
+document.write("    /*资讯内页（文章页）评论上方banner-620*90,20130703*/\n");
+document.write("    var cpro_id = \"u2047516\";\n");
+document.write("</Scr"+"ipt>\n");
+document.write("<script src=\"http://cpro.baidustatic.com/cpro/ui/c.js\" type=\"text/javascript\"></Scr"+"ipt>");
+

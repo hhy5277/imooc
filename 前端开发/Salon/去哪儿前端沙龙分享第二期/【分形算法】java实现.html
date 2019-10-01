@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://m.oschina.net/blog/336381 -->
+<html class="ui-mobile"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="http://m.oschina.net/blog/336381">--><base href=".">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【分形算法】java实现</title>
+		<link rel="stylesheet" href="http://m.oschina.net/js/jquery.mobile-1.2.0/jquery.mobile-1.2.0.min.css?t=1399607772000">
+	<link rel="stylesheet" href="http://m.oschina.net/css/mobile.css?t=1399607771000">
+	<script src="./【分形算法】java实现_files/jquery-1.6.4.min.js"></script>
+		<script src="./【分形算法】java实现_files/jquery.mobile-1.2.0.min.js"></script>
+	
+	<script type="text/javascript">
+	<!--
+    /**
+     * 使用ajax提交数据
+     */
+    function ajax_post(the_url,the_param,succ_callback){
+    	jQuery.ajax({
+    		type	: 'POST',
+    		cache	: false,
+    		url		: the_url,
+    		data	: the_param,
+    		success	: succ_callback,
+    		error	: function(html){
+    			alert("提交数据失败，代码:" +html.status+ "，请稍候再试");
+    		}
+    	});
+    }
+    function delete_tweet(logid){
+    	if(confirm("确认要删除这条信息吗？"))
+    	ajax_post("/action/tweet/delete?log="+logid,"",function(html){
+    		if(html.length==0){
+    			var elem = $('#LI_'+logid);
+    			if(elem.length > 0)
+    				$('#LI_'+logid).fadeOut();
+    			else
+    				location.reload();
+    		}
+    	});
+    }	
+    function reply_rtweet(logid, rid, toname){
+    	var edtPost = $('#edt_tweet_post_' + logid);
+    	var old_v = edtPost.val();
+    	if(old_v.length > 0)
+    		edtPost.val(old_v + ',@'+toname+' ');
+    	else
+    		edtPost.val('回复 @'+toname+' : ');
+    	edtPost.focus();
+    }
+    //-->
+	</script>
+</head> 
+<body class="ui-mobile-viewport ui-overlay-c">
+<div data-role="page" data-url="/blog/336381" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 597px;">
+	
+
+
+<div data-role="header" data-position="inline" class="ui-header ui-bar-a" role="banner">
+	<a href="http://m.oschina.net/u/576429" data-icon="back" data-direction="reverse" class="ui-btn-left ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-btn-icon-left" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">返回</span><span class="ui-icon ui-icon-back ui-icon-shadow">&nbsp;</span></span></a>
+	<h1 class="ui-title" role="heading" aria-level="1">阅读博客</h1>
+		<script type="text/javascript">
+	var delete_url = '/action/favorite/cancel';
+	var add_url = '/action/favorite/add';
+	var id = 336381;
+	var type = '3'; 
+	function add_to_favor(){
+					alert("请登录后再收藏");
+			}
+	function delete_favor(){
+					alert("请登录后再操作");
+			}
+</script>
+	<a href="javascript:add_to_favor();" data-icon="plus" class="ui-btn-right favor ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-btn-icon-left" id="favor_trigger" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">添加收藏</span><span class="ui-icon ui-icon-plus ui-icon-shadow">&nbsp;</span></span></a>
+	<a href="javascript:delete_favor();" style="display:none;" data-icon="minus" class="ui-btn-right favor ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-btn-icon-left" id="favor_trigger" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="a"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">取消收藏</span><span class="ui-icon ui-icon-minus ui-icon-shadow">&nbsp;</span></span></a>
+</div>
+
+
+<div data-role="content" class="ui-content" role="main">
+	<h1 class="title">【分形算法】java实现</h1>
+	<p style="color:#666;font-size:x-small;">
+		<a href="http://m.oschina.net/u/576429" class="ui-link">lawlietfan</a> 发布于 10个月前，共有 <mark>0</mark> 条评论
+	</p>
+	<div class="TextContent"><h1><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">0、快速上手java applet小demo</span></h1> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">松树.java&nbsp;</span></p> 
+<pre class="brush:cpp;toolbar: true; auto-links: false;">import&nbsp;java.applet.Applet;
+import&nbsp;java.awt.Graphics;
+&nbsp;
+public&nbsp;class&nbsp;松树&nbsp;extends&nbsp;Applet&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;init()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;paint(Graphics&nbsp;g)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.drawString("静听松声寒!!",&nbsp;35,&nbsp;50&nbsp;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(200.0,400.0,200.0,0.0,8,g);//origin&nbsp;n=8;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;tree(double&nbsp;x1,double&nbsp;y1,double&nbsp;x2,double&nbsp;y2,int&nbsp;n,Graphics&nbsp;g)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(n&gt;=1){&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;x3,x4,y3,y4;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//g.drawString("I&nbsp;believe&nbsp;!",0,300);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.drawLine((int)(x1),(int)(y1),(int)(x2),(int)(y2));&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x3=(x1+x2)/2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y3=(y1+y2)/2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x1,y1,x3,y3,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x3,y3,x2,y2,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x4=(x2+y2-y3-x3)*0.7071+x3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y4=(y2-x2+x3-y3)*0.7071+y3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x3,y3,x4,y4,n-1,g);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x2=(x2*3+x1)/4;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y2=(y2*3+y1)/4;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x3=(x1*3+x2)/4;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y3=(y1*3+y2)/4;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x4=(x2*1.732-y2+2*x3-x3*1.732+y3)/2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y4=(x2+y2*1.732-x3+2*y3-1.732*y3)/2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x3,y3,x4,y4,n-1,g);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre> 
+<p></p> 
+<h1><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">1、分形算法原理</span></h1> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">五星（附源码，由于年代久远故调不通）：<a href="http://www.swarmagents.cn/complex/bottomup/lsys.htm" rel="nofollow" class="ui-link">http://www.swarmagents.cn/complex/bottomup/lsys.htm</a> </span></p> 
+<blockquote> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">你所看到的所有复杂图形都是用非常简单的规则生成的！究竟是怎么生成的呢？首先，我们来考察一下人们画图的过程。无论什么样的复杂图形，我们都可以把图形看成若干线条构成的，而一个线条是由起点和它的方向决定的，这样，人们复杂的画图动作可以分解为若干线条的连接组合。根据这些，我们来讨论计算机绘图。</span></p> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;首先，计算机绘图也是要确定一个起始点和开始画线的方向这叫做初始状态，当画图进行到任意一个阶段的时候，我们可以用（x,y,a）这三个量来确定任意一个画图的<strong>状态</strong>，即当前的坐标x,y和当前要画线条的方向角a。然后，我们需要考虑的是状态到状态是如何转换的。我们把状态之间的转换称为动作，不难看出，仅仅用平移和旋转方向就能完成状态之间的转换。接下来，我们用符号定义一些简单的动作（包括评议、旋转和辅助动作）。</span></p> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;F：表示在当前的位置画一条长为l的直线段。l是由用户事先任意设定的数值，表示基本线段的长度。<br>&nbsp;&nbsp;&nbsp;&nbsp;+：表示逆时针旋转一个角θ，θ的数值由用户事先确定；<br>&nbsp;&nbsp;&nbsp;&nbsp;-：表示顺时针旋转一个角θ；&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;[：表示暂时保存当前的画图状态<br>&nbsp;&nbsp;&nbsp;&nbsp;]：表示提取出保存的画图状态。 “[”和“]”要成对的出现。</span></p> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;这样，确定了开始的坐标和方向，由上面符号组成的任意的一系列指令就能指导画图了。比如：FF+F，其中长度l=1,θ=90度角，开始坐标是2，0，开始方向角是90度，那么画出来的图就是：</span></p> 
+ <p style="text-align:center;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><img src="./【分形算法】java实现_files/23155617_gTNa.gif" width="150" height="144"></p> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;其中蓝色的线条是画图指令画出的图。开始的时候画图状态为(2,0,90)，也就是说起点在2,0这个点，并且这个时候画图的方向是朝上的，然后开始画指令F，它的意思是方向不变，往前走1个步长并且画线连接上起始的点和下一个将要移动到的点(2,1)，因此画图机器就往正上方画了一条蓝色的长度为1的线段，并且把当前的状态改为了(2,1,90)就是说坐标移动到了2，1这个点，而方向角没变还是垂直向上。接下来画下一个F，仍然是朝上方画一个长度为1的线段。然后是+表示画图状态的方向逆时针旋转90度，然后这个时候的状态变为(2,2,180)，就是说坐标为(2,2)方向朝左方。然后再画一个F，就是往左画一个小线段状态改为(1,2,90)，到此画图命令FF+F执行结束。综合起来，我们能得到下面的表：</span></p> 
+ <table bordercolor="#000000"> 
+  <tbody> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">指令</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">状态</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">画图动作</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">起始时刻</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,0,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,1,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向上画一条长为1的线段</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向上画一条长为1的线段</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">+</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,180)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">逆时针旋转90度，不画图</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(1,2,180)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向左画一条长为1的线段</span></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p style="font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;下面看看比较复杂的画图指令：FF[+F][-F]，起始状态和刚才一样仍然是(2,0,90)，且l为1，转角为90度。<br>&nbsp;&nbsp;&nbsp;&nbsp;前两个F和上面叙述的执行情况差不多，下面开始讲"["操作，"["操作的含义就是把当前的画图状态先存起来，假设有一个大皮包M可以存放这些状态，那么当执行完操作FF的时候，画图状态是(2,2,90)，下面遇到了"["<br>命令，那么我们把这个状态存到皮包M中，这样M={(2,2,90)}，表示M中有一个状态为(2,2,90)，"["指令除了存储状态到皮包中其他什么动作也不做，当前的状态仍然是(2,2,90)。接下来执行+命令，逆时针旋转90度，则状态变成(2,2,180)，然后是F则往左画一条线段，状态为(1,2,180)。接下来执行指令"]"，它表示从皮包中取出一个状态作为当前的状态，这样，皮包中有一个状态(2,2,90)，因此当前的状态就变为了(2,2,90)，也就是说我们的铅笔回到了(2,2)点，并且方向朝上，这个时候由于从皮包M中取走了东西，所以皮包就空了。结下的指令为[依然把状态(2,2,90)存到皮包中，然后-则顺时针旋转90度，状态变为(2,2,0)，执行F则往右画一条线段，所以我们最后能够得到下面的图形：</span></p> 
+ <p style="text-align:center;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><img src="./【分形算法】java实现_files/23155617_FspH.gif" width="150" height="149"></p> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;画这个图形的命令执行、当前状态、存储情况如下表：</span></p> 
+ <table bordercolor="#000000"> 
+  <tbody> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="color: rgb(0, 0, 0); font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">指令</span></td> 
+    <td style="font-size: 12px;"><span style="color: rgb(0, 0, 0); font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">状态</span></td> 
+    <td style="font-size: 12px;"><span style="color: rgb(0, 0, 0); font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">M中存储的值</span></td> 
+    <td style="font-size: 12px;"><span style="color: rgb(0, 0, 0); font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">画图情况</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">起始时刻</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,0,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">空</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,1,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">空</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向上画一条长为1的线段</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">空</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向上画一条长为1的线段</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">[</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">+</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,180)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">逆时针旋转90度，不画图</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,1,180)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向左画一条长为1的线段</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">]</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">空</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">[</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">-</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,0)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">F</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,3,0)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">向右画一条长为1的线段</span></td> 
+   </tr> 
+   <tr> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">]</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">(2,2,90)</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">空</span></td> 
+    <td style="font-size: 12px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">无</span></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p style="font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;我们已经知道了由F,+,-,[,]这样的符号可以构成一串画图的指令指导机器画图，也就是说给定一个符号串就能对应的画出这个符号串代表的图形，那么如果用一种办法能够生成这样的符号串序列，那么相当于可以构造出图形来。这种生成指令的办法是什么呢？答案就是产生式系统。</span></p> 
+ <p style="font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;产生式（也叫做规则）是形如X-&gt;Y的式子，其中X叫做左件，Y叫做右件。X-&gt;Y表示X能够推导出Y。如果X是一个字符串，Y也是字符串，那么X-&gt;Y表示能够用Y来替换X。例如如果给定一个初始时刻的字符串ABXXTT，那么运用规则X-&gt;Y就能把这个字符串变成ABYYTT。如果产生式的右件多于一个字符，那么就能推导出比原来字符串更长的字符串来。例如如果X-&gt;YYY，那么ABXXTT会被替换成ABYYYTT，显然后来的字符串比原来的长。我们已经看到了从简单的字符串生成复杂字符串的可行性了。</span></p> 
+ <p style="font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;接下来，要说明的是产生式可以进行嵌套的表示，比如说X-&gt;XY就是一种嵌套的形式。因为当你用右件XY代替前件X的时候产生的新字符又会产生X，而X又可以运用规则X-&gt;XY，这样可以无限次的迭代下去。</span></p> 
+ <p style="font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;好了，有了产生式就不难理解产生式系统了，它就是由若干个产生式构成的一组语句。并且各个产生式之间可以相互替换字符串。比如如下的产生式系统：X-&gt;YF, Y-&gt;+FX，开始时刻的字符串是X，用这两个规则跌代1次就能得到字符串：+FXF，迭代2次就是+F+FXFF，3次是+F+F+FXFFF，……。（这里跌代一次表示的是用产生式系统中的所有产生式规则都来替换当前的字符串）。我们已经看到，最后的式子就是形如我们上面列举的指令例子，如果把最后的X忽略掉，这个指令串就能指导机器画图了！这就是L系统的工作原理！下面我们以画出下面的枝条为例，再看看L系统是如何运行的。</span></p> 
+ <p style="text-align:center;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><img src="./【分形算法】java实现_files/23155617_Qk1G.gif" width="100" height="195"></p> 
+ <p style="text-align:left;font-family: Simsun; font-size: 12px; line-height: 20px; white-space: normal; background-color: rgb(252, 251, 233);"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;已知这个图形的产生式系统是：F-&gt;F[+F]F[-F]F，开始的时候字符串是F。转角为-25.7341度。这样，我们跌代6次就可以得到最终的画图指令（太长，此处略去），再把这个指令字符串对应的指导机器画出图形，就能得到上面的图。你可以点击程序中单步运行的按钮，看看系统跌代不同的次数能够产生什么样的图形。</span></p> 
+ <p><br></p> 
+</blockquote> 
+<h1><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">2、代码分析</span></h1> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">在<span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px; color: rgb(255, 0, 0);">松树.java</span> 中代码大致流程如下：</span></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">先确定点a1,a2,连接之；</span></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">第一步取a3为前两者中点，a4为左上角某点，连接之；</span></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">第二步取a3为直线a1a2的0.75左右处，算出a4为右上角，<span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px; color: rgb(255, 0, 0);">算a4之公式没看懂，囧</span>，；</span></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">之后重复此过程；{！2.2中是将左枝的公式用在右枝上}</span></p> 
+<h2><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">2.1、简单例子：画<span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px; line-height: 25.200000762939453px; background-color: rgb(255, 255, 255);">歇尔宾斯三角</span></span></h2> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px; line-height: 25.200000762939453px; background-color: rgb(255, 255, 255);"><br></span></span></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;"><span style="font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14.399999618530273px; line-height: 25.200000762939453px; background-color: rgb(255, 255, 255);"><img src="./【分形算法】java实现_files/22231639_Nq2L.png"></span></span></p> 
+<pre class="brush:cpp;toolbar: true; auto-links: false;">import&nbsp;java.applet.Applet;
+import&nbsp;java.awt.Graphics;
+//http://stchou.iteye.com/blog/948469
+//三角
+public&nbsp;class&nbsp;sanJiao&nbsp;extends&nbsp;Applet&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;init()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;paint(Graphics&nbsp;g)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.drawString("Jason!!",&nbsp;35,&nbsp;50&nbsp;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double[]&nbsp;a=new&nbsp;double[9];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double[]&nbsp;b=new&nbsp;double[9];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double[]&nbsp;c=new&nbsp;double[9];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[0]=200.0;a[1]=100.0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b[0]=100.0;b[1]=250.0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c[0]=300.0;c[1]=250.0;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//定义迭代次数
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n=8;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sanjiao(a,b,c,n,g);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//定点顺序，上左右
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;sanjiao(double[]&nbsp;a,double[]&nbsp;b,double[]&nbsp;c,int&nbsp;n,Graphics&nbsp;g){
+&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;if(n&gt;=1){&nbsp;&nbsp;&nbsp;	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double[]&nbsp;x=new&nbsp;double[9];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double[]&nbsp;y=new&nbsp;double[9];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double[]&nbsp;z=new&nbsp;double[9];
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;g.drawLine((int)(a[0]),(int)(a[1]),(int)(b[0]),(int)(b[1]));
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;g.drawLine((int)(a[0]),(int)(a[1]),(int)(c[0]),(int)(c[1]));
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;g.drawLine((int)(b[0]),(int)(b[1]),(int)(c[0]),(int)(c[1]));
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;x[0]=(a[0]+b[0])/2;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;x[1]=(a[1]+b[1])/2;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;y[0]=(b[0]+c[0])/2;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;y[1]=(b[1]+c[1])/2;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;z[0]=(c[0]+a[0])/2;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;z[1]=(c[1]+a[1])/2;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;//sanjiao(x,y,z,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;sanjiao(a,x,z,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;sanjiao(x,b,y,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;		&nbsp;sanjiao(z,y,c,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;	&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+}</pre> 
+<p></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;"></span><span style="font-size: 18px;">运行结果：</span><br></p> 
+<p><span style="font-size: 18px;"><img src="./【分形算法】java实现_files/231738_kMcR_576429.png"></span></p> 
+<h2><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">2.2、简化版的松树.java&nbsp;</span></h2> 
+<pre class="brush:cpp;toolbar: true; auto-links: false;">public&nbsp;void&nbsp;tree(double&nbsp;x1,double&nbsp;y1,double&nbsp;x2,double&nbsp;y2,int&nbsp;n,Graphics&nbsp;g)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(n&gt;=1){&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;x3,x4,y3,y4;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//g.drawString("I&nbsp;believe&nbsp;!",0,300);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g.drawLine((int)(x1),(int)(y1),(int)(x2),(int)(y2));&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x3=(x1+x2)/2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y3=(y1+y2)/2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x1,y1,x3,y3,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x3,y3,x2,y2,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x4=(x2+y2-y3-x3)*0.7071+x3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y4=(y2-x2+x3-y3)*0.7071+y3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x3,y3,x4,y4,n-1,g);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x4=-(x2+y2-y3-x3)*0.7071+x3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y4=-(y2-x2+x3-y3)*0.7071+y3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tree(x3,y3,x4,y4,n-1,g);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre> 
+<p></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;"></span><br></p> 
+<h1><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">3、补充资料</span></h1> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">三星：<a href="http://stchou.iteye.com/blog/948469" rel="nofollow" class="ui-link">http://stchou.iteye.com/blog/948469</a></span></p> 
+<p><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;; font-size: 18px;">五星（可惜无源码）：<a href="http://blog.163.com/zhangmwen@126/blog/static/113437502200923095642618/" rel="nofollow" class="ui-link">http://blog.163.com/zhangmwen@126/blog/static/113437502200923095642618/</a></span></p> 
+<p><br></p> 
+<p><br></p></div>
+	
+</div>
+
+<div class="SpaceList" style="margin-top:20px;">
+  <a name="postform" id="postform" class="ui-link"></a>
+    <div class="BlogCommentForm ui-content" data-role="content" role="main">
+    <form id="form_comment" action="http://m.oschina.net/action/blog/add_comment?blog=336381" method="POST">          
+	  <input type="hidden" name="goto_page" value="/blog/comment_ok?blog=336381">
+	  <input type="hidden" name="error_page" value="/blog/comment_ok">
+      <textarea name="content" placeholder="请输入评论内容..." style="display:block;" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea>
+	  <div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="null" data-iconpos="null" data-theme="b" data-inline="true" class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline ui-submit" aria-disabled="false"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">发表评论</span></span><input type="submit" value="发表评论" id="btn_comment" class="SUBMIT ui-btn-hidden" data-theme="b" data-inline="true" aria-disabled="false"></div> 
+	  <span id="cmt_tip">文明上网，理性发言</span>
+    </form>
+  </div>
+  </div>
+
+<div class="SpaceList" style="margin-top:20px;">
+<div class="BlogComments">
+	
+    <ul class="commentList ui-listview" data-role="listview">
+    	<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b">网友评论 (0)</li>
+    	    	        <li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-bar-b ui-li-last">暂无网友评论</li>
+    	    	    </ul>
+</div>
+                </div>
+
+		<div data-role="footer" class="footer-docs ui-footer ui-bar-c" data-theme="c" role="contentinfo">
+		<p>&nbsp;© 2008~2015 开源中国</p>
+		<div data-role="controlgroup" data-type="horizontal" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal"><div class="ui-controlgroup-controls">
+			<a href="http://m.oschina.net/" data-role="button" data-ajax="false" data-icon="home" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-btn-icon-left ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">资讯</span><span class="ui-icon ui-icon-home ui-icon-shadow">&nbsp;</span></span></a>
+			<a href="http://m.oschina.net/question?catalog=1" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">提问</span></span></a>
+			<a href="http://m.oschina.net/question?catalog=2" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">分享</span></span></a>
+			<a href="http://m.oschina.net/tweets" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">动弹</span></span></a>
+			<a href="http://m.oschina.net/project" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">软件</span></span></a>
+		</div></div>		
+	</div>
+	<div data-role="controlgroup" data-type="horizontal" data-mini="true" data-theme="c" style="text-align:center;padding:20px 0;" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal ui-mini"><div class="ui-controlgroup-controls">
+    <a href="https://www.oschina.net/uploads/osc-android-app-2.4.apk" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-corner-left"><span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text">客户端 Android</span></span></a>
+    <a href="http://itunes.apple.com/cn/app/kai-yuan-zhong-%20guo/id524298520?mt=8" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">iPhone</span></span></a>
+    <a href="http://windowsphone.com/s?appid=f1b59e83-d617-4f60-a17e-25021188e284" data-role="button" data-ajax="false" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" class="ui-btn ui-btn-up-c ui-corner-right ui-controlgroup-last"><span class="ui-btn-inner ui-corner-right ui-controlgroup-last"><span class="ui-btn-text">WP7</span></span></a>
+    </div></div>
+	</div>
+
+
+	
+<!-- Generated by OsChina.NET (init:1[ms],page:3[ms],ip:153.3.0.217) --><div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div></body></html>

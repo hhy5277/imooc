@@ -1,0 +1,2275 @@
+@font-face {
+	font-family: 'FileFolderJNL';
+	src: url('font/filefolder-jnl.eot');
+	src: url('font/filefolder-jnl.eot?#iefix') format('embedded-opentype'),
+			url('font/filefolder-jnl.woff') format('woff'),
+			url('font/filefolder-jnl.ttf') format('truetype');
+}
+
+html, body{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	color: white;
+	font: 14px/1.5 FileFolderJNL,'Helvetica Neue', Arial, Tahoma, Clean, sans-serif;
+	font: 14px/1.5 'Helvetica Neue', Arial, Tahoma, Clean, sans-serif;
+	background:#4E545B url(./site/bg2.png) repeat;
+
+}
+
+.codeTank{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+
+iframe[frameborder="0"]{
+	border: 0;
+}
+select{
+	padding:2px;
+	height:25px;
+	color: #8E999F;
+	background: #202421;
+}
+
+h3{
+	color:#7D9CA4;
+}
+h4{
+    line-height: 30px;
+}
+a{
+	color: #5ac;
+	
+	text-decoration: none;
+}
+a:hover{
+	color: #9cf;
+	text-decoration: none;
+}
+ul,
+li{
+	list-style: none;
+}
+fieldset{
+	border: 1px solid #999;
+	margin:10px;
+}
+
+.gray{ color:#CCC}
+
+::-webkit-scrollbar{
+	width: 4px;
+	height: 4px;
+}
+::-webkit-scrollbar-track-piece {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb{
+	background-color: #999;
+	-webkit-border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover{
+	background-color: #9f9f9f;
+}
+
+.display-box{
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+}
+.box-orient-horizontal{
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+	-o-box-orient: horizontal;
+	box-orient: horizontal;
+}
+.box-orient-vertical{
+	-moz-box-orient: vertical;
+	-webkit-box-orient: vertical;
+	-o-box-orient: vertical;
+	box-orient: vertical;
+}
+.box-flex-1{
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+	-o-box-flex: 1;
+	box-flex: 1;
+}
+ 
+
+.robotMain{
+
+	margin: auto;
+	position: relative;
+	border:1px solid #458092;
+	/*width:600px;
+	height:500px;*/
+	overflow: hidden;
+}
+
+select.battleMode{
+	margin: 2px auto auto -5px;
+	width: auto;
+	float: left;
+	outline:none;
+	background: #333;
+	border: 1px solid #222;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+
+}
+
+
+.robotCanvas{
+	width:800px;
+	height:600px;
+	overflow: hidden;
+	float:left;
+	background: url('./battlefield/bg_grid.png') repeat,
+				url('./battlefield/bg6.jpg') repeat;
+}
+
+.robotFactory{
+	position: absolute;
+	z-index:10;
+	width:600px;
+	top:50px;
+	right:-580px;
+	height:100%;
+	overflow: hidden;
+	box-shadow:-3px 0 5px rgba(0, 0, 0, .5);
+	
+	background: rgba(0,0,0,0.75);
+	
+
+	-webkit-transition: all 0.7s cubic-bezier(0.1,1,0,1);
+	-moz-transition: all 0.7s cubic-bezier(0.1,1,0.1,1);
+	-ms-transition: all 0.7s cubic-bezier(0.1,1,0.1,1);
+	-o-transition: all 0.7s cubic-bezier(0.1,1,0.1,1);
+	transition: all 0.7s cubic-bezier(0.1,1,0,1);
+}
+
+
+
+
+.robotListWrap{
+	/*overflow: hidden;
+	position: absolute;*/
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	
+	-webkit-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-moz-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-ms-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-o-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	overflow:auto;
+}
+.robotListWrapCollapse{
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	
+	left: -300px;
+}
+#robotList{
+	list-style: none;
+	margin: 0;
+	padding: 0 15px 0 23px;
+	overflow: auto;
+}
+#robotList ul, 
+#robotList li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#robotList  a{
+	text-decoration: none;
+	color: inherit;
+}
+#robotList > li {
+	text-shadow: 0 1px 3px rgba(0,0,0,0.75);
+	color: white;
+	text-transform: uppercase;
+	position: relative;
+	overflow: hidden;
+	
+}
+
+#robotList > li > a {
+	margin: 10px 0;
+	display: block;
+	position: relative;
+	padding-left: 0;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	-webkit-transition: padding-left 0.1s linear;
+	-moz-transition: padding-left 0.1s linear;
+	-o-transition: padding-left 0.1s linear;
+	transition: padding-left 0.1s linear;
+}
+
+#robotList > li > a:hover{
+	padding-left: 10px;
+}
+
+#robotList > li > a:before{
+	font-family: "Lucida Grande","Lucida Sans Unicode";
+	content: '▸';
+	position: relative;
+	top: -1px;
+	margin: -1px 5px 0 0;
+}
+#robotList > li.showChild > a:before{
+	content: '▾';
+}
+#robotList .child, 
+.sideContent{
+	height: 0;
+
+	overflow: hidden;
+	text-transform: none;
+	background-color: white;
+	
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+	-o-box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+	
+	-webkit-transition: height 0.7s cubic-bezier(0.1, 0.5, 0.1, 1);
+	-moz-transition: height 0.7s cubic-bezier(0.1, 0.5, 0.1, 1);
+	-ms-transition: height 0.7s cubic-bezier(0.1, 0.5, 0.1, 1);
+	-o-transition: height 0.7s cubic-bezier(0.1, 0.5, 0.1, 1);
+	transition: height 0.7s cubic-bezier(0.1, 1, 0.1, 1);
+}
+
+#robotList .showChild .child{
+	margin: 0 0 10px;
+	height:auto;
+}
+ 
+
+#robotList .child li, .sideContent li{
+	border-top: 1px solid #d4d4d4;
+	text-shadow: none;
+	
+	display: table;
+	table-layout: fixed;
+	/*height: 33px;*/
+	width: 100%;
+}
+#robotList .child li:first-child{
+	border-top: none;
+}
+#robotList .child li a, .sideContent li a{
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0 10px;
+	
+	color: #777;
+	font-size: 12px;
+	font-weight: bold;
+	/*text-shadow: 0 1px 0 rgba(255,255,255,0.8);*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	
+	-webkit-transition: background 500ms ease-in 0ms, color 500ms ease-in 0ms, font-size 200ms ease-in 0ms;
+	-moz-transition: background 500ms ease-in 0ms, color 500ms ease-in 0ms, font-size 200ms ease-in 0ms;
+	-ms-transition: background 500ms ease-in 0ms, color 500ms ease-in 0ms, font-size 200ms ease-in 0ms;
+	-o-transition: background 500ms ease-in 0ms, color 500ms ease-in 0ms, font-size 200ms ease-in 0ms;
+	transition: background 500ms ease-in 0ms, color 500ms ease-in 0ms, font-size 200ms ease-in 0ms;
+}
+/*闭源不能查看*/
+#robotList .child li cute, .sideContent li cute {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0 10px;
+	
+	color: #777;
+	font-size: 12px;
+	font-weight: bold;
+	/*text-shadow: 0 1px 0 rgba(255,255,255,0.8);*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor:default;
+}
+#robotList .child li a:focus,
+#robotList .child li a:hover, .sideContent li a:hover, .sideContent li a:hover{
+	outline:none;
+	background: rgba(255, 165, 0, 0.7);
+	
+	-webkit-transition: background 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	-moz-transition: background 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	-ms-transition: background 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	-o-transition: background 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	transition: background 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+}
+
+.anm{
+	-webkit-transition: all 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	-moz-transition: all 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	-ms-transition: all 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	-o-transition: all 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+	transition: all 250ms ease-in 0ms, color 250ms ease-in 0ms, font-size 150ms ease-in 0ms;
+}
+
+.sideContent{ 
+	height:auto;
+	margin:0 20px 20px 20px;
+}
+/*.sideContent li{  line-height:32px; margin:0; padding:0 10px; display:block; width:auto;}*/
+.sideContent li .sideOpBtn{/* display:inline-block; padding:0 10px; float:right; color:#777; margin-left:10px;*/width:60px;	text-align:center;}
+.sideLoading{ line-height:34px; color:#000; padding-left:5px;}
+
+#robotList .child li a:active{
+	
+	color: rgba(119, 119, 119, 0.7);
+}
+#robotList .child li a.selected{
+	background: #9AD133;
+	color:white;
+}
+#robotList .child li a span{
+	padding: 0 5px 0 0;
+}
+
+.sideContentItem{ display:table; height:auto;width:100%;}
+.sideContentItemEx{  /*height:50px; width:100%;*//*background-color:#F3F3F3;*/ padding:10px 0; color:#000; overflow:hidden; position:relative;}
+
+
+/********************** toolbar ****************************/
+.toolbar{
+	height: 50px;
+	padding-right:10px;
+	/*overflow: hidden;*/
+	border-bottom: 1px solid #293134;
+	
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	-webkit-user-select: none;
+	
+	border-bottom: 1px solid rgba(255,255,255,0.15);
+	background-color: rgba(0,0,0,0.1);
+	
+	-webkit-box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+	-moz-box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+	-o-box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+	box-shadow: 0 -1px 1px rgba(0,0,0,0.5) inset;
+}
+
+.noSelect{
+	-webkit-user-select: none;
+}
+
+
+.toolbarLeft{
+	float:left;
+	width:540px;
+}
+.toolbar .title{
+	display:block;
+	float:left;
+	padding: 0 0 0 20px;
+	width:460px;
+	height:45px;
+	overflow: hidden;
+	color:#a8edf3;
+	color:white;
+	text-decoration:none;
+}
+.left{
+	float:left;
+	/*width:100%;*/
+}
+.leftMain{
+	position: relative;
+	margin:0 auto;
+	width:800px;
+	height:100%; 
+}
+.right{
+	float:right;
+}
+.titleLogo{
+	margin: auto;
+	width:200px;
+	height:45px;
+	overflow: hidden;
+	font-size: 28px;
+	line-height: 38px;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 0 0 7px rgba(0,0,0,0.7);
+	color:white;
+	font-family: FileFolderJNL, Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+}
+.titleLogo span{
+	float: left;
+	display:block;
+}
+.titleLogo .tank{
+	color:orange;
+}
+
+
+.toolbar .title .logoBeta{
+	float: left;
+	font-style: italic;
+	color: #aaa;
+	font-size: 12px;
+	line-height: 12px;
+	width: 100px;
+	height: 16px;
+	overflow: hidden;
+	font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+	
+	
+}
+.toolbar .subTitle{
+	float: left;
+	margin:-3px 0 0 10px;
+	color:#ddd;
+	font-size: 20px;
+	line-height:20px;
+	font-weight: normal;
+	text-shadow:0 0 5px rgba(0,0,0,1);
+	font-family: FileFolderJNL, Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+
+}
+
+
+#siteShare{
+	margin:13px auto auto auto;
+}
+
+#searchTankPage,
+#searchTeamPage{
+	float: left;
+	margin: 10px 0;
+	line-height: 25px;
+}
+#searchTank,
+#searchTeam{
+	float: right;
+	width:80px;
+}
+
+.btn a{
+	color:white;
+	text-decoration:none;
+}
+
+
+.editControl input{
+	margin:10px 5px;
+	width:150px;
+	height:16px;
+}
+
+#battleControl,
+.tankbaseControl,
+.editControl {
+	/*margin: 0 0 0 5px;*/
+	clear: both;
+	height: 46px;
+	overflow: hidden;
+	
+}
+.tankbaseControl{ margin: auto 8px auto 20px;}
+
+
+
+/****** button *******/
+.button{
+
+	height: 26px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	font-size: 12px;
+	line-height: 12px;
+	
+	padding: 5px 9px 6px;
+	margin: 10px 5px;
+	vertical-align: baseline;
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	
+	border: 1px solid rgba(0,0,0,.75);
+	
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+	-o-box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.button:active {
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.13),0 1px 2px rgba(0,0,0,0.2) inset;
+	-moz-box-shadow: 0 1px 0 rgba(255,255,255,0.13),0 1px 2px rgba(0,0,0,0.2) inset;
+	-o-box-shadow: 0 1px 0 rgba(255,255,255,0.13),0 1px 2px rgba(0,0,0,0.2) inset;
+	box-shadow: 0 1px 0 rgba(255,255,255,0.13),0 1px 2px rgba(0,0,0,0.2) inset;
+}
+
+.gray-button {
+	background: -webkit-gradient(linear,left top,left bottom,from(#8a949e),to(#6d7680));
+	background: -moz-linear-gradient(top,#8a949e,#6d7680);
+}
+.gray-button:active{
+	background: #626a72;
+}
+
+
+
+
+
+
+
+/* 调整BootStrap的样式 */
+
+.btn {
+  padding: 3px 10px 3px;
+
+  border: 1px solid rgba(0,0,0,.75);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+     -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+       -o-box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+          box-shadow: 0 1px 0 rgba(255,255,255,0.1),0 1px 0 rgba(255,255,255,0.4) inset;
+ border: 1px solid rgba(0, 0, 0, 0.75);
+}
+
+
+.btn-primary {
+  border: 1px solid rgba(0,0,0,.75);
+}
+
+.btn-warning {
+  border: 1px solid rgba(0,0,0,.75);
+}
+
+.btn-danger {
+  border: 1px solid rgba(0,0,0,.75);
+}
+
+.btn-success {
+  border: 1px solid rgba(0, 0, 0, 0.75);
+}
+.btn-info {
+  background-color: #287dc5;
+  *background-color: #287dc5;
+  background-image: -ms-linear-gradient(top, #469be3, #287dc5);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#469be3), to(#287dc5));
+  background-image: -webkit-linear-gradient(top, #469be3, #287dc5);
+  background-image: -o-linear-gradient(top, #469be3, #287dc5);
+  background-image: -moz-linear-gradient(top, #469be3, #287dc5);
+  background-image: linear-gradient(top, #469be3, #287dc5);
+
+  border-color: #287dc5 #287dc5 #287dc5;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0,0,0,.75);
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#469be3', endColorstr='#287dc5', GradientType=0);
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #287dc5;
+  *background-color: #287dc5;
+}
+.btn-info:active,
+.btn-info.active {
+  background-color: #287dc5 \9;
+}
+
+.btn-inverse {
+  border: 1px solid rgba(0,0,0,.75);
+}
+
+.btn-group.open .btn-info.dropdown-toggle {
+  background-color: #469be3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.redButton {
+	background: -webkit-gradient(linear,left top,left bottom,from(#ff3333),to(#dd2222));
+	background: -moz-linear-gradient(top,#ff3333,#dd2222);
+}
+.redButton:hover,
+.redButton:active{
+	background: -webkit-gradient(linear,left top,left bottom,from(#ee2222),to(#cc1111));
+	background: -moz-linear-gradient(top,#ee2222,#cc1111);
+}
+
+.dark-button{
+	background: -moz-linear-gradient(top,#484e54,#32393f);
+	background: -webkit-gradient(linear,left top,left bottom,from(#484e54),to(#32393f));
+}
+.dark-button:active{
+	background: #2f353b;
+}
+.back-button {
+	position: relative;
+	margin-left: 20px;
+	/*padding-left: 5px;*/
+}
+.back-button > span{
+	display: block;
+	width: 13px;
+	height: 26px;
+	top: -1px;
+	left: -11px;
+	background-image: url('./site/button_dark_point_sprite.png');
+	background-repeat: no-repeat;
+	position: absolute;
+	z-index: 1;
+}
+.back-button:active > span {
+	background-position: 0 -33px;
+}
+.button a{
+	color:white;
+	text-decoration:none;
+}
+
+/*******************************************/
+
+.tips{
+	color: red;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 10px;
+	line-height: 38px;
+	display: none;
+}
+
+@-webkit-keyframes flash{
+	0%{
+		color: red;
+	}
+	50%{
+		color: white;
+	}
+	100%{
+		color: green;
+	}
+}
+
+.tips-show{
+	display: block;
+	
+	-webkit-animation: flash 1s linear infinite alternate;
+}
+
+.sideWrap{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 580px;
+	overflow: hidden;
+	margin:auto auto auto 20px;
+	background: #4e545b url(./site/bg2.png) repeat;
+	
+	-webkit-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-moz-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-ms-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-o-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	transition: left 0.3s cubic-bezier(0.1,1,0,1);
+}
+.sideCollapse{
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	
+	left: 100%;
+}
+
+.sideTitle{
+	float: left;
+	line-height: 25px;
+	margin: 10px 0;
+	font-weight:bold;
+}
+
+.editor{
+	width:100%;
+	height: 100%;
+	
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+.robotCheckLabel{
+	display:block;
+	width:100%;
+	height:14px;
+	padding:8px 20px;
+	cursor: pointer;
+
+
+}
+
+input.robotCheckInput{
+	display:block;
+	float:left;
+	margin:11px 0;
+
+}
+
+.viewCode{
+	width:60px;
+	text-align:center;
+}
+
+.copyright{
+	font-size: 12px;
+	text-align:center; 
+	color:#fff; 
+	margin-top:20px;
+}
+
+
+
+
+.maskCover{
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.3);
+}
+
+
+.openWin{
+	position:fixed;
+	z-index:10001;
+	width:500px;
+	top:50%;
+	left:50%;
+	padding:0 10px;
+	background: rgba(0,0,0,0.75);
+	box-shadow:2px 2px 20px rgba(50, 60, 50, .85);
+
+	text-align:left;
+	font-size:12px;  
+	display:none;
+	color:#FFF;
+	overflow: hidden;
+	
+}
+.openHeader{ 
+	height:40px; 
+	width:100%; 
+	font-weight:bold;
+	border-bottom: 2px solid #13748D;
+}
+.openHeaderTitle{ width:200px; float:left; height:40px; color:#FFF; line-height:40px; font-size:16px;}
+.openWinTips{
+	display: none;
+	position: absolute;
+	z-index:10;
+	left:50%;
+	top:40px;
+	margin:auto 0 0 -120px; 
+	width:200px; 
+	font-size:12px; 
+	font-weight:bold;
+	color:white; 
+	height:20px; 
+	line-height:20px; 
+	overflow:hidden; 
+	
+	padding:20px; 
+	float:left;
+	background:orange;
+}
+
+
+table{
+	border-spacing: 0;
+	border: 0;
+	color: #7d9ca4;
+	margin: auto;
+	padding: 0;
+	width: 100%;
+}
+
+tbody tr{
+	height: 40px;
+}
+
+tbody tr:nth-child(odd){
+	background: rgba(255,255,255,0.03);
+}
+
+th{
+	height:50px;
+	color: #bc7612;
+	font-family: FileFolderJNL, Tahoma, sans-serif;
+	font-size: 12px;
+	font-weight: 100;
+	line-height: 16px;
+	letter-spacing: 1px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+td{
+	padding:5px;
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 30px;
+	text-align:center;
+}
+.align-left{
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+
+/********* 弹出面板 *********/
+.popupPanel{
+	display: none;
+	position: fixed;
+	z-index:10010;
+	left:50%;
+	top:50%;
+	margin:-280px 0 0 -260px;
+	padding:0 10px 0 10px;
+	width:500px;
+	height:560px;
+	background: rgba(0,0,0,0.75);
+	box-shadow:2px 2px 20px rgba(0,0,0,0.75);
+
+	text-align:left;
+	font-size:16px;
+	font-family:sans-serif;
+	color:rgb(34, 34, 34);
+	
+
+}
+.popupPanel > header{
+	height: 50px;
+	overflow: hidden;
+	border-bottom: 2px solid #13748d;
+
+}
+.popupPanel > header > h1{
+	float: left;
+	font-family: FileFolderJNL, Tahoma, Arial, sans-serif;
+	font-size: 20px;
+	line-height:20px;
+	font-weight: 100;
+	letter-spacing: 2px;
+	margin: 0;
+	width:100%;
+	text-align:center;
+	text-transform: uppercase;
+	color: #d1cfd1;
+}
+
+.popupPanel > section{
+	
+	margin-top: 4px;
+	border-top: 1px solid #10555f;
+	
+	border-bottom: 1px solid #142c34;
+	font-size: 12px;
+	color: #7d9ca4;
+	background: url(site/bg1.gif);
+	overflow: hidden;
+}
+
+.popupPanel dl{
+	margin: 20px 20px 20px 20px;
+	overflow: hidden;
+
+}
+.popupPanel dt{
+	float: left;
+	width: 22px;
+	height:30px;
+	overflow: hidden;
+
+}
+.popupPanel dd{
+	margin: 0px 0px 0px 25px;
+	height:30px;
+	overflow: hidden;
+
+}
+.popupPanel footer{
+	margin: 5px 0px 0px 0px;
+	padding:10px 0;
+	height:30px;
+	text-align:center;
+	overflow: hidden;
+
+}
+
+/* Robot 排行榜 */
+#rankList {
+	overflow:hidden;
+	height:510px;
+}
+.robotRank {
+	left:46.5%;
+	top:47.5%;
+	margin:-275px 0 0 -260px;
+	width:600px;
+	height:610px;	
+
+}
+
+.robotRank .rank{
+	text-align: left;
+	padding-left: 30px;
+}
+
+
+
+.robotRank .name{
+	text-align: left;
+	color: white;
+}
+
+.robotRank .score{
+	text-align: right;
+	padding-right: 30px;
+	color: #bc7612;
+}
+
+.robotRank > section > table thead th.last{
+	text-align: right;
+	padding-right: 30px;
+}
+
+.robotRank > footer{
+	clear: both;
+	color: gray;
+	font-size: 12px;
+	padding:10px;
+	text-align: left;
+	margin: 0;
+	height: auto;
+}
+.robotRank > section{
+	height: 510px;
+}
+
+
+
+/* Robot战斗得分 */
+.robotScore{
+	position: fixed;
+	z-index:10010;
+	margin:-305px 0 0 -460px;
+	padding:0 10px 0 10px;
+	width:900px;
+	min-height: 220px;
+}
+
+#robotScore table{
+	display: block;
+}
+
+#robotScore tbody{
+	display: block;
+	max-height: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#robotScore td{
+	width: 80px;
+	overflow: auto;
+}
+#robotScore .rank{
+	width: 50px;
+}
+#robotScore .name{
+	width: 200px;
+}
+#robotScore td.name{
+	color: white;
+}
+#robotScore td.totalScore{
+	font-weight:bold;
+	color: orange;
+}
+#robotScore .bulletDamageBonus{
+	width: 150px;
+}
+#robotScore .ramDamageBonus{
+	width: 120px;
+}
+
+
+/* Robot 设置 */
+.robotSetting{
+	margin:-280px 0 0 -260px;
+	width:500px;
+	height:560px;
+
+}
+
+
+
+/* 关于 CodeTank */
+.aboutCodeTank{
+	margin: -300px 0 0 -260px;
+	width: 500px;
+	height: 600px;
+}
+.aboutCodeTank > section{
+	height:480px;
+	overflow: auto;
+}
+
+.creditsTitle{
+	clear:both;
+	color: #aaa;
+	margin:10px auto 5px;
+	text-align:center;
+	font-family:tahoma;
+
+}
+.credits{
+	text-align: center;
+	list-style: none;
+	color: #90e5ef;
+	font-family: 'Microsoft Jhenghei','微软雅黑',sans-serif;
+	padding: 0px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	margin:auto;
+}
+.credits li{
+	display:inline;
+	margin: 2px;
+	padding: 0px 5px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+}
+.creditsTeam{
+	margin: 0px;
+	list-style: none;
+}
+.creditsTeam li{
+	font-size: 30px;
+}
+
+.creditsInfo{
+	clear:both;
+	color: #aaa;
+	margin:5px;
+	text-align:center;
+	font-family:tahoma;
+
+}
+
+.teamLogoLink{
+	margin:1px auto;
+	display: block;
+	padding:5px 0;
+	width: 200px;
+	height:70px;
+	overflow: hidden;
+	font-size: 18px;
+	text-align:center;
+	font-family: Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+}
+.teamLogoLink img{
+	display: block;
+	clear:both;
+	margin:auto;
+	border:0;
+}
+.teamLogoLink span{
+	display: block;
+	margin: auto;
+	color:white;
+	height:30px;
+	line-height:30px;
+}
+
+.alloyTeamLogoText{
+	
+	display: block;
+	overflow: hidden;
+	font-family: 'Segoe UI Light','Segoe UI','Microsoft Jhenghei','微软雅黑',sans-serif;
+	font-weight: normal;
+	color:white;
+	text-shadow: 0px 1px 3px #333;
+}
+
+
+/* 按钮 */
+.panelCloseButton{
+	float: right;
+	margin: -6px 0 0 0;
+	border: 0px;
+	font-family: FileFolderJNL, Tahoma, Arial, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	line-height:12px;
+	width:40px;
+	height:22px;
+	overflow: hidden;
+
+	text-align:center;
+	color: #333;
+	background: orange;
+	cursor: pointer;
+}
+.panelCloseButton:hover{
+	background: #a7edf3;
+}
+.panelButton{
+	width:120px;
+	height:30px;
+	line-height:30px;
+	border:0;
+	margin: 0 5px;
+	color:#000;
+	background: #81DDEB;
+	box-shadow: 0 0 20px rgba(0,0,0,0.7) inset;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 2px;
+	cursor: pointer;
+	display:inline-block;
+	text-align:center;
+}
+
+
+
+.panelButton:hover{
+	-webkit-animation-name: "buttonAnimation";
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+}
+
+
+
+
+@-webkit-keyframes "buttonAnimation" {
+	from {
+		color:#000;
+		background: #81DDEB;
+	}
+	50% {
+		color:#fff;
+		background: black;
+	}
+	to {
+		color:#000;
+		background: #81DDEB;
+	}
+}
+
+
+.active{
+	padding: 5px;
+	height:25px;
+	line-height:25px;
+	border:0;
+	
+	border-radius: 2px;
+	cursor: pointer;
+	display:inline-block;
+}
+
+
+
+.active:hover{
+	box-shadow: 0 0 20px rgba(0,0,0,0.7) inset;
+	-webkit-animation-name: "buttonAnimation";
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+}
+
+
+
+/* MsgBox */
+.tankMsgBox {
+	position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    border: 0px solid rgba(255, 255, 255, 0.25);
+    padding: 5px 10px;
+    -webkit-box-shadow: 1px 1px 7px rgba(0,0,0,1);
+	-moz-box-shadow: 1px 1px 7px rgba(0,0,0,1);
+	-ms-box-shadow: 1px 1px 7px rgba(0,0,0,1);
+	-o-box-shadow: 1px 1px 7px rgba(0,0,0,1);
+	box-shadow: 1px 1px 7px rgba(0,0,0,1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    color: #ccc;
+    font-size:12px;
+    
+    max-width: 300px;
+    max-height: 52px;
+    
+}
+.tankMsgBoxText {
+	max-width: 300px;
+    max-height: 52px;
+	overflow: auto;
+}
+.tankMsgBoxArrow {
+	position: absolute;
+	bottom: -12px;
+	left: 50px;
+	width: 0px;
+	height: 6px;
+	border-top: 6px solid rgba(0,0,0,0.4);
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	overflow: hidden;
+
+}
+.tankEnergyRect {
+    position: absolute;
+    background:rgba(80, 255, 80, 0.75);
+    height: 1px;
+    width: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    border:1px solid rgba(0,0,0, 0.75);
+
+}
+.tankNameText {
+    position: absolute;
+    color: #fff;
+    font-size: 12px;
+    font-family: sans-serif;
+    /*-webkit-text-stroke: 1px #000;*/
+    -webkit-text-shadow: rgba(0,0,0,0.7) 1px 0 0,
+						 rgba(0,0,0,0.7) 0 1px 0,
+						 rgba(0,0,0,0.7) -1px 0 0,
+						 rgba(0,0,0,0.7) 0 -1px 0,
+						 rgba(0,0,0,0.7) 1px 1px 0,
+						 rgba(0,0,0,0.7) -1px -1px 0,
+						 rgba(0,0,0,0.7) -1px 1px 0,
+						 rgba(0,0,0,0.7) 1px -1px 0;
+	-moz-text-shadow: rgba(0,0,0,0.7) 1px 0 0,
+						 rgba(0,0,0,0.7) 0 1px 0,
+						 rgba(0,0,0,0.7) -1px 0 0,
+						 rgba(0,0,0,0.7) 0 -1px 0,
+						 rgba(0,0,0,0.7) 1px 1px 0,
+						 rgba(0,0,0,0.7) -1px -1px 0,
+						 rgba(0,0,0,0.7) -1px 1px 0,
+						 rgba(0,0,0,0.7) 1px -1px 0;
+
+	text-shadow: rgba(0,0,0,0.7) 1px 0 0,
+				 rgba(0,0,0,0.7) 0 1px 0,
+				 rgba(0,0,0,0.7) -1px 0 0,
+				 rgba(0,0,0,0.7) 0 -1px 0,
+				 rgba(0,0,0,0.7) 1px 1px 0,
+				 rgba(0,0,0,0.7) -1px -1px 0,
+				 rgba(0,0,0,0.7) -1px 1px 0,
+				 rgba(0,0,0,0.7) 1px -1px 0;
+
+	filter: Glow(Color=black, Strength=1);
+}
+.tankMask{
+	position: absolute;
+	/*background: red;*/
+	left:0;
+	top:0;
+	z-index: 9;
+}
+.deletBtn{
+	position: absolute;
+	/*background: url('./tank/delete.png');*/
+	right:-2px;
+	top:5px;
+	width:20px;
+	height:20px;
+	cursor:pointer;
+	display: none;
+	text-shadow:rgba(0, 0, 0, 0) 0 0 0;
+
+}
+
+
+
+/* 游戏 Title 画面 */
+#gameTitle{
+	width:800px;
+	height:600px;
+	position: absolute;
+
+	z-index:1;
+	font-family: FileFolderJNL, Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+	background: black url('./battlefield/bg4.jpg');
+
+}
+
+.gameLogo{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-50px 0 0 -200px;
+	width:400px;
+	height:100px;
+	overflow: hidden;
+	font-size: 36px;
+	line-height: 38px;
+	font-weight: bold;
+	text-shadow:0 0 2px rgba(255,255,255,1),
+				0 0 10px rgba(0,0,0,1);
+	text-align:center;
+	letter-spacing:1px;
+
+}
+.gameLogo span{
+	
+}
+.gameLogo .tank{
+	color:orange;
+}
+#loadingBar{
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:30px 0 0 -200px;
+	width:400px;
+	height:20px;
+	text-align:center;
+	color: #81DDEB;
+}
+
+
+/* info */
+#info{
+	position: absolute;
+	bottom:10px;
+	width:600px;
+	height:30px;
+	line-height:30px;
+	-webkit-text-shadow: rgba(0,0,0,0.7) 1px 0 0,
+						 rgba(0,0,0,0.7) 0 1px 0,
+						 rgba(0,0,0,0.7) -1px 0 0,
+						 rgba(0,0,0,0.7) 0 -1px 0,
+						 rgba(0,0,0,0.7) 1px 1px 0,
+						 rgba(0,0,0,0.7) -1px -1px 0,
+						 rgba(0,0,0,0.7) -1px 1px 0,
+						 rgba(0,0,0,0.7) 1px -1px 0;
+	-moz-text-shadow: rgba(0,0,0,0.7) 1px 0 0,
+						 rgba(0,0,0,0.7) 0 1px 0,
+						 rgba(0,0,0,0.7) -1px 0 0,
+						 rgba(0,0,0,0.7) 0 -1px 0,
+						 rgba(0,0,0,0.7) 1px 1px 0,
+						 rgba(0,0,0,0.7) -1px -1px 0,
+						 rgba(0,0,0,0.7) -1px 1px 0,
+						 rgba(0,0,0,0.7) 1px -1px 0;
+
+	text-shadow: rgba(0,0,0,0.7) 1px 0 0,
+				 rgba(0,0,0,0.7) 0 1px 0,
+				 rgba(0,0,0,0.7) -1px 0 0,
+				 rgba(0,0,0,0.7) 0 -1px 0,
+				 rgba(0,0,0,0.7) 1px 1px 0,
+				 rgba(0,0,0,0.7) -1px -1px 0,
+				 rgba(0,0,0,0.7) -1px 1px 0,
+				 rgba(0,0,0,0.7) 1px -1px 0;
+
+	filter: Glow(Color=black, Strength=1);
+	
+}
+#info .detail{
+	font-family: sans-serif;
+	font-size:12px;
+	float: right;
+	text-align:right;
+	margin:5px 10px 0 0;
+	overflow: hidden;
+	
+}
+#info .detail span:nth-child(odd){
+	padding-left:10px;
+}
+#info .detail span:nth-child(even){
+	padding-left:5px;
+}
+#info .fps,
+#info .tps{
+	font-size:14px;
+	float: left;
+	margin:0 0 0 10px;
+	font-family: FileFolderJNL, Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+	letter-spacing:1px;
+	
+}
+.tps input{margin:0 0 0 20px; width:500px;}
+.tps span{margin-left:20px;}
+
+
+
+.accountPanel{
+	margin:-280px 0 0 -260px;
+	padding:0 10px 0 10px;
+	width:500px;
+	height:560px;
+
+}
+
+.accountPanel p{
+	padding: 0 5px;
+}
+
+.accountPanel .input{
+	width: 242px;
+	height: 11px;
+	margin: 10px 0 10px 20px;
+	padding: 10px;
+	border: 1px solid #333;
+	font: 400 11px/11px 'proxima-nova', sans-serif;
+	letter-spacing: 1px;
+	color: #8E999F;
+	background: #202421;
+}
+.accountPanel .input:focus{
+	border: 1px solid #825D10;
+}
+
+.accountPanel .tips {
+	line-height: 30px;
+	margin-right: 20px;
+}
+.accountPanel .tips-show {
+	margin-left: 10px;
+	display: inline-block;
+}
+.accountPanel .uidArea{
+	margin-top: 15px;
+}
+.accountPanel .panelButton{
+	margin-left: 20px;
+}
+.loginPanel{
+	margin:-135px 0 0 -260px;
+	height:270px;
+}
+.signupPanel{
+	margin: -200px 0 0 -260px;
+	height: 400px;
+}
+.accountInfo{
+	line-height: 45px;
+	font-size:12px;
+}
+
+.accountInfo span{
+	padding: 5px;
+}
+
+
+
+.loading{ color:#000000; line-height:32px; text-indent:5px;}
+
+.showLoading .circle{
+	-moz-animation:spinPulse 1s infinite ease-in-out;
+	-webkit-animation:spinPulse 1s infinite linear;
+}
+.showLoading .circle1{
+	-moz-animation:spinoffPulse 1s infinite linear;
+	-webkit-animation:spinoffPulse 1s infinite linear;
+}
+
+.circle {
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	opacity:.9;
+	border-right:5px solid rgba(0,0,0,0);
+	border-left:5px solid rgba(0,0,0,0);
+	border-radius:50px;
+	box-shadow: 0 0 35px #2187e7;
+	width:50px;
+	height:50px;
+	margin:0 auto;
+}
+.circle1 {
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	opacity:.9;
+	border-left:5px solid rgba(0,0,0,0);
+	border-right:5px solid rgba(0,0,0,0);
+	border-radius:50px;
+	box-shadow: 0 0 15px #2187e7; 
+	width:30px;
+	height:30px;
+	margin:0 auto;
+	position:relative;
+	top:-50px;
+	
+}
+
+@-moz-keyframes spinPulse {
+	0% { -moz-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7;}
+	50% { -moz-transform:rotate(145deg); opacity:1; }
+	100% { -moz-transform:rotate(-320deg); opacity:0; }
+}
+@-moz-keyframes spinoffPulse {
+	0% { -moz-transform:rotate(0deg); }
+	100% { -moz-transform:rotate(360deg);  }
+}
+@-webkit-keyframes spinPulse {
+	0% { -webkit-transform:rotate(160deg); opacity:0; box-shadow:0 0 1px #2187e7; }
+	50% { -webkit-transform:rotate(145deg); opacity:1;}
+	100% { -webkit-transform:rotate(-320deg); opacity:0; }
+}
+@-webkit-keyframes spinoffPulse {
+	0% { -webkit-transform:rotate(0deg); }
+	100% { -webkit-transform:rotate(360deg); }
+}
+
+fieldset .row{
+	margin: 20px;
+}
+
+.siteButton{
+	float: right;
+	margin: 10px 2px;
+}
+.battleControlButton{
+	float:left;
+	margin: 10px 2px;
+}
+
+.tankbaseControlButton{
+	float: left;
+	margin: 10px 2px;
+}
+.editControlButton{
+	float: left;
+	margin: 10px 2px;
+}
+
+.battleButton {
+	width:180px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 30px;
+	height:28px;
+	margin:5px auto;
+	background: -ms-linear-gradient(top,#ff9933,#dd7711);
+	background:#f08a24\9;/* IE9 */
+	background: -o-linear-gradient(top,#ff9933,#dd7711);
+	background: -webkit-gradient(linear,left top,left bottom,from(#ff9933),to(#dd7711));
+	background: -moz-linear-gradient(top,#ff9933,#dd7711);
+}
+.battleButton:hover,
+.battleButton:active {
+	background: -ms-linear-gradient(top,#ff3300,#dd1100);
+	background:#ee2200\9;/* IE9 */
+	background: -o-linear-gradient(top,#ff3300,#dd1100);
+	background: -webkit-gradient(linear,left top,left bottom,from(#ff3300),to(#dd1100));
+	background: -moz-linear-gradient(top,#ff3300,#dd1100);
+}
+
+.followUs {
+	color: red;
+	margin: 16px 0 0 12px;
+	display: inline-block;
+}
+.followUs:hover {
+	text-decoration: underline;
+}
+#accountContainer{
+	display: none;
+}
+
+
+.shareButton{
+	float: left;
+	margin: 13px 0 0 0;
+}
+.shareScorePopup {
+	position: absolute;
+	display: none;
+	z-index: 20000;
+}
+.shareScorePopup .dropdown-menu {
+	display: block;
+	position: static;
+}
+.WB_publishBox {
+	z-index: 20001;
+}
+.battlegroundList span {
+	cursor: pointer;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin: 5px 10px;
+	border: 1px solid;
+	box-shadow: rgba(51,102,153,1) 0 0 5px 2px;
+
+}
+.battlegroundList span:hover {
+	-webkit-animation-name: "hoverAnimation";
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes "hoverAnimation" {
+	from {
+		box-shadow: rgba(51,102,153,1) 0 0 5px 2px;
+	}
+	50%{
+		box-shadow: rgba(51,102,153,0.2) 0 0 5px 2px;
+	}
+	to {
+		box-shadow: rgba(51,102,153,1) 0 0 5px 2px;
+	}
+} 
+.oldBrowserTips{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: 9999999;
+}
+.oldBrowserTips span{
+	color: orange;
+	font-size: 24px;
+	line-height: 2;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	margin-top: -86px;
+}
+/* team editor*/
+.teamEditor{ margin:0 10px; color:#FFF;}
+.teamNameLabel{ 
+	height:30px;
+	padding:5px 0;
+	line-height:30px;
+	width:100%; 
+	float:left;
+}
+/*.teamMember{ line-height:30px; border-bottom: 1px solid #13748D; width:100%; float:left}
+.teamEditor ul{ float: left; width:100%; margin:10px 0 0; }
+.teamEditor li{ width:100%; float:left; position:relative;}
+a.edTeamDel{ 
+	position:absolute; 
+	display:block; 
+	right:10px; 
+	top:4px; 
+	margin:0;
+	display: none;
+	
+}
+.teamEditor li:hover a.edTeamDel{ display:block;} */
+
+.edTeamBottom{ height:60px; line-height:60px; width:100%; float:left; text-align:center;}
+
+.warning{ color:black;}
+.radioBox{ width:100px; float:right;}
+.radioBox input{ margin:2px;}
+
+.teamEditBox{ width:100%; height:300px; overflow:hidden; margin-top:10px; float:left;}
+input.edTeamNameTxt{ border-radius:0;  border-width:0 0 1px 0; background-color:#000; color:#FFF;}
+.teamEditLeft, .teamEditRight{ width:200px; height:300px; overflow:hidden; overflow-y:auto; float:left;  
+		background: url(site/bg1.gif);border-radius:4px; color:#FFF;	}
+.teamEditCenter{ width:80px; height:300px; float:left;}
+.teamEditorClassName{ height:24px; line-height:24px; cursor:pointer; padding-left:5px;}
+.teamEditorTankList{ width:100%; padding:0; margin:0; overflow:hidden;
+	-webkit-transition: height 0.5s  ease-in-out;
+	-moz-transition: height 0.5s ease-in-out;
+	-o-transition: height 0.5s ease-in-out;
+	transition: height 0.5s  ease-in-out; 
+}
+.memberCollapse{ height:0; padding:0;}
+.teamEditorTankList li{height:22px; line-height:22px;cursor:pointer; padding-left:20px; border-radius:4px;}
+.teamEditorTankList li:hover{ background-color:#F93;}
+.teamEditorTankList2 li{ padding-left:5px;}
+
+.arrowLeft{ float:left; width:30px; height:25px; background-color:#F90; margin:137px 0 0 15px;}
+.arrowRight{ border-width:20px 0 20px 20px;	border-style:dashed dashed dashed solid;border-color:transparent  transparent transparent #F90;	width:0;height:0;
+			float:left; margin-top:130px;}
+
+/* open net tank list */
+/*.openNetTankList{ height:400px; overflow-y:auto; overflow-x:hidden; margin:20px 0 }
+.openNetTankLoading{ display:inline-block; vertical-align:middle;}
+.opCollectTank{ display:none; width: 40px; position:absolute; right:5px; top:4px;
+	height: 22px; line-height:22px;
+	overflow: hidden;
+	text-align: center;
+	color: #333;
+	background: orange; display:none; 	
+}
+.opCollectTank:hover{ background-color:#F93; color:#000;} 
+.openNetTankList ul{ float:left;}
+.openNetTankList li{ height:30px; line-height:30px; width:440px; float:left;margin:0; padding:0 5px; position:relative;}
+.openNetTankList li:hover .opCollectTank{ display:block;}
+
+.openNetTankList .showLoading{ line-height:360px; text-align:center; width:94%;}*/
+
+.sideNetTankBox{ 
+	width: 100%; 
+	overflow:hidden;
+	overflow-y:auto;
+} 
+.sideNetTankOpBox{ 
+	float:right;
+	margin: 0 10px 0 0;
+	text-align:right;
+}
+.sideNetTankOpBox input{ width:100px;}
+.sideNetTankOpBox .gray{ color:#CCC;}
+.disable, .disable:hover{ color:#CCC; cursor:default;}
+
+.sideUnfold{ 
+	right:0;
+}
+
+
+
+.sideButton{
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	width:20px;
+	cursor: pointer;
+	z-index:100;
+	
+}
+.sideButton:hover{
+	background:rgba(255,255,255,0.02);
+}
+.sideArrow{
+	position: absolute;
+	top:50%; 
+	left:2px;
+	margin:-38px 0 0 0;
+	width: 0px;
+	height: 0px;
+	border-top: 15px solid transparent;
+	border-right: 15px solid orange;
+	border-bottom: 15px solid transparent;
+	border-left: 0;
+	overflow: hidden;
+}
+.sideButton:hover .sideArrow{
+	border-left: 0;
+	border-right: 15px solid #7D9CA4;
+}
+.sideButtonRight .sideArrow{
+	border-top: 15px solid transparent;
+	border-right: 0;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid orange;
+}
+.sideButton.sideButtonRight:hover .sideArrow{
+	border-right: 0;
+	border-left: 15px solid #7D9CA4;
+}
+
+.battleSizeList{ 
+	float:left; 
+	margin:0 0 0 0px;
+}
+.battleSizeList li{ 
+	float:left;
+	width:120px;
+	margin:1px;
+	padding-left:10px;
+	height:20px;
+	line-height:20px;
+	cursor:pointer;
+}
+
+.battleSizeList li.cur{ background-color:#F90; color:#000;}
+
+
+
+/**
+ * Fix FF:
+ * 1. Exit button out of setting dialog
+ */
+legend {
+	margin: 0 0 0 20px;
+	width:auto;
+	border-bottom:0px;
+}
+
+/* 分享到微博 */
+.shareInfo {
+	margin:-200px 0 0 -260px;
+	width:500px;
+	height:370px;
+}
+
+.shareLogo {
+	display: block;
+	margin: auto;
+	width:404px;
+	height:45px;
+	overflow: hidden;
+}
+.shareLogo span{
+	float: left;
+	display:block;
+}
+.shareTencentLogo {
+	background: url("site/sharetencent.png") no-repeat scroll 0 0 transparent;
+}
+.shareSinaLogo {
+	background: url("site/sharesina.png") no-repeat scroll 0 0 transparent;
+}
+ .shareTencentLogo, .shareSinaLogo {
+	float:left;
+    display: inline-block;
+    line-height: 16px;
+    position: relative;
+	margin:15px 3px 0 0;
+    vertical-align: text-top;
+	height: 16px;
+    width: 16px;
+}
+
+.shareChecked {
+    margin: 16px 10px 0 0 !important;
+    vertical-align: 0;
+	float:left;
+}
+
+.tlShare, .slShare {
+    padding-right: 20px;
+	font-size: 18px;
+	line-height: 40px;
+	text-align: center;
+	font-weight: normal;
+	text-shadow: 0 0 5px #000000;
+	color:white;
+	font-family: FileFolderJNL,Michroma,'Segoe UI Light','Segoe UI','Segoe UI WP','Microsoft Jhenghei','微软雅黑',sans-serif;
+}
+
+.shareSomething {
+	height:200px;
+	width:500px;
+}
+
+.sharePic {
+	margin:10px 0 0 10px;
+	float:left;
+	width:140px;
+	height:170px;
+	clear:both;
+	border-radius: 5px 0 0 5px;
+	background: rgb(255, 255, 255);
+}
+.sharePic img{
+	/*margin-top: 33px;*/
+}
+/*
+.shareText {
+	text-align: center;
+	list-style: none;
+	font-family: 'Microsoft Jhenghei','微软雅黑',sans-serif;
+	padding: 0px;
+	font-size: 13px;
+	letter-spacing: 1px;
+}
+*/
+.shareText {
+	margin: 10px 0;
+	width:320px;
+	height:152px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+    color: #333333;
+    font: 14px/16px 'Helvetica Neue',Helvetica,Arial,Sans-serif;
+    padding: 8px;
+	float:left;
+
+}
+.shareText > textarea {
+	width:320px;
+	height:150px;
+    border: 0;
+    color: #333333;
+    font-size: 13px;
+    line-height: 22px;
+    overflow: hidden;
+    padding: 0;
+	resize: none;
+	outline:0 none;
+}
+
+.shareTextArea {
+	overflow:hidden;
+}
+
+
+
+
+.shareInfo footer{
+	margin: 5px 0px 0px 0px;
+	padding:10px 0;
+	height:30px;
+	text-align:center;
+	overflow: hidden;
+
+}
+.shareInfoText {
+	margin:-15px 20px 10px 0;
+	display:block;
+	float:right;
+	font:14px/1.125 Arial,Helvetica,sans-serif;
+	color:#BEBBBE;
+
+}
+.shareInfoText span {
+   font-family: Constantia,Georgia;
+    font-size: 24px;
+    font-weight: 700;
+	color:#BEBBBE;
+
+}
+.warnColor {
+	 font-family: Constantia,Georgia;
+    font-size: 24px;
+    font-weight: 700;
+	color:#DA0000;
+} 
+
+/* alertTips */
+.maskCover2{ z-index:10020}
+.alertTips { position:absolute; left:0; width:600px; /*height:70px;*/ top:0; z-index:10021; text-align:center; display:none;}
+.alertTipsBox{ background-color: #FFF;  border-radius: 4px 4px 4px 4px; display: inline-block; font-family: "微软雅黑";
+    font-size: 18px; /*height: 36px; line-height: 36px; margin: 0 auto;*/ padding: 17px 50px; position:relative;}
+.alertTipsEx .alertTipsBox{ padding-bottom:45px;}	
+.alertTipsContent{/* background: url("site/icon_alert.png") no-repeat; padding-left: 50px;*/ line-height: 36px;  color:#000;}
+.alertTipsEx .alertTipsContent{ margin:10px 0;}
+
+.iconSuc{  background: url("site/icon_alert.png") no-repeat; padding-left: 50px;}	
+.iconWarning{ background: url("site/icon_alert.png") no-repeat 0 -40px; padding-left: 50px;}	
+
+.alertTipsClose{ position:absolute; width:18px; height:18px; right:2px; top:2px; display:none; cursor:pointer; font-size:10px;
+	background-color:orange; border-radius:10px; line-height:12px; font-family: FileFolderJNL, Tahoma, Arial, sans-serif;}
+.alertTipsClose:hover{background-color: #a7edf3;}
+.alertTipsBtnBox{ position:absolute;  bottom:5px; left:0;  width:100%; height:30px; padding:8px 0 0; border-top:1px solid #E6E6E6; display:none;}	
+.alertTipsBtnBox div{ margin-right:5px;}
+.alertTipsEx .alertTipsBtnBox{ display:block;}
+
+.QQ{
+	font-size: 12px;
+	float: right;
+
+	width: 100px;
+
+	height: 46px;
+	line-height: 46px;
+}
+.text{
+	float: left;
+
+}
+.group {
+	clear:both;
+	-webkit-user-select: text;
+	
+
+}
+.message-container{
+	line-height: 24px;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 12;
+	background: orange;
+	color: black;
+}
+.message-close{
+	width: 20px;
+	height: 20px;
+	color: red;
+	float: right;
+	cursor: pointer;
+}
+.battleCount{
+	color: #369;
+	margin-left: 5px;
+}
+.followUsBtn {
+		float: right;
+		margin: 12px 20px 0 0;
+
+}
+.followUsBtn span{
+	float:left;
+	margin-right:5px;
+}
+.netTeamMemberBox{background-color:#CCC; line-height:30px;font-size:13px;} 
+.sideTeaMembermInfo{ text-indent:20px; }
+.sideTeamMeamer{line-height:24px; height:24px; /*border-bottom:1px dashed #CCC;*/ padding:5px 0; /*margin-bottom:5px; background-color:#EBEBEB*/}
+
+.sideTeamMeamerName{ width:300px; float:left;white-space: nowrap; padding-left:30px;overflow: hidden;text-overflow: ellipsis;}
+.sideTeamArr{border-width:0px 10px 10px 10px;	border-style:dashed dashed solid dashed;
+			 border-color:transparent  transparent #CCC  transparent;	width:0;height:0;
+			 position:absolute; top:0; left:35px;}
+
+#rankList ::-webkit-scrollbar-track-piece {
+	background: #141f1c;
+}
+
+
+/*信息公告系统*/
+#tankNoticeButton {
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:200px;
+	width:20px;
+	cursor: pointer;
+	z-index:100;
+	
+}
+
+#tankNoticeButton:hover{
+	background:rgba(255,255,255,0.02);
+}
+.sideArrow1 {
+	position: absolute;
+	top:57%; 
+	left:2px;
+	margin:-38px 0 0 0;
+	width: 0px;
+	height: 0px;
+	border-top: 15px solid transparent;
+	border-right: 15px solid orange;
+	border-bottom: 15px solid transparent;
+	border-left: 0;
+	overflow: hidden;
+}
+#tankNoticeButton:hover .sideArrow1{
+	border-left: 0;
+	border-right: 15px solid #7D9CA4;
+}
+.sideButtonRight1 .sideArrow1{
+	border-top: 15px solid transparent;
+	border-right: 0;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid orange;
+}
+#tankNoticeButton.sideButtonRight1:hover .sideArrow1{
+	border-right: 0;
+	border-left: 15px solid #7D9CA4;
+}
+
+.tankNoticeMain {
+	position: absolute;
+	z-index:10;
+	width:220px;
+	top:96px;
+	left:0;
+	height:300px;
+	overflow: hidden;
+	box-shadow:-3px 0 5px rgba(0, 0, 0, .5);
+	
+	background: rgba(0,0,0,0.75);
+	
+
+	-webkit-transition: all 0.7s cubic-bezier(0.1,1,0,1);
+	-moz-transition: all 0.7s cubic-bezier(0.1,1,0.1,1);
+	-ms-transition: all 0.7s cubic-bezier(0.1,1,0.1,1);
+	-o-transition: all 0.7s cubic-bezier(0.1,1,0.1,1);
+	transition: all 0.7s cubic-bezier(0.1,1,0,1);
+}
+.robotNoticeWrap{
+	/*overflow: hidden;
+	position: absolute;*/
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	
+	-webkit-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-moz-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-ms-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	-o-transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	transition: left 0.3s cubic-bezier(0.1,1,0,1);
+	overflow:auto;
+}
+
+.sideUnfold1 { 
+	left:-200px;
+	
+}
+.sideButtonRight1 {
+
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.robotNoticeWrap p {
+	
+	padding: 10px;
+	line-height: 1.8;
+	font-size: 13px;
+	color:rgb(125, 156, 164);	
+}
+.tankNoticeHead {
+	margin: 10px 0 0 50px;
+	font-size: 14px;
+
+	
+}
+#robotNoticeWrap {
+	background: url(site/bg1.gif);
+	width: 180px;
+	height: 240px;
+	margin: 10px 0 0 20px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+	-o-box-shadow: 0 1px 5px rgba(0,0,0,0.8);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+
+}
+
+/*代码开源按钮功能*/
+
+
+#openSourceClick {
+	position: relative;
+	 z-index: 10;
+}
+.openSourceMask {
+	background: white;
+	width: 34px;
+	height: 24px;
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: 41px;
+	border-radius: 4px;
+	border-left: 1px solid rgba(124, 124, 124, 0.7);
+	-webkit-transition:all 0.2s ease-in;
+
+}
+.osActive {
+	left:0 !important;
+	border-left: none !important;
+	border-right: 1px solid rgba(124, 124, 124, 0.7);
+	-webkit-transition:all 0.2s ease-in;
+}
+
+/* 页面布局：战斗布局，在这个模式下，只显示战场 */
+.tankTransparent{background-color:transparent; background:none;}
+.tankBattle{}
+.tankBattle .toolbar, 
+.tankBattle .robotFactory,
+.tankBattle #robotBaseButton,
+.tankBattle #robotConsoleButton,
+.tankBattle .battleMode,
+.tankBattle .tps,
+.tankBattle .copyright
+{ display:none;}
+
+/*	解说区域	*/
+.explainWallWrap{
+	position: absolute;
+	left: -500px;
+	top: 50px;
+	width: 400px;
+	height: 130px;
+	overflow: auto;
+	background-color: inherit;
+}

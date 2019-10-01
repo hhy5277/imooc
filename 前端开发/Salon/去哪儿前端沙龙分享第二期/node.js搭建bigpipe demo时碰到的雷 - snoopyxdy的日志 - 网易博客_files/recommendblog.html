@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://www.lofter.com/recommendblog?email=snoopyxdy@163.com -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>LOFTER（乐乎） - 每个人的理想国</title>
+	<meta name="keywords" content="图片社交、照片社交、摄影作品、手机摄影、同人文、平面设计、cosplay、达人、女神图片、时尚搭配、二次元">
+
+<meta http-equiv="x-ua-compatible" content="ie=emulateie7">
+<meta name="author" content="netease">
+<meta name="version" content="1.0">
+<meta name="keywords" content="图片社交、照片社交、摄影作品、手机摄影、同人文、平面设计、cosplay、达人、女神图片、时尚搭配、二次元">
+<meta name="description" content="">
+
+  <script type="text/javascript">
+   (function(window,document){
+        
+        document.uniqueID!=document.uniqueID&&!!location.hash&&(location.hash=location.hash);
+        window.focus();
+    })(this,document);
+  </script>
+<style type="text/css">
+html,body{font-family:"Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体";text-align:left;font-size:12px;line-height:normal;background-color:transparent;}
+*{margin:0;padding:0;}
+li{list-style:none;}
+a{color:#666;text-decoration:none;}
+img{border:0 none;}
+
+.m-iframepostlist .type{background:url(/rsc/img/icon24.png?036) no-repeat 999px 999px;_background:url(/rsc/img/icon.png?036) no-repeat 999px 999px;}
+.m-iframepostlist .first{background:url(/rsc/img/addinbanenr.png?001) no-repeat;}
+
+.m-iframepostlist{height:125px;margin-right:-5px;}
+.m-iframepostlist li{position:relative;float:left;width:125px;height:125px;margin:0 5px 10px 0;overflow:hidden;background:#ddd;}
+.m-iframepostlist a{height:100%;}
+.m-iframepostlist a,.m-iframepostlist img,.m-iframepostlist span,.m-iframepostlist strong{display:block;}
+.m-iframepostlist .txt{padding:10px 10px 0;}
+.m-iframepostlist .txt strong{max-height:42px;_height:21px;margin:0 0 8px;overflow:hidden;font-size:16px;}
+.m-iframepostlist .txt span{max-height:69px;overflow:hidden;line-height:23px;}
+.m-iframepostlist .type{position:absolute;top:50%;left:50%;width:57px;height:57px;margin:-28px 0 0 -28px;_width:52px;_height:52px;_margin:-26px 0 0 -26px;filter:alpha(opacity=90);}
+.m-iframepostlist .movie .type{background-position:0 -2180px;*background-position:0 -2300px;}
+.m-iframepostlist .music .type{background-position:0 -2240px;*background-position:0 -2358px;}
+.m-iframepostlist .first{text-indent:-999px;overflow:hidden;}
+.m-iframepostlist .first-1{background-position:0 0;}
+.m-iframepostlist .first-2{background-position:-131px 0;}
+.m-iframepostlist .first-3{background-position:-262px 0;}
+.m-iframepostlist .first-4{background-position:-393px 0;}
+.m-iframepostlist .first-5{background-position:-524px 0;}
+
+.m-iframepostlist .imgwrap{position:absolute;top:50%;}
+.m-iframepostlist .imgwrap img{width:125px;}
+.m-iframepostlist .imgwrap2{position:relative;}
+.m-iframepostlist .firstimg{visibility:hidden;}
+.m-iframepostlist .lastimg{position:absolute;top:-50%;}
+
+/*  LOFTER-19450:博客更多文章模块样式更换  */
+.m-iframepostlist .blogfirst{text-indent:-999px;overflow:hidden;background:url(/rsc/img/blogfirst.png?001) 0 0 no-repeat;}
+</style>
+</head>
+
+<body>
+
+<div class="m-iframepostlist">
+	<ul class="list" id="ullist">
+		<li class="blogfirst" id="joinLink">
+			<a target="_blank" id="joinLofterLink" href="http://www.lofter.com/?act=qbpersonalpagelogin_20141014_01">加入LOFTER</a>
+		</li>
+	<li class="text"><a href="http://rrestjs.lofter.com/post/80f11_6ee2893" target="_blank"><span class="txt"><strong>lua的元表</strong><span>metatable是Lua中的重要概念，每一个table都可以加上metatable，以改变相应的table的行为。让我们看一个例子： t = {} -- 普通的table mt = {} -- metatable setmetatable(t, mt) -- 设定mt为t的metatable getmetatable(t) -- 返回mt 使用getmetatable和setmetatable来查看和设定metatable。当然，上面的代码也可以压缩成一行： t = setmetatable({}, {}) 这是因为setmetatable会返回它的第一个参数。... </span></span></a></li><li class="text"><a href="http://rrestjs.lofter.com/post/80f11_6bbb5c6" target="_blank"><span class="txt"><strong>Node.js thrift小试</strong><span>今天用Node.js写了一个thrift的小demo，有点小坑 1、nodejs_msg.thrift 接口描述文件 struct SendMsg { 1: string content, } struct ResMsg { 1: i32 result = 1, 2: i32 id, } service Message{ ResMsg send(1:SendMsg data), } 2、我们写client.js var thrift = require('thrift'); var transport...</span></span></a></li><li class="text"><a href="http://rrestjs.lofter.com/post/80f11_739371d" target="_blank"><span class="txt"><strong>resty-mongo 踩过的坑</strong><span>最近在用 nginx + lua + mongodb 做一个小项目，踩了里面不少坑，先做记录如下： 1、local m = mongol:new() 一个db只能用一个实例，所以有多个db需要实例化多次 2、用户名密码 要使用db:auth来做，连接多个db，要使用多个 local ok, err = db:auth(mongoConn.dbUser, mongoConn.dbPwd) 3、游标的使用 要通过如下代码使用游标 for index, item in cursor:pairs() do ... end 4、用完记得归还 local...</span></span></a></li><li class="text"><a href="http://rrestjs.lofter.com/post/80f11_66723ea" target="_blank"><span class="txt"><strong>新鲜出炉，PCIE卡SQLServer和SSD Mongodb集群4千万数据insert测试</strong><span>最近公司需要测试1亿条数据10分钟插入数据库，主要是为了数据推送留存用。 最终我们讨论给出了2套方案 1、单台sqlserver 配合PCIE卡 2、Mongodb分片集群 因为目前数据量是4千万，所以我分别对4千万数据和1亿数据进行了写入测试。 被测试机器都是24CPU,64G内存的独立服务器 测试代码运行服务器也是24CPU，64G内存的独立服务器 网络环境是内网1G带宽。 1、单台sqlserver 配合PCIE卡 性能测试总结： 使用新配置的720 PCI-E硬盘机器和SQLServer2014，性能非常强劲，单机可达3万条/秒的写入，由于前几次测试本机...</span></span></a></li><li class="text"><a href="http://rrestjs.lofter.com/post/80f11_3e80927" target="_blank"><span class="txt"><strong>使用Jenkins自动部署nodejs应用</strong><span>想必部署过nodejs应用的朋友都有过这样的经历： 1、通过ssh登录服务器 2、进入nodejs目录 3、执行：git pull 命令拉取最新代码 4、执行：npm install 安装新依赖 5、执行：pm2 restart all 重新启动所有nodejs进程 如果我们只有一台机器，并且更新不是很频繁，似乎这样的操作还是可以接受，但是如果我们有4台nodejs应用的服务器，每次的代码改动将是灾难！ 好在我们有Jenkins帮助我们做这些事情，Jenkins是一个可以自动远程部署，执行远程脚本命令的工具，它被称为持续集成工具，我们可以通过docker来快速搭建一个Jenkins...</span></span></a></li></ul>
+</div>
+
+
+<script>
+var _postAry = [], _showPostAry = [], _post, _linode, _classname = ['text','img','music','movie'], _texthtml, _blogLink='http://rrestjs.lofter.com/';
+_postAry.push({type:1, permalink:'80f11_7d60bb1',imgurl:'', title:'Mongodb 实战优化', content:'Mongodb是一个高性能，可扩展数据库，并具有低延迟，高吞吐率的性能。但是使用过程中难免会有所坑，下面将介绍一些优化方案。 以下建议翻译自 亚马逊的 《Performance Best Practices for MongoDB 2015》 补充是自己在Mongodb实践中的总结 1、Mongodb引擎 Mongodb 3.0 支持了2种引擎： A、默认的 MMAPv1 引擎，老版本一种使用 B、WiredTiger 引擎，新支持的db引擎 这两种引擎可以在一个副本集中共存，他们之前的迁移是很容易，也就是说，从 MMAPv1 老的引擎升级到新的 ...', noticeLinkTitle:'Mongodb 实战优化'});
+_postAry.push({type:1, permalink:'80f11_6ee2893',imgurl:'', title:'lua的元表', content:'metatable是Lua中的重要概念，每一个table都可以加上metatable，以改变相应的table的行为。让我们看一个例子： t = {} -- 普通的table mt = {} -- metatable setmetatable(t, mt) -- 设定mt为t的metatable getmetatable(t) -- 返回mt 使用getmetatable和setmetatable来查看和设定metatable。当然，上面的代码也可以压缩成一行： t = setmetatable({}, {}) 这是因为setmetatable会返回它的第一个参数。... ', noticeLinkTitle:'lua的元表'});
+_postAry.push({type:1, permalink:'80f11_7d3a425',imgurl:'', title:'分析一次 Mongodb 真实案例', content:'前几天，公司一个业务部门的 Mongodb 数据库副本集（1主2从）出现写入和更新延迟现象，最慢的一次更新长达22秒，平均的更新和插入操作在15秒左右，上报到我们公共部门，希望能够得到解决。 之前业务部门已经对这个 Mongodb 使用了一个多月，一直没出问题，又怎么会突然发生延迟这么长的故障呢？ 由于 Mongodb 2.6 版本写入操作是锁库的，所以这个故障已经影响正常线上业务了，于是我们就担任救火队员，开始对这个 危在旦夕 的Mongodb进行调整了。 于是灾难开始了： 1、删除索引 我们在出问题的集合中发现了一个3个字段的组合索引，而这个组合索引并没有被查询使用到...', noticeLinkTitle:'分析一次 Mongodb 真实...'});
+_postAry.push({type:1, permalink:'80f11_3e80927',imgurl:'', title:'使用Jenkins自动部署nodejs应用', content:'想必部署过nodejs应用的朋友都有过这样的经历： 1、通过ssh登录服务器 2、进入nodejs目录 3、执行：git pull 命令拉取最新代码 4、执行：npm install 安装新依赖 5、执行：pm2 restart all 重新启动所有nodejs进程 如果我们只有一台机器，并且更新不是很频繁，似乎这样的操作还是可以接受，但是如果我们有4台nodejs应用的服务器，每次的代码改动将是灾难！ 好在我们有Jenkins帮助我们做这些事情，Jenkins是一个可以自动远程部署，执行远程脚本命令的工具，它被称为持续集成工具，我们可以通过docker来快速搭建一个Jenkins...', noticeLinkTitle:'使用Jenkins自动部署no...'});
+_postAry.push({type:1, permalink:'80f11_6fd7ee1',imgurl:'', title:'Python 的虛擬環境及多版本開發利器─Virtualenv 與 Pythonbrew', content:'转载地址： http://www.openfoundry.org/tw/tech-column/8516-pythons-virtual-environment-and-multi-version-programming-tools-virtualenv-and-pythonbrew Virtualenv 和 Pythonbrew 都是可以創造虛擬（獨立）Python 環境的工具，只是虛擬（獨立）標的不同。 Virtualenv 可以隔離函數庫需求不同的專案，讓它們不會互相影響。在建立並啟動虛擬環境後，透過 pip 安裝的套件會被放在虛擬環境中，專案就可以擁有一個獨立的環境。... ', noticeLinkTitle:'Python 的虛擬環境及多版...'});
+_postAry.push({type:1, permalink:'80f11_6471f00',imgurl:'', title:'thrift文件教程1', content:'1. 内容概要 本文档比较全面的介绍了thrift（关于thrift框架的介绍，参考我这篇文章：Thrift框架介绍）语法，代码生成结构和应用经验。本文主要讲述的对象是thrift文件，并未涉及其client和server的编写方法（关于client和server的编写方法，可参考我这篇文章：使用Thrift RPC编写程序）。 本文档大部分内容翻译自文章：“Thrift:The missing Guide“。 关于Thrift内部实现原理，可参考：浅谈Thrift内部实现原理。 2. 语法参考 2.1 Types Thrift类型系统包括预定义基本类型，用户自定义结构体，容器类型...', noticeLinkTitle:'thrift文件教程1'});
+_postAry.push({type:1, permalink:'80f11_66723ea',imgurl:'', title:'新鲜出炉，PCIE卡SQLServer和SSD Mongodb集群4千万数据insert测试', content:'最近公司需要测试1亿条数据10分钟插入数据库，主要是为了数据推送留存用。 最终我们讨论给出了2套方案 1、单台sqlserver 配合PCIE卡 2、Mongodb分片集群 因为目前数据量是4千万，所以我分别对4千万数据和1亿数据进行了写入测试。 被测试机器都是24CPU,64G内存的独立服务器 测试代码运行服务器也是24CPU，64G内存的独立服务器 网络环境是内网1G带宽。 1、单台sqlserver 配合PCIE卡 性能测试总结： 使用新配置的720 PCI-E硬盘机器和SQLServer2014，性能非常强劲，单机可达3万条/秒的写入，由于前几次测试本机...', noticeLinkTitle:'新鲜出炉，PCIE卡SQLSe...'});
+_postAry.push({type:1, permalink:'80f11_2cc2d2c',imgurl:'', title:'Flask-SQLAlchemy 使用小坑', content:'今天在搭建 Flask-SQLAlchemy 的demo时碰到了一些小的坑，记录下来，防止以后再范，本文将持续更新，记录一些Flask-SQLAlchemy 的使用小提示 1、封装db对象 Flask封装了一个db对象，官方示例如下： from flask import Flask from flask.ext.sqlalchemy import SQLAlchemy app = Flask(__name__) app.config[\'SQLALCHEMY_DATABASE_URI\'] = \'sqlite:////tmp/test.db\' db = SQLAlchemy(...', noticeLinkTitle:'Flask-SQLAlchem...'});
+_postAry.push({type:1, permalink:'80f11_739371d',imgurl:'', title:'resty-mongo 踩过的坑', content:'最近在用 nginx + lua + mongodb 做一个小项目，踩了里面不少坑，先做记录如下： 1、local m = mongol:new() 一个db只能用一个实例，所以有多个db需要实例化多次 2、用户名密码 要使用db:auth来做，连接多个db，要使用多个 local ok, err = db:auth(mongoConn.dbUser, mongoConn.dbPwd) 3、游标的使用 要通过如下代码使用游标 for index, item in cursor:pairs() do ... end 4、用完记得归还 local...', noticeLinkTitle:'resty-mongo 踩过的...'});
+_postAry.push({type:1, permalink:'80f11_6bbb5c6',imgurl:'', title:'Node.js thrift小试', content:'今天用Node.js写了一个thrift的小demo，有点小坑 1、nodejs_msg.thrift 接口描述文件 struct SendMsg { 1: string content, } struct ResMsg { 1: i32 result = 1, 2: i32 id, } service Message{ ResMsg send(1:SendMsg data), } 2、我们写client.js var thrift = require(\'thrift\'); var transport...', noticeLinkTitle:'Node.js thrift小...'});
+
+if(_postAry.length >5) {
+for(var i=0;i<5;i++) {
+var _length = _postAry.length, _index = Math.floor(Math.random()*_length);
+_showPostAry.push(_postAry[_index]);
+_postAry.splice(_index,1);
+}
+} else {
+_showPostAry = _postAry;
+}
+
+for(var i=0,l=_showPostAry.length; i<l; i++) {
+_post = _showPostAry[i];
+_type = _post.type;
+_linode = document.createElement('li');
+_linode.className = _classname[_post.type-1];
+_anode = document.createElement('a');
+_anode.href = _blogLink+'post/'+_post.permalink;
+_anode.target = '_blank';
+_anode.onclick = function(){
+try{
+var _img = new Image();
+_img.src = 'http://www.lofter.com/statistic.png?act=qbbkgdwz_20141022_01&t=' + new Date().getTime();
+}catch(e){}
+};
+
+if(_type === 1) {
+_texthtml = '<span class="txt"><strong>'+ _post.title +'</strong><span>'+ _post.content +'</span></span>'
+} else {
+if(!!_post.imgurl) {
+if(_type === 2) {
+_texthtml = '<span class="imgwrap"><span class="imgwrap2"><img class="firstimg" src="'+_post.imgurl+'" alt="'+_post.noticeLinkTitle+'"/><img class="lastimg" src="'+_post.imgurl+'" alt="'+_post.noticeLinkTitle+'"/></span></span>';
+} else if(_type === 3) {
+_texthtml = '<span class="imgwrap"><span class="imgwrap2"><img class="firstimg" src="http://imgsize.ph.126.net/?imgurl='+_post.imgurl+'_125x125x0.jpg"/><img class="lastimg" src="http://imgsize.ph.126.net/?imgurl='+_post.imgurl+'_125x125x0.jpg"/></span></span>';
+} else if(_type === 4) {
+_texthtml = '<span class="imgwrap"><span class="imgwrap2"><img class="firstimg" src="'+_post.imgurl+'"/><img class="lastimg" src="'+_post.imgurl+'"/></span></span>';
+}
+}
+_texthtml += '<span class="type"></span>';
+}
+
+_anode.innerHTML = _texthtml;
+_linode.appendChild(_anode);
+document.getElementById('ullist').appendChild(_linode);
+}
+</script>
+
+
+</body></html>

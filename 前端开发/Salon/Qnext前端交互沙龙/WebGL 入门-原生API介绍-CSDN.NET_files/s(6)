@@ -1,0 +1,18 @@
+ADFHOST2838="http://csdnim.qtmojo.com";
+ADFCID2838=228;
+ADFBID2838=2838;
+ADFLOC='CNJSNJ00';
+ADFUSER2838="http://csdnim.qtmojo.com/c?d=csdnim&i=z228,10360227,2838,14297&rf=&a=dRCI5jZdq2Eau2A5yG615btdYGpp&u=";
+ALLYESID4="096B29A4AA709F67";
+ADFPGC="2,4,228,0,3725,2838,14297,10360227";
+
+document.write("<script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></Scr"+"ipt>\n");
+document.write("<!-- ÎÄÕÂÒ³-ÓÒ²àÊÓ´°2 300*250 -->\n");
+document.write("<ins class=\"adsbygoogle\"\n");
+document.write("     style=\"display:inline-block;width:300px;height:250px\"\n");
+document.write("     data-ad-client=\"ca-pub-1076724771190722\"\n");
+document.write("     data-ad-slot=\"9469399840\"></ins>\n");
+document.write("<script>\n");
+document.write("(adsbygoogle = window.adsbygoogle || []).push({});\n");
+document.write("</Scr"+"ipt>");
+

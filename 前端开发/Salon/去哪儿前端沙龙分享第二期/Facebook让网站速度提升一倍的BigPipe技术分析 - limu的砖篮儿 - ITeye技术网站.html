@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0033)http://limu.iteye.com/blog/765173 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站</title>
+    <meta name="description" content="             近来Facebook高调宣布将网站性能提高一倍,平均访问时间从5s降至2.5s,公布了名为BigPipe的优化技术的一些概况.性能提升一倍这个结果无疑是极其诱人的,如果各个网站都能应用这种技术拿到这样的结果,那BigPipe很有可能会成为匹敌Ajax的技术革新.它究竟是怎样的?会给你的应用带来这样的提升么?              先来摘要:              B ...">
+    <meta name="keywords" content="Facebook, Bigpipe, WPO, 网站性能优化 Facebook让网站速度提升一倍的BigPipe技术分析">
+    <link rel="shortcut icon" href="http://limu.iteye.com/images/favicon.ico" type="image/x-icon">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://limu.iteye.com/open_search.xml" title="ITeye">
+    <link href="http://limu.iteye.com/rss" rel="alternate" title="limu的砖篮儿" type="application/rss+xml">
+    <link href="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/blog.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/purple.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/ga.js"></script><script src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/application.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-535605-1']);
+  _gaq.push(['_setDomainName', 'iteye.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+      <link href="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/SyntaxHighlighter.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/shCoreCommon.js" type="text/javascript"></script>
+<script src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/hotkey.js" type="text/javascript"></script>
+  <script src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/code_favorites.js" type="text/javascript"></script>
+<script src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/weiboshare.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="blog_site_nav">
+  <a href="http://www.iteye.com/" class="homepage">首页</a>
+  <a href="http://www.iteye.com/news">资讯</a>
+  <a href="http://www.iteye.com/magazines">精华</a>
+  <a href="http://www.iteye.com/forums">论坛</a>
+  <a href="http://www.iteye.com/ask">问答</a>
+  <a href="http://www.iteye.com/blogs">博客</a>
+  <a href="http://www.iteye.com/blogs/subjects">专栏</a>
+  <a href="http://www.iteye.com/groups">群组</a>
+  <a href="http://limu.iteye.com/blog/765173#" onclick="return false;" id="msna"><u>更多</u> <small>▼</small></a>
+  <div class="quick_menu" style="display:none;">
+    <a target="_blank" href="http://job.iteye.com/iteye">招聘</a>
+    <a href="http://www.iteye.com/search">搜索</a>
+  </div>
+</div>
+
+      <div id="user_nav">
+      <a href="http://limu.iteye.com/login" class="welcome" title="登录">您还未登录 !</a>
+    <a href="http://limu.iteye.com/login">登录</a>
+    <a href="http://limu.iteye.com/signup" class="nobg">注册</a>
+  </div>
+
+    </div>
+
+    <div id="page">
+      <div id="branding" class="clearfix">
+        <div id="blog_name">
+          <h1><a href="http://limu.iteye.com/">limu的砖篮儿</a></h1>
+        </div>
+        <div id="fd"></div>
+        <div id="blog_navbar">
+          <ul>
+            <li class="blog_navbar_for"><a href="http://limu.iteye.com/"><strong>博客</strong></a></li>
+            <li><a href="http://limu.iteye.com/weibo">微博</a></li>
+            <li><a href="http://limu.iteye.com/album">相册</a></li>
+            <li><a href="http://limu.iteye.com/link">收藏</a></li>
+            <li><a href="http://limu.iteye.com/blog/guest_book">留言</a></li>
+            <li><a href="http://limu.iteye.com/blog/profile">关于我</a></li>
+          </ul>
+    
+          <div class="search">
+            <form action="http://limu.iteye.com/blog/search" method="get">
+              <input class="search_text" id="query" name="query" style="margin-left: 10px;width: 110px;" type="text" value="">
+              <input class="submit_search" type="submit" value="">
+            </form>
+          </div> 
+          <div id="fd"></div>         
+        </div>
+      </div>
+      
+      <div id="content" class="clearfix">
+        <div id="main">
+          
+
+
+
+          
+
+
+<div class="h-entry" style="display:none">
+  <a href="http://limu.iteye.com/" class="p-author" target="_blank">limu</a>
+</div>
+
+
+<div class="blog_main">
+  <div class="blog_title">
+    <h3>
+      <a href="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站.html">Facebook让网站速度提升一倍的BigPipe技术分析</a>
+      <em class="actions">      </em>
+    </h3>
+    <ul class="blog_categories"><strong>博客分类：</strong> <li><a href="http://limu.iteye.com/category/122180">网站性能优化</a></li> </ul>
+        <div class="news_tag"><a href="http://www.iteye.com/blogs/tag/Facebook">Facebook</a><a href="http://www.iteye.com/blogs/tag/Bigpipe">Bigpipe</a><a href="http://www.iteye.com/blogs/tag/WPO">WPO</a><a href="http://www.iteye.com/blogs/tag/%E7%BD%91%E7%AB%99%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">网站性能优化</a>&nbsp;</div>
+  </div>
+
+  <div id="blog_content" class="blog_content">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 近来<a href="http://www.facebook.com/note.php?note_id=389414033919" target="_blank">Facebook高调宣布将网站性能提高一倍</a>,平均访问时间从5s降至2.5s,公布了名为BigPipe的优化技术的一些概况.性能提升一倍这个结果无疑是极其诱人的,如果各个网站都能应用这种技术拿到这样的结果,那BigPipe很有可能会成为匹敌Ajax的技术革新.它究竟是怎样的?会给你的应用带来这样的提升么?
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>先来摘要:</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BigPipe原理:再简单不过了,这就像在餐馆吃饭,先选好桌子点好菜(确定用户布局和要展现的模块),单子下到厨房后,多个大厨就可以同时上阵(服务端并发),做好一样端上来一样吃一样(客户端并发).
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BigPipe不具备普适性:网站性能优化再发展下去也不会增加一条类似"尽量减少http数","将CSS放在页面上部"这样不加任何说明和限制的优化准则---"使用Bigpipe提高网站速度",也就是说它不可能为所有应用都带来提升,或者说bigpipe可能给你的应用带来提升,但不会像Facebook那么大.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BigPipe适用的场合:首先,<span style="color: red;">网页第一个请求时间较长</span>( &gt;500ms? ),在整个网页展现过程中不再是前端性能优化常说的可以忽略的10-20%.其次页面上的<span style="color: red;">动态内容可以划分在多个区块内显示,且各个区块之间的关系不大</span>,因为只是客户端和服务端并发是不够的,服务端各个数据中心也要能够并发才能最好的发挥bigpipe,<span style="color: red;">各个区块的动态数据在服务端也能够通过url或cookie中的key并发获得</span>(在facebook,整个key为userid).除了SNS外,大概搜索结果页可能可以用上,比如淘宝搜索结果页的主搜索,类目导航,相关推荐和广告可以使用BigPipe技术,不过回过头看第一个限制,如果搜索页本身很快,那带来的改进不会如Facebook明显.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BigPipe的启示:通过上面的这些限制看到Bigpipe是Facebook量身定做的优化方案,带来的一点提示是大家可以根据自己的应用为自己的应用定制优化方案,flush,ajax,静态资源combo,动态数据combo都是性能优化的手段,如何选择要看实际情况.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>详细分析:</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 之前的一篇文章"<a href="http://limu.iteye.com/blog/755628" target="_blank">在Yslow 34 Rules之后 -- 网站性能优化思路和进展</a>"中提到网站性能优化进入精耕细作阶段,尽可能的满足各种Rules可以保证你能获得一个性能不错网站,而更进一步的优化则需要理清优化思路,结合具体应用的实际下功夫.Facebook的BigPipe技术就是这样发展出来的一种高度契合SNS类应用的优化技术.可以这么说,网站性能优化再发展下去也不会增加一条类似"尽量减少http数","将CSS放在页面上部"这样不加任何说明和限制的优化准则---"使用Bigpipe提高网站速度",也就是说它不可能为所有应用都带来提升.我们通过分析这种技术的产生过程,分析SNS类网站页面的特点,看看和你的应用有没有匹配的地方,来确定你的应用是否应该选用这种技术.另外也可以学习Facebook性能优化的套路,仔细考虑下自己应用的特点,是不是也能爆出让人眼前一亮的方案.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面就开始分析Facebook网页的特点,网站性能优化的任何资料都经常见到"网页展现过程百分之八十至九十的时间消耗在了前端"这样的话,这种断言主要来自这类最常见的HTTP瀑布图,如下:
+<br><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/4ebce116-cb0d-3f6b-b403-34ebf601475b.png">
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在网页的生命周期中,到达动态服务器的数据请求往往只是第一个HTML文本请求.相对于这个HTML到达浏览器之后再引入的一系列脚本,图片等等请求以及后续的渲染过程,第一个请求所占时间相当少.所以一般而言,再怎么做服务端的优化,对于整个展现过程的加快的帮助微小.但Facebook不同,下面是我的Facebook的个人主页的首个HTTP请求时间:
+<br><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/ced0681b-7f88-35d2-ad3b-da17f7dc1690.png">
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 长达3.173s,刨除网络响应因素,仅接收数据阶段,时间也达到了1.65s.Facebook有慢的理由,因为SNS网站的页面是高度定制化的,每个区块的数据都需要大量的计算得来.所以对于Facebook来说,要提升整体页面响应时间,服务端的时间不得不考虑进去.如何优化?YSlow优化规则中"<a href="http://developer.yahoo.com/performance/rules.html#flush" target="_blank">提早Flush</a>"给了很好的提示."提早Flush"规则建议在&lt;/head&gt;&lt;body&gt;之间调用flush(),让这部分内容先输出给浏览器端,这样浏览器端可以在服务端还在生成主体HTML的同时先显示标题,同时下载&lt;head&gt;中的css和js文件,说到底是服务端和浏览器端并发处理页面展现.但Facebook如果仅做到这样的"提早flush",对性能的提升不会很明显.因为大量的时间消耗在&lt;body&gt;主体内容的生成时段.所以很自然想到需要分块flush,分块渲染.而Facebook页面恰恰可以分块:
+<br><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/e5e65eba-044e-3c1d-96f4-42cc31625728.jpg">
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们看到Facebook分块后还有一个特点,就是各个区块的信息都是动态的,而动态信息都是根据userid查询得来,各个区块之间并没有关联,"好友动态"和"书签"完全没有关系.这样的特性可以带来另一个好处,就是服务端并发,Facebook首先取到当前用户的页面定制信息,生成布局,flush出去,然后在服务端就可以根据取到的用户已定制展现模块列表,并发请求各个数据中心,这样在后台各类应用可以按照统一接口,以区块划分,去除了各系统间的耦合.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原理再简单不过了,这就像在餐馆吃饭,先选好桌子点好菜(确定用户布局和要展现的模块),然后单子下到厨房后,多个大厨就可以同时上阵(服务端并发),做好一样端上来一样吃一样(客户端并发).这样从浏览器端到服务端,在接收数据的这1.5s左右时间之内,真正成了一个流水线.同样的那些限制条件也很好解释,吃快餐就完全没必要一盘菜取一次,每盘菜之间没什么关系.好处也显而易见,每个大厨做自己最擅长的,效率效果都会最优.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Bigpipe作为完整技术方案的若干技术细节:</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我想任何了解flush(),chunked http,Javascript的开发者都能快速开发出Bigpipe的Demo.先输出布局HTML,包含若干pagelet(Facebook称页面区块为pagelet)的容器div.动态数据到达后输出一段inline script,里面包含响应的html串和一些配置信息等等,调用onPageletArrived()方法将html片段插入pagelet容器中.上段代码意思下:
+<br><div class="dp-highlighter" id=""><div class="bar"><div class="tools">Php代码 <embed wmode="transparent" src="/javascripts/syntaxhighlighter/clipboard_new.swf" width="14" height="15" flashvars="clipboard=%3Cbody%3E%0A%20%20%3Cdiv%20id%3D%22layout%22%3E%0A%20%20%20%20%3Cdiv%20id%3D%22mod_profile%22%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20id%3D%22mod_photo%22%3E%3C%2Fdiv%3E%0A%20%20%20%20%3Cdiv%20id%3D%22mod_friend%22%3E%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%20%20%3C%3Fphp%20flush()%3B%3F%3E%3C!--%E9%A6%96%E5%85%88Flush%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80--%3E%0A%20%20%3Cscript%3E%0A%20%20%20%20%2F%2Fhtml%20string%20for%20mod_photo%0A%20%20%3C%2Fscript%3E%0A%20%20%3C%3Fphp%20flush()%3B%3F%3E%3C!--Flush%20%23mod_photo%E7%9A%84%E5%86%85%E5%AE%B9--%3E%0A%20%20%3Cscript%3E%0A%20%20%20%20%2F%2Fhtml%20string%20for%20mod_profile%0A%20%20%3C%2Fscript%3E%0A%20%20%3C%3Fphp%20flush()%3B%3F%3E%3C!--Flush%20%23mod_profile%E7%9A%84%E5%86%85%E5%AE%B9--%3E%0A%20%20%3Cscript%3E%0A%20%20%20%20%2F%2Fhtml%20string%20for%20mod_friend%0A%20%20%3C%2Fscript%3E%0A%3C%2Fbody%3E%0A" quality="high" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">&nbsp;<a href="javascript:void()" title="收藏这段代码" onclick="code_favorites_do_favorite(this);return false;"><img class="star" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/icon_star.png" alt="收藏代码"><img class="spinner" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/spinner.gif" style="display:none"></a></div></div><ol start="1" class="dp-c"><li><span><span>&lt;body&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;div&nbsp;id=<span class="string">"layout"</span><span>&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=<span class="string">"mod_profile"</span><span>&gt;&lt;/div&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=<span class="string">"mod_photo"</span><span>&gt;&lt;/div&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=<span class="string">"mod_friend"</span><span>&gt;&lt;/div&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;/div&gt;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&lt;?php&nbsp;<span class="func">flush</span><span>();?&gt;&lt;!--首先</span><span class="func">Flush</span><span>页面布局--&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;script&gt;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//html&nbsp;string&nbsp;for&nbsp;mod_photo</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;/script&gt;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&lt;?php&nbsp;<span class="func">flush</span><span>();?&gt;&lt;!--</span><span class="func">Flush</span><span>&nbsp;#mod_photo的内容--&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;script&gt;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//html&nbsp;string&nbsp;for&nbsp;mod_profile</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;/script&gt;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&lt;?php&nbsp;<span class="func">flush</span><span>();?&gt;&lt;!--</span><span class="func">Flush</span><span>&nbsp;#mod_profile的内容--&gt;&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;script&gt;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//html&nbsp;string&nbsp;for&nbsp;mod_friend</span><span>&nbsp;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&lt;/script&gt;&nbsp;&nbsp;</span></li><li><span>&lt;/body&gt;&nbsp;&nbsp;</span></li></ol></div><pre class="php" name="code" codeable_id="765173" codeable_type="Blog" source_url="http://limu.iteye.com/blog/765173" pre_index="0" title="Facebook让网站速度提升一倍的BigPipe技术分析" style="display: none;">&lt;body&gt;
+  &lt;div id="layout"&gt;
+    &lt;div id="mod_profile"&gt;&lt;/div&gt;
+    &lt;div id="mod_photo"&gt;&lt;/div&gt;
+    &lt;div id="mod_friend"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;?php flush();?&gt;&lt;!--首先Flush页面布局--&gt;
+  &lt;script&gt;
+    //html string for mod_photo
+  &lt;/script&gt;
+  &lt;?php flush();?&gt;&lt;!--Flush #mod_photo的内容--&gt;
+  &lt;script&gt;
+    //html string for mod_profile
+  &lt;/script&gt;
+  &lt;?php flush();?&gt;&lt;!--Flush #mod_profile的内容--&gt;
+  &lt;script&gt;
+    //html string for mod_friend
+  &lt;/script&gt;
+&lt;/body&gt;
+</pre>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这里想讨论的是,使用这种方案会引入哪些其他问题,Facebook又是如何解决的.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>脚本阻滞:</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们知道直接在html中引入外部脚本会造成页面阻滞,即使使用无阻脚本下载的一系列方法引入外部js,但因为JS单线程,当这些脚本load进来之后运行时也会发生阻滞.因为Facebook页面多样,依赖脚本大小不一,这些阻滞会对页面的快速展现造成影响.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Facebook做法是在ondomready之前只在头部输出一个很小的外部脚本,作为bigpipe的支撑.其余所有模块如果依赖外部脚本(比如某一模块需要日历控件支持),都会在domready事件之后加载.这样做即保证了所有页面所有模块都能在domready前快速形成展现,又可以保证无脚本阻滞的快速的domready时间.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>最快可交互时间:</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domready再快也至少是在页面第一个使用bigpipe输出的chunked的http请求完成之后,对于Facebook来说,这很可能是2秒之后了.那在这2s期间,如果只是页面展现了而不能交互(点击日历无反应),那方案依然不够完美.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Facebook的做法是,在domready后所依赖脚本已被加载之前,点击行为将会生成一个额外的脚本请求,只将这个点击所依赖的脚步预先load进来.这样保证了最快的可交互时间.<a href="http://ajaxian.com/archives/facebook-javascript-jsconf" target="_blank">Facebook在另一篇文章</a>中对这个技术进行了详细的描述.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bigpipe原理简单,实现不复杂,但Facebook却用了1年的时间才形成完备的解决方案.生成方案需要时间,而解决随之而来的脚本阻滞,保障最快交互时间等等问题也会消耗大量时间.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>总结一下:</strong>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bigpipe在Facebook获得巨大成功,我想在于对细节的深度挖掘.如果第一个请求时间不用那么长,那相当于去吃麦当劳还分两次拿薯条和汉堡.如果服务端不能并发,那肯定达不到如此好的优化效果.如果不排除外联脚本的下载和运行阻滞带来的不确定性,也得不到如此高的展现速度.同时如果不对domready前的click按需加载处理,可交互性会大打折扣.当然Facebook可能还有更多我们不知道的类似的技术细节,所有这些细节联合起来,才能得到这样漂亮的结果.
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 系统优化是个浩大的工程,在Yslow Rules这类规则默认遵守之后,要想再获得突破,那只能从自身的应用出发做选最合适的方案.同时Bigpipe出现不意味着Ajax过时了落伍了.页面的动态数据来自多个数据中心,那么用Bigpipe吧.如果一个页面上的动态数据可以用一个Ajax请求获得,那完全没必要用它.大多数应用第一个http请求的时间依然只用了很短的时间,所以Ajax还是主流.
+  </div>
+
+  
+  <div class="attachments">
+    
+      
+        <ul style="display:none;">
+          <li><a href="http://dl2.iteye.com/upload/attachment/0030/7506/4ebce116-cb0d-3f6b-b403-34ebf601475b.png" target="_blank"><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/4ebce116-cb0d-3f6b-b403-34ebf601475b-thumb.png" class="magplus" title="点击查看原始大小图片"></a></li>
+          
+          <li>大小: 24.4 KB</li>
+        </ul>
+      
+    
+      
+        <ul style="display:none;">
+          <li><a href="http://dl2.iteye.com/upload/attachment/0030/7511/ced0681b-7f88-35d2-ad3b-da17f7dc1690.png" target="_blank"><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/ced0681b-7f88-35d2-ad3b-da17f7dc1690-thumb.png" class="magplus" title="点击查看原始大小图片"></a></li>
+          
+          <li>大小: 21.7 KB</li>
+        </ul>
+      
+    
+      
+        <ul style="display:none;">
+          <li><a href="http://dl2.iteye.com/upload/attachment/0031/1820/e5e65eba-044e-3c1d-96f4-42cc31625728.jpg" target="_blank"><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/e5e65eba-044e-3c1d-96f4-42cc31625728-thumb.jpg" class="magplus" title="点击查看原始大小图片"></a></li>
+          
+          <li>大小: 40.9 KB</li>
+        </ul>
+      
+    
+    
+      <ul>
+        <li><a href="http://limu.iteye.com/blog/765173#" onclick="$$(&#39;div.attachments ul&#39;).invoke(&#39;show&#39;);$(this).up(1).hide();return false;">查看图片附件</a></li>
+      </ul>
+    
+  </div>
+
+
+  
+  
+  <iframe src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/187.html" scrolling="no" width="468" height="60" frameborder="0"></iframe>
+  
+  <div id="bottoms" class="clearfix">
+    <div id="digg_bottom" class="clearfix"><div class="digged"><strong>18</strong> <br>顶</div><div class="digged"><strong>0</strong> <br>踩</div></div>
+    <div id="share_weibo">分享到：
+      <a data-type="sina" href="javascript:;" title="分享到新浪微博"><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/sina.jpg"></a>
+      <a data-type="qq" href="javascript:;" title="分享到腾讯微博"><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/tec.jpg"></a>
+    </div>
+  </div>
+
+  <div class="blog_nav">
+    <div class="pre_next">
+      <a href="http://limu.iteye.com/blog/770539" class="next" title="What&#39;s &quot;new&quot; in JavaScript?">What's "new" in JavaScript?</a>
+      |
+      <a href="http://limu.iteye.com/blog/756076" class="pre" title="关于JavaScript的Object和Function的两张图">关于JavaScript的Object和Function的两张图</a>
+    </div>
+  </div>
+  <div class="blog_bottom">
+    <ul>
+      <li>2010-09-16 19:06</li>
+      <li>浏览 14046</li>
+      <li><a href="http://limu.iteye.com/blog/765173#comments">评论(10)</a></li>
+      
+      
+      <li>分类:<a href="http://www.iteye.com/blogs/category/web">Web前端</a></li>      
+      <li class="last"><a href="http://www.iteye.com/wiki/blog/765173" target="_blank" class="more">相关推荐</a></li>
+    </ul>
+  </div>
+
+  <div class="blog_comment">
+    <h5>评论</h5>
+    <a id="comments" name="comments"></a>
+    <div id="bc2361733">
+  <div class="comment_title">
+    10 楼
+    <a href="http://vvian00.iteye.com/" target="_blank" title="vvian00">vvian00</a>
+    2014-10-29&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content"><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/icon_redface.gif">&nbsp; 淘宝那个 bigpipe 研究的文章写的实在是模棱两可，还是楼主这篇实在。一下子全看懂了，而且毫无含糊不清和让人费解的地方。感谢！！</div>
+</div>
+
+<div id="bc2356952">
+  <div class="comment_title">
+    9 楼
+    <a href="http://feelniceboy.iteye.com/" target="_blank" title="静心听那雨">静心听那雨</a>
+    2014-08-24&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content">谢谢，很好的文章</div>
+</div>
+
+<div id="bc2273941">
+  <div class="comment_title">
+    8 楼
+    <a href="http://letch.iteye.com/" target="_blank" title="letch">letch</a>
+    2012-08-03&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content">httpwatch</div>
+</div>
+
+<div id="bc2268204">
+  <div class="comment_title">
+    7 楼
+    <a href="http://limu.iteye.com/" target="_blank" title="limu">limu</a>
+    2012-07-05&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content"><div class="quote_title">mozart_cai 写道</div><div class="quote_div">请教博主一个问题，您文章中分析http请求的分析工具软件是什么呢？谢谢呢！</div><br>httpwatch</div>
+</div>
+
+<div id="bc2267963">
+  <div class="comment_title">
+    6 楼
+    <a href="http://mozart-cai.iteye.com/" target="_blank" title="mozart_cai">mozart_cai</a>
+    2012-07-04&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content">请教博主一个问题，您文章中分析http请求的分析工具软件是什么呢？谢谢呢！</div>
+</div>
+
+<div id="bc2258629">
+  <div class="comment_title">
+    5 楼
+    <a href="http://limu.iteye.com/" target="_blank" title="limu">limu</a>
+    2012-05-15&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content"><div class="quote_title">挑灯论剑 写道</div><div class="quote_div">"比如淘宝搜索结果页的主搜索,类目导航,相关推荐和广告可以使用BigPipe技术"<br>请问楼主 类目导航是和主搜索结果息息相关的，类目导航的信息为什么不和主搜索list信息一起取出来，而要再去取一次呢？</div><br>首先不是类似ajax的异步再取一次,是一个http请求的不同chunk输出的.<br>另外类目导航信息和主搜索确实是相关的,但是他们都是靠用户输入的搜索词检索的.<br>也就是说搜iphone,是通过这个词分别检索出list和类目.<br>所以这样就可以把list和类目分开存储在不同信息节点上(不同的集群)<br>这样在各自不同的信息节点上方便针对list和类目两种数据的特点分别进行各自的优化处理.</div>
+</div>
+
+<div id="bc2258488">
+  <div class="comment_title">
+    4 楼
+    <a href="http://fzemail-163-com.iteye.com/" target="_blank" title="挑灯论剑">挑灯论剑</a>
+    2012-05-14&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content">"比如淘宝搜索结果页的主搜索,类目导航,相关推荐和广告可以使用BigPipe技术"<br>请问楼主 类目导航是和主搜索结果息息相关的，类目导航的信息为什么不和主搜索list信息一起取出来，而要再去取一次呢？</div>
+</div>
+
+<div id="bc2223264">
+  <div class="comment_title">
+    3 楼
+    <a href="http://ystring.iteye.com/" target="_blank" title="ystring">ystring</a>
+    2011-10-18&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content">请问楼主，可以提供下PPT嘛，您提供的下载地址，我下载总断。charyong@qq.com</div>
+</div>
+
+<div id="bc2212973">
+  <div class="comment_title">
+    2 楼
+    <a href="http://limu.iteye.com/" target="_blank" title="limu">limu</a>
+    2011-08-25&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content"><div class="quote_title">daur 写道</div><div class="quote_div">感谢楼主的分享，受用了，有没有其他网站可以看到原文呢，大大的<span style="font-size: xx-large;"><span style="color: red;">UP</span></span>一下</div><br>要看什么原文?</div>
+</div>
+
+<div id="bc2212946">
+  <div class="comment_title">
+    1 楼
+    <a href="http://daur.iteye.com/" target="_blank" title="daur">daur</a>
+    2011-08-25&nbsp;&nbsp;
+    
+    
+  </div>
+  <div class="comment_content">感谢楼主的分享，受用了，有没有其他网站可以看到原文呢，大大的<span style="font-size: xx-large;"><span style="color: red;">UP</span></span>一下</div>
+</div>
+
+
+    
+    
+  </div>
+
+  <div class="blog_comment">
+    <h5>发表评论</h5>
+            <p style="text-align:center; margin-top:30px;margin-bottom:0px;"><a href="http://limu.iteye.com/login" style="background-color:white;"> <img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/login_icon.png" style="vertical-align:middle; margin-right: 10px;"></a><a href="http://limu.iteye.com/login">  您还没有登录,请您登录后再发表评论 </a></p>
+      </div>
+</div>
+
+
+<script type="text/javascript">
+  dp.SyntaxHighlighter.HighlightAll('code', true, true);
+
+  $$('#main .blog_content pre[name=code]').each(function(pre, index){ // blog content
+    var post_id = 765173;
+    var location = window.location;
+    source_url = location.protocol + "//" + location.host + location.pathname + location.search;
+    pre.writeAttribute('codeable_id', post_id);
+    pre.writeAttribute('codeable_type', "Blog");
+    pre.writeAttribute('source_url', source_url);
+    pre.writeAttribute('pre_index', index);
+    pre.writeAttribute('title', 'Facebook让网站速度提升一倍的BigPipe技术分析');
+  });
+
+  fix_image_size($$('div.blog_content img'), 700);
+
+  function processComment() {
+    $$('#main .blog_comment > div').each(function(comment){// comment
+      var post_id = comment.id.substr(2);
+      $$("#"+comment.id+" pre[name=code]").each(function(pre, index){
+        var location = window.location;
+        source_url = location.protocol + "//" + location.host + location.pathname + location.search;
+        source_url += "#" + comment.id;
+        pre.writeAttribute('codeable_id', post_id);
+        pre.writeAttribute('codeable_type', "BlogComment");
+        pre.writeAttribute('source_url', source_url);
+        pre.writeAttribute('pre_index', index);
+        pre.writeAttribute('title', 'Facebook让网站速度提升一倍的BigPipe技术分析');
+      });
+    });
+  }
+
+  function quote_comment(id) {
+    new Ajax.Request('/editor/quote', {
+      parameters: {'id':id, 'type':'BlogComment'},
+      onSuccess:function(response){editor.bbcode_editor.textarea.insertAfterSelection(response.responseText);
+        Element.scrollTo(editor.bbcode_editor.textarea.element);}
+    });
+  }
+
+  code_favorites_init();
+  processComment();
+  new WeiboShare({share_buttons: $('share_weibo'), img_scope: $('blog_content')});
+</script>
+
+
+
+
+        </div>
+
+        <div id="local">
+          <div class="local_top"></div>
+          <div id="blog_owner">
+  <div id="blog_owner_logo"><a href="http://limu.iteye.com/"><img alt="limu的博客" class="logo" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/40c0301f-93e6-3d33-be28-444216c321aa.jpeg" title="limu的博客: limu的砖篮儿" width=""></a></div>
+  <div id="blog_owner_name">limu</div>
+</div>
+
+          <div id="blog_actions">
+            <ul>
+              <li>浏览: 188106 次</li>
+              <li>性别: <img alt="Icon_minigender_1" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/icon_minigender_1.gif" title="男"></li>
+              <li>来自: 北京</li>
+              <li><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/offline.gif"></li>
+              
+            </ul>
+          </div>
+          <div id="user_visits" class="clearfix">
+            <h5>最近访客 <span style="font-weight:normal;font-size:12px;padding-left:30px;"><a href="http://limu.iteye.com/blog/user_visits">更多访客&gt;&gt;</a></span></h5>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://u011694367.iteye.com/" target="_blank"><img alt="u011694367的博客" class="logo" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/user-logo-thumb.gif" title="u011694367的博客: " width="48px"></a></div>
+                <div class="left"><a href="http://u011694367.iteye.com/" target="_blank" title="u011694367">u011694367</a></div>
+              </div>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://sacg.iteye.com/" target="_blank"><img alt="sacg的博客" class="logo" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/user-logo-thumb.gif" title="sacg的博客: " width="48px"></a></div>
+                <div class="left"><a href="http://sacg.iteye.com/" target="_blank" title="sacg">sacg</a></div>
+              </div>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://alvenxuan.iteye.com/" target="_blank"><img alt="wq611403的博客" class="logo" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/60a43be0-cb72-3b4a-a02d-3da97be6d91f-thumb.jpg" title="wq611403的博客: 学习，分享，总结" width="48px"></a></div>
+                <div class="left"><a href="http://alvenxuan.iteye.com/" target="_blank" title="wq611403">wq611403</a></div>
+              </div>
+            
+              <div class="user_visit">
+                <div class="logo"><a href="http://xanodu.iteye.com/" target="_blank"><img alt="xanodu的博客" class="logo" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/8f2f1c47-3b68-36cb-b2ef-79c4b883569c-thumb.jpg" title="xanodu的博客: xanodu" width="48px"></a></div>
+                <div class="left"><a href="http://xanodu.iteye.com/" target="_blank" title="xanodu">xanodu</a></div>
+              </div>
+            
+          </div>
+
+          
+
+                      <div id="blog_menu">
+              <h5>文章分类</h5>
+              <ul>
+                <li><a href="http://limu.iteye.com/">全部博客 (18)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/122179">第三方内容开发 (2)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/122180">网站性能优化 (5)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/122280">JavaScript (10)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/151030">前端科普 (4)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/168131">MagixJS (3)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/263651">Brix (1)</a></li>
+                
+                  <li><a href="http://limu.iteye.com/category/263652">CSS (1)</a></li>
+                
+              </ul>
+            </div>
+            <div id="month_blogs">
+              <h5>社区版块</h5>
+              <ul>
+                <li><a href="http://limu.iteye.com/blog/news">我的资讯</a> (0)</li>
+                <li>
+                  <a href="http://limu.iteye.com/blog/post">我的论坛</a> (1)
+                </li>
+                <li><a href="http://limu.iteye.com/blog/answered_problems">我的问答</a> (0)</li>
+              </ul>
+            </div>
+            <div id="month_blogs">
+              <h5>存档分类</h5>
+              <ul>
+                
+                  <li><a href="http://limu.iteye.com/blog/monthblog/2014-04">2014-04</a> (1)</li>
+                
+                  <li><a href="http://limu.iteye.com/blog/monthblog/2013-01">2013-01</a> (1)</li>
+                
+                  <li><a href="http://limu.iteye.com/blog/monthblog/2012-07">2012-07</a> (1)</li>
+                
+                <li><a href="http://limu.iteye.com/blog/monthblog_more">更多存档...</a></li>
+              </ul>
+            </div>
+            
+            
+
+            <div id="guest_books">
+              <h5>最新评论</h5>
+              <ul>
+                
+                <li>
+                  <a href="http://lgoodbook.iteye.com/" target="_blank" title="lgoodbook">lgoodbook</a>： 
+                  没有Logic-less模板，要如何实现？&nbsp;&nbsp;&nbsp; 或者说 这个 ...<br>
+                  <a href="http://limu.iteye.com/blog/1064024#bc2374892">让Mustache支持简单的IF语句</a>
+                </li>
+                
+                <li>
+                  <a href="http://ydoing.iteye.com/" target="_blank" title="Ydoing">Ydoing</a>： 
+                  不错,懂了<br>
+                  <a href="http://limu.iteye.com/blog/1013223#bc2369739">我们为什么要使用NodeJS</a>
+                </li>
+                
+                <li>
+                  <a href="http://mangguo.iteye.com/" target="_blank" title="mangguo">mangguo</a>： 
+                  还不错，顶之，这里面http://www.hubwiz.com ...<br>
+                  <a href="http://limu.iteye.com/blog/1013223#bc2365154">我们为什么要使用NodeJS</a>
+                </li>
+                
+                <li>
+                  <a href="http://vvian00.iteye.com/" target="_blank" title="vvian00">vvian00</a>： 
+                  &nbsp; 淘宝那个 bigpipe 研究的文章写的实在是模棱两可，还 ...<br>
+                  <a href="http://limu.iteye.com/blog/765173#bc2361733">Facebook让网站速度提升一倍的BigPipe技术分析</a>
+                </li>
+                
+                <li>
+                  <a href="http://444905143.iteye.com/" target="_blank" title="风动之石">风动之石</a>： 
+                  非常感谢...<br>
+                  <a href="http://limu.iteye.com/blog/1267475#bc2359856">JavaScript的那些书</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="local_bottom"></div>
+          
+        </div>
+      </div>
+
+      <div id="footer" class="clearfix">
+        <div id="copyright">
+          <hr>
+          声明：ITeye文章版权属于作者，受法律保护。没有作者书面许可不得转载。若作者同意转载，必须以超链接形式标明文章原始出处和作者。<br>
+          © 2003-2015 ITeye.com.   All rights reserved.  [ 京ICP证110151号  京公网安备110105010620 ]
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+  document.write("<img src='http://stat.iteye.com/?url="+ encodeURIComponent(document.location.href) + "&referrer=" + encodeURIComponent(document.referrer) + "&user_id=' width='0' height='0' />");
+</script><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/saved_resource" width="0" height="0">
+
+<script src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/tracking.js" type="text/javascript"></script>
+
+    
+<script type="text/javascript" src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/tongji.js"></script><img src="./Facebook让网站速度提升一倍的BigPipe技术分析 - limu的砖篮儿 - ITeye技术网站_files/tongji.do" border="0" width="1" height="1">
+      
+    
+  
+
+</body></html>

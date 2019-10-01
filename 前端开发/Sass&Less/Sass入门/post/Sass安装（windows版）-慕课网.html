@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://www.imooc.com/code/6389 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta property="qc:admins" content="77103107776553571676375">
+<meta property="wb:webmaster" content="c4f857219bfae3cb">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta name="Keywords" content="">
+<meta name="Description" content="超酷的互联网、IT技术免费学习平台，创新的网络一站式学习、实践体验；服务及时贴心，内容专业、有趣易学。专注服务互联网工程师快速成为技术高手！">
+
+<title>Sass安装（windows版）-慕课网 </title>
+
+
+
+<link rel="stylesheet" href="http://www.imooc.com/static/lib/layer/1.6.0/skin/layer.css">
+    <script src="./Sass安装（windows版）-慕课网_files/respond.src.js"></script>
+<script type="text/javascript">
+  var OP_CONFIG={"module":"course","page":"code","userInfo":{"uid":"1063438","nickname":"\u6d69\u6dfc\u6d77\u6d0b","head":"http:\/\/img.mukewang.com\/user\/54584dc4000118d302200220-80-80.jpg","usertype":"1","roleid":0}};
+  var tplDef={
+	"url_space_u":"/space/u",
+	"url_space_index":"/space/index",
+    "url_space_course":"/space/course",
+
+    "url_course_qadetail":"/qadetail",
+    "media_id":"6389"
+  }
+  var seajsTimestamp="v=201508271920";
+</script>
+
+
+
+<script type="text/javascript">
+var pageInfo = { mid : 6389, eid : 6389, ispreview:0,code:{},next_mid : 6390,isfinished: 0 }
+var course_id=311
+</script>
+
+<link rel="stylesheet" href="./Sass安装（windows版）-慕课网_files/saved_resource" type="text/css">
+<script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/jquery.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/seajs-text.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/common.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/store.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/json.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/im.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/code.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/socket.io.min.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/layer.min.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/tab.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/animate-achievement.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ceditor.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/course_detail_common.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/jquery.nanoscroller.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/verify-code.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ace.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/jquery.scrollbar.js"></script><link charset="utf-8" rel="stylesheet" href="http://www.imooc.com/static/css/jquery.scrollbar.css?v=201508271920"><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/placeholder.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/jwplayer.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/autocomplete.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ajax-pl-list.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ajax-otherscode-list.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ajax-discuss-list.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ajax-note-list.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/ajax-wiki-list.js"></script><style id="ace_editor">.ace_editor {position: relative;overflow: hidden;font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;font-size: 12px;line-height: normal;color: black;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: text;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTQ4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTU4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBMjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBMzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkgXxbAAAAJbSURBVHjapFNNaBNBFH4zs5vdZLP5sQmNpT82QY209heh1ioWisaDRcSKF0WKJ0GQnrzrxasHsR6EnlrwD0TagxJabaVEpFYxLWlLSS822tr87m66ccfd2GKyVhA6MMybgfe97/vmPUQphd0sZjto9XIn9OOsvlu2nkqRzVU+6vvlzPf8W6bk8dxQ0NPbxAALgCgg2JkaQuhzQau/El0zbmUA7U0Es8v2CiYmKQJHGO1QICCLoqilMhkmurDAyapKgqItezi/USRdJqEYY4D5jCy03ht2yMkkvL91jTTX10qzyyu2hruPRN7jgbH+EOsXcMLgYiThEgAMhABW85oqy1DXdRIdvP1AHJ2acQXvDIrVHcdQNrEKNYSVMSZGMjEzIIAwDXIo+6G/FxcGnzkC3T2oMhLjre49sBB+RRcHLqdafK6sYdE/GGBwU1VpFNj0aN8pJbe+BkZyevUrvLl6Xmm0W9IuTc0DxrDNAJd5oEvI/KRsNC3bQyNjPO9yQ1YHcfj2QvfQc/5TUhJTBc2iM0U7AWDQtc1nJHvD/cfO2s7jaGkiTEfa/Ep8coLu7zmNmh8+dc5lZDuUeFAGUNA/OY6JVaypQ0vjr7XYjUvJM37vt+j1vuTK5DgVfVUoTjVe+y3/LxMxY2GgU+CSLy4cpfsYorRXuXIOi0Vt40h67uZFTdIo6nLaZcwUJWAzwNS0tBnqqKzQDnjdG/iPyZxo46HaKUpbvYkj8qYRTZsBhge+JHhZyh0x9b95JqjVJkT084kZIPwu/mPWqPgfQ5jXh2+92Ay7HedfAgwA6KDWafb4w3cAAAAASUVORK5CYII=");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM2OEZDQTg4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM2OEZDQTk4RTU0MTFFMUEzM0VFRTM2RUY1M0RBMjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzY4RkNBNjhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzY4RkNBNzhFNTQxMUUxQTMzRUVFMzZFRjUzREEyNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pgd7PfIAAAGmSURBVHjaYvr//z8DJZiJgUIANoCRkREb9gLiSVAaQx4OQM7AAkwd7XU2/v++/rOttdYGEB9dASEvOMydGKfH8Gv/p4XTkvRBfLxeQAP+1cUhXopyvzhP7P/IoSj7g7Mw09cNKO6J1QQ0L4gICPIv/veg/8W+JdFvQNLHVsW9/nmn9zk7B+cCkDwhL7gt6knSZnx9/LuCEOcvkIAMP+cvto9nfqyZmmUAksfnBUtbM60gX/3/kgyv3/xSFOL5DZT+L8vP+Yfh5cvfPvp/xUHyQHXGyAYwgpwBjZYFT3Y1OEl/OfCH4ffv3wzc4iwMvNIsDJ+f/mH4+vIPAxsb631WW0Yln6ZpQLXdMK/DXGDflh+sIv37EivD5x//Gb7+YWT4y86sl7BCCkSD+Z++/1dkvsFRl+HnD1Rvje4F8whjMXmGj58YGf5zsDMwcnAwfPvKcml62DsQDeaDxN+/Y0qwlpEHqrdB94IRNIDUgfgfKJChGK4OikEW3gTiXUB950ASLFAF54AC94A0G9QAfOnmF9DCDzABFqS08IHYDIScdijOjQABBgC+/9awBH96jwAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/gif;base64,R0lGODlhEAAQAMQAAAAAAEFBQVJSUl5eXmRkZGtra39/f4WFhYmJiZGRkaampry8vMPDw8zMzNXV1dzc3OTk5Orq6vDw8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABQALAAAAAAQABAAAAUuICWOZGmeaBml5XGwFCQSBGyXRSAwtqQIiRuiwIM5BoYVbEFIyGCQoeJGrVptIQA7");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGRTk5MTVGREIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGRTk5MTVGRUIxNDkxMUUxOTc5Q0FFREQyMTNGMjBFQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZFOTkxNUZCQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZFOTkxNUZDQjE0OTExRTE5NzlDQUVERDIxM0YyMEVDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SIDkjAAAAJ1JREFUeNpi/P//PwMlgImBQkB7A6qrq/+DMC55FkIGKCoq4pVnpFkgTp069f/+/fv/r1u37r+tre1/kg0A+ptn9uzZYLaRkRHpLvjw4cNXWVlZhufPnzOcO3eOdAO0tbVPAjHDmzdvGA4fPsxIsgGSkpJmv379Ynj37h2DjIyMCMkG3LhxQ/T27dsMampqDHZ2dq/pH41DxwCAAAMAFdc68dUsFZgAAAAASUVORK5CYII=");}.ace_scrollbar {position: absolute;overflow-x: hidden;overflow-y: auto;right: 0;top: 0;bottom: 0;}.ace_scrollbar-inner {position: absolute;width: 1px;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;}.ace_text-input.ace_composition {background: #f8f8f8;color: #111;z-index: 1000;opacity: 1;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;white-space: nowrap;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;/* setting pointer-events: auto; on node under the mouse, which changesduring scroll, will break mouse wheel scrolling in Safari */pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-moz-transition: opacity 0.18s;-webkit-transition: opacity 0.18s;-o-transition: opacity 0.18s;-ms-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_cursor[style*="opacity: 0"]{-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_line {white-space: nowrap;}.ace_marker-layer .ace_step {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%3AIDAT8%11c%FC%FF%FF%7F%18%03%1A%60%01%F2%3F%A0%891%80%04%FF%11-%F8%17%9BJ%E2%05%B1ZD%81v%26t%E7%80%F8%A3%82h%A12%1A%20%A3%01%02%0F%01%BA%25%06%00%19%C0%0D%AEF%D5%3ES%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%11%00%00%00%09%08%06%00%00%00%D4%E8%C7%0C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%00%B5IDAT(%15%A5%91%3D%0E%02!%10%85ac%E1%05%D6%CE%D6%C6%CE%D2%E8%ED%CD%DE%C0%C6%D6N.%E0V%F8%3D%9Ca%891XH%C2%BE%D9y%3F%90!%E6%9C%C3%BFk%E5%011%C6-%F5%C8N%04%DF%BD%FF%89%DFt%83DN%60%3E%F3%AB%A0%DE%1A%5Dg%BE%10Q%97%1B%40%9C%A8o%10%8F%5E%828%B4%1B%60%87%F6%02%26%85%1Ch%1E%C1%2B%5Bk%FF%86%EE%B7j%09%9A%DA%9B%ACe%A3%F9%EC%DA!9%B4%D5%A6%81%86%86%98%CC%3C%5B%40%FA%81%B3%E9%CB%23%94%C16Azo%05%D4%E1%C1%95a%3B%8A'%A0%E8%CC%17%22%85%1D%BA%00%A2%FA%DC%0A%94%D1%D1%8D%8B%3A%84%17B%C7%60%1A%25Z%FC%8D%00%00%00%00IEND%AEB%60%82"),url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%007%08%06%00%00%00%C4%DD%80C%00%00%03%1EiCCPICC%20Profile%00%00x%01%85T%DFk%D3P%14%FE%DAe%9D%B0%E1%8B%3Ag%11%09%3Eh%91ndStC%9C%B6kW%BA%CDZ%EA6%B7!H%9B%A6m%5C%9A%C6%24%ED~%B0%07%D9%8Bo%3A%C5w%F1%07%3E%F9%07%0C%D9%83o%7B%92%0D%C6%14a%F8%AC%88%22L%F6%22%B3%9E%9B4M'S%03%B9%F7%BB%DF%F9%EE9'%E7%E4%5E%A0%F9qZ%D3%14%2F%0F%14USO%C5%C2%FC%C4%E4%14%DF%F2%01%5E%1CC%2B%FChM%8B%86%16J%26G%40%0F%D3%B2y%EF%B3%F3%0E%1E%C6lt%EEo%DF%AB%FEc%D5%9A%95%0C%11%F0%1C%20%BE%945%C4%22%E1Y%A0i%5C%D4t%13%E0%D6%89%EF%9D15%C2%CDLsX%A7%04%09%1Fg8oc%81%E1%8C%8D%23%96f45%40%9A%09%C2%07%C5B%3AK%B8%408%98i%E0%F3%0D%D8%CE%81%14%E4'%26%A9%92.%8B%3C%ABER%2F%E5dE%B2%0C%F6%F0%1Fs%83%F2_%B0%A8%94%E9%9B%AD%E7%10%8Dm%9A%19N%D1%7C%8A%DE%1F9%7Dp%8C%E6%00%D5%C1%3F_%18%BDA%B8%9DpX6%E3%A35~B%CD%24%AE%11%26%BD%E7%EEti%98%EDe%9A%97Y)%12%25%1C%24%BCbT%AE3li%E6%0B%03%89%9A%E6%D3%ED%F4P%92%B0%9F4%BF43Y%F3%E3%EDP%95%04%EB1%C5%F5%F6KF%F4%BA%BD%D7%DB%91%93%07%E35%3E%A7)%D6%7F%40%FE%BD%F7%F5r%8A%E5y%92%F0%EB%B4%1E%8D%D5%F4%5B%92%3AV%DB%DB%E4%CD%A6%23%C3%C4wQ%3F%03HB%82%8E%1Cd(%E0%91B%0Ca%9Ac%C4%AA%F8L%16%19%22J%A4%D2itTy%B28%D6%3B(%93%96%ED%1CGx%C9_%0E%B8%5E%16%F5%5B%B2%B8%F6%E0%FB%9E%DD%25%D7%8E%BC%15%85%C5%B7%A3%D8Q%ED%B5%81%E9%BA%B2%13%9A%1B%7Fua%A5%A3n%E17%B9%E5%9B%1Bm%AB%0B%08Q%FE%8A%E5%B1H%5Ee%CAO%82Q%D7u6%E6%90S%97%FCu%0B%CF2%94%EE%25v%12X%0C%BA%AC%F0%5E%F8*l%0AO%85%17%C2%97%BF%D4%C8%CE%DE%AD%11%CB%80q%2C%3E%AB%9ES%CD%C6%EC%25%D2L%D2%EBd%B8%BF%8A%F5B%C6%18%F9%901CZ%9D%BE%24M%9C%8A9%F2%DAP%0B'%06w%82%EB%E6%E2%5C%2F%D7%07%9E%BB%CC%5D%E1%FA%B9%08%AD.r%23%8E%C2%17%F5E%7C!%F0%BE3%BE%3E_%B7o%88a%A7%DB%BE%D3d%EB%A31Z%EB%BB%D3%91%BA%A2%B1z%94%8F%DB'%F6%3D%8E%AA%13%19%B2%B1%BE%B1~V%08%2B%B4%A2cjJ%B3tO%00%03%25mN%97%F3%05%93%EF%11%84%0B%7C%88%AE-%89%8F%ABbW%90O%2B%0Ao%99%0C%5E%97%0CI%AFH%D9.%B0%3B%8F%ED%03%B6S%D6%5D%E6i_s9%F3*p%E9%1B%FD%C3%EB.7U%06%5E%19%C0%D1s.%17%A03u%E4%09%B0%7C%5E%2C%EB%15%DB%1F%3C%9E%B7%80%91%3B%DBc%AD%3Dma%BA%8B%3EV%AB%DBt.%5B%1E%01%BB%0F%AB%D5%9F%CF%AA%D5%DD%E7%E4%7F%0Bx%A3%FC%06%A9%23%0A%D6%C2%A1_2%00%00%00%09pHYs%00%00%0B%13%00%00%0B%13%01%00%9A%9C%18%00%00%003IDAT8%11c%FC%FF%FF%7F%3E%03%1A%60%01%F2%3F%A3%891%80%04%FFQ%26%F8w%C0%B43%A1%DB%0C%E2%8F%0A%A2%85%CAh%80%8C%06%08%3C%04%E8%96%18%00%A3S%0D%CD%CF%D8%C1%9D%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat, repeat-x;background-position: center center, top left;}.ace_editor.ace_dragging .ace_content {cursor: move;}.ace_gutter-tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;display: inline-block;max-width: 500px;padding: 4px;position: fixed;z-index: 300;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre-line;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAe%8A%B1%0D%000%0C%C2%F2%2CK%96%BC%D0%8F9%81%88H%E9%D0%0E%96%C0%10%92%3E%02%80%5E%82%E4%A9*-%EEsw%C8%CC%11%EE%96w%D8%DC%E9*Eh%0C%151(%00%00%00%00IEND%AEB%60%82");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%05%00%00%00%05%08%06%00%00%00%8Do%26%E5%00%00%004IDATx%DAm%C7%C1%09%000%08C%D1%8C%ECE%C8E(%8E%EC%02)%1EZJ%F1%C1'%04%07I%E1%E5%EE%CAL%F5%A2%99%99%22%E2%D6%1FU%B5%FE0%D9x%A7%26Wz5%0E%D5%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget.ace_closed {background-image: url("data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%03%00%00%00%06%08%06%00%00%00%06%E5%24%0C%00%00%009IDATx%DA5%CA%C1%09%000%08%03%C0%AC*(%3E%04%C1%0D%BA%B1%23%A4Uh%E0%20%81%C0%CC%F8%82%81%AA%A2%AArGfr%88%08%11%11%1C%DD%7D%E0%EE%5B%F6%F6%CB%B8%05Q%2F%E9tai%D9%00%00%00%00IEND%AEB%60%82");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}/*** Dark version for fold widgets*/.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-moz-transition: opacity 0.4s ease 0.05s;-webkit-transition: opacity 0.4s ease 0.05s;-o-transition: opacity 0.4s ease 0.05s;-ms-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-moz-transition: opacity 0.05s ease 0.05s;-webkit-transition: opacity 0.05s ease 0.05s;-o-transition: opacity 0.05s ease 0.05s;-ms-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;}.ace-tm .ace_cursor {border-left: 2px solid black;}.ace-tm .ace_overwrite-cursors .ace_cursor {border-left: 0px;border-bottom: 1px solid black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_markup.ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_markup.ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;border-radius: 2px;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/doT.js"></script><script charset="utf-8" async="" src="./Sass安装（windows版）-慕课网_files/paging.js"></script><link href="./Sass安装（windows版）-慕课网_files/ueditor.css" type="text/css" rel="stylesheet"><script src="./Sass安装（windows版）-慕课网_files/share.js"></script><script src="./Sass安装（windows版）-慕课网_files/theme-tomorrow_night.js"></script><script src="./Sass安装（windows版）-慕课网_files/mode-sass.js"></script><style id="ace-tomorrow-night">.ace-tomorrow-night .ace_gutter {background: #25282c;color: #C5C8C6}.ace-tomorrow-night .ace_print-margin {width: 1px;background: #25282c}.ace-tomorrow-night  {background-color: #1D1F21;color: #C5C8C6}.ace-tomorrow-night .ace_cursor {border-left: 2px solid #AEAFAD}.ace-tomorrow-night .ace_overwrite-cursors .ace_cursor {border-left: 0px;border-bottom: 1px solid #AEAFAD}.ace-tomorrow-night .ace_marker-layer .ace_selection {background: #373B41}.ace-tomorrow-night.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #1D1F21;border-radius: 2px}.ace-tomorrow-night .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #4B4E55}.ace-tomorrow-night .ace_marker-layer .ace_active-line {background: #282A2E}.ace-tomorrow-night .ace_gutter-active-line {background-color: #282A2E}.ace-tomorrow-night .ace_marker-layer .ace_selected-word {border: 1px solid #373B41}.ace-tomorrow-night .ace_invisible {color: #4B4E55}.ace-tomorrow-night .ace_keyword,.ace-tomorrow-night .ace_meta,.ace-tomorrow-night .ace_storage,.ace-tomorrow-night .ace_storage.ace_type,.ace-tomorrow-night .ace_support.ace_type {color: #B294BB}.ace-tomorrow-night .ace_keyword.ace_operator {color: #8ABEB7}.ace-tomorrow-night .ace_constant.ace_character,.ace-tomorrow-night .ace_constant.ace_language,.ace-tomorrow-night .ace_constant.ace_numeric,.ace-tomorrow-night .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night .ace_support.ace_constant,.ace-tomorrow-night .ace_variable.ace_parameter {color: #DE935F}.ace-tomorrow-night .ace_constant.ace_other {color: #CED1CF}.ace-tomorrow-night .ace_invalid {color: #CED2CF;background-color: #DF5F5F}.ace-tomorrow-night .ace_invalid.ace_deprecated {color: #CED2CF;background-color: #B798BF}.ace-tomorrow-night .ace_fold {background-color: #81A2BE;border-color: #C5C8C6}.ace-tomorrow-night .ace_entity.ace_name.ace_function,.ace-tomorrow-night .ace_support.ace_function,.ace-tomorrow-night .ace_variable {color: #81A2BE}.ace-tomorrow-night .ace_support.ace_class,.ace-tomorrow-night .ace_support.ace_type {color: #F0C674}.ace-tomorrow-night .ace_markup.ace_heading,.ace-tomorrow-night .ace_string {color: #B5BD68}.ace-tomorrow-night .ace_entity.ace_name.ace_tag,.ace-tomorrow-night .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night .ace_meta.ace_tag,.ace-tomorrow-night .ace_string.ace_regexp,.ace-tomorrow-night .ace_variable {color: #CC6666}.ace-tomorrow-night .ace_comment {color: #969896}.ace-tomorrow-night .ace_markup.ace_underline {text-decoration: underline}.ace-tomorrow-night .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYHB3d/8PAAOIAdULw8qMAAAAAElFTkSuQmCC) right repeat-y;}</style><link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style0_16.css?v=8105b07e.css"><script src="./Sass安装（windows版）-慕课网_files/ZeroClipboard.js" type="text/javascript" defer="defer"></script></head>
+<body>
+
+
+<div id="header" class="course-detail-header">
+  <div class="cd-inner clearfix">
+      <ul class="l">
+        <li class="nv nv-goback"><a href="http://www.imooc.com/learn/311" class="revert l"><i class="icon icon-left"></i></a></li>
+        <li class="nv nv-menu">
+          <a href="javascript:;" class="chaptername" style="cursor:text;"><span>Sass入门篇</span><em>2-2 Sass安装（windows版）</em></a>
+        </li>
+                <li class="nv nv-follow">
+                    <a href="javascript:void(0)" data-id="311" class="js-btn-follow course-followed" title="取消关注"><i class="icon icon-heart-revert"></i><em>取消关注</em></a>
+                  </li>
+                <li class="nv nv-share bdsharebuttonbox bdshare-button-style0-16" data-bd-bind="1440948577882">
+          <!-- note:bdshare cannt user inner icon tag-->
+            <span>分享</span>
+            <a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+            <a class="bds_qzone" data-cmd="qzone" href="http://www.imooc.com/code/6389#" title="分享到QQ空间"></a>
+            <a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+
+          <div style="display:none" id="coursePic"><img src="./Sass安装（windows版）-慕课网_files/55cc0ac30001a73a06000338-590-330.jpg"></div>
+        </li>
+      </ul>
+            <ul class="r course-nv-right">
+
+        <li class="nvr">
+          <a href="http://www.imooc.com/message" class="nvr-msg" title="我的消息" target="_blank">
+            <i class="icon icon-msg"></i>
+            <span class="msg_icon" style="display: none;"></span>
+          </a>
+        </li>
+        <li class="nvr user-card-box">
+          <a href="http://www.imooc.com/space/index" action-type="my_menu" class="nvr-space user-card-item" id="js-user-avatar">
+            <img src="./Sass安装（windows版）-慕课网_files/54584dc4000118d302200220-40-40.jpg" width="40" height="40">
+            <i class="myspace_remind" style="display: none;"></i>
+            <span style="display: none;">动态提醒</span>
+          </a>
+          <div class="g-user-card">
+              <div class="card-inner">
+                  <div class="card-top">
+                      <img src="./Sass安装（windows版）-慕课网_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋" class="l">
+                      <span class="name text-ellipsis">浩淼海洋</span>
+                      <p class="meta">
+                          <span>经验<b id="js-user-mp">16815</b></span>
+                          <span style="display: none">积分<b>12331</b></span>
+                      </p>
+                  </div>
+                  <div class="card-links">
+                      <a href="http://www.imooc.com/space/index" class="my-mooc l">我的慕课<i class="dot-update"></i><span style="display: none; font-size: 12px; color: rgb(255, 255, 255); border-radius: 50%; width: 16px; height: 16px; vertical-align: middle; line-height: 16px; margin: -5px 0px 0px 5px; text-align: center; font-weight: normal; background: rgb(240, 20, 0);">0</span></a>
+                      <span class="split l"></span>
+                      <a href="http://www.imooc.com/myclub/myquestion/t/ques" class="my-sns l">我的社区<span style="display: none; font-size: 12px; color: rgb(255, 255, 255); border-radius: 50%; width: 16px; height: 16px; vertical-align: middle; line-height: 16px; margin: -5px 0px 0px 5px; text-align: center; font-weight: normal; background: rgb(240, 20, 0);">0</span></a>
+                  </div>
+                                    <div class="card-history">
+                      <span class="history-item">
+                          <span class="tit text-ellipsis">Sass入门篇</span>
+                          <span class="media-name text-ellipsis">2-1 sass安装（Mac系统）</span>
+                          <i class="icon-clock"></i>
+                          <a href="http://www.imooc.com/video/7743" class="continue">继续</a>
+                      </span>
+                  </div>
+                                    <div class="card-sets clearfix">
+                      <a href="http://www.imooc.com/user/userinfo" class="l">个人设置</a>
+                      <a href="http://www.imooc.com/user/logout" class="r">退出</a>
+                  </div>
+              </div>
+              <i class="card-arr"></i>
+          </div>
+      </li>
+      </ul>
+        </div>
+</div>
+
+<div id="studyMain">
+
+<!--修正多个头部的bug-->
+<div class="wrap">
+  <!--此处结构为练习题，视频，编程公用的侧栏-->
+<div class="section-list">
+    <div class="operator">
+        <div class="op notes"><em class="icon-note"></em>笔记</div>
+        <div class="op question"><em class="icon-addques"></em>提问</div>
+        <div class="hidesider js-sider"><em class="icon-right"></em></div>
+    </div>
+    <div class="showsider js-sider"><span><em class="icon-left"></em><br>章<br>节<br>列<br>表</span></div>
+    <div class="nano has-scrollbar">
+        <div class="nano-content" tabindex="0" style="right: -17px;">
+            <h3>Sass入门篇</h3>
+                        <ul>
+                <li class="sec-title">
+                    <span>第1章 Sass简介</span>
+                </li>
+                                                        <li>
+                        <a href="http://www.imooc.com/code/5993"><em class="icon-code"></em>1-1 什么是 CSS 预处理...</a>
+                                                <i class="">                                                        <em class="icon-full"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6371"><em class="icon-code"></em>1-2 什么是 Sass？</a>
+                                                <i class="">                                                        <em class="icon-full"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6373"><em class="icon-code"></em>1-3 Sass 和 SCSS 有什...</a>
+                                                <i class="">                                                        <em class="icon-full"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6374"><em class="icon-code"></em>1-4 Sass/SCSS 和纯 CSS...</a>
+                                                <i class="">                                                        <em class="icon-full"></em>
+                                                    </i>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第2章 Sass安装环境</span>
+                </li>
+                                                        <li>
+                        <a href="http://www.imooc.com/video/7743"><em class="icon-video"></em>2-1 sass安装（Mac系统）...(04:08)</a>
+                                                <i class="">                                                        <em class="icon-full"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="./Sass安装（windows版）-慕课网_files/Sass安装（windows版）-慕课网.html"><em class="icon-code"></em>2-2 Sass安装（windows版...</a>
+                                                <i class="">正在学                                                        <em class="icon-clock"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6390"><em class="icon-code"></em>2-3 查测 Sass 及更新...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6391"><em class="icon-code"></em>2-4 卸载（删除）Sass...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第3章 Sass的语法格式及编译调试...</span>
+                </li>
+                                                        <li>
+                        <a href="http://www.imooc.com/code/6376"><em class="icon-code"></em>3-1 Sass 语法格式</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6377"><em class="icon-code"></em>3-2 Sass 编译</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6378"><em class="icon-code"></em>3-3 命令编译</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6379"><em class="icon-code"></em>3-4 GUI 界面工具编译...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6380"><em class="icon-code"></em>3-5 自动化编译</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6381"><em class="icon-code"></em>3-6 常见的编译错误...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6382"><em class="icon-code"></em>3-7 不同样式风格的输出方...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6411"><em class="icon-code"></em>3-8 嵌套输出方式 nested...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6383"><em class="icon-code"></em>3-9 展开输出方式 expand...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6384"><em class="icon-code"></em>3-10 紧凑输出方式 compac...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6385"><em class="icon-code"></em>3-11 压缩输出方式 compre...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6386"><em class="icon-code"></em>3-12 Sass 的调试</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第4章 Sass的基本特性-基础</span>
+                </li>
+                                                        <li>
+                        <a href="http://www.imooc.com/code/6950"><em class="icon-code"></em>4-1 声明变量</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/9406"><em class="icon-code"></em>4-2 普通变量与默认变量...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6957"><em class="icon-code"></em>4-3 变量的调用</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/6968"><em class="icon-code"></em>4-4 局部变量和全局变量...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7009"><em class="icon-code"></em>4-5 嵌套-选择器嵌套...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7011"><em class="icon-code"></em>4-6 嵌套-属性嵌套</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7012"><em class="icon-code"></em>4-7 嵌套-伪类嵌套</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7016"><em class="icon-code"></em>4-8 混合宏-声明混合宏...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7034"><em class="icon-code"></em>4-9 混合宏-调用混合宏...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7035"><em class="icon-code"></em>4-10 混合宏的参数--传一个...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7036"><em class="icon-code"></em>4-11 混合宏的参数--传一个...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7037"><em class="icon-code"></em>4-12 混合宏的参数--传多个...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7038"><em class="icon-code"></em>4-13 混合宏的参数--混合宏...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7039"><em class="icon-code"></em>4-14 扩展/继承</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7040"><em class="icon-code"></em>4-15 占位符 %placeholder...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7041"><em class="icon-code"></em>4-16 混合宏 VS 继承 VS...</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7042"><em class="icon-code"></em>4-17 插值#{}</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7058"><em class="icon-code"></em>4-18 注释</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/8903"><em class="icon-code"></em>4-19 数据类型</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/8904"><em class="icon-code"></em>4-20 字符串</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/8906"><em class="icon-code"></em>4-21 值列表</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                </ul>
+                        <ul>
+                <li class="sec-title">
+                    <span>第5章 Sass的基本特性-运算</span>
+                </li>
+                                                        <li>
+                        <a href="http://www.imooc.com/code/7723"><em class="icon-code"></em>5-1 加法</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7728"><em class="icon-code"></em>5-2 减法</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7729"><em class="icon-code"></em>5-3 乘法</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7730"><em class="icon-code"></em>5-4 除法</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7731"><em class="icon-code"></em>5-5 变量计算</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7732"><em class="icon-code"></em>5-6 数字运算</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7733"><em class="icon-code"></em>5-7 颜色运算</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                                            <li>
+                        <a href="http://www.imooc.com/code/7734"><em class="icon-code"></em>5-8 字符运算</a>
+                                                <i class="">                                                        <em class="icon-nolearn"></em>
+                                                    </i>
+                                            </li>
+                                                </ul>
+            
+        </div>
+    <div class="nano-pane"><div class="nano-slider" style="height: 167px; transform: translate(0px, 0px);"></div></div></div>
+</div>  <div id="js-code-container" class="cmain-container" style="height: 466px; display: block;">
+    <div id="js-aticle-container" class="cwrap-autoheight aticle-container" style="width: 400px;">
+        <div class="code-panel" id="J_PanelCode">
+            <h2 class="code-head" id="J_CodeLang" data-lang="SASS">Sass安装（windows版）</h2>
+            <div class="code-description" id="J_CodeDescr">
+              <div class="code-desc co">
+                <p style="line-height: 20.7999992370605px;">在 Windows 平台下安装 Ruby 需要先有 Ruby 安装包，大家可以到 Ruby 的官网（http://rubyinstaller.org/downloads）下载对应需要的 Ruby 版本。</p>
+
+<p style="line-height: 20.7999992370605px;"><a href="./Sass安装（windows版）-慕课网_files/54f560af00017cf106790364.jpg"><img alt="" src="./Sass安装（windows版）-慕课网_files/54f560af00017cf106790364.jpg" style="width: 355px;"></a></p>
+
+<p style="line-height: 20.7999992370605px;">Ruby 安装文件下载好后，可以按应用软件安装步骤进行安装 Ruby。在安装过程中，个人建议将其安装在 C 盘下，在安装过程中选择第二个选项（不选中，就会出现编译时找不到Ruby环境的情况），如下图所示：<br>
+<br>
+<a href="http://img.mukewang.com/54f561190001531"><img alt="" src="./Sass安装（windows版）-慕课网_files/54f561190001531806350474.jpg" style="width: 355px;"></a></p>
+
+<p style="line-height: 20.7999992370605px;">Ruby 安装完成后，在开始菜单中找到新安装的 Ruby，并启动 Ruby 的 Command 控制面板，如下图所示：</p>
+
+<p style="line-height: 20.7999992370605px;"><a href="./Sass安装（windows版）-慕课网_files/54f5615f00011cb604530648.jpg"><img alt="" src="./Sass安装（windows版）-慕课网_files/54f5615f00011cb604530648.jpg" style="width: 355px;"></a></p>
+
+<p>当你的电脑中安装好 Ruby 之后，接下来就可以安装 Sass 了。同样的在windows下安装 Sass 有多种方法。但这几种方法都是非常的简单，只需要在你的命令终端输入一行命令即可。</p>
+
+<p>&nbsp;&nbsp;<strong> 1、通过命令安装 Sass</strong></p>
+
+<p>打开电脑的命令终端，输入下面的命令：</p>
+
+<pre class="code">gem install sass</pre>
+
+<p>提醒一下，在使用 Mac 的同学，可能需要在上面的命令前加上"<span style="color:#B22222;">sudo</span>"，才能正常安装：</p>
+
+<pre class="code"><span style="color:#B22222;">sudo</span> gem install sass</pre>
+
+<p>如果上面的方法没有安装成功，可以使用下面的两种方法。</p>
+
+<p>&nbsp;&nbsp;<strong> 2、通过 Compass 来安装 Sass</strong></p>
+
+<p>除了使用 gem 命令来安装 Sass 之外，还可以通过安装 <span style="color:#B22222;">compass</span> 来安装 Sass，因为 Compass 是基于 Sass 开发的一个框架。也就是说，你安装了 Compass，也就同时安装好了 Sass。</p>
+
+<p>同样的在你的命令终端输入下面的命令：</p>
+
+<pre class="code">sudo gem install sass</pre>
+
+<p>执行完上面的命令之后，就开始安装 Compass 和 Sass。</p>
+
+<p>注：Compass 是一个成熟的、基于 Sass 开发的一个框架，这里面集成了很多写好的 mixins 和 Sass 函数。不过在此暂不做过多阐述。</p>
+
+<p>&nbsp;&nbsp; <strong>3、本地安装 Sass</strong></p>
+
+<p>由于有时候直接使用上面的命令安装会让你无法正常实现安装（网络受限原因），当碰到这种情况之时，那么安装需要特殊去处理，可以通过下面的方法来实现 Sass 的正常安装：</p>
+
+<p>可以到 <a href="http://rubygems.org/" target="_blank"> Rubygems</a>(http://rubygems.org/) 网站上将 <a href="http://rubygems.org/gems/sass" target="_blank"> Sass 的安装包</a>（http://rubygems.org/gems/sass）下载下来，然后在命令终端输入：</p>
+
+<pre class="code">gem install &lt;把下载的安装包拖到这里&gt;</pre>
+
+<p>直接回车即可安装成功。</p>
+
+<p>注：在 iOSX 系统平台，可以直接将下载的安装包拖到 "gem install" 后面，如果在是 Windows 系统，需要手功输入安装的文件路径。</p>
+
+<p><strong>&nbsp; 4、淘宝 RubyGems 镜像安装 Sass</strong></p>
+
+<p>除了下载 Sass 安装包到本地安装之外，碰到网络原因无法安装时还可以使用淘宝 RubyGems 镜像安装 Sass。只是我们需要通过 gem sources 命令来配置源，先移除默认的 https://rubygems.org 源，然后添加淘宝的源 https://ruby.taobao.org：</p>
+
+<p>第一步：移动默认的源</p>
+
+<pre class="code">gem sources --remove https://rubygems.org/</pre>
+
+<p>第二步：指定淘宝的源</p>
+
+<pre class="code">gem sources -a https://ruby.taobao.org/</pre>
+
+<p>第三步：查看指定的源是不是淘宝源</p>
+
+<pre class="code">gem sources -l</pre>
+
+<p>返回结果如下：</p>
+
+<pre class="code">*** CURRENT SOURCES ***
+https://ruby.taobao.org</pre>
+
+<p>请确保只有 ruby.taobao.org。如果无误之后，执行下面的命令：</p>
+
+<pre class="code">gem install sass</pre>
+
+<p>&nbsp;</p>
+
+              </div>
+              <div class="code-tips">
+                <h3 class="code-tips-title">任务</h3>
+                <div class="co"></div>
+                <div class="code-qa" id="J_CodeQa">
+                  <dl>
+                    <dt><b>?</b>不会了怎么办</dt>
+                    <dd class="hide">
+                      <div class="co"></div>
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="js-editor-container" class="cwrap-autoheight editor-container" style="left: 400px; width: 819px;">
+      <div id="js-editor-drag-wrap" class="editor-drag-wrap">
+        <div id="js-editor-drager" class="editor-drager" unselectable="on" style="-webkit-user-select: none; display: none;"><span>||</span></div>
+      </div>
+      <div class="editor-box" id="J_EditorTabs">
+          <div class="editor-tab js-editor-tab">
+            <div class="editor-left icon-left editor-op"></div>
+            <div class="editor-view">
+              <ul class="clearfix" id="J_TabType" style="width: 113px; margin-left: 0px;">
+                                  <li class="ui-tabs-active"><a href="http://www.imooc.com/code/6389#editor-tabs-sass">index.scss</a></li>
+                              </ul>
+            </div>
+            <div class="editor-right icon-right editor-op"></div>
+          </div>
+                    <div class="tab-con editor-item ace_editor ace-tomorrow-night ace_dark" id="editor-tabs-sass" data-filename="index.scss" data-lang="sass" style="font-size: 14px;"><textarea class="ace_text-input" wrap="off" spellcheck="false" style="bottom: 483px; height: 17px; width: 7.703125px; right: 766.296875px;"></textarea><div class="ace_gutter"><div class="ace_layer ace_gutter-layer ace_folding-enabled" style="margin-top: 0px; height: 534px; width: 41px;"><div class="ace_gutter-cell " style="height:17px;">1</div></div><div class="ace_gutter-active-line" style="top: 0px; height: 17px;"></div></div><div class="ace_scroller" style="left: 41px; right: 17px;"><div class="ace_content" style="margin-top: 0px; width: 761px; height: 534px;"><div class="ace_layer ace_print-margin-layer"><div class="ace_print-margin" style="left: 620.25px; visibility: hidden;"></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_text-layer" style="padding: 0px 4px;"><div class="ace_line_group"><div class="ace_line" style="height:17px"><span class="ace_comment">//Welcome&nbsp;to&nbsp;imooc&nbsp;learning&nbsp;Sass</span></div></div></div><div class="ace_layer ace_marker-layer"></div><div class="ace_layer ace_cursor-layer ace_hidden-cursors"><div class="ace_cursor" style="left: 4px; top: 0px; width: 7.703125px; height: 17px;"></div></div></div></div><div style="height: auto; width: auto; top: -100px; left: -100px; visibility: hidden; position: fixed; overflow: visible; white-space: nowrap;">X</div><div class="ace_scrollbar" style="width: 22px; height: 500px;"><div class="ace_scrollbar-inner" style="height: 17px;"></div></div><div class="ace_gutter-tooltip" style="display: none;"></div></div>
+                </div>
+      <div class="editor-btn">
+        <div class="editor-btn-inner">
+          <a href="javascript:;" class="code-btn-submit r" id="J_Commit" title="提交">提交</a>
+          <a href="javascript:;" class="code-btn-reset " id="J_EditorReset" title="重置">重置代码</a>
+        </div>
+      </div>
+      <div class="editor-commit hide" id="J_EditorCommit"></div>
+    </div>
+
+    <div id="js-result-container" class="cwrap-autoheight result-container" style="left: 1219px; width: 130px;">
+      <div id="js-result-drag-wrap" class="result-drag-wrap">
+        <div id="js-result-drager" class="result-drager" unselectable="on" style="-webkit-user-select: none;"><span>||</span></div>
+      </div>
+      <div class="result-wrap">
+        <div id="viewPort-content">  <iframe name="Consoleframe" id="J_Console" frameborder="0" width="100%" height="100%" src="./Sass安装（windows版）-慕课网_files/index.html"></iframe></div>
+      </div>
+    </div>
+
+    <div id="viewPort-header" class="result-triggers">
+      <a href="javascript:;" id="js-toggle-width" class="result-toggle result-toggle-width"><i></i><span>全屏</span></a>
+      <a href="javascript:;" id="js-toggle-vsb" class="result-toggle result-toggle-vsb" style="display: none;"><i></i><span>运行结果</span></a>
+    </div>
+  </div>
+</div>
+<div id="reset_mid" rel="6389" hidden=""></div>
+<div id="reset_step" rel="1" hidden=""></div>
+
+<div class="maybe-wenda" id="maybe-wenda" style="display: none;">
+    <i class="icon-chat"></i>
+    <p class="text">你发的评论可能会是问题？<br>是否将他发到问答中</p>
+    <input class="btn ok" type="button" value="好的" id="wenda-ok">
+    <input class="btn no" type="button" value="不用" id="wenda-no">
+</div>
+</div>
+
+<div class="course-subcontainer clearfix">
+  <div class="course-left">
+      <ul class="course-menu course-code-menu clearfix js-course-menu" style="position: absolute; left: 0px;">
+    <li class="course-menu-item"><a class="active" href="javascript:void(0)" id="plMenu">评论</a></li>
+    <li class="course-menu-item"><a href="javascript:void(0)" id="qaMenu">问答</a></li>
+    <li class="course-menu-item"><a href="javascript:void(0)" id="noteMenu">笔记</a></li>
+    <li class="course-menu-item"><a href="javascript:void(0)" id="wikiMenu">WIKI</a></li>
+        <li class="course-menu-item"><a href="javascript:void(0)" id="mateMenu">同学代码</a></li>
+        </ul>
+<div id="disArea" class="lists-container list-wrap">
+    <div id="pl-content" class="list-tab-con">
+        <div class="publish clearfix" id="discus-publish">
+            <div class="publish-wrap publish-wrap-pl">
+               <div class="pl-input-wrap">
+                   <div id="js-pl-input-fake" class="pl-input-inner">
+                       <textarea id="js-pl-textarea" class="js-placeholder" placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！"></textarea>
+                       <span class="num-limit"><span id="js-pl-limit">0</span>/300</span>
+                   </div>
+                   <div class="pl-input-btm input-btm clearfix">
+                        <div class="verify-code l"></div>
+                        <input type="button" id="js-pl-submit" class="r course-btn" value="发表评论">
+                   </div>
+               </div>
+                
+            </div>
+        </div>                    
+        <div id="plLoadListData"><div class="pl-container"> <ul>   <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/2148847" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/55a5ba8a0001392001800180-40-40.jpg" title="LearnSth"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/2148847" target="_blank">LearnSth</a> </div> <div class="pl-list-content">安装软件总有淡淡的忧伤</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2天前</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="104906"><i class="icon-thumb"></i>  <span>0</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/1077055" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/54584c9c0001489602200220-40-40.jpg" title="lady_diors"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/1077055" target="_blank">lady_diors</a> </div> <div class="pl-list-content">gem 不是内部或者外部文件，按照第四种来做的</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2015-08-13</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="97947"><i class="icon-thumb"></i>  <span>0</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/355504" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/542d64620001a28901000100-40-40.jpg" title="不淡定了"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/355504" target="_blank">不淡定了</a> </div> <div class="pl-list-content">翻墙才能下载，不然就用第四个方法</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2015-07-23</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="88285"><i class="icon-thumb"></i>  <span>0</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/196231" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/533e4c640001354402000200-40-40.jpg" title="donaf"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/196231" target="_blank">donaf</a> </div> <div class="pl-list-content">gem不是内部命令？</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2015-07-20</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="86624"><i class="icon-thumb"></i>  <span>1</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/1264560" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/55dc74e00001fcfa05120571-40-40.jpg" title="我妻由乃YuKi"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/1264560" target="_blank">我妻由乃YuKi</a> </div> <div class="pl-list-content">第四种方法能成功</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2015-06-17</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="60868"><i class="icon-thumb"></i>  <span>1</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/1143341" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/5333a1360001954902000200-40-40.jpg" title="freedom_melody"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/1143341" target="_blank">freedom_melody</a> </div> <div class="pl-list-content">ruby 2.2 的安装sass，在查看是否正确配置指定淘宝镜像源时，用的指令应该是gem sources</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2015-06-09</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="57790"><i class="icon-thumb"></i>  <span>0</span></a> </div> </div> </li>  <li class="pl-list clearfix"> <div class="pl-list-avator"> <a href="http://www.imooc.com/space/u/uid/282452" target="_blank"><img width="40" height="40" src="./Sass安装（windows版）-慕课网_files/533e4d7c0001828702000200-40-40.jpg" title="南国漂泊"></a> </div> <div class="pl-list-main"> <div class="pl-list-nick"> <a href="http://www.imooc.com/space/u/uid/282452" target="_blank">南国漂泊</a> </div> <div class="pl-list-content">老老实实按照下面步骤安装:<br>
+gem sources --remove https://rubygems.org/<br>
+gem sources -a https://ruby.taobao.org/<br>
+gem sources -l<br>
+sudo gem install sass</div>  <div class="pl-list-btm clearfix"> <span class="pl-list-time l">时间: 2015-05-27</span>  <a title="赞" href="javascript:;" class="js-pl-praise list-praise r" data-id="53593"><i class="icon-thumb"></i>  <span>0</span></a> </div> </div> </li> </ul></div><div class="page pl-list-page"></div></div>
+    </div>
+    <div id="qa-content" class="list-tab-con" style="display:none">
+        <div id="qaLoadListData"><div class="sortlist"> 			<div class="ordertab"> 				<a href="javascript:void(0)" hidefocus="true" data-order="1" class="quealltab onactive">全部</a>				<a href="javascript:void(0)" hidefocus="true" data-order="2" class="quealltab ">精华</a>			</div>		</div><div class="answertabcon"></div><div class="page discuss-list-page"></div></div>
+    </div>
+    <div id="note-content" class="list-tab-con" style="display:none">
+        <div id="noteLoadListData">
+        <div id="course_note" class="course_note"></div><div class="page note-list-page"></div></div>
+    </div>
+    <div id="wiki-content" class="list-tab-con" style="display:none;">
+        <div id="wikiLoadListData">
+        <div id="course_wiki" class="course_wiki"></div><div class="page wiki-list-page"></div></div>
+    </div> 
+    <div id="mate-content" class="list-tab-con" style="display:none;">
+        <div id="mateLoadListData">
+        <div class="othterscode-container"></div><div class="page othterscode-list-page"></div></div>
+    </div> 
+
+</div>
+  </div>
+  <div class="course-right clearfix">
+           <div class="classmate fl">
+      <h3>你的同学<span>18263人</span><a href="javascript:void(0);" class="js-ch-mate ch-classmate">换一批</a></h3>
+      <div class="users_wrap">
+          <div id="js-class-mate" class="users clearfix"><a class="mate-avator" href="http://www.imooc.com/space/u/uid/103795" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/54bdc9d50001f4be19201080-80-80.jpg" title="Dragon"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/107501" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/5341578b0001049e01000100-80-80.jpg" title="Baiang"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/112498" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/535fa30d00013c7301000100-80-80.jpg" title="GinoSin"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/114886" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/5333a2590001069f02000200-80-80.jpg" title="IT特工"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/116159" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/536f831e0001f0dd01000100-80-80.jpg" title="其实杰伦"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/118279" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/5375a5cf0001203301000100-80-80.jpg" title="繁星满天hxhxhx"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/126109" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/5333a10b000190e402200220-80-80.jpg" title="i5290667"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/137806" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/53813af60001533801000100-80-80.jpg" title="thirnejis"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/139233" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/533e4d710001852702000200-80-80.jpg" title="5250xx"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/159047" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/54584e390001972002200220-80-80.jpg" title="输棋专业户"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/165516" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/538d50490001115601000100-80-80.jpg" title="q0603123417"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/175199" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/5391cf970001df3201000100-80-80.jpg" title="逝水流年tuiedu"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/186526" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/5398acb90001b80600010001-80-80.jpg" title="q0612032338"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/187986" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/539976c5000168ec01000099-80-80.jpg" title="哆啦A梦_0001"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/199090" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/558cbaed00017c2c02630213-80-80.jpg" title="wasser"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/201396" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/533e50ed0001cc5b02000200-80-80.jpg" title="qqqwwww"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/203237" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/53a8dd6b0001804101000100-80-80.jpg" title="清风两袖"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/205303" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/53aaed440001eef501000100-80-80.jpg" title="若鱼"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/207063" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/533e4d3d0001ed7802000200-80-80.jpg" title="nickyoung"></a><a class="mate-avator" href="http://www.imooc.com/space/u/uid/208817" target="_blank"><img src="./Sass安装（windows版）-慕课网_files/533e4c1500010baf02200220-80-80.jpg" title="柏文_JJ"></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="course-about">
+    <div class="course-about-tit clearfix">
+        <h3>学过该课的人还学过</h3>
+                <span class="on">课程</span>
+                    </div>
+        <ul class="con-wrap clearfix" style="display: block;">
+                <li>
+            <a href="http://www.imooc.com/view/147" class="img-box" target="_blank">
+                <img src="./Sass安装（windows版）-慕课网_files/53bca1f00001d36906000338.jpg" alt="企业网站综合布局实战">
+                <p>企业网站综合布局实战</p>
+            </a>
+        </li>
+                <li>
+            <a href="http://www.imooc.com/view/252" class="img-box" target="_blank">
+                <img src="./Sass安装（windows版）-慕课网_files/552498510001ac2306000338.jpg" alt="css3实现网页平滑过渡效果">
+                <p>css3实现网页平滑过渡效果</p>
+            </a>
+        </li>
+                <li>
+            <a href="http://www.imooc.com/view/316" class="img-box" target="_blank">
+                <img src="./Sass安装（windows版）-慕课网_files/54c884540001632106000338.jpg" alt="css框架的迷思">
+                <p>css框架的迷思</p>
+            </a>
+        </li>
+                <li>
+            <a href="http://www.imooc.com/view/5" class="img-box" target="_blank">
+                <img src="./Sass安装（windows版）-慕课网_files/5476bb3e0001d14e06000338.jpg" alt="按钮特效">
+                <p>按钮特效</p>
+            </a>
+        </li>
+                <li>
+            <a href="http://www.imooc.com/view/12" class="img-box" target="_blank">
+                <img src="./Sass安装（windows版）-慕课网_files/545c66000001442606000338.jpg" alt="形形色色的下拉菜单">
+                <p>形形色色的下拉菜单</p>
+            </a>
+        </li>
+            </ul>
+        </div>
+
+<div id="footer">
+    <div class="waper">
+        <div class="footerwaper clearfix">
+            <div class="followus r">
+                <a class="followus-weixin" href="javascript:;" target="_blank" title="微信">
+                    <div class="flw-weixin-box"></div>
+                </a>
+                <a class="followus-weibo" href="http://weibo.com/u/3306361973" target="_blank" title="新浪微博"></a>
+                <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+            </div>
+            <div class="footer_intro l">
+                <div class="footer_link">
+                    <ul>
+                        <li><a href="http://www.imooc.com/" target="_blank">网站首页</a></li>
+                        <li><a href="http://www.imooc.com/about/job" target="_blank">人才招聘</a></li>
+                        <li> <a href="http://www.imooc.com/about/contact" target="_blank">联系我们</a></li>
+                        <!--<li><a href="/subject/html" target="_blank">专题页面</a></li>-->
+                        <li><a href="http://daxue.imooc.com/" target="_blank">高校联盟</a></li>
+                        <li><a href="http://www.imooc.com/about/us" target="_blank">关于我们</a></li>
+                        <li> <a href="http://www.imooc.com/about/recruit" target="_blank">讲师招募</a></li>
+                        <li> <a href="http://www.imooc.com/user/feedback" target="_blank">意见反馈</a></li>
+                        <li> <a href="http://www.imooc.com/about/friendly" target="_blank">友情链接</a></li>
+                    </ul>
+                </div>
+                <p>Copyright © 2015 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" charset="utf-8" src="./Sass安装（windows版）-慕课网_files/ueditor.final.min.js"></script>
+
+<script type="text/javascript" src="./Sass安装（windows版）-慕课网_files/sea.js"></script>
+<script type="text/javascript" src="./Sass安装（windows版）-慕课网_files/sea_config.js"></script>
+<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+
+
+
+<div style="display: none">
+  <script type="text/javascript">
+  var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff0cfcccd7b1393990c78efdeebff3968' type='text/javascript'%3E%3C/script%3E"));
+  </script><script src="./Sass安装（windows版）-慕课网_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=f0cfcccd7b1393990c78efdeebff3968" target="_blank"><img border="0" src="./Sass安装（windows版）-慕课网_files/21.gif" width="20" height="20"></a>
+</div>
+<!--笔记弹出框-->
+<div class="publish clearfix note-pop" id="note-publist">
+    <div class="publish-wrap publish-wrap-note code-publish-note pop-con">
+        <div class="pop-title">
+            <h3>笔记</h3>
+            <span class="icon-close"></span>
+        </div>
+        <div id="js-note-input-fake" class="textarea-wrap">
+            <textarea data-maxlength="1000" id="js-note-textarea" class="js-placeholder" name="" placeholder="请输入笔记内容..."></textarea>
+            <p class="note-text-counter"><span id="js-note-limit">0</span>/1000</p>
+        </div>
+        <div class="publish-note-btns input-btm clearfix pop-footer">
+            <div class="verify-code clearfix"></div>
+                                            <div title="截图" class="js-shot-code screen-btn" data-type="note">
+                    <span>截图</span>
+                </div>
+                                        <input type="button" title="发表" value="保存" id="js-note-submit" class="course-btn r">
+            <label for="js-isshare" class="label-checked r"><input type="checkbox" checked="checked" id="js-isshare" class="checked"> 公开</label>
+        </div>
+    </div>
+</div>
+<!--问答弹出框-->
+<div class="publish clearfix qa-pop" id="discus-publish">
+    <div class="publish-wrap publish-wrap-disucss code-publish-qa pop-con">
+        <div class="pop-title">
+            <h3>提问</h3>
+            <span class="icon-close"></span>
+        </div>
+        <div class="qa-control-wrap clearfix">
+            <div class="question-area">
+                <div class="qa-control qa-ipt-title">
+                    <input type="text" id="js-qa-title" maxlength="255" class=" js-placeholder autocomplete" placeholder="请输入问题标题">
+                </div>
+                <dl class="send-area-result">
+                </dl>
+            </div>
+        </div>
+        <div class="qa-control-wrap clearfix">
+            <div class="qa-control">
+                <div class="rich-text-editor">
+                    <div id="discuss-editor" class="edui-imooc" style=""><div id="edui1" class="edui-editor  edui-imooc" style="width: 588px; z-index: 999;"><div id="edui1_toolbarbox" class="edui-editor-toolbarbox edui-imooc"><div id="edui1_toolbarboxouter" class="edui-editor-toolbarboxouter edui-imooc"><div class="edui-editor-toolbarboxinner edui-imooc"><div id="edui2" class="edui-toolbar   edui-imooc" onselectstart="return false;" onmousedown="return $EDITORUI[&quot;edui2&quot;]._onMouseDown(event, this);" style="-webkit-user-select: none;"><div id="edui3" class="edui-box edui-combox edui-for-insertcode edui-imooc"><div title="代码语言" id="edui3_state" onmousedown="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui3&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-combox-body edui-imooc"><div id="edui3_button_body" class="edui-box edui-button-body edui-imooc" onclick="$EDITORUI[&quot;edui3&quot;]._onButtonClick(event, this);">代码语言</div><div class="edui-box edui-splitborder edui-imooc"></div><div class="edui-box edui-arrow edui-imooc" onclick="$EDITORUI[&quot;edui3&quot;]._onArrowClick();"></div></div></div></div><div id="edui17" class="edui-box edui-button edui-for-bold edui-imooc"><div id="edui17_state" onmousedown="$EDITORUI[&quot;edui17&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui17&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui17&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui17&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui17_body" unselectable="on" title="加粗" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui17&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui17&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui18" class="edui-box edui-button edui-for-italic edui-imooc"><div id="edui18_state" onmousedown="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui18&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui18_body" unselectable="on" title="斜体" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui18&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui18&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui19" class="edui-box edui-button edui-for-underline edui-imooc"><div id="edui19_state" onmousedown="$EDITORUI[&quot;edui19&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui19&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui19&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui19&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui19_body" unselectable="on" title="下划线" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui19&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui19&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui26" class="edui-box edui-button edui-for-insertimage edui-imooc"><div id="edui26_state" onmousedown="$EDITORUI[&quot;edui26&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui26&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui26&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui26&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui26_body" unselectable="on" title="多图上传" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui26&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui26&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div><div class="edui-box edui-label edui-imooc"></div></div></div></div></div><div id="edui31" class="edui-box edui-button edui-for-link edui-imooc"><div id="edui31_state" onmousedown="$EDITORUI[&quot;edui31&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui31&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui31&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui31&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui31_body" unselectable="on" title="超链接" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui31&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui31&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div><div class="edui-box edui-label edui-imooc"></div></div></div></div></div><div id="edui32" class="edui-box edui-button edui-for-unlink edui-imooc"><div id="edui32_state" onmousedown="$EDITORUI[&quot;edui32&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui32&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui32&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui32&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui32_body" unselectable="on" title="取消链接" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui32&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui32&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui33" class="edui-box edui-button edui-for-insertunorderedlist edui-imooc"><div id="edui33_state" onmousedown="$EDITORUI[&quot;edui33&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui33&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui33&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui33&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui33_body" unselectable="on" title="无序列表" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui33&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui33&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div><div class="edui-box edui-label edui-imooc"></div></div></div></div></div><div id="edui34" class="edui-box edui-button edui-for-insertorderedlist edui-imooc"><div id="edui34_state" onmousedown="$EDITORUI[&quot;edui34&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui34&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui34&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui34&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui34_body" unselectable="on" title="有序列表" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui34&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui34&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div><div class="edui-box edui-label edui-imooc"></div></div></div></div></div><div id="edui35" class="edui-box edui-button edui-for-blockquote edui-imooc"><div id="edui35_state" onmousedown="$EDITORUI[&quot;edui35&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui35&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui35&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui35&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui35_body" unselectable="on" title="引用" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui35&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui35&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui36" class="edui-box edui-button edui-for-redo edui-imooc"><div id="edui36_state" onmousedown="$EDITORUI[&quot;edui36&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui36&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui36&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui36&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui36_body" unselectable="on" title="重做" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui36&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui36&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui37" class="edui-box edui-button edui-for-undo edui-imooc"><div id="edui37_state" onmousedown="$EDITORUI[&quot;edui37&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui37&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui37&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui37&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui37_body" unselectable="on" title="撤销" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui37&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui37&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div></div></div></div></div><div id="edui40" class="edui-box edui-button edui-for-preview edui-imooc"><div id="edui40_state" onmousedown="$EDITORUI[&quot;edui40&quot;].Stateful_onMouseDown(event, this);" onmouseup="$EDITORUI[&quot;edui40&quot;].Stateful_onMouseUp(event, this);" onmouseover="$EDITORUI[&quot;edui40&quot;].Stateful_onMouseOver(event, this);" onmouseout="$EDITORUI[&quot;edui40&quot;].Stateful_onMouseOut(event, this);" class="edui-imooc"><div class="edui-button-wrap edui-imooc"><div id="edui40_body" unselectable="on" title="预览" class="edui-button-body edui-imooc" onmousedown="return $EDITORUI[&quot;edui40&quot;]._onMouseDown(event, this);" onclick="return $EDITORUI[&quot;edui40&quot;]._onClick(event, this);"><div class="edui-box edui-icon edui-imooc"></div><div class="edui-box edui-label edui-imooc"></div></div></div></div></div></div></div></div><div id="edui1_toolbarmsg" class="edui-editor-toolbarmsg edui-imooc" style="display:none;"><div id="edui1_upload_dialog" class="edui-editor-toolbarmsg-upload edui-imooc" onclick="$EDITORUI[&quot;edui1&quot;].showWordImageDialog();">点击上传</div><div class="edui-editor-toolbarmsg-close edui-imooc" onclick="$EDITORUI[&quot;edui1&quot;].hideToolbarMsg();">x</div><div id="edui1_toolbarmsg_label" class="edui-editor-toolbarmsg-label edui-imooc"></div><div style="height:0;overflow:hidden;clear:both;" class="edui-imooc"></div></div><div id="edui1_message_holder" class="edui-editor-messageholder edui-imooc" style="top: 3px; z-index: 1000;"></div></div><div id="edui1_iframeholder" class="edui-editor-iframeholder edui-imooc" style="width: 588px; height: 160px; z-index: 999; overflow: hidden;"><iframe id="ueditor_0" width="100%" height="100%" frameborder="0" src="javascript:void(function(){document.open();document.write("<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml' class='view' ><head><style type='text/css'>.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}
+body{margin:8px;font-family:sans-serif;font-size:16px;}p{margin:5px 0;}</style><link rel='stylesheet' type='text/css' href='http://www.imooc.com/static/lib/ueditor/themes/iframe.css'/><style>p{line-height:1.5em;font-size:13px;color:#444}</style></head><body class='view' ></body><script type='text/javascript'  id='_initialScript'>setTimeout(function(){editor = window.parent.UE.instants['ueditorInstant0'];editor._setup(document);},0);var _tmpScript = document.getElementById('_initialScript');_tmpScript.parentNode.removeChild(_tmpScript);</script></html>");document.close();}())"></iframe></div><div id="edui1_bottombar" class="edui-editor-bottomContainer edui-imooc"><table class="edui-imooc"><tbody class="edui-imooc"><tr class="edui-imooc"><td id="edui1_elementpath" class="edui-editor-bottombar edui-imooc" style="display: none;"></td><td id="edui1_wordcount" class="edui-editor-wordcount edui-imooc" style="display: none;"></td><td id="edui1_scale" class="edui-editor-scale edui-imooc" style="display: none;"><div class="edui-editor-icon edui-imooc"></div></td></tr></tbody></table></div><div id="edui1_scalelayer" class="edui-imooc"></div></div></div><textarea style="display: none;">请输入讨论内容...</textarea>
+                </div>
+            </div>
+        </div>
+        <div id="js-discuss-btm" class="discuss-bottom input-btm clearfix pop-footer">
+            <div class="verify-code clearfix"><input type="text" maxlength="4" class="verify-code-ipt" placeholder="请输入验证码"><img class="img-code" src="./Sass安装（windows版）-慕课网_files/getcoursequestioncode"><span class="verify-code-around">看不清<br><i>换一换</i></span><span class="errtip"></span></div>
+                                            <div title="截图" class="js-shot-code screen-btn" data-type="qa">
+                    <span>截图</span>
+                </div>
+                                        <input id="js-discuss-submit" class="r course-btn" type="button" value="发布">
+        </div>
+    </div>
+</div>
+
+<div id="video_mark" class="video_mark" style="display:none;"></div>
+<!--<div class="fixed-video js-fixed-video">-->
+    <!--<h3>点击按住该条进行拖动</h3>-->
+    <!--<div class="fixed-video-con"></div>-->
+<!--</div>-->
+<!--
+//此处结构在js里插入
+<div class="animate-mp" style="left:50%;top:50%">-->
+    <!--<p class="mp"><i>+</i><span class="num">8</span>MP</p>-->
+    <!--<p class="desc">haha</p>-->
+<!--</div>-->
+
+
+<div id="edui_fixedlayer" class="edui-imooc" style="position: fixed; left: 0px; top: 0px; width: 0px; height: 0px;"><div id="edui41" class="edui-popup  edui-bubble edui-imooc" onmousedown="return false;" style="display: none;"> <div id="edui41_body" class="edui-popup-body edui-imooc"> <iframe style="position:absolute;z-index:-1;left:0;top:0;background-color: transparent;" frameborder="0" width="100%" height="100%" src="about:blank" class="edui-imooc"></iframe> <div class="edui-shadow edui-imooc"></div> <div id="edui41_content" class="edui-popup-content edui-imooc">  </div> </div></div></div><div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" width="100%" height="100%" type="application/x-shockwave-flash" data="http://www.imooc.com/static/lib/ueditor/third-party/zeroclipboard/ZeroClipboard.swf?noCache=1440948578785"><param name="allowScriptAccess" value="sameDomain"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=www.imooc.com%2C%2F%2Fwww.imooc.com%2Chttp%3A%2F%2Fwww.imooc.com"></object></div></body></html>

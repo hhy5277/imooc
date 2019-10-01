@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://www.qianduan.net/comprehensive-haslayout/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style id="znBdcsStyle" type="text/css">#bdcs-rec{display:none;}</style><meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>haslayout综合</title>
+		<meta name="description" content="">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="MobileOptimized" content="320">
+		<meta name="theme-color" content="#2c3e50">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="google-site-verification" content="ERxwvLrqp2lRLHjmDo-9E1LNehbiI3l7FPRTzRn-_oA">
+		<link rel="shortcut icon" href="http://www.qianduan.net/assets/favicon.png?v=6d8c4a28bb">
+		<link rel="stylesheet" type="text/css" href="./haslayout综合_files/screen.css">
+		<link rel="canonical" href="./haslayout综合_files/haslayout综合.html">
+    <meta name="referrer" content="origin">
+    
+    <meta property="og:site_name" content="前端观察">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="haslayout综合">
+    <meta property="og:description" content="要想更好的理解 css， 尤其是 IE 下对 css 的渲染，haslayout 是一个非常有必要彻底弄清除的概念。大多 IE 下的显示错误，就是源于 haslayout。 什么是 haslayout ？ haslayout 是Windows Internet Explorer渲染引擎的一个内部组成部分。在Internet Explorer中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了 hasLayout 的属性，属性值可以为true或false。当一个元素的 hasLayout 属性值为true时，我们说这个元素有一个布局（layout） 当一个元素有一个布局时，它负责对自己和可能的子孙元素进行尺寸计算和定位。简单来说，这意味着这个元素需要花更多的代价来维护自身和里面的内容，而不是依赖于祖先元素来完成这些工作。因此，...">
+    <meta property="og:url" content="http://www.qianduan.net/comprehensive-haslayout/">
+    <meta property="article:published_time" content="2009-05-05T10:57:18.000Z">
+    <meta property="article:modified_time" content="2015-04-23T14:43:49.267Z">
+    <meta property="article:tag" content="haslayout">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="haslayout综合">
+    <meta name="twitter:description" content="要想更好的理解 css， 尤其是 IE 下对 css 的渲染，haslayout 是一个非常有必要彻底弄清除的概念。大多 IE 下的显示错误，就是源于 haslayout。 什么是 haslayout ？ haslayout 是Windows Internet Explorer渲染引擎的一个内部组成部分。在Internet Explorer中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了 hasLayout 的属性，属性值可以为true或false。当一个元素的 hasLayout 属性值为true时，我们说这个元素有一个布局（layout） 当一个元素有一个布局时，它负责对自己和可能的子孙元素进行尺寸计算和定位。简单来说，这意味着这个元素需要花更多的代价来维护自身和里面的内容，而不是依赖于祖先元素来完成这些工作。因此，...">
+    <meta name="twitter:url" content="http://www.qianduan.net/comprehensive-haslayout/">
+    
+    <script src="./haslayout综合_files/hm.js"></script><script type="text/javascript" async="" src="./haslayout综合_files/js"></script><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "publisher": "前端观察",
+    "author": {
+        "@type": "Person",
+        "name": "糖伴西红柿",
+        "image": "http://www.qianduan.net/content/images/2015/04/110521-----.jpg",
+        "url": "http://www.qianduan.net/author/gaowhen",
+        "sameAs": "http://gaowhen.com",
+        "description": "非著名北漂雾霾&沙尘摄影师\n\non twitter & instagram: @gaowhen"
+    },
+    "headline": "haslayout综合",
+    "url": "http://www.qianduan.net/comprehensive-haslayout/",
+    "datePublished": "2009-05-05T10:57:18.000Z",
+    "dateModified": "2015-04-23T14:43:49.267Z",
+    "keywords": "haslayout",
+    "description": "要想更好的理解 css， 尤其是 IE 下对 css 的渲染，haslayout 是一个非常有必要彻底弄清除的概念。大多 IE 下的显示错误，就是源于 haslayout。 什么是 haslayout ？ haslayout 是Windows Internet Explorer渲染引擎的一个内部组成部分。在Internet Explorer中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了 hasLayout 的属性，属性值可以为true或false。当一个元素的 hasLayout 属性值为true时，我们说这个元素有一个布局（layout） 当一个元素有一个布局时，它负责对自己和可能的子孙元素进行尺寸计算和定位。简单来说，这意味着这个元素需要花更多的代价来维护自身和里面的内容，而不是依赖于祖先元素来完成这些工作。因此，..."
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.7">
+    <link rel="alternate" type="application/rss+xml" title="前端观察" href="http://www.qianduan.net/rss/">
+	<script type="text/javascript" async="" src="./haslayout综合_files/embed.js"></script></head>
+	<body class="post-template tag-haslayout nav-closed">
+		
+		<div class="site-wrapper">
+			
+
+
+<header class="main-header post-head no-cover">
+<nav class="main-nav clearfix">
+	<div class="inner">
+		<div class="nav">
+		    <ul>
+		            <li class="nav-home" role="presentation"><a href="http://www.qianduan.net/">Home</a></li>
+		            <li class="nav-" role="presentation"><a href="http://www.qianduan.net/about/">关于我们</a></li>
+		            <li class="nav-" role="presentation"><a href="http://www.qianduan.net/copyright/">版权声明</a></li>
+		            <li class="nav-" role="presentation"><a href="http://www.qianduan.net/teng-xun-zhao-pin/">腾讯招聘</a></li>
+		    </ul>
+		</div>
+		<form id="search" onsubmit="return search()" action="http://zhannei.baidu.com/cse/search">
+		    <input id="bdcsMain" type="text" placeholder="search" name="q">
+		    <button type="submit">search</button>
+		<div><input type="hidden" name="s" value="2542259751721431136"><input type="hidden" name="entry" value="1"></div></form>
+		<a href="http://www.qianduan.net/rss/">Subscribe</a>
+	</div>
+</nav>
+	<div class="main-header-content">
+		<h1 class="page-title"><a href="http://www.qianduan.net/">前端观察</a></h1>
+	</div>
+</header>
+<div class="main-content">
+<main class="content" role="main">
+    <article class="post tag-haslayout">
+
+        <header class="post-header">
+            <h1 class="post-title">haslayout综合</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2009-05-05">05 May 2009</time>  on <a href="http://www.qianduan.net/tag/haslayout/">haslayout</a>
+            </section>
+        </header>
+
+        <section class="post-content">
+            <div class="give-me-five"><a href="https://talk.ai/site/?utm_source=qianduan&utm_medium=banner" target="_blank"><img src="./haslayout综合_files/talk.ai.jpg" alt=""></a></div>
+            <p>要想更好的理解 css， 尤其是 IE 下对 css 的渲染，haslayout 是一个非常有必要彻底弄清除的概念。大多 IE 下的显示错误，就是源于 haslayout。</p>
+
+<h2 id="haslayout">什么是 haslayout ？</h2>
+
+<p>haslayout 是Windows Internet Explorer渲染引擎的一个内部组成部分。在Internet Explorer中，一个元素要么自己对自身的内容进行计算大小和组织，要么依赖于父元素来计算尺寸和组织内容。为了调节这两个不同的概念，渲染引擎采用了 hasLayout 的属性，属性值可以为true或false。当一个元素的 hasLayout 属性值为true时，我们说这个元素有一个布局（layout）</p>
+
+<p>当一个元素有一个布局时，它负责对自己和可能的子孙元素进行尺寸计算和定位。简单来说，这意味着这个元素需要花更多的代价来维护自身和里面的内容，而不是依赖于祖先元素来完成这些工作。因此，一些元素默认会有一个布局。当我们说一个元素“拥有layout”或“得到layout”，或者说一个元素“has layout” 的时候，我们的意思是指它的微软专有属性 hasLayout 被设为了 true 。一个“layout元素”可以是一个默认就拥有 layout 的元素或者是一个通过设置某些 CSS 属性得到 layout 的元素。如果某个HTML元素拥有 haslayout 属性，那么这个元素的 haslayout 的值一定只有 true，haslayout 为只读属性 一旦被触发，就不可逆转。通过 IE Developer Toolbar 可以查看 IE 下 HTML 元素是否拥有haslayout，在 IE Developer Toolbar 下，拥有 haslayout 的元素，通常显示为“haslayout = -1”。</p>
+
+<p>负责组织自身内容的元素将默认有一个布局，主要包括以下元素（不完全列表）：</p>
+
+<ul>
+<li>body and html  </li>
+<li>table, tr, th, td  </li>
+<li>img  </li>
+<li>hr  </li>
+<li>input, button, file, select, textarea, fieldset  </li>
+<li>marquee  </li>
+<li>frameset, frame, iframe  </li>
+<li>objects, applets, embed</li>
+</ul>
+
+<p>对于并非所有的元素都默认有布局，微软给出的主要原因是“性能和简洁”。如果所有的元素都默认有布局，会对性能和内存使用上产生有害的影响。</p>
+
+<h2 id="haslayout">如何激发 haslayout？</h2>
+
+<p>大部分的 IE 显示错误，都可以通过激发元素的 haslayout 属性来修正。可以通过设置 css 尺寸属性(width/height)等来激发元素的 haslayout，使其“拥有布局”。如下所示，通过设置以下 css 属性即可。</p>
+
+<ul>
+<li>display: inline-block  </li>
+<li>height: (任何值除了auto)  </li>
+<li>float: (left 或 right)  </li>
+<li>position: absolute  </li>
+<li>width: (任何值除了auto)  </li>
+<li>writing-mode: tb-rl  </li>
+<li>zoom: (除 normal 外任意值)</li>
+</ul>
+
+<p>Internet Explorer 7 还有一些额外的属性(不完全列表):</p>
+
+<ul>
+<li>min-height: (任意值)  </li>
+<li>max-height: (除 none 外任意值)  </li>
+<li>min-width: (任意值)  </li>
+<li>max-width: (除 none 外任意值)  </li>
+<li>overflow: (除 visible 外任意值)  </li>
+<li>overflow-x: (除 visible 外任意值)  </li>
+<li>overflow-y: (除 visible 外任意值)  </li>
+<li>position: fixed</li>
+</ul>
+
+<p>其中 overflow-x 和 overflow-y 是 css3 盒模型中的属性，目前还未被浏览器广泛支持。</p>
+
+<p>对于内联元素(默认即为内联的元素，如 span，或 display:inline; 的元素)，</p>
+
+<ul>
+<li>width 和 height 只在 IE5.x 下和 IE6 或更新版本的 quirks 模式下触发 hasLayout 。而对于 IE6，如果浏览器运行于标准兼容模式下，内联元素会忽略 width 或 height 属性，所以设置 width 或 height 不能在此种情况下令该元素具有 layout。</li>
+<li>zoom 总是可以触发 hasLayout，但是在 IE5.0 中不支持。</li>
+</ul>
+
+<p>具有“layout” 的元素如果同时 display: inline ，那么它的行为就和标准中所说的 inline-block 很类似了：在段落中和普通文字一样在水平方向和连续排列，受 vertical-align 影响，并且大小可以根据内容自适应调整。这也可以解释为什么单单在 IE/Win 中内联元素可以包含块级元素而少出问题，因为在别的浏览器中 display: inline 就是内联，不像 IE/Win 一旦内联元素拥有 layout 还会变成 inline-block。</p>
+
+<h2 id="haslayout">haslayout 问题的调试与解决</h2>
+
+<p>当网页在 IE 中有异常表现时，可以尝试激发 haslayout 来看看是不是问题所在。常用的方法是给某元素 css 设定 zoom:1 。使用 zoom:1 是因为大多数情况下，它能在不影响现有环境的条件下激发元素的 haslayout。而一旦问题消失，那基本上就可以判断是 haslayout 的原因。然后就可以通过设定相应的 css 属性来对这个问题进行修正了。建议首先要考虑的是设定元素的 width/height 属性，其次再考虑其他属性。</p>
+
+<p>对 IE6 及更早版本来说，常用的方法被称为霍莉破解(Holly hack)，即设定这个元素的高度为 1% (height:1%;)。需要注意的是，当这个元素的 overflow 属性被设置为 visible 时，这个方法就失效了。或者使用 IE 的条件注释。</p>
+
+<p>对 IE7 来说，最好的方法时设置元素的最小高度为 0 (min-height:0;)。</p>
+
+<h2 id="haslayoutbug">haslayout 问题引起的常见 bug</h2>
+
+<h3 id="ie6bug">IE6 及更低版本的双空白边浮动 bug</h3>
+
+<p>bug 修复: display:inline;</p>
+
+<h3 id="ie56win3bug">IE5-6/win 的 3 像素偏移 bug</h3>
+
+<p>bug 修复: _height:1%;</p>
+
+<h3 id="e6peekaboobug">E6 的躲躲猫(peek-a-boo) bug</h3>
+
+<p>bug 修复: _height:1%;</p>
+
+<p>糖伴西红柿说，这篇文章不是原创，是网上资源的汇总，加上自己理解的综合。可能还不是很全面，还需要再进一步细化。</p>
+            <div class="give-me-five"><a href="http://100offer.com/join/cha?utm_source=qianduan.net&utm_medium=dis&utm_campaign=cha"><img src="./haslayout综合_files/1002015l.jpg" alt=""></a></div>
+        </section>
+
+        <footer class="post-footer">
+
+
+            <figure class="author-image">
+                <a class="img" href="http://www.qianduan.net/author/gaowhen/" style="background-image: url(/content/images/2015/04/110521-----.jpg)"><span class="hidden">糖伴西红柿's Picture</span></a>
+            </figure>
+
+            <section class="author">
+                <h4><a href="http://www.qianduan.net/author/gaowhen/">糖伴西红柿</a></h4>
+
+                    <p>非著名北漂雾霾&amp;沙尘摄影师
+
+on twitter &amp; instagram: @gaowhen</p>
+                <div class="author-meta">
+                    
+                    <span class="author-link icon-link"><a href="http://gaowhen.com/">http://gaowhen.com</a></span>
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>分享</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=haslayout%E7%BB%BC%E5%90%88&url=http://www.qianduan.net/comprehensive-haslayout/" onclick="window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://www.qianduan.net/comprehensive-haslayout/" onclick="window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-weibo" href="http://v.t.sina.com.cn/share/share.php?title=haslayout%E7%BB%BC%E5%90%88&url=http://www.qianduan.net/comprehensive-haslayout/" onclick="window.open(this.href, &#39;weibo-share&#39;,&#39;width=580,height=296&#39;);return false;">
+                    <span class="hidden">新浪微博</span>
+                </a>
+
+            </section>
+        </footer>
+
+    </article>
+    <section class="read-next">
+    <a class="read-next-story no-cover" href="http://www.qianduan.net/front-end-observation-the-twelfth/">
+        <section class="post">
+            <h2>前端观察：第十二期</h2>
+        </section>
+    </a>
+    <a class="read-next-story prev no-cover" href="http://www.qianduan.net/56-stunning-modern-websites-design/">
+        <section class="post">
+            <h2>56个出色的现代网站设计</h2>
+        </section>
+    </a>
+    </section>
+<div id="disqus_thread"><iframe id="dsq-1" data-disqus-uid="1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./haslayout综合_files/saved_resource.html" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 0px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'iqd';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+</main><aside class="sidebar">
+	<div class="give-me-five">
+		<a href="http://100offer.com/join/cha?utm_source=qianduan.net&utm_medium=dis&utm_campaign=cha" target="_blank"><img src="./haslayout综合_files/1002015r.jpg" alt=""></a>
+	</div>
+	<div class="widget">
+		<h3 class="widget-title">热门文章</h3>
+		<div class="widget-box">
+			<ul>
+				<li><a href="http://www.qianduan.net/css-to-achieve-the-vertical-center-of-the-five-kinds-of-methods/" title="CSS实现垂直居中的5种方法" target="_blank">CSS实现垂直居中的5种方法</a></li>
+				<li><a href="http://www.qianduan.net/zen-coding-a-new-way-to-write-html-code/" title="Zen Coding: 一种快速编写HTML/CSS代码的方法" target="_blank">Zen Coding: 一种快速编写HTML/CSS代码的方法</a></li>
+				<li><a href="http://www.qianduan.net/50-amazing-admin-management-templates/" title="50个高端大气上档次的管理后台界面模板" target="_blank">50个高端大气上档次的管理后台界面模板</a></li>
+				<li><a href="http://www.qianduan.net/essential-to-sublime-the-text-2-plugins/" title="一些必不可少的Sublime Text 2插件" target="_blank">一些必不可少的Sublime Text 2插件</a></li>
+				<li><a href="http://www.qianduan.net/high-performance-css3-animations/" title="高性能 CSS3 动画" target="_blank">高性能 CSS3 动画</a></li>
+				<li><a href="http://www.qianduan.net/task-master-gulp-lint/" title="[Task Master] gulp-lint" target="_blank">[Task Master] gulp-lint</a></li>
+				<li><a href="http://www.qianduan.net/qianduan-redesign/" title="前端观察又改版" target="_blank">前端观察又改版</a></li>
+				<li><a href="http://www.qianduan.net/meta-tags-list/" title="meta标签常用属性整理" target="_blank">meta标签常用属性整理</a></li>
+				<li><a href="http://www.qianduan.net/html5-differences-in-the-div-section-article/" title="HTML5 中 div section article 的区别" target="_blank">HTML5 中 div section article 的区别</a></li>
+				<li><a href="http://www.qianduan.net/pseudo-elements/" title="利用伪元素仿苹果手机官网导航" target="_blank">利用伪元素仿苹果手机官网导航</a></li>
+			</ul>
+		</div>
+	</div>
+</aside>
+</div>
+
+			<footer class="site-footer clearfix">
+				<section class="clearfix footer-widgets">
+					<div class="widgets-wrap">
+						<div class="widget">
+							<h3 class="widget-title">合作网站</h3>
+							<ul>
+								<li><a href="http://accessibilityunion.org/" target="_blank">信息无障碍产品联盟</a></li>
+								<li><a href="http://www.alloyteam.com/" target="_blank">腾讯AlloyTeam</a></li>
+								<li><a href="http://w3ctech.com/" rel="colleague" title="Web 标准化交流会">Web 标准化交流会</a></li>
+								<li><a href="http://www.whyidc.com/" rel="friend" title="国内优质双线全能空间" target="_blank">WhyIDC 双线全能空间</a></li>
+								<li><a href="http://100offer.com/" target="_blank">互联网人才拍卖</a></li>
+							</ul>
+						</div>
+						<div class="widget">
+							<h3 class="widget-title">友情链接</h3>
+							<ul class="blogroll">
+								<li><a href="http://gaowhen.com/" rel="friend co-worker" title="高温的博客" target="_blank">GaoWhen高H温</a></li>
+								<li><a href="http://ivane.me/" rel="friend" target="_blank">黄老湿</a></li>
+								<li><a href="http://www.99css.com/" target="_blank">99CSS</a></li>
+								<li><a href="http://ooxx.me/" rel="friend">大猫の意淫网志</a></li>
+								<li><a href="http://ofcss.com/" rel="friend" title="小李刀刀（kairee）的技术博客" target="_blank">裁纸刀下</a></li>
+								<li><a href="http://www.topcss.org/" rel="friend" title="关注信息无障碍" target="_blank">进步博客</a></li>
+								<li><a href="http://www.benben.cc/" target="_blank">笨笨剥壳</a></li>
+								<li><a href="http://www.smallni.com/" rel="friend">Smallni's blog</a></li>
+								<li><a href="http://www.misuisui.com/" target="_blank">米随随s5s5</a></li>
+								<li><a href="http://xio.ng/" rel="friend">熊宝</a></li>
+								<li><a href="http://blog.wpjam.com/" rel="friend">我爱水煮鱼</a></li>
+								<li><a href="http://www.osmn00.com/" title="堂主，WEB前端开发技术" target="_blank">堂主</a></li>
+								<li><a href="http://www.mangguo.org/" rel="friend">芒果</a></li>
+								<li><a href="http://pufen.net/" target="_blank" rel="friend">飘飘的生活空间</a></li>
+								<li><a href="http://www.itstrike.cn/" target="_blank">软件开发网</a></li>
+								<li><a href="http://jiawin.com/" title="觉唯前端" target="_blank">觉唯前端</a></li>
+								<li><a href="http://www.qlstudio.cn/" target="_blank">启良工作室</a></li>
+								<li><a href="http://www.jser.com/">JSER</a></li>
+								<li><a href="http://www.iefans.net/" target="_blank">IE浏览器</a></li>
+								<li><a href="http://csshouse.net/" rel="friend" target="_blank">CSS HOUSE</a></li>
+								<li><a href="http://rlog.cn/" title="robin 肉饼">Time Machine</a></li>
+								<li><a href="http://www.whycss.com/" target="_blank">前端网址导航</a></li>
+								<li><a href="http://www.ux265.net/" target="_blank">前端博客导航</a></li>
+								<li><a href="http://www.css88.com/" rel="friend" title="专注前端开发，关注用户体验" target="_blank">WEB前端开发</a></li>
+								<li><a href="http://suta.im/" target="_blank">suta</a></li>
+							</ul>
+						</div>
+						<div class="widget">
+							<h3 class="widget-title">关注前端观察官方微信</h3>
+							<div class="widget-box">
+								<div class="footer-qrcode">&gt;<img src="./haslayout综合_files/qianduan_wechat.jpg" alt="前端观察官方微信二维码"></div>
+						</div>
+					</div>
+				</div></section>
+				<section class="copyright">
+					<a href="http://www.qianduan.net/">前端观察</a> © 2008-2015 All rights reserved.<br>
+					Hosted by <a href="http://www.linode.com/?r=d5156fa674d41bf96fbace51c9fade505f6fd852">Linode VPS</a><br>
+					Proudly published with <a href="https://ghost.org/">Ghost</a>
+				</section>
+			</footer>
+		</div>
+	
+	<script type="text/javascript" src="./haslayout综合_files/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="./haslayout综合_files/highlight.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=2542259751721431136' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script><div id="bdcs"><div class="bdcs-container"><meta http-equiv="x-ua-compatible" content="IE=9">                          </div></div>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?b1bbdf7dc7e049328c9f9eb4f1b9f659";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body></html>

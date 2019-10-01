@@ -1,0 +1,1026 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0063)http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+
+	<title>BigPipe学习研究 «  搜索技术博客－淘宝</title>
+
+	<link rel="stylesheet" href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/style.css" type="text/css" media="screen">
+	<link rel="pingback" href="http://www.searchtb.com/xmlrpc.php">
+        <script type="text/javascript" async="" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/ga.js"></script><script type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/jquery.js"></script>
+	
+	<link rel="alternate" type="application/rss+xml" title="搜索技术博客－淘宝 » Feed" href="http://www.searchtb.com/feed">
+<link rel="alternate" type="application/rss+xml" title="搜索技术博客－淘宝 » 评论Feed" href="http://www.searchtb.com/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="搜索技术博客－淘宝 » BigPipe学习研究评论Feed" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html/feed">
+<link rel="stylesheet" id="wp-syntax-css-css" href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/wp-syntax.css" type="text/css" media="all">
+<script type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/comment-reply.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.searchtb.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.searchtb.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="hbase 0.20.6的DNS问题" href="http://www.searchtb.com/2011/03/hbase-dns-troubleshooting.html">
+<link rel="next" title="Redis内存存储结构分析" href="http://www.searchtb.com/2011/05/redis-storage.html">
+
+<link rel="canonical" href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe学习研究 « 搜索技术博客－淘宝.html">
+<link rel="shortlink" href="http://www.searchtb.com/?p=1076">
+		<script type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/jquery.min.js"></script>
+			<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<link rel="stylesheet" type="text/css" href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/shCore.css"><link rel="stylesheet" type="text/css" href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+</head>
+
+<body class="single single-post postid-1076 single-format-standard">
+
+	<div id="nav">
+	    <div class="container">
+	        <ul><li class=" page_item"><a href="http://www.searchtb.com/" title=""><span>Home</span></a></li><li class="page_item page-item-44"><a href="http://www.searchtb.com/%e6%ac%a2%e8%bf%8e%e5%8a%a0%e7%9b%9f"><span>欢迎加盟</span></a></li>
+<li class="page_item page-item-2"><a href="http://www.searchtb.com/about"><span>关于我们</span></a></li>
+<li class="page_item page-item-880"><a href="http://www.searchtb.com/hot"><span>热门文章</span></a></li>
+</ul>
+	    </div>
+	</div>
+
+	<div id="header" class="clear">
+	    <div class="container cheader">
+	    	<h1 id="blogtitle"><a href="http://www.searchtb.com/">搜索技术博客－淘宝</a></h1><p class="blogdesc">关注技术  关注搜索  关注淘宝</p>		</div>
+
+	</div> <!-- end of #header -->
+	<div id="navcat">
+    	<div class="container">
+    	<!--Error 4 Start -->	<ul>	<li class="cat-item cat-item-152"><a href="http://www.searchtb.com/category/graph-database" title="查看graph database下的所有文章">graph database</a>
+</li>
+	<li class="cat-item cat-item-119"><a href="http://www.searchtb.com/category/optimization" title="包含硬件比如CPU相关设置、操作系统内核和glibc、应用程序调优等方面的文章。">性能优化</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.searchtb.com/category/%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e" title="查看搜索引擎下的所有文章">搜索引擎</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.searchtb.com/category/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af" title="查看前端技术下的所有文章">前端技术</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.searchtb.com/category/%e6%95%b0%e6%8d%ae%e6%8c%96%e6%8e%98" title="查看数据挖掘下的所有文章">数据挖掘</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.searchtb.com/category/%e5%af%bc%e8%b4%ad%e6%90%9c%e7%b4%a2" title="查看导购搜索下的所有文章">导购搜索</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.searchtb.com/category/%e6%90%9c%e7%b4%a2%e5%8a%a8%e6%80%81" title="查看搜索动态下的所有文章">搜索动态</a>
+</li>
+	<li class="cat-item cat-item-76"><a href="http://www.searchtb.com/category/distributed-system" title="查看分布式技术下的所有文章">分布式技术</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.searchtb.com/category/uncategorized" title="查看其他下的所有文章">其他</a>
+</li>
+</ul><!--Error 4 End -->
+		</div>
+	</div>
+	<div class="clear"></div>
+
+<div id="wrapper" class="container">
+
+
+	<div id="content" class="subcontainer fleft">
+	
+		<div class="post-1076 post type-post status-publish format-standard hentry category-8" id="post-1076">
+		
+			<div class="posthead">
+				<div class="maindate fleft">
+					24<br>
+				 	<span>四 </span>
+				</div>
+			
+                                <h1 class="maintitle fleft"><a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe学习研究 « 搜索技术博客－淘宝.html" rel="bookmark" title="Permanent Link to BigPipe学习研究">BigPipe学习研究</a>
+                                <div class="clear"></div>
+                                 <span class="author">   <a href="http://www.searchtb.com/author/%e7%84%a6%e6%87%bf%e8%bd%a9" title="由焦懿轩发布" rel="author">焦懿轩</a> </span>
+                                </h1>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="entry">
+				<h2>1. 技术背景 FaceBook页面加载技术</h2>
+<p>试想这样一个场景，一个经常访问的网站，每次打开它的页面都要要花费6 秒；同时另外一个网站提供了相似的服务，但响应时间只需3 秒，那么你会如何选择呢？数据表明，如果用户打开一个网站，等待3~4 秒还没有任何反应，他们会变得急躁，焦虑，抱怨，甚至关闭网页并且不再访问，这是非常糟糕的情况。所以，网页加载的速度十分重要,尤其对于拥有遍布全球的5亿用户的Facebook(全球最大的社交服务网站)这样的大型网站，有着大量并发请求、海量数据等客观情况，速度就成了必须攻克的难题之一。</p>
+<p>2010 年初的时候，Facebook 的前端性能研究小组开始了他们的优化项目，经过了六个月的努力，成功的将个人空间主页面加载耗时由原来的5 秒减少为现在的2.5 秒。这是一个非常了不起的成就，也给用户来带来了很好的体验。在优化项目中，工程师提出了一种新的页面加载技术，称之为Bigpipe。目前淘宝和Facebook 面临的问题非常相似：海量数据和页面过大，如果可以在详情页、列表页中使用bigpipe，或者在webx中集成bigpipe，将会带来明显的页面加载速度提升。</p>
+<h2>2. 相关介绍</h2>
+<p>2.1 网站前端优化的重要性</p>
+<p>《高性能网站建设指南》一书中指出，只有10%~20%的最终用户响应时间是花费在从Web 服务器获取HTML 文档并传送到浏览器中的。如果希望能够有效地减少页面的响应时间，就必须关注剩余的80%~90%的最终用户体验。做个比较，如果对后台业务逻辑进行优化，效率提高了50%，但最终的页面响应时间只减少了5%~10%，因为它所占的比重较少。如果对前端进行性能优化，效率提升50%，则会使最终页面响应时间减少40%~45%。这是多么可观的数字！另外，前端的性能优化一般比业务逻辑的优化更加容易。所以，前端优化投入小，见效快，性价比极高，需要投入更多的关注。</p>
+<p>2.2 BigPipe与AJAX</p>
+<p>Web2.0的重要特征是网页显示大量动态内容，即web2.0注重网页与用户的交互。其核心技术是AJAX，如今所有主流网站都或多或少使用AJAX。与AJAX类似，BigPipe 实现了分块儿的概念，使页面能够分步输出，即每次输出一部分网页内容。接下来讨论BigPipe 与AJAX 的区别。</p>
+<p>简单的说，BigPipe 比AJAX 有三个好处：</p>
+<p>1. AJAX 的核心是XMLHttpRequest，客户端需要异步的向服务器端发送请求，然后将传送过来的内容动态添加到网页上。如此实现存在一些缺陷，即发送往返请求需要耗费时间，而BigPipe 技术使浏览器并不需要发送XMLHttpRequest 请求，这样就节省时间损耗。</p>
+<p>2. 使用AJAX时，浏览器和服务器的工作顺序执行。服务器必须等待浏览器的请求，这样就会造成服务器的空闲。浏览器工作时，服务器在等待，而服务器工作时，浏览器在等待，这也是一种性能的浪费。使用BigPipe，浏览器和服务器可以并行同时工作，服务器不需要等待浏览器的请求，而是一直处于加载页面内容的工作阶段，这就会使效率得到更大的提高。</p>
+<p>3. 减少浏览器发送到请求。对一个5亿用户的网站来说，减少了使用AJAX额外带来的请求，会减少服务器的负载，同样会带来很大的性能提升。</p>
+<p>基于以上三点，Facebook 在进行页面优化时采用了BigPipe 技术。目前淘宝主搜索结果页中，需要加载类目，相关搜索，宝贝列表，广告等内容，前端这里使用php 的curl 的批处理来并发的访问引擎获取相应的数据，并进行分步输出。这种模式还是与bigpipe有些不同，这点后面会讲到。一般来讲，在页面比较大，而且比较复杂，样式表和脚本比较多的情况下，使用BigPipe 来优化输出页面是比较合适的。另外非常重要的一点，BigPipe 并不改变浏览器的结构与网络协议，仅使用JS就可以实现，用户不需要做任何的设置，就会看到明显的访问时间缩短。</p>
+<h2>3&nbsp;&nbsp; 目前的问题</h2>
+<p>接下来讨论现有的瓶颈。面对网页越来越大的情况，尤其是大量的css 文件和js 文件需要加载，传统的页面加载模型很难满足这样的需求，直接结果就是页面加载速度变慢，这绝不是我们希望看到的。目前的技术实现中，用户提出页面访问请求后，页面的完整加载流程如下：</p>
+<p>1. 用户访问网页，浏览器发送一个HTTP 请求到网络服务器</p>
+<p>2. 服务器解析这个请求，然后从存储层去数据，接着生成一个html 文件内容，并在一个HTTP Response 中把它传送给客户端</p>
+<p>3. HTTP response 在网络中传输</p>
+<p>4. 浏览器解析这个Response ，创建一个DOM 树，然后下载所需的CSS 和JS文件</p>
+<p>5. 下载完CSS 文件后，浏览器解析他们并且应用在相应的内容上</p>
+<p>6. 下载完JS 后，浏览器解析和执行他们</p>
+<p>图1.<a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/12.jpg"><img class="alignnone size-full wp-image-1077" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/12.jpg" alt=""></a></p>
+<p>完整流程见图1.图中左侧表示服务器，右侧表示浏览器。浏览器先发送请求，然后服务器进行查找数据，生成页面，返回html 代码，最后浏览器进行渲染页面。这种模式有非常明显的缺陷：流程中的操作有着严格的顺序，如果前面的一个操作没有执行结束，后面的操作就不能执行，即操作之间是不能重叠。这样就造成性能的瓶颈：服务器生成一个页面的内容时，浏览器是空闲的，显示空白内容；而当浏览器加载渲染页面内容时，服务器又是空闲的，时间与性能的浪费由此产生。</p>
+<p>图2.<a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/800px-Bigpipe40.jpg"><img class="alignnone size-full wp-image-1078" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/800px-Bigpipe40.jpg" alt=""></a><a title="&quot;Image:Bigpipe4.JPG&quot; " href="http://searchwiki.taobao.ali.com/index.php/Image:Bigpipe4.JPG"></a></p>
+<p>考虑图2 中现有的服务模型，横轴表示花费的时间。黄色表示在服务器的生成页面内容的时间，白色表示网络传输时间，蓝色表示在浏览器渲染页面的时间。可以看出，现有的模式造成很大的时间浪费。 考虑图3 中的情况，图中绿色表示服务器从春储层取查数据花费的时间，在海量数据下，当执行一条很费时的查询语句时（如下图右侧），服务器就就阻塞在那 里没有其他操作，而浏览器更是得不到任何反馈。这会造成非常不友好的用户体验，用户不知道什么原因使他们等待很长时间。</p>
+<p>图3.<a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/800px-Bigpipe51.jpg"><img class="alignnone size-full wp-image-1091" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/800px-Bigpipe51.jpg" alt=""></a></p>
+<h2>4&nbsp;&nbsp; <a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#BigPipe.E6.80.9D.E6.83.B3.E4.B8.8E.E5.8E.9F.E7.90.86">BigPipe思想与原理</a></h2>
+<p>面对上述问题，我们看下BigPipe的解决办法。BigPipe提出分块的概念，即根据页面内容位置的不同，将整个页面分成不同的块儿– 称为pagelet。该技术的设计者Changhao Jiang 是研究电子电路的博士，可能从微机上得到了启发，将众多pagelet加载的不同阶段像流水线一样在浏览器和服务器上执行，这样就做到了浏览器和服务器的并行化，从而达到重叠服务器端运行时间和浏览器端运行时间的目的。使用BigPipe 不仅可以节省时间，使加载的时间缩短，而且可以同过pagelet的分步输出，使一部分的页面内容更快的输出，从而获得更好的用户体验。BigPipe 中，用户提出页面访问请求后，页面的完整加载流程如下:</p>
+<p>1. Request parsing：服务器解析和检查http request</p>
+<p>2. Datafetching：服务器从存储层获取数据</p>
+<p>3. Markup generation：服务器生成html 标记</p>
+<p>4. Network transport ： 网络传输response</p>
+<p>5. CSS downloading：浏览器下载CSS</p>
+<p>6. DOM tree construction and CSS styling:浏览器生成DOM 树，并且使用CSS</p>
+<p>7. JavaScript downloading: 浏览器下载页面引用的JS 文件</p>
+<p>8. JavaScript execution: 浏览器执行页面JS代码</p>
+<p>这个8 个流程几乎与上文中提到现有的模式没有区别，但这整个流程只是一个pagelet 的完整流程，而多个pagelet 的不同操作阶段就可以像流水线一样进行执行了。</p>
+<p>图4<a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/22.jpg"><img class="alignnone size-full wp-image-1080" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/22.jpg" alt=""></a></p>
+<p>图4 中，可以看出BigPipe 对原有的模式进行的改进。浏览器发送访问请求，然后浏览器分步返回不同的pagelet的内容，具体实现将在后面介绍.考虑图5中的改进，BigPipe 打破了原有的顺序执行，将页面分成不同的pagelet ，如此一来，所有的pagelet 的执行时间累加起来还是原有的时间。但是， 通过叠加不同pagelet 的不同阶段的执行时间，使总的运行时间大大减少，这就是Bigpipe减少页面加载时间的秘密。</p>
+<p><a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/Bigpipe60.jpg"><img class="alignnone size-full wp-image-1082" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/Bigpipe60.jpg" alt=""></a></p>
+<p>FaceBook的页面被分成了很多不同的pagelets，如图：</p>
+<p>图5 <a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe_11.jpg"><img class="alignnone size-full wp-image-1092" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe_11.jpg" alt=""></a></p>
+<p><a title="&quot;Image:BigPipe_1.jpg&quot; " href="http://searchwiki.taobao.ali.com/index.php/Image:BigPipe_1.jpg"></a></p>
+<p><strong>5 </strong><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#BigPipe.E5.AE.9E.E7.8E.B0.E5.8E.9F.E7.90.86"><strong>BigPipe</strong><strong>实现原理</strong></a><strong> </strong></p>
+<p>了解了BigPipe 的核心思想后，我们讨论它的实现原理。当浏览器访问服务器时，服务器接受请求并对其进行检查。如果请求有效，服务器端不做任何的查询，而是立刻返回一个http request 给浏览器，内容是一段html 代码，包括html&lt;head&gt; 标签和&lt;body&gt; 标签的一部分。&lt;head&gt;标签包括BigPipe 的js文件和css文件，这个js 文件用来解析后面接收的http response，因为后面传输的内容都为js脚本。未封闭的&lt;body&gt;标签中，是显示页面的逻辑结构和pagelet 的占位符的模板，例如：</p>
+<p>&lt;body&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;div id=”hotnews”&gt;&lt;/div&gt;</p>
+<p>&lt;div id=”societynews”&gt;&lt;/div&gt;</p>
+<p>&lt;div id=”financialnews”&gt;&lt;/div&gt;</p>
+<p>&lt;div id=”ITnews”&gt;&lt;/div&gt;</p>
+<p>&lt;div id=”sportsnews”&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div&gt;&lt;/div&gt;</p>
+<p>上述模板使用css-div 描述了页面的结构，不同的div 标签对应不同的pagelet，id 对应了pagelet 的名称。将这个response 返回给浏览器后，服务器开始对每个pagelet 的内容进行查询，加载，生成。当一个pagelet的内容生成好，立刻调用flush()函数，将其返回给客户端，传输的数据是以json 格式的，包括这个pagelet 需要的CSS 和JS，以及html 内容和一些元数据。例如：</p>
+<p>&lt;script type=”text/javascript”&gt;</p>
+<p>big_pipe.onPageletArrive(</p>
+<p>{id:”pagelet_composer”,</p>
+<p>content:”&lt;HTML&gt;”,</p>
+<p>css:”[..]“,</p>
+<p>js:”[..]“,</p>
+<p>…}</p>
+<p>);</p>
+<p>&lt;/script&gt;</p>
+<p>其中”content”表示这个pagelet 的内容，是html 源码，特殊字符如“”/需要进行转义；”id”表示content要显示的位置，即为对应的pagelet 的id标签；”css”表示需要下载的CSS 资源的路径；”js”表示需要下载的JS 脚本的路径。为了避免文件路径过长，所以在前面需要对css 和js 文件的路径进行转换，转换后为5 位字符串：不同的pagelet 可能会加载同一个css 或js 文件，所以要避免重复下载。</p>
+<p>虽然每个pagelet 都有要加载的js 文件，但是所有的js 文件都是在最后加载，这样有利于加快页面加载速度。客户端，当通过调用“onPageletArrive（json）”函数，第一次影响传输的JS脚本中的函数解析了传入的json 数据，接着下载需要的CSS，然后把html 内容显示到响应的DIV 标签位置上。多个pagelets 的CSS文件可以同时下载，CSS 下载完成的pagelet 先显示。</p>
+<p>在BigPipe 中，js 被给予了比CSS 和content 更低的优先级。这样， 只有当所有的pagelets 都显示了，BigPipe 才开始去下载JS 文件。所有的JS 文件都下载完成后，Pagelets的JS初始化代码开始执行，按照下载完成时间的先后顺序。在这个高度并行的系统中，几个的pagelet 所要执行的不同的阶段可以同时执行。例如，浏览器可以给两个pagelets 下载CSS 资源，同时浏览器可以渲染另外一个pagelet 的内容，同时服务器仍然在为另一个pagelet 生成html源码。从用户的角度看来，页面时逐步呈现的。初始的页面显示的更快，可以有效减短用户感觉到的延迟。</p>
+<p><strong>6 </strong><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#BigPipe.E5.AE.9E.E7.8E.B0.E9.97.AE.E9.A2.98.E8.AE.A8.E8.AE.BA"><strong>BigPipe</strong><strong>实现问题讨论</strong></a><strong> </strong></p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.AB.AF.E7.9A.84.E5.B9.B6.E8.A1.8C.E5.8C.96"><strong>6.1 </strong><strong>服务器端的并行化</strong></a><strong> </strong></p>
+<p>理想情况下，服务器端的实现是并行处理不同的pagelet 的内容，这样可以提升性能。服务器并发处理多个pagelet 的内容时，一个pagelet 内容生成好了，立刻将其flush 给浏览器。但是PHP 是不支持线程，所以服务器无法利用多线程的概念去并发的加载多个pagelet 的内容。对于小型网站来说，使用串行的加载pagelet 的内容就已经可以达到优化的要求了。对于大型网站，为了达到更快的速度，服务器端可以选择并发的独立不同的pagelet 的内容，具体实现有以下几种方式：</p>
+<p>1.java 多线程。后台逻辑使用java，可以使用java 的多线程机制去同时加载不同的pagelet 的内容，加载完成后加页面内容返回给浏览器。在最后的引用部分可以看到网上用java多线程实现的例子。</p>
+<p>2.使用PHP实现。PHP 不支持线程，无法像java 使用多线程的机制来并发处理不同pagelet 的内容。但是，Facebook 和淘宝主搜索的业务逻辑是用PHP 实现的，所以我们必须考虑如何在PHP下完成并发处理。PHP 扩展中有curl 模块，可以在该模块中curl_multi_fetch()函数进行批处理请求，把本来应该串行的请求访问并发的执行。可以这样写：</p>
+<div><div id="highlighter_445497" class="syntaxhighlighter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php keyword">do</code> <code class="php plain">{</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="php variable">$mrc</code> <code class="php plain">= curl_multi_exec(</code><code class="php variable">$mh</code><code class="php plain">, </code><code class="php variable">$active</code><code class="php plain">);</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="php plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="php keyword">while</code><code class="php plain">(</code><code class="php variable">$mrc</code><code class="php plain">==CURLM_CALL_MULTI_PERFORM);</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php variable">$active</code> <code class="php plain">&amp;amp;&amp;amp; </code><code class="php variable">$mrc</code> <code class="php plain">== CURLM_OK){</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="php keyword">if</code> <code class="php plain">(curl_multi_select(</code><code class="php variable">$mh</code><code class="php plain">)&nbsp;!= -1){</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="php keyword">do</code> <code class="php plain">{</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="php variable">$mrc</code> <code class="php plain">= curl_multi_exec(</code><code class="php variable">$mh</code><code class="php plain">,</code><code class="php variable">$active</code><code class="php plain">);</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="php plain">}</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="php keyword">while</code><code class="php plain">(</code><code class="php variable">$mrc</code><code class="php plain">==CURLM_CALL_MULTI_PERFORM);</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="php plain">}</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>但是会碰到一个问题，多个请求是同时返回结果的。当所有的pagelet 的页面请求所消耗的时间差不多时，可以达到很好的性能，但是当有的消耗时间很长（执行一条复杂的查询）的情况下，批处理就会阻塞在那里，等每个请求都返回结果了才结束。而在这段时间致服务器会阻塞在那里不返回任何内容，而浏览器更是没有响应，这样就违背了BigPipe 的原理。另外一种实现方法是使用stream_select函数。跟上一种方法类似，不过可以使用PHP5中新增的stream_socket_client()函数链接而不是之前PHP函数中的fsocketopen()函数。</p>
+<div><div id="highlighter_575917" class="syntaxhighlighter  php"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="php keyword">while</code> <code class="php plain">(</code><code class="php functions">count</code><code class="php plain">(</code><code class="php variable">$sockets</code><code class="php plain">)) {</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="php variable">$read</code> <code class="php plain">= </code><code class="php variable">$write</code> <code class="php plain">= </code><code class="php variable">$sockets</code><code class="php plain">;</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="php variable">$n</code> <code class="php plain">= stream_select(</code><code class="php variable">$read</code><code class="php plain">,</code><code class="php variable">$write</code><code class="php plain">, </code><code class="php variable">$e</code><code class="php plain">, </code><code class="php variable">$timeout</code><code class="php plain">);</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php variable">$n</code> <code class="php plain">&amp;gt; 0) {</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="php keyword">foreach</code> <code class="php plain">(</code><code class="php variable">$read</code> <code class="php keyword">as</code> <code class="php variable">$r</code><code class="php plain">) {</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="php variable">$id</code> <code class="php plain">= </code><code class="php functions">array_search</code><code class="php plain">(</code><code class="php variable">$r</code><code class="php plain">, </code><code class="php variable">$sockets</code><code class="php plain">);</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="php variable">$data</code> <code class="php plain">= </code><code class="php functions">fread</code><code class="php plain">(</code><code class="php variable">$r</code><code class="php plain">, 8192);</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="php keyword">if</code> <code class="php plain">(</code><code class="php functions">strlen</code><code class="php plain">(</code><code class="php variable">$data</code><code class="php plain">) == 0) {</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="php plain">fclose(</code><code class="php variable">$r</code><code class="php plain">);</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="php plain">unset (</code><code class="php variable">$sockets</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">]);</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="php plain">}</code><code class="php keyword">else</code> <code class="php plain">{</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="php variable">$retdata</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">] .= </code><code class="php variable">$data</code><code class="php plain">;</code></div><div class="line number24 index23 alt1">&nbsp;</div><div class="line number25 index24 alt2"><code class="php plain">}</code></div><div class="line number26 index25 alt1">&nbsp;</div><div class="line number27 index26 alt2"><code class="php plain">}</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="php variable">$retdata</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">] = preg_replace(</code><code class="php string">'/^HTTP(.*?)\r\n\r\n/is'</code><code class="php plain">,&lt;em&gt;, </code><code class="php variable">$retdata</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">]);&lt;/em&gt;</code></div><div class="line number30 index29 alt1">&nbsp;</div><div class="line number31 index30 alt2"><code class="php keyword">foreach</code> <code class="php plain">(</code><code class="php variable">$write</code> <code class="php keyword">as</code> <code class="php variable">$w</code><code class="php plain">) {</code></div><div class="line number32 index31 alt1">&nbsp;</div><div class="line number33 index32 alt2"><code class="php keyword">if</code> <code class="php plain">(!</code><code class="php functions">is_resource</code><code class="php plain">(</code><code class="php variable">$w</code><code class="php plain">))</code><code class="php keyword">continue</code><code class="php plain">;</code></div><div class="line number34 index33 alt1">&nbsp;</div><div class="line number35 index34 alt2"><code class="php variable">$id</code> <code class="php plain">= </code><code class="php functions">array_search</code><code class="php plain">(</code><code class="php variable">$w</code><code class="php plain">, </code><code class="php variable">$sockets</code><code class="php plain">);</code></div><div class="line number36 index35 alt1">&nbsp;</div><div class="line number37 index36 alt2"><code class="php plain">fwrite(</code><code class="php variable">$w</code><code class="php plain">, </code><code class="php string">"GET /"</code> <code class="php plain">. </code><code class="php variable">$url</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">] . </code><code class="php string">"HTTP/1.0\r\nHost: "</code> <code class="php plain">. </code><code class="php variable">$hosts</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">] .</code><code class="php string">"\r\n\r\n"</code><code class="php plain">);</code></div><div class="line number38 index37 alt1">&nbsp;</div><div class="line number39 index38 alt2"><code class="php variable">$status</code><code class="php plain">[</code><code class="php variable">$id</code><code class="php plain">] = 1;</code></div><div class="line number40 index39 alt1">&nbsp;</div><div class="line number41 index40 alt2"><code class="php plain">}</code></div><div class="line number42 index41 alt1">&nbsp;</div><div class="line number43 index42 alt2"><code class="php plain">}</code><code class="php keyword">else</code> <code class="php plain">{</code></div><div class="line number44 index43 alt1">&nbsp;</div><div class="line number45 index44 alt2"><code class="php keyword">break</code><code class="php plain">;</code></div><div class="line number46 index45 alt1">&nbsp;</div><div class="line number47 index46 alt2"><code class="php plain">}</code></div><div class="line number48 index47 alt1">&nbsp;</div><div class="line number49 index48 alt2"><code class="php plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p>这样实现也可以做到服务器的并发访问，但是会碰到和上一种方法同样的问题：服务器的阻塞问题。所以，可以采用另一种方法，用多进程模拟多线程。使用PHP 的扩展模块pctnl模块中的pcntl_fork（）函数来生成子进程， 用不同的子进程去处理不同的pagelet 的页面内容。如果子进程返回内容，则返回给浏览器。或者，修改curl模块。使其可以支持回调函数，当并发请求中一个请求完成时，立刻调用回调函数。这两种方法目前还在探索中。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E7.9B.B4.E6.8E.A5.E8.B0.83.E7.94.A8flush.E5.87.BD.E6.95.B0.E8.BE.93.E5.87.BA"><strong>6.2 </strong><strong>直接调用flush</strong><strong>函数输出</strong></a><strong> </strong></p>
+<p>到这里，可能会有这样的疑问，为什服务器不直接把生成好的HTML 内容分部flush() 返回给客户端，而是使用json 格式传递，然后用js 解析呢？这不是多此一举么？实际上，这也是目前主搜索前端使用的方法。我们看看使用BigPipe方式的两大好处：</p>
+<p>(1) 如果直接调用flush()函数输出html 源码，当模块较多的情况，模块间必须按顺序加载，在html 前面的模块必须先加载完，后面的才能加载，这样也就没办法每个模块同时显示一些内容。例如下面的html：</p>
+<p>上面3 个div 分别代表3 个模块，如果直接分部输出html ，服务器端必须先加载完毕div1 模块中的内容并flush 出去后，才能继续加载div2的内容,如果flush 顺序不一样，输出的html 结构肯定就会出问题，这样就导致前台页面没办法同时显示3 个loading。因为这样flush 必须要有先后顺序。而如果采用JS 的话，可以前台显示3 个loading，而且不需要关心到底哪个模块先加载完，这样还能发挥后台多线程处理数据的优势。</p>
+<p>(2)使用JS 这种方式可以是页面结构更加清晰，管理更加方便。同时做到了页面逻辑结构和数据解耦，首先返回的是页面的结构，接着不断地返回js脚本，然后动态添加页面内容，而不是所有完整的html 源码一起输出，增加了可维护性。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E8.AE.BF.E9.97.AE.E8.80.85.E6.98.AF.E7.88.AC.E8.99.AB.E6.88.96.E8.80.85.E8.AE.BF.E9.97.AE.E8.80.85.E6.B5.8F.E8.A7.88.E5.99.A8.E7.A6.81.E6.AD.A2.E4.BD.BF.E7.94.A8JS.E7.9A.84.E6.83.85.E5.86.B5"><strong>6.3 </strong><strong>访问者是爬虫或者访问者浏览器禁止使用JS</strong><strong>的情况</strong></a><strong> </strong></p>
+<p>我们知道BigPipe 使用js 脚本加载页面，那么当用户在浏览器里设置禁止使用js 脚本（虽然人数很少），就会造成加载页面失败，这同样是非常不好的用户体验。对搜索引擎的爬虫来讲，同样会遇到类似的问题。解决办法是当用户发送访问请求时，服务器端检测user-agent 和客户端是否支持js 脚本。如果user-agent 显示是一个搜索引擎爬虫或者客户端不支持js，就不使用BigPipe ，而用原有的模式，从而解决问题。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E5.AF.B9SEO.E7.9A.84.E5.BD.B1.E5.93.8D"><strong>6.4 </strong><strong>对SEO</strong><strong>的影响</strong></a><strong> </strong></p>
+<p>这是一个必须考虑的问题，如今是搜索引擎的时代，如果网页对搜索引擎不友好，或者使搜索引擎很难识别内容，那么会降低网页在搜索引擎中的排名，直接减少网站的访问次数。在BigPipe 中，页面的内容都是动态添加的，所以可能会使搜索引擎无法识别。但是正如前面所说，在服务器端首先要根据user-agent 判断客户端是否是搜索引擎的爬虫，如果是的话，则转化为原有的模式，而不是动态添加。这样就解决了对搜索引擎的不友好。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E8.9E.8D.E5.90.88.E5.85.B6.E4.BB.96.E6.8A.80.E6.9C.AF"><strong>6.5 </strong><strong>融合其他技术</strong></a><strong> </strong></p>
+<p>除了使用BigPipe，Facebook的页面加载技术还融合了其他的页面优化技术，具体如下：</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E8.B5.84.E6.BA.90.E6.96.87.E4.BB.B6.E7.9A.84G-zip.E5.8E.8B.E7.BC.A9"><strong>6.5.1 </strong><strong>资源文件的G-zip</strong><strong>压缩</strong></a><strong> </strong></p>
+<p>这是非常重要的技术，使用G-zip 对css 和js 文件压缩可以使大小减少70%，这是多么诱人的数字！在网络传输的文件中，主要就是样式表和脚本文件。如此可以大大减小传输的内容，使页面加载速度变得更快。具体实现可以借助服务器来进行，例如Apache，使用mod_deflate 模块来完成具体配置为： AddOutputFilterByType DEFLATE text/html text/css application/xjavascript</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E5.B0.86js.E6.96.87.E4.BB.B6.E8.BF.9B.E8.A1.8C.E4.BA.86.E7.B2.BE.E7.AE.80"><strong>6.5.2 </strong><strong>将js</strong><strong>文件进行了精简</strong></a><strong> </strong></p>
+<p>对js 文件进行精简，可以从代码中移除不必要的字符，注释以及空行以减小js 文件的大小，从而改善加载的页面的时间。精简js 脚本的工具可以使用JSMin，使用精简后的脚本的大小会减少20%左右。这也是一个很大的提升。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E5.B0.86css.E5.92.8Cjs.E6.96.87.E4.BB.B6.E8.BF.9B.E8.A1.8C.E5.90.88.E5.B9.B6"><strong>6.5.3 </strong><strong>将css</strong><strong>和js</strong><strong>文件进行合并</strong></a><strong> </strong></p>
+<p>这是前端优化的一项原则，将多个样式表和js 文件进行合并，这样的话，将会减少http 的请求个数。对于上亿用户的网站来说，这也会带来性能的提升，大约会减少5%左右的时间损耗。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E4.BD.BF.E7.94.A8.E5.A4.96.E9.83.A8JS.E5.92.8CCSS"><strong>6.5.4 </strong><strong>使用外部JS</strong><strong>和CSS</strong></a><strong> </strong></p>
+<p>同样是前端优化的一项原则。纯粹就速度来言，使用内联的js 和css 速度要更快，因为减少了http 请求。但是，使用外部的文件更有利于文件的复用，这与面向对象编程的概念很像。更为重要的是，虽然在第一次的加载速度慢一点，但css 文件和js脚本是可以被浏览器缓存。即之后用户的多次访问中，使用外部的js 和css 将会将会更好的提升速度。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E5.B0.86.E6.A0.B7.E5.BC.8F.E8.A1.A8.E6.94.BE.E5.9C.A8.E9.A1.B6.E9.83.A8"><strong>6.5.5 </strong><strong>将样式表放在顶部</strong></a><strong> </strong></p>
+<p>和上面内容相似，这也是一种规范，将html 内容所需的css 文件放在首部加载是非常重要的。如果放在页面尾部，虽然会使页面内容更快的加载（因为将加载css 文件的时间放在最后，从而使页面内容先显示出来），但是这样的内容是没有使用样式表的，在css 文件加载进来后，浏览器会对其使用样式表，即再次改变页面的内容和样式，称之为“无样式内容的闪烁”，这对于用户来说当然是不友好的。实现的时候将css 文件放在&lt;head&gt;标签中即可。</p>
+<p><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E5.B0.86.E8.84.9A.E6.9C.AC.E6.94.BE.E5.9C.A8.E5.BA.95.E9.83.A8.E5.AE.9E.E7.8E.B0.E2.80.9Cbarrier.E2.80.9D"><strong>6.5.6 </strong><strong>将脚本放在底部实现“barrier”</strong></a><strong> </strong></p>
+<p>支持页面动态内容的Js 脚本对于页面的加载并没有什么作用，把它放在顶部加载只会使页面更慢的加载，这点和前面的提到的css 文件刚好相反，所以可以将它放在页尾加载。是用户能看到的页面内容先加载，js 文件最后加载，这样会使用户觉得页面速度更快。Bigpipe实现一个“barrier”的概念，即当所有的pagelet的内容全部加载好了之后，浏览器再向服务器发送js 的http 请求。可以在BigPipe.js 中将所有的pagelet 所需的js文件的路径保存下来，在判断所有的内容加载完成后统一向服务器发送请求。</p>
+<p><strong>7 </strong><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#BigPipe.E5.85.B7.E4.BD.93.E5.AE.9E.E7.8E.B0.E7.BB.86.E8.8A.82"><strong>BigPipe</strong><strong>具体实现细节</strong></a><strong> </strong></p>
+<p>如上文讨论的那样，具体实现如下：当用户访问该页面时，在第一个flush 的Response 内容中，返回大部分的HTML 代码，包括完整的&lt;heaad&gt;标签，和一个未封闭的&lt;body&gt;，其中&lt;head&gt;标签中有需要导入的文件的路径，如一些公共的css 文件和BigPipe.js 文件，&lt;body&gt;标签有页面的主要布局，第二块flush 的内容为一段js脚本，处理BigPipe 对象的生成，以及js 和css 文件的路径和字符串的映射</p>
+<p>var bigPipe = new bigPipe();</p>
+<p>bigPipe.setResourceMap({</p>
+<p>aaaaa:{</p>
+<p>“name”: “js/list1.js”,</p>
+<p>“type”: “js”,</p>
+<p>“src”: “js/list1.js”</p>
+<p>}</p>
+<p>);</p>
+<p>setResourceMap(json)为BigPipe 中的函数，功能是设置文件的映射。”aaaaa”应该是在服务器随即生成的五位字符串,name表示文件名称，type 为文件的类型，可以是”js”或”css”，”src”为文件的路径。在下面的页面中，就可以使用”aaaaa”来替代”js/list1.js”了，减少了复杂性。接下来flush 的是每一个pagelet 的内容了，例如：</p>
+<p>&lt;script type=”text/javascript” &gt;</p>
+<p>bigPipe.onPageletArrive({</p>
+<p>id:”list1″,</p>
+<p>content:”this is list 1 &lt;\/br&gt;&lt;img src =\”img13.jpg\” \/&gt;”,</p>
+<p>css:["eeeee"],</p>
+<p>js:["aaaaa"],</p>
+<p>“resource_map”:{</p>
+<p>aaaaa:{</p>
+<p>“name”: “js/list1.js”,</p>
+<p>“type”: “js”,</p>
+<p>“src”: “js/list1.js”</p>
+<p>} ,</p>
+<p>“eeeee”: {</p>
+<p>“name”: “css/list1.css”,</p>
+<p>“type”: “css”</p>
+<p>“src”: “css/list1.css”</p>
+<p>}</p>
+<p>}</p>
+<p>});</p>
+<p>&lt;/script&gt;</p>
+<p>onPageletArrive（json_arrive）也是BigPipe 的函数，功能是动态添加页面的内容和加载pagelet 所需的文件，函数的参数为json 格式的数据。其参数含义是：“id”用来寻找pagelet 标签；“ content ”是html 页面内容，在找到对应的pagelet 的标签之后，将content 内动态添加到html 页面中；“css”为该Pagelet 所需的css 文件，这里的css 文件可能在之前导入过了；“js”为该pagelet 所需的js 文件，同样，有可能在之前的pagelet已经导入过了。在函数实现过程中，因为js 文件是最后加载的，可以把这些js 的路径存入到一个数组当中（去掉重复的），在最后一起加载。resource_map”为该pagelet 所单独需要加载的js 和css 文件，同样也是json 格式的，结构与前面的setResource()中的参数一样。最后flush 的是</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</p>
+<p>即为最后的标签。</p>
+<p><strong>8 </strong><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E7.BB.93.E8.AE.BA"><strong>结论</strong></a><strong> </strong></p>
+<p>经过上面的讨论，我们可以发现，使用BigPipe 技术优化页面可以有四个好处：</p>
+<p>1． 减少页面的加载时间</p>
+<p>2． 使页面分步输出，改善用户体验</p>
+<p>3． 使页面结构化，提高可读性，更加便于维护</p>
+<p>4． 每个pagelet 都是相互独立的，如果有一个pagelet 的内容不能加载，并不会影响其他的pagelet 的内容显示。</p>
+<p>同时，BigPipe 是一项比较新的理念， 在去年六月份才由Facebook 的工程师提出，应该说有很大的发展空间。BigPipe 的原理非常简单，并不会引入很多额外的负担，适用范围很广，容易上手。几乎所有的网页都可以采用BigPipe 的理念去进行优化，尤其对于是有着海量数据和网页比较大的网站，将会以低成本带来高回报。一般来讲，网站越大，脚本和样式表越多，浏览器版本越旧，网络环境越差，优化的结果越可观。</p>
+<p><strong>9 </strong><a href="http://searchwiki.taobao.ali.com/index.php/F2E/Misc/Facebook_Bigpipe_CaseStudy#.E5.BC.95.E7.94.A8.E4.B8.8E.E5.8F.82.E8.80.83.E8.B5.84.E6.96.99"><strong>引用与参考资料</strong></a><strong> </strong></p>
+<p>1.作者的博客：<a title="http://www.facebook.com/note.php?note_id=389414033919" href="http://www.facebook.com/note.php?note_id=389414033919">http://www.facebook.com/note.php?note_id=389414033919</a></p>
+<p>2.bigpipe技术的ppt：<a title="http://twork.taobao.net/books/237" href="http://twork.taobao.net/books/237">http://twork.taobao.net/books/237</a></p>
+<p>3.bigpipe的java实现:<a title="http://codemonkeyism.com/facebook-bigpipe-java/" href="http://codemonkeyism.com/facebook-bigpipe-java/">http://codemonkeyism.com/facebook-bigpipe-java/</a></p>
+<p>4.一篇介绍bigpipe的文章：<a title="http://www.54chen.com/architecture/rose-pipe-http-54chen.html" href="http://www.54chen.com/architecture/rose-pipe-http-54chen.html">http://www.54chen.com/architecture/rose-pipe-http-54chen.html</a></p>
+<p>5.另一篇挺有用的文章：<a title="http://www.cnblogs.com/BearsTaR/archive/2010/06/18/facebook_html_chunk.html" href="http://www.cnblogs.com/BearsTaR/archive/2010/06/18/facebook_html_chunk.html">http://www.cnblogs.com/BearsTaR/archive/2010/06/18/facebook_html_chunk.html</a></p>
+<p>6.人人网类似bigpipe的技术–rosepipe：<a title="http://www.54chen.com/architecture/rose-open-source-portal-framework.html" href="http://www.54chen.com/architecture/rose-open-source-portal-framework.html">http://www.54chen.com/architecture/rose-open-source-portal-framework.html</a></p>
+<p>7．《高性能网站建设指南》by Steve Souder， Copyright 2007 Steve Sounder， 978-0-596- 52930-7</p>
+			</div>
+			
+			<p class="postinfo clear">
+				<span class="category">Filed under - <a href="http://www.searchtb.com/category/%e5%89%8d%e7%ab%af%e6%8a%80%e6%9c%af" title="查看前端技术中的全部文章" rel="category tag">前端技术</a></span> 
+				<span class="comment"><a href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html#comments" title="《BigPipe学习研究》上的评论">30 Comments</a> so far.</span><br>
+			</p>
+			<p class="tag"> </p>
+			<p></p>
+		</div>
+
+	
+		<div class="related">
+	<h3>相关文章</h3>
+	<ul>
+		<li><a href="http://www.searchtb.com/2010/10/taobaosearch2011.html" rel="bookmark" title="Permanent Link: 梦想开始的地方–淘宝搜索2011年校园招聘">梦想开始的地方–淘宝搜索2011年校园招聘</a></li><li><a href="http://www.searchtb.com/2013/06/%e9%9d%99%e6%80%81cache%e4%b9%8blog%e5%85%b1%e7%8e%b0%e8%af%8d%e5%88%86%e6%9e%90.html" rel="bookmark" title="Permanent Link: 静态cache之log共现词分析">静态cache之log共现词分析</a></li><li><a href="http://www.searchtb.com/2010/08/%e6%b5%8b%e8%af%95%ef%bc%9a%e6%b7%98%e5%ae%9d%e7%bd%91%e6%8b%9b%e8%81%98%e5%b9%b3%e5%8f%b0%e7%8e%b0%e5%a4%84%e6%b5%8b%e8%af%95%e9%98%b6%e6%ae%b5-%e6%ad%a3%e5%bc%8f%e4%b8%8a%e7%ba%bf%e5%9c%a8%e5%8d%b3.html" rel="bookmark" title="Permanent Link: 测试：淘宝网招聘平台现处测试阶段 正式上线在即">测试：淘宝网招聘平台现处测试阶段 正式上线在即</a></li><li><a href="http://www.searchtb.com/2011/03/good_test_cases.html" rel="bookmark" title="Permanent Link: 霜波说测试（一）– 优秀的测试用例">霜波说测试（一）– 优秀的测试用例</a></li> 
+        </ul>
+ 	
+ <br class="clear">
+</div>
+
+<!-- You can start editing here. -->
+<div id="comments">
+	<h2 class="mainhead">30 Responses</h2>
+
+	<span class="fleft"></span> <span class="fright"></span>
+	<br class="clear">
+
+	<ol class="commentlist">
+			<li class="comment even thread-even depth-1" id="li-comment-312">
+		<div id="comment-312">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/23a0cdd1d87356cf9d7590637eaa19f8?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">catkin on 28 四 2011</div>			
+								<p>改时间细看</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=312#respond" onclick="return addComment.moveForm(&quot;comment-312&quot;, &quot;312&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-321">
+		<div id="comment-321">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/2d185e81874f87566c5d1b03474bbfb8?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">弦乐 on 05 五 2011</div>			
+								<p>这篇文章到是还不错</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=321#respond" onclick="return addComment.moveForm(&quot;comment-321&quot;, &quot;321&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-324">
+		<div id="comment-324">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/2b11f21dec4773a12b5076e833557d43?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://luchuan.iteye.com/" rel="external nofollow" class="url">silentime</a> on 06 五 2011</div>			
+								<p>原来见过的是把服务器并发放在客户端去做，这样系统复杂度比服务器并发要小一些，但是可能不符合《High Performance Web Site》提出的尽量减少http请求的原则，还有别的原因么？</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=324#respond" onclick="return addComment.moveForm(&quot;comment-324&quot;, &quot;324&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-7394">
+		<div id="comment-7394">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/0bcd2b4a374d1d799578b9d9e5162fd7?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">林海锋 on 17 十二 2012</div>			
+								<p>这里只用到1个http请求。因为当HTML/body未闭合的情况下，浏览器会一直处于等待状态，接收来自服务器主动flush过来的内容。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=7394#respond" onclick="return addComment.moveForm(&quot;comment-7394&quot;, &quot;7394&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-369">
+		<div id="comment-369">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/8af74a3159502685929f07a77aed8d05?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">rainliu67 on 27 五 2011</div>			
+								<p>文章很不错,解惑了,多谢!</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=369#respond" onclick="return addComment.moveForm(&quot;comment-369&quot;, &quot;369&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-374">
+		<div id="comment-374">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://1.gravatar.com/avatar/b897e8fa703aedf4793defab8b696f4c?s=60&d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">石建 on 31 五 2011</div>			
+								<p>“BigPipe 技术使浏览器并不需要发送XMLHttpRequest 请求，这样就节省时间损耗。” 请问是直接通过资源标签请求吗 ? 比如：<a href="" rel="nofollow">.<br>
+bigpipe达到服务器端和客户端并发执行的效果，但是也增加了http请求。</a></p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=374#respond" onclick="return addComment.moveForm(&quot;comment-374&quot;, &quot;374&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-422">
+		<div id="comment-422">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/834c6e8a0ff21a5c5e559a7d52af3fc8?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">不解 on 07 七 2011</div>			
+								<p>想借问一下一个问题，根据yahoo的优化建议，js脚本放页面底部。<br>
+但我看淘宝这些大网站，都把js放页面顶部加载，这是基于一个什么原因考虑呢？</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=422#respond" onclick="return addComment.moveForm(&quot;comment-422&quot;, &quot;422&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+<ul class="children">
+	<li class="comment odd alt depth-2" id="li-comment-7395">
+		<div id="comment-7395">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/0bcd2b4a374d1d799578b9d9e5162fd7?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">林海锋 on 17 十二 2012</div>			
+								<p>head中的js，有可能是在页面底部通过kISSY.USE引用进来的。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=7395#respond" onclick="return addComment.moveForm(&quot;comment-7395&quot;, &quot;7395&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-429">
+		<div id="comment-429">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/42ef9bea0ed697a6059eba658ce9c1c3?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">cfanbo on 08 七 2011</div>			
+								<p>感觉着主要是分三部分的，<br>
+先是flush上面的部分，<br>
+然后是flush一些js抓贼内容填充的部分，<br>
+最后是flush&lt;/body＞的内容.<br>
+有点疑惑．这种实现和先输出所有的html整体框架，然后再调用ajax语法来实现内容的填充，他们最大的传热在哪里，看过了，对这块总有点迷惑．好像只说了减少ajax请求，充分利用服务器的阻塞时的空闲时间的．</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=429#respond" onclick="return addComment.moveForm(&quot;comment-429&quot;, &quot;429&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-431">
+		<div id="comment-431">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://blog.haohtml.com/archives/10288" rel="external nofollow" class="url">BigPipe学习研究-搞前端的可以看一下，属于高级部分了 | haohtml's blog</a> on 08 七 2011</div>			
+								<p>[...] 摘自：http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=431#respond" onclick="return addComment.moveForm(&quot;comment-431&quot;, &quot;431&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-699">
+		<div id="comment-699">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/21f68532083aaec116dfb73bd0d65c9a?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://a/" rel="external nofollow" class="url">王先</a> on 24 八 2011</div>			
+								<p>为什么淘宝店铺经常找到打不开，就算是在淘宝网上搜索店铺都没有这个名，相反要是用其它的搜索工具像Google还可以搜索得到店铺名，你们淘宝网怎么回事明明是有的还是搜不到，自动屏蔽了是吧，那还叫客户注册干什么，举例说这个淘宝网址经常打不开http://shop60944393.taobao.com 在谷歌上一搜就有了，有回答我的邮箱QQ我的QQ是610227263<br>
+你谈这些新技术，但是老用户都被屏蔽了，还有什么意思。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=699#respond" onclick="return addComment.moveForm(&quot;comment-699&quot;, &quot;699&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-846">
+		<div id="comment-846">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/a2a5e2e94a8f8e36ca6f3c73da74f4dd?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">hack21 on 16 九 2011</div>			
+								<p>图片裂了 = = 求图啊 少了图感觉文字不够直观</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=846#respond" onclick="return addComment.moveForm(&quot;comment-846&quot;, &quot;846&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-922">
+		<div id="comment-922">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/a70ad4405ca957fd3025f411851163c0?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://tsingroo.sinaapp.com/" rel="external nofollow" class="url">罗青</a> on 28 九 2011</div>			
+								<p>图片看不见！！！</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=922#respond" onclick="return addComment.moveForm(&quot;comment-922&quot;, &quot;922&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback odd alt thread-odd thread-alt depth-1" id="li-comment-923">
+		<div id="comment-923">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://tsingroo.sinaapp.com/?p=39" rel="external nofollow" class="url">罗青-技术博客 | Facebook BigPipe: Pipelining web pages for high performance</a> on 28 九 2011</div>			
+								<p>[...] 来自淘宝的Bigpipe技术文章：http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html#comment-922 [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=923#respond" onclick="return addComment.moveForm(&quot;comment-923&quot;, &quot;923&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback even thread-even depth-1" id="li-comment-1699">
+		<div id="comment-1699">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://qokolot.sinaapp.com/archives/508" rel="external nofollow" class="url">基于 Struts2 标签的 BigPipe 技术实现 | 巧克力的博客</a> on 11 十一 2011</div>			
+								<p>[...] 查看文章“BigPipe 学习研究”，该文章对 BigPipe 的学习进行了一定程度的总结。 [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=1699#respond" onclick="return addComment.moveForm(&quot;comment-1699&quot;, &quot;1699&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2721">
+		<div id="comment-2721">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://1.gravatar.com/avatar/d09f1ac0cc089c1505e62e6f94b9c381?s=60&d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">fantaxy025025 on 24 二 2012</div>			
+								<p>5 BigPipe实现原理<br>
+服务器端不做任何的查询，而是立刻返回一个http request 给浏览器<br>
+–这个应该是response吧？</p>
+<p>另外一个问题：<br>
+为什么返回不封闭的body标签呢？用意是什么呢。。。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=2721#respond" onclick="return addComment.moveForm(&quot;comment-2721&quot;, &quot;2721&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+<ul class="children">
+	<li class="comment even depth-2" id="li-comment-7396">
+		<div id="comment-7396">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/0bcd2b4a374d1d799578b9d9e5162fd7?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">林海锋 on 17 十二 2012</div>			
+								<p>因为浏览器是渐进式渲染的，当body不封闭的时候，它一直处于等待状态（接收服务器中flush过来的内容）。这样就可以再一个http请求中，接收服务器在不同时间flush过来的内容。一旦关闭了，这个http请求就结束了吧</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=7396#respond" onclick="return addComment.moveForm(&quot;comment-7396&quot;, &quot;7396&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="pingback odd alt thread-even depth-1" id="li-comment-2877">
+		<div id="comment-2877">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://huuguanghui.sinaapp.com/2012/03/10/bigpipe%e7%ae%80%e4%bb%8b/" rel="external nofollow" class="url">BigPipe简介 | 胡言乱语</a> on 10 三 2012</div>			
+								<p>[...] 首先是来自淘宝技术博客的一篇综述性文章： BigPipe学习研究（这篇文章后面也给出了一些很有用的链接） [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=2877#respond" onclick="return addComment.moveForm(&quot;comment-2877&quot;, &quot;2877&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback even thread-odd thread-alt depth-1" id="li-comment-5464">
+		<div id="comment-5464">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://www.rainboys.cn/index.php/archives/1093" rel="external nofollow" class="url">转：BigPipe学习研究 | 雨中人</a> on 17 九 2012</div>			
+								<p>[...] 注：此文转自 <a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe学习研究 « 搜索技术博客－淘宝.html" rel="nofollow">http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html</a> [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=5464#respond" onclick="return addComment.moveForm(&quot;comment-5464&quot;, &quot;5464&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-5633">
+		<div id="comment-5633">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/a5d18943d4b14b4b2e62a5f63d2ff181?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://blog.exephp.com/" rel="external nofollow" class="url">小小明</a> on 29 九 2012</div>			
+								<p>AJAX 的核心是XMLHttpRequest，客户端需要异步的向服务器端发送请求，然后将传送过来的内容动态添加到网页上。如此实现存在一些缺陷，即发送往返请求需要耗费时间，而BigPipe 技术使浏览器并不需要发送XMLHttpRequest 请求，这样就节省时间损耗。</p>
+<p>bigpipe确实不需要发送xmlhttprequest，但是并不意味着他能把一个http request给省掉。。。xmlhttprequest通过浏览器相关组件或模块，实现异步的request，bigpipe借助js，也是通过浏览器执行一次请求。<br>
+就我的理解，两者并无本质区别。<br>
+文章中的说法像是bigpipe能省掉http request一样，很不解，求解释。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=5633#respond" onclick="return addComment.moveForm(&quot;comment-5633&quot;, &quot;5633&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+<ul class="children">
+	<li class="comment even depth-2" id="li-comment-7397">
+		<div id="comment-7397">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/0bcd2b4a374d1d799578b9d9e5162fd7?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">林海锋 on 17 十二 2012</div>			
+								<p>bigpine只需要一个http request和一个http response吧。而通过ajax，每一次异步请求，都需要创建一个xmlhttprequest。。。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=7397#respond" onclick="return addComment.moveForm(&quot;comment-7397&quot;, &quot;7397&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+<ul class="children">
+	<li class="comment odd alt depth-3" id="li-comment-89850">
+		<div id="comment-89850">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://0.gravatar.com/avatar/6009dd94b715f7cb1d6a6f7cdd840774?s=60&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://www.bokeyy.com/" rel="external nofollow" class="url">袁源</a> on 29 十 2014</div>			
+								<p>那岂不是只是用不用 XML HttpRequest 这个组件的区别而已么？真的能提高性能吗？我还是质疑这篇文章的解读。</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=89850#respond" onclick="return addComment.moveForm(&quot;comment-89850&quot;, &quot;89850&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="pingback even thread-odd thread-alt depth-1" id="li-comment-18522">
+		<div id="comment-18522">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://www.lingoosoft.com/?p=256" rel="external nofollow" class="url">BigPipe学习研究 | 混迹 IT 好多年！</a> on 09 六 2013</div>			
+								<p>[...] 转载自： <a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe学习研究 « 搜索技术博客－淘宝.html" rel="nofollow">http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html</a> [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=18522#respond" onclick="return addComment.moveForm(&quot;comment-18522&quot;, &quot;18522&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback odd alt thread-even depth-1" id="li-comment-19659">
+		<div id="comment-19659">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://www.liuff.com/archives/285" rel="external nofollow" class="url">BigPipe的技术实现 | Eric's blog</a> on 02 七 2013</div>			
+								<p>[...] 本文来自BigPipe学习研究 [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=19659#respond" onclick="return addComment.moveForm(&quot;comment-19659&quot;, &quot;19659&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback even thread-odd thread-alt depth-1" id="li-comment-21446">
+		<div id="comment-21446">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://wuyuting.sinaapp.com/?p=1701" rel="external nofollow" class="url">吴中生友 » BigPipe学习研究</a> on 05 八 2013</div>			
+								<p>[...] 通过BigPipe学习研究 « 搜索技术博客－淘宝.    分类: 技术 标签:         评论 (0) Trackbacks (0) 发表评论 Trackback [...]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=21446#respond" onclick="return addComment.moveForm(&quot;comment-21446&quot;, &quot;21446&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback odd alt thread-even depth-1" id="li-comment-25785">
+		<div id="comment-25785">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://www.lovecicy.com/%e5%88%9d%e8%af%86-bigpipe/" rel="external nofollow" class="url">初识 Bigpipe | LoveCicy</a> on 04 十一 2013</div>			
+								<p>[…] 原文转自：http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html […]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=25785#respond" onclick="return addComment.moveForm(&quot;comment-25785&quot;, &quot;25785&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-25803">
+		<div id="comment-25803">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://1.gravatar.com/avatar/5be82b24ab2813d7e602c646635aa144?s=60&d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://lovecicy.com/" rel="external nofollow" class="url">YuC</a> on 04 十一 2013</div>			
+								<p>对于第二个flush，返回的resource map是页面所有的resource信息还是公用的信息。之后的flush又返回了各自的resource<br>
+map而不只是5位key值，是否意味着第二个flush只返回了公用的，而每个pagelet则返回各自的resource map？但是如果把所有resource map都放在第二个flush返回，不是能减少之后每个flush的内容吗？</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=25803#respond" onclick="return addComment.moveForm(&quot;comment-25803&quot;, &quot;25803&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-25895">
+		<div id="comment-25895">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://1.gravatar.com/avatar/b4370099505e929f0026068c9485c8c2?s=60&d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://lovecicy.com/" rel="external nofollow" class="url">YuC</a> on 05 十一 2013</div>			
+								<p>请问第二个flush，传回的resource map是页面所有的资源的映射还是公用部分的resource map？从第三个flush的例子上看，第二个flush应该是公用部分的resource map，而每个pagelet单独需要的resource还是通过每个flush返回。为什么不将所有resource都放在第二个flush的resource map里，之后的flush都通过5位的编码从第二个flush的resource map里查询呢？</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=25895#respond" onclick="return addComment.moveForm(&quot;comment-25895&quot;, &quot;25895&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="pingback even thread-odd thread-alt depth-1" id="li-comment-26004">
+		<div id="comment-26004">
+		  
+			<div class="comment-author fleft">
+				 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info"><a href="http://www.86-0792.cn/?p=22" rel="external nofollow" class="url">BigPipe学习研究 | Touch PHP</a> on 07 十一 2013</div>			
+								<p>[…] from: <a href="./BigPipe学习研究 « 搜索技术博客－淘宝_files/BigPipe学习研究 « 搜索技术博客－淘宝.html" rel="nofollow">http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html</a> […]</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=26004#respond" onclick="return addComment.moveForm(&quot;comment-26004&quot;, &quot;26004&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-26007">
+		<div id="comment-26007">
+		  
+			<div class="comment-author fleft">
+				<img alt="" src="http://1.gravatar.com/avatar/d24c291f964b2229dff292099a7aea19?s=60&d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&r=G" class="avatar avatar-60 photo" height="60" width="60"> 
+			</div>
+			  
+			<div class="comment-info fright">
+				<div class="c_info">Nicolas on 07 十一 2013</div>			
+								<p>写的不错学习下！！！</p>
+								<div class="reply fleft">
+					<a class="comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html?replytocom=26007#respond" onclick="return addComment.moveForm(&quot;comment-26007&quot;, &quot;26007&quot;, &quot;respond&quot;, &quot;1076&quot;)">回复</a>				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	 
+</li><!-- #comment-## -->
+	</ol>
+
+	<span class="fleft"></span> <span class="fright"></span>
+	<br class="clear">
+
+
+
+
+	<div id="respond">
+		<h2 class="mainhead">留言</h2>		
+		<div class="cancel-comment-reply"> <a rel="nofollow" id="cancel-comment-reply-link" href="http://www.searchtb.com/2011/04/an-introduction-to-bigpipe.html#respond" style="display:none;">Cancel</a> </div>
+
+		<div class="res_1 fleft">
+		
+					<form action="http://www.searchtb.com/wp-comments-post.php" method="post" id="commentform">
+							
+				<p><label for="author">Name (required)</label><input type="text" title="名字" name="author" id="author" value="" size="22" tabindex="1" aria-required="true" class="tagged"></p>
+				<p><label for="email">Email (required)</label><input type="text" title="邮件地址" name="email" id="email" value="" size="22" tabindex="2" aria-required="true" class="tagged"></p>
+				<p><label for="url">URL</label><input type="text" title="博客地址" name="url" id="url" value="" size="22" tabindex="3" class="tagged"></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="提交"><input type="hidden" name="comment_post_ID" value="1076" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+					</form></div>			
+			<div class="res_2 fright">
+				<p><label for="commentt">Comment</label><textarea class="fright tagged" name="comment" title="留言" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+				
+				<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="21acb6424d"></p>			</div>
+			<div class="clear"></div>	
+			
+	</div>
+</div>
+
+</div>
+<div id="sidebar" class="sidecontainer fright">
+
+	<div class="widgets">
+		<h2 class="mainhead">订阅</h2>
+		<p class="feed"><a href="http://www.searchtb.com/feed">Subscribe to feed <br><span>get the latest updates!</span></a></p>
+		<form method="get" id="ksearchform" action="http://www.searchtb.com/">
+			<div>
+				<input type="text" size="18" value="" name="s" id="s">
+				<input type="submit" id="ksearchsubmit" value="搜索" class="btn">
+			</div>
+			<br class="clear">
+		</form>
+	</div>
+
+	<ul>
+				<li class="widgets">		<h2 class="mainhead">最近更新</h2>		<ul>
+					<li>
+				<a href="http://www.searchtb.com/2015/01/index-layering.html" title="从未降级的搜索-主搜索分层优化">从未降级的搜索-主搜索分层优化</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/12/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-%e5%ae%9e%e6%97%b6%e4%b9%8b%e5%88%83.html" title="从未降级的搜索技术-实时之刃">从未降级的搜索技术-实时之刃</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/11/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-hippo%e5%9c%a8%e7%ba%bf%e6%9c%8d%e5%8a%a1%e8%b0%83%e5%ba%a6%e7%b3%bb%e7%bb%9f.html" title="从未降级的搜索技术-Hippo在线服务调度系统">从未降级的搜索技术-Hippo在线服务调度系统</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/11/search-in-1111-hbase.html" title="从未降级的搜索技术 – HBase集群升级与优化">从未降级的搜索技术 – HBase集群升级与优化</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/11/%e8%81%8a%e8%81%8a%e5%a4%9a%e7%ba%bf%e7%a8%8b%e7%a8%8b%e5%ba%8f%e7%9a%84load-balance.html" title="聊聊多线程程序的load balance">聊聊多线程程序的load balance</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/11/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-%e5%a4%a9%e7%8c%absku%e6%90%9c%e7%b4%a2.html" title="从未降级的搜索技术-天猫SKU搜索">从未降级的搜索技术-天猫SKU搜索</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/11/search-in-1111.html" title="从未降级的搜索技术">从未降级的搜索技术</a>
+						</li>
+					<li>
+				<a href="http://www.searchtb.com/2014/09/4store%e6%ba%90%e7%a0%81%e8%a7%a3%e6%9e%90%e7%b3%bb%e5%88%978-%e6%9f%a5%e8%af%a2%e7%bb%93%e6%9e%9c%e7%9a%84%e5%a4%84%e7%90%86.html" title="4store源码解析系列(8)–查询结果的处理">4store源码解析系列(8)–查询结果的处理</a>
+						</li>
+				</ul>
+		</li><li class="widgets"><h2 class="mainhead">标签云</h2><div class="tagcloud"><a href="http://www.searchtb.com/tag/ab-test" class="tag-link-30" title="2个话题" style="font-size: 10.863636363636pt;">A/B Test</a>
+<a href="http://www.searchtb.com/tag/bts" class="tag-link-46" title="1个话题" style="font-size: 8pt;">BTS</a>
+<a href="http://www.searchtb.com/tag/c" class="tag-link-80" title="3个话题" style="font-size: 12.772727272727pt;">c++</a>
+<a href="http://www.searchtb.com/tag/cassandra" class="tag-link-20" title="1个话题" style="font-size: 8pt;">Cassandra</a>
+<a href="http://www.searchtb.com/tag/checkstyle" class="tag-link-42" title="1个话题" style="font-size: 8pt;">checkstyle</a>
+<a href="http://www.searchtb.com/tag/cppunit" class="tag-link-32" title="1个话题" style="font-size: 8pt;">CppUnit</a>
+<a href="http://www.searchtb.com/tag/google" class="tag-link-17" title="2个话题" style="font-size: 10.863636363636pt;">Google</a>
+<a href="http://www.searchtb.com/tag/gpu" class="tag-link-26" title="1个话题" style="font-size: 8pt;">GPU</a>
+<a href="http://www.searchtb.com/tag/graph-database" class="tag-link-152" title="8个话题" style="font-size: 18.340909090909pt;">graph database</a>
+<a href="http://www.searchtb.com/tag/hadoop" class="tag-link-14" title="14个话题" style="font-size: 22pt;">Hadoop</a>
+<a href="http://www.searchtb.com/tag/hbase" class="tag-link-69" title="8个话题" style="font-size: 18.340909090909pt;">hbase</a>
+<a href="http://www.searchtb.com/tag/java" class="tag-link-41" title="2个话题" style="font-size: 10.863636363636pt;">java</a>
+<a href="http://www.searchtb.com/tag/jni" class="tag-link-37" title="1个话题" style="font-size: 8pt;">JNI</a>
+<a href="http://www.searchtb.com/tag/junit" class="tag-link-33" title="1个话题" style="font-size: 8pt;">JUnit</a>
+<a href="http://www.searchtb.com/tag/leslie-lamport" class="tag-link-50" title="1个话题" style="font-size: 8pt;">Leslie Lamport</a>
+<a href="http://www.searchtb.com/tag/linux" class="tag-link-28" title="12个话题" style="font-size: 20.886363636364pt;">Linux</a>
+<a href="http://www.searchtb.com/tag/mangodb" class="tag-link-35" title="1个话题" style="font-size: 8pt;">mangodb</a>
+<a href="http://www.searchtb.com/tag/mapreduce" class="tag-link-15" title="1个话题" style="font-size: 8pt;">MapReduce</a>
+<a href="http://www.searchtb.com/tag/multivariate-test" class="tag-link-47" title="1个话题" style="font-size: 8pt;">Multivariate Test</a>
+<a href="http://www.searchtb.com/tag/mysql" class="tag-link-13" title="2个话题" style="font-size: 10.863636363636pt;">MySQL</a>
+<a href="http://www.searchtb.com/tag/neo4j" class="tag-link-153" title="8个话题" style="font-size: 18.340909090909pt;">neo4j</a>
+<a href="http://www.searchtb.com/tag/nginx" class="tag-link-73" title="3个话题" style="font-size: 12.772727272727pt;">nginx</a>
+<a href="http://www.searchtb.com/tag/nosql" class="tag-link-21" title="4个话题" style="font-size: 14.363636363636pt;">NoSQL</a>
+<a href="http://www.searchtb.com/tag/paxos" class="tag-link-125" title="2个话题" style="font-size: 10.863636363636pt;">paxos</a>
+<a href="http://www.searchtb.com/tag/php" class="tag-link-22" title="8个话题" style="font-size: 18.340909090909pt;">PHP</a>
+<a href="http://www.searchtb.com/tag/protocol-buffers" class="tag-link-16" title="3个话题" style="font-size: 12.772727272727pt;">Protocol Buffers</a>
+<a href="http://www.searchtb.com/tag/redis" class="tag-link-54" title="2个话题" style="font-size: 10.863636363636pt;">redis</a>
+<a href="http://www.searchtb.com/tag/samba" class="tag-link-34" title="1个话题" style="font-size: 8pt;">Samba</a>
+<a href="http://www.searchtb.com/tag/scrapy" class="tag-link-39" title="2个话题" style="font-size: 10.863636363636pt;">Scrapy</a>
+<a href="http://www.searchtb.com/tag/streaming" class="tag-link-29" title="2个话题" style="font-size: 10.863636363636pt;">Streaming</a>
+<a href="http://www.searchtb.com/tag/zookeeper" class="tag-link-48" title="2个话题" style="font-size: 10.863636363636pt;">zookeeper</a>
+<a href="http://www.searchtb.com/tag/%e4%b8%80%e6%b7%98" class="tag-link-19" title="5个话题" style="font-size: 15.636363636364pt;">一淘</a>
+<a href="http://www.searchtb.com/tag/%e5%88%86%e5%b8%83%e5%bc%8f%e6%8a%93%e5%8f%96" class="tag-link-40" title="2个话题" style="font-size: 10.863636363636pt;">分布式抓取</a>
+<a href="http://www.searchtb.com/tag/%e5%88%86%e5%b8%83%e5%bc%8f%e9%94%81" class="tag-link-51" title="1个话题" style="font-size: 8pt;">分布式锁</a>
+<a href="http://www.searchtb.com/tag/%e5%89%8d%e7%ab%af" class="tag-link-23" title="2个话题" style="font-size: 10.863636363636pt;">前端</a>
+<a href="http://www.searchtb.com/tag/%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95" class="tag-link-31" title="1个话题" style="font-size: 8pt;">单元测试</a>
+<a href="http://www.searchtb.com/tag/%e5%af%bc%e8%b4%ad%e6%90%9c%e7%b4%a2" class="tag-link-10" title="1个话题" style="font-size: 8pt;">导购搜索</a>
+<a href="http://www.searchtb.com/tag/%e6%80%a7%e8%83%bd" class="tag-link-24" title="1个话题" style="font-size: 8pt;">性能</a>
+<a href="http://www.searchtb.com/tag/%e6%80%a7%e8%83%bd%e4%bc%98%e5%8c%96" class="tag-link-118" title="5个话题" style="font-size: 15.636363636364pt;">性能优化</a>
+<a href="http://www.searchtb.com/tag/%e6%90%9c%e7%b4%a2%e4%ba%a7%e5%93%81%e4%bc%98%e5%8c%96" class="tag-link-45" title="1个话题" style="font-size: 8pt;">搜索产品优化</a>
+<a href="http://www.searchtb.com/tag/%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e" class="tag-link-7" title="4个话题" style="font-size: 14.363636363636pt;">搜索引擎</a>
+<a href="http://www.searchtb.com/tag/%e7%ae%97%e6%b3%95" class="tag-link-25" title="3个话题" style="font-size: 12.772727272727pt;">算法</a>
+<a href="http://www.searchtb.com/tag/%e7%bd%91%e7%bb%9c%e7%88%ac%e8%99%ab" class="tag-link-38" title="2个话题" style="font-size: 10.863636363636pt;">网络爬虫</a>
+<a href="http://www.searchtb.com/tag/%e8%a3%85%e8%bd%bd" class="tag-link-82" title="2个话题" style="font-size: 10.863636363636pt;">装载</a>
+<a href="http://www.searchtb.com/tag/%e9%93%be%e6%8e%a5" class="tag-link-81" title="2个话题" style="font-size: 10.863636363636pt;">链接</a></div>
+</li><li class="widgets"><h2 class="mainhead">近期评论</h2><ul id="recentcomments"><li class="recentcomments">walllwind发表在《<a href="http://www.searchtb.com/2012/10/introduction_to_disruptor.html#comment-140207">一种高效无锁内存队列的实现</a>》</li><li class="recentcomments"><a href="http://iat.net.cn/" rel="external nofollow" class="url">iat.net.cn</a>发表在《<a href="http://www.searchtb.com/2010/12/php-opcode-cache.html#comment-139056">前端开发中的性能那点事（三）php的opcode缓存</a>》</li><li class="recentcomments"><a href="http://www.aseaa.com/" rel="external nofollow" class="url">小莉爱美</a>发表在《<a href="http://www.searchtb.com/2014/12/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-%e5%ae%9e%e6%97%b6%e4%b9%8b%e5%88%83.html#comment-137865">从未降级的搜索技术-实时之刃</a>》</li><li class="recentcomments"><a href="http://baike.renwuyi.com/" rel="external nofollow" class="url">威客百科</a>发表在《<a href="http://www.searchtb.com/2014/12/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-%e5%ae%9e%e6%97%b6%e4%b9%8b%e5%88%83.html#comment-136689">从未降级的搜索技术-实时之刃</a>》</li><li class="recentcomments"><a href="http://xn--9kr22gnbw3z/" rel="external nofollow" class="url">chance</a>发表在《<a href="http://www.searchtb.com/2013/06/have_fun_of_mmap.html#comment-132583">玩转mmap</a>》</li><li class="recentcomments"><a href="http://yangmitaobao.com/" rel="external nofollow" class="url">沐鑫</a>发表在《<a href="http://www.searchtb.com/2014/11/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-hippo%e5%9c%a8%e7%ba%bf%e6%9c%8d%e5%8a%a1%e8%b0%83%e5%ba%a6%e7%b3%bb%e7%bb%9f.html#comment-132044">从未降级的搜索技术-Hippo在线服务调度系统</a>》</li><li class="recentcomments">streaming发表在《<a href="http://www.searchtb.com/2012/09/introduction-to-storm.html#comment-130048">storm简介</a>》</li><li class="recentcomments">桂南发表在《<a href="http://www.searchtb.com/2014/12/%e4%bb%8e%e6%9c%aa%e9%99%8d%e7%ba%a7%e7%9a%84%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af-%e5%ae%9e%e6%97%b6%e4%b9%8b%e5%88%83.html#comment-130023">从未降级的搜索技术-实时之刃</a>》</li></ul></li><li class="widgets"><h2 class="mainhead">友情链接</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.taobaodba.com/" target="_blank">淘宝DBA团队</a></li>
+<li><a href="http://ued.taobao.com/blog/" target="_blank">淘宝UED团队</a></li>
+<li><a href="http://job.taobao.com/" target="_blank">淘宝招聘</a></li>
+<li><a href="http://www.tbdata.org/" target="_blank">淘宝数据平台团队</a></li>
+<li><a href="http://rdc.taobao.com/blog/cs/" target="_blank">淘宝核心系统团队</a></li>
+<li><a href="http://rdc.taobao.com/blog/qa/" target="_blank">淘宝质量保障团队</a></li>
+<li><a href="http://www.linezing.com/blog/" title="量子统计官方博客" target="_blank">量子统计官方博客</a></li>
+
+	</ul>
+</li>
+<li class="widgets"><h2 class="mainhead">功能</h2>			<ul>
+			<li><a href="http://www.searchtb.com/wp-login.php?action=register">注册</a></li>			<li><a href="http://www.searchtb.com/wp-login.php">登录</a></li>
+			<li><a href="http://www.searchtb.com/feed" title="使用RSS 2.0订阅本站点内容">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://www.searchtb.com/comments/feed" title="使用RSS订阅本站点的所有文章的近期评论">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+									</ul>
+</li>	</ul>
+		
+</div><!--end of #sidebar -->
+	<br class="clear">
+	</div><!-- end of #wrapper -->
+
+	<div id="footer">
+		<div class="container">
+			<div class="ftext fleft">
+				搜索技术博客－淘宝 © 2015. All rights reserved. 
+			</div>
+				
+			<div class="fcred fright">
+			 	<span class="fleft">A quality product by</span> <a href="http://www.kreativethemes.com/" class="fright" id="kreativethemes">KreativeThemes</a>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	
+	
+		<script language="javascript" type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/tab.js"></script>
+	<script language="javascript" type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/jquery.fieldtag.min.js"></script>
+	
+	<script type="text/javascript">
+	<!--
+	jQuery(function($){
+	    //snip
+		$("#author,#url,#email,#comment").fieldtag();
+	    //snap
+	});
+	-->
+	</script>
+	<script type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/shCore.js"></script>
+<script type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/shBrushPhp.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://www.searchtb.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://www.searchtb.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '帮助';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = '无法找到Brush：';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush不能设置 html-script选项';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+        <script type="text/javascript" src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/tongji.js"></script><img src="./BigPipe学习研究 « 搜索技术博客－淘宝_files/tongji.do" border="0" width="1" height="1"><noscript>&lt;a href="http://www.linezing.com"&gt;&lt;img src="http://img.tongji.linezing.com/2033179/tongji.gif"/&gt;&lt;/a&gt;</noscript>
+        <script type="text/javascript">
+          var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-18547630-1']); _gaq.push(['_setDomainName', 'none']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+
+</body></html>

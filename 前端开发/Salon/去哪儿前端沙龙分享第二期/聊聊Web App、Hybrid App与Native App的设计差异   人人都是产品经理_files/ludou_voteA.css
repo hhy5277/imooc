@@ -1,0 +1,15 @@
+.ludouVA{border-top: margin:0 0 15px;}
+.ludouVA .hd{height: 65px; line-height: 54px;padding-top: 6px;text-align: center; font-size: 18px;color: #808080; font-family: "Microsoft Yahei",SimHei;}
+.ludouVA .bd {padding: 6px 10px 15px;height: 95px;}
+.ludouVA .bd .option{float: left; width: 165px; padding-right: 10px;}
+.ludouVA .option .digg{width: 165px;height: 56px;text-indent: -999em;overflow: hidden;}
+.ludouVA .option .count{text-align: center;color: #dd3326; font-weight: bold; height: 40px;line-height: 40px;font-size: 14px;font-family: Tahoma;}
+.ludouVA .option .digg a{display: block;width: 165px;height: 56px;text-indent: -999em;overflow: hidden;}
+.ludouVA .option .digg a:hover{background: #FFF url(bg_tp.png) 0 -56px no-repeat;}
+.ludouVA .hxItem .digg{background: url(bg_tp.png) 0 0 no-repeat;}
+.ludouVA .hxItem .digg a:hover{background-position: 0 -56px;}
+.ludouVA .hhkItem .digg{background: url(bg_tp.png) -203px 0 no-repeat;}
+.ludouVA .hhkItem .digg a:hover{background-position: -203px -56px;}
+.ludouVA .bhkItem .digg{background: url(bg_tp.png) -405px 0 no-repeat;}
+.ludouVA .bhkItem .digg a:hover{background-position: -405px -56px;}
+.ludouVA .voteAalign {overflow:auto;margin:0 auto;width:527px;}

@@ -1,0 +1,20 @@
+/*
+body{background:#fff url(http://images.cnblogs.com/cnblogs_com/meteoric_cry/260218/o_bg03.png) fixed no-repeat top left !important;}
+
+#header,#footer {background-image:none !important; background-color:transparent !important;}
+#main, #rightmenu{background-color:#fff !important; border:1px solid #9FA56C;}
+
+.c_ad_block, .ad_under_comment2 {display:none !important;}
+
+#rightmenu {margin-top:0 !important;}
+
+#Header1_HeaderTitle {margin-left:-80px !important;}
+*/
+
+textarea {width:100% !important; height:300px !important;}
+
+.itnews c_ad_block,.c_ad_block,#site_nav_under,#ad_under_comment2,#div_commentbox_nav {display:none !important;}
+
+#top h1 {position:relative; bottom:-20px; left:20px;}
+
+body{background:url(http://images.cnblogs.com/cnblogs_com/meteoric_cry/260218/r_html-bg.jpg)!important;};

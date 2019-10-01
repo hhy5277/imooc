@@ -1,0 +1,14 @@
+ADFHOST53="http://csdnim.qtmojo.com";
+ADFCID53=29;
+ADFBID53=53;
+ADFLOC='CNJSNJ00';
+ADFUSER53="http://csdnim.qtmojo.com/c?d=csdnim&i=z29,10358790,53,114&rf=&a=dwCh5cZdq0V9K2A5yG60yVdc6vGJ&u=";
+ALLYESID4="096B29A4AA709F67";
+ADFPGC="2,4,29,0,56,53,114,10358790";
+
+document.write("<script type=\"text/javascript\">\n");
+document.write("/*ÎÄÕÂÒ³ÆµµÀÄÚÈÝÒ³Button*/\n");
+document.write("var cpro_id = \"u1607557\";\n");
+document.write("</Scr"+"ipt>\n");
+document.write("<script src=\"http://cpro.baidustatic.com/cpro/ui/c.js\" type=\"text/javascript\"></Scr"+"ipt>");
+

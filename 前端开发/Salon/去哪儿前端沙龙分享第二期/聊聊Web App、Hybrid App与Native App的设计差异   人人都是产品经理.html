@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.woshipm.com/pd/123646.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>聊聊Web App、Hybrid App与Native App的设计差异 | 人人都是产品经理</title>
+  <meta name="keywords" content="Hybrid App, Native App, Web App, ">
+  <meta name="description" content="目前主流应用程序大体分为三类：Web App、Hybrid App、 Native App。 一、Web App、Hybrid App、Native App 纵向对比 首先，我们来看看什么是 Web App、Hybrid App、 Native App。 1.">
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="alternate" type="application/rss+xml" title="人人都是产品经理 » Feed" href="http://www.woshipm.com/feed">
+<link rel="alternate" type="application/rss+xml" title="人人都是产品经理 » 评论Feed" href="http://www.woshipm.com/comments/feed">
+<link rel="stylesheet" id="fep-style-css" href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="default-css" href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="highslide-css" href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/highslide.css" type="text/css" media="all">
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/jquery.min.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/base.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/owl.carousel.min.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/highslide.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/wpfp.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.woshipm.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.woshipm.com/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortcut icon" href="http://image.woshipm.com/wp-files/other/favicon.ico" title="Favicon"><script>
+        jQuery(document).ready(function($) {
+          $(".entry img").each(function(i){
+            _self = $(this);
+            if (! this.parentNode.href) {
+              imgsrc = "";
+              if (_self.attr("data-original")) {
+                imgsrc = _self.attr("data-original");
+              } else {
+                imgsrc = _self.attr("src");
+              }
+              $(this).wrap("<a href='"+imgsrc+"' class='highslide-image' onclick='return hs.expand(this);'></a>");
+            }
+          });
+          hs.graphicsDir = "http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/";
+          hs.outlineType = "rounded-white";
+          hs.dimmingOpacity = 0.8;
+          hs.outlineWhileAnimating = true;
+          hs.showCredits = false;
+          hs.captionEval = "this.thumb.alt";
+          hs.numberPosition = "caption";
+          hs.align = "center";
+          hs.transitions = ["expand", "crossfade"];
+          hs.addSlideshow({
+            interval: 5000,
+            repeat: true,
+            useControls: true,
+            fixedControls: "fit",
+            overlayOptions: {
+              opacity: 0.75,
+              position: "bottom center",
+              hideOnMouseOut: true
+            }
+          });
+      });
+    </script>				<!-- WordPress Popular Posts v3.2.2 -->
+				<script type="text/javascript">//<![CDATA[
+
+					var sampling_active = 1;
+					var sampling_rate   = 100;
+					var do_request = false;
+
+					if ( !sampling_active ) {
+						do_request = true;
+					} else {
+						var num = Math.floor(Math.random() * sampling_rate) + 1;
+						do_request = ( 1 === num );
+					}
+
+					if ( do_request ) {
+
+						// Create XMLHttpRequest object and set variables
+						var xhr = ( window.XMLHttpRequest )
+						  ? new XMLHttpRequest()
+						  : new ActiveXObject( "Microsoft.XMLHTTP" ),
+						url = 'http://www.woshipm.com/wp-admin/admin-ajax.php',
+						params = 'action=update_views_ajax&token=cee8a33ea2&id=123646';
+						// Set request method and target URL
+						xhr.open( "POST", url, true );
+						// Set request header
+						xhr.setRequestHeader( "Content-type", "application/x-www-form-urlencoded" );
+						// Hook into onreadystatechange
+						xhr.onreadystatechange = function() {
+							if ( 4 === xhr.readyState && 200 === xhr.status ) {
+								if ( window.console && window.console.log ) {
+									window.console.log( xhr.responseText );
+								}
+							}
+						};
+						// Send request
+						xhr.send( params );
+
+					}
+
+				//]]></script>
+				<!-- End WordPress Popular Posts v3.2.2 -->
+				
+<link rel="stylesheet" href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/ludou_voteA.css" type="text/css" media="screen">
+<style type="text/css">.highslide img {cursor: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/zoomin.cur), pointer !important;}.highslide-viewport-size {position: fixed; width: 100%; height: 100%; left: 0; top: 0}</style></head>
+<body id="top" class="single single-post postid-123646 single-format-standard chrome">
+  <div class="top-box top-part fixed">
+    <div class="top-main">
+      <a href="http://www.woshipm.com/" class="logo"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/logo.png"></a>
+      <ul id="menu-header" class="nav">
+        <li><a href="http://www.woshipm.com/">首页</a></li>
+<li class="fenlei submenu top-menu-item"><a href="http://www.woshipm.com/pd/123646.html#">产品设计<i class="icon1"></i></a>
+<ul class="sub-menu" style="display: none;">
+	<li><a href="http://www.woshipm.com/category/discuss">人人专栏</a></li>
+	<li><a href="http://www.woshipm.com/category/pmd">产品经理</a></li>
+	<li class="current-post-ancestor current-menu-parent"><a href="http://www.woshipm.com/category/pd">产品设计</a></li>
+	<li><a href="http://www.woshipm.com/category/ucd">交互体验</a></li>
+	<li><a href="http://www.woshipm.com/category/operate">产品运营</a></li>
+	<li><a href="http://www.woshipm.com/category/rp">原型设计</a></li>
+	<li><a href="http://www.woshipm.com/category/it">业界动态</a></li>
+	<li><a href="http://www.woshipm.com/category/zhichang">职场攻略</a></li>
+	<li><a href="http://www.woshipm.com/category/xiazai">干货下载</a></li>
+	<li><a href="http://www.woshipm.com/category/video">大咖视频</a></li>
+	<li><a href="http://www.woshipm.com/category/chuangye">创业学院</a></li>
+	<li><a href="http://www.woshipm.com/category/evaluating">分析评测</a></li>
+</ul>
+</li>
+<li class=" submenu"><a href="http://www.woshipm.com/category/active">讲座沙龙<i class="icon1"></i></a>
+<ul class="sub-menu" style="display: none;">
+	<li><ul class="hd-ul"><li class="x-line"><p><a href="http://www.woshipm.com/active/193173.html">【线下活动】woshiPM训练营第54期走进you+公寓开启报名</a></p><p class="mar-t10"><font class="gray-font float-l mar-r12">广州 8月30日</font><font class="h-an font12">已结束</font></p></li><li class="x-line"><p><a href="http://www.woshipm.com/active/193233.html">【线下活动】woshiPM训练营第53期开启报名</a></p><p class="mar-t10"><font class="gray-font float-l mar-r12">深圳 8月30日</font><font class="h-an font12">已结束</font></p></li><li class="x-line"><p><a href="http://www.woshipm.com/active/192730.html">【人人圆桌】第18期：情感化设计—让用户“爱”上产品</a></p><p class="mar-t10"><font class="gray-font float-l mar-r12">线上活动-8月27日</font><font class="h-an font12">已结束</font></p></li></ul><div class="clearfix"></div><p class="hd-more mar-b20"><a href="http://www.woshipm.com/category/active">更多活动</a></p></li>
+</ul>
+</li>
+<li><a target="_blank" href="http://www.qidianla.com/">学院</a></li>
+<li><a target="_blank" href="http://www.zhaopins.com/">求职招聘</a></li>
+<li><a target="_blank" href="http://dh.woshipm.com/">网址导航</a></li>
+      </ul>
+      <div class="login-r">
+                <div class="toggle-search"></div>
+        <div class="search-expand">
+          <form method="get" class="searchform themeform" action="http://so.woshipm.com/cse/search" target="_blank">
+            <input type="hidden" name="s" value="5164884790748519420">            <input type="text" class="search input" name="q" placeholder="输入关键词，回车一下" x-webkit-speech="">
+            <button type="submit" class="tip-bottom" title="搜索"><i class="icon-search"></i></button>
+          </form>
+        </div>
+
+        <div class="login-box">
+                                  <a href="http://www.woshipm.com/pd/123646.html#"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/35x35.jpg" class="avatar avatar-35" width="35" height="35"></a>
+              <i class="more"></i>
+              <div class="fl-nav" style="display: none;">
+                <ul class="fl-ul">
+                                      <li><a rel="nofollow" href="http://www.woshipm.com/register">注册</a></li>
+                                    <li class="no-line"><a rel="nofollow" href="http://www.woshipm.com/login">登录</a></li>
+                  <li class="no-line"><a rel="nofollow" href="http://www.woshipm.com/login?action=lostpassword">忘记密码？</a></li>
+                </ul>
+              </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-box mar-t35">
+<div class="left">
+ <div class="L-mainbox1 mar-b20">
+   <div class="list-detail-box">
+            <div class="up-box">
+         <p class="blue-lable">产品设计</p>        <h3 class="list-h3"><a href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理.html">聊聊Web App、Hybrid App与Native App的设计差异</a></h3>
+      </div>
+	<!--
+      <div class="down-box mar-t10 x-line mar-b20">
+        <span class="time"><i class="fa fa-clock-o"></i>2014/12/03 12:32</span>
+<span><i class="fa fa-user"></i><a href="http://www.woshipm.com/author/youha" title="">yoyo</a></span>
+      </div>
+      -->
+      <div class="down-box" style="overflow:hidden;margin: 5px 0;">
+          <li class="time">2014/12/03</li>
+          <li class="read" id="pmViews">阅读（24304）</li>
+          <li class="pinglun">评论（<a href="http://www.woshipm.com/pd/123646.html#comments" title="Comment on 聊聊Web App、Hybrid App与Native App的设计差异">1</a>）</li>
+                  <li class="like"><a href="http://www.woshipm.com/pd/123646.html#box">收藏（7）</a></li>
+        	      </div>
+      <div class="entry x-line">
+        <div class="gpost-above mobile-no">        <div class="tips-box font16 mar-b20">人人都是产品经理社区推出产品经理培训课程，让BAT产品总监手把手带你学产品吧！ <a target="_blank" href="http://www.qidianla.com/">点此查看详情！</a></div>        </div>        <p><a href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/b28354b543375bfa94dabaeda722927f.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/b28354b543375bfa94dabaeda722927f.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/b28354b543375bfa94dabaeda722927f.png" alt="" width="690" style="display: block;"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/b28354b543375bfa94dabaeda722927f.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>目前主流应用程序大体分为三类：Web App、Hybrid App、 Native App。</p>
+<p><a href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/907f2ff9d9f3a8c202d3dd210a10c8b3.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/907f2ff9d9f3a8c202d3dd210a10c8b3.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/907f2ff9d9f3a8c202d3dd210a10c8b3.png" alt="" width="690" style="display: block;"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/907f2ff9d9f3a8c202d3dd210a10c8b3.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<h2 style="color: #e36c09"><strong>一、Web App、Hybrid App、Native App 纵向对比</strong></h2>
+<p>首先，我们来看看什么是 Web App、Hybrid App、 Native App。</p>
+<h3><strong>1. Web APP</strong></h3>
+<p>Web App 指采用Html5语言写出的App，不需要下载安装。类似于现在所说的轻应用。生存在浏览器中的应用，基本上可以说是触屏版的网页应用。</p>
+<p><strong>优点</strong></p>
+<p>（1）开发成本低，</p>
+<p>（2）更新快，</p>
+<p>（3）更新无需通知用户，不需要手动升级</p>
+<p>（4）能够跨多个平台和终端。</p>
+<p><strong>缺点：</strong></p>
+<p>（1）临时性的入口</p>
+<p>（2）无法获取系统级别的通知，提醒，动效等等</p>
+<p>（3）用户留存率低</p>
+<p>（4）设计受限制诸多</p>
+<p>（5）体验较差</p>
+<h3><strong>2. Hybrid App</strong></h3>
+<p>Hybrid APP指的是半原生半Web的混合类App。需要下载安装，看上去类似Native App，但只有很少的UI Web View，访问的内容是 Web 。</p>
+<p>例如Store里的新闻类APP，视频类APP普遍采取的是Native的框架，Web的内容。</p>
+<p>Hybrid App 极力去打造类似于Native App 的体验，但仍受限于技术，网速，等等很多因素。尚不完美。</p>
+<h3><strong>3. Native App</strong></h3>
+<p>Native APP 指的是原生程序，一般依托于操作系统，有很强的交互，是一个完整的App，可拓展性强。需要用户下载安装使用。</p>
+<p><strong>优点：</strong></p>
+<p>（1）打造完美的用户体验</p>
+<p>（2）性能稳定</p>
+<p>（3）操作速度快，上手流畅</p>
+<p>（4）访问本地资源（通讯录，相册）</p>
+<p>（5）设计出色的动效，转场，</p>
+<p>（6）拥有系统级别的贴心通知或提醒</p>
+<p>（7）用户留存率高</p>
+<p><strong>缺点：</strong></p>
+<p>（1）分发成本高（不同平台有不同的开发语言和界面适配）</p>
+<p>（2）维护成本高（例如一款App已更新至V5版本，但仍有用户在使用V2， V3， V4版本，需要更多的开发人员维护之前的版本）</p>
+<p>（3）更新缓慢，根据不同平台，提交–审核–上线 等等不同的流程，需要经过的流程较复杂</p>
+<h2 style="color: #e36c09"><strong>二、Web App、Hybrid App、Native App 技术特性</strong></h2>
+<p><a href="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/b0cf05c189c1814380709ec94ebd5a7b.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/b0cf05c189c1814380709ec94ebd5a7b.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/b0cf05c189c1814380709ec94ebd5a7b.png" alt="" width="690" style="display: block;"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/b0cf05c189c1814380709ec94ebd5a7b.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>由上图可见，Web APP 的开发基于Html5语言。而Html5语言本身又有着不可避免的局限性。正是这些局限性的存在，使得Web App在体验中要逊于Native App。</p>
+<h2 style="color: #e36c09"><strong>三、Web App受限制因素及设计要点</strong></h2>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/22c5ec51749b68d26f83fd67334713b9.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/22c5ec51749b68d26f83fd67334713b9.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/22c5ec51749b68d26f83fd67334713b9.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>相比Native App，Web App体验中受限于以上5个因素：网络环境，渲染性能，平台特性，受限于浏览器，系统限制。</p>
+<h3><strong>1. 网络环境，渲染性能</strong></h3>
+<p>Web APP对网络环境的依赖性较大，因为Web APP中的H5页面，当用户使用时，去服务器请求显示页面。如果此时用户恰巧遇到网速慢，网络不稳定等其他环境时，用户请求页面的效率大打折扣，在用户使 用中会出现不流畅，断断续续的不良感受。同时，H5技术自身渲染性能较弱：对复杂的图形样式，多样的动效，自定义字体等的支持性不强。</p>
+<p>因此，基于网络环境和渲染性能的影响，在设计H5页面时，应注意以下几点：</p>
+<ul>
+<li>简化不重要的动画/动效</li>
+<li>简化复杂的图形文字样式</li>
+<li>减少页面渲染的频率和次数</li>
+</ul>
+<p>从下图移动Web版 jing.fm和Native版jing对比后可以看出：Web APP首页去除冗余的功能，回溯本源，只给用户提供了jing.fm最初的本质需求——电台。既符合H5精简功能又达到了突出核心功能的设计原则。无疑给用户眼前一亮的气息。</p>
+<p>正如书中《瞬间之美》的一个核心观点：重要的并不是我们提供的信息量有多大，而是我们能否给他们提供真正需要的信息。</p>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/819633c03aeddd9f06db8d0844ebd10a.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/819633c03aeddd9f06db8d0844ebd10a.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a><br>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/819633c03aeddd9f06db8d0844ebd10a.png" alt="" width="690" /&gt;&lt;br /&gt;</noscript>
+<a href="http://image.woshipm.com/wp-files/2014/12/8c3c7a7b69c1f6f0794ba3348677c8eb.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/8c3c7a7b69c1f6f0794ba3348677c8eb.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/8c3c7a7b69c1f6f0794ba3348677c8eb.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>再如：百度最新推出的直达号，以良子健身为例：</p>
+<p>从Native App和Web App（百度直达号）的对比中，我们可以看出Native良子以九宫格的形式展现，且属于双重导航，功能入口太多；弊端是用户不知道聚焦在哪里，分散用户 的注意力。而Web版良子整合并减少了导航的入口，增强用户的专注度；界面清爽，整洁，很好地传达了良子本身的寓意——轻松、愉悦、休闲、舒适。</p>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/10f2af41d78c8857fb6ccaa0298ea2ac.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/10f2af41d78c8857fb6ccaa0298ea2ac.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/10f2af41d78c8857fb6ccaa0298ea2ac.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<h3><strong>2. 受限于浏览器</strong></h3>
+<p>通常Web App生存于浏览器里，宿主是浏览器。不同的浏览器自身的属性不尽相同，如：浏览器自带的手势，页面切换方式，链接跳转方式，版本兼容问题等等。</p>
+<p>例如下图：UC 浏览器和百度浏览器自身支持手势切换页面。手指从左侧滑动页面，返回至上一级。百度手机助手H5页面，顶部Banner支持手势左右滑动切换。这一操作与浏览器自身手势是冲突的。</p>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/00cf177720895d1c4a632bb0dbf0c6e1.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/00cf177720895d1c4a632bb0dbf0c6e1.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/00cf177720895d1c4a632bb0dbf0c6e1.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>再如，基于浏览器的Web APP在打开新的模块中的页面时，大多会新开窗口来展现。例如用户在使用购物类APP时，浏览每日精选模块时，每当打开新的商品时，默认新开一个窗口。这 样的优劣势显而易见：优势是能够记录用户浏览过的痕迹，浏览过的商品，以便后续横向对比；劣势是过多的页面容易使用户迷失在页面中。</p>
+<p>正如Google开发手册里描述：当用户打开一个Web App的时候，他们期待这个应用就像是一个单个应用，而不是一系列网页的结合。然而，什么情况下需要跳转页面，什么情况下在当前页面展示则需要设计师细致考量。</p>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/61ab279c057a758c9e64f407fec837e4.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/61ab279c057a758c9e64f407fec837e4.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/61ab279c057a758c9e64f407fec837e4.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>因此，Web App基于浏览器的特性，从设计角度应该遵循以下了两点：</p>
+<p>少用手势，避免与浏览器手势冲突。</p>
+<p>减少页面跳转次数，尽量在当前页面显示。</p>
+<h3><strong>3. 系统限制，平台特性</strong></h3>
+<p>由于Html5语言的技术特性，无法调用系统级别的权限。例如，系统级别的弹窗，系统级别的通知，地理信息，通讯录，语音等等。且与系统的兼容性也会存在一些问题。以上限制通常导致APP的拓展性不强，体验相对较差。例如百度地图：</p>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/da5f578f5e9545a801bcc43107969be8.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/da5f578f5e9545a801bcc43107969be8.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/da5f578f5e9545a801bcc43107969be8.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>Web版地图基于浏览器展现，因此，不能全屏显示地图，给用户的眼界带来局限感；相反，Native 版地图以全屏展现的形式，很好的拓展了用户的视野。整个界面干净简洁，首页去除冗余功能。</p>
+<p>在制定路线的体验中，如图：</p>
+<p><a href="http://image.woshipm.com/wp-files/2014/12/7621a599220225463b73e8c21b27ab0c.png" class="highslide-image" onclick="return hs.expand(this);"><img class="aligncenter" data-original="http://image.woshipm.com/wp-files/2014/12/7621a599220225463b73e8c21b27ab0c.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" alt="" width="690"></a></p>
+<noscript>&lt;img class="aligncenter" src="http://image.woshipm.com/wp-files/2014/12/7621a599220225463b73e8c21b27ab0c.png" alt="" width="690" /&gt;&lt;/p&gt;</noscript>
+<p>Web 版地图耗费的流量大于Native版，且不能预先缓存离线地图。对于地理位置的判断也是基于宿主浏览器，而非Web地图本身。获取路线后，对于更换到达方式，相对来说是不便利的。</p>
+<p>相反，Native 版地图，能够直接访问用户的地理位置，能够很清晰的为用户展现App规划的路线，并能轻松的查看多种路线方案，以便做出符合自己的最佳方案。对于切换公交，走路，自驾等路线方式也是只需一键操作。</p>
+<p>Native 版地图相对于 Web版地图增加更多情感化，易用的功能，如：能够记录用户的生活轨迹，记录用户的点滴足迹，能够享受躲避拥堵方案等。而Web版地图基于技术框架，很难实现以上功能，从用户体验角度来看，弱于Native版地图。</p>
+<h2 style="color: #e36c09"><strong>四、小结</strong></h2>
+<p>综述所述，在设计Web APP时，应当遵循以下几点：</p>
+<p><strong>1. 简化</strong></p>
+<ul>
+<li>简化不重要的动画/动效</li>
+<li>简化复杂的图形文字样式</li>
+</ul>
+<p><strong>2. 少用</strong></p>
+<ul>
+<li>少用手势，避免与浏览器手势冲突</li>
+<li>少用弹窗</li>
+</ul>
+<p><strong>3. 减少</strong></p>
+<ul>
+<li>减少页面内容</li>
+<li>减少控件数量</li>
+<li>减少页面跳转次数，尽量在当前页面显示</li>
+</ul>
+<p><strong>4. 增强</strong></p>
+<ul>
+<li>增强Loading时的趣味性</li>
+<li>增强页面主次关系</li>
+<li>增强控件复用性</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>原文地址：</strong><a href="http://mux.baidu.com/?p=6750" target="_blank">mux.baidu</a></p>
+<p><strong>作者：</strong>guowenwe</p>
+		<div class="ludouVA">
+			<div class="bd">
+				<div class="voteAalign">
+								<div class="option hxItem">
+									<div class="count" id="ludouVA_count_123646_0">10</div>
+									<div class="digg" id="ludouVA_title_123646_0" donetext="还行"><a onclick="ludouVA(this, 123646, 0);" href="javascript:void(0);">还行</a></div>
+								</div>
+								<div class="option hhkItem">
+									<div class="count" id="ludouVA_count_123646_1">44</div>
+										<div class="digg" id="ludouVA_title_123646_1" donetext="很好看"><a onclick="ludouVA(this, 123646, 1);" href="javascript:void(0);">很好看</a></div>
+								</div>
+								<div class="option bhkItem">
+									<div class="count" id="ludouVA_count_123646_2">0</div>
+									<div class="digg" id="ludouVA_title_123646_2" donetext="不好看"><a onclick="ludouVA(this, 123646, 2);" href="javascript:void(0);">不好看</a></div>
+								</div>
+					</div>
+			</div>
+		</div>                        <div class="ad870" id="box">        <a href="http://www.qidianla.com/" rel="nofollow" title="产品经理培训" target="_blank">
+        <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/detail-qidian.png" alt="产品经理培训">
+    </a>
+    </div>      </div>
+
+      <div class="SG-app float-r sc-box">
+        <a href="http://service.weibo.com/share/share.php?appkey=2775287854&title=%E8%81%8A%E8%81%8AWeb%20App%E3%80%81Hybrid%20App%E4%B8%8ENative%20App%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%B7%AE%E5%BC%82&url=http://www.woshipm.com/pd/123646.html&pic=http://image.woshipm.com/wp-files/2014/12/b28354b543375bfa94dabaeda722927f.png" class="SG-app-sina" target="_blank" title="分享到新浪微博">分享到微博</a><!--新浪-->
+        <div class="s-wechat">
+         <a href="javascript:;" class="SG-app-wechat" title="分享到微信朋友圈">分享到微信</a><!--微信-->
+         <div class="s-wechat-hover">
+           <h3 class="mar-b20">分享到微信朋友圈</h3>
+           <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/loading.gif" data-pid="123646">
+           <i class="t"></i>
+         </div>
+       </div>
+
+       <a class="wpfp-no-login" href="http://www.woshipm.com/pd/123646.html#" title="请登录后收藏文章" rel="nofollow">收藏</a>     </div>
+
+     <div class="detail-lable float-l mar-t35">
+       <ul><li><a href="http://www.woshipm.com/tag/hybrid-app" rel="tag">Hybrid App</a></li><li><a href="http://www.woshipm.com/tag/native-app" rel="tag">Native App</a></li><li><a href="http://www.woshipm.com/tag/web-app" rel="tag">Web App</a></li></ul>     </div>
+      <div class="clearfix"></div>
+ </div>
+</div><!--L-mainbox1-->
+<div class="news-l-box mar-b20">
+        <dl class="news-l-dl ">
+      <dt>
+        <a href="http://www.woshipm.com/pmd/159965.html" title="web app和native app的区别">
+                      <img width="180" height="134" data-original="http://image.woshipm.com/wp-files/2014/11/0a5e8ba6a9b51740dc7332ea9317acf9-180x134.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" class="attachment-thumbnail wp-post-image" alt="web app和native app的区别" title="web app和native app的区别">
+<noscript>&lt;img width="180" height="134" src="http://image.woshipm.com/wp-files/2014/11/0a5e8ba6a9b51740dc7332ea9317acf9-180x134.png" class="attachment-thumbnail wp-post-image" alt="web app和native app的区别" title="web app和native app的区别" /&gt;</noscript>                      </a>
+        </dt>
+        <dd><a href="http://www.woshipm.com/pmd/159965.html" title="web app和native app的区别">web app和native app的区别</a>
+        </dd>
+      </dl>
+          <dl class="news-l-dl ">
+      <dt>
+        <a href="http://www.woshipm.com/pd/135197.html" title="未来的热门！WEB APP与原生APP有哪些交互设计区别？">
+                        <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/0ed202701e074f465fe27cbdbc5b3380.png" alt="未来的热门！WEB APP与原生APP有哪些交互设计区别？">
+                      </a>
+        </dt>
+        <dd><a href="http://www.woshipm.com/pd/135197.html" title="未来的热门！WEB APP与原生APP有哪些交互设计区别？">未来的热门！WEB APP与原生APP有哪些交互设计区别？</a>
+        </dd>
+      </dl>
+          <dl class="news-l-dl ">
+      <dt>
+        <a href="http://www.woshipm.com/pd/134237.html" title="微信发布重量级接口，创业还需要开发 App 么？">
+                      <img width="180" height="134" data-original="http://image.woshipm.com/wp-files/2015/01/9f384543da72b2ad6912d4b319949046-180x134.jpg" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" class="attachment-thumbnail wp-post-image" alt="微信发布重量级接口，创业还需要开发 App 么？" title="微信发布重量级接口，创业还需要开发 App 么？">
+<noscript>&lt;img width="180" height="134" src="http://image.woshipm.com/wp-files/2015/01/9f384543da72b2ad6912d4b319949046-180x134.jpg" class="attachment-thumbnail wp-post-image" alt="微信发布重量级接口，创业还需要开发 App 么？" title="微信发布重量级接口，创业还需要开发 App 么？" /&gt;</noscript>                      </a>
+        </dt>
+        <dd><a href="http://www.woshipm.com/pd/134237.html" title="微信发布重量级接口，创业还需要开发 App 么？">微信发布重量级接口，创业还需要开发 App 么？</a>
+        </dd>
+      </dl>
+          <dl class="news-l-dl news-last">
+      <dt>
+        <a href="http://www.woshipm.com/ucd/133118.html" title="五款帮你在线搞定配色的Web App">
+                      <img width="180" height="134" data-original="http://image.woshipm.com/wp-files/2015/01/013-180x134.jpg" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" class="attachment-thumbnail wp-post-image" alt="五款帮你在线搞定配色的Web App" title="五款帮你在线搞定配色的Web App">
+<noscript>&lt;img width="180" height="134" src="http://image.woshipm.com/wp-files/2015/01/013-180x134.jpg" class="attachment-thumbnail wp-post-image" alt="五款帮你在线搞定配色的Web App" title="五款帮你在线搞定配色的Web App" /&gt;</noscript>                      </a>
+        </dt>
+        <dd><a href="http://www.woshipm.com/ucd/133118.html" title="五款帮你在线搞定配色的Web App">五款帮你在线搞定配色的Web App</a>
+        </dd>
+      </dl>
+                </div>
+  
+<div class="L-mainbox1 mar-b20">
+  <!-- You can start editing here. -->
+  <div id="comments">
+    <h3 class="zlzj-title">1 条评论</h3>
+  </div>
+  <div class="comments-loading"><i class="icon-spinner icon-spin icon-large"></i> 评论加载中 ...</div>
+  <ol class="commentlist">
+        <li class="comment even thread-even depth-1" id="comment-147189">
+        <div id="div-comment-147189" class="comment-body">
+                        <div class="comment-author vcard">
+                <img data-original="http://cn.gravatar.com/avatar/686d7b3b9f1c8cd24dd7b7186127828e?s=64" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" class="avatar avatar-64" height="64" width="64">
+<noscript>&lt;img src="http://cn.gravatar.com/avatar/686d7b3b9f1c8cd24dd7b7186127828e?s=64" class="avatar avatar-64" height="64" width="64"&gt;</noscript>                <cite class="fn">喳喳</cite><span class="says">说道：</span>
+            </div>
+            <div class="comment-meta commentmetadata">2015-07-24 20:28 </div>
+            <div class="floor">
+                    1#            </div>
+                        <p>666666666，太牛了</p>
+            <div class="reply">
+            <a class="comment-reply-link" href="http://www.woshipm.com/pd/123646.html?replytocom=147189#respond" onclick="return addComment.moveForm( &quot;div-comment-147189&quot;, &quot;147189&quot;, &quot;respond&quot;, &quot;123646&quot; )" aria-label="回复给喳喳">回复</a></div>
+        </div>
+    </li>  </ol>
+    <div class="page-nav comment-nav"></div>
+    <div class="clear"></div>
+								<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.woshipm.com/pd/123646.html#respond" style="display:none;">取消回复</a></small></h3>
+									<form action="http://www.woshipm.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																			<p class="comment-notes"><span id="email-notes">电子邮件地址不会被公开。</span> 必填项已用<span class="required">*</span>标注</p>							<p class="comment-form-author"><label for="author">姓名 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">电子邮件 <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required="true"></p>
+<div id="smilies">
+      <a href="javascript:grin(':arrow:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_arrow.gif" alt="arrow"></a>
+    <a href="javascript:grin(':grin:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_biggrin.gif" alt="grin"></a>
+    <a href="javascript:grin(':!:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_exclaim.gif" alt="!"></a>
+    <a href="javascript:grin(':?:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_question.gif" alt="?"></a>
+    <a href="javascript:grin(':cool:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_cool.gif" alt="cool"></a>
+    <a href="javascript:grin(':roll:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_rolleyes.gif" alt="roll"></a>
+    <a href="javascript:grin(':eek:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_eek.gif" alt="eek"></a>
+    <a href="javascript:grin(':evil:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_evil.gif" alt="evil"></a>
+    <a href="javascript:grin(':razz:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_razz.gif" alt="razz"></a>
+    <a href="javascript:grin(':mrgreen:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_mrgreen.gif" alt="mrgreen"></a>
+    <a href="javascript:grin(':smile:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_smile.gif" alt="smile"></a>
+    <a href="javascript:grin(':oops:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_redface.gif" alt="oops"></a>
+    <a href="javascript:grin(':lol:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_lol.gif" alt="lol"></a>
+    <a href="javascript:grin(':mad:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_mad.gif" alt="mad"></a>
+    <a href="javascript:grin(':twisted:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_twisted.gif" alt="twisted"></a>
+    <a href="javascript:grin(':wink:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_wink.gif" alt="wink"></a>
+    <a href="javascript:grin(':idea:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_idea.gif" alt="idea"></a>
+    <a href="javascript:grin(':cry:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_cry.gif" alt="cry"></a>
+    <a href="javascript:grin(':shock:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_surprised.gif" alt="shock"></a>
+    <a href="javascript:grin(':neutral:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_neutral.gif" alt="neutral"></a>
+    <a href="javascript:grin(':sad:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_sad.gif" alt="sad"></a>
+    <a href="javascript:grin(':???:')"><img class="lazy" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/grey.gif" data-original="http://www.woshipm.com/wp-content/themes/woshipm-2015/images/smilies/icon_confused.gif" alt="???"></a>
+  </div>												<p class="comment-form-comment">
+    <textarea required="" placeholder="评论一下又不会怀孕，汗！" id="comment" name="w" cols="45" rows="8" aria-required="true"></textarea><div id="loading" style="display: none;"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/wpspin_light.gif" style="vertical-align:middle;" alt="">正在提交，请稍后 ...</div><div id="error" style="display: none;">#</div><textarea name="comment" cols="60" rows="4" style="display:none"></textarea>
+</p>						<p class="form-allowed-tags" id="form-allowed-tags">您可以使用这些<abbr title="HyperText Markup Language">HTML</abbr>标签和属性： <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" class="submit" value="发表评论">
+							<input type="hidden" name="comment_post_ID" value="123646" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p><label for="comment_mail_notify"><input type="checkbox" name="comment_mail_notify" id="comment_mail_notify" value="comment_mail_notify" checked="checked">有人回复时邮件通知我</label></p>					</form>
+							</div><!-- #respond -->
+			  <div class="clearfix"></div>
+</div><!--L-mainbox1-->
+</div><!--left end-->
+   <div class="right">
+         <div class="R-mainbox1 mar-b20">
+     <div class="detail-writer-box">
+       <dl class="detail-writer-dl x-line">
+         <dd><a href="http://www.woshipm.com/author/youha"><img data-original="http://cn.gravatar.com/avatar/73e3f44c078834d2a499b7f716641dc7?s=80" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/73e3f44c078834d2a499b7f716641dc7" class="avatar avatar-80" height="80" width="80" style="display: block;">
+<noscript>&lt;img src="http://cn.gravatar.com/avatar/73e3f44c078834d2a499b7f716641dc7?s=80" class="avatar avatar-80" height="80" width="80"&gt;</noscript></a></dd>
+                  <dt><font class="green-tit float-l">运营小妹</font><h3><a href="http://www.woshipm.com/author/youha">yoyo</a></h3></dt>
+         <dt>我是互联网的搬运工。</dt>
+         <dt>
+                        <a target="_blank" href="http://weibo.com/youha163/profile?rightmod=1&wvr=5&mod=personnumber" class="writer-sina mar-r12"></a>
+                               </dt>
+       </dl>
+              <ul class="writer-ul mar-t5">
+                  <li><a target="_blank" href="http://www.woshipm.com/ucd/194228.html" rel="bookmark" title="团队设计沉淀：做好 Style Guide 不容易">团队设计沉淀：做好 Style Guide 不容易</a></li>
+                  <li><a target="_blank" href="http://www.woshipm.com/ucd/194008.html" rel="bookmark" title="值得你深入了解的交互设计五大支柱">值得你深入了解的交互设计五大支柱</a></li>
+                  <li><a target="_blank" href="http://www.woshipm.com/ucd/193996.html" rel="bookmark" title="深聊软件设计中最基础的控件元素">深聊软件设计中最基础的控件元素</a></li>
+                </ul>
+            </div>
+   </div>
+     <div class="R-ad mar-b20">
+  <a href="https://www.teambition.com/?utm_source=woshipm&utm_medium=banner" target="_blank">
+          <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/Teambition0707.gif" alt="" width="309" height="159">
+      </a>
+  </div>
+   <!-- From widget cache in 0.005 seconds (cwdgt-5bfcd28dfe7002ff064419b923819ecb) -->  <div class="R-ad mar-b20">
+  <a href="https://xn--ebr05n.com/?utm_source=woshipm" target="_blank">
+          <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/modao0707.jpg" alt="" width="309" height="159">
+      </a>
+  </div>
+   <!-- From widget cache in 0.005 seconds (cwdgt-52a662fa0317bffeec36b85a056a319b) -->  <div class="R-ad mar-b20">
+  <a href="https://www.jpush.cn/" target="_blank">
+          <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/0825jgts1.jpg" alt="" width="309" height="159">
+      </a>
+  </div>
+   <!-- From widget cache in 0.0052 seconds (cwdgt-3467227b45f50ab1ff8cb955cb5baeca) -->  <div class="R-ad mar-b20">
+  <a href="https://www.mockplus.cn/" target="_blank">
+          <img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/moke0709.gif" alt="" width="309" height="159">
+      </a>
+  </div>
+   <!-- From widget cache in 0.0052 seconds (cwdgt-dcf9d37ae5cbb0935ddea8572fc2a3bd) -->
+<!-- WordPress Popular Posts Plugin v3.2.2 [W] [weekly] [comments] [regular] -->
+<div id="wpp-3" class="R-mainbox1 mar-b20 popular-posts">
+<h3 class="zlzj-title"><span>热评文章</span></h3><div class="widget-content">
+<!-- cached -->
+
+<ul class="wpp-list item">
+<li class="thumb-li"><a class="post-thumb" href="http://www.woshipm.com/active/190037.html" title="【免费在线讲座】校招秘籍：我是如何拿到BAT产品经理offer的" target="_blank"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/190037-first_image-202x150.jpg" width="202" height="150" title="【免费在线讲座】校招秘籍：我是如何拿到BAT产品经理offer的" alt="【免费在线讲座】校招秘籍：我是如何拿到BAT产品经理offer的" class="wpp-thumbnail wpp_cached_thumb wpp_first_image"></a> <a href="http://www.woshipm.com/active/190037.html" title="【免费在线讲座】校招秘籍：我是如何拿到BAT产品经理offer的" class="wpp-post-title thumb-a" target="_blank">【免费在线讲座】校招秘籍：我是如何拿到BAT...</a>  <span class="post-stats"><span class="wpp-author"><a href="http://www.woshipm.com/author/qidian">起点学院</a></span></span> </li>
+<li class="thumb-li"><a class="post-thumb" href="http://www.woshipm.com/zhichang/195226.html" title="加入创业团队，你确定你真的想好了吗？" target="_blank"><img width="202" height="150" data-original="http://image.woshipm.com/wp-files/2015/08/chuangyetuandui-202x150.jpg" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/chuangyetuandui-202x150.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="chuangyetuandui" style="display: block;">
+<noscript>&lt;img width="202" height="150" src="http://image.woshipm.com/wp-files/2015/08/chuangyetuandui-202x150.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="chuangyetuandui" /&gt;</noscript></a> <a href="http://www.woshipm.com/zhichang/195226.html" title="加入创业团队，你确定你真的想好了吗？" class="wpp-post-title thumb-a" target="_blank">加入创业团队，你确定你真的想好了吗？</a>  <span class="post-stats"><span class="wpp-author"><a href="http://www.woshipm.com/author/woodchild">woodchild</a></span></span> </li>
+<li class="thumb-li"><a class="post-thumb" href="http://www.woshipm.com/it/195246.html" title="别和我提O2O，我只想多赚点钱" target="_blank"><img width="202" height="150" data-original="http://image.woshipm.com/wp-files/2015/08/bieti-202x150.jpg" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/bieti-202x150.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="bieti" style="display: block;">
+<noscript>&lt;img width="202" height="150" src="http://image.woshipm.com/wp-files/2015/08/bieti-202x150.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="bieti" /&gt;</noscript></a> <a href="http://www.woshipm.com/it/195246.html" title="别和我提O2O，我只想多赚点钱" class="wpp-post-title thumb-a" target="_blank">别和我提O2O，我只想多赚点钱</a>  <span class="post-stats"><span class="wpp-author"><a href="http://www.woshipm.com/author/hanfeng20052006">阿一</a></span></span> </li>
+<li class="thumb-li"><a class="post-thumb" href="http://www.woshipm.com/it/194631.html" title="看锤子的软件产品经理都做了些什么" target="_blank"><img width="202" height="150" data-original="http://image.woshipm.com/wp-files/2015/08/64965070201405191611081519295492219_007-202x150.jpg" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/64965070201405191611081519295492219_007-202x150.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="64965070201405191611081519295492219_007" style="display: block;">
+<noscript>&lt;img width="202" height="150" src="http://image.woshipm.com/wp-files/2015/08/64965070201405191611081519295492219_007-202x150.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="64965070201405191611081519295492219_007" /&gt;</noscript></a> <a href="http://www.woshipm.com/it/194631.html" title="看锤子的软件产品经理都做了些什么" class="wpp-post-title thumb-a" target="_blank">看锤子的软件产品经理都做了些什么</a>  <span class="post-stats"><span class="wpp-author"><a href="http://www.woshipm.com/author/drc">鄧</a></span></span> </li>
+<li class="thumb-li"><a class="post-thumb" href="http://www.woshipm.com/pmd/194363.html" title="产品经理必用的13款工具" target="_blank"><img width="202" height="150" data-original="http://image.woshipm.com/wp-files/2015/08/Axure-202x150.png" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/Axure-202x150.png" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="Axure" style="display: block;">
+<noscript>&lt;img width="202" height="150" src="http://image.woshipm.com/wp-files/2015/08/Axure-202x150.png" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="Axure" /&gt;</noscript></a> <a href="http://www.woshipm.com/pmd/194363.html" title="产品经理必用的13款工具" class="wpp-post-title thumb-a" target="_blank">产品经理必用的13款工具</a>  <span class="post-stats"><span class="wpp-author"><a href="http://www.woshipm.com/author/springfield">springfield</a></span></span> </li>
+
+</ul>
+<div class="clearfix"></div></div></div>
+<!-- End WordPress Popular Posts Plugin v3.2.2 -->
+ <!-- From widget cache in 0.0053 seconds (cwdgt-b63a5a4b00dcfd0fd4e52caede1bde69) --><div id="cm-tagcloud-2" class="R-mainbox1 mar-b20 widget-tagcloud"><h3 class="zlzj-title"><span><a href="" rel="nofollow">热门标签</a></span></h3><div class="widget-content"><div class="tagcloud"><a href="http://www.woshipm.com/tag/app" class="tag-link-626" title="437个话题" style="font-size: 16.260869565217pt;">app</a>
+<a href="http://www.woshipm.com/tag/facebook" class="tag-link-91" title="172个话题" style="font-size: 12.782608695652pt;">Facebook</a>
+<a href="http://www.woshipm.com/tag/google" class="tag-link-102" title="142个话题" style="font-size: 12.086956521739pt;">google</a>
+<a href="http://www.woshipm.com/tag/o2o" class="tag-link-237" title="448个话题" style="font-size: 16.347826086957pt;">O2O</a>
+<a href="http://www.woshipm.com/tag/%e4%ba%92%e8%81%94%e7%bd%91" class="tag-link-193" title="580个话题" style="font-size: 17.304347826087pt;">互联网</a>
+<a href="http://www.woshipm.com/tag/%e4%ba%a4%e4%ba%92%e8%ae%be%e8%ae%a1" class="tag-link-11" title="692个话题" style="font-size: 18pt;">交互设计</a>
+<a href="http://www.woshipm.com/tag/%e4%ba%a7%e5%93%81" class="tag-link-28" title="247个话题" style="font-size: 14.086956521739pt;">产品</a>
+<a href="http://www.woshipm.com/tag/pmd" class="tag-link-31" title="1,172个话题" style="font-size: 20pt;">产品经理</a>
+<a href="http://www.woshipm.com/tag/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1" class="tag-link-18" title="959个话题" style="font-size: 19.217391304348pt;">产品设计</a>
+<a href="http://www.woshipm.com/tag/%e4%ba%a7%e5%93%81%e8%bf%90%e8%90%a5" class="tag-link-41" title="395个话题" style="font-size: 15.913043478261pt;">产品运营</a>
+<a href="http://www.woshipm.com/tag/%e4%ba%ba%e4%ba%ba%e6%97%a9%e6%8a%a5" class="tag-link-2016" title="477个话题" style="font-size: 16.608695652174pt;">人人早报</a>
+<a href="http://www.woshipm.com/tag/venture" class="tag-link-496" title="642个话题" style="font-size: 17.739130434783pt;">创业</a>
+<a href="http://www.woshipm.com/tag/%e5%a4%a7%e6%95%b0%e6%8d%ae" class="tag-link-1263" title="169个话题" style="font-size: 12.695652173913pt;">大数据</a>
+<a href="http://www.woshipm.com/tag/%e5%be%ae%e4%bf%a1" class="tag-link-368" title="537个话题" style="font-size: 17.04347826087pt;">微信</a>
+<a href="http://www.woshipm.com/tag/%e6%8b%9b%e8%81%98" class="tag-link-591" title="139个话题" style="font-size: 12pt;">招聘</a>
+<a href="http://www.woshipm.com/tag/%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90" class="tag-link-122" title="179个话题" style="font-size: 12.95652173913pt;">数据分析</a>
+<a href="http://www.woshipm.com/tag/%e6%9c%aa%e6%9d%a5" class="tag-link-2127" title="191个话题" style="font-size: 13.130434782609pt;">未来</a>
+<a href="http://www.woshipm.com/tag/ue" class="tag-link-9" title="552个话题" style="font-size: 17.130434782609pt;">用户体验</a>
+<a href="http://www.woshipm.com/tag/%e7%94%a8%e6%88%b7%e7%a0%94%e7%a9%b6" class="tag-link-6" title="257个话题" style="font-size: 14.260869565217pt;">用户研究</a>
+<a href="http://www.woshipm.com/tag/%e7%94%b5%e5%95%86" class="tag-link-280" title="206个话题" style="font-size: 13.478260869565pt;">电商</a>
+<a href="http://www.woshipm.com/tag/%e7%94%b5%e5%ad%90%e5%95%86%e5%8a%a1" class="tag-link-248" title="181个话题" style="font-size: 12.95652173913pt;">电子商务</a>
+<a href="http://www.woshipm.com/tag/%e7%99%be%e5%ba%a6" class="tag-link-382" title="173个话题" style="font-size: 12.782608695652pt;">百度</a>
+<a href="http://www.woshipm.com/tag/%e7%a7%bb%e5%8a%a8%e4%ba%92%e8%81%94%e7%bd%91" class="tag-link-228" title="375个话题" style="font-size: 15.739130434783pt;">移动互联网</a>
+<a href="http://www.woshipm.com/tag/%e8%85%be%e8%ae%af" class="tag-link-388" title="291个话题" style="font-size: 14.782608695652pt;">腾讯</a>
+<a href="http://www.woshipm.com/tag/%e8%90%a5%e9%94%80" class="tag-link-251" title="189个话题" style="font-size: 13.130434782609pt;">营销</a>
+<a href="http://www.woshipm.com/tag/%e8%a7%86%e8%a7%89%e8%ae%be%e8%ae%a1" class="tag-link-8" title="180个话题" style="font-size: 12.95652173913pt;">视觉设计</a>
+<a href="http://www.woshipm.com/tag/%e8%ae%be%e8%ae%a1" class="tag-link-788" title="251个话题" style="font-size: 14.173913043478pt;">设计</a>
+<a href="http://www.woshipm.com/tag/%e8%ae%be%e8%ae%a1%e6%80%9d%e6%83%b3" class="tag-link-7" title="317个话题" style="font-size: 15.04347826087pt;">设计思想</a>
+<a href="http://www.woshipm.com/tag/%e8%bf%90%e8%90%a5" class="tag-link-267" title="169个话题" style="font-size: 12.695652173913pt;">运营</a>
+<a href="http://www.woshipm.com/tag/%e9%98%bf%e9%87%8c%e5%b7%b4%e5%b7%b4" class="tag-link-535" title="185个话题" style="font-size: 13.04347826087pt;">阿里巴巴</a></div>
+<div class="clearfix"></div></div></div> <!-- From widget cache in 0.0055 seconds (cwdgt-b50ae26318e798fac0ca13405198a7b1) -->   </div><!--right end-->
+</div><!--content-box end-->
+  <div class="footer">
+    
+    <div class="black-foot">
+      <div class="foot-box">
+        <div class="black-left">
+       <p style="margin-bottom:10px;"><a href="http://www.woshipm.com/pd/123646.html#" class="f-logo"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/f-logo.jpg"></a></p>
+       <a href="http://www.woshipm.com/about" class="a-font mar-r27">关于我们</a>
+       <a href="http://www.woshipm.com/contact-us" class="a-font">联系我们</a>
+       <a href="http://www.woshipm.com/adsense" class="a-font mar-r27">商务合作</a>
+       <a href="http://www.woshipm.com/disclaimer" class="a-font">免责声明</a>
+</div>
+<div class="black-center">人人都是产品经理社区（woshipm.com）是中国最大、最活跃、最具人气产品经理学习、交流、分享平台，微信公众号woshipm。成立5年以来举办线上活动500余场，线下活动数百场，覆盖北京、上海、广州、深圳、成都、杭州等30多个城市，在互联网业内得到了广泛关注和高度好评。社区目前拥有300万忠实粉丝，其中产品经理占比50万， 中国75%的产品经理都在这里。</div>
+<div class="black-right">
+      <ul>
+        <li class="mar-r12"><a href="http://www.zhaopins.com/"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/miaopin-logo1.png"></a></li>
+        <li><a href="http://www.qidianla.com/"><img src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/f_logo.png"></a></li>
+      </ul>
+</div>      </div><!--foot-box-->
+    </div><!--black-foot-->
+
+    <div class="foot-box copyright">
+      Copyright © 2015 WOSHIPM.COM - 人人都是产品经理 - 粤ICP备14037330号-1
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fb85cbcc76e92e3fd79be8f2fed0f504f' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=b85cbcc76e92e3fd79be8f2fed0f504f" target="_blank">网站统计</a>    </div><!--foot-box-->
+        
+<script type="text/javascript">
+	var pid = location.href.match(/\/(\d+)\.html/i);
+	if (pid && typeof(pid[1]) !== 'undefined')
+	{
+		setTimeout(function () {
+		$.get(location.href, {ajax_action: 'views', pid: pid[1]}, function (data) {
+						$('#pmViews').text('阅读（' + data + '）');
+					});
+				}, 500);
+	}
+	
+	$('.wpfp-no-login').click(function () {
+		alert('登录后即可收藏');
+	});
+</script>
+        <script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/script.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var comments_ajax_var = {"t1":"\u6b63\u5728\u63d0\u4ea4\uff0c\u8bf7\u7a0d\u540e ...","t2":"\u63d0\u4ea4\u6210\u529f","t3":"\u5237\u65b0\u9875\u9762\u524d\u4f60\u53ef\u4ee5","t4":"\u518d\u6b21\u7f16\u8f91","t5":"\u53d6\u6d88\u7f16\u8f91","top1":"100"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/comments-ajax.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/smilies.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/lazyload.min.js"></script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/comments-ajax-lazyload.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ludouva = {"ajaxurl":"http:\/\/www.woshipm.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./聊聊Web App、Hybrid App与Native App的设计差异   人人都是产品经理_files/ludou_voteA.js"></script>
+    <div class="returnTop" title="返回顶部" style="display: block;">
+      <span class="s"></span>
+      <span class="b"></span>
+      返回顶部"
+    </div>
+  </div>
+
+
+<div class="highslide-container" style="padding: 0px; border: none; margin: 0px; position: absolute; left: 0px; top: 0px; width: 100%; z-index: 1001; direction: ltr;"><a class="highslide-loading" title="点击关闭" href="javascript:;" style="position: absolute; top: -9999px; opacity: 0.75; z-index: 1;">正在加载中...</a><div style="display: none;"></div><div class="highslide-viewport highslide-viewport-size" style="padding: 0px; border: none; margin: 0px; visibility: hidden;"></div><table cellspacing="0" style="padding: 0px; border: none; margin: 0px; visibility: hidden; position: absolute; border-collapse: collapse; width: 0px;"><tbody style="padding: 0px; border: none; margin: 0px;"><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) 0px 0px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) 0px -40px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) -20px 0px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) 0px -80px;"></td><td class="rounded-white highslide-outline" style="padding: 0px; border: none; margin: 0px; position: relative;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) -20px -80px;"></td></tr><tr style="padding: 0px; border: none; margin: 0px; height: auto;"><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) 0px -20px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) 0px -60px;"></td><td style="padding: 0px; border: none; margin: 0px; line-height: 0; font-size: 0px; height: 20px; width: 20px; background: url(http://www.woshipm.com/wp-content/themes/woshipm-2015/images/highslide/outlines/rounded-white.png) -20px -20px;"></td></tr></tbody></table></div></body></html>

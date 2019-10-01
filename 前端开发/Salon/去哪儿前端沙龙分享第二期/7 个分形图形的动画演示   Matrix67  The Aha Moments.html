@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://www.matrix67.com/blog/archives/6231 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 个分形图形的动画演示 | Matrix67: The Aha Moments</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://www.matrix67.com/blog/xmlrpc.php">
+<script src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/jquery-2.1.0.min.js"></script>
+<script src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/old-theme.js" type="text/javascript"></script>
+<link rel="stylesheet" href="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/old-theme.css" type="text/css" media="all">
+<link rel="alternate" type="application/rss+xml" title="Matrix67: The Aha Moments » Feed" href="http://www.matrix67.com/blog/feed">
+<link rel="alternate" type="application/rss+xml" title="Matrix67: The Aha Moments » Comments Feed" href="http://www.matrix67.com/blog/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="Matrix67: The Aha Moments » 7 个分形图形的动画演示 Comments Feed" href="http://www.matrix67.com/blog/archives/6231/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.matrix67.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="matrix67-style-css" href="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/style.css" type="text/css" media="all">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.matrix67.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.matrix67.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="趣题：顶点数为多少的图有可能和自己互补" href="http://www.matrix67.com/blog/archives/6221">
+<link rel="next" title="趣题：能否把长方形分成奇数个全等的非长方形小块？" href="http://www.matrix67.com/blog/archives/6258">
+<meta name="generator" content="WordPress 4.2.4">
+<link rel="canonical" href="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/7 个分形图形的动画演示   Matrix67  The Aha Moments.html">
+<link rel="shortlink" href="http://www.matrix67.com/blog/?p=6231">
+</head>
+
+<body class="single single-post postid-6231 single-format-standard">
+<div id="page" class="hfeed site">
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<h1 class="site-title"><a href="http://www.matrix67.com/blog/" rel="home">Matrix67: The Aha Moments</a></h1>
+		</div>
+		<aside id="search" class="widget_search">
+			<form role="search" method="get" class="search-form" action="http://www.matrix67.com/blog/">
+	<label>
+		<span class="screen-reader-text"></span>
+		<input type="search" class="search-field" value="" name="s" title="">
+	</label>
+	<input type="submit" class="search-submit" value="">
+</form>		</aside>
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-6231" class="post-6231 post type-post status-publish format-standard hentry category-uncategorized tag-219 tag-332 tag-334 tag-254">
+	<header class="entry-header">
+		<h1 class="entry-title">7 个分形图形的动画演示</h1>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>最近沉迷于用 Mathematica 制作动画。受到<a href="http://i.imgur.com/gL0U75t.gifv">这个动画</a>的启发，我决定自己制作一些动画，来演示分形图形的进化过程。下面就是我这一周的成果。</p>
+<p><a href="http://en.wikipedia.org/wiki/Koch_snowflake">Koch curve</a>：</p>
+<p style="text-align:center"><img width="624" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/koch.gif"></p>
+<p><span id="more-6231"></span>&nbsp;</p>
+<p><a href="http://en.wikipedia.org/wiki/H-fractal">H-fractal</a>：</p>
+<p style="text-align:center"><img width="584" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/h.gif"></p>
+<p>&nbsp;</p>
+<p><a href="http://en.wikipedia.org/wiki/Sierpinski_triangle">Sierpinski triangle</a>：</p>
+<p style="text-align:center"><img width="550" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/sierpinski.gif"></p>
+<p>&nbsp;</p>
+<p><a href="http://en.wikipedia.org/wiki/Vicsek_fractal">Vicsek fractal</a>：</p>
+<p style="text-align:center"><img width="500" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/vicsek.gif"></p>
+<p>&nbsp;</p>
+<p><a href="http://en.wikipedia.org/wiki/L%C3%A9vy_C_curve">Lévy C curve</a>：</p>
+<p style="text-align:center"><img width="600" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/levy_c.gif"></p>
+<p>&nbsp;</p>
+<p><a href="http://en.wikipedia.org/wiki/Dragon_curve">Dragon curve</a>：</p>
+<p style="text-align:center"><img width="600" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/dragon.gif"></p>
+<p>&nbsp;</p>
+<p><a href="http://en.wikipedia.org/wiki/Pythagoras_tree_(fractal)">Pythagoras tree</a>：</p>
+<p style="text-align:center"><img width="600" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/py_tree.gif"></p>
+<p>&nbsp;</p>
+<p>本来只做了 7 个，但是 <a href="http://localhost-8080.com/">Localhost-8080</a> 说她还想要一个，于是专门为她定制了一大片雪花。</p>
+<p><a href="http://en.wikipedia.org/wiki/Hexaflake">Hexaflake</a>：</p>
+<p style="text-align:center"><img width="500" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/hexaflake.gif"></p>
+			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<div class="entry-meta">
+			<span class="posted-on"><a href="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/7 个分形图形的动画演示   Matrix67  The Aha Moments.html" rel="bookmark"><time class="entry-date published" datetime="2014-12-08T01:41:07+00:00">2014 年 12 月 8 日</time></a></span>			/ <a href="http://www.matrix67.com/blog/archives/tag/%e5%9b%be%e5%bd%a2" rel="tag">&nbsp;图形</a>, <a href="http://www.matrix67.com/blog/archives/tag/%e5%88%86%e5%bd%a2" rel="tag">分形</a>, <a href="http://www.matrix67.com/blog/archives/tag/%e5%8a%a8%e7%94%bb" rel="tag">动画</a>, <a href="http://www.matrix67.com/blog/archives/tag/%e9%80%92%e5%bd%92" rel="tag">递归</a>					</div><!-- .entry-meta -->
+
+	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+			<div id="rss"><a href="http://www.matrix67.com/blog/feed" target="_blank"></a></div>
+			<!--php matrix67_post_nav(); -->
+
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			49 条评论		</h2>
+
+		
+		<ul class="comment-list">
+				<li class="comment even thread-even depth-1" id="comment-528386">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/1ee0fb987aee29614e4a83e85a277646" srcset="http://1.gravatar.com/avatar/1ee0fb987aee29614e4a83e85a277646?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://localhost-8080.com/" rel="external nofollow" class="url">localhost</a></cite>			
+		<p>❄︎ 已阅 ❄︎</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-528386">
+			2014年12月8日 01:42</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=528386#respond" onclick="return addComment.moveForm( &quot;div-comment-528386&quot;, &quot;528386&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to localhost">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-528441">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/8c895cf7dcb5656670639cf843a3765e" srcset="http://2.gravatar.com/avatar/8c895cf7dcb5656670639cf843a3765e?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">han</cite>			
+		<p>Mathematica的代码可以公开一下么？觉得很有意思。谢谢！</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-528441">
+			2014年12月8日 02:06</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=528441#respond" onclick="return addComment.moveForm( &quot;div-comment-528441&quot;, &quot;528441&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to han">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-528924">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/1ecc2756f7fd88063a239c64ddd4b3be" srcset="http://1.gravatar.com/avatar/1ecc2756f7fd88063a239c64ddd4b3be?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">MC_Gee</cite>			
+		<p>看来制作动画花了M67不少时间呢:-)</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-528924">
+			2014年12月8日 06:58</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=528924#respond" onclick="return addComment.moveForm( &quot;div-comment-528924&quot;, &quot;528924&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to MC_Gee">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-529210">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/0ad22e977184fa23b40ebf256524bc66" srcset="http://0.gravatar.com/avatar/0ad22e977184fa23b40ebf256524bc66?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">Dr. What</cite>			
+		<p>来个3D的吧……那个什么什么正方体海绵来着的。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-529210">
+			2014年12月8日 09:59</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=529210#respond" onclick="return addComment.moveForm( &quot;div-comment-529210&quot;, &quot;529210&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to Dr. What">回复</a>		</div>
+	</div>
+<ul class="children">
+	<li class="comment even depth-2" id="comment-529273">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/0ad22e977184fa23b40ebf256524bc66" srcset="http://0.gravatar.com/avatar/0ad22e977184fa23b40ebf256524bc66?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">Dr. What</cite>			
+		<p>话说这种动图总让我想起来cyriak的鬼畜视频……</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-529273">
+			2014年12月8日 10:23</a>
+					</div>
+	</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-529487">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/f67b0f8e2201f0c116b9b1a4905cbbf6" srcset="http://0.gravatar.com/avatar/f67b0f8e2201f0c116b9b1a4905cbbf6?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">梁昊</cite>			
+		<p>请问您知道那个外链中分形动画中的残影效果是怎么做出来的么？</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-529487">
+			2014年12月8日 11:56</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=529487#respond" onclick="return addComment.moveForm( &quot;div-comment-529487&quot;, &quot;529487&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 梁昊">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-530509">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/3087d8c617236067b783a1747687b71f" srcset="http://0.gravatar.com/avatar/3087d8c617236067b783a1747687b71f?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">c02</cite>			
+		<p>分形的脑洞</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-530509">
+			2014年12月8日 21:01</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=530509#respond" onclick="return addComment.moveForm( &quot;div-comment-530509&quot;, &quot;530509&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to c02">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-532270">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/a50a584ebb72d6f34aac5c201ff6ed17" srcset="http://1.gravatar.com/avatar/a50a584ebb72d6f34aac5c201ff6ed17?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">A盘</cite>			
+		<p>要不要这么幸福啊</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-532270">
+			2014年12月9日 09:15</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=532270#respond" onclick="return addComment.moveForm( &quot;div-comment-532270&quot;, &quot;532270&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to A盘">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-532569">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/7412d230fe40667b4aacfaf898fc34cd" srcset="http://1.gravatar.com/avatar/7412d230fe40667b4aacfaf898fc34cd?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">zi</cite>			
+		<p>美到不行</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-532569">
+			2014年12月9日 11:04</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=532569#respond" onclick="return addComment.moveForm( &quot;div-comment-532569&quot;, &quot;532569&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to zi">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-534174">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/89a5a1313ea37a306c7fb1d6fb335178" srcset="http://2.gravatar.com/avatar/89a5a1313ea37a306c7fb1d6fb335178?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">kodokoja</cite>			
+		<p>太美了！看得停不下来！</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-534174">
+			2014年12月9日 22:30</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=534174#respond" onclick="return addComment.moveForm( &quot;div-comment-534174&quot;, &quot;534174&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to kodokoja">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-534319">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/447d9bd52dd156c1609c0d5c43899c3c" srcset="http://1.gravatar.com/avatar/447d9bd52dd156c1609c0d5c43899c3c?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://hi.baidu.com/simonkuang26" rel="external nofollow" class="url">K</a></cite>			
+		<p>好幸福哦！</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-534319">
+			2014年12月9日 23:43</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=534319#respond" onclick="return addComment.moveForm( &quot;div-comment-534319&quot;, &quot;534319&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to K">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-535485">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/33f0c897085aefdca6fdd25683be085c" srcset="http://0.gravatar.com/avatar/33f0c897085aefdca6fdd25683be085c?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">xycben</cite>			
+		<p>Dragon curve好像有人在跳街舞一样。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-535485">
+			2014年12月10日 08:44</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=535485#respond" onclick="return addComment.moveForm( &quot;div-comment-535485&quot;, &quot;535485&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to xycben">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-536913">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/bc168a9f6c09f547ac2cb9bbef5e7bff" srcset="http://2.gravatar.com/avatar/bc168a9f6c09f547ac2cb9bbef5e7bff?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">fjj</cite>			
+		<p>好，简直停不下来</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-536913">
+			2014年12月10日 20:59</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=536913#respond" onclick="return addComment.moveForm( &quot;div-comment-536913&quot;, &quot;536913&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to fjj">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-539451">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/6bfe2aae360daf38d32a13ce8ff41ed9" srcset="http://0.gravatar.com/avatar/6bfe2aae360daf38d32a13ce8ff41ed9?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">一番</cite>			
+		<p>看得好爽_(:3」∠)_</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-539451">
+			2014年12月11日 16:54</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=539451#respond" onclick="return addComment.moveForm( &quot;div-comment-539451&quot;, &quot;539451&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 一番">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-540078">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/aacbbb33cb51c92293fa103ac9e59f95" srcset="http://1.gravatar.com/avatar/aacbbb33cb51c92293fa103ac9e59f95?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">无形</cite>			
+		<p>Dragon curve那个最后像个julia集</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-540078">
+			2014年12月11日 23:21</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=540078#respond" onclick="return addComment.moveForm( &quot;div-comment-540078&quot;, &quot;540078&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 无形">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-541450">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/de4f5c0c94bdf051eac64f3bce21d2a9" srcset="http://1.gravatar.com/avatar/de4f5c0c94bdf051eac64f3bce21d2a9?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://haipz.com/" rel="external nofollow" class="url">海胖子</a></cite>			
+		<p>想学了T T</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-541450">
+			2014年12月12日 10:23</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=541450#respond" onclick="return addComment.moveForm( &quot;div-comment-541450&quot;, &quot;541450&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 海胖子">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-543154">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/0695797b6063143ff79efe5a98a74361" srcset="http://0.gravatar.com/avatar/0695797b6063143ff79efe5a98a74361?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://fmn.rrimg.com/fmn066/xiaozhan/20130217/2230/original_WBTP_523800021a72125f.gif" rel="external nofollow" class="url">AlephAlpha</a></cite>			
+		<p>以前我也做过一个龙曲线的动画。（图片点我昵称的链接）</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-543154">
+			2014年12月12日 22:36</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=543154#respond" onclick="return addComment.moveForm( &quot;div-comment-543154&quot;, &quot;543154&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to AlephAlpha">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-545136">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/af0bc92bcbb0a85244313d773b93f468" srcset="http://1.gravatar.com/avatar/af0bc92bcbb0a85244313d773b93f468?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://gaoxiang36999.blogcn.com/" rel="external nofollow" class="url">nalan</a></cite>			
+		<p>求教一个数学方面的最佳策略问题：http://gaoxiang36999.blogcn.com/articles/%E6%B2%99%E6%BC%A0%E5%8D%96%E6%B0%B4%E9%97%AE%E9%A2%98.html<br>
+Thx…这是有人给我提出的问题，至今没找到好的解决方案。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-545136">
+			2014年12月13日 11:44</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=545136#respond" onclick="return addComment.moveForm( &quot;div-comment-545136&quot;, &quot;545136&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to nalan">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-552270">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/5834cde01e25a70ae0948faea976d7f2" srcset="http://2.gravatar.com/avatar/5834cde01e25a70ae0948faea976d7f2?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">fanzhen</cite>			
+		<p>wow 好棒！</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-552270">
+			2014年12月16日 02:48</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=552270#respond" onclick="return addComment.moveForm( &quot;div-comment-552270&quot;, &quot;552270&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to fanzhen">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-556994">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/2606879c20e9203ea4030b3045386d38" srcset="http://2.gravatar.com/avatar/2606879c20e9203ea4030b3045386d38?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">cora</cite>			
+		<p>雪花好美~</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-556994">
+			2014年12月17日 18:14</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=556994#respond" onclick="return addComment.moveForm( &quot;div-comment-556994&quot;, &quot;556994&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to cora">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-572859">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/9137bf8f536cd94b9efa9ed44a695220" srcset="http://0.gravatar.com/avatar/9137bf8f536cd94b9efa9ed44a695220?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">Scorttarian</cite>			
+		<p>强迫症患者表示求迭代多几层</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-572859">
+			2014年12月22日 19:41</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=572859#respond" onclick="return addComment.moveForm( &quot;div-comment-572859&quot;, &quot;572859&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to Scorttarian">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-590812">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/78116b1bfd1353890ad835ad3173de35" srcset="http://1.gravatar.com/avatar/78116b1bfd1353890ad835ad3173de35?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://www.03dp.com/" rel="external nofollow" class="url">dogee</a></cite>			
+		<p>赞！博主有联系方式么，我这里看不到。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-590812">
+			2014年12月29日 09:31</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=590812#respond" onclick="return addComment.moveForm( &quot;div-comment-590812&quot;, &quot;590812&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to dogee">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-602470">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/4f24b0c5195ea91db34816b622fb730d" srcset="http://1.gravatar.com/avatar/4f24b0c5195ea91db34816b622fb730d?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">UFO_2046</cite>			
+		<p>递归终于找到用处了</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-602470">
+			2015年1月3日 08:37</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=602470#respond" onclick="return addComment.moveForm( &quot;div-comment-602470&quot;, &quot;602470&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to UFO_2046">回复</a>		</div>
+	</div>
+<ul class="children">
+	<li class="comment odd alt depth-2" id="comment-698900">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/92736b85c1d1a357b52d740f352431bd" srcset="http://0.gravatar.com/avatar/92736b85c1d1a357b52d740f352431bd?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">Richao</cite>			
+		<p>233</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-698900">
+			2015年2月4日 22:38</a>
+					</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even depth-2" id="comment-704262">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/a212e089420466fff584da23195037ea" srcset="http://1.gravatar.com/avatar/a212e089420466fff584da23195037ea?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">hongshu</cite>			
+		<p>不一定非要用递归的</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-704262">
+			2015年2月6日 14:53</a>
+					</div>
+	</div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-612892">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/754c4d05d454c557a86ee53b31a86026" srcset="http://1.gravatar.com/avatar/754c4d05d454c557a86ee53b31a86026?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">潇川</cite>			
+		<p>同求分享一下代码，我就知道export可以保存成gif动图，但我从没做出过这么炫这么美的图，求学习一下</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-612892">
+			2015年1月7日 13:05</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=612892#respond" onclick="return addComment.moveForm( &quot;div-comment-612892&quot;, &quot;612892&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 潇川">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-624048">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/e34c5791f924bcfbd8e43069e995c6ac" srcset="http://2.gravatar.com/avatar/e34c5791f924bcfbd8e43069e995c6ac?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">Lewis li</cite>			
+		<p>好棒！！！</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-624048">
+			2015年1月10日 13:07</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=624048#respond" onclick="return addComment.moveForm( &quot;div-comment-624048&quot;, &quot;624048&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to Lewis li">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-637660">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/9a39e8dceb8fce2e7591d5bdc68d7f4d" srcset="http://0.gravatar.com/avatar/9a39e8dceb8fce2e7591d5bdc68d7f4d?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://www.matrix67.com/blog/archives/6231#more-6231" rel="external nofollow" class="url">apollo</a></cite>			
+		<p>一直很疑惑，是数学这么美究竟是一种必然性还是一种纯粹的偶然。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-637660">
+			2015年1月14日 22:14</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=637660#respond" onclick="return addComment.moveForm( &quot;div-comment-637660&quot;, &quot;637660&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to apollo">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-659382">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/e55a4e92dfd7a53ff8f75cad4ad80d9d" srcset="http://2.gravatar.com/avatar/e55a4e92dfd7a53ff8f75cad4ad80d9d?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">fds</cite>			
+		<p>以前玩细胞自动机的时候好像弄出过类似的东西</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-659382">
+			2015年1月23日 10:18</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=659382#respond" onclick="return addComment.moveForm( &quot;div-comment-659382&quot;, &quot;659382&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to fds">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-661001">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/6067b06a1794ef861211ed0fe9450f01" srcset="http://0.gravatar.com/avatar/6067b06a1794ef861211ed0fe9450f01?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">tc</cite>			
+		<p>顶楼主！只需要几个变化就造出这么美丽的图形！好神奇！</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-661001">
+			2015年1月23日 20:28</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=661001#respond" onclick="return addComment.moveForm( &quot;div-comment-661001&quot;, &quot;661001&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to tc">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-668951">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/279c9acbf01612e3fce555572573422a" srcset="http://2.gravatar.com/avatar/279c9acbf01612e3fce555572573422a?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">NameKin</cite>			
+		<p>给龙纹图跪了。。。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-668951">
+			2015年1月25日 21:48</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=668951#respond" onclick="return addComment.moveForm( &quot;div-comment-668951&quot;, &quot;668951&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to NameKin">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-686417">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/926c1203e422efcf7704e1bff6b1696f" srcset="http://0.gravatar.com/avatar/926c1203e422efcf7704e1bff6b1696f?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">哈哈哈哈</cite>			
+		<p>大神可否提供下代码学习学习</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-686417">
+			2015年1月31日 22:24</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=686417#respond" onclick="return addComment.moveForm( &quot;div-comment-686417&quot;, &quot;686417&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 哈哈哈哈">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-714318">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/8795d2ad6e4115f05af45c21ec0b5515" srcset="http://2.gravatar.com/avatar/8795d2ad6e4115f05af45c21ec0b5515?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">anonymous</cite>			
+		<p>这些用什么做出来的？</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-714318">
+			2015年2月10日 20:29</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=714318#respond" onclick="return addComment.moveForm( &quot;div-comment-714318&quot;, &quot;714318&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to anonymous">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-722553">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/3bf90d5039c870c9b18d89b48640413e" srcset="http://0.gravatar.com/avatar/3bf90d5039c870c9b18d89b48640413e?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">ksmda</cite>			
+		<p>可以看看 beesandbombs.com 。</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-722553">
+			2015年2月15日 10:24</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=722553#respond" onclick="return addComment.moveForm( &quot;div-comment-722553&quot;, &quot;722553&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to ksmda">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-725552">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/89081eaa9951596df4914597cdbb1204" srcset="http://2.gravatar.com/avatar/89081eaa9951596df4914597cdbb1204?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://youthlin.com/" rel="external nofollow" class="url">Youth.霖</a></cite>			
+		<p>传说中的分形图形</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-725552">
+			2015年2月21日 22:00</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=725552#respond" onclick="return addComment.moveForm( &quot;div-comment-725552&quot;, &quot;725552&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to Youth.霖">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-727792">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/830cf4bf66c3a965542745990703e627" srcset="http://2.gravatar.com/avatar/830cf4bf66c3a965542745990703e627?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://xn--3kqt0j7rerqs/" rel="external nofollow" class="url">城南旧事</a></cite>			
+		<p>春季万物复苏，也是皮肤容易出现问题的时候，对于青春期的少男少女来说，一定要知晓一些祛 <a href="http://www.zoobocc.com/" rel="nofollow">祛痘小妙招</a> 痘的妙招：</p>
+<p>　　</p>
+<p>　　一、祛痘小妙招第一古方：莹肌如玉散。</p>
+<p>　　目前中药里面祛痘的古方中最火的 <a href="http://bbs.haiwainet.cn/thread-240515-1-1.html" rel="nofollow">男士祛痘小妙招让你远离痘痘</a> 要算莹肌如玉散了,，莹肌如玉散出自《普济方》，莹肌如玉散是以楮实、白芨、升麻、甘松、白芷、白丁香、砂仁、糯米末、皂角原料。将这些药材一起研磨成粉，混合均匀后，每天取少量涂脸，即可祛除痘痘，令颜面光洁如玉，因而得名莹肌如玉散。莹肌如玉散配方中不含绿豆，因为绿豆只清表面毒素，而不清皮下痘毒。而是采用了升麻等物，升麻不但能像绿豆一样有清热下火的效果,，还能升发痘毒，所 <a href="http://www.zoobocc.com/" rel="nofollow">祛痘产品</a> 以祛痘之后一般不复发。莹肌如</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-727792">
+			2015年2月26日 14:40</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=727792#respond" onclick="return addComment.moveForm( &quot;div-comment-727792&quot;, &quot;727792&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 城南旧事">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-727793">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/830cf4bf66c3a965542745990703e627" srcset="http://2.gravatar.com/avatar/830cf4bf66c3a965542745990703e627?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://xn--3kqt0j7rerqs/" rel="external nofollow" class="url">城南旧事</a></cite>			
+		<p>快速祛痘小妙招一： 保持良好的生活习惯</p>
+<p>　　1、注意脸部清洁。</p>
+<p>　　长痘痘很多时候都是因为油脂 <a href="http://www.zoobocc.com/" rel="nofollow">祛痘小妙招</a> 分泌过多堵塞毛孔造成的，因此做好清洁工作就十分必要啦！首先要选择弱酸性的肥皂或刺激性小的洗面奶，在低于体温的温水手中揉搓起泡后捧起来洗脸，轻柔的螺旋式按摩一分钟之 <a href="http://www.fzbbw.com/thread-379658-1-1.html" rel="nofollow">藏宝教你祛痘小妙招,快速简单祛痘</a> 后，即可用稍热（比体温高一点）的水冲洗干净了。每天洗2-3次，别忘了洗脸后上点化妆水，可以保湿并收缩毛孔哦,藏宝教你祛痘小妙招,快速简单祛痘！</p>
+<p>　　2、保证充足的睡眠。</p>
+<p>　　睡眠不足会导致肝功能下降，体内毒素无法及时排出，自然也就给了痘痘疯长的机会。想要消灭他们最好在十一 <a href="http://www.tianshi2.com/433.html" rel="nofollow">藏宝教你怎么祛痘</a> 点之前睡觉，实在不行也别熬过十二</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-727793">
+			2015年2月26日 14:40</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=727793#respond" onclick="return addComment.moveForm( &quot;div-comment-727793&quot;, &quot;727793&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 城南旧事">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-727794">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/830cf4bf66c3a965542745990703e627" srcset="http://2.gravatar.com/avatar/830cf4bf66c3a965542745990703e627?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://xn--3kqt0j7rerqs/" rel="external nofollow" class="url">城南旧事</a></cite>			
+		<p>祛痘 <a href="http://www.zoobocc.com/" rel="nofollow">祛痘</a> 前，双手一定要清洗干净，最好还要 <a href="http://www.zjsdzn.net/forum.php?mod=viewthread&tid=348252" rel="nofollow">祛痘8大食物内调祛痘见效快</a> 用化妆水擦一次。洗脸后，切记不能用收敛性的化妆水，否则会让毛孔收缩，更难挤出痘痘,祛痘8大食物内调祛痘见效快。青春棒一定要先用酒杯精或化 <a href="http://zhejiang.edeng.cn/diquxinxi/149272922.html" rel="nofollow">藏宝教你怎么祛痘</a> 妆水消毒干净,藏宝教你怎么祛痘。用青春棒挤痘痘时，所接触到范围较小，不会影响或伤害到痘痘旁边的正常皮肤。不过要记得挤完一颗之后要用纸巾擦干净再进攻下一颗痘痘。若是忘记清洁，挤出来的痘痘留在上面的脓蔓延到下一颗痘痘会很不卫生哦。<br>
+　　Step 2<br>
+　　挤痘痘前,妙招让你轻松祛痘，可以先在痘痘的地方擦柔软角质化妆水，这样挤起痘痘来更容易。而对付那些顽强的粉刺时，柔软性角质化妆水同样能起到软化作用，而且这样在挤的时候疼痛感会稍</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-727794">
+			2015年2月26日 14:41</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=727794#respond" onclick="return addComment.moveForm( &quot;div-comment-727794&quot;, &quot;727794&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 城南旧事">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-739774">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/830cf4bf66c3a965542745990703e627" srcset="http://2.gravatar.com/avatar/830cf4bf66c3a965542745990703e627?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://xn--3kqt0j7rerqs/" rel="external nofollow" class="url">城南旧事</a></cite>			
+		<p>快速祛痘小妙招一： 保持良好的生活习惯</p>
+<p>　　1、 <a href="http://www.zoobocc.com/" rel="nofollow">祛痘小妙招</a> 注意脸部清洁。</p>
+<p>　　长痘痘很多时候都是因为油脂分泌过多堵塞毛孔造成的，因此做好清洁工作就十分必要啦！首先要选择弱酸性的肥皂或刺激性小 <a href="http://112.124.21.214/read.php?tid=557644&ds=1" rel="nofollow">藏宝支招怎样快速祛痘 完美战胜痘痘</a> 的洗面奶，在低于体温的温水手中揉搓起泡后捧起来洗脸，轻柔的螺旋式按摩一分钟之后，即可用稍热（比体温高一点）的水冲洗干净了,藏宝支招怎样快速祛痘 完美战胜痘痘。每天洗2-3次，别忘了洗脸后上点化妆 <a href="http://bbs.youzhannet.com/thread-10684-1-1.html" rel="nofollow">藏宝教你这些祛痘妙招，轻松拥有嫩白美肌</a> 水，可以保湿并收缩毛孔哦！</p>
+<p>　　2、保证充足的睡眠。</p>
+<p>　　睡眠不足会导致肝功能下降，体内毒素无法及时排出，自然也就给了痘痘疯长的机会。想要消灭他们最好在十一点之前睡觉，实在不行也别熬过十</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-739774">
+			2015年3月2日 19:01</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=739774#respond" onclick="return addComment.moveForm( &quot;div-comment-739774&quot;, &quot;739774&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to 城南旧事">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-774952">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/621aed9d0d59229a3e22331fdc945438" srcset="http://0.gravatar.com/avatar/621aed9d0d59229a3e22331fdc945438?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">flz</cite>			
+		<p>哦，蕨菜是这样长大的啊</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-774952">
+			2015年3月20日 11:47</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=774952#respond" onclick="return addComment.moveForm( &quot;div-comment-774952&quot;, &quot;774952&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to flz">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-817653">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/3f52bf70d6cb7a8edd762c24422cdc32" srcset="http://0.gravatar.com/avatar/3f52bf70d6cb7a8edd762c24422cdc32?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://www.skywhat.com/" rel="external nofollow" class="url">skywhat</a></cite>			
+		<p>真棒，果壳也提到了你的这篇文章guokr.com/article/440233/?f=wx</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-817653">
+			2015年5月6日 09:04</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=817653#respond" onclick="return addComment.moveForm( &quot;div-comment-817653&quot;, &quot;817653&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to skywhat">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="comment-819257">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/7f68f31a7cef23906312de186ca7743d" srcset="http://1.gravatar.com/avatar/7f68f31a7cef23906312de186ca7743d?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn">jimchan</cite>			
+		<p>好漂亮~</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-819257">
+			2015年5月7日 14:02</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=819257#respond" onclick="return addComment.moveForm( &quot;div-comment-819257&quot;, &quot;819257&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to jimchan">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="comment-828765">
+	<img alt="" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/269b0f11392422d3266b6f4d7e3e2949" srcset="http://2.gravatar.com/avatar/269b0f11392422d3266b6f4d7e3e2949?s=96&amp;d=mm&amp;r=r 2x" class="avatar avatar-48 photo" height="48" width="48">	<div class="comment-text">
+		<cite class="fn"><a href="http://www.lopwon.com/" rel="external nofollow" class="url">Lopwon</a></cite>			
+		<p>赞！已分享，已署名……</p>
+	
+		<div class="comment-meta commentmetadata"><a href="http://www.matrix67.com/blog/archives/6231#comment-828765">
+			2015年5月15日 14:22</a>
+			 / <a class="comment-reply-link" href="http://www.matrix67.com/blog/archives/6231?replytocom=828765#respond" onclick="return addComment.moveForm( &quot;div-comment-828765&quot;, &quot;828765&quot;, &quot;respond&quot;, &quot;6231&quot; )" aria-label="Reply to Lopwon">回复</a>		</div>
+	</div>
+</li><!-- #comment-## -->
+		</ul><!-- .comment-list -->
+
+		
+	
+	
+							<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.matrix67.com/blog/archives/6231#respond" style="display:none;">取消回复</a></small></h3>
+									<form action="http://www.matrix67.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										<div class="comment-form-author"><label for="author" class="ir">昵称<span class="required">*</span></label><input id="author" name="author" type="text" value="" size="30"></div>
+<div class="comment-form-email"><label for="email" class="ir">邮箱<span class="required">*</span></label><input id="email" name="email" type="text" value="" size="30"></div>
+<div class="comment-form-url"><label for="url" class="ir">网站</label><input id="url" name="url" type="text" value="" size="30"></div>
+												<div class="comment-form-comment"><label for="comment">评论</label><div><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div></div>						
+						<p class="form-submit"><input name="submit" type="submit" id="submit_comment" class="submit" value="提交"> <input type="hidden" name="comment_post_ID" value="6231" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e86b1e7120"></p><p style="display: none;"></p>					<input type="hidden" id="ak_js" name="ak_js" value="1440930099777"></form>
+							</div><!-- #respond -->
+			
+</div><!-- #comments -->
+
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	<div id="secondary" class="widget-area" role="complementary">
+		
+	</div><!-- #secondary -->
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a>
+			<span class="sep"> | </span>
+			Designed by <a href="http://localhost-8080.com/" rel="designer" target="_blank">♥ Localhost</a>
+			<span class="sep"> | </span>
+			Creative Commons <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW" target="_blank">BY-NC-SA</a>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<div style="display:none"><script src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/stat.php" language="JavaScript" charset="gb2312" type="text/javascript">
+</script><script src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=349609" target="_blank" title="站长统计"><img border="0" hspace="0" vspace="0" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/pic.gif"></a></div>
+<script src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1093817-1";
+urchinTracker();
+</script>
+
+<script type="text/javascript" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/form.js"></script>
+<script type="text/javascript" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/navigation.js"></script>
+<script type="text/javascript" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/skip-link-focus-fix.js"></script>
+<script type="text/javascript" src="./7 个分形图形的动画演示   Matrix67  The Aha Moments_files/comment-reply.min.js"></script>
+
+
+
+<!-- Dynamic page generated in 0.258 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2015-08-30 18:20:33 -->
+
+<!-- super cache --></body></html>

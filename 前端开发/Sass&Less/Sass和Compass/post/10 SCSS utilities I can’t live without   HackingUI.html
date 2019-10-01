@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://hackingui.com/front-end/10-best-scss-utilities/ -->
+<html lang="en-US" itemscope="" itemtype="http://schema.org/WebSite" prefix="og: http://ogp.me/ns#" class="mti-inactive"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://hackingui.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="http://hackingui.com/favicon.ico" type="image/x-icon">
+<link href="http://hackingui.com/apple-touch-icon-60x60.png" rel="apple-touch-icon">
+<link href="http://hackingui.com/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+<link href="http://hackingui.com/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+<link href="http://hackingui.com/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+ 
+<meta property="fb:app_id" content="476581759125491">
+<link rel="stylesheet" type="text/css" media="all" href="./10 SCSS utilities I can’t live without   HackingUI_files/style.css">
+<link href="./10 SCSS utilities I can’t live without   HackingUI_files/css" rel="stylesheet" type="text/css">
+<title>10 SCSS utilities I can’t live without | HackingUI</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://hackingui.com/xmlrpc.php">
+ 
+<script async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/saved_resource"></script><script type="text/javascript" async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/roundtrip.js"></script><script type="text/javascript" async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/conversion_async.js"></script><script async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/fbds.js"></script><script async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/gtm.js"></script><script async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/analytics.js"></script><script type="text/javascript" async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/mixpanel-2-latest.min.js"></script><script type="text/javascript">
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+			for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+		mixpanel.init("753f7c35cc96fc548adeb5bf2af1ff38");
+	</script>
+ 
+ 
+<meta name="description" itemprop="description" content="Every front-end developer needs a battle-tested SCSS arsenal for starting new projects. Here are 10 of the best SCSS utilties I find myself using most often.">
+<link rel="canonical" href="./10 SCSS utilities I can’t live without   HackingUI_files/10 SCSS utilities I can’t live without   HackingUI.html">
+<meta property="og:title" content="10 SCSS utilities I can’t live without | HackingUI">
+<meta property="og:type" content="activity">
+<meta property="og:url" content="http://hackingui.com/front-end/10-best-scss-utilities/">
+<meta property="og:image" content="http://static.hackingui.com.s3.amazonaws.com/2014/01/scss-1024x517.jpg">
+<meta property="og:site_name" content="HackingUI">
+<meta property="fb:admins" content="20150724135255">
+<meta property="og:description" content="Every front-end developer needs a battle-tested SCSS arsenal  for starting new projects. Here are 10 of the best SCSS utilties I find myself using most often. You can download the entire file to use in your projects from the UtilityBelt Repository on Github.  Download “UtilityBelt.scss”  Triangle Sagi likes to call this the chupchick (don’t ask me why). It&#39;s great for adding a point to tooltips or some extra flair to a component, but can also be used as a standalone icon. To make this mixin really flexible, it accepts a parameter, which can be any of the four cardinal directions. /* * @include triangle within a pseudo element and add positioning properties (ie. top, left) * $direction: up, down, left, right */ @mixin triangle($direction, $size: 6px, $color: #222){ content: &#39;&#39;; display: block; position: absolute; height: 0; width: 0; @if ($direction == &#39;up&#39;){ border-bottom: $size solid $color; border-left: 1/2*$size solid transparent; border-right: 1/2*$size solid transparent; } @else">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@hackingUI">
+<meta name="twitter:description" content="Every front-end developer needs a battle-tested SCSS arsenal  for starting new projects. Here are 10 of the best SCSS utilties I find myself using most often. You can download the entire file to use in your projects from the UtilityBelt Repository on Github.  Download “UtilityBelt.scss”  Triangle Sagi likes to call this the chupchick (don’t ask me why). It&#39;s great for adding a point to tooltips or some extra flair to a component, but can also be used as a standalone icon. To make this mixin really flexible, it accepts a parameter, which can be any of the four cardinal directions. /* * @include triangle within a pseudo element and add positioning properties (ie. top, left) * $direction: up, down, left, right */ @mixin triangle($direction, $size: 6px, $color: #222){ content: &#39;&#39;; display: block; position: absolute; height: 0; width: 0; @if ($direction == &#39;up&#39;){ border-bottom: $size solid $color; border-left: 1/2*$size solid transparent; border-right: 1/2*$size solid transparent; } @else">
+<meta itemprop="image" content="http://static.hackingui.com.s3.amazonaws.com/2014/01/scss-1024x517.jpg">
+ 
+<link rel="alternate" type="application/rss+xml" title="HackingUI » 10 SCSS utilities I can’t live without Comments Feed" href="http://hackingui.com/front-end/10-best-scss-utilities/feed/">
+<link rel="stylesheet" id="css-wpautbox-tab-css" href="./10 SCSS utilities I can’t live without   HackingUI_files/jquery-a-tabs.css" type="text/css" media="all">
+<link rel="stylesheet" id="css-wpautbox-css" href="./10 SCSS utilities I can’t live without   HackingUI_files/wpautbox.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpautbox-elusive-icon-css" href="./10 SCSS utilities I can’t live without   HackingUI_files/elusive-webfont.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpautbox-elusive-icon-ie7-css" href="./10 SCSS utilities I can’t live without   HackingUI_files/elusive-webfont-ie7.css" type="text/css" media="all">
+<link rel="stylesheet" id="dlm-frontend-css" href="./10 SCSS utilities I can’t live without   HackingUI_files/frontend.css" type="text/css" media="all">
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/jquery.js"></script>
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/hackingui.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://hackingui.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://hackingui.com/wp-includes/wlwmanifest.xml">
+<link rel="prev" title="HUI Weekly #4 – The final frontier for user interfaces, best CodePens of 2013 and more" href="http://hackingui.com/newsletter/hacking-ui-weekly-4/">
+<link rel="next" title="HUI Site of the Week – Huge" href="http://hackingui.com/inspiration/hui-site-of-the-week-huge/">
+<meta name="generator" content="WordPress 4.0.1">
+<link rel="shortlink" href="http://hackingui.com/?p=565">
+<script type="text/javascript">
+	window._wp_rp_static_base_url = 'https://wprp.zemanta.com/static/';
+	window._wp_rp_wp_ajax_url = "http://hackingui.com/wp-admin/admin-ajax.php";
+	window._wp_rp_plugin_version = '3.5.3';
+	window._wp_rp_post_id = '565';
+	window._wp_rp_num_rel_posts = '3';
+	window._wp_rp_thumbnails = true;
+	window._wp_rp_post_title = '10+SCSS+utilities+I+can%E2%80%99t+live+without';
+	window._wp_rp_post_tags = ['code+%26amp%3B+front+end', 'size', 'project', 'live', 'cardin', 'solid', 'triangl', 'color', 'width', 'popup', 'arsen', 'download', 'flair', 'height', 'thea', 'top'];
+	window._wp_rp_promoted_content = true;
+</script>
+<script type="text/javascript" src="https://wprp.zemanta.com/static/js/loader.js?version=3.5.3" async=""></script>
+<link rel="stylesheet" href="http://hackingui.com/wp-content/plugins/wordpress-23-related-posts-plugin/static/themes/vertical.css?version=3.5.3">
+<style type="text/css"></style><script type="text/javascript" async="" src="./10 SCSS utilities I can’t live without   HackingUI_files/embed.js"></script><script async="" type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/count.js"></script><script async="true" type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/DAQGTTZ7ZJHGPOEP7OIKFP"></script><link class="__ADORIC__" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/lightboxreset.css" media="all"><link class="__ADORIC__" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/animate.min.css" media="all"><div style="width: 1px; height: 1px; display: inline; position: absolute;"><img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/out">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://d.adroll.com/cm/f/out">
+<img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/out(1)">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://d.adroll.com/cm/w/out">
+<img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/out(2)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/out(3)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/out(4)">
+<img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/out(5)">
+<img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=293864260811952&cd[segment_eid]=7P7AL3YHKZCR5FSK7EVDWR&ev=NoScript"><img height="1" width="1" style="border-style:none;" alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/saved_resource(1)">
+<img src="./10 SCSS utilities I can’t live without   HackingUI_files/seg" width="1" height="1">
+</div><style type="text/css" id="mti_stylesheet_095bcc17-f657-4e66-a2f4-50fb408640e4">.mti_hide_element{visibility:hidden;}</style><style type="text/css" id="mti_fontface_095bcc17-f657-4e66-a2f4-50fb408640e4">@font-face{
+font-family:"HelveticaNeueETW01-45Lt";
+src:url("http://fast.fonts.net/dv2/14/b8765d4b-d9a3-48b9-ac65-560e7517cf0e.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-46Lt";
+src:url("http://fast.fonts.net/dv2/14/0381d699-73ef-4558-9e61-38385c9fc5da.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-55Rg";
+src:url("http://fast.fonts.net/dv2/14/dc50c02f-3f77-4e75-b89c-e3f9bb4752e6.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-56It";
+src:url("http://fast.fonts.net/dv2/14/56e66f56-3016-44fd-84b2-8e40d9743656.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-65Md";
+src:url("http://fast.fonts.net/dv2/14/3e8a8b56-3cb0-4347-b670-eaaf06b76e9b.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-66Md";
+src:url("http://fast.fonts.net/dv2/14/7d8282ed-f0c0-49f6-99f1-95be8623cbf1.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-75Bd";
+src:url("http://fast.fonts.net/dv2/14/6dfa3ef5-ebc5-4d23-a631-b3d746c2ad39.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueETW01-76Bd";
+src:url("http://fast.fonts.net/dv2/14/15ed0ff2-0715-4aca-af0c-00840c3a4dd7.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-UltLt";
+src:url("http://fast.fonts.net/dv2/14/9baef9a5-e2af-4838-a3bc-da9d36c0bde8.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-UltLtI";
+src:url("http://fast.fonts.net/dv2/14/766b9874-e171-4f44-8d0b-92de006b3477.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-Thin";
+src:url("http://fast.fonts.net/dv2/14/aff68211-86bb-476d-882e-f7a3face144c.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-ThinIt";
+src:url("http://fast.fonts.net/dv2/14/259bda14-7f43-47ac-b7ac-2baa71dbc05f.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-45Ligh";
+src:url("http://fast.fonts.net/dv2/14/5a13f7d1-b615-418e-bc3a-525001b9a671.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-46Ligh";
+src:url("http://fast.fonts.net/dv2/14/09f28057-e848-49b3-94bf-bfaefff51b64.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-55Roma";
+src:url("http://fast.fonts.net/dv2/14/b0868b4c-234e-47d3-bc59-41ab9de3c0db.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-65Medi";
+src:url("http://fast.fonts.net/dv2/14/3600b37f-2bf1-45f3-be3a-03365f16d9cb.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-66Medi";
+src:url("http://fast.fonts.net/dv2/14/9a31d352-a4be-4540-a6f2-f4ea3ea77d94.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-75Bold";
+src:url("http://fast.fonts.net/dv2/14/3b303641-706e-4221-94c4-4fb491f4f8ef.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-76Bold";
+src:url("http://fast.fonts.net/dv2/14/d73c0f40-68f5-479e-9170-34a47382ed7a.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-85Heav";
+src:url("http://fast.fonts.net/dv2/14/350011f3-eda3-421c-b757-87d55f1e2c04.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-86Heav";
+src:url("http://fast.fonts.net/dv2/14/ce053fc5-0a39-47b7-ad48-5d47647548e0.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-95Blac";
+src:url("http://fast.fonts.net/dv2/14/fd05322c-bf43-4f8e-a129-24869b0942db.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BlackI";
+src:url("http://fast.fonts.net/dv2/14/62f33498-a56d-475f-9039-d773882f65a1.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BdOutl";
+src:url("http://fast.fonts.net/dv2/14/457c9ffb-6ebd-4e77-9544-23653eac2ad8.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-UltLtC_673371";
+src:url("http://fast.fonts.net/dv2/14/c80fb00b-f0d1-44c8-bf06-2661f3a9e4f8.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-UltLtC_673374";
+src:url("http://fast.fonts.net/dv2/14/66d2bea9-cb84-441e-a079-ee3e77352e54.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-ThinCn_673383";
+src:url("http://fast.fonts.net/dv2/14/07c0e1c6-6a3d-4c99-8311-b77b3223bbaa.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-ThinCn_673386";
+src:url("http://fast.fonts.net/dv2/14/e5079b64-7e40-4dc8-bd53-31b4d697a215.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-47LtCn_692686";
+src:url("http://fast.fonts.net/dv2/14/b37ddbd9-24db-4864-9095-5084a5679dd2.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-47LtCn_692689";
+src:url("http://fast.fonts.net/dv2/14/b09e4e25-a1e7-4c68-a112-a57e4565f615.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-57Cn";
+src:url("http://fast.fonts.net/dv2/14/88a238be-6477-4e71-bdc4-5a35bbf8d392.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-57CnOb";
+src:url("http://fast.fonts.net/dv2/14/eb54f9e6-898d-4205-be8b-89539819a228.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-67MdCn_692710";
+src:url("http://fast.fonts.net/dv2/14/423db818-6ba7-4789-995f-1f2d7f6018df.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-67MdCn_692713";
+src:url("http://fast.fonts.net/dv2/14/75fb6581-1d0d-4f94-8460-29bcb3fa864a.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-77BdCn_692725";
+src:url("http://fast.fonts.net/dv2/14/ff14b8ac-2eb4-4d50-b330-e3e0afb4d8f5.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-87HvCn_692734";
+src:url("http://fast.fonts.net/dv2/14/33bce52d-8cd5-4024-84b9-a04f74d3a9e1.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-87HvCn_692737";
+src:url("http://fast.fonts.net/dv2/14/c29a09e9-eb20-443b-a148-03491158ddbe.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-97Blac";
+src:url("http://fast.fonts.net/dv2/14/9e95d97f-1a0b-4c28-b5de-ee5667616bf4.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BlackC";
+src:url("http://fast.fonts.net/dv2/14/7adda180-719d-4314-80cd-ceb416c421e0.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-XBlkCn_710276";
+src:url("http://fast.fonts.net/dv2/14/2e5dc9d5-54cc-4027-b645-f59f5c150b32.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-XBlkCn_710279";
+src:url("http://fast.fonts.net/dv2/14/6d5202e8-880e-4dbd-823b-aac7881fba6f.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-UltLtE_710282";
+src:url("http://fast.fonts.net/dv2/14/bd07de57-c400-4552-bcec-7fbcc00c3164.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-UltLtE_710285";
+src:url("http://fast.fonts.net/dv2/14/d67c477c-3f73-45b6-bd0a-fc65b937593d.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-ThinEx_710288";
+src:url("http://fast.fonts.net/dv2/14/466590fe-6258-47b0-bf9e-e6f71e9e70d0.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-ThinEx_710291";
+src:url("http://fast.fonts.net/dv2/14/8cfdab5a-e21e-401f-a627-936a8e562b53.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-LtExt";
+src:url("http://fast.fonts.net/dv2/14/e172a1c0-6e7f-4f0f-a2c9-c221c7b990bb.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-LtExtO";
+src:url("http://fast.fonts.net/dv2/14/f55ba7bd-e563-4c80-8ca6-716d10c701f5.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01_53 Ext";
+src:url("http://fast.fonts.net/dv2/14/6e4905bc-1e85-46a9-b5c5-2305d641f394.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-ExtObl";
+src:url("http://fast.fonts.net/dv2/14/04e15623-9c67-4f8d-b08e-40dc0509492e.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-MdExt";
+src:url("http://fast.fonts.net/dv2/14/c16ca306-dc0e-4b1f-8c78-a860ea3d5e58.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-MdExtO";
+src:url("http://fast.fonts.net/dv2/14/69667dfe-3a85-4f39-bc96-150a2a29bd17.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BdExt";
+src:url("http://fast.fonts.net/dv2/14/58d18624-bc03-415b-b7a0-bdf9b4508a1c.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BdExtO";
+src:url("http://fast.fonts.net/dv2/14/9cbdae8e-61ad-4f3d-aded-3420c71afbdb.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-HvExt";
+src:url("http://fast.fonts.net/dv2/14/5560eecc-630a-4fdf-bab6-965e94eb8669.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-HvExtO";
+src:url("http://fast.fonts.net/dv2/14/427b8408-5741-4375-8d7d-1d9d8786b39a.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BlkExt_710327";
+src:url("http://fast.fonts.net/dv2/14/a0a5a937-c283-4b0e-bc3f-e99525be64d2.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW01-BlkExt_710330";
+src:url("http://fast.fonts.net/dv2/14/cb16da72-9006-43ad-816e-9155b3c860fd.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW31-Light";
+src:url("http://fast.fonts.net/dv2/14/4adf8e4c-16be-47ea-ad00-5e77bd388195.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW31-LightI";
+src:url("http://fast.fonts.net/dv2/14/c3f9cb00-ed19-45ff-a34a-888dc7fd211a.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Helvetica Neue W31";
+src:url("http://fast.fonts.net/dv2/14/c2c0b11f-81e9-4d53-a2c0-101f0d04118b.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW31-Italic";
+src:url("http://fast.fonts.net/dv2/14/ad8c9c59-e3c7-4220-a2a6-e267304d356c.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Helvetica Neue W31 Bold";
+src:url("http://fast.fonts.net/dv2/14/d219e0df-7486-460b-92c6-f633d60312c6.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW31-BoldIt";
+src:url("http://fast.fonts.net/dv2/14/63226831-f02a-467d-89b4-c2cbee1fb1ed.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW82-Light";
+src:url("http://fast.fonts.net/dv2/14/2b356ad0-2340-4869-9104-36b081d68bad.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"HelveticaNeueW82-Regula";
+src:url("http://fast.fonts.net/dv2/14/8da9806c-4bf5-49ca-bb20-122f80b82afc.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Helvetica Neue W82 Bold";
+src:url("http://fast.fonts.net/dv2/14/86745acb-1737-4eba-99f3-5d4f5ef45d22.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_29 C1289686";
+src:url("http://fast.fonts.net/dv2/14/7ff46428-3989-4cf3-afdd-5464c53b9c30.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_39 C1289693";
+src:url("http://fast.fonts.net/dv2/14/0e97b3a6-b78d-4434-81ed-cef570450fe0.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_49 Cm Light";
+src:url("http://fast.fonts.net/dv2/14/9df6eb77-b641-4fc0-bc4e-e832d770fc96.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_59 Comp";
+src:url("http://fast.fonts.net/dv2/14/c45ebbd2-f9c4-4b1d-9f60-6c4d85544fc1.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_69 C1289704";
+src:url("http://fast.fonts.net/dv2/14/ab3fdf96-5221-4913-b572-ade715b99137.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_79 C1289709";
+src:url("http://fast.fonts.net/dv2/14/e60ad497-643b-4bd2-87e7-2c611b627f01.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_89 Cm Heavy";
+src:url("http://fast.fonts.net/dv2/14/6cddbc90-54a7-4db3-a2d2-88c4cb72dd4a.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+@font-face{
+font-family:"Neue Helvetica W01_99 Cm Black";
+src:url("http://fast.fonts.net/dv2/14/7a4a5a2a-3adc-4ab2-8a39-87134034f3e4.woff2?d44f19a684109620e4841471a690e818e06fc34159c546768e52d7ebbf1af1df468cb9855ac3aebdae4b015a9a251079f9197782ce9688eadfd2eff050b8ccd51ea2f5bb3aa8c69147954c34a5f9aafd77&projectId=095bcc17-f657-4e66-a2f4-50fb408640e4") format('woff2');}
+</style><script class="__ADORIC__" type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/095bcc17-f657-4e66-a2f4-50fb408640e4.js"></script><link id="MonoTypeFontApiFontTracker" type="text/css" rel="stylesheet" href="./10 SCSS utilities I can’t live without   HackingUI_files/1.css"><link class="__ADORIC__1" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/opensanshebrew.css" media="all" style="display: none;"><link class="__ADORIC__1" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/opensanshebrewcondensed.css" media="all" style="display: none;"><link class="__ADORIC__1" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/notosanshebrew.css" media="all" style="display: none;"><link class="__ADORIC__1" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/css(1)" media="all" style="display: none;"><link class="__ADORIC__2" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/opensanshebrew.css" media="all" style="display: none;"><link class="__ADORIC__2" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/opensanshebrewcondensed.css" media="all" style="display: none;"><link class="__ADORIC__2" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/notosanshebrew.css" media="all" style="display: none;"><link class="__ADORIC__2" rel="stylesheet" type="text/css" href="./10 SCSS utilities I can’t live without   HackingUI_files/css(2)" media="all" style="display: none;"></head>
+<body class="single single-post postid-565 single-format-standard">
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-46289909-1', {'siteSpeedSampleRate': 100});
+    ga('send', 'pageview');
+</script> <nav class="nav js-nav ">
+<a class="nav-logo" href="http://hackingui.com/" rel="home" data-analytics-category="header" data-analytics-label="logo">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 180 960 200" enable-background="new 0 180 960 200" xml:space="preserve">
+<path fill="#ffffff" d="M718.2 379.2V180.8H960v198.5L718.2 379.2L718.2 379.2z M863.7 214.7h-29.4v80.1c0 10.7-2.2 18.3-6.7 22.8 c-4.5 4.5-10.3 6.7-17.4 6.7c-3.5 0-6.8-0.5-9.7-1.5c-3-1-5.5-2.7-7.5-5.1c-2.1-2.4-3.7-5.4-4.9-9.2c-1.2-3.8-1.8-8.3-1.8-13.7 v-80.1h-29.4v82.6c0 7.8 1 14.9 3.1 21.4c2.1 6.4 5.3 12 9.6 16.7c4.3 4.7 9.8 8.3 16.5 10.9c6.7 2.6 14.6 3.9 23.7 3.9 c9.3 0 17.3-1.3 24.1-3.8c6.8-2.6 12.4-6.2 16.8-10.8c4.4-4.7 7.7-10.2 9.8-16.8c2.1-6.5 3.2-13.7 3.2-21.5L863.7 214.7L863.7 214.7 L863.7 214.7z M921.4 214.7H892v132.8h29.4V214.7z M620.2 375.1c-6.3 0-12.2-0.5-17.8-1.5c-5.6-1-10.4-2.2-14.5-3.6l3.3-15.4 c3.6 1.4 8 2.6 13.2 3.7c5.2 1.1 10.6 1.6 16.2 1.6c10.6 0 18.3-2.1 23-6.3c4.7-4.2 7-10.8 7-19.9v-4.2c-1.5 1-4.5 2.3-8.9 3.9 c-4.4 1.6-9.6 2.4-15.5 2.4c-6 0-11.7-0.9-17-2.8c-5.3-1.9-10-4.8-13.9-8.8c-4-4-7.1-9-9.4-14.9c-2.3-6-3.5-13-3.5-21.3 c0-7.2 1.1-13.8 3.3-19.8c2.2-6 5.3-11.2 9.5-15.6c4.2-4.4 9.3-7.8 15.3-10.3c6-2.5 12.8-3.7 20.4-3.7c8.3 0 15.6 0.6 21.8 1.8 c6.2 1.2 11.4 2.3 15.7 3.3v88.1c0 15.2-4 26.2-11.9 33.1C648.4 371.7 636.4 375.1 620.2 375.1z M650.4 256.2 c-1.8-0.5-4.2-1-7.2-1.4c-3-0.4-7.1-0.7-12.2-0.7c-9.6 0-17 3.1-22.2 9.3c-5.2 6.2-7.8 14.4-7.8 24.7c0 5.7 0.7 10.6 2.2 14.6 c1.5 4.1 3.5 7.4 6 10.1c2.5 2.7 5.4 4.6 8.6 5.9c3.3 1.3 6.6 1.9 10.1 1.9c4.7 0 9.1-0.7 13.1-2c4-1.3 7.1-2.9 9.4-4.7L650.4 256.2 L650.4 256.2L650.4 256.2z M539.7 287.7c0-6.1-0.4-11.3-1.3-15.6c-0.8-4.3-2.2-7.8-4.1-10.4c-1.9-2.7-4.5-4.6-7.7-5.8 c-3.2-1.2-7.2-1.8-11.9-1.8c-1.9 0-3.9 0.1-6 0.2s-4 0.3-5.9 0.5c-1.9 0.2-3.5 0.4-5 0.7c-1.5 0.3-2.5 0.4-3.2 0.6v83.4h-17.9v-95.9 c4.1-1 9.5-2.1 16.3-3.2c6.8-1.1 14.6-1.7 23.4-1.7c7.9 0 14.5 1.1 19.8 3.3c5.3 2.2 9.4 5.3 12.6 9.3c3.1 4 5.3 8.8 6.6 14.3 c1.3 5.6 1.9 11.7 1.9 18.4v55.5h-17.9L539.7 287.7L539.7 287.7L539.7 287.7z M436.3 222.7c-3.2 0-5.9-1-8.2-3.1 c-2.2-2.1-3.4-4.9-3.4-8.5c0-3.5 1.1-6.4 3.4-8.5c2.2-2.1 5-3.1 8.2-3.1c3.2 0 5.9 1 8.2 3.1c2.2 2.1 3.4 4.9 3.4 8.5 c0 3.5-1.1 6.4-3.4 8.5C442.2 221.7 439.5 222.7 436.3 222.7z M387.4 309.8c4.2 5 8.1 10.1 11.8 15.2c3.7 5.1 6.9 9.9 9.4 14.3h-21 c-2.7-4.4-5.8-9-9.3-13.6c-3.5-4.6-7.2-9.1-11-13.3c-3.8-4.2-7.8-8.1-11.7-11.7c-4-3.5-7.8-6.5-11.3-8.9v47.5h-17.9V195l17.9-3v90 c3.1-3 6.5-6.4 10.2-10.1c3.7-3.7 7.4-7.4 11-11.2c3.6-3.8 7-7.4 10.2-10.9c3.2-3.5 6-6.6 8.3-9.2h21c-2.9 3.2-6.1 6.6-9.6 10.4 c-3.5 3.8-7 7.6-10.8 11.5c-3.7 3.9-7.5 7.7-11.2 11.6c-3.8 3.9-7.3 7.5-10.7 10.9c3.8 2.9 7.9 6.5 12.2 10.8 C379 300.2 383.2 304.8 387.4 309.8z M256.9 316.2c2.6 3.2 6 5.6 10.1 7.3c4.1 1.7 9.1 2.6 15 2.6c4.7 0 9-0.4 12.9-1.3 c3.8-0.9 6.9-1.8 9-2.8l2.5 14.8c-1 0.6-2.5 1.2-4.4 1.8c-1.9 0.6-4.1 1.1-6.5 1.5c-2.4 0.4-5 0.8-7.8 1.1c-2.8 0.3-5.4 0.5-8 0.5 c-8.1 0-15.2-1.3-21.2-3.8c-6.1-2.5-11.2-6.1-15.4-10.6s-7.3-10-9.3-16.2c-2.1-6.3-3.1-13.2-3.1-20.8s1.1-14.6 3.4-20.9 c2.2-6.3 5.4-11.8 9.5-16.4c4.1-4.6 9.1-8.2 15.1-10.8c6-2.6 12.6-3.9 19.9-3.9c4.5 0 9 0.4 13.5 1.1c4.5 0.8 8.8 2 12.9 3.6l-4 15 c-2.7-1.3-5.8-2.3-9.3-3c-3.5-0.8-7.3-1.1-11.2-1.1c-10 0-17.7 3.1-23 9.3c-5.3 6.2-8 15.3-8 27.2c0 5.3 0.6 10.2 1.8 14.6 C252.3 309.2 254.2 313 256.9 316.2z M190.1 339.9c-3.5 0.4-7.2 0.7-11.2 1c-4 0.3-8 0.5-12 0.5c-5.6 0-10.8-0.6-15.6-1.7 c-4.7-1.1-8.8-2.9-12.3-5.4c-3.5-2.5-6.1-5.7-8.1-9.8c-1.9-4.1-2.9-8.9-2.9-14.6c0-5.4 1.1-10.1 3.4-14.1s5.3-7.1 9.1-9.5 c3.8-2.4 8.3-4.2 13.5-5.3s10.5-1.7 16.1-1.7c1.8 0 3.7 0.1 5.6 0.3c1.9 0.2 3.7 0.4 5.5 0.8c1.7 0.3 3.2 0.6 4.5 0.9 c1.3 0.3 2.2 0.4 2.7 0.6v-4.9c0-2.9-0.3-5.8-1-8.6c-0.6-2.8-1.8-5.4-3.5-7.6c-1.7-2.2-3.9-4-6.8-5.3c-2.9-1.3-6.6-2-11.2-2 c-5.9 0-11.1 0.4-15.5 1.2c-4.4 0.8-7.7 1.7-9.9 2.6l-2.1-14.6c2.3-1 6.1-2 11.5-2.9c5.4-0.9 11.2-1.4 17.5-1.4 c7.2 0 13.2 0.9 18.2 2.8c4.9 1.8 8.9 4.4 11.9 7.8c3 3.4 5.2 7.3 6.4 12c1.3 4.6 1.9 9.7 1.9 15.3v61.7c-1.5 0.3-3.7 0.6-6.4 1 C196.7 339.2 193.5 339.6 190.1 339.9z M188.4 295.9c-1.3-0.6-3.4-1.2-6.2-1.6c-2.9-0.4-6.4-0.7-10.5-0.7c-2.7 0-5.5 0.2-8.6 0.6 s-5.8 1.2-8.3 2.4c-2.5 1.2-4.6 2.8-6.2 4.9s-2.5 4.8-2.5 8.3c0 6.3 2.1 10.7 6.1 13.2s9.7 3.7 16.7 3.7c4.2 0 8-0.1 11.2-0.3 c3.3-0.2 6-0.5 8.2-1L188.4 295.9L188.4 295.9z M83.8 278.6H18.6v60.8H0V207.7h18.6v54.9h65.2v-54.9h18.6v131.6H83.8L83.8 278.6 L83.8 278.6z M445.3 339.4h-17.9v-98.8h17.9V339.4z"></path>
+</svg>
+</a>
+<button class="nav-mobileButton js-nav-mobileButton" type="button"></button>
+<div class="nav-links js-nav-links">
+<a class="nav-link nav-link--twitter" href="http://www.twitter.com/hackingui" title="Follow Hacking UI on Twitter for the best designer and developer updates" data-analytics-category="header" data-analytics-label="twitter">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="26px" height="19px" viewBox="0 0 26.004 19.002" enable-background="new 0 0 26.004 19.002" xml:space="preserve">
+<path fill="#A7A7A7" d="M0,13.506c0,0,5.167,4.534,9.275,0.04c0,0-0.687-0.001-1.128-0.343c-0.402-0.312-0.561-0.968-0.561-0.968
+	s1.278-0.721,0.798-1.267c0,0-2.827-0.057-2.985-1.779L7.06,8.106c0,0-0.652,0.319-1.298-0.005c0,0-1.676-1.213-1.356-2.456
+	l1.4-0.144c0,0-2.429-1.743-1.751-3.081c0,0,0.234-1.152,8.27,4.233c0,0,1.417-5.089,4.032-6.208c0,0,0.436,0.211,0.436,0.435
+	c0,0,0.371-0.806,0.859-0.88c0,0,0.592,0.526,0.207,0.825c0,0,0.996-0.688,1.481-0.339c0,0-0.04,0.612-1.471,1.373
+	c0,0,3.714,0.208,5.01,5.207c0,0,1.611,0.584,3.123-0.397c0,0,0.125,0.738-2.222,1.783c0,0,0.218,0.355,2.186,0.085
+	c0,0-0.015,1.478-3.128,1.466c0,0-2.629,7.688-9.019,8.747C6.054,20.036,0.599,16.117,0,13.506z"></path>
+</svg>
+</a>
+<a class="nav-link nav-link--facebook" href="http://www.facebook.com/hackingui" title="Follow Hacking UI on Facebook for design and front end development updates" data-analytics-category="header" data-analytics-label="facebook">
+<svg width="10px" height="20px" viewBox="0 0 10 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+<g id="Artboard-2" transform="translate(-1352.000000, -28.000000)" fill="#FFFFFF">
+<g id="Group" transform="translate(1312.000000, 23.000000)">
+<g id="Fill-4-+-Fill-5-+-Fill-7" transform="translate(0.000000, 5.000000)">
+<path d="M49.1191389,0.600515465 L46.3221667,0.600515465 C46.3221667,0.600515465 41.9472639,0.149456642 41.9472639,4.63345664 L41.9472639,6.49145664 L40.1675764,6.49145664 L40.1388889,10.0202802 L41.9465556,10.0202802 L41.9465556,19.4114566 L46.0944375,19.4114566 L46.0944375,10.0202802 L48.4900208,10.0202802 L49.0729792,6.49216252 L46.0944375,6.49216252 L46.0944375,5.05663311 C46.0944375,5.05663311 45.8394375,3.84380958 47.3143056,3.84380958 L49.0904514,3.84380958 L49.1191389,0.600515465 L49.1191389,0.600515465 Z" id="Fill-4"></path>
+</g>
+</g>
+</g>
+</g>
+</svg> </a>
+<a class="nav-link" href="http://hackingui.com/about" title="About Hacking UI" data-analytics-category="header" data-analytics-label="about">About</a>
+<a class="nav-link" href="http://hackingui.com/best-design-resources" title="Design and Development Freebies" data-analytics-category="header" data-analytics-label="Freebies">Freebies</a>
+<a class="nav-link" href="http://hackingui.com/sign-up" title="Sign up for the best Design newsletter" data-analytics-category="header" data-analytics-label="Newsletter">Newsletter</a>
+</div>
+</nav>
+<script>
+        HackingUI.header.setSettings({
+            $header: $('.js-nav'),
+	        $btnMobile: $('.js-nav-mobileButton'),
+            $navLinks: $('.js-nav-links')
+        });
+    </script>
+<div class="featuredContent js-featuredContent u-table is-expanded">
+<div class="featuredContent-image" style="background-image: url(http://static.hackingui.com.s3.amazonaws.com/2014/01/scss-1980x1000.jpg);"></div>
+<div class="u-table-row featuredContent-row">
+<div class="u-table-cell u-vAlign--bottom">
+<div class="featuredContent-info container">
+<h1 class="post-title">
+10 SCSS utilities I can’t live without </h1>
+<div class="article-meta">
+<div class="author-thumbnail"><img alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/5d3494e83a0bb70a41980dc4e024cda6" class="avatar avatar-30 photo" height="30" width="30"></div>
+<span class="author-name"><a href="http://hackingui.com/author/david/" title="Posts by David Tintner" rel="author">David Tintner</a></span>
+<span class="category">in <a href="http://hackingui.com/category/front-end/" rel="category tag">Code &amp; Front End</a></span>
+</div>
+</div>
+</div>
+</div>
+</div> <div class="secondaryContent">
+<div class="post-body">
+<section class="post-content">
+<p>Every front-end developer needs a battle-tested SCSS arsenal &nbsp;for starting new projects.&nbsp;Here are 10 of the best SCSS utilties I find myself using most often. You can download the entire file to use in your projects from the&nbsp;<a title="Utility Belt SCSS utilities for starting any new project" href="https://github.com/dmtintner/UtilityBelt" target="_blank">UtilityBelt Repository</a>&nbsp;on Github.</p>
+<p><span id="more-565"></span><br>
+<a class="adoric_e6faf0bd hui-download-button" href="http://hackingui.com/front-end/10-best-scss-utilities/#" data-analytics-category="Adoric Popup" data-analytics-label="UtilityBelt-scss">Download “UtilityBelt.scss”</a><br>
+<br>
+<strong>Triangle</strong><br>
+Sagi likes to call this the chupchick (don’t ask me why). It’s great for adding a point to tooltips or some extra flair to a component, but can also be used as a standalone icon. To make this mixin really flexible, it accepts a parameter, which can be any of the four cardinal directions.</p>
+<pre><code>/* 
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: #222){
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0; width: 0;
+  @if ($direction == 'up'){
+    border-bottom: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'down'){
+    border-top: $size solid $color;
+    border-left: 1/2*$size solid transparent;
+    border-right: 1/2*$size solid transparent;
+  }
+  @else if ($direction == 'left'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-right: $size solid $color;
+  }
+  @else if ($direction == 'right'){
+    border-top: 1/2*$size solid transparent;
+    border-bottom: 1/2*$size solid transparent;
+    border-left: $size solid $color;
+  }
+}</code></pre>
+<div class="demonstration">
+<div class="triangle-content">A descriptive div that uses the triangle mixin to point to something.</div>
+</div>
+<p><strong>Currency</strong><br>
+I wanted to be able to display a currency symbol on any type of text element without breaking the design, but also to be able to switch it easily. Using this method I can set all elements that contain a price, or any other monetary amount with the class <code>currency</code>. Then on the body element of my site (or any parent element actually) &nbsp;I can dynamically set which country’s currency should be applied based on the user, the location, or any other external factors I’m taking into consideration. In the actual implementation I <code>@extend</code> a silent class, so that the output is not printed in the compiled CSS multiple times.</p>
+<pre><code>%currency {
+  position: relative;
+  &amp;:before {
+    content: '$';
+    position: relative;
+    left: 0;
+  }
+}
+.USD %currency:before { content: '$'; }
+.EUR %currency:before { content: '\20AC'; } // must escape the html entities for each currency symbol
+.ILS %currency:before { content: '\20AA'; }
+.GBP %currency:before { content: '\00A3'; }</code></pre>
+<p>Example Usage</p>
+<pre><code>&lt;body class="USD"&gt;    
+    &lt;span class="price"&gt;45&lt;/span&gt;
+&lt;/body&gt;
+
+.price {
+    @extend %currency;
+}</code></pre>
+<p><strong>Clear Fix</strong><br>
+There are many different ways to clear floats, but Nicholas Gallagher’s <a title="Nicholas Gallagher&#39;s clearfix hack" href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank">micro clearfix hack</a>&nbsp;seems to have become the most popular. However, I hate that it hijacks both of my pseudo elements, so I use a modified version that only requires the <code>:after</code>.&nbsp;Side note – multiple pseudo elements were proposed in the <a title="appending multiple pseudo elements" href="http://www.w3.org/TR/css3-content/#inserting0" target="_blank">CSS3 spec</a> as early as 2003, but unfortunately were never implemented.</p>
+<pre><code>%clearfix {
+  *zoom: 1;
+  &amp;:after {
+    content: '';
+    display: table;
+    line-height: 0;
+    clear: both;
+  }
+}</code></pre>
+<p><strong>Respond To</strong><br>
+This is a relatively simple media query mixin that uses the beautiful Sass <code>@content</code> directive and allows me to handle screen sizes inline with the rest of my style. This prevents a lot of debugging headaches down the road. I set the dimensions of my media variables once, and then never have to deal with them again.</p>
+<pre><code>// Breakpoints for each query
+$smartphone: 480px;
+$tabletPortrait: 767px;
+$tabletLandscape: 1024px;
+$desktop: 1174px;
+$largeScreen: 1400px;
+@mixin respondTo($media) {
+  @if $media == smartphone {
+    @media (max-width: $smartphone) { @content; }
+  }
+  @else if $media == tablet {
+    @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) { @content; }
+  }
+  @else if $media == smallScreen {
+    @media (max-width: $desktop) { @content; }
+  }
+  @else if $media == desktop {
+    @media (min-width: $desktop) { @content; }
+  }
+}</code></pre>
+<p>Example usage</p>
+<pre><code>div {
+    // regular styles here
+    @include respondTo(desktop) {
+        &amp;:hover { background: blue; } // only add the hover effect on desktop browsers
+    }
+}</code></pre>
+<p>I’ve seen a lot of interesting versions of more <a title="scss media query mixin" href="http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin" target="_blank">advanced options</a>, but this one has been more than enough for me so far.</p>
+<p><strong>Ghost Vertical Align</strong><br>
+This is a slightly modified version of a &nbsp;<a title="CSS Tricks centering in the unknown" href="http://css-tricks.com/centering-in-the-unknown/" target="_blank">CSS-Tricks method</a>&nbsp; for vertically centering elements with a dynamic size. Works beautifully and doesn’t require an extra, non-semantic HTML element.</p>
+<pre><code>@mixin ghostVerticalAlign(){
+  &amp;:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; width: .1px;
+  }
+}</code></pre>
+<p><strong>Truncate Text</strong><br>
+A simple method for ensuring that your text element doesn’t overflow its container and breaks nicely. It takes one parameter, which is any of the valid <code>text-overflow</code> values.</p>
+<pre><code>@mixin truncateText($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}</code></pre>
+<p><strong>Animation</strong><br>
+Compass CSS3 mixins don’t yet handle vendor prefixes for CSS animations, so this is a very simple mixin to simulate that functionality.</p>
+<pre><code>@mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
+  // There is a FF bug that requires all time values to have units, even 0 !!!!!!
+  -webkit-animation: $name $duration $iterations $timing-function $delay;
+  -moz-animation: $name $duration $iterations $timing-function $delay;
+  -o-animation: $name $duration $iterations $timing-function $delay;
+  animation: $name $duration $iterations $timing-function $delay;
+}</code></pre>
+<p><strong>Alerted</strong><br>
+We used this mixin on TapDog for showing the user when they have notifications. I’ve come to love it for all sorts of scenarios when you want to indicate to the user that they need to take action. It creates a smooth, pulsing circle next to any element that the mixin is applied to.</p>
+<pre><code>@mixin alerted() {
+  &amp;:before {
+    content: '';
+    position: absolute;
+    top: 6px; right: 6px;
+    height: 8px; width: 8px;
+    @include border-radius(10px);
+    background-color: gold;
+  }
+  &amp;:after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    height: 20px; width: 20px;
+    @include border-radius(20px);
+    background-color: transparent;
+    border: solid gold;
+    border-width: 2px; // animates
+    @include box-sizing(border-box);
+    @include animation($name: alertMe);
+  }
+}
+
+@keyframes alertMe {
+  // -vendor prefixes omitted for brevity, but should be used in production
+  from {
+    border-width: 3px;
+    border-color: gold;
+  }
+  to {
+    border-width: 0;
+    border-color: rgba(gold, .1);
+  }
+}</code></pre>
+<div class="demonstration"><button class="alerted" type="button">Notifications</button></div>
+<p><strong>Resize Sprite</strong><br>
+This mixin, borrowed from&nbsp;<a title="Compass SCSS resize sprite mixin" href="https://gist.github.com/darren131/3410875" target="_blank">Darren Wood</a>, allows you to create and load a single sprite image file and then downsize it using CSS. Perfect for working with 2X images and dealing with retina screens. (Requires compass CSS3 mixins in order to use <code>@include background-size()</code>).</p>
+<pre><code>@mixin resize-sprite($map, $sprite, $percent) {
+  $spritePath:    sprite-path($map);
+  $spriteWidth:   image-width($spritePath);
+  $spriteHeight:  image-height($spritePath);
+  $width: image-width(sprite-file($map, $sprite));
+  $height: image-height(sprite-file($map, $sprite));
+  @include background-size(ceil($spriteWidth * ($percent/100)) ceil($spriteHeight * ($percent/100)));
+  width: ceil($width*($percent/100));
+  height: ceil($height*($percent/100));
+  background-position: 0 floor(nth(sprite-position($map, $sprite), 2)  * ($percent/100) );
+}</code></pre>
+<p><strong>Tooltips</strong><br>
+These pure CSS tooltips are unbelievably easy to implement, still allow you to place the content in the HTML, and have surprisingly good browser support. They require the triangle mixin, and grab their text content from an HTML5 data-tooltip property on the element (although this can be changed to any other attribute you prefer, including the standard <code>title</code>).</p>
+<pre><code>@mixin hui_tooltip($content: attr(data-tooltip), $direction: top) {
+  position: relative;
+  &amp;:before, &amp;:after {
+    display: none;
+    z-index: 98;
+  }
+  &amp;:hover {
+    &amp;:after { // for text bubble
+      content: $content;
+      display: block;
+      position: absolute;
+      height: 12px; // (makes total height including padding 22px)
+      padding: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: #fff;
+      @include text-shadow(1px 1px #000);
+      background-color: #222;
+    }
+    @if ($direction == 'top'){
+      &amp;:before {
+        @include triangle(down, 6px, #222);
+        top: -6px; margin-top: 0;
+        left: 47%;
+      }
+      &amp;:after {
+        top: -28px;
+        left: 47%; margin-left: -20px;
+      }
+    }
+    @else if ($direction == 'bottom'){
+      &amp;:before {
+        @include triangle(up, 6px, #222);
+        top: auto; margin-top: 0;
+        bottom: -6px;
+        left: 47%;
+      }
+      &amp;:after {
+        bottom: -28px;
+        left: 47%; margin-left: -20px;
+      }
+    }
+  }
+}</code></pre>
+<div class="demonstration"><span class="tooltip-label" data-tooltip="A tooltip!">Hover over me</span></div>
+<p>I know there are a ton of other great utilities out there. What utilities do you use when you’re starting a new project?</p>
+<p>You can download utility-belt.scss here or view the&nbsp;<a title="Utility Belt SCSS utilities for starting any new project" href="https://github.com/dmtintner/UtilityBelt" target="_blank">UtilityBelt Repository</a>&nbsp;on Github.</p>
+<p>
+<a class="hui-download-button" href="https://s3.amazonaws.com/static.hackingui.com/dlm_uploads/2014/06/UtilityBelt.zip" rel="nofollow">Download “UtilityBelt.scss”</a></p>
+<div class="wp_rp_wrap  wp_rp_vertical" id="wp_rp_first"><div class="wp_rp_content"><h3 class="related_post_title">More UX &amp; Frontend goodness</h3><ul class="related_post wp_rp"><li data-position="0" data-poid="in-1106" data-post-type="none"><a href="http://hackingui.com/front-end/scss-tooltips/" class="wp_rp_thumbnail"><img src="./10 SCSS utilities I can’t live without   HackingUI_files/tootip-150x150.jpg" alt="Stop using Javascript Tooltips" width="150" height="150"></a><a href="http://hackingui.com/front-end/scss-tooltips/" class="wp_rp_title">Stop using Javascript Tooltips</a></li><li data-position="1" data-poid="in-7571" data-post-type="none"><a href="http://hackingui.com/front-end/event-tracking-using-google-analytics-or-mix-panel/" class="wp_rp_thumbnail"><img src="./10 SCSS utilities I can’t live without   HackingUI_files/tracking-optimized-150x150.jpg" alt="A 5-minute trick to start tracking events in Google Analytics or Mixpanel" width="150" height="150"></a><a href="http://hackingui.com/front-end/event-tracking-using-google-analytics-or-mix-panel/" class="wp_rp_title">A 5-minute trick to start tracking events in Google Analytics or Mixpanel</a></li><li data-position="2" data-poid="in-3181" data-post-type="none"><a href="http://hackingui.com/front-end/chrome-box-shadow-bug-that-crashed-our-site/" class="wp_rp_thumbnail"><img src="./10 SCSS utilities I can’t live without   HackingUI_files/chromebug_2-optimized-150x150.jpg" alt="The Chrome CSS Bug That Crashed Our Site" width="150" height="150"></a><a href="http://hackingui.com/front-end/chrome-box-shadow-bug-that-crashed-our-site/" class="wp_rp_title">The Chrome CSS Bug That Crashed Our Site</a></li></ul></div></div>
+<div id="wpautbox-below" class="a-tabs"><ul class="a-tab-nav a-tabs-mobile"><li><a href=""><span class="a-mobile-title"><i class="el-icon-user wpautbox-icon"></i> About the Author</span><span class="a-tab-mobile-menu entypo list"></span></a></li></ul><ul class="a-tab-nav a-tabs-responsive"><li class="a-tab-active a-tab-first"><a href="http://hackingui.com/front-end/10-best-scss-utilities/#wpautbox_about"><i class="el-icon-user wpautbox-icon"></i> About the Author</a></li><li class="a-tab-last"><a href="http://hackingui.com/front-end/10-best-scss-utilities/#wpautbox_latest-post"><i class="el-icon-list wpautbox-icon"></i> Latest Posts</a></li></ul><div class="a-tab-container"><div class="a-tab-content a-tab-active" id="wpautbox_about" style="position: relative; opacity: 1; height: auto;"><div class="wpautbox-avatar"><img alt="" src="./10 SCSS utilities I can’t live without   HackingUI_files/5d3494e83a0bb70a41980dc4e024cda6(1)" class="avatar avatar-80 photo" height="80" width="80"></div><div class="wpautbox-author-meta"><h4 class="wpautbox-name">About David Tintner</h4>David is the front-end developer half of HackingUI. He co-founded the startup Tapdog, which was eventually bought by SimilarWeb, where he now works as a senior front-end developer. When he's not cranking out lines of CSS or testing out new JavaScript frameworks, David enjoys going to concerts, reading and spending time with his family and friends. He is currently living in Tel Aviv, Israel, and considers himself fluent in Henglish.</div></div><div class="a-tab-content" id="wpautbox_latest-post"><ul class="wpautbox-post_type-list wpautbox-latest-post"><li><a href="http://hackingui.com/freebies/free-seo-and-data-icon-set/">Free SEO and Data Icon Set</a> <span class="wpautbox-date">- April 7, 2015</span></li><li><a href="http://hackingui.com/front-end/event-tracking-using-google-analytics-or-mix-panel/">A 5-minute trick to start tracking events in Google Analytics or Mixpanel</a> <span class="wpautbox-date">- March 10, 2015</span></li><li><a href="http://hackingui.com/front-end/chrome-box-shadow-bug-that-crashed-our-site/">The Chrome CSS Bug That Crashed Our Site</a> <span class="wpautbox-date">- January 4, 2015</span></li><li><a href="http://hackingui.com/freebies/free-development-icon-set/">Free Development Icon Set</a> <span class="wpautbox-date">- July 18, 2014</span></li><li><a href="http://hackingui.com/front-end/scss-tooltips/">Stop using Javascript Tooltips</a> <span class="wpautbox-date">- June 24, 2014</span></li><li><a href="http://hackingui.com/newsletter/hui-weekly-18-alfred-workflows-for-the-exceptionally-lazy-svg-vs-iconfont-apple-store-redesign-flickr-for-ios/">HUI Weekly #18- Alfred workflows for the exceptionally lazy, SVG vs iconfont, Apple Store redesign, flickr for iOS</a> <span class="wpautbox-date">- April 23, 2014</span></li><li><a href="http://hackingui.com/newsletter/hui-weekly-17/">HUI Weekly #17 – Crafting Carousel, Optimizing Photoshop, Freebie Line Icons</a> <span class="wpautbox-date">- April 18, 2014</span></li><li><a href="http://hackingui.com/newsletter/hui-weekly-16/">HUI Weekly #16 – Illustrator Layer Exporter, Chopsticks as Pixels, No-hassle Responsive Images</a> <span class="wpautbox-date">- April 11, 2014</span></li><li><a href="http://hackingui.com/newsletter/hui-weekly-15/">HUI Weekly #15 – BrowserQuest HTML5 Multiplayer Game, Macaw Is Out, Amazing April Fools Day UI Prank</a> <span class="wpautbox-date">- April 3, 2014</span></li><li><a href="http://hackingui.com/inspiration/hui-site-of-the-week-dataveyes/">HUI Site of the Week – Dataveyes</a> <span class="wpautbox-date">- March 28, 2014</span></li></ul></div><div class="wpautbox-socials wpautbox-socials-square wpautbox-socials-colored"><a href="http://twitter.com/dmtintner" target="_blank" class="wpautbox-twitter" data-toggle="tooltip" data-original-title="Twitter"><span class="wpautbox-icon wpautbox-icon-twitter"></span></a> <a href="https://www.linkedin.com/in/dmtintner" target="_blank" class="wpautbox-linkedin" data-toggle="tooltip" data-original-title="Linkedin"><span class="wpautbox-icon wpautbox-icon-linkedin"></span></a> <a href="https://github.com/dmtintner" target="_blank" class="wpautbox-spotify" data-toggle="tooltip" data-original-title="Spotify"><span class="wpautbox-icon wpautbox-icon-spotify"></span></a> </div></div></div> <div class="tag-list">
+<h4>Tags</h4>
+</div>
+<div class="date">Published on 22 Jan 2014</div>
+</section>
+<div id="disqus_thread"><iframe id="dsq-1" data-disqus-uid="1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./10 SCSS utilities I can’t live without   HackingUI_files/saved_resource.html" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 2392px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+</div>
+<aside class="sidebar site-side1">
+<h3 class="sidebar-title">Design Resources</h3>
+<ul class="sidebar-list">
+<li>
+<a class="huiLink" href="http://hackingui.com/sketch-design/why-i-moved-to-sketch/" data-analytics-category="featuredPost" data-analytics-label="how and why i moved to sketch">
+<div class="huiLink-image" style="background-image: url(https://s3.amazonaws.com/static.hackingui.com/images/how-i-moved-to-sketch4-500.jpg);"></div>
+<div class="huiLink-title">The Sketch Manual- Part 1: How &amp; why I moved to Sketch</div>
+<button class="huiLink-button btn btn--blueDark" type="button">Read it</button>
+</a>
+</li>
+<li>
+<a class="huiLink" href="http://hackingui.com/design/export-photoshop-layer-to-svg/" title="save Photoshop file as SVG" data-analytics-category="featuredPost" data-analytics-label="psd-svg">
+<div class="huiLink-image" style="background-image: url(https://s3.amazonaws.com/static.hackingui.com/images/psd-svg-script-thumbnail.jpg);"></div>
+<div class="huiLink-title">Photoshop Script:<br> Export Photoshop Layers to SVG</div>
+<button class="huiLink-button btn" type="button">Download it</button>
+</a>
+</li>
+<li>
+<a class="huiLink" href="http://hackingui.com/freebies/free-data-visualization-elements-ui-kit/" title="Free data visualization elements for Sketch" data-analytics-category="featuredPost" data-analytics-label="data-viz-elements">
+<div class="huiLink-image" style="background-image: url(https://s3.amazonaws.com/static.hackingui.com/2014/09/Data-Visualization-elements-200x140.jpg);"></div>
+<div class="huiLink-title">Data Visualization Elements Free UI Kit (Sketch format)</div>
+<button class="huiLink-button btn" type="button">Download it</button>
+</a>
+</li>
+<li>
+<a class="huiLink" href="http://hackingui.com/front-end/scss-tooltips/" title="CSS tooltips" data-analytics-category="resources" data-analytics-label="scss-tooltips">
+<div class="huiLink-image" style="background-image: url(https://s3.amazonaws.com/static.hackingui.com/2014/06/tootip-130x60.jpg);"></div>
+<div class="huiLink-title">Pure SCSS tooltips (no Javascript required)</div>
+<button class="huiLink-button btn btn--blueDark" type="button">Get it</button>
+</a>
+</li>
+<li>
+<a class="huiLink" href="./10 SCSS utilities I can’t live without   HackingUI_files/10 SCSS utilities I can’t live without   HackingUI.html" title="best Sass mixins code" data-analytics-category="resources" data-analytics-label="utility-belt">
+<div class="huiLink-image" style="background-image: url(https://s3.amazonaws.com/static.hackingui.com/images/utility-belt-thumbnail.png);"></div>
+<div class="huiLink-title">10 SCSS Utilities I Can't Live Without</div>
+<button class="huiLink-button btn btn--violet" type="button">Get it</button>
+</a>
+</li>
+</ul>
+<a class="btnHollow btnHollow--round btnHollow--black sidebar-btn" href="http://hackingui.com/best-design-resources">More Design Resources</a>
+</aside>
+<aside class="sidebar site-side2">
+<div class="subscribe">
+<h3 class="subscribe-title">Sign up for our newsletter &amp; get 100 icons + our PSD to SVG script</h3>
+<div class="subscribe-thumbnail"></div>
+<form action="http://hackingui.us3.list-manage2.com/subscribe/post?u=d160a2c823e9efe5940e1fdcc&id=72b6427305" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+<div class="mc-field-group">
+<input class="required subscribe-email" type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email">
+</div>
+<div class="subscribe-fieldGroup">
+<input type="submit" value="Subscribe" name="subscribe" class="subscribe-submit" data-analytics-category="subscribe" data-analytics-label="sidebar">
+<div class="subscribe-count">20K+</div>
+</div>
+</form>
+</div></aside> </div>
+<footer class="site-footer">
+<div class="logo-group">
+<a class="logo-tied-eye" href="http://hackingui.com/" title="HackingUI" rel="home">Hacking UI</a>
+<p class="tagline">Made w/ ♥ in TLV by a <a href="http://hackingui.com/about">UI designer</a> &amp; <a href="http://hackingui.com/about">Front End developer</a></p>
+</div>
+<div class="widgets container">
+<ul>
+<li id="nav_menu-4" class="widget widget_nav_menu"><h2 class="widgettitle">Favorite Posts</h2>
+<div class="menu-popular-posts-container"><ul id="menu-popular-posts" class="menu"><li id="menu-item-1881" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1881"><a href="http://hackingui.com/design/export-photoshop-layer-to-svg/">Free Photoshop script: Export your vector layers from PSD to SVG</a></li>
+<li id="menu-item-1891" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1891"><a href="http://hackingui.com/design/why-ios-notifications-are-ruining-my-marriage/">Why iOS notifications are ruining my marriage</a></li>
+<li id="menu-item-1901" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-1901"><a href="./10 SCSS utilities I can’t live without   HackingUI_files/10 SCSS utilities I can’t live without   HackingUI.html">10 SCSS utilities I can’t live without</a></li>
+<li id="menu-item-1911" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1911"><a href="http://hackingui.com/design/why-designers-should-not-code/">Why designers should stop coding (written by a unicorn)</a></li>
+<li id="menu-item-1921" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1921"><a href="http://hackingui.com/inspiration/meng-to-bridging-the-gap-between-design-and-code/">Meng To: Bridging the gap between design and code</a></li>
+</ul></div></li>
+<li id="nav_menu-3" class="widget widget_nav_menu"><h2 class="widgettitle">Categories</h2>
+<div class="menu-categories-container"><ul id="menu-categories" class="menu"><li id="menu-item-1961" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1961"><a href="http://hackingui.com/category/design/">Interaction Design</a></li>
+<li id="menu-item-1931" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1931"><a href="http://hackingui.com/category/front-end/">Code &amp; Front End</a></li>
+<li id="menu-item-1951" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1951"><a href="http://hackingui.com/category/inspiration/">Inspiration</a></li>
+<li id="menu-item-1941" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1941"><a href="http://hackingui.com/category/freebies/">Freebies</a></li>
+<li id="menu-item-1981" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1981"><a href="http://hackingui.com/category/sketch-design/">Sketch</a></li>
+<li id="menu-item-1971" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1971"><a href="http://hackingui.com/category/productivity-others/">Productivity &amp; Others</a></li>
+</ul></div></li>
+<li id="nav_menu-2" class="widget widget_nav_menu"><h2 class="widgettitle">More from HackingUI</h2>
+<div class="menu-pages-container"><ul id="menu-pages" class="menu"><li id="menu-item-2001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2001"><a href="http://hackingui.com/sign-up/">Get the Newsletter</a></li>
+<li id="menu-item-2011" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2011"><a href="http://hackingui.com/contact/">Contact Us</a></li>
+<li id="menu-item-2021" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2021"><a href="http://hackingui.com/about/">About Us</a></li>
+<li id="menu-item-7761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7761"><a href="http://hackingui.com/best-design-resources">Design and Front-end Resources</a></li>
+</ul></div></li>
+</ul>
+</div>
+</footer>
+<script>
+	HackingUI.featuredContent.setSettings({
+		$featuredContent: $('.js-featuredContent'),
+		$postLink: $('.js-post-link')
+	});
+	$(function(){
+        HackingUI.init();
+	    HackingUI.Analytics.init();
+        HackingUI.header.init(); // for mobile header
+        HackingUI.featuredContent.init();
+    });
+</script>
+<script type="text/javascript" async="" class="__ADORIC__" id="__ADORIC__SCRIPT__" src="./10 SCSS utilities I can’t live without   HackingUI_files/adoric.js"></script>
+<noscript>
+&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-T3C8NZ" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;
+</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-T3C8NZ');
+</script>
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/jquery.a-tab.js"></script>
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/jquery.wpautbox.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.0.1","language":""},"disqusIdentifier":"565 http:\/\/hackingui.com\/?p=565","disqusShortname":"hackingui","disqusTitle":"10 SCSS utilities I can\u2019t live without","disqusUrl":"http:\/\/hackingui.com\/front-end\/10-best-scss-utilities\/","options":{"manualSync":false},"postId":"565"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/disqus.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"hackingui"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./10 SCSS utilities I can’t live without   HackingUI_files/count(1).js"></script>
+
+<script type="text/javascript" id="">(function(){var a=window._fbq||(window._fbq=[]);if(!a.loaded){var b=document.createElement("script");b.async=!0;b.src="//connect.facebook.net/en_US/fbds.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);a.loaded=!0}a.push(["addPixelId","609729382476743"])})();window._fbq=window._fbq||[];window._fbq.push(["track","PixelInitialized",{}]);</script>
+<noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=609729382476743&amp;amp;ev=PixelInitialized"&gt;</noscript><script type="text/javascript" id="" src="http://platform.twitter.com/oct.js"></script><div class="__ADORIC__1 __ADORIC__" style="position: fixed; width: 100%; height: 100%; left: 0px; top: 0px; z-index: 900000000008; -webkit-transition: opacity 1s; transition: opacity 1s; display: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0.843137);"></div><div class="__ADORIC__1 __ADORIC__ animated bounceInDown" style="position: fixed; outline: none; overflow: hidden; z-index: 900000000009; display: none;">                            <div tabindex="1" style="position: relative; width: 600px; height: 550px; -webkit-transform: scale(1); border-radius: 5.5px; transform: scale(1); outline: none; background-color: rgba(240, 240, 240, 0);"><div class="element-form adoric_element" style="left: 121px; top: 291px; position: absolute; width: 360px; height: 49px; z-index: 13;" data-width="344" data-height="49" data-left="138" data-top="369"><form class="inner-element" action="https://adoric.com/mailchimp/subscribe" autocomplete="on" style="margin: 0px;" data-optin="true" data-file-name="Iconsmind - Free Halloween Icons.zip" data-send_welcome="true" _lpchecked="1" data-upload-file="https://s3.amazonaws.com/static.hackingui.com/dlm_uploads/2014/06/UtilityBelt.zip" data-thankyou-message="&lt;b&gt;Thank You for downloading!&lt;/b&gt;"><input name="list" type="hidden" required="true" value="72b6427305" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0px 10px; font-size: 16px; margin-bottom: 10px; font-family: &#39;Open Sans&#39;; border: 0px solid white; box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; -webkit-box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; opacity: 1; border-radius: 1.47px; text-align: center; background-color: rgb(255, 255, 255);"><input name="apiKey" type="hidden" required="true" value="bfe89fde27315ed329efe0f8a70ccba9-us3" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0px 10px; font-size: 16px; margin-bottom: 10px; font-family: &#39;Open Sans&#39;; border: 0px solid white; box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; -webkit-box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; opacity: 1; border-radius: 1.47px; text-align: center; background-color: rgb(255, 255, 255);"><input name="Enter your email" placeholder="Enter your email" required="required" type="email" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0px 10px; font-size: 16px; margin-bottom: 10px; font-family: &#39;Open Sans&#39;; border: 0px solid white; box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; -webkit-box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; opacity: 1; border-radius: 1.47px; text-align: center; background-color: rgb(255, 255, 255);" data-tag="EMAIL"><input type="submit" value="DOWNLOAD" class="element-form-input" style="left: 82.5px; top: 49px; width: 193px; padding: 0px 10px; height: 42px; position: absolute; font-size: 18px; border: 0px solid white; color: rgb(255, 255, 255); opacity: 1; border-radius: 3.36px; font-family: Ubuntu, sans-serif; background-color: rgb(76, 175, 80);" data-width="271" data-height="42" data-left="44" data-top="49"></form></div><div class="element-shape closeLightboxButton adoric_element" style="left: 573px; top: 128px; position: absolute; width: 14px; height: 14px; z-index: 3; cursor: pointer;" data-width="20" data-height="20" data-left="550" data-top="33"><!--?xml version="1.0" encoding="utf-8"?--><!-- Generated by IcoMoon.io --><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 500 500" class="inner-element" preserveAspectRatio="none" style="width: 100%; height: 100%; opacity: 1; border-radius: 0px;" onmouseover="                        var color = this.getAttribute(&#39;data-hover-color&#39;);                        this.setAttribute(&#39;data-base-color&#39;, this.querySelector(&#39;path&#39;).style.fill);                        Array.prototype.forEach.call(this.querySelectorAll(&#39;path&#39;), function(element) {                            element.style.fill = color;                        });                    " onmouseout="                        var color = this.getAttribute(&#39;data-base-color&#39;);                        Array.prototype.forEach.call(this.querySelectorAll(&#39;path&#39;), function(element) {                            element.style.fill = color;                        });                    " data-hover-color="rgb(121, 132, 140)" data-base-color="rgb(132, 139, 145)"><path d="M492.561 457.327c9.729 9.758 9.729 25.516 0 35.304-4.879 4.919-11.268 7.359-17.677 7.359s-12.788-2.439-17.637-7.359l-207.327-207.317-207.287 207.327c-4.879 4.919-11.278 7.359-17.677 7.359s-12.798-2.439-17.637-7.359c-9.758-9.829-9.758-25.596 0-35.304l207.287-207.367-207.287-207.337c-9.758-9.789-9.758-25.556 0-35.314s25.596-9.758 35.354 0l207.247 207.327 207.287-207.327c9.758-9.758 25.596-9.758 35.344 0 9.769 9.758 9.769 25.516 0 35.314l-207.277 207.327 207.287 207.367z" fill="#282e33" style="fill: rgb(132, 139, 145);"></path></svg></div><div class="element-text selected adoric_element" style="left: 2px; top: 150px; width: 598px; height: auto; min-height: 25px; position: absolute; z-index: 4; text-align: center;" data-width="566" data-height="42" data-left="33" data-top="230"><span class="inner-element" style="color: rgb(59, 59, 59); font-style: normal; font-variant: normal; font-weight: normal; font-size: 36px; line-height: normal; font-family: Lato, sans-serif; white-space: pre-wrap; word-wrap: break-word; text-align: center; opacity: 1; text-transform: uppercase;" contenteditable="false">Download this Resource</span></div><div class="element-text selected adoric_element" style="left: 57px; top: 217px; width: 487px; height: auto; min-height: 25px; position: absolute; z-index: 5; text-align: center;" data-width="433" data-height="46" data-left="111" data-top="291"><span class="inner-element" style="color: rgb(107, 107, 107); font-style: normal; font-variant: normal; font-weight: normal; font-size: 18px; line-height: normal; font-family: Lato, sans-serif; white-space: pre-wrap; word-wrap: break-word; text-align: center; opacity: 1;" contenteditable="false">and get notified on more resources from HackingUI <br>as they get published</span></div><div class="element-text selected adoric_element" style="left: 81px; top: 423px; width: 439px; height: auto; min-height: 25px; position: absolute; z-index: 6; text-align: center;" data-width="358" data-height="40" data-left="159" data-top="489"><span class="inner-element" style="color: rgb(158, 158, 158); font-style: normal; font-variant: normal; font-weight: normal; font-size: 13px; line-height: normal; font-family: Arial; white-space: pre-wrap; word-wrap: break-word; text-align: center; opacity: 1;" contenteditable="false">By downloading this resource you are subscribing to HackingUI emails.<br></span></div><div class="element-shape selected adoric_element" style="left: 1.1875px; top: 117px; position: absolute; width: 599px; height: 351px; z-index: 1;" data-width="599" data-height="370" data-left="1" data-top="117"><!--?xml version="1.0" encoding="utf-8"?--><!-- Generated by IcoMoon.io --><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 500 500" class="inner-element" preserveAspectRatio="none" style="width: 100%; height: 100%; opacity: 1; border-radius: 7.4px;"><g id="icomoon-ignore"></g><path d="M0 0h500v500h-500v-500z" fill="#c9e849" style="fill: rgb(247, 247, 247);"></path></svg></div></div></div><a class="__ADORIC__1 __ADORIC__" target="_blank" href="https://adoric.com/" style="display: none; position: fixed; padding: 10px; z-index: 900000000009; border: 0px; border-radius: 5px; color: rgb(255, 255, 255); font-size: 14px; font-family: &#39;Open Sans&#39;, sans-serif; bottom: 10px; left: 10px; text-decoration: none; background: rgba(0, 0, 0, 0.901961);">Powered by Adoric</a><div class="__ADORIC__2 __ADORIC__" style="position: fixed; width: 100%; height: 100%; left: 0px; top: 0px; z-index: 900000000008; -webkit-transition: opacity 1s; transition: opacity 1s; display: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0.843137);"></div><div class="__ADORIC__2 __ADORIC__ animated bounceInDown" style="position: fixed; outline: none; overflow: hidden; z-index: 900000000009; display: none;">                            <div tabindex="1" style="position: relative; width: 600px; height: 550px; -webkit-transform: scale(1); border-radius: 5.5px; transform: scale(1); outline: none; background-color: rgba(240, 240, 240, 0);"><div class="element-form adoric_element" style="left: 77px; top: 201px; position: absolute; width: 447px; height: 49px; z-index: 13;" data-width="435" data-height="49" data-left="91" data-top="203"><form class="inner-element" action="https://adoric.com/mailchimp/subscribe" autocomplete="on" style="margin: 0px;" data-optin="true" data-file-name="Iconsmind - Free Halloween Icons.zip" data-send_welcome="true" _lpchecked="1" data-upload-file="http://static.hackingui.com.s3.amazonaws.com/2015/07/50-Free-Flat-Icon-Pack.zip" data-thankyou-message="&lt;b&gt;Thank You for downloading!&lt;/b&gt;"><input name="list" type="hidden" required="true" value="72b6427305" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0px 10px; font-size: 16px; margin-bottom: 10px; font-family: &#39;Open Sans&#39;; border: 0px solid white; box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; -webkit-box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; opacity: 1; border-radius: 1.47px; text-align: center; background-color: rgb(255, 255, 255);"><input name="apiKey" type="hidden" required="true" value="bfe89fde27315ed329efe0f8a70ccba9-us3" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0px 10px; font-size: 16px; margin-bottom: 10px; font-family: &#39;Open Sans&#39;; border: 0px solid white; box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; -webkit-box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; opacity: 1; border-radius: 1.47px; text-align: center; background-color: rgb(255, 255, 255);"><input name="Enter your email" placeholder="Enter your email" required="required" type="email" style="width: 100%; box-sizing: border-box; height: 40px; padding: 0px 10px; font-size: 16px; margin-bottom: 10px; font-family: &#39;Open Sans&#39;; border: 0px solid white; box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; -webkit-box-shadow: rgb(169, 169, 169) 0px 0px 0px 1px inset; opacity: 1; border-radius: 1.47px; text-align: center; background-color: rgb(255, 255, 255);" data-tag="EMAIL"><input type="submit" value="DOWNLOAD" class="element-form-input" style="left: 121px; top: 49px; width: 205px; padding: 0px 10px; height: 40px; position: absolute; font-size: 16px; border: 0px solid white; color: rgb(255, 255, 255); opacity: 1; border-radius: 3.6px; font-family: Ubuntu, sans-serif; background-color: rgb(76, 175, 80);" data-width="205" data-height="34" data-left="104" data-top="55"></form></div><div class="element-shape closeLightboxButton adoric_element" style="left: 542px; top: 71px; position: absolute; width: 9px; height: 9px; z-index: 3; cursor: pointer;" data-width="14" data-height="14" data-left="521" data-top="152"><!--?xml version="1.0" encoding="utf-8"?--><!-- Generated by IcoMoon.io --><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 500 500" class="inner-element" preserveAspectRatio="none" style="width: 100%; height: 100%; opacity: 1; border-radius: 0px;" onmouseover="                        var color = this.getAttribute(&#39;data-hover-color&#39;);                        this.setAttribute(&#39;data-base-color&#39;, this.querySelector(&#39;path&#39;).style.fill);                        Array.prototype.forEach.call(this.querySelectorAll(&#39;path&#39;), function(element) {                            element.style.fill = color;                        });                    " onmouseout="                        var color = this.getAttribute(&#39;data-base-color&#39;);                        Array.prototype.forEach.call(this.querySelectorAll(&#39;path&#39;), function(element) {                            element.style.fill = color;                        });                    " data-hover-color="rgb(121, 132, 140)" data-base-color="rgb(132, 139, 145)"><path d="M492.561 457.327c9.729 9.758 9.729 25.516 0 35.304-4.879 4.919-11.268 7.359-17.677 7.359s-12.788-2.439-17.637-7.359l-207.327-207.317-207.287 207.327c-4.879 4.919-11.278 7.359-17.677 7.359s-12.798-2.439-17.637-7.359c-9.758-9.829-9.758-25.596 0-35.304l207.287-207.367-207.287-207.337c-9.758-9.789-9.758-25.556 0-35.314s25.596-9.758 35.354 0l207.247 207.327 207.287-207.327c9.758-9.758 25.596-9.758 35.344 0 9.769 9.758 9.769 25.516 0 35.314l-207.277 207.327 207.287 207.367z" fill="#282e33" style="fill: rgb(132, 139, 145);"></path></svg></div><div class="element-text selected adoric_element" style="left: 54px; top: 93px; width: 493px; height: auto; min-height: 25px; position: absolute; z-index: 5; text-align: center;" data-width="487" data-height="31" data-left="58" data-top="174"><span class="inner-element" style="color: rgb(107, 107, 107); font-style: normal; font-variant: normal; font-weight: normal; font-size: 27px; line-height: normal; font-family: Ubuntu, sans-serif; white-space: pre-wrap; word-wrap: break-word; text-align: center; opacity: 1;" contenteditable="false">Download this Freebie</span></div><div class="element-shape selected adoric_element" style="left: 38px; top: 66px; position: absolute; width: 525px; height: 254px; z-index: 1;" data-width="530" data-height="254" data-left="33" data-top="66"><!--?xml version="1.0" encoding="utf-8"?--><!-- Generated by IcoMoon.io --><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 500 500" class="inner-element" preserveAspectRatio="none" style="width: 100%; height: 100%; opacity: 1; border-radius: 7.62px;"><g id="icomoon-ignore"></g><path d="M0 0h500v500h-500v-500z" fill="#c9e849" style="fill: rgb(247, 247, 247);"></path></svg></div><div class="element-text selected adoric_element" style="left: 67px; top: 140px; width: 466px; height: auto; min-height: 25px; position: absolute; z-index: 7; text-align: center;" data-width="404" data-height="60" data-left="96" data-top="145"><span class="inner-element" style="color: rgb(107, 107, 107); font-style: normal; font-variant: normal; font-weight: normal; font-size: 15px; line-height: normal; font-family: Ubuntu, sans-serif; white-space: pre-wrap; word-wrap: break-word; text-align: center; opacity: 1;" contenteditable="false">Subscribe to HackingUI Weekly to download this freebie &amp; enjoy one of the best newsletters in the product design industry</span></div></div></div><a class="__ADORIC__2 __ADORIC__" target="_blank" href="https://adoric.com/" style="display: none; position: fixed; padding: 10px; z-index: 900000000009; border: 0px; border-radius: 5px; color: rgb(255, 255, 255); font-size: 14px; font-family: &#39;Open Sans&#39;, sans-serif; bottom: 10px; left: 10px; text-decoration: none; background: rgba(0, 0, 0, 0.901961);">Powered by Adoric</a></body></html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)http://wc.alloyteam.com/ -->
+<html class=" javascriptEnabled win win6_1 chrome chrome39_0 webkit webkit537_4 flash flash18_0"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./墙来了-基于HTML5的体感游戏_files/ga.js"></script><script src="./墙来了-基于HTML5的体感游戏_files/id.php" charset="utf-8"></script>
+	<meta charset="utf-8">
+	<meta name="author" content="Amyhou, Crisxjma, Tencent.AlloyTeam.Csonlai, Tencent.AlloyTeam.Aishenhu, Tencent.AlloyTeam.Gctang, Tencent.AlloyTeam.Yussicahe, Tencent.AlloyTeam.Jetyu, Tencent.AlloyTeam.Zhichaozhou">
+    <meta name="copyright" content="Tencent.AlloyTeam">
+    <meta name="keywords" content="腾讯 Alloy 团队 体感游戏 墙来了 WallComing HTML5">
+    <meta name="description" content="Tencent.AlloyTeam 体感游戏 墙来了 WallComing">
+
+	<title>墙来了-基于HTML5的体感游戏</title>
+	<link type="favicon" rel="shortcut icon" href="http://wc.alloyteam.com/favicon.ico">
+	
+	<link type="text/css" rel="stylesheet" href="./墙来了-基于HTML5的体感游戏_files/wallcoming.all.css">
+
+<script charset="UTF-8" src="./墙来了-基于HTML5的体感游戏_files/query"></script></head>
+<body class="wallComing"><link href="./墙来了-基于HTML5的体感游戏_files/jiathis_share.css" rel="stylesheet" type="text/css"><iframe frameborder="0" style="position: absolute; display: none; opacity: 0;"></iframe><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div><iframe frameborder="0" src="./墙来了-基于HTML5的体感游戏_files/jiathis_utility(1).html" style="display: none;"></iframe><link href="./墙来了-基于HTML5的体感游戏_files/jiathis_share(1).css" rel="stylesheet" type="text/css"><iframe frameborder="0" style="position: absolute; display: none; opacity: 0;"></iframe><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; top: 50%; left: 50%; overflow: auto;"></div><div class="jiathis_style" style="position: absolute; z-index: 1000000000; display: none; overflow: auto;"></div><iframe frameborder="0" src="./墙来了-基于HTML5的体感游戏_files/jiathis_utility.html" style="display: none;"></iframe>
+	
+	<div id="permissionTips" style="display: block; top: 0px;">
+		<p>点击允许使用摄像头:) <a title="点击可以关闭此提示" id="closeTips" href="javascript:"> X</a></p>
+	</div>
+	<div id="outerWrap" class="outerWrap" style="width: 1366px; height: 558px; -webkit-transform: scale(0.7265625);">
+		<div id="alloy" class="start" style="opacity: 0;">
+			<p id="alloyteam" class="alloyteam1 alloyteam">AlloyTeam</p>
+
+			<div id="logo" class="start"></div>
+		</div>
+		<div id="gameWrapper" class="gameWrapper" style="display: block;">
+		<div id="back" class="back">
+		</div>
+		<div id="main" class="main">
+			<div class="left">
+				<div id="mainLeft" class="mainLeft">
+					<div id="leftHand" class="leftHand" style="display: block;"></div>
+				</div>
+			</div>
+			<div class="right">
+
+				<div id="mainRight" class="mainRight">
+					<div class="languageSelectorWrap">
+						<!-- <span>语言选择：</span> -->
+						<!-- <select id="languageSelector">
+							<option value="zh">中文</option>
+							<option value="en">英文</option>
+						</select> -->
+						<a id="zh" href="javascript:" class="selected" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;language&#39;, &#39;change&#39;, &#39;Chinese&#39;]);">中文</a>
+						<a id="en" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;language&#39;, &#39;change&#39;, &#39;English&#39;]);">English</a>
+						<a id="doorRankBtn" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;rank&#39;, &#39;click&#39;, &#39;view&#39;]);">排行榜</a>
+						<a id="helpBtn" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;help&#39;, &#39;click&#39;, &#39;view&#39;]);">帮助</a>
+						<a id="aboutBtn" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;about&#39;, &#39;click&#39;, &#39;view&#39;]);">关于</a>
+					</div>
+					<div id="rightHand" class="rightHand" style="display: block;"></div>
+				</div>
+			</div> 
+			<div id="captureBg">
+				<div id="captureTips">
+					<h1>游戏准备</h1>
+					<p>请离开摄像头捕捉范围</p>
+					<input id="captureRange" type="range" min="0" max="100" step="1" value="50">
+					<div class="personWrapper">
+						<div class="person"></div>
+					</div>
+				</div>
+				<canvas id="screen" width="1024" height="768"></canvas>
+				<a id="captureNow" href="javascript:" class="captureBtn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;capture background&#39;, &#39;click&#39;, &#39;capture now&#39;]);">手动截取</a>
+				<a id="reCapture" href="javascript:" class="captureBtn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;capture background&#39;, &#39;click&#39;, &#39;reCapture&#39;]);">重新截取</a>
+				<a id="captureOk" href="javascript:" class="captureBtn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;capture background&#39;, &#39;click&#39;, &#39;captureOk&#39;]);">截取完成</a>
+			</div>
+			
+			<div class="logos">
+				<a class="wallComingLogo" title="HTML5 体感游戏墙来了" href="./墙来了-基于HTML5的体感游戏_files/墙来了-基于HTML5的体感游戏.html" target="_blank">
+					<img src="./墙来了-基于HTML5的体感游戏_files/wc_logo.png" alt="HTML5 体感游戏墙来了">
+				</a>
+				<a title="腾讯创意马拉松" href="http://www.alloyteam.com/2012/11/tencent-14-years-creative-marathon/" class="s-mls" target="_blank">
+					<img src="./墙来了-基于HTML5的体感游戏_files/mls.png" alt="腾讯创意马拉松">
+					<span>腾讯创意马拉松</span>
+				</a>
+				
+				<a title="腾讯 AlloyTeam" href="http://www.alloyteam.com/" class="s-alloy" target="_blank">
+					<img src="./墙来了-基于HTML5的体感游戏_files/alloy40.png" alt="AlloyTeam">
+					<span>AlloyTeam</span>
+				</a>
+				
+				<a title="HTML5 梦工场联合出品" href="http://www.html5dw.com/" class="s-html5" target="_blank">
+					<img src="./墙来了-基于HTML5的体感游戏_files/dreamworks40.png" alt="HTML5 梦工场">
+					<span>HTML5 梦工场</span>
+				</a>
+			<a id="clickAudio" title="点击可以开启或关闭游戏声音" href="javascript:"><span id="gameAudio"></span></a>
+			</div>
+		
+			<div class="copyright">
+				Copyright © 
+				<script>document.write(new Date().getFullYear());</script>2015 
+				<a href="http://www.alloyteam.com/" target="_blank">Tencent AlloyTeam</a>
+				. All Rights Reserved.
+			</div>
+		</div>
+
+		<div id="loading" style="display: none;"></div>
+	
+		<div id="canvasWrap" class="canvasWrap hidden">
+			<div id="pauseProxy"></div>
+
+			<div class="wall-process-area"><span id="wallProcessAreaTitle">通过：</span><span id="wallProcessAreaValue"></span></div>
+			<div id="pauseBtn" class="pause-btn"></div>
+			<div id="scorePannel" class="score-pannel"></div>
+			<div class="total-score" id="totalScore"><span id="totalScoreTitle">总分：</span><span id="totalScoreValue">0</span></div>
+			<div id="life" class="life">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<!--<div id="lifeValue" class="life-value life5"></div>-->
+			</div>
+
+			<canvas id="compare" width="1024" height="768" style="border:0;"></canvas>
+			<canvas id="canvas" width="1024" height="768" class="b0">请使用支持HTML5 Canvas的浏览器</canvas>
+			<canvas id="time_canvas" width="1024" height="768">请使用支持HTML5 Canvas的浏览器</canvas>
+			<canvas id="text_canvas" width="150" height="150">请使用支持HTML5 Canvas的浏览器</canvas>
+			<canvas id="temp" width="512" height="384"></canvas>
+
+			<div id="popEffectWrap">
+				<div id="cool">
+					<p>0</p>
+				</div>
+				<div id="bad">
+				</div>
+				<div id="good">
+					<p>0</p>
+				</div>
+				<div id="perfect">
+					<p>0</p>
+				</div>
+			</div>
+
+			<div id="line" class="line shining"></div>
+		</div>
+		<div id="aboutWin" class="about-win">
+			<h2 class="about-title">关　于</h2>
+			<img class="aboutLogo" src="./墙来了-基于HTML5的体感游戏_files/wc_logo.png">
+			
+			<ul class="aboutInfo">
+				<li>Copyright © 2012 <a href="http://www.alloyteam.com/" target="_blank">Tencent AlloyTeam</a>. All Rights Reserved.</li>
+				<li>微博：<a href="http://t.qq.com/AlloyTeam" target="_blank">@AlloyTeam</a>(腾讯)　<a href="http://www.weibo.com/alloyteam" target="_blank">@AlloyTeam</a>(新浪)</li>
+				<li>官方网站：<a href="./墙来了-基于HTML5的体感游戏_files/墙来了-基于HTML5的体感游戏.html" target="_blank">http://wc.AlloyTeam.com/</a></li>
+				<li>团队博客：<a href="http://www.alloyteam.com/" target="_blank">AlloyTeam.com</a></li>
+			</ul>
+
+			<h3>游戏出品人</h3>
+			<ul class="creditsInfo">
+				<li><a href="http://blog.lifeclaw.com/" target="_blank" title="高高山头立，深深海底行">周志超</a></li>
+			</ul>
+			<h3>创作者</h3>
+			<ul class="creditsInfo">
+				<li><a href="http://www.alloyteam.com/" target="_blank" title="我是 Aishenhu">Aishenhu</a></li>
+				<li><a href="http://www.alloyteam.com/" target="_blank" title="我是 Amyhou">Amyhou</a></li>
+				<li><a href="http://www.alloyteam.com/" target="_blank" title="我是 Crisxjma">Crisxjma</a></li>
+				<li><a href="http://cnblogs.com/Cson/" target="_blank" title="我是小C">Csonlai</a></li>
+				<li><a href="http://www.weibo.com/tgchuan" target="_blank" title="超越自己，成就未来~~">@Lightning</a></li>
+				<li><a href="http://www.weibo.com/kinvix" target="_blank" title="不是你不能，而是你对自己要求没有那么高...">@Kinvix</a></li>
+				<li><a href="http://www.alloyteam.com/" target="_blank" title="我是 Yussicahe">Yussicahe</a></li>
+			</ul>
+			
+			<h3>出品团队</h3>
+			<ul class="creditsTeam">
+				<li>
+					<a class="teamLogoLink" title="腾讯 Alloy 团队荣誉出品" href="http://www.alloyteam.com/" target="_blank">
+						<img class="alloyTeamLogo" src="./墙来了-基于HTML5的体感游戏_files/alloy40.png">
+						<span class="alloyTeamLogoText">Tencent AlloyTeam</span>
+					</a>
+				</li>
+
+				<li>
+					<a class="teamLogoLink" title="HTML5 梦工场联合出品" href="http://www.html5dw.com/" target="_blank">
+						<img class="dreamworksLogo" src="./墙来了-基于HTML5的体感游戏_files/dreamworks40.png">
+						<span class="dreamworksLogoText">HTML5 梦工场</span>
+					</a>
+				</li>
+
+			</ul>
+			<a id="closeAboutBtn" class="closeAboutBtn" href="javascript:"></a>
+		</div>
+
+		<div id="helpWin" class="helpWin">
+			<a id="messageUrl" href="http://www.alloyteam.com/2013/02/somatosensory-game-wall-introduced/" target="_blank">	
+				给我们留言
+			</a>
+			<a id="closeHelpBtn" class="closeHelpBtn" href="javascript:"></a>
+		</div>
+		<div id="winWrap" class="win-wrap">
+			<div class="win-bg"></div> 
+
+			<div id="endWin" class="end-win">
+				<h4 id="end-title" class="end-failed">Failed</h4>
+				<p class="end-total-score-wrap">
+					<span class="total-score-title">得&nbsp;分：</span>
+					<span id="endTotalScore" class="end-total-score">0</span>
+					<span id="scoreRankTitle" class="score-rank-title">分数排名：</span>
+					<span id="scoreRank" class="score-rank"></span>
+				</p>
+				<div id="nameInputPannel" class="nameInputPannel">
+					<form>	
+					<span id="nameInputTitle">请输入您的昵称:</span>
+					<input id="nameInput" value="Guest_001" name="nameInput">
+					<a id="confirmName" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;rank&#39;, &#39;click&#39;, &#39;input&#39;]);">确定</a>
+					
+					</form>
+				</div>
+				<div class="score-btn">
+					<div class="effect-count">
+						<p>
+							<span id="perfectCount" class="perfect-count"></span>
+							<span id="coolCount" class="cool-count"></span>		
+						</p>
+						<p>
+							<span id="goodCount" class="good-count"></span>
+							<span id="badCount" class="bad-count"></span>
+						</p>
+					</div>
+					<a id="photosBtn" class="photos-btn" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;photo&#39;, &#39;click&#39;, &#39;view&#39;]);">查看相册</a>
+					<a id="rankBtn" class="rank-btn" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;photo&#39;, &#39;click&#39;, &#39;view&#39;]);">排行榜</a>
+					<a id="restartBtn" href="javascript:" class="restart-btn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;game&#39;, &#39;click&#39;, &#39;restart&#39;]);">重新开始</a>
+					
+				</div>
+			</div>
+
+			
+			<div id="pauseWin" class="pause-win">
+
+				<p><a id="continueBtn" href="javascript:" class="resume-btn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;game&#39;, &#39;click&#39;, &#39;resume&#39;]);">继续游戏</a></p>
+				<p><a id="pauseRankBtn" href="javascript:" class="recapture-btn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;rank&#39;, &#39;click&#39;, &#39;view&#39;]);">排行榜</a></p>
+				<p><a id="recaptureBtn" href="javascript:" class="recapture-btn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;capture background&#39;, &#39;click&#39;, &#39;reCapture&#39;]);">重新截取</a></p>
+				<p><a id="pauseRestartBtn" href="javascript:" class="pause-restart-btn" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;game&#39;, &#39;click&#39;, &#39;break and restart&#39;]);">重新开始</a></p>
+				<p><a id="pHelpBtn" href="javascript:" class="recapture-btn">帮助</a></p>
+				<p><a id="pAboutBtn" href="javascript:" class="recapture-btn">关于</a></p>
+			</div>
+
+		</div>
+
+		<div id="photo_slider_wrapper">
+			<a class="goback" href="javascript:"></a> 
+			<a id="prev" href="javascript:"></a>
+			<a id="next" href="javascript:"></a>	
+			<!-- JiaThis Button BEGIN -->
+				<div id="shareOption" class="jiathis_style_32x32" style="display:none">
+					<a class="jiathis_button_tqq" title="分享到腾讯微博"><span class="jiathis_txt jtico jtico_tqq"></span></a>
+					<a class="jiathis_button_qzone" title="分享到QQ空间"><span class="jiathis_txt jtico jtico_qzone"></span></a>
+					<a class="jiathis_button_tsina" title="分享到新浪微博"><span class="jiathis_txt jtico jtico_tsina"></span></a>
+					<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+				</div>
+				<a id="share" href="javascript:void(0);">上传并分享</a>
+				<script type="text/javascript" src="./墙来了-基于HTML5的体感游戏_files/jia.js" charset="utf-8"></script><script type="text/javascript" src="./墙来了-基于HTML5的体感游戏_files/plugin.client.js" charset="utf-8"></script>
+	            <span class="share-info" id="share-info">图片上传中</span>
+	            <script type="text/javascript">
+	            var defaultText = [
+			        "#体感游戏墙来了#我刚刚玩了体感游戏《墙来了》，太刺激了！这是我在游戏过程中拍的照片，大家来一起加入吧！体验网址： http://WC.AlloyTeam.com",
+			        "#体感游戏墙来了#太好玩了，是腾讯@AlloyTeam 使用#HTML5#技 术开发的，跟大家分享一下我在游戏中拍摄的照片^_-！体验网址： http://WC.AlloyTeam.com",
+			        "快来玩@AlloyTeam 的#体感游戏墙来了#吧，不仅可以让男生更帅 、女生更美、提高人品，还可以改善夫妻关系、家庭和谐！看我在游 戏中拍的照片cool不？体验网址：http://WC.AlloyTeam.com",
+			        "腾讯创意马拉松#的一等奖作品：@AlloyTeam 的#体感游戏墙来了#上线测试啦：http://WC.AlloyTeam.com ，帅哥与美女、孩子与父 母，各种玩家、基友组合搭配一起来吧，感受各种风情万种的“墙” ！轻松享受你的周末吧！，游戏体验让每个人都能从头到脚全身心的 感受轻松和快乐！看我玩的怎么样！",
+			        "@AlloyTeam的#体感游戏墙来了#。它伴随着动感十足的音乐伸展身体，以各种不可 思议且完全超 出你想象力的姿势，来完成游戏场景中动作感十足，充 满挑战与互动 的动作。大家看看我在游戏中拍的照片吧！体验网址：  http://WC.AlloyTeam.com",
+			        "大家看我在#体感游戏墙来了#[ @AlloyTeam ]中拍的照片好玩不 ^_-！体验网址：http://WC.AlloyTeam.com"
+			    ];
+	            var title = defaultText[Math.floor(Math.random()*defaultText.length)];
+	            var shareInfo = document.getElementById('share-info');
+	            var jiathis_config = {
+	                siteNum: 5,
+	                sm: 'cqq,tqq,tsina,qzone,copy',
+	                summary: '墙来了',
+	                title: '#墙来了#' + title,
+	                boldNum: 0,
+	                appkey: {
+	                    tsina: '3690433065',
+	                    tqq: '801198560'
+	                },
+	                pic:"http://wc.alloyteam.com/images/wc_logo.png",
+	                hideMore: true
+	            }
+	            </script>
+	            <script type="text/javascript">
+			        var share = document.getElementById('share');
+			        var uploadImgCallback = function(url){
+			        	if(url){
+			        		var $p = WallComing.photo;
+			        		$p.status[$p.getIndex()] = 2;
+			        		$p.onSwitch($p.getIndex());			        		
+			        		jiathis_config.pic = url;
+			        	}
+			        }
+			        share.href = 'javascript:void(0);';
+			        share.addEventListener('click', function(event){
+			        	var $p = WallComing.photo;
+			        	var index = $p.getIndex();
+			        	if(!$p.status[index]){			        		
+				        	$p.status[index] = 1;
+				        	$p.onSwitch(index);
+				        	$p.uploadImg(uploadImgCallback);
+			        	}
+			        });        
+			    </script>
+	            <script type="text/javascript" src="./墙来了-基于HTML5的体感游戏_files/jia(1).js" charset="utf-8"></script>
+            <!-- JiaThis Button END -->	
+			<div id="shareBtn">
+				<span>分享到</span>
+				<a id="sinaBtn" href="javascript:"></a>
+				<a id="tencentBtn" href="javascript:"></a>
+			</div>
+			<div id="photo_count">
+			</div>
+			<div id="photo_slider">
+				<ul id="photo_content">
+				</ul>
+			</div>
+			<div id="sharePanel" class="panel">
+				<header>
+					<div style="font-size:20px">分享该图片到<span id="wbName"></span>微博</div>
+					<a id="share_close" href="javascript:"></a>
+				</header>
+				<section>
+					<div id="shareBody">
+						<textarea id="shareText"></textarea>
+					</div>
+				</section>
+				<footer>
+					<a id="shareNow" href="javascript:" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;share&#39;, &#39;click&#39;]);">发 布</a>
+					<a id="sharing" href="javascript:">发 布 中...</a>
+					<div id="countInfo">
+					</div>
+				</footer>
+			</div>
+			<div id="share_success" class="share_result">分享成功</div>
+			<div id="share_fail" class="share_result">分享失败</div>
+		</div>
+
+		<div id="rank_wrapper">
+			<a class="goback" href="javascript:"></a>
+			<div id="rankPanel">
+				<header>
+					<h1 style="margin:10px;">排行榜</h1>
+				</header>
+				<section>
+					<table class="rankMain">
+					    <thead>
+						    <tr>
+						        <th>排名</th>        
+						        <th>昵称</th>
+								<th>得分</th>
+							</tr>
+						</thead>
+					</table>
+					<div id="rankList_wrapper">
+					<table class="rankMain">
+						<tbody id="rankList">
+						</tbody> 
+					</table>
+				</div>
+				</section>
+			</div>
+		</div>
+
+		<video id="video" autoplay="" style="position:absolute;left:-9999px;"></video>
+	
+	</div>
+	
+    <script type="text/javascript" src="./墙来了-基于HTML5的体感游戏_files/jx.all.js"></script>
+
+	<script type="text/javascript" src="./墙来了-基于HTML5的体感游戏_files/wallcoming.all.js"></script>
+	
+	<script type="text/javascript">
+		var J=Jx(),
+		$D=J.dom;
+		if(!J.browser.chrome) {
+			$D.setStyle($D.id("permissionTips"),"display","none");
+			$D.setStyle($D.id("loading"),"display","none");
+			alert("亲，暂时只支持电脑端的chrome浏览器哦 ~~");
+		}
+		else{
+		
+			WallComing.effects.StartAnimation.init();
+			WallComing.wcmain.winResizeManager.init();
+			//document.domain = "alloyteam.com";//腾讯微博授权要求是同域的
+			Jx().cnGame.loader.start(WallComing.gameObj, {
+				srcArray: WallComing.config.srcObj
+			});
+			WallComing.Util.LanguageManager.init();
+		}
+	</script>
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-23019343-11']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
+
+</div><iframe id="openjsframe_8db66" src="./墙来了-基于HTML5的体感游戏_files/proxy_v3.html" style="display: none;"></iframe></body></html>
