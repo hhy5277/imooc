@@ -1,0 +1,10 @@
+临时设置
+syntax on/off
+set number/nonumber
+
+永久设置
+修改/etc/vimrc
+
+单一用户设置
+修改/home/username/.vimrc   username 是用户名
+
