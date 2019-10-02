@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://www.imooc.com/article/5621 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>
+HTTP与Ajax 初体验_慕课文章
+</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta property="qc:admins" content="77103107776157736375">
+<meta property="wb:webmaster" content="c4f857219bfae3cb">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta http-equiv="Cache-Control" content="no-transform ">
+
+
+
+<meta name="Description" content="重识HTTP HTTP请求过程 1.建立TCP连接 2.web浏览器向服务器发送请求命令 3.web浏览器发送请求头信息 4.web浏览器发送请求体 5.web服务器应答 6.web服务器发送应答头信息 7.web服务器向浏览器发送数据 8.web服务器关闭TCP连接 HTTP请求 一个HTTP请求一般有四部分组成 1.请求的方法或动作，比如是GET还是POST请求">
+
+
+
+
+<script src="./HTTP与Ajax 初体验_慕课文章_files/push.js"></script><script type="text/javascript" async="" src="./HTTP与Ajax 初体验_慕课文章_files/rt.js"></script><script type="text/javascript">
+
+      var OP_CONFIG={"module":"article","page":"details","userInfo":{"uid":"1063438","nickname":"\u6d69\u6dfc\u6d77\u6d0b","head":"http:\/\/img.mukewang.com\/user\/54584dc4000118d302200220-80-80.jpg","usertype":"1","roleid":0}};
+  var isLogin = 1;
+var is_choice = "";
+  var seajsTimestamp="v=201603211539";
+    var ownName="hhy5277@126.com"
+  
+</script>
+
+
+<script>
+var pageInfo = {
+  id: 5621
+}
+var user = {
+  uid : "1063438",
+  img : "http://img.mukewang.com/54584dc4000118d302200220-100-100.jpg",
+  nickname : "浩淼海洋"
+}
+</script>
+
+<link rel="stylesheet" href="./HTTP与Ajax 初体验_慕课文章_files/saved_resource" type="text/css">
+<script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/jquery.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/seajs-text.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/common.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/string.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/suggest.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/store.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/json.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/im.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/details.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/socket.io.min.js"></script><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/prettify.js"></script><link charset="utf-8" rel="stylesheet" href="http://www.imooc.com/static/lib/pretty/prettify.css?v=201603211539"><script charset="utf-8" async="" src="./HTTP与Ajax 初体验_慕课文章_files/verify-code.js"></script><script src="./HTTP与Ajax 初体验_慕课文章_files/share.js"></script><link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style0_16.css?v=8277c65b.css"></head>
+<body>
+
+<div id="header">
+    <div class="page-container" id="nav">
+        <div id="logo" class="logo"><a href="http://www.imooc.com/" target="_self" class="hide-text">慕课网</a></div>
+        <div class="g-menu-mini l">
+            <a href="http://www.imooc.com/article/5621#" class="menu-ctrl">
+                <i class="icon-menu"></i>
+            </a>
+            <ul class="nav-item l">
+                <li>
+                    <a href="http://www.imooc.com/course/list" target="_self">课程</a>
+                </li>
+                <li><a href="http://www.imooc.com/course/program" target="_self">计划</a></li>
+                <li><a href="http://www.imooc.com/wenda" target="_self">猿问</a></li>
+                <li><a href="http://www.imooc.com/article" class="active" target="_self">文章</a></li>
+        <!--         <li><a href="/wiki"  target="_self">WIKI</a></li> -->
+                                                                </ul>
+        </div>
+                <div id="login-area">
+            <ul class="clearfix logined">
+                <li class="header-app">
+                    <a href="http://www.imooc.com/mobile/app">
+                        <span class="icon-appdownload"></span>
+                    </a>
+                    <div class="QR-download">
+                        <p id="app-text">慕课网APP下载</p>
+                        <p id="app-type">iPhone / Android / iPad</p>
+                        <img src="./HTTP与Ajax 初体验_慕课文章_files/QR-code.jpg">
+                    </div>
+                </li>
+                <li class="remind_warp">
+                    <i class="msg_remind" style="display: none;"></i>
+                    <a target="_blank" href="http://www.imooc.com/u/1063438/notices"><i class="icon-notifi"></i></a>
+                </li>
+        	    <li class="my_message">
+                    <a href="http://www.imooc.com/u/1063438/messages" title="我的消息" target="_blank">
+                        <span class="msg_icon" style="display: none;"></span>
+                        <i class="icon-mail"></i>
+                        <span style="display: none;">我的消息</span>
+                    </a>
+                </li>
+                <li class="set_btn user-card-box">
+                    <a id="header-avator" class="user-card-item" action-type="my_menu" href="http://www.imooc.com/u/1063438/courses" target="_self"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-40-40.jpg" width="40" height="40">
+                        <i class="myspace_remind" style="display: none;"></i>
+                        <span style="display: none;">动态提醒</span>
+                    </a>
+                    <div class="g-user-card">
+                        <div class="card-inner">
+                            <div class="card-top">
+                                <a href="http://www.imooc.com/u/1063438/courses"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋" class="l"></a>
+                                <a href="http://www.imooc.com/u/1063438/courses"><span class="name text-ellipsis">浩淼海洋</span></a>
+                                <p class="meta">
+					<a href="http://www.imooc.com/u/1063438/experience">经验<b id="js-user-mp">31128</b></a>
+					<a href="http://www.imooc.com/u/1063438/credit">积分<b id="js-user-credit">0</b></a>            </p>
+                    
+                                <a href="http://www.imooc.com/user/setprofile" class="icon-set setup"></a>
+                            </div>
+                            <!--
+                            <div class="card-links">
+                                <a href="/space/index" class="my-mooc l">我的慕课<i class="dot-update"></i></a>
+                                <span class="split l"></span>
+                                <a href="/myclub/myquestion/t/ques" class="my-sns l">我的社区</a>
+                            </div>
+                            -->
+                                                        <div class="card-history">
+                                <span class="history-item">
+                                    <span class="tit text-ellipsis">Scala程序设计—基础篇</span>
+                                    <span class="media-name text-ellipsis">6-7 快速排序案例</span>
+                                    <i class="icon-clock"></i>
+                                                                            <a href="http://www.imooc.com/video/11282" class="continue">继续</a>
+                                                                    </span>
+                            </div>
+                                                        <div class="card-sets clearfix">
+                                <a href="http://www.imooc.com/wenda/save" target="_blank" class="l mr30">发问题</a>
+                                <a href="http://www.imooc.com/article/publish" target="_blank" class="l">写文章</a>
+                                <a href="http://www.imooc.com/passport/user/logout?referer=http://www.imooc.com" class="r">退出</a>
+                            </div>
+                        </div>
+                        <i class="card-arr"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+                <!--
+        <div class="app-down-area r">
+            <a href="/mobile/app">
+                <i class="header-app-icon"></i>慕课APP
+            </a>
+        </div>
+        -->
+        
+        
+        <div class="search-warp clearfix" style="min-width: 32px; height: 60px;">
+            <div class="search-area min" data-search="top-banner">
+                <input class="search-input" data-suggest-trigger="suggest-trigger" placeholder="请输入想搜索的内容..." type="text" autocomplete="off">
+                <input type="hidden" class="btn_search" data-search-btn="search-btn">
+                <ul class="search-area-result" data-suggest-result="suggest-result">
+                </ul>
+            </div>
+            <div class="showhide-search" data-show="no"><i class="icon-search"></i></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+var isLogin=1
+</script>
+<div class="opus-wrap clearfix">
+
+<div class="detail-left l">
+  <div class="detail-path">
+    <a href="http://www.imooc.com/article">全部文章</a> \
+    <a href="http://www.imooc.com/article/index/cid/105">前端开发</a> \
+    <span>详情</span>
+  </div>
+  <div class="detail-content-wrap">
+    <h1 class="detail-title">HTTP与Ajax 初体验</h1>
+    <div class="dc-addon clearfix">
+      <div class="dc-profile l">
+        <a class="cat" href="http://www.imooc.com/article/index/cid/105">前端开发</a>
+        <span class="spacer">3天前</span>
+        <span class="spacer">1305浏览</span>
+                                                      </div>
+      <div class="dc-sns r">
+        <div class="share-rl-tips share-posi js-share-statue" style="display: none;">
+                        <span>分享即可 +</span><strong>1积分</strong>
+                        <span class="rule-arrow"></span>
+                    </div>
+        <div class="small-share l">
+          <ul class="share-wrap">
+            <li>
+              <span class="share-txt">分享</span>
+            </li>
+            <li class="weichat-posi">
+              <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458560586917">
+                <a href="http://www.imooc.com/article/5621#" class="bds_weixin icon-nav icon-share-weichat" data-cmd="weixin" title="分享到微信"></a>
+                <a href="http://www.imooc.com/article/5621#" class="bds_qzone icon-nav icon-share-qq" data-cmd="qzone" title="分享到QQ空间"></a>
+                <a href="http://www.imooc.com/article/5621#" class="bds_tsina icon-nav icon-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <var class="cutoff l">|</var>
+                  <span id="js-praise" data-id="5621" class="dc-praise l">
+            <i class="sns-thumb-up-outline"></i><span>点赞</span>
+          </span>
+                <var class="cutoff l">|</var>
+                                            <span id="js-follow" data-id="5621" class="dc-follow l">
+                <i class="sns-favorite-outline"></i><span>收藏</span>
+              </span>
+                                      
+      </div>
+    </div>
+    <div class="detail-content ">
+      <h3>重识HTTP</h3>
+<hr>
+<h4>HTTP请求过程</h4>
+<pre><code>1.建立TCP连接
+2.web浏览器向服务器发送请求命令
+3.web浏览器发送请求头信息
+4.web浏览器发送请求体
+5.web服务器应答
+6.web服务器发送应答头信息
+7.web服务器向浏览器发送数据
+8.web服务器关闭TCP连接</code></pre>
+<hr>
+<p>HTTP请求</p>
+<pre class="prettyprint"><code><span class="pun">一个</span><span class="pln">HTTP</span><span class="pun">请求一般有四部分组成</span><span class="pln">
+    </span><span class="lit">1.</span><span class="pun">请求的方法或动作，比如是</span><span class="pln">GET</span><span class="pun">还是</span><span class="pln">POST</span><span class="pun">请求</span><span class="pln">
+    </span><span class="lit">2.</span><span class="pun">正在请求的</span><span class="pln">URL
+    </span><span class="lit">3.</span><span class="pun">请求头,包含一些客户端环境信息,身份验证信息</span><span class="pln">
+    </span><span class="lit">4.</span><span class="pun">请求体即请求的正文,包含客户提交的字符串信息,表单信息等</span></code></pre>
+<p><img src="./HTTP与Ajax 初体验_慕课文章_files/56eaac30000136c711070629.png" alt="图片描述"></p>
+<hr>
+<p>HTTP响应</p>
+<pre class="prettyprint"><code><span class="pun">一个</span><span class="pln">HTTP</span><span class="pun">响应一般有三部分组成</span><span class="pln">
+    </span><span class="lit">1.</span><span class="pun">一个数字或文字组成的状态码</span><span class="pln">
+    </span><span class="lit">2.</span><span class="pun">响应头,包含服务器的环境信息例如服务器类型,日期时间,内容类型和长度等</span><span class="pln">
+    </span><span class="lit">3.</span><span class="pun">响应体</span></code></pre>
+<p><img src="./HTTP与Ajax 初体验_慕课文章_files/56eaaca400010f0e10180564.png" alt="图片描述"></p>
+<hr>
+<p>补充:状态码</p>
+<pre class="prettyprint"><code><span class="pln">HTTP</span><span class="pun">状态码由三位数字构成,其中首位数字定义了状态码的类型</span><span class="pln">
+
+</span><span class="lit">1xx</span><span class="pun">：信息类,表示收到</span><span class="pln">web</span><span class="pun">浏览器的请求,正在进一步处理中</span><span class="pln">
+</span><span class="lit">2xx</span><span class="pun">：成功,表示请求被正确接收,理解和处理:</span><span class="lit">200</span><span class="pln"> OK
+</span><span class="lit">3xx</span><span class="pun">：重定向，表示请求没有成功,客户必须采取进一步的动作</span><span class="pln">
+</span><span class="lit">4xx</span><span class="pun">：客户端错误,表示客户端提交的请求有错误,例如</span><span class="lit">404</span><span class="pln"> NOT </span><span class="typ">Found</span><span class="pln">
+</span><span class="lit">5xx</span><span class="pun">：服务器错误,表示服务器不能完成对请求的处理。</span></code></pre>
+<pre class="prettyprint"><code></code></pre>
+<h3>Ajax初体验</h3>
+<p>ajax简介</p>
+<blockquote>
+<p>拙见：Ajax技术就好像把网页分割成若干个小部分,每个小部分都可以独自的通过JavaScript与服务器进行联系,刷新各自的数据。而不像原来没有ajax时只是想要网页中的刷新一部分,但不得不刷新整个网页浪费了资源。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>异步就是每个小部分都在干自己的事。<br>
+同步就是大家捆绑在一起,你干什么我也必须干什么,你刷新我也必须刷新。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>大牛：<br>
+异步的JavaScript和XML(Asynchronous JavaScript and XML)<br>
+使用ajax技术的网页,可以局部异步的更新数据。</p>
+</blockquote>
+<p>实现Ajax</p>
+<blockquote>
+<p>拙见：所说的每个小部分便是XMLHttpRequest对象</p>
+</blockquote>
+<pre class="prettyprint"><code><span class="pun">运用</span><span class="typ">XMLHttpRequest</span><span class="pun">和</span><span class="pln">web</span><span class="pun">服务器进行数据的异步交换</span><span class="pln">
+
+</span><span class="pun">运用</span><span class="typ">JavaScript</span><span class="pun">操作</span><span class="pln">DOM</span><span class="pun">,实现动态局部刷新</span></code></pre>
+<p>创建XMLHttpRequest对象</p>
+<pre class="prettyprint"><code><span class="typ">XMLHttpRequest</span><span class="pun">对象也称</span><span class="pln">XHR
+
+js</span><span class="pun">：</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> request
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">XMLHttpRequest</span><span class="pun">){</span><span class="pln">
+    request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">XMLHttpRequest</span><span class="pun">();</span><span class="pln">
+    </span><span class="com">//IE7+,Firefox,Chrome,Opera,Safari</span><span class="pln">
+</span><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+    request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ActiveXObject</span><span class="pun">(</span><span class="str">"Microsoft.XMLHTTP"</span><span class="pun">)</span><span class="pln">
+    </span><span class="com">//IE6,IE5</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>发送XHR对象</p>
+<pre class="prettyprint"><code><span class="pun">设置初始信息</span><span class="pln">
+    open</span><span class="pun">(</span><span class="pln">method</span><span class="pun">,</span><span class="pln">url</span><span class="pun">,</span><span class="pln">async</span><span class="pun">)</span><span class="pln">
+
+        method </span><span class="pun">:</span><span class="pln">  </span><span class="pun">请求的方式是</span><span class="pln">GET</span><span class="pun">还是</span><span class="pln">POST
+        url    </span><span class="pun">:</span><span class="pln">  </span><span class="pun">请求的地址</span><span class="pln">
+        async  </span><span class="pun">:</span><span class="pln">  </span><span class="pun">是否采用异步传输</span><span class="pln">
+
+</span><span class="pun">发送数据</span><span class="pln">HTTP</span><span class="pun">请求</span><span class="pln">
+    send</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">string</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> POST</span><span class="pun">请求时向服务器发送的数据,</span><span class="pln">GET</span><span class="pun">请求时为空</span><span class="pln">
+</span><span class="pun">注意</span><span class="pln">
+    </span><span class="pun">在发送</span><span class="pln">POST</span><span class="pun">请求时,要设置请求的头信息</span></code></pre>
+<hr>
+<pre class="prettyprint"><code><span class="pun">实例</span><span class="pln">
+
+    GET</span><span class="pun">请求</span><span class="pln">
+
+        request</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">"GET"</span><span class="pun">,</span><span class="str">"oneurl.php?fname=Bill&amp;lname=Gates"</span><span class="pun">,</span><span class="kwd">true</span><span class="pun">)</span><span class="pln">
+
+        request</span><span class="pun">.</span><span class="pln">send</span><span class="pun">()</span><span class="pln">
+
+    POST</span><span class="pun">请求</span><span class="pln">      
+
+        request</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">"POST"</span><span class="pun">,</span><span class="str">"oneurl.php"</span><span class="pun">,</span><span class="kwd">true</span><span class="pun">)</span><span class="pln">
+        </span><span class="com">//设置HTTP请求头信息时，第一个字符串参数为名称,</span><span class="pln">
+                                </span><span class="pun">第二个字符串参数为值</span><span class="pln">
+        request</span><span class="pun">.</span><span class="pln">setRequestHeader</span><span class="pun">(</span><span class="str">"Content-type"</span><span class="pun">,</span><span class="pln">
+                    </span><span class="str">"application/x-www-form-urlencoded"</span><span class="pun">)</span><span class="pln">
+        request</span><span class="pun">.</span><span class="pln">send</span><span class="pun">(</span><span class="str">"name=二狗&amp;sex=男"</span><span class="pun">)</span></code></pre>
+<p>监听XHR发送情况</p>
+<pre class="prettyprint"><code><span class="pun">数据的发送过程是不可以看到的,但是可以通过</span><span class="pln">
+    XHR</span><span class="pun">对象的</span><span class="pln">readyState</span><span class="pun">属性和</span><span class="pln">onreadystatechange</span><span class="pun">事件</span><span class="pln">
+    </span><span class="pun">来实时监听数据的发送情况。</span><span class="pln">
+
+readyState  </span><span class="pun">属性</span><span class="pln">
+
+    </span><span class="lit">0</span><span class="pun">：</span><span class="pln">  </span><span class="pun">请求尚未初始化,</span><span class="pln">open</span><span class="pun">还没有调用</span><span class="pln">
+    </span><span class="lit">1</span><span class="pun">：</span><span class="pln">  </span><span class="pun">服务器连接已经建立,</span><span class="pln">send</span><span class="pun">方法已经调用,正在发送请求</span><span class="pln">
+    </span><span class="lit">2</span><span class="pun">：</span><span class="pln">  send</span><span class="pun">方法已经完成,且受到全部的响应内容</span><span class="pln">
+    </span><span class="lit">3</span><span class="pun">：</span><span class="pln">  </span><span class="pun">正在解析从服务端的返回数据</span><span class="pln">
+    </span><span class="lit">4</span><span class="pun">：</span><span class="pln">  </span><span class="pun">解析数据完成,可以再客户端调用该数据</span><span class="pln">
+
+onreadystatechange  </span><span class="pun">事件</span><span class="pln">
+
+    </span><span class="pun">每次状态码的改变都会触发该事件</span></code></pre>
+<p>取得响应数据</p>
+<pre class="prettyprint"><code><span class="pun">当</span><span class="pln">readyState</span><span class="pun">==</span><span class="lit">4</span><span class="pun">时即客户端解析数据完毕,</span><span class="pln">
+    </span><span class="pun">这时调用</span><span class="pln">response</span><span class="pun">的各种属性和方法可以方便查看各种数据</span><span class="pln">
+
+responseText              </span><span class="pun">:</span><span class="pln">       </span><span class="pun">获得字符串形式的响应数据</span><span class="pln">
+reponseXML                </span><span class="pun">:</span><span class="pln">       </span><span class="pun">获得</span><span class="pln">XML</span><span class="pun">形式的响应数据</span><span class="pln">
+status</span><span class="pun">和</span><span class="pln">statusText        </span><span class="pun">:</span><span class="pln">       </span><span class="pun">以数字和文本的形式返回</span><span class="pln">HTTP</span><span class="pun">状态码</span><span class="pln">
+getResponseHeader</span><span class="pun">(</span><span class="str">'name'</span><span class="pun">)</span><span class="pln"> </span><span class="pun">:</span><span class="pln">       </span><span class="pun">查询响应中的某一个字段的值</span></code></pre>
+<p>jQuery实现Ajax</p>
+<p>参考：    <a href="http://www.imooc.com/article/5279" target="_blank" rel="nofollow">jQuery之多样请求</a></p>
+<h3>案例分析</h3>
+<p><a href="http://www.imooc.com/learn/250" target="_blank" rel="nofollow">AJAX全接触</a></p>
+<p><a href="http://www.phpstudy.net/a.php/198.html" target="_blank" rel="nofollow">推荐  phpStudy集成环境</a></p>
+    </div>
+  </div>
+  <div class="larger-share" id="js-share-img" data-pic="56eaaada00019b9325601600">
+    <ul class="share-wrap">
+      <li class="weichat-posi">
+        <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458560586917">
+          <a href="http://www.imooc.com/article/5621#" class="bds_weixin icon-nav icon-share-weichat" data-cmd="weixin" title="分享到微信"></a>
+        </div>
+        <p class="share-note">分享到微信朋友圈</p>
+      </li>
+      <li>
+        <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458560586917">
+          <a href="http://www.imooc.com/article/5621#" class="bds_qzone icon-nav icon-share-qq" data-cmd="qzone" title="分享到QQ空间"></a>
+        </div>
+        <p class="share-note">分享到QQ空间</p>
+      </li>
+      <li>
+        <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458560586917">
+          <a href="http://www.imooc.com/article/5621#" class="bds_tsina icon-nav icon-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+        </div>
+          <!-- <a href="javascript:;" class="js-share-weibo icon-nav icon-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a> -->
+        <p class="share-note">分享到新浪微博</p>
+      </li>
+    </ul>
+  </div>
+  <div class="detail-feedback-wrap">
+    <div class="df-title">评论</div>
+    <div id="js-feedback-list-wrap" class="feedback-list">
+      
+    <div id="js-feedback-list"><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/2968571/articles"><img src="./HTTP与Ajax 初体验_慕课文章_files/56d57fa4000155fe06380638-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/2968571/articles">xxxxxxdfdsa</a></div><div class="feed-list-content"><p>&lt;/p&gt;&lt;p&gt;</p><div class="comment-footer"><span class="feed-list-time"> 46分钟前</span><span class="reply-btn" data-commentid="17883" data-uid="2968571" data-username="xxxxxxdfdsa">回复</span></div></div></div><div class="reply-box"></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="2968571" class="release-reply-btn">提交</div></div></div></div></div></div><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/1218608/articles"><img src="./HTTP与Ajax 初体验_慕课文章_files/54c9897c0001233601800180-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/1218608/articles">巨石老怪</a></div><div class="feed-list-content"><p>写得浅显易懂，赞一个</p><div class="comment-footer"><span class="feed-list-time"> 1天前</span><span class="reply-btn" data-commentid="17631" data-uid="1218608" data-username="巨石老怪">回复</span></div></div></div><div class="reply-box"></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="1218608" class="release-reply-btn">提交</div></div></div></div></div></div><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/3068501/articles"><img src="./HTTP与Ajax 初体验_慕课文章_files/56ecf3e10001062601000100-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/3068501/articles">qq_努力_4</a></div><div class="feed-list-content"><p>如果你真的想学习web前端开发技术这门技术，你可以来这个群,【158676806】。在这里有最新的web前端开发技术课程，免费学习，也有很多人指导你进步，不需要你付出什么，只要你有一颗学习的心就可以了，不是愿意学习或者自认不需要学习的就不要加了！</p><div class="comment-footer"><span class="feed-list-time"> 1天前</span><span class="reply-btn" data-commentid="17591" data-uid="3068501" data-username="qq_努力_4">回复</span></div></div></div><div class="reply-box"></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="3068501" class="release-reply-btn">提交</div></div></div></div></div></div><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/2775691/articles"><img src="./HTTP与Ajax 初体验_慕课文章_files/56889323000127c001000100-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/2775691/articles">名字不要太长像我这样就好</a></div><div class="feed-list-content"><p>看不懂</p><div class="comment-footer"><span class="feed-list-time"> 3天前</span><span class="reply-btn" data-commentid="17445" data-uid="2775691" data-username="名字不要太长像我这样就好">回复</span></div></div></div><div class="reply-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/2874565/articles"><img src="./HTTP与Ajax 初体验_慕课文章_files/56ace21b000175fc03600173-100-100.jpg" width="40"></a></div><div class="feed-list-content"><p><a href="http://www.imooc.com/u/2874565/articles" class="from-user">BluyeaSun</a> 回复 <a href="http://www.imooc.com/u/2775691/articles" class="to-user">名字不要太长像我这样就好</a>：恩,是我写的太乱了吗
+恩  要是排版的话 在电脑上试试看</p><div class="comment-footer"><span class="feed-list-time"> 2天前</span><span class="reply-btn" data-commentid="17445" data-uid="2874565" data-username="BluyeaSun">回复</span></div></div></div></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="2775691" class="release-reply-btn">提交</div></div></div></div></div></div><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/3057652/articles"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584e120001811202200220-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/3057652/articles">mayaomax</a></div><div class="feed-list-content"><p>666</p><div class="comment-footer"><span class="feed-list-time"> 3天前</span><span class="reply-btn" data-commentid="17425" data-uid="3057652" data-username="mayaomax">回复</span></div></div></div><div class="reply-box"></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="3057652" class="release-reply-btn">提交</div></div></div></div></div></div></div></div>
+    <div class="df-ipt-wrap">
+            <div class="feed-author l">
+        <span><img src="./HTTP与Ajax 初体验_慕课文章_files/54584dc4000118d302200220-80-80.jpg" width="40" alt="浩淼海洋"></span>
+        <span class="nick">浩淼海洋</span>
+      </div>
+      <div class="df-text">
+        <textarea id="feedback-area" class="ipt"></textarea>
+        <p id="feed-error" class="feed-error"></p>
+        <div class="df-bottom clearfix">
+          <div class="verify-code"></div>
+          <button id="js-submit" class="btn btn-green r">提交</button>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div class="detail-right r">
+  <div class="aside-author">
+    <div class="p clearfix">
+      <a href="http://www.imooc.com/u/2874565/articles" class="l" title="BluyeaSun">
+        <img src="./HTTP与Ajax 初体验_慕课文章_files/56ace21b000175fc03600173-100-100.jpg" width="80">
+      </a>
+      <p>
+        <a class="nick" href="http://www.imooc.com/u/2874565/articles" title="BluyeaSun">BluyeaSun</a>
+        <span>学生</span>
+      </p>
+    </div>
+    <p>
+      老子是本极好的书
+    </p>
+  </div>
+    <div class="other-article">
+    <h2>作者的其它文章</h2>
+    <ul>
+            <li>
+        <a href="http://www.imooc.com/article/5549" title="JSON全接触">JSON全接触</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5285" title="jQuery基础之三">jQuery基础之三</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5279" title="jQuery之多样请求">jQuery之多样请求</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5267" title="jQuery动画">jQuery动画</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5227" title="jQuery基础之二">jQuery基础之二</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5197" title="jQuery基础之一">jQuery基础之一</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5159" title="商城导航菜单(CSS)---详细">商城导航菜单(CSS)---详细</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5117" title="信息滚动:marquee&amp;&amp;js">信息滚动:marquee&amp;&amp;js</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5105" title="倒计时&amp;&amp;限时抢">倒计时&amp;&amp;限时抢</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/4969" title="DOM探索【一】">DOM探索【一】</a>
+      </li>
+          </ul>
+  </div>
+  </div>
+
+</div><!--opus-wrap end-->
+
+<div id="main">
+
+</div>
+
+<div id="footer">
+    <div class="waper">
+        <div class="footerwaper clearfix">
+            <div class="followus r">
+                <a class="followus-weixin" href="javascript:;" target="_blank" title="微信">
+                    <div class="flw-weixin-box"></div>
+                </a>
+                <a class="followus-weibo" href="http://weibo.com/u/3306361973" target="_blank" title="新浪微博"></a>
+                <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+            </div>
+            <div class="footer_intro l">
+                <div class="footer_link">
+                    <ul>
+                        <li><a href="http://www.imooc.com/" target="_blank">网站首页</a></li>
+                        <li><a href="http://www.imooc.com/about/job" target="_blank">人才招聘</a></li>
+                        <li> <a href="http://www.imooc.com/about/contact" target="_blank">联系我们</a></li>
+                        <li><a href="http://yun.imooc.com/" target="_blank">慕课云</a></li>
+                        <li><a href="http://www.imooc.com/corp/index" target="_blank">合作专区</a></li>
+                        <li><a href="http://www.imooc.com/about/us" target="_blank">关于我们</a></li>
+                        <li> <a href="http://www.imooc.com/about/recruit" target="_blank">讲师招募</a></li>
+                        <li> <a href="http://www.imooc.com/user/feedback" target="_blank">意见反馈</a></li>
+                        <li> <a href="http://www.imooc.com/about/friendly" target="_blank">友情链接</a></li>
+                    </ul>
+                </div>
+                <p>Copyright © 2016 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="J_GotoTop" class="elevator">
+    <a class="elevator-weixin" href="javascript:;">
+        <div class="elevator-weixin-box">
+        </div>
+    </a>
+    <a class="elevator-msg" href="http://www.imooc.com/user/feedback" target="_blank" id="feedBack"></a>
+    <a class="elevator-app" href="http://www.imooc.com/mobile/app">
+        <div class="elevator-app-box">
+        </div>
+    </a>
+    <a class="elevator-top" href="javascript:;" style="display: block;" id="backTop"></a>
+</div>
+
+
+
+<!--script-->
+<script src="./HTTP与Ajax 初体验_慕课文章_files/ssologin.js"></script>
+<script type="text/javascript" src="./HTTP与Ajax 初体验_慕课文章_files/sea.js"></script>
+<script type="text/javascript" src="./HTTP与Ajax 初体验_慕课文章_files/sea_config.js"></script>
+<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+
+
+
+
+
+<div style="display: none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff0cfcccd7b1393990c78efdeebff3968' type='text/javascript'%3E%3C/script%3E"));
+(function (d) {
+window.bd_cpro_rtid="rHT4P1c";
+var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
+})(document);
+</script><script src="./HTTP与Ajax 初体验_慕课文章_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=f0cfcccd7b1393990c78efdeebff3968" target="_blank"><img border="0" src="./HTTP与Ajax 初体验_慕课文章_files/21.gif" width="20" height="20"></a>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</div>
+
+
+<script type="text/javascript" src="./HTTP与Ajax 初体验_慕课文章_files/user"></script><script type="text/javascript" src="./HTTP与Ajax 初体验_慕课文章_files/iplookup.php"></script></body></html>

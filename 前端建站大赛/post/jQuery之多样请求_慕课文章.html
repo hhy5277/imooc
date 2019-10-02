@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://www.imooc.com/article/5279 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>
+jQuery之多样请求_慕课文章
+</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta property="qc:admins" content="77103107776157736375">
+<meta property="wb:webmaster" content="c4f857219bfae3cb">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta http-equiv="Cache-Control" content="no-transform ">
+
+
+
+<meta name="Description" content="JQuery 1.9.0 普通请求 load() 异步请求数据 $(selector).load(url,[data],[callback]) 语法 selector :将从服务器上请求的数据,存储在selector元素中. url : 加载数据的地址 data : 请求时发送的数据 callback : 当加载完成时执行的回调函数 getJSON() 异步加载JSON数据 $.getJSON(url,[data],[callba">
+
+
+
+
+<script src="./jQuery之多样请求_慕课文章_files/push.js"></script><script type="text/javascript" async="" src="./jQuery之多样请求_慕课文章_files/rt.js"></script><script type="text/javascript">
+
+      var OP_CONFIG={"module":"article","page":"details","userInfo":{"uid":"1063438","nickname":"\u6d69\u6dfc\u6d77\u6d0b","head":"http:\/\/img.mukewang.com\/user\/54584dc4000118d302200220-80-80.jpg","usertype":"1","roleid":0}};
+  var isLogin = 1;
+var is_choice = "";
+  var seajsTimestamp="v=201603211539";
+    var ownName="hhy5277@126.com"
+  
+</script>
+
+
+<script>
+var pageInfo = {
+  id: 5279
+}
+var user = {
+  uid : "1063438",
+  img : "http://img.mukewang.com/54584dc4000118d302200220-100-100.jpg",
+  nickname : "浩淼海洋"
+}
+</script>
+
+<link rel="stylesheet" href="./jQuery之多样请求_慕课文章_files/saved_resource" type="text/css">
+<script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/jquery.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/seajs-text.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/common.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/string.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/suggest.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/store.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/json.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/im.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/details.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/socket.io.min.js"></script><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/prettify.js"></script><link charset="utf-8" rel="stylesheet" href="http://www.imooc.com/static/lib/pretty/prettify.css?v=201603211539"><script charset="utf-8" async="" src="./jQuery之多样请求_慕课文章_files/verify-code.js"></script><script src="./jQuery之多样请求_慕课文章_files/share.js"></script><link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style0_16.css?v=6aba13f0.css"></head>
+<body>
+
+<div id="header">
+    <div class="page-container" id="nav">
+        <div id="logo" class="logo"><a href="http://www.imooc.com/" target="_self" class="hide-text">慕课网</a></div>
+        <div class="g-menu-mini l">
+            <a href="http://www.imooc.com/article/5279#" class="menu-ctrl">
+                <i class="icon-menu"></i>
+            </a>
+            <ul class="nav-item l">
+                <li>
+                    <a href="http://www.imooc.com/course/list" target="_self">课程</a>
+                </li>
+                <li><a href="http://www.imooc.com/course/program" target="_self">计划</a></li>
+                <li><a href="http://www.imooc.com/wenda" target="_self">猿问</a></li>
+                <li><a href="http://www.imooc.com/article" class="active" target="_self">文章</a></li>
+        <!--         <li><a href="/wiki"  target="_self">WIKI</a></li> -->
+                                                                </ul>
+        </div>
+                <div id="login-area">
+            <ul class="clearfix logined">
+                <li class="header-app">
+                    <a href="http://www.imooc.com/mobile/app">
+                        <span class="icon-appdownload"></span>
+                    </a>
+                    <div class="QR-download">
+                        <p id="app-text">慕课网APP下载</p>
+                        <p id="app-type">iPhone / Android / iPad</p>
+                        <img src="./jQuery之多样请求_慕课文章_files/QR-code.jpg">
+                    </div>
+                </li>
+                <li class="remind_warp">
+                    <i class="msg_remind" style="display: none;"></i>
+                    <a target="_blank" href="http://www.imooc.com/u/1063438/notices"><i class="icon-notifi"></i></a>
+                </li>
+        	    <li class="my_message">
+                    <a href="http://www.imooc.com/u/1063438/messages" title="我的消息" target="_blank">
+                        <span class="msg_icon" style="display: none;"></span>
+                        <i class="icon-mail"></i>
+                        <span style="display: none;">我的消息</span>
+                    </a>
+                </li>
+                <li class="set_btn user-card-box">
+                    <a id="header-avator" class="user-card-item" action-type="my_menu" href="http://www.imooc.com/u/1063438/courses" target="_self"><img src="./jQuery之多样请求_慕课文章_files/54584dc4000118d302200220-40-40.jpg" width="40" height="40">
+                        <i class="myspace_remind" style="display: none;"></i>
+                        <span style="display: none;">动态提醒</span>
+                    </a>
+                    <div class="g-user-card">
+                        <div class="card-inner">
+                            <div class="card-top">
+                                <a href="http://www.imooc.com/u/1063438/courses"><img src="./jQuery之多样请求_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋" class="l"></a>
+                                <a href="http://www.imooc.com/u/1063438/courses"><span class="name text-ellipsis">浩淼海洋</span></a>
+                                <p class="meta">
+					<a href="http://www.imooc.com/u/1063438/experience">经验<b id="js-user-mp">31128</b></a>
+					<a href="http://www.imooc.com/u/1063438/credit">积分<b id="js-user-credit">0</b></a>            </p>
+                    
+                                <a href="http://www.imooc.com/user/setprofile" class="icon-set setup"></a>
+                            </div>
+                            <!--
+                            <div class="card-links">
+                                <a href="/space/index" class="my-mooc l">我的慕课<i class="dot-update"></i></a>
+                                <span class="split l"></span>
+                                <a href="/myclub/myquestion/t/ques" class="my-sns l">我的社区</a>
+                            </div>
+                            -->
+                                                        <div class="card-history">
+                                <span class="history-item">
+                                    <span class="tit text-ellipsis">Scala程序设计—基础篇</span>
+                                    <span class="media-name text-ellipsis">6-7 快速排序案例</span>
+                                    <i class="icon-clock"></i>
+                                                                            <a href="http://www.imooc.com/video/11282" class="continue">继续</a>
+                                                                    </span>
+                            </div>
+                                                        <div class="card-sets clearfix">
+                                <a href="http://www.imooc.com/wenda/save" target="_blank" class="l mr30">发问题</a>
+                                <a href="http://www.imooc.com/article/publish" target="_blank" class="l">写文章</a>
+                                <a href="http://www.imooc.com/passport/user/logout?referer=http://www.imooc.com" class="r">退出</a>
+                            </div>
+                        </div>
+                        <i class="card-arr"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+                <!--
+        <div class="app-down-area r">
+            <a href="/mobile/app">
+                <i class="header-app-icon"></i>慕课APP
+            </a>
+        </div>
+        -->
+        
+        
+        <div class="search-warp clearfix" style="min-width: 32px; height: 60px;">
+            <div class="search-area min" data-search="top-banner">
+                <input class="search-input" data-suggest-trigger="suggest-trigger" placeholder="请输入想搜索的内容..." type="text" autocomplete="off">
+                <input type="hidden" class="btn_search" data-search-btn="search-btn">
+                <ul class="search-area-result" data-suggest-result="suggest-result">
+                </ul>
+            </div>
+            <div class="showhide-search" data-show="no"><i class="icon-search"></i></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+var isLogin=1
+</script>
+<div class="opus-wrap clearfix">
+
+<div class="detail-left l">
+  <div class="detail-path">
+    <a href="http://www.imooc.com/article">全部文章</a> \
+    <a href="http://www.imooc.com/article/index/cid/105">前端开发</a> \
+    <span>详情</span>
+  </div>
+  <div class="detail-content-wrap">
+    <h1 class="detail-title">jQuery之多样请求</h1>
+    <div class="dc-addon clearfix">
+      <div class="dc-profile l">
+        <a class="cat" href="http://www.imooc.com/article/index/cid/105">前端开发</a>
+        <span class="spacer">2016-03-05 17:10:19</span>
+        <span class="spacer">366浏览</span>
+                                                      </div>
+      <div class="dc-sns r">
+        <div class="share-rl-tips share-posi js-share-statue" style="display: none;">
+                        <span>分享即可 +</span><strong>1积分</strong>
+                        <span class="rule-arrow"></span>
+                    </div>
+        <div class="small-share l">
+          <ul class="share-wrap">
+            <li>
+              <span class="share-txt">分享</span>
+            </li>
+            <li class="weichat-posi">
+              <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458567716585">
+                <a href="http://www.imooc.com/article/5279#" class="bds_weixin icon-nav icon-share-weichat" data-cmd="weixin" title="分享到微信"></a>
+                <a href="http://www.imooc.com/article/5279#" class="bds_qzone icon-nav icon-share-qq" data-cmd="qzone" title="分享到QQ空间"></a>
+                <a href="http://www.imooc.com/article/5279#" class="bds_tsina icon-nav icon-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <var class="cutoff l">|</var>
+                  <span id="js-praise" data-id="5279" class="dc-praise l">
+            <i class="sns-thumb-up-outline"></i><span>点赞</span>
+          </span>
+                <var class="cutoff l">|</var>
+                                            <span id="js-follow" data-id="5279" class="dc-follow l">
+                <i class="sns-favorite-outline"></i><span>收藏</span>
+              </span>
+                                      
+      </div>
+    </div>
+    <div class="detail-content ">
+      <hr>
+<p><a href="http://libs.baidu.com/jquery/1.9.0/jquery.js" target="_blank" rel="nofollow">JQuery 1.9.0</a></p>
+<hr>
+<h3>普通请求</h3>
+<pre class="prettyprint"><code><span class="pln">load</span><span class="pun">()</span><span class="pln"> </span><span class="pun">异步请求数据</span><span class="pln">
+
+    $</span><span class="pun">(</span><span class="pln">selector</span><span class="pun">).</span><span class="pln">load</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,[</span><span class="pln">data</span><span class="pun">],[</span><span class="pln">callback</span><span class="pun">])</span><span class="pln">
+    </span><span class="pun">语法</span><span class="pln">
+        selector </span><span class="pun">:将从服务器上请求的数据,存储在</span><span class="pln">selector</span><span class="pun">元素中.</span><span class="pln">
+
+        url </span><span class="pun">:</span><span class="pln"> </span><span class="pun">加载数据的地址</span><span class="pln">
+
+        data </span><span class="pun">:</span><span class="pln"> </span><span class="pun">请求时发送的数据</span><span class="pln">
+
+        callback </span><span class="pun">:</span><span class="pln"> </span><span class="pun">当加载完成时执行的回调函数</span><span class="pln">
+
+getJSON</span><span class="pun">()</span><span class="pln"> </span><span class="pun">异步加载</span><span class="pln">JSON</span><span class="pun">数据</span><span class="pln">
+
+    $</span><span class="pun">.</span><span class="pln">getJSON</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,[</span><span class="pln">data</span><span class="pun">],[</span><span class="pln">callback</span><span class="pun">])等价</span><span class="pln">
+        </span><span class="pun">于</span><span class="pln">jQuery</span><span class="pun">.</span><span class="pln">getJSON</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,[</span><span class="pln">data</span><span class="pun">],[</span><span class="pln">callback</span><span class="pun">])</span><span class="pln">
+
+getScript</span><span class="pun">()</span><span class="pln"> </span><span class="pun">异步加载并执行</span><span class="typ">Js</span><span class="pun">文件</span><span class="pln">
+
+    jQuery</span><span class="pun">.</span><span class="pln">getScript</span><span class="pun">(</span><span class="pln">url</span><span class="pun">[,</span><span class="pln">callback</span><span class="pun">])等价</span><span class="pln">
+        </span><span class="pun">于</span><span class="pln">$</span><span class="pun">.</span><span class="pln">getScript</span><span class="pun">(</span><span class="pln">url</span><span class="pun">[,</span><span class="pln">callback</span><span class="pun">])</span><span class="pln">
+
+    </span><span class="pun">注意:在加载到本地时会执行该</span><span class="pln">js</span><span class="pun">代码段</span></code></pre>
+<hr>
+<h3>GET POST请求</h3>
+<pre class="prettyprint"><code><span class="kwd">get</span><span class="pun">()</span><span class="pln"> </span><span class="pun">方法</span><span class="pln">
+
+    </span><span class="pun">采用</span><span class="pln">GET</span><span class="pun">方式向服务器请求数据,并通过回调函数的参数处理返回数据</span><span class="pln">
+
+    $</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,[</span><span class="pln">callback</span><span class="pun">])</span><span class="pln">
+
+    </span><span class="pun">实例:</span><span class="pln">
+
+        $</span><span class="pun">.</span><span class="kwd">get</span><span class="pun">(</span><span class="str">"SomeUrl"</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">){</span><span class="pln">
+        $</span><span class="pun">(</span><span class="str">"ul"</span><span class="pun">).</span><span class="pln">append</span><span class="pun">(</span><span class="str">"&lt;li&gt;我是AJAX的"</span><span class="pun">+</span><span class="pln">data</span><span class="pun">.</span><span class="pln">name</span><span class="pun">+</span><span class="str">"&lt;/li&gt;"</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">},</span><span class="str">"json"</span><span class="pun">)</span><span class="pln">
+
+    </span><span class="pun">注意:</span><span class="pln">
+
+        </span><span class="pun">在回调函数的右侧以带有引号</span><span class="pln">json</span><span class="pun">字符串</span><span class="pln">
+        </span><span class="pun">指定返回数据格式</span></code></pre>
+<hr>
+<pre class="prettyprint"><code><span class="pln">post</span><span class="pun">()</span><span class="pln"> </span><span class="pun">方法</span><span class="pln">
+
+    $</span><span class="pun">.</span><span class="pln">post</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,[</span><span class="pln">data</span><span class="pun">],[</span><span class="pln">callback</span><span class="pun">])</span><span class="pln">
+
+    </span><span class="pun">以</span><span class="pln">post</span><span class="pun">方式向服务器发送请求数据</span><span class="pln">
+
+    </span><span class="pun">语法:</span><span class="pln">
+
+        data </span><span class="pun">是以</span><span class="pln">JSON</span><span class="pun">的形式发送数据</span><span class="pln">
+
+    </span><span class="pun">实例:</span><span class="pln">
+        </span><span class="com">//相对路径下的php文件</span><span class="pln">
+        $</span><span class="pun">.</span><span class="pln">post</span><span class="pun">(</span><span class="str">"Data/check.php"</span><span class="pun">,{</span><span class="pln">
+            </span><span class="com">//获取本页面中id为txtNumber的值</span><span class="pln">
+            num</span><span class="pun">:</span><span class="pln">$</span><span class="pun">(</span><span class="str">"#txtNumber"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">()</span><span class="pln">
+        </span><span class="pun">},</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">){</span><span class="pln">
+            $</span><span class="pun">(</span><span class="str">"ul"</span><span class="pun">).</span><span class="pln">append</span><span class="pun">(</span><span class="str">"&lt;li&gt;我是AJAX的"</span><span class="pun">+</span><span class="pln">data</span><span class="pun">.</span><span class="pln">name</span><span class="pun">+</span><span class="str">"&lt;/li&gt;"</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">})</span><span class="pln">
+
+        </span><span class="pun">注意:</span><span class="pln">
+            </span><span class="pun">这是回调函数的右侧不再出现</span><span class="str">"json"</span><span class="pun">,来指定返回参数的格式</span></code></pre>
+<hr>
+<h3>Ajax集成方法</h3>
+<blockquote>
+<p>使用ajax来发送和请求数据时,可以分为三个步骤:请求发送前,请求发送时,请求发送成功后.同时这三个阶段可激发三个函数.</p>
+</blockquote>
+<pre><code>并且还可以设置全局默认变量 </code></pre>
+<p>请求发送前</p>
+<pre><code>$(selector).ajaxStart(function())
+
+当发送ajax那一刻之前先会触发该函数
+
+语法
+    selector:选定的DOM元素</code></pre>
+<p>请求发送时</p>
+<pre class="prettyprint"><code><span class="pln">ajax</span><span class="pun">()</span><span class="pln"> </span><span class="pun">加载服务器数据</span><span class="pln">
+
+    ajax</span><span class="pun">()方法是最底层,功能最强大的请求服务器数据的方法,</span><span class="pln">
+            </span><span class="pun">不仅仅可以获取服务器返回的数据,</span><span class="pln">
+            </span><span class="pun">还能向服务器发送请求并传递数值.</span><span class="pln">
+
+    jQuery</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">settings</span><span class="pun">})等价于</span><span class="pln">$</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">settings</span><span class="pun">})</span><span class="pln">
+
+    </span><span class="pun">语法</span><span class="pln">
+
+        settings </span><span class="pun">为</span><span class="pln">JSON</span><span class="pun">对象</span><span class="pln">
+
+        url</span><span class="pun">:</span><span class="pln">      </span><span class="pun">表示服务器请求的路径</span><span class="pln">
+        data</span><span class="pun">:</span><span class="pln">     </span><span class="pun">请求时传递的数据</span><span class="pln">
+        dataType</span><span class="pun">:</span><span class="pln"> </span><span class="pun">服务器返回的数据类型</span><span class="pln">
+        success</span><span class="pun">:</span><span class="pln">  </span><span class="pun">请求成功时执行的回调函数</span><span class="pln">
+        type</span><span class="pun">:</span><span class="pln">     </span><span class="pun">发送数据的格式,默认为</span><span class="kwd">get</span></code></pre>
+<hr>
+<pre class="prettyprint"><code><span class="pun">实例</span><span class="pln">
+    $</span><span class="pun">.</span><span class="pln">ajax</span><span class="pun">({</span><span class="pln">
+        url</span><span class="pun">:</span><span class="str">"Data/article.txt"</span><span class="pun">,</span><span class="pln">
+        dataType</span><span class="pun">:</span><span class="str">"text"</span><span class="pun">,</span><span class="pln">
+        success</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">){</span><span class="pln">
+            </span><span class="com">//代码段</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln">
+        data</span><span class="pun">:{</span><span class="pln">num</span><span class="pun">:</span><span class="pln">$</span><span class="pun">(</span><span class="str">"#txtNumber"</span><span class="pun">).</span><span class="pln">val</span><span class="pun">()},</span><span class="pln">
+        type</span><span class="pun">:</span><span class="str">"post"</span><span class="pln">
+    </span><span class="pun">})</span></code></pre>
+<p>请求成功后</p>
+<pre><code>$(selector).ajaxStop(function())
+
+当发送ajax请求结束后触发该函数
+
+语法
+    selector:选定的DOM元素</code></pre>
+<p>全局默认选项</p>
+<pre><code>ajaxSetup() 设置全局默认选项
+
+    该方法可以设置Ajax请求的一些全局性选项值,设置成功后,
+    后面的Ajax请求将不需要再添加这些选项值
+
+    $.ajaxSetup([options])等价于$.ajaxSetup([options])
+
+    实例:
+
+        $.ajaxSetup({
+            dataType:"text",
+            success:function(){
+                //代码段
+            }
+        })</code></pre>
+<h3>知识加油站</h3>
+<pre class="prettyprint"><code><span class="pln">serialize</span><span class="pun">()</span><span class="pln"> </span><span class="pun">方法</span><span class="pln">
+
+    </span><span class="pun">可以将表单中有</span><span class="pln">name</span><span class="pun">属性的元素值进行序列化,</span><span class="pln">
+        </span><span class="pun">生成标准的</span><span class="pln">URL</span><span class="pun">编码文本字符串,直接可用于</span><span class="pln">ajax</span><span class="pun">请求</span><span class="pln">
+
+    $</span><span class="pun">(</span><span class="pln">selector</span><span class="pun">).</span><span class="pln">serialize</span><span class="pun">()</span><span class="pln">
+
+    </span><span class="pun">语法:</span><span class="pln">
+
+        selector</span><span class="pun">参数是一个或多个表单中的元素或者表单元素本身</span><span class="pln">
+
+    </span><span class="pun">注意:</span><span class="pln">
+
+        </span><span class="pun">生成序列化的元素是表单中有</span><span class="pln">name</span><span class="pun">属性的元素</span></code></pre>
+    </div>
+  </div>
+  <div class="larger-share" id="js-share-img" data-pic="56da9db800019a8d28801800">
+    <ul class="share-wrap">
+      <li class="weichat-posi">
+        <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458567716585">
+          <a href="http://www.imooc.com/article/5279#" class="bds_weixin icon-nav icon-share-weichat" data-cmd="weixin" title="分享到微信"></a>
+        </div>
+        <p class="share-note">分享到微信朋友圈</p>
+      </li>
+      <li>
+        <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458567716585">
+          <a href="http://www.imooc.com/article/5279#" class="bds_qzone icon-nav icon-share-qq" data-cmd="qzone" title="分享到QQ空间"></a>
+        </div>
+        <p class="share-note">分享到QQ空间</p>
+      </li>
+      <li>
+        <div class="bdsharebuttonbox weichat-style bdshare-button-style0-16" data-bd-bind="1458567716585">
+          <a href="http://www.imooc.com/article/5279#" class="bds_tsina icon-nav icon-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+        </div>
+          <!-- <a href="javascript:;" class="js-share-weibo icon-nav icon-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a> -->
+        <p class="share-note">分享到新浪微博</p>
+      </li>
+    </ul>
+  </div>
+  <div class="detail-feedback-wrap">
+    <div class="df-title">评论</div>
+    <div id="js-feedback-list-wrap" class="feedback-list">
+      
+    <div id="js-feedback-list"><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/2447779/articles"><img src="./jQuery之多样请求_慕课文章_files/54586453000163bd02200220-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/2447779/articles">木鱼10086</a></div><div class="feed-list-content"><p>赞一个</p><div class="comment-footer"><span class="feed-list-time"> 2016-03-09 14:22:45</span><span class="reply-btn" data-commentid="15531" data-uid="2447779" data-username="木鱼10086">回复</span></div></div></div><div class="reply-box"></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./jQuery之多样请求_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="2447779" class="release-reply-btn">提交</div></div></div></div></div></div><div class="comment-box"><div class="comment clearfix"><div class="feed-author l"><a href="http://www.imooc.com/u/1387040/articles"><img src="./jQuery之多样请求_慕课文章_files/5458639d0001bed702200220-100-100.jpg" width="40"></a><a class="nick" href="http://www.imooc.com/u/1387040/articles">Amy123456</a></div><div class="feed-list-content"><p>好东西 顶一个！</p><div class="comment-footer"><span class="feed-list-time"> 2016-03-08 08:35:48</span><span class="reply-btn" data-commentid="15089" data-uid="1387040" data-username="Amy123456">回复</span></div></div></div><div class="reply-box"></div><div class="release-reply"><a href="http://www.imooc.com/u/1063438/articles" class="user-head"><img src="./jQuery之多样请求_慕课文章_files/54584dc4000118d302200220-100-100.jpg" alt="浩淼海洋"></a><div class="replay-con"><div class="textarea-wrap"><textarea placeholder="写下你的评论..."></textarea></div><p class="errtip"></p><div class="reply-ctrl clearfix"><div class="verify-code"></div><div class="btn-wrap"><div class="cancel-btn">取消</div><div data-comment-uid="1387040" class="release-reply-btn">提交</div></div></div></div></div></div></div></div>
+    <div class="df-ipt-wrap">
+            <div class="feed-author l">
+        <span><img src="./jQuery之多样请求_慕课文章_files/54584dc4000118d302200220-80-80.jpg" width="40" alt="浩淼海洋"></span>
+        <span class="nick">浩淼海洋</span>
+      </div>
+      <div class="df-text">
+        <textarea id="feedback-area" class="ipt"></textarea>
+        <p id="feed-error" class="feed-error"></p>
+        <div class="df-bottom clearfix">
+          <div class="verify-code"></div>
+          <button id="js-submit" class="btn btn-green r">提交</button>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+<div class="detail-right r">
+  <div class="aside-author">
+    <div class="p clearfix">
+      <a href="http://www.imooc.com/u/2874565/articles" class="l" title="BluyeaSun">
+        <img src="./jQuery之多样请求_慕课文章_files/56ace21b000175fc03600173-100-100.jpg" width="80">
+      </a>
+      <p>
+        <a class="nick" href="http://www.imooc.com/u/2874565/articles" title="BluyeaSun">BluyeaSun</a>
+        <span>学生</span>
+      </p>
+    </div>
+    <p>
+      老子是本极好的书
+    </p>
+  </div>
+    <div class="other-article">
+    <h2>作者的其它文章</h2>
+    <ul>
+            <li>
+        <a href="http://www.imooc.com/article/5621" title="HTTP与Ajax 初体验">HTTP与Ajax 初体验</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5549" title="JSON全接触">JSON全接触</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5285" title="jQuery基础之三">jQuery基础之三</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5267" title="jQuery动画">jQuery动画</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5227" title="jQuery基础之二">jQuery基础之二</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5197" title="jQuery基础之一">jQuery基础之一</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5159" title="商城导航菜单(CSS)---详细">商城导航菜单(CSS)---详细</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5117" title="信息滚动:marquee&amp;&amp;js">信息滚动:marquee&amp;&amp;js</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/5105" title="倒计时&amp;&amp;限时抢">倒计时&amp;&amp;限时抢</a>
+      </li>
+            <li>
+        <a href="http://www.imooc.com/article/4969" title="DOM探索【一】">DOM探索【一】</a>
+      </li>
+          </ul>
+  </div>
+  </div>
+
+</div><!--opus-wrap end-->
+
+<div id="main">
+
+</div>
+
+<div id="footer">
+    <div class="waper">
+        <div class="footerwaper clearfix">
+            <div class="followus r">
+                <a class="followus-weixin" href="javascript:;" target="_blank" title="微信">
+                    <div class="flw-weixin-box"></div>
+                </a>
+                <a class="followus-weibo" href="http://weibo.com/u/3306361973" target="_blank" title="新浪微博"></a>
+                <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+            </div>
+            <div class="footer_intro l">
+                <div class="footer_link">
+                    <ul>
+                        <li><a href="http://www.imooc.com/" target="_blank">网站首页</a></li>
+                        <li><a href="http://www.imooc.com/about/job" target="_blank">人才招聘</a></li>
+                        <li> <a href="http://www.imooc.com/about/contact" target="_blank">联系我们</a></li>
+                        <li><a href="http://yun.imooc.com/" target="_blank">慕课云</a></li>
+                        <li><a href="http://www.imooc.com/corp/index" target="_blank">合作专区</a></li>
+                        <li><a href="http://www.imooc.com/about/us" target="_blank">关于我们</a></li>
+                        <li> <a href="http://www.imooc.com/about/recruit" target="_blank">讲师招募</a></li>
+                        <li> <a href="http://www.imooc.com/user/feedback" target="_blank">意见反馈</a></li>
+                        <li> <a href="http://www.imooc.com/about/friendly" target="_blank">友情链接</a></li>
+                    </ul>
+                </div>
+                <p>Copyright © 2016 imooc.com All Rights Reserved | 京ICP备 13046642号-2</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="J_GotoTop" class="elevator">
+    <a class="elevator-weixin" href="javascript:;">
+        <div class="elevator-weixin-box">
+        </div>
+    </a>
+    <a class="elevator-msg" href="http://www.imooc.com/user/feedback" target="_blank" id="feedBack"></a>
+    <a class="elevator-app" href="http://www.imooc.com/mobile/app">
+        <div class="elevator-app-box">
+        </div>
+    </a>
+    <a class="elevator-top" href="javascript:;" style="" id="backTop"></a>
+</div>
+
+
+
+<!--script-->
+<script src="./jQuery之多样请求_慕课文章_files/ssologin.js"></script>
+<script type="text/javascript" src="./jQuery之多样请求_慕课文章_files/sea.js"></script>
+<script type="text/javascript" src="./jQuery之多样请求_慕课文章_files/sea_config.js"></script>
+<script type="text/javascript">seajs.use("/static/page/"+OP_CONFIG.module+"/"+OP_CONFIG.page);</script>
+
+
+
+
+
+<div style="display: none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff0cfcccd7b1393990c78efdeebff3968' type='text/javascript'%3E%3C/script%3E"));
+(function (d) {
+window.bd_cpro_rtid="rHT4P1c";
+var s = d.createElement("script");s.type = "text/javascript";s.async = true;s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+var s0 = d.getElementsByTagName("script")[0];s0.parentNode.insertBefore(s, s0);
+})(document);
+</script><script src="./jQuery之多样请求_慕课文章_files/h.js" type="text/javascript"></script><a href="http://tongji.baidu.com/hm-web/welcome/ico?s=f0cfcccd7b1393990c78efdeebff3968" target="_blank"><img border="0" src="./jQuery之多样请求_慕课文章_files/21.gif" width="20" height="20"></a>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</div><script type="text/javascript" src="./jQuery之多样请求_慕课文章_files/user"></script><script type="text/javascript" src="./jQuery之多样请求_慕课文章_files/iplookup.php"></script>
+
+
+</body></html>

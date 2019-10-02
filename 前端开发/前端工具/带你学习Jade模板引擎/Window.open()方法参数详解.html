@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://www.cnblogs.com/sofiawang/articles/1544631.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Window.open()方法参数详解 - sofiawang - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./Window.open()方法参数详解_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Window.open()方法参数详解_files/bundle-clover.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sofiawang/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sofiawang/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sofiawang/wlwmanifest.xml">
+<script src="./Window.open()方法参数详解_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sofiawang', cb_enable_mathjax=false;</script>
+<script src="./Window.open()方法参数详解_files/blog-common.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+<tbody><tr>
+	<td width="299" background="./Window.open()方法参数详解_files/banner1.jpg"></td>
+	<td background="./Window.open()方法参数详解_files/banner.jpg">
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sofiawang/">sofiawang</a><br>
+		
+	</div>
+</div>
+</td>
+	<td width="296" background="./Window.open()方法参数详解_files/banner2.jpg"></td>
+</tr>
+</tbody></table>
+<div id="mylinks"><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a>&nbsp; &nbsp;
+<a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/sofiawang/">首页</a>&nbsp; &nbsp;
+<a href="http://q.cnblogs.com/" class="menu" target="_blank">博问</a>&nbsp; &nbsp;
+<a href="http://home.cnblogs.com/ing/" class="menu" target="_blank">闪存</a>&nbsp; &nbsp;
+<a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>&nbsp; &nbsp;
+<a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/sofiawang/rss">订阅</a>
+<a id="MyLinks1_XMLLink" href="http://www.cnblogs.com/sofiawang/rss"><img src="./Window.open()方法参数详解_files/xml.gif" alt="订阅"></a>&nbsp; &nbsp;
+<a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a>
+<!-- <a id="MyLinks1_ContactLink" accesskey="9" class="menu" rel="nofollow" href="http://msg.cnblogs.com/send/sofiawang">联系</a>&nbsp;&nbsp;&nbsp; -->
+</div>
+<div id="mytopmenu">
+	
+		<div id="mystats">
+			
+<!--done-->
+<div class="blogStats">
+posts - 0,&nbsp;
+comments - 0,&nbsp;
+trackbacks - 0
+
+</div></div>
+	
+</div>
+<div id="centercontent">
+	
+<div id="post_detail">
+<!--done-->
+<div class="post">
+	<div class="postTitle">
+		<a id="cb_post_title_url" class="postTitle2" href="./Window.open()方法参数详解_files/Window.open()方法参数详解.html">Window.open()方法参数详解</a>
+	</div>
+	<div id="cnblogs_post_body"><div>1, 最基本的弹出窗口代码<br>&nbsp;&nbsp; window.open('page.html');<br><br>2, 经过设置后的弹出窗口<br>&nbsp;&nbsp; window.open('page.html', 'newwindow', 'height=100, width=400, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no')&nbsp;&nbsp; //该句写成一行代码<br>&nbsp;&nbsp; 参数解释：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window.open 弹出新窗口的命令； <br>　　'page.html' 弹出窗口的文件名； <br>　　'newwindow' 弹出窗口的名字（不是文件名），非必须，可用空''代替； <br>　　height=100 窗口高度； <br>　　width=400 窗口宽度； <br>　　top=0 窗口距离屏幕上方的象素值； <br>　　left=0 窗口距离屏幕左侧的象素值； <br>　　toolbar=no 是否显示工具栏，yes为显示； <br>　　menubar，scrollbars 表示菜单栏和滚动栏。 <br>　　resizable=no 是否允许改变窗口大小，yes为允许； <br>　　location=no 是否显示地址栏，yes为允许； <br>　　status=no 是否显示状态栏内的信息（通常是文件已经打开），yes为允许；<br><br>3, 用函数控制弹出窗口<br>&nbsp;&nbsp;&nbsp; 下面是一段完整的代码<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;html&gt; <br>　　&lt;head&gt; <br>　　&lt;script LANGUAGE="JavaScript"&gt; <br>　　&lt;!-- <br>　　function openwin() { <br>　　window.open ("page.html", "newwindow", "height=100, width=400, toolbar =no, menubar=no, scrollbars=no, resizable=no, location=no, status=no") //写成一行<br>　　} <br>　　//--&gt; <br>　　&lt;/script&gt; <br>　　&lt;/head&gt; <br>　　&lt;body onload="openwin()"&gt; <br>　　任意的页面内容... <br>　　&lt;/body&gt; <br>　　&lt;/html&gt; <br>&nbsp;&nbsp; 解释：这里定义了一个函数openwin(), 函数内容就是打开一个窗口。在调用它之前没有任何用途。怎么调用呢？<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp; 方法一：&lt;body onload="openwin()"&gt; 浏览器读页面时弹出窗口；<br>&nbsp;&nbsp;&nbsp;方法二：&lt;body onunload="openwin()"&gt; 浏览器离开页面时弹出窗口；<br>&nbsp;&nbsp; 方法三：用一个连接调用：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#" onclick="openwin()"&gt; 打开一个窗口&lt;/a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注意：使用的"#"是虚连接。<br>&nbsp;&nbsp; 方法四：用一个按扭调用：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="button" onclick="openwin()" value="打开窗口" /&gt;<br><br>4, 弹出两个窗口<br>&nbsp;&nbsp;&nbsp; 对代码稍微改动如下：<br>&nbsp;&nbsp; 　&lt;script LANGUAGE="JavaScript"&gt; <br>　　&lt;!-- <br>　　function openwin() { <br>　　window.open ("page.html", "newwindow", "height=100, width=100, top=0, left=0,toolbar=no, menubar=no, scrollbars=no, resizable=no, location=n o, status=no")//写成一行 <br>　　window.open ("page2.html", "newwindow2", "height=100, width=100, top=100, left=100,toolbar=no, menubar=no, scrollbars=no, resizable=no, loca tion=no, status=no")//写成一行 <br>　　} <br>　　//--&gt; <br>　　&lt;/script&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 为避免弹出的2个窗口覆盖，用top和left控制一下弹出的位置不要相互覆盖即可。最后用上面的说过的四种方法调用即可。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注意：2个窗口的name(newwindow与 newwindow2)不要相同，或者干脆全部为空。<br><br>5, 主窗口打开文件1.htm，同时弹出小窗口page.html<br>&nbsp;&nbsp;&nbsp;&nbsp;如下代码加入主窗口&lt;head&gt;区：<br>&nbsp;&nbsp;&nbsp; function openwin()<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.open("page.html","","width=200,height=200") <br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; 加入body区：<br>&nbsp;&nbsp;&nbsp; &lt;a href="1.htm" onclick="openwin()"&gt;open&lt;/a&gt;即可。<br><br>6, 弹出的窗口之定时关闭控制<br>&nbsp;&nbsp;&nbsp; 将一小段代码加入弹出的页面（注意是加入page.html的HTML中，可不是主页面中，否则......），让它在10秒后自动关闭是不是更酷了？<br>&nbsp;&nbsp;&nbsp; function closeit()<br>&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;setTimeout("selft.close()", 10000)&nbsp;&nbsp; //毫秒<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;然后，在body 中添加：&lt;body onload="closeit()"&gt;即可。<br><br>7, 在弹出窗口中加上一个关闭按扭<br>&nbsp;&nbsp;&nbsp; &lt;input type="button" value="关闭" onclick="window.close()"&gt;<br><br>8, 内包含的弹出窗口---一个页面两个窗口<br>&nbsp;&nbsp;&nbsp; 上面的例子都包含两个窗口，一个是主窗口，另一个是弹出的小窗口。通过下面的例子，你可以在一个页面内完成上面的效果。<br>
+<p>　　&lt;html&gt; <br>　　&lt;head&gt; <br>　　&lt;SCRIPT LANGUAGE="JavaScript"&gt; <br>　　function openwin() <br>　　{ <br>　　OpenWindow=window.open("", "newwin", "height=250, width=250,toolbar=no ,scrollbars="+scroll+",menubar=no"); <br>　　//写成一行 <br>　　OpenWindow.document.write("&lt;TITLE&gt;例子&lt;/TITLE&gt;") <br>　　OpenWindow.document.write("&lt;BODY BGCOLOR=#ffffff&gt;") <br>　　OpenWindow.document.write("&lt;h1&gt;Hello!&lt;/h1&gt;") <br>　　OpenWindow.document.write("New window opened!") <br>　　OpenWindow.document.write("&lt;/BODY&gt;") <br>　　OpenWindow.document.write("&lt;/HTML&gt;") <br>　　OpenWindow.document.close() <br>　　} <br>　　&lt;/SCRIPT&gt; <br>　　&lt;/head&gt; <br>　　&lt;body&gt; <br>　　&lt;a href="#" onclick="openwin()"&gt;打开一个窗口&lt;/a&gt; <br>　　&lt;input type="button" onclick="openwin()" value="打开窗口"&gt; <br>　　&lt;/body&gt; <br>　　&lt;/html&gt;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OpenWindow.document.write()里面的代码不就是标准的HTML吗？只要按照 格式写更多的行即可。千万注意多一个标签或少一个标签就会出现错误。记得用 OpenWindow.document.close()结束啊。&nbsp;<br><br>9, 终极应用---弹出的窗口这Cookie控制<br>&nbsp;&nbsp;&nbsp; 回想一下，上面的弹出窗口虽然酷，但是有一点小毛病，比如你将上面的脚本放在一个需要频繁经过的页面里（例如首页），那么每次刷新这个页面，窗口都会弹出一次，是不是非常烦人？<br>&nbsp;&nbsp;&nbsp; 有解决的办法吗？我们使用cookie来控制即可。<br>&nbsp;&nbsp;&nbsp; 首先，将如下代码加入主页面的Html的head区：<br>&nbsp;　&nbsp; function openwin(){ <br>　　window.open("page.html","","width=200,height=200") <br>　　}&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function get_cookie(Name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var search=Name+"=";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var returnvalue="";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(document.cookie.length&gt;0){<br>　　&nbsp;&nbsp;&nbsp;&nbsp;if (offset != -1) { <br>　　&nbsp;&nbsp;&nbsp; offset += search.length <br>　　&nbsp;&nbsp;&nbsp; end = document.cookie.indexOf(";", offset); <br>　　&nbsp;&nbsp;&nbsp; if (end == -1) <br>　　&nbsp;&nbsp;&nbsp; end = document.cookie.length; <br>　　&nbsp;&nbsp;&nbsp; returnvalue=unescape(document.cookie.substring(offset, end));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return returnvalue;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function ladpopup()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(get_cookie('popped=yes'))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;openwin()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.cookie="popped=yes";<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后，用&lt;body onload="loadpopup()"&gt;<br><br>写到这里弹出窗口的制作和应用技巧基本上算是完成了！<br><br></p></div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/sofiawang/category/204129.html">Javascript学习</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/sofiawang/tag/window.open%28%29/">window.open()</a></div>
+<div id="blog_post_info"><div id="green_channel">
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(1544631,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://msg.cnblogs.com/send/sofiawang" target="_blank">联系我</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Window.open()方法参数详解_files/icon_weibo_24.png" alt=""></a>
+<a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Window.open()方法参数详解_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/sofiawang/" target="_blank"><img src="./Window.open()方法参数详解_files/sample_face.gif" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/sofiawang/">sofiawang</a><br>
+<a href="http://home.cnblogs.com/u/sofiawang/followees">关注 - 0</a><br>
+<a href="http://home.cnblogs.com/u/sofiawang/followers">粉丝 - 1</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(1544631,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+	<div class="buryit" onclick="votePost(1544631,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+	<div class="postDesc">posted on <span id="post-date">2009-08-12 17:49</span> <a href="http://www.cnblogs.com/sofiawang/">sofiawang</a> 阅读(<span id="post_view_count">82974</span>) 评论(<span id="post_comment_count">0</span>) &nbsp;<a href="http://i.cnblogs.com/EditArticles.aspx?postid=1544631" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/sofiawang/articles/1544631.html#" onclick="AddToWz(1544631);return false;">收藏</a></div>
+</div>
+<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=59107,cb_entryId=1544631,cb_blogApp=currentBlogApp,cb_blogUserGuid='74787f60-227c-de11-be36-001cf0cd104b',cb_entryCreatedDate='2009/8/12 17:49:00';loadViewCount(cb_entryId);</script>
+
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/sofiawang/articles/1544631.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/sofiawang/articles/1544631.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/" target="_blank">【推荐】融云即时通讯云－专注为 App 开发者提供IM云服务</a><br><a href="https://bce.baidu.com/event/promotion-march/index.html?t=cp:online-media|pf:pc|pp:mar|pu:244" target="_blank">【推荐】百度开放云－三月超低价促销</a><br></div>
+<div id="opt_under_post"></div>
+<div id="ad_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/componentone.htm?utm_source=cnblogs&utm_medium=blogpage&utm_term=bottom&utm_content=C1&utm_campaign=community" target="_blank"><img width="300" height="250" src="./Window.open()方法参数详解_files/24442-20160331135220551-2117417331.gif" alt=""></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/543123/" target="_blank">完美世界架构大调整 DOTA2项目组换人又道歉</a><br> ·  <a href="http://news.cnblogs.com/n/543095/" target="_blank">10年后编程还有意义吗？</a><br> ·  <a href="http://news.cnblogs.com/n/543096/" target="_blank">未来，App或将消失</a><br> ·  <a href="http://news.cnblogs.com/n/543122/" target="_blank">微信发布外链内容管理规范：测试抽签等H5游戏禁止传播</a><br> ·  <a href="http://news.cnblogs.com/n/543121/" target="_blank">最刺激的动作游戏一片黑暗，创业者们不如把经典游戏VR化试试看？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="ad_c2" class="c_ad_block"><a href="https://www.jpush.cn/?from=cnblogs01" target="_blank"><img width="468" height="60" src="./Window.open()方法参数详解_files/24442-20160307140747632-1210035054.jpg" alt=""></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/542462/" target="_blank">我是一个线程</a><br> ·  <a href="http://kb.cnblogs.com/page/541862/" target="_blank">为什么未来是全栈工程师的世界？</a><br> ·  <a href="http://kb.cnblogs.com/page/541805/" target="_blank">程序bug导致了天大的损失，要枪毙程序猿吗？</a><br> ·  <a href="http://kb.cnblogs.com/page/541230/" target="_blank">如何运维千台以上游戏云服务器</a><br> ·  <a href="http://kb.cnblogs.com/page/539160/" target="_blank">架构漫谈（一）：什么是架构？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);    
+});
+</script>
+</div>
+
+
+</div>
+<div id="leftcontent">
+	
+		<div id="leftcontentcontainer">
+			
+<!--done-->
+<div class="newsItem">
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/sofiawang/">sofiawang</a><br>园龄：<a href="http://home.cnblogs.com/u/sofiawang/" title="入园时间：2009-07-29">6年8个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/sofiawang/followers/">1</a><br>关注：<a href="http://home.cnblogs.com/u/sofiawang/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;74787f60-227c-de11-be36-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+<br>			
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2016/03/01&#39;);return false;">&lt;</a></td><td align="center">2016年4月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2016/05/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td class="CalTodayDay" align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/sofiawang/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/sofiawang/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/sofiawang/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/sofiawang/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/sofiawang/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/sofiawang/tag/window.open%28%29/">window.open()</a>(1)</li><li><a href="http://www.cnblogs.com/sofiawang/tag/%E4%BD%BF%E7%94%A8VS.Net%20IDE%E8%B0%83%E8%AF%95JavaScript/">使用VS.Net IDE调试JavaScript</a>(1)</li>
+</ul>
+</div></div><div id="sidebar_categories">
+<!--done-->
+
+		<h1 class="catListTitle">文章分类</h1>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_0" class="listitem" href="http://www.cnblogs.com/sofiawang/category/202325.html">ASP.NET(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_1" class="listitem" href="http://www.cnblogs.com/sofiawang/category/204129.html">Javascript学习(2)</a></li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap" style="display: none;">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap" style="display: none;">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script></div>
+	
+</div>
+
+
+<!--done-->
+<div class="footer">
+	
+	Copyright ©2016 sofiawang Powered By<a href="http://www.cnblogs.com/">博客园</a> 模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a>
+</div>
+
+
+</body></html>

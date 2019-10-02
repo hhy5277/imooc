@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://wshome.sinaapp.com/h5-web/game/word-differ/game.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="renderer" content="webkit">
+	<title>你能过几关？</title>
+	<link rel="stylesheet" href="./你能过几关？_files/css.css" type="text/css">	
+<style>
+	.risklist{
+			position: absolute;
+			width: 200px;
+			height: 400px;
+			left:0;
+			top:50%;
+			margin-top: -200px;
+			z-index: 10;
+	
+			background-color: rgba(139,139,139,.2);
+
+			border-radius: 0 10px 10px 0 ;
+		}
+		.risklist p{
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			font-size: 16px;
+			font-weight: 600;
+			border-bottom: 1px solid #fff;
+		}
+		.list{
+			
+			width:100%;
+		}
+		.list tr{
+			height: 30px;
+			line-height: 30px;
+			width:50%;
+			text-align: center;
+		}
+		.list td{
+			text-align: center;
+		}
+		tr:nth-child(2){
+			color:red;
+		}
+		tr:nth-child(3){
+			color:blue;
+		}
+		tr:nth-child(4){
+			color:yellow;
+		}
+
+</style></head>
+
+<body>
+	<div class="container" id="container" style="height: 550px;">
+		<div class="word" style="left:0px;top:0px;width:273px;height:273px;line-height:273px" id="word_0" onclick="selok(this)">
+			<div class="front_side" style="-webkit-animation:front_animate 3.329018196091056s linear 0s infinite alternate;background-color:#ABF8D8">田</div>
+			<div class="back_side" style="-webkit-animation:back_animate 3.329018196091056s linear 0s infinite alternate;background-color:#E8C3C3">田</div>
+		</div>
+	
+		<div class="word" style="left:275px;top:0px;width:273px;height:273px;line-height:273px" id="word_1" onclick="selok(this)">
+			<div class="front_side" style="-webkit-animation:front_animate 3.4493817007169127s linear 0s infinite alternate;background-color:#ABF8D8">田</div>
+			<div class="back_side" style="-webkit-animation:back_animate 3.4493817007169127s linear 0s infinite alternate;background-color:#E8C3C3">由</div>
+		</div>
+	
+		<div class="word" style="left:0px;top:275px;width:273px;height:273px;line-height:273px" id="word_2" onclick="selok(this)">
+			<div class="front_side" style="-webkit-animation:front_animate 3.531270228791982s linear 0s infinite alternate;background-color:#E8C3C3">田</div>
+			<div class="back_side" style="-webkit-animation:back_animate 3.531270228791982s linear 0s infinite alternate;background-color:#ABF8D8">田</div>
+		</div>
+	
+		<div class="word" style="left:275px;top:275px;width:273px;height:273px;line-height:273px" id="word_3" onclick="selok(this)">
+			<div class="front_side" style="-webkit-animation:front_animate 3.255840871250257s linear 0s infinite alternate;background-color:#ABF8D8">田</div>
+			<div class="back_side" style="-webkit-animation:back_animate 3.255840871250257s linear 0s infinite alternate;background-color:#E8C3C3">田</div>
+		</div>
+	</div>
+
+	<div class="info" style="height: 47px;">
+		<div>游戏状态</div>
+		<div>找出页面中的：<mark id="curdif">由</mark></div>
+		
+		
+		<div>当前关卡：<mark id="round">1</mark></div> 
+		<div>当前分数：<mark id="score">0</mark></div>
+		<div>当前用时：<mark id="time">4</mark></div>  
+		<div>剩余时间：<mark id="timeleft">86</mark></div>
+		
+		
+		<div>当前排名：<mark id="risking">0</mark></div>
+	</div>
+	
+	<div class="risklist">
+		<p>风云榜-TOP10</p>
+		<table class="list" id="list"><tbody><tr><th>昵称</th><th>分数</th></tr><tr><td>msg</td><td>684</td></tr><tr><td>msg</td><td>409</td></tr><tr><td>GG</td><td>251</td></tr><tr><td>第一名咯</td><td>247</td></tr><tr><td>123</td><td>244</td></tr><tr><td>哈哈</td><td>197</td></tr><tr><td>傻逼</td><td>182</td></tr><tr><td>麻蛋</td><td>180</td></tr><tr><td>6666666</td><td>163</td></tr><tr><td>群主</td><td>120</td></tr></tbody></table>
+	</div>
+
+
+	<div class="cover" style="display: none;"></div>
+	<div class="begin" style="display: none;">
+		<div class="header">
+			游戏规则
+		</div>
+		<div class="dec">
+			从每组出现的相近汉字中找到其中不同的一组，选出即可成功进入下一关！
+			游戏结束后，可上传分数，可查看系统排名！
+		</div>
+		<div class="btnbox">
+			<div class="btn" onclick="startgame()">开始游戏</div>
+		</div>	
+	</div>
+	<div class="end" style="display:none">
+		<div class="name" style="display:none">
+			<input type="text" id="name">
+			<span id="upok">确定</span>
+			<span id="upcel">取消</span>
+		</div>
+		<div class="header">
+			游戏结束
+		</div>
+		<div class="scorebox">
+			<div id="result1">
+				本次得分为：<span id="scorespan">0</span>
+			</div>
+			<div id="result2" style="display:none">
+				<input type="text" id="nicheng" placeholder="请输入昵称">
+			</div>
+		</div>
+		<div class="btnbox">
+			<div class="btn" data-flag="0" onclick="upLoadScore()">
+				上传分数
+			</div>
+			<div class="btn" onclick="restart()">重新开始</div>
+		</div>	
+	</div>
+
+<script type="text/javascript" src="./你能过几关？_files/word.js"></script>
+<script src="./你能过几关？_files/jquery.min.js"></script>
+<script type="text/javascript">
+	var count =  0 ;
+
+	var cont_w = g("#container").offsetWidth ;
+	var win_w = document.documentElement.clientWidth - 0;
+	var win_h = document.documentElement.clientHeight - 0 ;
+	
+	g("#container").style.height = cont_w + 'px';
+	g(".info")[0].style.height = win_h - cont_w +'px' ;
+
+	var temp = g("#container").innerHTML;
+
+	var word = word ;
+	var color = cor ;
+	var corlen = color.length;
+	
+	var stoped = false ;
+	var num =  2 ;
+	var rel = '' ;
+
+	rel = addWord(num);
+	init();
+	getRisk();
+	function init()
+	{
+		g("#round").innerHTML = 1 ;
+		g("#time").innerHTML = 0 ;
+		g("#timeleft").innerHTML = 90 ;
+		g("#score").innerHTML = 0 ;		
+		
+
+		g("#curdif").innerHTML = word[rel[0]][1];
+	}
+	function startgame(){
+		g(".cover")[0].style.display="none";
+		g(".begin")[0].style.display="none";
+		init();		
+		window.setTimeout(timecount,1000);
+	}
+	function restart()
+	{
+		g(".cover")[0].style.display="none";
+		g(".end")[0].style.display="none";
+
+		stoped = false;		
+		num = 2 ;
+		rel = addWord(num);
+
+		init();
+		getRisk();
+		window.setTimeout(timecount,1000);
+	}
+	var e = 0 ;			//错误计数
+	function selok(obj)
+	{
+		if(stoped)
+			return ;
+		var id = obj.id ;
+		obj.blur();
+		var dex = id.split('_')[1] ;
+		if(dex == rel[1])
+		{
+			num = num + 1 ;			
+			rel = addWord(num);
+			g("#curdif").innerHTML = word[rel[0]][1];
+			e = 0 ;
+		}	
+		else{
+			e++ ;
+			if(e%3 == 0)
+			{
+				g("#timeleft").innerHTML = g("#timeleft").innerHTML - 1 ;
+				e = 0 ;
+			}
+		}
+	}
+	// window.setTimeout(timecount,1000);
+	var timer = '';
+	function timecount(){
+		var t = g("#time").innerHTML - 0 ;
+		g("#time").innerHTML = t + 1 ;
+
+		g("#timeleft").innerHTML = g("#timeleft").innerHTML - 1 ;
+
+		timer = window.setTimeout(timecount,1000);
+
+		if(g("#timeleft").innerHTML <= 0)
+			gameover();
+	}
+	function gameover(){
+		window.clearTimeout(timer);
+		stoped = true ;
+
+		g(".cover")[0].style.display="";
+		g(".end")[0].style.display="";
+
+		g("#scorespan").innerHTML = g("#score").innerHTML;
+
+		var word_num = g(".word").length - 0;
+		// 游戏结束，停止页面所有汉字转运
+		
+	
+		for(var i=0;i<word_num;i++)
+		{
+			g(".front_side")[i].style.webkitAnimation = '';
+			g(".back_side")[i].style.webkitAnimation = '';
+		}
+	}
+	function addWord(num)
+	{
+		count = num * num ;
+		
+		g("#round").innerHTML = num - 1 ;				//改变当前的级别;
+
+		var lt = g("#timeleft").innerHTML - 0 ;			//当前的剩余时间
+		var ct = g("#time").innerHTML - 0 ;				//当前的游戏时间
+		var vx = 1 - lt/(ct+lt) ;
+		var vs = Math.floor(vx*20);						//因时间快慢奖励的分数
+
+		var cur_score =  g("#score").innerHTML - 0;		// 改变当前的分数；
+		g("#score").innerHTML = scores[num] + cur_score + vs ;
+
+		var word_w = g("#container").offsetWidth / num - 2;
+		if(num==21)
+		{
+			gameover();
+			return ;
+		}
+
+		
+		g("#timeleft").innerHTML = lt + 2*(num-2) ;		//奖励剩余时间
+
+		g("#container").innerHTML = temp ;				//清除当前页面
+
+		var html = [] ;
+		var windex = rodam1(word.length); //第几组汉字
+		var sindex = rodam1(count);		  //第几个方框不同
+		
+		
+		var _width = word_w  ;
+
+		
+		
+		for(var i=0;i<count;i++)
+		{
+			var j = Math.floor(i/num);
+			var k = i%num ;
+			var atime = Math.random() + 3 ;
+			var cindex = rodam1(corlen);// 随机颜色
+			
+			if(i==sindex)
+			{
+				
+				_html = temp.replace('{{index}}',i)
+						.replace('{{_x}}',k*(_width + 2))
+						.replace('{{_y}}',j*(_width + 2))
+						.replace('{{front_word}}',word[windex][0])
+						.replace('{{back_word}}',word[windex][1])
+						.replace(/{{_h}}/g,word_w)
+						.replace('{{_w}}',word_w)
+						.replace(/{{st}}/g,atime)
+						.replace(/{{yt}}/g,0)
+						.replace('{{fcor}}',color[cindex])
+						.replace('{{bcor}}',color[corlen - cindex -1]);
+			}
+			else
+			{
+				
+				_html = temp.replace('{{index}}',i)
+						.replace('{{_x}}',k*(_width + 2))
+						.replace('{{_y}}',j*(_width + 2))
+						.replace('{{front_word}}',word[windex][0])
+						.replace('{{back_word}}',word[windex][0])
+						.replace(/{{_h}}/g,word_w)
+						.replace('{{_w}}',word_w)
+						.replace(/{{st}}/g,atime)
+						.replace(/{{yt}}/g,0)
+						.replace('{{fcor}}',color[cindex])
+						.replace('{{bcor}}',color[corlen - cindex -1]);
+			}
+
+			html.push(_html);
+		}
+		g("#container").innerHTML = html.join('');
+
+		return [windex,sindex];
+	}
+	function g(selector){
+		var method = selector.substr(0,1) == '.'?'getElementsByClassName':'getElementById';
+		return document[method](selector.substr(1));
+	}
+	function rodam1(n)
+	{
+		return Math.floor(Math.random()*n);
+	}
+	function rodam2(X,Y)
+	{
+		var _x = Math.floor(Math.random()*X);
+		var _y = Math.floor(Math.random()*Y);
+
+		// return {_x,_y};
+	}
+	// //////////////////////////////////////////////////////////////////////////////////
+
+	function upLoadScore(obj)
+	{
+		var f = $(this).attr("data-flag");
+		
+		if(f=="0" || f == undefined)
+		{
+			$("#result1").css("display","none");
+			$("#result2").css("display","block");
+			$(this).html("确认上传").attr("data-flag","1");
+		}
+		else{
+			var n = $("#nicheng").val();
+			var s = $("#scorespan").text();
+			if(s == 0)
+			{
+				alert("分数为0，不能上传");
+				$("#result1").css("display","");
+				$("#result2").css("display","none");
+				$("#nicheng").val("");
+				$(this).html("上传分数").attr("data-flag","0");
+				return ;
+			}
+			else if(n == '')
+			{
+				alert("昵称不能为空！")
+				return ;
+			}
+			else{
+
+				$.ajax({
+			     type: "GET",
+			     url: "http://1.wshome.sinaapp.com/h5-web/game/word-differ/send.php",
+			     data: {"name":n,"score":s},
+			     dataType: "jsonp",
+			     crossDomain:"true",
+			     jsonpCallback:"sentBack"
+	 			});
+
+	 			$("#result1").css("display","");
+				$("#result2").css("display","none");
+	 			$("#nicheng").val("");
+			}
+		}
+	} 
+	
+	function sentBack(json)
+	{
+		if(json.status == 'ok')
+			getRisk();
+		else
+		{
+			alert("服务器繁忙，请重试！")
+			return ;
+		}
+	}
+
+	function getRisk()
+	{
+		$.ajax({
+		     type: "GET",
+		     url: "http://1.wshome.sinaapp.com/h5-web/game/word-differ/getrisk.php",
+		     data: {"game":"worddiffer","type":"risk"},
+		     dataType: "jsonp",
+		     crossDomain:"true",
+		     jsonpCallback:"getRiskBack"
+	 	});
+	}
+	function getRiskBack(json)
+	{
+	    var data = json.txt;        //全部tips的txt格式
+	    var rel = data.split('|');
+	    var len = rel.length - 1;   // 最后实际有一条为空数据
+	    var _htm = '<tr><th>昵称</th><th>分数</th></tr>';
+	    if(len==0)
+	    {
+	    	_htm += '<tr><td rowspan="2">系统崩溃，请稍后再试！</td></tr>';
+	    }
+	    else
+	    {
+	        for(var i=0;i<len;i++)
+	        {
+	            mes = eval('(' + rel[i] + ')');
+
+	            _htm += '<tr><td>'+ mes.name +'</td><td>'+mes.score+'</td></tr>';
+	        }
+	    }
+	    $("#list").empty();
+	    $("#list").append(_htm);
+	}
+</script>
+</body></html>

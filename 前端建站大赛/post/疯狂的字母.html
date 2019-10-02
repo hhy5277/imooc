@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://wshome.sinaapp.com/h5-web/game/drop-words/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<title>疯狂的字母</title>
+	<style>
+		html{
+			height: 100%;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+			
+			-webkit-box-sizing:border-box ;
+			-moz-box-sizing:border-box ;
+			box-sizing:border-box ;
+		}
+		body{
+			position: relative;
+			width:100%;
+			height: 100%;
+			background-color:#C7C9F5;
+			overflow: auto;
+		}
+		.bg{
+			position: absolute;
+			left:0;
+			bottom: 0;
+			width:100%;
+			height: 100%;
+			background-color: rgba(230,230,230,.6);
+			z-index: 9;
+		}
+		.tips{
+			position: absolute;
+			width:600px;
+			height: 400px;
+
+			left:50%;
+			top:50%;
+	
+			margin-top: -200px;
+			margin-left: -300px;
+
+			background-color: rgba(139,139,139,.2);
+
+			padding:100px;
+
+			z-index: 10;
+
+			border-radius: 10px;
+		}
+		.risklist{
+			position: absolute;
+			width: 200px;
+			height: 400px;
+			left:0;
+			top:50%;
+			margin-top: -200px;
+			z-index: 10;
+	
+			background-color: rgba(139,139,139,.2);
+
+			border-radius: 0 10px 10px 0 ;
+		}
+		.risklist p{
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			font-size: 16px;
+			font-weight: 600;
+			border-bottom: 1px solid #fff;
+		}
+		.list{
+			
+			width:100%;
+		}
+		.list tr{
+			height: 30px;
+			line-height: 30px;
+			width:50%;
+			text-align: center;
+		}
+		.list td{
+			text-align: center;
+		}
+		tr:nth-child(2){
+			color:red;
+		}
+		tr:nth-child(3){
+			color:blue;
+		}
+		tr:nth-child(4){
+			color:yellow;
+		}
+		.title{
+			font-size: 18px;
+		}
+		.content{
+			text-indent: 2em;
+			margin-top: 10px;
+			height: 100px;
+			line-height: 25px;
+			font-size: 14px;
+		}
+
+		.foot{
+			text-align: center;
+			height: 100px;
+			line-height: 100px;
+		}
+		.begin,.upload,.share{
+			display: inline-block;
+			width:100px;
+			height: 30px;
+			line-height: 30px;
+			/*border: 1px solid #fff;*/
+			text-align: center;
+			cursor: pointer;
+		}
+		.share{
+			font-size: 12px;
+		}
+		.begin:hover,.upload:hover,.share:hover{
+			color:rgba(230,0,0,.7);
+		}
+		.loadbox{
+			margin-top: -25px;
+			margin-left:20px;
+			/*display: none;*/
+		}
+		.loadspan{
+			display:inline-block;
+			margin-left:10px;
+			height: 25px;
+			font-size:12px;
+			cursor: pointer;
+			padding: 3px;
+		}
+		.loadspan:hover{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="bg">&nbsp;</div>
+	<div class="risklist">
+		<p>风云榜-TOP10</p>
+		<table class="list" id="list"><tbody><tr><th>昵称</th><th>分数</th></tr><tr><td>MARK</td><td>1208</td></tr><tr><td>myj</td><td>365</td></tr><tr><td>msg</td><td>214</td></tr><tr><td>老子第一</td><td>201</td></tr><tr><td>fxr</td><td>157</td></tr><tr><td>werqwe</td><td>143</td></tr><tr><td>习大大</td><td>136</td></tr><tr><td>myj</td><td>134</td></tr><tr><td>110</td><td>132</td></tr><tr><td>安好、勿念</td><td>122</td></tr></tbody></table>
+	</div>
+	<div class="tips">
+		<div class="title">
+			【游戏说明】
+		</div>
+		<div class="content">
+			<p>1、在键盘上打出画布上飘荡的字母；</p>
+			<p>2、随着时间和分数的提交字母的数量和速度都将变快；</p>
+			<p>3、您有15次的失误机会，超过15次将重来；</p>
+		</div>
+		<div class="content" style="height:50px;line-height:25px;">
+			<p>当前得分：&nbsp;<span id="score">0</span>&nbsp;</p>
+			<p>累计玩家：&nbsp;<span id="pnum">52</span>&nbsp;人</p>
+		</div>
+		<div class="foot">
+			<div class="upload" id="upload" onclick="loadshow()">上传分数</div>
+			<div class="begin" id="begin">开始挑战</div>
+			<div class="share" id="share">分享好友</div>
+		</div>
+		<div class="loadbox" style="display:none">
+			<input type="text" id="nicheng" placeholder="请输入昵称">
+			<span class="loadspan" onclick="sentResult()">上 传</span>
+			<span class="loadspan" onclick="loadhide()">取 消</span>
+		</div>
+		<!-- <div onclick="getPlayer()">获取人数</div>
+		<div onclick="getRisk()">获取排名</div> -->
+	</div>
+	<div style="height:100px;line-height:100px;font-size:30px;font-weight:700;text-align:center">疯狂的字母</div>
+	<canvas id="canvas" style="border-bottom:1px solid #fff;margin:0px auto;display:block" width="1000" height="500">
+		当前浏览器不支持Html5，请更换后再试！
+	</canvas>
+	
+<!-- <script src="ball.js"></script> -->
+<script src="./疯狂的字母_files/index.js"></script>
+<!-- <script src="http://libs.baidu.com/zepto/0.8/zepto.min.js"></script> -->
+<script src="./疯狂的字母_files/jquery.min.js"></script>
+</body></html>

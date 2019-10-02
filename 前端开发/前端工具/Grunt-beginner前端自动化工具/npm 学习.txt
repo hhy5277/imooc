@@ -1,0 +1,29 @@
+npm 学习
+scripts:{'opn':'opn \"http://www.imooc.com\"'}
+npm run opn
+npm会把.bin目录加入临时path这样 npm run opn就可以执行了
+npm run env
+npm 短语
+test
+start
+stop
+
+pretest 前置test之前
+posttest 后置test之后
+
+传递命令行参数 --参数
+
+配置变量
+config:{
+'app':'app'
+}引用的时候$npm_package_config_app/scripts/*js 不建议 操作系统不同
+linux mac $ windows%
+rm cp（windows copy）系统命令用node包
+&& < > |
+任务同时执行scripts:{
+"build:css":'',
+"build:js"'',
+"build":"npm run build:css && npm run build:js"
+} 
+
+echo
