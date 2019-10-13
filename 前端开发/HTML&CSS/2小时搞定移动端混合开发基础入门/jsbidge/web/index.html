@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			font-size: 50px;
+		}
+
+	</style>
+	<script>
+		window.showWebDialog = text=>{
+			alert(text);
+		}
+		document.addEventListener('DOMContentLoaded',e=>{
+			const editText = document.querySelector('#editText');
+			const showBtn = document.querySelector('#showBtn');
+			showBtn.addEventListener('click',e => {
+				const inputValue = editText.value;
+				showNativeDialog(inputValue); 
+			})
+		});
+
+		function showNativeDialog(text) {
+			window.alert('jsbridge://showNativeDialog?text='+text);
+		}
+
+	</script>
+</head>
+<body>
+	<div>
+		<input type="text" id="editText" placeholder="输入内容">
+	</div>
+	<div>
+		<buttoj id="showBtn">显示Native弹窗</buttoj>
+	</div>
+</body>
+</html>
