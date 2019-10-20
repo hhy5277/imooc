@@ -1,6 +1,59 @@
 项目地址：https://github.com/lizhonghui/angular2-demo
 
+[Angular2入门](https://www.jianshu.com/p/c8d7885e2761?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
+
+AngularJS2 是一款开源的JavaScript MV*（MVC、MVW、MVVM）框架，目前由Google维护。
+
+MVVM模式是Model-View-ViewMode（模型-视图-视图模型）模式的简称。MVVM模式利用框架内置的双向绑定技术对MVP（Model-View-Presenter）模式的变型，引入了专门的ViewModel（视图模型）来实现View和Model的粘合，让View和Model的进一步分离和解耦。MVW（Whatever）
+
+## Angualr2新特性
+- 移除了controller+scope设计，改用组件式开发（更容易开发）
+- 性能更好（渲染更快，变化检测效率更高）
+- 优先为移动应用设计
+- 更加贴合未来的标准（如ES6/7、WebComponent）
+
+## [Web Components 是什么？](https://www.cnblogs.com/linzhenjie/p/5486520.html)
+Web Components是W3C定义的新标准，它给了前端开发者扩展浏览器标签的能力，可以自由的定制组件，更好的进行模块化开发，彻底解放了前端开发者的生产力。
+
+## Web Components 架构
+Web Components在 W3C 规范中的发展有几个模块：
+
+- 模板元素
+- Html Import
+- Shadow DOM
+- 自定义元素
+- 装饰器
+
+目前前四个模块足以支撑 Web Component，装饰器还没有一个完整的规范。
+
+## Angular2的核心
+
+![Angular2的核心](angular-core.png)
+
+由上图可以看到，用户直接交互的是模板，也就是可见可交互的视图界面，它是组成组件的要素之一。组件是用来维护数据模型和功能逻辑的，它包括模板和组件类。路由控制组件的创建和销毁，从而完成界面的跳转。指令与模板相互关联，它最重要的功能是增强了模板的功能，也是对模板的一种语法拓展。服务是与逻辑功能相关的单元，它通过依赖注入的方式引入到组件内部，为组件类服务。
+
 与用户直接交换的是模板，模板接收来自用户的操作，通过数据绑定与对应的组件内进行交换，组件内处理完后更新模板视图，来返回给用户，组件处于核心地位，指令是模板的扩展，服务是组件的扩展。
+
+## 组件
+Angular框架基于组件设计，组价是最小的执行单元。组件类似于HTML页面抽出的公共元素，但并不限于这些。一个应用程序是由这些组件组成的，他们之间有一定的关系。通过Angular的命令穿件的组件包括四个文件：HTML、CSS、Spec.ts、Component.ts。HTML和CSS文件用来展示模板视图；Component.ts是组件类，用来完成功能逻辑的；Spec.ts是放测试代码的。
+
+ 
+
+import { Component, OnInit } from '@angular/core';
+ 
+@Component({     //组件装饰器
+  selector: 'app-preview-paper',   //别的组件使用该组件的标签名，也是该组件的唯一标识
+  templateUrl: './preview-paper.component.html',   //模板对应的文件，也可以使用template标签，后面用反单引号括起来HTML代码，效果是一样的
+  styleUrls: ['./preview-paper.component.css']     //CSS样式，修饰模板文件，可以引入多个css文件
+}) 
+export class PreviewPaperComponent implements OnInit {   //组件类的声明
+ 
+  constructor() { }   //构造器
+ 
+  ngOnInit() {   //该组件一初始化时要执行的内容
+  }
+  
+}
 
 declarations： 用于声明该模块下的组件、指令或管道，只有在声明之后才能使用。
 
