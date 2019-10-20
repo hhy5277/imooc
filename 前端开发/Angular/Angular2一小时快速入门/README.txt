@@ -37,7 +37,7 @@ Web Components在 W3C 规范中的发展有几个模块：
 ## 组件
 Angular框架基于组件设计，组价是最小的执行单元。组件类似于HTML页面抽出的公共元素，但并不限于这些。一个应用程序是由这些组件组成的，他们之间有一定的关系。通过Angular的命令穿件的组件包括四个文件：HTML、CSS、Spec.ts、Component.ts。HTML和CSS文件用来展示模板视图；Component.ts是组件类，用来完成功能逻辑的；Spec.ts是放测试代码的。
 
- 
+ [angular.json参数详解](https://segmentfault.com/a/1190000016292354)
 
 import { Component, OnInit } from '@angular/core';
  
