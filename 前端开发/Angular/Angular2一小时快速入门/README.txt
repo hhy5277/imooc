@@ -55,6 +55,73 @@ export class PreviewPaperComponent implements OnInit {   //组件类的声明
   
 }
 
+## angular7 自定义webpack配置
+
+**问题**
+
+angular升级后，推荐使用angular-cli创建打包项目，但是有特殊的需求是就显然不是很灵活。
+例如，团队之前要求前端项目都build成zip包，webpack配置倒是挺简单，问题是angular封装了webpack后，不知道在哪里能增加配置
+
+**解决办法**
+
+好在angular还是提供了外挂一样的方式。  
+```
+--extra-webpack-config
+```
+增加npm依赖
+
+ngx-build-plus
+
+这个参数可以额外指定一个webpack config 文件
+
+**使用方式**
+
+```
+"build":"ng build --prod --extra-webpack-config webpack.partial.js",
+```
+
+```
+//webpack config文件内容
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin') ;
+var ZipPlugin = require('zip-webpack-plugin')
+
+module.exports = {
+    plugins: [
+        new HtmlWebpackPlugin({
+          filename: 'download.html',
+          excludeChunks: ['main','runtime','styles','polyfills'],
+          template: './src/download.html',
+          title: 'test Title'
+        }),
+        new ZipPlugin({
+            path:path.join(__dirname,'zip'),
+            filename: 'test.zip',
+            // pathPrefix: 'zip',
+        }),
+    ],
+}
+
+```
+
+[angular 配置开发环境、测试环境、生产环境](https://www.cnblogs.com/zero-zm/p/9845244.html)
+
+//构建生产环境，使用environment.prod.ts (默认使用的就是这个)
+
+ng build
+
+//构建测试环境，使用environment.test.ts (=后面的值和angular.json中的配置的大对象的key值相同)
+
+ng build --configuration=test
+
+//构建时，可使用的额外的命令
+
+--prod :   压缩构建文件   
+--base-href /前缀/ :  为浏览器中项目路由路径添加统一的前缀；比如开发时默认访问路径是http:IP地址/#/home; 打包后的相同页面的访问：http:IP地址/#/浏览器中项目路由路径的前缀/home
+
+
+
 declarations： 用于声明该模块下的组件、指令或管道，只有在声明之后才能使用。
 
 exports： 用于导出该模块下的组件、指令或管道，通过导出，这些组件、指令或管道将能在其他模块中使用。(服务不需要exports)
