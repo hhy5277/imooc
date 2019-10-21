@@ -55,6 +55,8 @@ export class PreviewPaperComponent implements OnInit {   //组件类的声明
   
 }
 
+[angular生命周期](https://www.jianshu.com/p/a2f1d54097f8)
+
 ## angular7 自定义webpack配置
 
 **问题**
