@@ -1,0 +1,1 @@
+define(function(require){require("common");$(document).on("mouseenter",".szcourse-cart",function(){var c=$(this);c.siblings(".active").removeClass("active"),c.addClass("active")}).on("mouseleave",".szcourse-cart",function(){})});
