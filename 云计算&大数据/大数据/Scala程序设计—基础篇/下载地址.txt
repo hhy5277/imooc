@@ -1,0 +1,8 @@
+Scala£º
+http://www.scala-lang.org/download/
+
+SBT:
+http://www.scala-sbt.org/download/
+
+IDE:
+http://scala-ide.org/

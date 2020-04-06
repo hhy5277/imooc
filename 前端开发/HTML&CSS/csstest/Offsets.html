@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Offsets</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  /*width: 800px;*/
+		  height: 400px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+		.Absolute-Center.is-Right {  
+		  left: auto; right: 20px;  
+		  text-align: right;  
+		}  
+		  
+		.Absolute-Center.is-Left {  
+		  right: auto; left: 20px;  
+		  text-align: left;  
+		}  
+	</style>
+</head>
+<body>
+	<div class="Center-Container">
+		<div class="Absolute-Center is-Right">
+		</div>
+	</div>
+	<!-- 如果你要设置一个固顶的头或增加其他的边栏，只需要在内容块的样式中加入像这样的CSS样式代码：top:70px;bottom:auto;由于已经声明了margin:auto;，该内容块将会垂直居中于你通过top,left,bottom和right属性定义的边界框内。
+
+你可以将内容块固定与屏幕的左侧或右侧，并且保持内容块垂直居中。使用right:0;left:auto;固定于屏幕右侧，使用left:0;right:auto;固定与屏幕左侧。 -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Center-Container</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  width: 800px;
+		  height: 400px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+	</style>
+</head>
+<body>
+	<div class="Center-Container">
+		<div class="Absolute-Center">
+			内容块的父容器设置为position:relative，使用上述绝对居中方式，可以使内容居中显示于父容器。
+		</div>
+	</div>
+</body>
+</html>

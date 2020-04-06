@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NegativeMargins</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  height: 600px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  	
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+
+		.is-Negative {  
+	        width: 300px;  
+	        height: 200px;  
+	        padding: 20px;  
+	        position: absolute;  
+	        top: 50%; left: 50%;  
+	        margin-left: -170px; /* (width + padding)/2 */  
+	        margin-top: -120px; /* (height + padding)/2 */  
+	}  
+	</style>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<div class="absolutecentercontent Center-Container">
+		<div class="Absolute-Center is-Negative">
+			这或许是当前最流行的使用方法。如果块元素尺寸已知，可以通过以下方式让内容块居中于容器显示：
+
+外边距margin取负数，大小为width/height（不使用box-sizing: border-box时包括padding，）的一半，再加上top: 50%; left: 50%;。即：
+测试表明，这是唯一在IE6-IE7上也表现良好的方法。
+
+优点：
+
+1.      良好的跨浏览器特性，兼容IE6-IE7。
+
+2.      代码量少。
+
+缺点：
+
+1.      不能自适应。不支持百分比尺寸和min-/max-属性设置。
+
+2.      内容可能溢出容器。
+
+3.      边距大小与padding,和是否定义box-sizing: border-box有关，计算需要根据不同情况。
+
+		</div>
+	</div>
+	
+</body>
+</html>

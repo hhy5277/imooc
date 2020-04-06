@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Images-Center</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  height: 600px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  	
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+		.Absolute-Center.is-Image {  
+		  height: auto;  
+		}  
+		  
+		.Absolute-Center.is-Image img {   
+		  width: 100%;  
+		  height: auto;  
+		}  
+
+		.absolutecentercontent .Absolute-Center.is-Variable {  
+		  display: table;  
+		  height: auto;  
+		}  
+	</style>
+</head>
+<body>
+	<div class="absolutecentercontent Center-Container">
+		<div class="Absolute-Center  is-Variable is-Image">
+			<img src="images/20130911210330234.jpg" class="" alt="" /> 
+		</div>
+	</div>
+	<!-- 对居中（AbsoluteCentering）也适用于图片。对图片自身应用class类或CSS样式，并给图片添加height:auto样式，图片会自适应居中显示，如果外层容器可以resize则随着容器的重绘，图片也相应重绘，始终保持居中。
+
+需要注意的是height:auto虽然对图片居中有用，但如果是在图片外层的内容块上应用了height:auto则会产生一些问题：规则的内容块会被拉伸填充整个容器。这时，我们可以使用可变高度(Variable Height)方式解决这个问题。问题的原因可能是渲染图片时要计算图片高度，这就如同你自己定义了图片高度一样，浏览器得到了图片高度就不会像其他情况一样去解析margin:auto垂直居中了。所以我们最好对图片自身应用这些样式而不是父元素。 -->
+</body>
+</html>

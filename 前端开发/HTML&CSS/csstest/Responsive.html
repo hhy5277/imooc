@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  /*width: 800px;*/
+		  height: 400px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+		.Absolute-Center.is-Responsive {  
+		  width: 60%;   
+		  height: 60%;  
+		  min-width: 200px;  
+		  max-width: 400px;  
+		  padding: 40px;  
+		}  
+	</style>
+</head>
+<body>
+	<div class="Center-Container">
+		<div class="Absolute-Center is-Responsive">
+		</div>
+	</div>
+</body>
+</html>

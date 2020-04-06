@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transformed</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  height: 600px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  	
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+
+		.is-Transformed {   
+		  width: 50%;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 50%; left: 50%;  
+		  -webkit-transform: translate(-50%,-50%);  
+		      -ms-transform: translate(-50%,-50%);  
+		          transform: translate(-50%,-50%);  
+		}  
+	</style>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<body>
+	<div class="absolutecentercontent Center-Container">
+		<div class="Absolute-Center is-Transformed">
+			这是最简单的方法，不近能实现绝对居中同样的效果，也支持联合可变高度方式使用。内容块定义transform: translate(-50%,-50%)必须带上浏览器厂商的前缀，还要加上
+
+top: 50%; left: 50%;
+优点：
+
+1.      内容可变高度
+
+2.      代码量少
+
+缺点：
+
+1.      IE8不支持
+
+2.      属性需要写浏览器厂商前缀
+
+3.      可能干扰其他transform效果
+
+4.      某些情形下会出现文本或元素边界渲染模糊的现象
+
+进一步了解transform实现居中的知识可以参考CSS-Tricks的文章《Centering PercentageWidth/Height Elements》
+
+		</div>
+	</div>
+	
+</body>
+</html>

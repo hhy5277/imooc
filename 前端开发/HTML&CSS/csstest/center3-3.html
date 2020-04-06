@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>不定宽块状元素水平居中</title>
+<style>
+
+
+/*下面是代码任务区*/
+.wrap{
+  
+    float:left; /*浮动的话，该元素宽度不再是父容器宽度，而是填充的内容的宽度*/
+    background:#ccc;
+    position:relative;
+    left:50%
+}
+
+.wrap-center{   
+    position:relative;
+    left:-50%
+}
+</style>
+</head>
+
+<body>
+
+
+<!--下面是代码任务区-->
+<div class="wrap">
+    <div class="wrap-center">我们来学习一下这种方法。</div>
+</div>
+</body>
+</html>

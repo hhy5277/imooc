@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Resizing</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  width: 800px;
+		  height: 200px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+		.Absolute-Center.is-Resizable {  
+		  min-width: 20%;  
+		  max-width: 80%;  
+		  min-height: 20%;  
+		  max-height: 80%;  
+		  resize: both;  
+		  overflow: auto;  
+		}  
+	</style>
+</head>
+<body>
+	<div class="Center-Container">
+		<div class="Absolute-Center is-Resizable">
+			你可以使用其他class类或JavaScript代码来重绘内容块同时保证居中，无须手动重新计算中心尺寸。当然，你也可以添加resize属性来让用户拖拽实现内容块的重绘。
+
+绝对居中（Absolute Centering）可以保证内容块始终居中，无论内容块是否重绘。可以通过设置min-/max-来根据自己需要限制内容块的大小，并防止内容溢出窗口/容器。
+
+如果不使用resize:both属性，可以使用CSS3动画属性transition来实现重绘的窗口之间平滑的过渡。一定要设置overflow:auto;以防重绘的内容块尺寸小于内容的实际尺寸这种情况出现。
+
+绝对居中（AbsoluteCentering）是唯一支持resize:both属性实现垂直居中的技术。
+
+注意：
+
+要设置max-width/max-height属性来弥补内容块padding，否则可能溢出。
+手机浏览器和IE8-IE10浏览器不支持resize属性，所以如果对你来说，这部分用户体验很必要，务必保证对resizing你的用户有可行的退路。
+联合使用resize 和 transition属性会在用户重绘时，产生一个transition动画延迟时间。
+		</div>
+	</div>
+</body>
+</html>

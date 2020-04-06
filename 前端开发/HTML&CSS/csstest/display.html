@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta  charset="utf-8">
+<title>隐性改变display类型</title>
+<style>
+.container a{
+    /*position:absolute;*/
+    float:left;
+	width:200px;
+	background:#ccc;
+	
+}
+
+</style>
+</head>
+
+<body>
+<!--有一个有趣的现象就是当为元素（不论之前是什么类型元素，display:none 除外）设置以下 2 个句之一：
+
+ 1. position : absolute 
+
+ 2. float : left 或 float:right 
+
+简单来说，只要html代码中出现以上两句之一，元素的display显示类型就会自动变为以 display:inline-block（块状元素）的方式显示，当然就可以设置元素的 width 和 height 了，且默认宽度不占满父元素。-->
+<div class="container">
+    <a href="#" title="">进入课程请单击这里</a>
+</div>
+</body>
+</html>

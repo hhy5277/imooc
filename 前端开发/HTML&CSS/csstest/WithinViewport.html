@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Within Viewport</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  /*width: 800px;*/
+		  height: 1400px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+		.Absolute-Center.is-Fixed {  
+		  position: fixed;  
+		  z-index: 999;  
+		}  
+	</style>
+</head>
+<body>
+	<div class="Center-Container">
+		<div class="Absolute-Center is-Fixed">
+		</div>
+	</div>
+	<!-- 想让内容块一直停留在可视区域内？将内容块设置为position:fixed;并设置一个较大的z-index层叠属性值。 -->
+</body>
+</html>

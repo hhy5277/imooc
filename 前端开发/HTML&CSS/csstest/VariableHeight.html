@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Images-Center</title>
+	<style type="text/css">
+		.Center-Container {  
+		  position: relative;
+
+		  height: 600px;	
+		  background-color: #2E5F3F;  
+		}  
+		  
+		.Absolute-Center {  
+		  width: 50%;  	
+		  height: 50%;  
+		  overflow: auto;  
+		  margin: auto;  
+		  position: absolute;  
+		  top: 0; left: 0; bottom: 0; right: 0;  
+		  background-color: #4FA46B;
+		}  
+
+
+		.absolutecentercontent .Absolute-Center.is-Variable {  
+		  display: table;  
+		  height: auto;  
+		}  
+	</style>
+	<script type="text/javascript">
+		/* Modernizr Test for Variable Height Content */  
+		Modernizr.testStyles('#modernizr { display: table; height: 50px; width: 50px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; }', function(elem, rule) {  
+		  Modernizr.addTest('absolutecentercontent', Math.round(window.innerHeight / 2 - 25) === elem.offsetTop);  
+		});  
+	</script>
+</head>
+<body>
+	<div class="absolutecentercontent Center-Container">
+		<div class="Absolute-Center is-Variable">
+			这种情况下实现绝对居中（AbsoluteCentering）必须要声明一个高度，不管你是基于百分比的高度还是通过max-height控制的高度，还有，别忘了设置合适的overflow属性。对自适应/响应式情景，这种方法很不错。
+
+与声明高度效果相同的另一种方法是设置display:table;这样无论实际内容有多高，内容块都会保持居中。这种方法在一些浏览器（如IE/FireFox）上会有问题，我的搭档Kalley 
+
+在ELL Creative（访问ellcreative.com ）上写了一个基于Modernizr插件的检测函数，用来检测浏览器是否支持这种居中方法，进一步增强用户体验。
+
+缺点：
+
+浏览器兼容性不太好，若Modernizr不能满足你的需求，你需要寻找其他方法解决。
+
+1.      与上述重绘(Resizing)情况的方法不兼容
+
+2.      Firefox/IE8:使用display:table会使内容块垂直居上，不过水平还是居中的。
+
+3.      IE9/10: 使用display:table会使内容块显示在容器左上角。
+
+4.      Mobile Safari:内容块垂直居中；若使用百分比宽度，水平方向居中会稍微偏离中心位置。
+
+		</div>
+	</div>
+	<!--
+
+-->
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Inline-Block</title>
+	<style type="text/css">
+		.Center-Container.is-Inline {   
+		  text-align: center;  
+		  overflow: auto;  
+		  background-color: #2E5F3F;   
+		  height: 400px;
+		}  
+		  
+		.Center-Container.is-Inline:after,  
+		.is-Inline .Center-Block {  
+		  display: inline-block;  
+		  vertical-align: middle;  
+		}  
+		  
+		.Center-Container.is-Inline:after {  
+		  content: '';  
+		  height: 100%;  
+		  margin-left: -0.25em; /* To offset spacing. May vary by font */  
+		}  
+		  
+		.is-Inline .Center-Block {  
+		  max-width: 99%; /* Prevents issues with long content causes the content block to be pushed to the top */  
+		  /* max-width: calc(100% - 0.25em) /* Only for IE9+ */   
+		}  
+	</style>
+</head>
+<body>
+	<div class="Center-Container is-Inline">  
+	  <div class="Center-Block">  
+	    很受欢迎的一种居中实现方式，基本思想是使用display: inline-block, vertical-align: middle和一个伪元素让内容块处于容器中央。这个概念的解释可以参考CSS-Tricks上的文章《Centering in the Unknown》
+
+我这个例子也有一些其他地方见不到的小技巧，有助于解决一些小问题。
+
+如果内容块宽度大于容器宽度，比如放了一个很长的文本，但内容块宽度设置最大不能超过容器的100%减去0.25em，否则使用伪元素:after内容块会被挤到容器顶部，使用:before内容块会向下偏移100%。
+
+如果你的内容块需要占据尽可能多的水平空间，可以使用max-width: 99%;（针对较大的容器）或max-width: calc(100% -0.25em)（取决于支持的浏览器和容器宽度）。
+
+这种方法的优劣和单元格Table-Cell方式差不多，起初我把这种方式忽略掉了，因为这确实是一种hack方法。不过，无论如何，这是很流行的一种用法，浏览器支持的也很好。
+
+优点：
+
+1.      高度可变
+
+2.      内容溢出会将父元素撑开。
+
+3.      支持跨浏览器，也适应于IE7。
+
+缺点：
+
+1.需要一个容器
+
+2.水平居中依赖于margin-left: -0.25em;该尺寸对于不同的字体/字号需要调整。
+
+3.内容块宽度不能超过容器的100% - 0.25em。
+
+ 
+
+更多相关知识参考ChrisCoyier的文章《Centeringin the Unknown》
+	  </div>  
+	</div>  
+</body>
+</html>
